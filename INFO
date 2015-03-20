@@ -1,0 +1,25 @@
+Project: Platform Performance Benchmarking (QTIP)
+Creation Date:
+Category: Integration & Testing
+Lifecycle State: 
+Primary Contact: wenjing_chu@dell.com
+Lead: wenjing_chu@dell.com
+Jira Name: Platform Performance Benchmarking 
+Jira Prefix: QTIP
+Mailing list tag: [qtip]
+IRC: Server:freenode.net Channel:
+Repository: qtip
+
+Committers:
+wenjing_chu@dell.com
+shrinivas.chavan@ericsson.com
+sheng-ann.yu@ericsson.com
+Iben Iben.Rodriguez@spirent.com
+Prabu.Kuppuswamy@spirent.com
+trevor.cooper@intel.com
+mhaugh@ixiacom.com
+Prakash.Ramchandran@huawei.com
+morgan.richomme@orange.com
+
+Link to TSC approval of the project: http://meetbot.opnfv.org/meetings/opnfv-meeting/
+Link(s) to approval of additional submitters:

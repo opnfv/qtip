@@ -1,0 +1,25 @@
+ 
+ - hosts: demo1
+
+   tasks:
+    - name: clean
+      shell: rm -rf /usr/bin/phoronix-test-suite
+      shell: rm -rf  /usr/share/doc/phoronix-test-suite/
+      shell: rm -rf  /usr/share/phoronix-test-suite
+      shell: rm -rf  /root/photmp/
+    - name: make direc
+      file: path=/root/photmp/ state=directory
+    - name: Fetch Phornonix 
+      shell: cd /root/photmp/ && wget https://www.dropbox.com/s/5kks513ozxy7vvs/phoronix-suite.tar.gz
+    - name: unarchive Phoronix
+      shell: cd /root/photmp/ && tar -zxvf  phoronix-suite.tar.gz
+    - name: Install Phornonix
+      shell: cd /root/photmp/phoronix-test-suite-master/&&./install-sh    
+    - name: batchSetup
+      shell: phoronix-test-suite batch-setup
+    - name: install
+      shell: phoronix-test-suite batch-install cachebench
+    - name: run
+      shell:  phoronix-test-suite batch-run cachebench
+    - name: copy results
+      shell: scp -r /var/lib/phoronix-test-suite/test-results/*  root@172.18.0.11:/root/results/cachebench/

@@ -1,0 +1,16 @@
+ 
+ - hosts: demo1
+
+   tasks:
+    - name: cleaning
+      shell: rm -rf /root/tempT
+    - name: Install git
+      shell: yum install git -y
+    - name: Clone unixbench
+      shell: git clone https://github.com/kdlucas/byte-unixbench.git /root/tempT
+    - name: make
+      shell: make --directory /root/tempT/UnixBench/
+    - name: Run whetstone
+      shell: cd /root/tempT/UnixBench/&&./Run -v whetstone
+    - name: copy results
+      shell: scp -r /root/tempT/UnixBench/results/* root@172.18.0.11:/root/results/whetstone

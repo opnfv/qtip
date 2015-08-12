@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_4f940d37",
+        "filename": "playboooks/cachebench.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2015-08-12T06:19:13Z",
+      "side": 1,
+      "message": "Misspelled Phoronix appeared in several places",
+      "range": {
+        "startLine": 12,
+        "startChar": 18,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "be6d041ae8279f7a8e6de4153217108a7b383637",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_cf9fdd4f",
+        "filename": "playboooks/cachebench.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2015-08-12T06:19:13Z",
+      "side": 1,
+      "message": "spelling",
+      "range": {
+        "startLine": 16,
+        "startChar": 20,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "be6d041ae8279f7a8e6de4153217108a7b383637",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_efa2a199",
+        "filename": "playboooks/cachebench.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2015-08-12T06:19:13Z",
+      "side": 1,
+      "message": "maybe temp. for demo, but eventually (i) no root (ii) no hardcoded ip address, this is probably either the central depository or default to tip console. design it so it can run from a flexible location.",
+      "range": {
+        "startLine": 25,
+        "startChar": 65,
+        "endLine": 25,
+        "endChar": 81
+      },
+      "revId": "be6d041ae8279f7a8e6de4153217108a7b383637",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_afac998d",
+        "filename": "playboooks/dhrystone.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2015-08-12T06:19:13Z",
+      "side": 1,
+      "message": "maybe temp. for demo, but eventually (i) no root (ii) no hardcoded ip address, this is probably either the central depository or default to tip console. design it so it can run from a flexible location.",
+      "range": {
+        "startLine": 16,
+        "startChar": 52,
+        "endLine": 16,
+        "endChar": 68
+      },
+      "revId": "be6d041ae8279f7a8e6de4153217108a7b383637",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_8fa9d57d",
+        "filename": "playboooks/whetstone.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2015-08-12T06:19:13Z",
+      "side": 1,
+      "message": "maybe temp. for demo, but eventually (i) no root (ii) no hardcoded ip address, this is probably either the central depository or default to tip console. design it so it can run from a flexible location.",
+      "range": {
+        "startLine": 16,
+        "startChar": 52,
+        "endLine": 16,
+        "endChar": 68
+      },
+      "revId": "be6d041ae8279f7a8e6de4153217108a7b383637",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

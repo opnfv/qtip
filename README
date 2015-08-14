@@ -1,0 +1,47 @@
+QTIP Benchmark sutie
+---------------------
+
+
+QTIP is a benchmarking suite intendend to benchmark the following components of the OPNF Plaform:
+1. Computing components
+2. Networking components
+3. Storage components
+
+The efforts in QTIP are mostly focused on identifying
+1. Benchmarks to run
+2. Test cases in which these benchmarks to run
+3. Automation of suite to run benchmarks within different test cases
+4. Collection of test results
+
+
+
+QTIP currently consists of a bash script (QTIP.sh). 
+
+The script can run 4 comuting benchmarks:
+1. Dhrystone
+2. Whetstone
+3. RamBandwidth
+4. Cachebandwidth
+
+These benchmarks can be run in 2 test cases:
+1. VM vs Baremetal
+2. Baremetal vs Baremeatl
+
+Instructions to run the script:
+1. Download the OpenStack adminrc file for the deployment on which you want to create the VM for benchmarking
+2. run ./QTIP {TEST CASE} {BENCHMARK}
+3.  ./QTIP.sh -h for more help
+
+Requirments:
+1. Ansible 1.9.2
+2. Python 2.7
+
+
+
+A robust framework that would allow to include more tests would be included within the future
+
+
+
+
+
+

@@ -37,7 +37,11 @@ Requirments:
 2. Python 2.7
 
 
+Configuring Test Cases:
 
+Test cases can be found within the Test-cases directory.
+For each Test case, a Config.yaml file contains the details for the machines upon which the benchmarks would run.
+Edit the IP and the Password fields within the files for the machines on which  the benchmark is to run.
 A robust framework that would allow to include more tests would be included within the future
 
 

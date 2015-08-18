@@ -1,6 +1,6 @@
 #! /bin/bash
 
-#DIR1= $PWD
+WDIR=$PWD
 
 
 
@@ -35,6 +35,26 @@ function Call_Test {
 
 } 
 
+function Fetch_VM_Image {
+    
+    mkdir $PWD/Temp_Image
+    
+   file="$PWD/Temp_Image/Cent7Modified.qcow2"
+   if [ -f "$file" ]
+   then
+       echo "Image already downdloaded"
+   else
+       echo "Fetching QTIP_VM Image"
+       cd $PWD/Temp_Image && wget https://www.dropbox.com/s/3uswrydrvhxw3qm/Cent7Modified.qcow2
+       echo "Uploading image to glance"  
+  glance image-create --name "QTIP_CentOS" --is-public true --disk-format qcow2 \
+          --container-format bare \
+          --file $PWD/Temp_Image/Cent7Modified.qcow2
+   
+    
+   fi
+   cd $WDIR
+}
 mkdir $PWD/results
 case "$1" in
           -h)
@@ -43,22 +63,25 @@ case "$1" in
            ;;
           First)
              
-             echo "Enter the IP of the machine to be teststed for comparison to the VM"
-             read ipvar
-             echo "Enter the password of this machine"
-             read -s  passwordvar
-             expect  $PWD/data/ssh_exch.exp $ipvar $passwordvarp
-             heat stack-create exp2 -f $PWD/Test-cases/SampleHeat.yaml
+           Fetch_VM_Image
+
+           ipvar=$(cat $PWD/Test-cases/Bare_vs_VM/Config.yaml | grep "Machine_1_IP" | awk '{print$2;}')
+
             
-             VAR1=$( heat stack-show exp2 | grep "stack_status_reason" | awk '{print $6;}')
-             echo $VAR1
-             while [  "$VAR1" != completed ]
+           passwordvar=$(cat $PWD/Test-cases/Bare_vs_VM/Config.yaml | grep "Machine_1_Password" | awk '{print$2;}')
+
+           expect  $PWD/data/ssh_exch.exp $ipvar $passwordvar
+           heat stack-create exp2 -f $PWD/Test-cases/Bare_vs_VM/SampleHeat.yaml
+           sleep 3   
+	   VAR1=$( heat stack-show exp2 | grep "stack_status_reason" | awk '{print $6;}')
+           echo $VAR1
+           while [  "$VAR1" != completed ]
              do
              echo VM is coming up
              VAR1=$( heat stack-show exp2 | grep "stack_status_reason" | awk '{print $6;}')
             #echo $VAR1
              done
-             echo VM Created
+           echo VM Created
 
             if [ "$VAR1" == "completed" ]; then
               VAR=$( heat stack-show exp2 | grep "output_value" | awk '{print $4;}'| cut -d '"' -f2)
@@ -87,19 +110,17 @@ case "$1" in
 
                fi	      
 
-             ;;
+             ;; 
              Second)
-             echo Second test to be written below
-             echo "Enter the IP of the first machine to be benchmarked for comparison"
-             read ipvar
-             echo "Enter the password of this machine"
-             read -s  passwordvar
+            
+             ipvar=$(cat $PWD/Test-cases/Bare_vs_Bare/Config.yaml | grep "Machine_1_IP" | awk '{print$2;}')
+             echo $ipvar
+             passwordvar=$(cat $PWD/Test-cases/Bare_vs_Bare/Config.yaml | grep "Machine_1_IP_Password" | awk '{print$2;}')
+             echo $passwordvar
              expect  $PWD/data/ssh_exch.exp $ipvar $passwordvar
              sed -i '/demo1/a '$ipvar'' /etc/ansible/hosts
-             echo "Enter the IP of the second machine to be benchmarked for comparison"
-             read ipvar
-             echo "Enter the password of this machine"
-             read -s  passwordvar
+             ipvar=$(cat $PWD/Test-cases/Bare_vs_Bare/Config.yaml | grep "Machine_2_IP" | awk '{print$2;}')
+             passwordvar=$(cat $PWD/Test-cases/Bare_vs_Bare/Config.yaml | grep "Machine_2_IP_Password" | awk '{print$2;}')
              expect  $PWD/data/ssh_exch.exp $ipvar $passwordvar
              sed -i '/demo1/a '$ipvar'' /etc/ansible/hosts
              Call_Test $2
@@ -109,8 +130,8 @@ case "$1" in
              ;;
             
              *)
-             echo Incorrect Arguments passed to the script. Run script with -h for more helo
-              
+             echo Incorrect Arguments passed to the script. Run script with -h for more help
+             ;;   
 esac
 
 

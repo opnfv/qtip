@@ -26,7 +26,11 @@ function Call_Test {
          	 whetstone)
                  mkdir $PWD/results/whetstone
          	 ansible-playbook -s $PWD/benchmarks/playbooks/whetstone.yaml  --extra-vars "Dest_dir=$PWD/results"  -v
-          	 ;;
+                 ;;
+                 DPI )
+                 mkdir $PWD/results/DPI
+                 ansible-playbook -s $PWD/benchmarks/playbooks/DPI.yaml  --extra-vars "Dest_dir=$PWD/results"  -v
+                 ;;
 
           	 *)
          	 echo "Please pass a correct  argument to test. use -h for more details"
@@ -45,7 +49,7 @@ function Fetch_VM_Image {
        echo "Image already downdloaded"
    else
        echo "Fetching QTIP_VM Image"
-       cd $PWD/Temp_Image && wget https://www.dropbox.com/s/3uswrydrvhxw3qm/Cent7Modified.qcow2
+       cd $PWD/Temp_Image && wget http://artifacts.opnfv.org/qtip/QTIP_CentOS.qcow2
        echo "Uploading image to glance"  
   glance image-create --name "QTIP_CentOS" --is-public true --disk-format qcow2 \
           --container-format bare \
@@ -59,7 +63,7 @@ mkdir $PWD/results
 case "$1" in
           -h)
            printf "To run test.sh, 2 arguments are required\n"
-           printf "First argument: The Test case to run\nOptions:\nFirst: For a comparison between a baremetal machine and a VM\nSecond: For a comparison between two baremetal machines\n\nSecond argument: The Benchmark to run\nOptions:\ndhrystone\nwhetstone\nramspeed\ncachebench\n"
+           printf "First argument: The Test case to run\nOptions:\nFirst: For a comparison between a baremetal machine and a VM\nSecond: For a comparison between two baremetal machines\n\nSecond argument: The Benchmark to run\nOptions:\ndhrystone\nwhetstone\nramspeed\ncachebench\nDPI\n"
            ;;
           First)
              
@@ -115,12 +119,12 @@ case "$1" in
             
              ipvar=$(cat $PWD/Test-cases/Bare_vs_Bare/Config.yaml | grep "Machine_1_IP" | awk '{print$2;}')
              echo $ipvar
-             passwordvar=$(cat $PWD/Test-cases/Bare_vs_Bare/Config.yaml | grep "Machine_1_IP_Password" | awk '{print$2;}')
+             passwordvar=$(cat $PWD/Test-cases/Bare_vs_Bare/Config.yaml | grep "Machine_1_Password" | awk '{print$2;}')
              echo $passwordvar
              expect  $PWD/data/ssh_exch.exp $ipvar $passwordvar
              sed -i '/demo1/a '$ipvar'' /etc/ansible/hosts
              ipvar=$(cat $PWD/Test-cases/Bare_vs_Bare/Config.yaml | grep "Machine_2_IP" | awk '{print$2;}')
-             passwordvar=$(cat $PWD/Test-cases/Bare_vs_Bare/Config.yaml | grep "Machine_2_IP_Password" | awk '{print$2;}')
+             passwordvar=$(cat $PWD/Test-cases/Bare_vs_Bare/Config.yaml | grep "Machine_2_Password" | awk '{print$2;}')
              expect  $PWD/data/ssh_exch.exp $ipvar $passwordvar
              sed -i '/demo1/a '$ipvar'' /etc/ansible/hosts
              Call_Test $2

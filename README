@@ -22,6 +22,7 @@ The script can run 4 comuting benchmarks:
 2. Whetstone
 3. RamBandwidth
 4. Cachebandwidth
+5.DPI
 
 These benchmarks can be run in 2 test cases:
 1. VM vs Baremetal

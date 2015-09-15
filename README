@@ -17,20 +17,17 @@ The efforts in QTIP are mostly focused on identifying
 
 QTIP currently consists of a bash script (QTIP.sh). 
 
-The script can run 4 comuting benchmarks:
+The script can run 6 computing benchmarks:
 1. Dhrystone
 2. Whetstone
 3. RamBandwidth
 4. Cachebandwidth
-
-These benchmarks can be run in 2 test cases:
-1. VM vs Baremetal
-2. Baremetal vs Baremeatl
+5. nDPI throughput
+6. openSSL RSA signature rate and AES-128-cbc throughput
 
 Instructions to run the script:
 1. Download the OpenStack adminrc file for the deployment on which you want to create the VM for benchmarking
-2. run ./QTIP {TEST CASE} {BENCHMARK}
-3.  ./QTIP.sh -h for more help
+2. run python qtip.py -h on how to run the test case
 
 Requirments:
 1. Ansible 1.9.2
@@ -39,10 +36,11 @@ Requirments:
 
 Configuring Test Cases:
 
-Test cases can be found within the Test-cases directory.
+Test cases can be found within the test-cases directory.
 For each Test case, a Config.yaml file contains the details for the machines upon which the benchmarks would run.
-Edit the IP and the Password fields within the files for the machines on which  the benchmark is to run.
-A robust framework that would allow to include more tests would be included within the future
+Edit the IP and the Password fields within the files for the machines on which  the benchmark is to be run.
+
+A test-case-read.yaml file is provided within the test-cases directory to help write a new testcase.
 
 
 

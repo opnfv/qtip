@@ -1,0 +1,20 @@
+scenario:
+  benchmark: dpi
+  ExecOrder1: machine_1
+  ExecOrder2: vm_1
+
+Context:
+  Host_Machines:
+    machine_1:
+      ip: 172.18.0.16
+      pw: Op3nStack
+      role: ExecOrder1
+  VirtualMachines:
+    vm_1:
+      availability_zone: compute1
+      OS_image: centos7
+      public_network: "provider_network"
+      role: ExecOrder2
+
+# This file contains the test  case of running the DPI benchmark on a Host machine aswell as a VM spawned on the same host machine.
+# The DPI benchmark would run in series. It would first run on the Host Machine after which a VM would spawn on it. The benchmark would then run on the VM

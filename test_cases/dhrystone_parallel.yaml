@@ -1,0 +1,18 @@
+scenario:
+  benchmark: dhrystone
+  ExecOrder1: machine_1, machine_2
+  
+
+Context:
+  Host_Machines:
+    machine_1:
+      ip: 172.18.0.16
+      pw: Op3nStack
+      role: ExecOrder1
+    machine_2:
+      ip: 172.18.0.17
+      pw: Op3nStack
+      role: ExecOrder1
+
+#This Test case would run the the dhrystone benchmark in parallel on host (baremetal machines)  machine_1 and machine_2. 
+#Context provides the IP addresses and the Passwords for the host machines     

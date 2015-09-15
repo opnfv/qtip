@@ -1,0 +1,22 @@
+scenario:
+  benchmark: iperf_throughput
+  server: vm_1
+  client: vm_2
+
+Context:         
+  VirtualMachines:
+    vm_1:
+      availability_zone: compute1
+      OS_image: centos7
+      public_network: "provider_network"
+      role: server
+    vm_2:
+      availability_zone: compute1
+      OS_image: centos7
+      public_network: "provider_network"
+      role: client
+
+
+# Run iperf_throughput benchmark on VMs running on the same host. The roles are used to idetify the Iperf server and Iperf client.
+# vm_1 would run as the iperf server and vm_2 would run as the iperf client
+#

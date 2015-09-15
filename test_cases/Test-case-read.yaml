@@ -1,0 +1,59 @@
+# Defines the scenario to run
+scenario:                                
+
+#in the scenario, run the dpi benchmark. Replace dpi with dhrystone,whetstone or anyother benchmark which has a corresponding ansible playbook
+  benchmark: dpi                   
+# Each of the machines in the Config Environment has a role. The role keys below help to determine the flow of the benchmark driver. For example in this test case
+# we are running dpi serially (first on the host_machine) and then on the vm. 
+# ExecOrder1 lists the machines on which the ansible playbook would run first.
+# ExecOrder2 list the machines on which the ansible playbook would run after the previous ansible run      
+  ExecOrder1: machine_1
+  ExecOrder2: vm_1
+
+
+
+# In order to specify the scenario, 2 parts are needed
+# 1. The benchmark to be run
+# 2. The different roles and the machines that fall within these roles
+
+
+
+
+
+# Defines the Environment on which the benchmark would run
+Context:
+# Host machine would contain all the host machines details
+  Host_Machines:
+# name of the host machine:
+    machine_1:
+# Ip address for the host machine on which the benchmarkr would run. 
+      ip: 172.18.0.16
+# Password for the host machine on which the benchmark to run. Different labs and host machines have different security settings. In order to copy the ssh key to a new host machine, its password is needed. Passwords are only needed for the host machine and not for the VMs.
+      pw: Op3nStack
+#THe role for this machine to help the bechmark driver process
+      role: ExecOrder1i
+# VirtualMachines would contain all the host machines details
+  VirtualMachines:
+# name of the vm
+    vm_1:
+# the host name on which the VM would spawn:
+      availability_zone: compute1
+# Image for the VM. Can be a url file
+      OS_image: centos7
+# Name of the public network for the OpenStack Deployment. Public network name is needed to assign floating ips to access the VMs
+      public_network: "provider_network"
+# The role for this machine to help the benchmark driver process
+      role: ExecOrder2
+# The ssh_key file:
+      ssh_key: "Jump_server_key"
+
+
+
+
+
+# You could add multiple machines by following this pattern.
+#
+#
+#
+# This file contains the test  case of running the DPI benchmark on a Host machine aswell as a VM spawned on the same host machine.
+# The DPI benchmark would run in series. It would first run on the Host Machine after which a VM would spawn on it. The benchmark would then run on the VM

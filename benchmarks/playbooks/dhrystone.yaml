@@ -1,5 +1,5 @@
  
- - hosts: demo1
+ - hosts:  "{{ role }}"
 
    tasks:
     - name: cleaning

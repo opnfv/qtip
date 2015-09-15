@@ -1,0 +1,16 @@
+scenario:
+  benchmark: ssl
+  ExecOrder1: machine_1,machine_2
+  ExecOrder2: 
+
+Context:
+  Host_Machines:
+    machine_1:
+      ip: 172.18.0.16
+      pw: Op3nStack
+      role: ExecOrder1
+    machine_2:
+      ip: 172.18.0.17
+      pw: Op3nStack
+      role: ExecOrder1
+    

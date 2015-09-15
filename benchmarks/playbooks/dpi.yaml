@@ -1,0 +1,30 @@
+ 
+ - hosts: "{{ role }}"
+
+   tasks:
+    - name: cleaning
+      shell: rm -rf /root/tempD
+    - name: cleaning previous results
+      file: path=/root/results state=absent
+    - name: Installing nDPI dependencies
+      shell: yum install git gcc patch  perl-Time-HiRes autofconf automake libpcap-devel libtool -y
+    - name: making  nDPI temporary directory
+      file: path=/root/tempD state=directory
+    - name: Clone nDPI
+      shell: cd /root/tempD && git clone https://github.com/ntop/nDPI.git
+    - name: autogen
+      shell: cd /root/tempD/nDPI && ./autogen.sh
+    - name: configure
+      shell: cd /root/tempD/nDPI && ./configure
+    - name: make
+      shell: cd  /root/tempD/nDPI && make
+    - name: Fetching Test_pcap file
+      shell: cd /root/tempD/nDPI/example  &&  wget https://www.dropbox.com/s/ne64u7jykuw2uu5/test.pcap
+    - name: fetch Averaging script
+      copy: src=/home/opnfv/qtip/benchmarks/average.sh dest=/root/tempD/nDPI/example mode=777 
+    - name: Run nDPI benchmark
+      shell: cd /root/tempD/nDPI/example && ./average.sh
+    - name: copy results
+      fetch:  src=/root/tempD/nDPI/example/result.txt  dest={{Dest_dir}}/DPI
+      with_items: files_to_copy.stdout_lines
+

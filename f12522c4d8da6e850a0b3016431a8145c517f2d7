@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a2f8d8d_40fe1c6d",
+        "filename": "INFO",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1408
+      },
+      "writtenOn": "2015-09-22T03:05:31Z",
+      "side": 1,
+      "message": "the email address is wrong. please modify it to \"shamrock.pang@huawei.com\"",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "f12522c4d8da6e850a0b3016431a8145c517f2d7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a2f8d8d_20031075",
+        "filename": "README",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1408
+      },
+      "writtenOn": "2015-09-22T03:05:31Z",
+      "side": 1,
+      "message": "I think the qitp.sh is instead by qtip.py, right?",
+      "range": {
+        "startLine": 18,
+        "startChar": 41,
+        "endLine": 18,
+        "endChar": 50
+      },
+      "revId": "f12522c4d8da6e850a0b3016431a8145c517f2d7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a2f8d8d_00f8147b",
+        "filename": "README",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1408
+      },
+      "writtenOn": "2015-09-22T03:05:31Z",
+      "side": 1,
+      "message": "test case",
+      "range": {
+        "startLine": 40,
+        "startChar": 9,
+        "endLine": 40,
+        "endChar": 18
+      },
+      "revId": "f12522c4d8da6e850a0b3016431a8145c517f2d7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a2f8d8d_e0f4e888",
+        "filename": "qtip.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1408
+      },
+      "writtenOn": "2015-09-22T03:05:31Z",
+      "side": 1,
+      "message": "the relative path is better than absolute path. and maybe we will consider the scene that the input_args[1] is not a file name?",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 78
+      },
+      "revId": "f12522c4d8da6e850a0b3016431a8145c517f2d7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

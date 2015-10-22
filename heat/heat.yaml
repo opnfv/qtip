@@ -13,7 +13,17 @@
     private_net_name:
       type: string
       default: "private_network"
+  
+    flavor:
+      type: string
+      label: Flavor
+      default: m1.large
 
+    image:
+      type: string
+      label: Image name
+      default: CentOS
+    
     availability_zone:
       type: string
       description: The Availability Zone to launch the instance.
@@ -71,19 +81,7 @@
             port_range_min: 22
             port_range_max: 22
           - protocol: icmp    
-  
-    my_instance:
-      type: OS::Nova::Server
-      properties:
-        image: CentOS
-        flavor: m1.large
-        availability_zone: { get_param: availability_zone }
-        networks:
-          - port: { get_resource: public_port }
-        
-
-
-  outputs:
+ outputs:
    instance_ip:
      description: IP address of the instance
      value: { get_attr: [floating_ip, floating_ip_address] }

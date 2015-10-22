@@ -1,0 +1,82 @@
+ - hosts: 127.0.0.1
+   connection: local
+   tasks:
+    - name: making ssl directory
+      file: path={{Dest_dir}}/ssl state=directory
+    - name: making temporary ssl directory
+      file: path={{Dest_dir}}/ssl/ssl_temp state=directory
+ 
+
+ - hosts: "{{role}}"
+   tasks:
+   
+    - name: checking_home directory
+      shell: echo $HOME
+      register: home_dir
+    - name: cleaning
+      shell: rm -rf $HOME/Open_SSL
+    - name: cleaning previous results
+      shell: rm -rf $HOME/qtip_result
+    - name: making OpenSSL temporary directory
+      shell: mkdir $HOME/Open_SSL  
+    - name: making  results temporary directory
+      shell: mkdir $HOME/qtip_result 
+    - include: ./sys_info_pbook.yaml
+    - name: Installing OpenSSL dependencies when CentOS
+      shell: yum install git  wget gcc patch  perl-Time-HiRes autofconf automake libpcap-devel libtool -y
+      when: ansible_os_family == "RedHat"
+    - name: Installing OpenSSL dependencies when Ubuntu
+      shell: apt-get  install git gcc wget   perl autoconf automake libpcap-dev libtool -y
+      when: ansible_os_family == "Debian"
+    - name: Fetching OpenSSL
+      shell: cd $HOME/Open_SSL/ && wget https://www.openssl.org/source/openssl-1.0.2d.tar.gz
+    - name: Untar OpenSSL
+      shell: cd $HOME/Open_SSL/ && tar -zxvf openssl-1.0.2d.tar.gz
+    - name: configure
+      shell: cd $HOME/Open_SSL/openssl-1.0.2d  && ./config
+    - name: make 
+      shell: cd  $HOME/Open_SSL/openssl-1.0.2d && make 
+    - name: make install
+      shell: cd  $HOME/Open_SSL/openssl-1.0.2d && make install
+    - name: Benchmarking RSA signatures
+      shell: cd $HOME/Open_SSL/openssl-1.0.2d/apps  &&  ./openssl speed rsa >> $HOME/qtip_result/RSA_dump
+    - name: Benchmaring AES-128-cbc cipher encryption  throughput
+      shell: cd $HOME/Open_SSL/openssl-1.0.2d/apps  &&  ./openssl speed -evp aes-128-cbc >> $HOME/qtip_result/AES-128-CBC_dump
+    - name: Fetching result transformation script
+      copy: src=./result_transform/ssl/ssl_transform.py dest={{home_dir.stdout}}/qtip_result
+    - name: Transforming result
+      shell: cd $HOME/qtip_result  &&  python ssl_transform.py
+    - name: copy report formation script
+      copy: src=./result_transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+    - name: consolidating report
+      shell: cd $HOME/qtip_result &&  python final_report.py SSL
+    - name: registering files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
+      register: files_to_copy
+    - name: copy results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/ssl/ssl_temp
+      with_items: files_to_copy.stdout_lines
+    - name: registering log files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
+      register: copy_log_results
+    - name: copying log results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/ssl/ssl_temp
+      with_items: copy_log_results.stdout_lines
+
+  
+  #  - name: copy results
+  #    fetch:  src=/root/results/{{item}}  dest={{Dest_dir}}/ssl
+  #    with_items: files_to_copy.stdout_lines
+
+ - hosts: 127.0.0.1
+   connection: local
+   tasks:
+    - name: extracting_json
+      shell: ( find  {{Dest_dir}}/ssl/ssl_temp/ -name "*.json" | xargs cp -t {{Dest_dir}}/ssl/)
+    - name: making_logs_folder
+      shell: mkdir -p {{Dest_dir}}/ssl/logs
+    - name: extracting_log
+      shell: ( find {{Dest_dir}}/ssl/ssl_temp/ -name "*.log"  | xargs cp -t {{Dest_dir}}/ssl/logs)
+    - name: removing ssl_temp
+      shell: rm -rf {{Dest_dir}}/ssl/ssl_temp
+

@@ -2,11 +2,8 @@
 set timeout 4
 set ip [lindex $argv 0]
 set pswd [lindex $argv 1]
-spawn  ssh-copy-id -i /root/.ssh/id_rsa $ip
+spawn  ssh-copy-id -i /root/.ssh/id_rsa.pub  $ip
 expect "Are you sure you want to continue connecting" {send "yes\r"}
-expect "password" { send "$pswd\r"}
+expect "password:" { send "$pswd\r"}
 
 interact
-
-
- 

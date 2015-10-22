@@ -1,0 +1,35 @@
+  
+Scenario:
+  benchmark: whetstone
+  host: machine_1,
+  server: virtualmachine_1
+
+Context:
+  Host_Machines:
+    machine_1:
+      ip: 172.18.0.16
+      pw: Op3nStack
+      role: host
+  Virtual_Machines:  
+    virtualmachine_1:
+      availability_zone: nova
+      public_network: 'net04_ext'
+      OS_image: QTIP_CentOS
+      flavor: m1.large
+      role: server
+
+Test_Description:
+  Test_category: "Compute"
+  Benchmark: "whetstone"
+  Overview: >
+        ''' This test will run the whetstone benchmark in serial on machine_1 and machine_2.\n
+         if you wish to add a virtual machine add the following information under the Virtual_Machine tag
+
+        virtualmachine_1:
+          availability_zone:
+          public_network:
+          OS_image:
+          flavor:
+          role: '''
+  
+ 

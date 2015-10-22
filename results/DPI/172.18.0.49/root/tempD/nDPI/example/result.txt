@@ -1,0 +1,12 @@
+	nDPI throughput:       1.45 M pps / 13.57 Gb/sec
+	nDPI throughput:       1.94 M pps / 18.20 Gb/sec
+	nDPI throughput:       1.58 M pps / 14.86 Gb/sec
+	nDPI throughput:       1.61 M pps / 15.12 Gb/sec
+	nDPI throughput:       1.64 M pps / 15.39 Gb/sec
+	nDPI throughput:       1.84 M pps / 17.31 Gb/sec
+	nDPI throughput:       1.61 M pps / 15.08 Gb/sec
+	nDPI throughput:       1.80 M pps / 16.88 Gb/sec
+	nDPI throughput:       1.46 M pps / 13.67 Gb/sec
+	nDPI throughput:       1.47 M pps / 13.77 Gb/sec
+Average Results for 10 runs :
+15.385 Gb/sec

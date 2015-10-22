@@ -1,0 +1,22 @@
+{
+    "1  Time of Report": "2015-10-22T14:44:27.013701", 
+    "2  System Information": {
+        "1_Hostname": "qtip-instance-1", 
+        "2_Product": "OpenStack Nova v: 2014.2.2 serial: 39565995-4734-4833-bc90-43407e2cf5eb", 
+        "3_OS Distribution": "CentOS Linux release 7.1.1503 (Core)", 
+        "4_Kernel": "3.10.0-229.7.2.el7.x86_64 x86_64 (64 bit)", 
+        "5_CPU": "4 Single core Intel Xeon E312xx (Sandy Bridge)s (-SMP-)            speed", 
+        "6_Memory Usage": "174.6/7984.5MB", 
+        "7_Disk usage": "85.9GB (1.7% used)", 
+        "8_Network_Interfaces": {
+            "Interface_1": {
+                "1_Network_Card": "Red Hat Virtio network device", 
+                "2_Interface_info": "eth0 state: up speed: N/A duplex: N/A mac: fa:16:3e:dd:d5:96"
+            }
+        }
+    }, 
+    "3  DPI result": {
+        "DPI_benchmark(Gb/s)": 8.108, 
+        "DPI_benchmark(M pps)": 0.864
+    }
+}

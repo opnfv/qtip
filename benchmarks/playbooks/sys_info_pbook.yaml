@@ -1,0 +1,15 @@
+   - name: Epel Release  install when CentOS
+     shell: yum install epel-release -y
+     #when: centos_count != '0'
+   - name: Inxi  install when CentOS
+     shell: yum install inxi -y
+    # when: centos_count != '0'
+   - name: system info collection tool install when Ubuntu
+     shell: apt-get install inxi -y
+     when: centos_count == '0'
+   - name: system_info script copy
+     copy: src=./info_script/info_collect.py dest={{home_dir.stdout}}/qtip_result/
+   - name: collecting_sys_info
+     shell: cd $HOME/qtip_result &&  python info_collect.py
+   
+

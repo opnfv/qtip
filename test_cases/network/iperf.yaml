@@ -1,0 +1,17 @@
+scenario:
+  benchmark: dpi
+  ExecOrder1: vm_1
+  ExecOrder2: vm_2
+
+Context:         
+  VirtualMachines:
+    vm_1:
+      availability_zone: compute1
+      OS_image: centos7
+      public_network: "provider_network"
+      role: ExecOrder1
+    vm_2:
+      availability_zone: compute1
+      OS_image: centos7
+      public_network: "provider_network"
+      role: ExecOrder2

@@ -1,0 +1,35 @@
+Scenario:
+  benchmark: dpi
+  ExecOrder1: machine_1, machine_2
+  ExecOrder2: parallel
+Context:
+  Host_Machines:
+
+
+  Virtual_Machines:
+     virtualmachine_1:
+      availability_zone: nova
+      OS_image: QTIP_CentOS
+      public_network: 'provider_network'
+      role: host
+      flavor: m1.large
+     virtualmachine_2:
+      availability_zone: nova
+      OS_image: QTIP_CentOS
+      public_network: 'provider_network'
+      role: host
+      flavor: m1.large
+
+Test_Description:
+  Test_category: "Compute"
+  Benchmark: "dpi"
+  Overview: >
+        '''This test will run the DPI benchmark in parallel on virutalmachine_1 and virtualmachine_2.\n
+         if you wish to add a host machine add the following information under the Host_Machine tag
+
+        machine_1:
+          ip:
+          pw:
+          role:
+          '''
+

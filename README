@@ -21,21 +21,24 @@ The script can run 4 comuting benchmarks:
 1. Dhrystone
 2. Whetstone
 3. RamBandwidth
-4. Cachebandwidth
+4. SSL
+5. nDPI
 
 These benchmarks can be run in 2 test cases:
 1. VM vs Baremetal
 2. Baremetal vs Baremeatl
 
 Instructions to run the script:
-1. Download the OpenStack adminrc file for the deployment on which you want to create the VM for benchmarking
-2. run ./QTIP {TEST CASE} {BENCHMARK}
-3.  ./QTIP.sh -h for more help
+1. Download and source the OpenStack adminrc file for the deployment on which you want to create the VM for benchmarking 
+2. run python qtip.py -s {SUITE} -b {BENCHMARK}
+3. run python qtip.py -h for more help
+4. list of benchmarks can be found in the qtip/test-cases directory
+5. SUITE referes to compute, network or storage
 
 Requirments:
 1. Ansible 1.9.2
 2. Python 2.7
-
+3. PyYAML
 
 Configuring Test Cases:
 

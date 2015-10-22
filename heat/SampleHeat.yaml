@@ -1,0 +1,42 @@
+heat_template_version: 2014-10-16
+parameters:
+
+  public_network:
+    type: string
+    label: Publi_N_ID
+    description: Public
+    default: 'net04_ext'
+
+  private_net_name:
+    type: string
+    default: 'private_network'
+
+  availability_zone:
+    type: string
+    description: The AvailZone.
+    default: compute1
+  
+resources:
+
+  private_network:
+     type: OS::Neutron::Net
+  private_subnet:
+    type: OS::Neutron::Subnet
+    properties:
+      network_id:  { get_resource: private_network }
+      cidr: '10.10.17.0/24'
+      dns_nameservers: [ '8.8.8.8' ]
+      gateway_ip: '10.10.17.1'
+      allocation_pools: [ {"start":'10.10.17.2', "end": '10.10.17.200'} ]
+  router_1:
+    type: OS::Neutron::Router
+    properties:
+      external_gateway_info:
+        network: { get_param: public_network  }
+  router_interface:
+    type: OS::Neutron::RouterInterface
+    properties:
+      router_id: { get_resource: router_1 } 
+      subnet: { get_resource: private_subnet }
+outputs:
+  description: 'none'

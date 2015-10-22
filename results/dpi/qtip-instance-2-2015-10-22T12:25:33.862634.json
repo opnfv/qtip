@@ -1,0 +1,17 @@
+{
+    "1  Time of Report": "2015-10-22T12:25:33.862634", 
+    "2  System Information": {
+        "1_Hostname": "", 
+        "2_Product": "", 
+        "3_OS Distribution": "", 
+        "4_Kernel": "", 
+        "5_CPU": "", 
+        "6_Memory Usage": "", 
+        "7_Disk usage": "", 
+        "8_Network_Interfaces": {}
+    }, 
+    "3  DPI result": {
+        "DPI_benchmark(Gb/s)": 8.06, 
+        "DPI_benchmark(M pps)": 0.858
+    }
+}

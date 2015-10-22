@@ -1,0 +1,1852 @@
+
+########################################################
+Dhrystone 2 using register variables -- 1 copy
+==> "/root/tempT/UnixBench/pgms/dhry2reg" 10 2>&1 >> "/root/tempT/UnixBench/results/oscontroller1.opnfv.com-2015-10-20-01.log"
+
+#### Pass 1
+
+
+# COUNT0: 48172172
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.087844
+# pid: 25589
+# status: 0
+
+#### Pass 2
+
+
+# COUNT0: 147630895
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.025431
+# pid: 26385
+# status: 0
+
+#### Pass 3
+
+
+# COUNT0: 76500984
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.068594
+# pid: 26735
+# status: 0
+
+#### Pass 4
+
+
+# COUNT0: 174922728
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.003148
+# pid: 27235
+# status: 0
+
+#### Pass 5
+
+
+# COUNT0: 56665320
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.065729
+# pid: 28068
+# status: 0
+
+#### Pass 6
+
+
+# COUNT0: 131096891
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.012560
+# pid: 28461
+# status: 0
+
+#### Pass 7
+
+
+# COUNT0: 51720324
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.066388
+# pid: 29189
+# status: 0
+
+#### Pass 8
+
+
+# COUNT0: 160708334
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.004722
+# pid: 29564
+# status: 0
+
+#### Pass 9
+
+
+# COUNT0: 178672109
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.084596
+# pid: 30280
+# status: 0
+
+#### Pass 10
+
+
+# COUNT0: 53366522
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.064896
+# pid: 30605
+# status: 0
+
+*Dump score:   48172172.0
+*Dump score:   51720324.0
+*Dump score:   53366522.0
+Count score:   56665320.0
+Count score:   76500984.0
+Count score:  131096891.0
+Count score:  147630895.0
+Count score:  160708334.0
+Count score:  174922728.0
+Count score:  178672109.0
+
+>>>> Results of 1 copy
+>>>> score: 12235020.6447734
+>>>> time: 10.0378257142857
+>>>> iterations: 7
+
+
+########################################################
+Dhrystone 2 using register variables -- 24 copies
+==> "/root/tempT/UnixBench/pgms/dhry2reg" 10 2>&1 >> "/root/tempT/UnixBench/results/oscontroller1.opnfv.com-2015-10-20-01.log"
+
+#### Pass 1
+
+
+# COUNT0: 14909541
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.078498
+# pid: 31125
+# status: 0
+
+# COUNT0: 15093358
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.080009
+# pid: 31128
+# status: 0
+
+# COUNT0: 16154411
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.101056
+# pid: 31138
+# status: 0
+
+# COUNT0: 15497313
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.097585
+# pid: 31147
+# status: 0
+
+# COUNT0: 17300105
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.108961
+# pid: 31150
+# status: 0
+
+# COUNT0: 16367140
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.104903
+# pid: 31156
+# status: 0
+
+# COUNT0: 14825469
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.116268
+# pid: 31166
+# status: 0
+
+# COUNT0: 17426845
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.102857
+# pid: 31173
+# status: 0
+
+# COUNT0: 15685190
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.128633
+# pid: 31181
+# status: 0
+
+# COUNT0: 16480615
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.079463
+# pid: 31187
+# status: 0
+
+# COUNT0: 15814031
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.133519
+# pid: 31192
+# status: 0
+
+# COUNT0: 15869699
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.125684
+# pid: 31212
+# status: 0
+
+# COUNT0: 18356337
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.136671
+# pid: 31220
+# status: 0
+
+# COUNT0: 18860403
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.134236
+# pid: 31228
+# status: 0
+
+# COUNT0: 18382721
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.198654
+# pid: 31235
+# status: 0
+
+# COUNT0: 17464749
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.135330
+# pid: 31241
+# status: 0
+
+# COUNT0: 16090392
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.130656
+# pid: 31248
+# status: 0
+
+# COUNT0: 18231754
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.147660
+# pid: 31264
+# status: 0
+
+# COUNT0: 20016994
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.149651
+# pid: 31268
+# status: 0
+
+# COUNT0: 20711171
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.137866
+# pid: 31281
+# status: 0
+
+# COUNT0: 17905948
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.122433
+# pid: 31287
+# status: 0
+
+# COUNT0: 20501696
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.166288
+# pid: 31291
+# status: 0
+
+# COUNT0: 20887778
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.161115
+# pid: 31307
+# status: 0
+
+# COUNT0: 19996121
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.153511
+# pid: 31313
+# status: 0
+
+#### Pass 2
+
+
+# COUNT0: 5171928
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.085509
+# pid: 31713
+# status: 0
+
+# COUNT0: 6321912
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.103142
+# pid: 31714
+# status: 0
+
+# COUNT0: 5306580
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.099393
+# pid: 31716
+# status: 0
+
+# COUNT0: 5527514
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.106207
+# pid: 31718
+# status: 0
+
+# COUNT0: 5485532
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.091652
+# pid: 31721
+# status: 0
+
+# COUNT0: 5793522
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.090200
+# pid: 31722
+# status: 0
+
+# COUNT0: 5231820
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.085865
+# pid: 31724
+# status: 0
+
+# COUNT0: 5779541
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.084338
+# pid: 31727
+# status: 0
+
+# COUNT0: 5480208
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.084055
+# pid: 31731
+# status: 0
+
+# COUNT0: 5445264
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.081788
+# pid: 31733
+# status: 0
+
+# COUNT0: 5858163
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.076542
+# pid: 31735
+# status: 0
+
+# COUNT0: 5891433
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.087470
+# pid: 31738
+# status: 0
+
+# COUNT0: 5888621
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.078995
+# pid: 31742
+# status: 0
+
+# COUNT0: 5665367
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.115760
+# pid: 31745
+# status: 0
+
+# COUNT0: 5176788
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.073222
+# pid: 31750
+# status: 0
+
+# COUNT0: 5255866
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.074473
+# pid: 31753
+# status: 0
+
+# COUNT0: 5600181
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.076842
+# pid: 31757
+# status: 0
+
+# COUNT0: 5730385
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.106066
+# pid: 31759
+# status: 0
+
+# COUNT0: 5192245
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.122790
+# pid: 31765
+# status: 0
+
+# COUNT0: 5869174
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.069414
+# pid: 31767
+# status: 0
+
+# COUNT0: 5312371
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.079968
+# pid: 31772
+# status: 0
+
+# COUNT0: 5484081
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.122544
+# pid: 31774
+# status: 0
+
+# COUNT0: 5536872
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.104458
+# pid: 31777
+# status: 0
+
+# COUNT0: 5355969
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.086232
+# pid: 31784
+# status: 0
+
+#### Pass 3
+
+
+# COUNT0: 4903362
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.087451
+# pid: 32056
+# status: 0
+
+# COUNT0: 5210498
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.081366
+# pid: 32057
+# status: 0
+
+# COUNT0: 5386104
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.092627
+# pid: 32059
+# status: 0
+
+# COUNT0: 5070943
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.095733
+# pid: 32061
+# status: 0
+
+# COUNT0: 5145191
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.086868
+# pid: 32063
+# status: 0
+
+# COUNT0: 5011551
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.100822
+# pid: 32065
+# status: 0
+
+# COUNT0: 4532436
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.091234
+# pid: 32067
+# status: 0
+
+# COUNT0: 5239511
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.089997
+# pid: 32070
+# status: 0
+
+# COUNT0: 5073549
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.105730
+# pid: 32073
+# status: 0
+
+# COUNT0: 4908494
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.093213
+# pid: 32076
+# status: 0
+
+# COUNT0: 4536634
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.089250
+# pid: 32078
+# status: 0
+
+# COUNT0: 5281860
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.080729
+# pid: 32080
+# status: 0
+
+# COUNT0: 5005537
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.102905
+# pid: 32084
+# status: 0
+
+# COUNT0: 4965624
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.104626
+# pid: 32087
+# status: 0
+
+# COUNT0: 5334244
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.091533
+# pid: 32091
+# status: 0
+
+# COUNT0: 5014731
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.085454
+# pid: 32095
+# status: 0
+
+# COUNT0: 5072965
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.078425
+# pid: 32097
+# status: 0
+
+# COUNT0: 4930613
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.099698
+# pid: 32103
+# status: 0
+
+# COUNT0: 5261808
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.125679
+# pid: 32105
+# status: 0
+
+# COUNT0: 4824819
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.087731
+# pid: 32107
+# status: 0
+
+# COUNT0: 4744264
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.117134
+# pid: 32109
+# status: 0
+
+# COUNT0: 5264802
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.086153
+# pid: 32112
+# status: 0
+
+# COUNT0: 5251036
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.125284
+# pid: 32116
+# status: 0
+
+# COUNT0: 4861289
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.116334
+# pid: 32121
+# status: 0
+
+#### Pass 4
+
+
+# COUNT0: 5766407
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.082925
+# pid: 416
+# status: 0
+
+# COUNT0: 5974695
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.100374
+# pid: 417
+# status: 0
+
+# COUNT0: 5474483
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.089514
+# pid: 419
+# status: 0
+
+# COUNT0: 5454505
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.093649
+# pid: 421
+# status: 0
+
+# COUNT0: 5805934
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.105217
+# pid: 423
+# status: 0
+
+# COUNT0: 5213304
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.094638
+# pid: 425
+# status: 0
+
+# COUNT0: 5344421
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.088677
+# pid: 427
+# status: 0
+
+# COUNT0: 5534830
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.079667
+# pid: 431
+# status: 0
+
+# COUNT0: 5861513
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.079914
+# pid: 432
+# status: 0
+
+# COUNT0: 5021254
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.084269
+# pid: 434
+# status: 0
+
+# COUNT0: 5321501
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.080584
+# pid: 438
+# status: 0
+
+# COUNT0: 5476779
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.074154
+# pid: 441
+# status: 0
+
+# COUNT0: 5143764
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.089130
+# pid: 446
+# status: 0
+
+# COUNT0: 5640388
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.080341
+# pid: 452
+# status: 0
+
+# COUNT0: 5149197
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.072101
+# pid: 456
+# status: 0
+
+# COUNT0: 6218042
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.081939
+# pid: 460
+# status: 0
+
+# COUNT0: 5296463
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.081375
+# pid: 463
+# status: 0
+
+# COUNT0: 5726714
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.080415
+# pid: 466
+# status: 0
+
+# COUNT0: 5783770
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.096541
+# pid: 470
+# status: 0
+
+# COUNT0: 5222538
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.121525
+# pid: 478
+# status: 0
+
+# COUNT0: 5743587
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.127951
+# pid: 492
+# status: 0
+
+# COUNT0: 5278593
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.114342
+# pid: 494
+# status: 0
+
+# COUNT0: 5493267
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.130602
+# pid: 499
+# status: 0
+
+# COUNT0: 5368075
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.138072
+# pid: 507
+# status: 0
+
+#### Pass 5
+
+
+# COUNT0: 45406984
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.010256
+# pid: 810
+# status: 0
+
+# COUNT0: 48183716
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.005739
+# pid: 811
+# status: 0
+
+# COUNT0: 46745364
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.017035
+# pid: 813
+# status: 0
+
+# COUNT0: 44778776
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.015105
+# pid: 816
+# status: 0
+
+# COUNT0: 54214695
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.015550
+# pid: 818
+# status: 0
+
+# COUNT0: 47172526
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.015832
+# pid: 820
+# status: 0
+
+# COUNT0: 45391466
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.017388
+# pid: 822
+# status: 0
+
+# COUNT0: 47514304
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.020360
+# pid: 824
+# status: 0
+
+# COUNT0: 55346329
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.015718
+# pid: 826
+# status: 0
+
+# COUNT0: 46505549
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.015673
+# pid: 829
+# status: 0
+
+# COUNT0: 54915483
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.014138
+# pid: 833
+# status: 0
+
+# COUNT0: 51689129
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.006036
+# pid: 836
+# status: 0
+
+# COUNT0: 54531619
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.005183
+# pid: 840
+# status: 0
+
+# COUNT0: 43433277
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.016518
+# pid: 842
+# status: 0
+
+# COUNT0: 52842549
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.011803
+# pid: 847
+# status: 0
+
+# COUNT0: 52912064
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.013556
+# pid: 849
+# status: 0
+
+# COUNT0: 51315892
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.015796
+# pid: 853
+# status: 0
+
+# COUNT0: 46848994
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.012906
+# pid: 857
+# status: 0
+
+# COUNT0: 44443126
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.011730
+# pid: 859
+# status: 0
+
+# COUNT0: 52349984
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.010191
+# pid: 860
+# status: 0
+
+# COUNT0: 45973212
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.008641
+# pid: 863
+# status: 0
+
+# COUNT0: 47208088
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.014462
+# pid: 864
+# status: 0
+
+# COUNT0: 54966588
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.007562
+# pid: 868
+# status: 0
+
+# COUNT0: 51062857
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.008555
+# pid: 870
+# status: 0
+
+#### Pass 6
+
+
+# COUNT0: 68811956
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.014209
+# pid: 1844
+# status: 0
+
+# COUNT0: 70772504
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.017368
+# pid: 1846
+# status: 0
+
+# COUNT0: 66356980
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.012553
+# pid: 1849
+# status: 0
+
+# COUNT0: 68505082
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.016163
+# pid: 1850
+# status: 0
+
+# COUNT0: 67364713
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.018348
+# pid: 1852
+# status: 0
+
+# COUNT0: 69966025
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.015514
+# pid: 1855
+# status: 0
+
+# COUNT0: 37672357
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.013558
+# pid: 1856
+# status: 0
+
+# COUNT0: 64802139
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.016224
+# pid: 1858
+# status: 0
+
+# COUNT0: 71652452
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.012545
+# pid: 1859
+# status: 0
+
+# COUNT0: 69608598
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.014248
+# pid: 1861
+# status: 0
+
+# COUNT0: 67776825
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.012782
+# pid: 1863
+# status: 0
+
+# COUNT0: 69273426
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.006323
+# pid: 1872
+# status: 0
+
+# COUNT0: 68916057
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.009385
+# pid: 1873
+# status: 0
+
+# COUNT0: 65670151
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.016396
+# pid: 1879
+# status: 0
+
+# COUNT0: 71328854
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.006230
+# pid: 1883
+# status: 0
+
+# COUNT0: 69494512
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.018954
+# pid: 1886
+# status: 0
+
+# COUNT0: 65950788
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.016467
+# pid: 1891
+# status: 0
+
+# COUNT0: 66457925
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.027490
+# pid: 1893
+# status: 0
+
+# COUNT0: 69487125
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.014903
+# pid: 1897
+# status: 0
+
+# COUNT0: 64006069
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.016436
+# pid: 1900
+# status: 0
+
+# COUNT0: 65009408
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.016894
+# pid: 1902
+# status: 0
+
+# COUNT0: 68136266
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.018129
+# pid: 1905
+# status: 0
+
+# COUNT0: 65420735
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.016468
+# pid: 1907
+# status: 0
+
+# COUNT0: 65865721
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.016627
+# pid: 1910
+# status: 0
+
+#### Pass 7
+
+
+# COUNT0: 8239267
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.075655
+# pid: 2251
+# status: 0
+
+# COUNT0: 9410568
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.088554
+# pid: 2252
+# status: 0
+
+# COUNT0: 8800455
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.089163
+# pid: 2255
+# status: 0
+
+# COUNT0: 9837065
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.085187
+# pid: 2259
+# status: 0
+
+# COUNT0: 9867149
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.084313
+# pid: 2261
+# status: 0
+
+# COUNT0: 9402619
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.083112
+# pid: 2263
+# status: 0
+
+# COUNT0: 10400705
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.082081
+# pid: 2265
+# status: 0
+
+# COUNT0: 9496667
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.074928
+# pid: 2268
+# status: 0
+
+# COUNT0: 10243850
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.077391
+# pid: 2270
+# status: 0
+
+# COUNT0: 10194118
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.070514
+# pid: 2273
+# status: 0
+
+# COUNT0: 10257673
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.069864
+# pid: 2276
+# status: 0
+
+# COUNT0: 9416412
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.078549
+# pid: 2279
+# status: 0
+
+# COUNT0: 9652219
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.092161
+# pid: 2283
+# status: 0
+
+# COUNT0: 9998501
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.109074
+# pid: 2287
+# status: 0
+
+# COUNT0: 11740515
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.108367
+# pid: 2292
+# status: 0
+
+# COUNT0: 10202197
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.089038
+# pid: 2294
+# status: 0
+
+# COUNT0: 10294635
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.112695
+# pid: 2298
+# status: 0
+
+# COUNT0: 10975164
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.110427
+# pid: 2300
+# status: 0
+
+# COUNT0: 12691085
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.107772
+# pid: 2303
+# status: 0
+
+# COUNT0: 10287688
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.082282
+# pid: 2308
+# status: 0
+
+# COUNT0: 11194219
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.123363
+# pid: 2310
+# status: 0
+
+# COUNT0: 11494833
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.138221
+# pid: 2312
+# status: 0
+
+# COUNT0: 10770325
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.094819
+# pid: 2313
+# status: 0
+
+# COUNT0: 12137359
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.094343
+# pid: 2318
+# status: 0
+
+#### Pass 8
+
+
+# COUNT0: 20655790
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.079514
+# pid: 3019
+# status: 0
+
+# COUNT0: 22083548
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.071907
+# pid: 3020
+# status: 0
+
+# COUNT0: 21675295
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.087553
+# pid: 3022
+# status: 0
+
+# COUNT0: 19871246
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.081749
+# pid: 3025
+# status: 0
+
+# COUNT0: 22245135
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.077411
+# pid: 3027
+# status: 0
+
+# COUNT0: 19571892
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.089958
+# pid: 3028
+# status: 0
+
+# COUNT0: 21817456
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.078069
+# pid: 3031
+# status: 0
+
+# COUNT0: 20822451
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.078969
+# pid: 3032
+# status: 0
+
+# COUNT0: 20158015
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.074243
+# pid: 3036
+# status: 0
+
+# COUNT0: 21009472
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.073087
+# pid: 3038
+# status: 0
+
+# COUNT0: 20988671
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.074514
+# pid: 3040
+# status: 0
+
+# COUNT0: 21572603
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.069878
+# pid: 3044
+# status: 0
+
+# COUNT0: 17806648
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.068826
+# pid: 3047
+# status: 0
+
+# COUNT0: 20294571
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.102275
+# pid: 3051
+# status: 0
+
+# COUNT0: 21129934
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.086846
+# pid: 3056
+# status: 0
+
+# COUNT0: 20154688
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.105634
+# pid: 3059
+# status: 0
+
+# COUNT0: 22172692
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.154057
+# pid: 3062
+# status: 0
+
+# COUNT0: 22098902
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.079418
+# pid: 3065
+# status: 0
+
+# COUNT0: 23137630
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.176921
+# pid: 3070
+# status: 0
+
+# COUNT0: 23980524
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.125758
+# pid: 3073
+# status: 0
+
+# COUNT0: 25349128
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.103417
+# pid: 3074
+# status: 0
+
+# COUNT0: 26345105
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.106075
+# pid: 3076
+# status: 0
+
+# COUNT0: 23913822
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.098361
+# pid: 3079
+# status: 0
+
+# COUNT0: 26844047
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.154667
+# pid: 3082
+# status: 0
+
+#### Pass 9
+
+
+# COUNT0: 49020206
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.054617
+# pid: 3425
+# status: 0
+
+# COUNT0: 50529065
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.056379
+# pid: 3426
+# status: 0
+
+# COUNT0: 57366000
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.059125
+# pid: 3428
+# status: 0
+
+# COUNT0: 56692922
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.075424
+# pid: 3430
+# status: 0
+
+# COUNT0: 57270242
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.068657
+# pid: 3432
+# status: 0
+
+# COUNT0: 57202007
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.064485
+# pid: 3434
+# status: 0
+
+# COUNT0: 53307751
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.065031
+# pid: 3436
+# status: 0
+
+# COUNT0: 53983066
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.059899
+# pid: 3439
+# status: 0
+
+# COUNT0: 56434995
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.057701
+# pid: 3443
+# status: 0
+
+# COUNT0: 50349361
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.066267
+# pid: 3445
+# status: 0
+
+# COUNT0: 56095701
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.072794
+# pid: 3447
+# status: 0
+
+# COUNT0: 51364704
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.068367
+# pid: 3451
+# status: 0
+
+# COUNT0: 55440820
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.068460
+# pid: 3456
+# status: 0
+
+# COUNT0: 51957551
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.076080
+# pid: 3459
+# status: 0
+
+# COUNT0: 51183514
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.082905
+# pid: 3462
+# status: 0
+
+# COUNT0: 59055423
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.087166
+# pid: 3465
+# status: 0
+
+# COUNT0: 53069545
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.084900
+# pid: 3467
+# status: 0
+
+# COUNT0: 58616097
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.083710
+# pid: 3470
+# status: 0
+
+# COUNT0: 50130878
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.094000
+# pid: 3473
+# status: 0
+
+# COUNT0: 56786474
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.125620
+# pid: 3476
+# status: 0
+
+# COUNT0: 51582468
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.138252
+# pid: 3478
+# status: 0
+
+# COUNT0: 51118666
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.127598
+# pid: 3483
+# status: 0
+
+# COUNT0: 51123706
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.090387
+# pid: 3486
+# status: 0
+
+# COUNT0: 51088872
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.090525
+# pid: 3488
+# status: 0
+
+#### Pass 10
+
+
+# COUNT0: 47168927
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.100468
+# pid: 3824
+# status: 0
+
+# COUNT0: 44425920
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.103430
+# pid: 3825
+# status: 0
+
+# COUNT0: 53818403
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.030495
+# pid: 3826
+# status: 0
+
+# COUNT0: 55830597
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.016091
+# pid: 3828
+# status: 0
+
+# COUNT0: 53099311
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.018554
+# pid: 3829
+# status: 0
+
+# COUNT0: 54501596
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.022718
+# pid: 3831
+# status: 0
+
+# COUNT0: 43527276
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.038766
+# pid: 3833
+# status: 0
+
+# COUNT0: 46041032
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.057996
+# pid: 3835
+# status: 0
+
+# COUNT0: 54628371
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.025608
+# pid: 3838
+# status: 0
+
+# COUNT0: 47536501
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.028383
+# pid: 3839
+# status: 0
+
+# COUNT0: 53093137
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.068953
+# pid: 3841
+# status: 0
+
+# COUNT0: 54204978
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.020189
+# pid: 3843
+# status: 0
+
+# COUNT0: 45788635
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.038126
+# pid: 3844
+# status: 0
+
+# COUNT0: 46921151
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.090557
+# pid: 3847
+# status: 0
+
+# COUNT0: 56590662
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.062022
+# pid: 3850
+# status: 0
+
+# COUNT0: 44748505
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.107650
+# pid: 3852
+# status: 0
+
+# COUNT0: 53616803
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.026113
+# pid: 3857
+# status: 0
+
+# COUNT0: 45784430
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.087318
+# pid: 3860
+# status: 0
+
+# COUNT0: 45951273
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.092776
+# pid: 3864
+# status: 0
+
+# COUNT0: 51627233
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.057902
+# pid: 3869
+# status: 0
+
+# COUNT0: 44798524
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.126931
+# pid: 3871
+# status: 0
+
+# COUNT0: 51322112
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.083564
+# pid: 3872
+# status: 0
+
+# COUNT0: 50378529
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.035908
+# pid: 3876
+# status: 0
+
+# COUNT0: 50477316
+# COUNT1: 1
+# COUNT2: lps
+# elapsed: 10.038772
+# pid: 3877
+# status: 0
+
+*Dump score:  120831865.0
+*Dump score:  132314024.0
+*Dump score:  133361337.0
+Count score:  247005288.0
+Count score:  418829781.0
+Count score:  525699265.0
+Count score: 1185752571.0
+Count score: 1195881222.0
+Count score: 1290770034.0
+Count score: 1598306668.0
+
+>>>> Sum of 24 copies
+>>>> score: 76381580.0526164
+>>>> time: 10.0685718630952
+>>>> iterations: 7
+

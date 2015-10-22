@@ -1,0 +1,32 @@
+ 
+ - hosts: host
+
+   tasks:
+    - name: cleaning
+      shell: rm -rf $HOME/Open_SSL
+    - name: cleaning previous results
+      file: path=/root/results state=absent
+    - name: Installing OpenSSL dependencies
+      shell: yum install git gcc patch  perl-Time-HiRes autofconf automake libpcap-devel libtool -y
+    - name: making  OpenSSL temporary directory
+      file: path=/root/Open_SSL state=directory
+    - name: making  results temporary directory
+      file: path=/root/results state=directory
+    - name: Fetching OpenSSL
+      shell: cd $HOME/Open_SSL/ && wget https://www.openssl.org/source/openssl-1.0.2d.tar.gz
+    - name: Untar OpenSSL
+      shell: cd $HOME/Open_SSL/ && tar -zxvf openssl-1.0.2d.tar.gz
+    - name: configure
+      shell: cd $HOME/Open_SSL/openssl-1.0.2d  && ./config
+    - name: make
+      shell: cd  $HOME/Open_SSL/openssl-1.0.2d && make 
+    - name: make install
+      shell: cd  $HOME/Open_SSL/openssl-1.0.2d && make install
+    - name: Benchmarking RSA signatures
+      shell: cd $HOME/Open_SSL/openssl-1.0.2d/apps  &&  ./openssl speed rsa >> $HOME/results/RSA.txt
+    - name: Benchmaring AES-128-cbc cipher encryption  throughput
+      shell: cd $HOME/Open_SSL/openssl-1.0.2d/apps  &&  ./openssl speed -evp aes-128-cbc >> $HOME/results/AES-128-cbc.txt
+    - name: copy results
+      fetch:  src=/root/results/{{item}}  dest={{Dest_dir}}/ssl
+      with_items: files_to_copy.stdout_lines
+

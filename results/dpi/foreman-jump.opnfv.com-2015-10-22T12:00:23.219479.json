@@ -1,0 +1,34 @@
+{
+    "1  Time of Report": "2015-10-22T12:00:23.219479", 
+    "2  System Information": {
+        "1_Hostname": "foreman-jump.opnfv.com", 
+        "2_Product": "PowerEdge M620 serial: 245BH02", 
+        "3_OS Distribution": "CentOS Linux release 7.1.1503 (Core)", 
+        "4_Kernel": "3.10.0-229.1.2.el7.x86_64 x86_64 (64 bit)", 
+        "5_CPU": "2 Hexa core Intel Xeon E5-2630 0s (-HT-MCP-SMP-)            speed/max", 
+        "6_Memory Usage": "4019.1/64218.7MB", 
+        "7_Disk usage": "146.2GB (28.7% used)", 
+        "8_Network_Interfaces": {
+            "Interface_1": {
+                "1_Network_Card": "Broadcom NetXtreme II BCM57810 10 Gigabit Ethernet", 
+                "2_Interface_info": "em1 state: up speed: 1000 Mbps duplex: full            mac: a4:1f:72:11:b5:1d"
+            }, 
+            "Interface_2": {
+                "1_Network_Card": "Broadcom NetXtreme II BCM57810 10 Gigabit Ethernet", 
+                "2_Interface_info": "em2 state: up speed: 10000 Mbps duplex: full            mac: a4:1f:72:11:b5:20"
+            }, 
+            "Interface_3": {
+                "1_Network_Card": "Intel 82599 10 Gigabit Dual Port Backplane Connection", 
+                "2_Interface_info": "p3p1 state: up speed: 10000 Mbps duplex: full            mac: a4:1f:72:11:b5:21"
+            }, 
+            "Interface_4": {
+                "1_Network_Card": "Intel 82599 10 Gigabit Dual Port Backplane Connection", 
+                "2_Interface_info": "p3p2 state: up speed: 10000 Mbps duplex: full            mac: a4:1f:72:11:b5:23"
+            }
+        }
+    }, 
+    "3  DPI result": {
+        "DPI_benchmark(Gb/s)": 10.446, 
+        "DPI_benchmark(M pps)": 1.112
+    }
+}

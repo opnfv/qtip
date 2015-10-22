@@ -1,0 +1,38 @@
+Scenario:
+  benchmark: dpi
+  host: virtualmachine_1
+  server: virtualmachine_2
+
+Context:
+  Host_Machines:
+     machine_1:
+      ip: 172.18.0.76
+      pw: r00tme
+      role: 1host
+
+  Virtual_Machines:
+     virtualmachine_1:
+      availability_zone: compute1
+      OS_image: QTIP_CentOS
+      public_network: 'provider_network'
+      role: 2host
+      flavor: m1.large
+
+Test_Description:
+  Test_category: "Compute"
+  Benchmark: "dpi"
+  Overview: >
+        '''This test will run the DPI benchmark in serial on virutalmachine_1 and virtualmachine_2.\n
+         if you wish to add a host machine add the following information under the Host_Machine tag
+         virtualmachine_2:
+         availability_zone: compute1
+         OS_image: QTIP_CentOS
+         public_network: 'provider_network'
+         role: 1host
+         flavor: m1.large
+        machine_1:
+          ip:
+          pw:
+          role:
+          '''
+ 

@@ -1,0 +1,45 @@
+Scenario:
+  benchmark: dhrystone
+  host: machine_1, machine_2
+  server: blakc
+
+Context:
+  Host_Machines:
+
+  Virtual_Machines:  
+    virtualmachine_1:
+      availability_zone: compute1
+      public_network: 'net04_ext'
+      OS_image: QTIP_CentOS
+      flavor: m1.large
+      role: host
+    virtualmachine_2:
+      availability_zone: compute2
+      public_network: 'net04_ext'
+      OS_image: QTIP_CentOS
+      flavor: m1.large
+      role: host
+  
+Test_Description:
+  Test_category: "Compute"
+  Benchmark: "dhrystone"
+  Overview: >
+        '''This test will run the dhrystone benchmark in parallel on machine_1 and machine_2.\n
+         if you wish to add a virtual machine add the following information under the Virtual_Machine tag
+         machine_1:
+         ip: 172.18.0.16
+         pw: Op3nStack
+         role: host
+         machine_2:
+         ip: 172.18.0.15
+         pw: Op3nStack
+         role: host
+
+        virtualmachine_1:
+          availability_zone:
+          public_network:
+          OS_image:
+          flavor:
+          role:
+        '''
+

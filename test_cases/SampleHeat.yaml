@@ -13,7 +13,17 @@
     private_net_name:
       type: string
       default: "private_network"
+  
+    flavor:
+      type: string
+      label: Flavor
+      default: m1.large
 
+    image:
+      type: string
+      label: Image name
+      default: CentOS
+    
     availability_zone:
       type: string
       description: The Availability Zone to launch the instance.
@@ -75,8 +85,8 @@
     my_instance:
       type: OS::Nova::Server
       properties:
-        image: QTIP_CentOS7
-        flavor: m1.large
+        image: { get_param: image}
+        flavor: { get_param: flavor}
         availability_zone: { get_param: availability_zone }
         networks:
           - port: { get_resource: public_port }

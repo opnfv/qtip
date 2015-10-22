@@ -15,27 +15,30 @@ The efforts in QTIP are mostly focused on identifying
 
 
 
-QTIP currently consists of a bash script (QTIP.sh). 
+QTIP Framework can now be called:  (qtip.py). 
 
-The script can run 4 comuting benchmarks:
+The Framework can run 5 computing benchmarks:
 1. Dhrystone
 2. Whetstone
 3. RamBandwidth
-4. Cachebandwidth
+4. SSL
+5. nDPI
 
 These benchmarks can be run in 2 test cases:
 1. VM vs Baremetal
-2. Baremetal vs Baremeatl
+2. Baremetal vs Baremetal
 
 Instructions to run the script:
-1. Download the OpenStack adminrc file for the deployment on which you want to create the VM for benchmarking
-2. run ./QTIP {TEST CASE} {BENCHMARK}
-3.  ./QTIP.sh -h for more help
+1. Download and source the OpenStack adminrc file for the deployment on which you want to create the VM for benchmarking 
+2. run python qtip.py -s {SUITE} -b {BENCHMARK}
+3. run python qtip.py -h for more help
+4. list of benchmarks can be found in the qtip/test-cases directory
+5. SUITE referes to compute, network or storage
 
 Requirments:
 1. Ansible 1.9.2
 2. Python 2.7
-
+3. PyYAML
 
 Configuring Test Cases:
 
@@ -44,6 +47,23 @@ For each Test case, a Config.yaml file contains the details for the machines upo
 Edit the IP and the Password fields within the files for the machines on which  the benchmark is to run.
 A robust framework that would allow to include more tests would be included within the future
 
+Jump Host requirements:
+The following packages should be installed on the server from which you intend to run QTIP.
+1: Heat Client
+2: Glance Client
+3: Nova Client
+4: Neutron Client
+5: Wget
+6: pyYaml
+
+Networking
+1: The Host Machines/compute nodes to be benchmarked should have public/access network
+2: The Host Machines/compute nodes should allow Password Login
+
+
+QTIP support for Foreman
+
+{TBA}
 
 
 

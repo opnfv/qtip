@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a5c5d37_4a8d1331",
+        "filename": "func/cli.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1408
+      },
+      "writtenOn": "2015-10-27T12:33:46Z",
+      "side": 1,
+      "message": "this line is needless, maybe we can change it to show the Qtip\u0027s version. It\u0027s helpful when there could be some versions about Qtip next year.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 64
+      },
+      "revId": "8a5f26c0f12d82375d98cf251ff46f2cbd37d01f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_0a871b11",
+        "filename": "func/cli.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1408
+      },
+      "writtenOn": "2015-10-27T12:33:46Z",
+      "side": 1,
+      "message": "I don\u0027t think to hard-code all of the test case file name is a good idea. It will change frequently. so maybe you can give the relative path of the folder of test case, or provide another list command to show all of the available test cases.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 28
+      },
+      "revId": "8a5f26c0f12d82375d98cf251ff46f2cbd37d01f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_ca78e32d",
+        "filename": "func/cli.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1408
+      },
+      "writtenOn": "2015-10-27T12:33:46Z",
+      "side": 1,
+      "message": "maybe in this code, you should use \"and\"? when the tester just input the \"qtip -s compute\", this will continue running but the test case file cannot find.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 59
+      },
+      "revId": "8a5f26c0f12d82375d98cf251ff46f2cbd37d01f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_aa75af33",
+        "filename": "func/cli.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1408
+      },
+      "writtenOn": "2015-10-27T12:33:46Z",
+      "side": 1,
+      "message": "the line is too long, take a new line is more suitable, and also will passed the flake8 checking.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 89
+      },
+      "revId": "8a5f26c0f12d82375d98cf251ff46f2cbd37d01f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_4a94f336",
+        "filename": "func/cli.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1408
+      },
+      "writtenOn": "2015-10-27T12:33:46Z",
+      "side": 1,
+      "message": "seeing the reason above.",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 120
+      },
+      "revId": "8a5f26c0f12d82375d98cf251ff46f2cbd37d01f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

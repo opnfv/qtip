@@ -1,0 +1,85 @@
+ - hosts: 127.0.0.1
+   connection: local
+   tasks: 
+    - name: making dpi directory
+      file: path={{Dest_dir}}/dpi state=directory
+    - name: making temporary whetstone directory
+      file: path={{Dest_dir}}/dpi/dpi_temp state=directory
+ 
+ - hosts: "{{role}}"
+   tasks:
+   
+    - name: checking_home directory
+      shell: echo $HOME
+      register: home_dir
+    - name: cleaning
+      shell: rm -rf $HOME/tempD
+    - name: cleaning previous results
+      shell: rm -rf $HOME/qtip_result
+    - name: make qtip_result
+      shell: mkdir $HOME/qtip_result
+    - include: ./sys_info_pbook.yaml
+    - name: Installing nDPI dependencies if CentOS
+      shell: yum install git gcc patch  perl-Time-HiRes autofconf automake libpcap-devel libtool -y
+      when: ansible_os_family == "RedHat"
+    - name: Installing nDPI dependcies if Ubuntu
+      shell: apt-get install git gcc patch  autoconf automake libpcap-dev libtool -y
+      when: ansible_os_family == "Debian"
+    - name: making  nDPI temporary directory
+      shell: mkdir $HOME/tempD
+    - name: Clone nDPI
+      shell: cd $HOME/tempD && git clone https://github.com/ntop/nDPI.git
+    - name: autogen
+      shell: cd $HOME/tempD/nDPI && ./autogen.sh
+    - name: configure
+      shell: cd $HOME/tempD/nDPI && ./configure
+    - name: make
+      shell: cd  $HOME/tempD/nDPI && make
+    - name: Fetching Test_pcap file
+      shell: cd $HOME/tempD/nDPI/example  &&  wget https://www.dropbox.com/s/ne64u7jykuw2uu5/test.pcap
+    - name: fetch Averaging script
+      copy: src=./result_transform/dpi/dpi_average.sh dest={{home_dir.stdout}}/tempD/nDPI/example mode=777 
+    - name: Run nDPI benchmark
+      shell: cd $HOME/tempD/nDPI/example && ./dpi_average.sh
+    - name: copy result to temp_direc
+      shell: cp $HOME/tempD/nDPI/example/dpi_dump.txt $HOME/qtip_result
+    - name: fetch dpi result transform script
+      copy: src=./result_transform/dpi/dpi_transform.py dest={{home_dir.stdout}}/qtip_result
+    
+    - name: Transforming results
+      shell: cd $HOME/qtip_result && python dpi_transform.py
+    - name: copy report formation script
+      copy: src=./result_transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+    - name: consolidating report
+      shell: cd $HOME/qtip_result && python final_report.py DPI
+    - name: registering files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
+      register: files_to_copy
+    - name: copy results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/dpi/dpi_temp
+      with_items: files_to_copy.stdout_lines
+    - name: registering log files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
+      register: copy_log_results
+    - name: copying log results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/dpi/dpi_temp
+      with_items: copy_log_results.stdout_lines
+
+ #   - name: cleaning tempD
+ #     shell: rm -rf $HOME/tempD
+ #   - name: cleaning_qtip_result
+ #     shell: rm -rf $HOME/qtip_result
+
+
+ - hosts: 127.0.0.1
+   connection: local
+   tasks:
+    - name: extracting_json
+      shell: ( find  {{Dest_dir}}/dpi/dpi_temp/ -name "*.json" | xargs cp -t {{Dest_dir}}/dpi/)
+    - name: making_logs_folder
+      shell: mkdir -p {{Dest_dir}}/dpi/logs
+    - name: extracting_log
+      shell: ( find {{Dest_dir}}/dpi/dpi_temp/ -name "*.log"  | xargs cp -t {{Dest_dir}}/dpi/logs)
+    - name: removing dpi_temp
+      shell: rm -rf {{Dest_dir}}/dpi/dpi_temp
+

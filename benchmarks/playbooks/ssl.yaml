@@ -22,6 +22,8 @@
     - name: making  results temporary directory
       shell: mkdir $HOME/qtip_result 
     - include: ./sys_info_pbook.yaml
+      vars:
+          network: false
     - name: Installing OpenSSL dependencies when CentOS
       shell: yum install git  wget gcc patch  perl-Time-HiRes autofconf automake libpcap-devel libtool -y
       when: ansible_os_family == "RedHat"

@@ -1,0 +1,82 @@
+ - hosts: 127.0.0.1
+   connection: local
+   tasks:
+    - name: making ramspeed  directory
+      file: path={{Dest_dir}}/ramspeed state=directory
+    - name: making temporary ramspeed directory
+      file: path={{Dest_dir}}/ramspeed/ramspeed_temp state=directory
+ 
+
+ - hosts:  "{{role}}"
+   tasks:
+   
+    - name: checking_home directory
+      shell: echo $HOME
+      register: home_dir
+    - name: cleaning
+      shell: rm -rf $HOME/ramspeed
+    - name: cleaning previous results
+      shell: rm -rf $HOME/qtip_result
+    - name: making ramspeed temporary directory
+      shell: mkdir $HOME/ramspeed  
+    - name: making  results temporary directory
+      shell: mkdir $HOME/qtip_result 
+    - include: ./sys_info_pbook.yaml
+      vars:
+          network: false
+    - name: Installing RAM_Speed dependencies when CentOS
+      shell: yum install wget gcc -y
+      when: ansible_os_family == "RedHat"
+    - name: Installing RAM_Speed dependencies when Ubuntu
+      shell: apt-get  install wget gcc -y
+      when: ansible_os_family == "Debian"
+    - name: make dummy file
+      shell: touch $HOME/ramspeed/ramspeed.tar.gz
+    - name: Fetching RAM_Speed
+      shell: cd $HOME/ramspeed/ && wget -O ramspeed.tar.gz https://docs.google.com/uc?id=0B92Bp5LZTM7gRFctalZLMktTNDQ
+    - name: Untar RAM_SPeed
+      shell: cd $HOME/ramspeed/ && tar -zxvf ramspeed.tar.gz
+    - name: configure
+      shell: cd $HOME/ramspeed/ramsmp-3.5.0 && ./build.sh
+    - name: Benchmarking IntMem Bandwidth
+      shell: cd $HOME/ramspeed/ramsmp-3.5.0  &&  ./ramsmp -b 3 -l 5 -p 1 >> $HOME/qtip_result/Intmem
+    - name: Benchmarking FloatMem Bandwidth
+      shell: cd $HOME/ramspeed/ramsmp-3.5.0  &&  ./ramsmp -b 6 -l 5 -p 1 >> $HOME/qtip_result/Floatmem
+    - name: Fetching result transformation script
+      copy: src=./result_transform/ramspd/ramspd_transform.py dest={{home_dir.stdout}}/qtip_result
+    - name: Transforming result
+      shell: cd $HOME/qtip_result  &&  python ramspd_transform.py
+    - name: copy report formation script
+      copy: src=./result_transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+    - name: consolidating report
+      shell: cd $HOME/qtip_result &&  python final_report.py RamSpeed
+    - name: registering files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
+      register: files_to_copy
+    - name: copy results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/ramspeed/ramspeed_temp
+      with_items: files_to_copy.stdout_lines
+    - name: registering log files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
+      register: copy_log_results
+    - name: copying log results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/ramspeed/ramspeed_temp
+      with_items: copy_log_results.stdout_lines
+
+  
+    - name: copy results
+      fetch:  src=/root/results/{{item}}  dest={{Dest_dir}}/ssl
+      with_items: files_to_copy.stdout_lines
+
+ - hosts: 127.0.0.1
+   connection: local
+   tasks:
+    - name: extracting_json
+      shell: ( find  {{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.json" | xargs cp -t {{Dest_dir}}/ramspeed/)
+    - name: making_logs_folder
+      shell: mkdir -p {{Dest_dir}}/ramspeed/logs
+    - name: extracting_log
+      shell: ( find {{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.log"  | xargs cp -t {{Dest_dir}}/ramspeed/logs)
+    - name: removing ramspeed_log
+      shell: rm -rf {{Dest_dir}}/ramspeed/ramspeed_temp
+

@@ -5,7 +5,7 @@ parameters:
     type: string
     label: Publi_N_ID
     description: Public
-    default: 'provider_network'
+    default: 'net04_ext'
 
   private_net_name:
     type: string

@@ -19,6 +19,8 @@
     - name: make directory
       shell: mkdir $HOME/qtip_result
     - include: ./sys_info_pbook.yaml
+      vars:
+          network: false
     - name: Installing UnixBench dependencies if CentOS
       shell: yum install git gcc  patch perl-Time-HiRes -y
       when: ansible_os_family == "RedHat"

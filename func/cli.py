@@ -19,19 +19,10 @@ class cli():
 
     def __init__(self):
 
-        parser = argparse.ArgumentParser()
+        parser = argparse.ArgumentParser(usage=message())
 
         parser.add_argument('-s ', '--suite', help='compute network storage ')
-        parser.add_argument('-b', '--benchmark',
-                            help='''COMPUTE:
-                        dhrystone_serial.yaml \n
-                        dhrystone_paralle.yaml \n
-                        whetstone_serial.yaml \n
-                        whetstone_parllel.yaml \n
-                        dpi_serial.yaml \n
-                        dpi_paralle.yaml \n
-                        ssl_serial.yaml \n
-                        ssl_parallel.yaml ''')
+        parser.add_argument('-b', '--benchmark')
         args = parser.parse_args()
         if not (args.suite or args.benchmark):
             parser.error('Not enough arguments, -h, --help ')
@@ -58,3 +49,15 @@ class cli():
             else:
                 print (args.benchmark, ' is not a Template in the Directory - \
                             Enter a Valid file name. or use qtip.py -h for list')
+def message():
+     print 'Welcome to qtip,The usage is as follows python qtip.py' \
+     '-s SUITE -b BENCHMARK'
+     print '-b'+' benchmark which could be any of the follwing available'
+     for subdir, dirs, files in os.walk('./test_cases'):
+         if subdir == './test_cases':
+             continue
+         else:
+             path, file1 = os.path.split(subdir)
+             print file1
+             for file in files:
+                 print '--'+file

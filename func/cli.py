@@ -20,7 +20,6 @@ class cli():
     def __init__(self):
 
         parser = argparse.ArgumentParser(usage=message())
-
         parser.add_argument('-s ', '--suite', help='compute network storage ')
         parser.add_argument('-b', '--benchmark')
         args = parser.parse_args()

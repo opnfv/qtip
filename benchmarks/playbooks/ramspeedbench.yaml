@@ -1,0 +1,38 @@
+ 
+ - hosts: "{{ role }}"
+
+   tasks:
+    - name: clean
+      shell: rm -rf /usr/bin/phoronix-test-suite
+      shell: rm -rf  /usr/share/doc/phoronix-test-suite/
+      shell: rm -rf  /usr/share/phoronix-test-suite
+      shell: rm -rf  /root/photmp/
+    - name: clean previous results
+      file: path=/root/results path=absent
+    - name: make direc
+      file: path=/root/photmp/ state=directory
+    - name: Fetch Phornonix 
+      shell: cd /root/photmp/ && wget https://www.dropbox.com/s/5kks513ozxy7vvs/phoronix-suite.tar.gz
+    - name: unarchive Phoronix
+      shell: cd /root/photmp/ && tar -zxvf  phoronix-suite.tar.gz
+    - name: Phornonix Dependencies
+      shell: yum install php php-xml php-client php-process -y
+    - name: Install Phornonix
+      shell: cd /root/photmp/phoronix-test-suite-master/&&./install-sh    
+    - name: batchSetup
+      shell: phoronix-test-suite batch-setup
+    - name: install
+      shell: phoronix-test-suite batch-install ramspeed
+    - name: run
+      shell:  phoronix-test-suite batch-run ramspeed
+    - name: making directory
+      file: path=/root/results state=directory
+    - name: copying result to temp directory
+      shell: cp -r /var/lib/phoronix-test-suite/test-results/* /root/results/
+    - name: registering files
+      shell: (cd /root/results/; find . -maxdepth 1 -type f) | cut -d'/' -f2
+      register: files_to_copy
+    - name: copy results
+      fetch:  src=/root/results/{{item}} dest={{Dest_dir}}/dhrystone
+      with_items: files_to_copy.stdout_lines
+

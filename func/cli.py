@@ -38,23 +38,19 @@ class cli():
             sys.exit(0)
         if (args.suite and args.benchmark):
             obj = Env_setup()
-            if os.path.isfile(
-                    './test_cases/' +
-                    args.suite +
-                    '/' +
-                    args.benchmark):
+            if os.path.isfile('./test_cases/' + args.suite +
+                    '/' + args.benchmark):
 
-                [benchmark, roles, vm_info] = obj.parse(
-                    './test_cases/' + args.suite + '/' + args.benchmark)
-
+                [benchmark, roles, vm_info, benchmark_details, pip] = obj.parse('./test_cases/' + args.suite
+                                                 + '/' + args.benchmark)
+                
                 if len(vm_info) != 0:
                     vmObj = SpawnVM(vm_info)
-
                 obj.callpingtest()
                 obj.callsshtest()
                 obj.updateAnsible()
                 dvr = Driver()
-                dvr.drive_bench(benchmark, obj.roles_dict.items())
+                dvr.drive_bench(benchmark, obj.roles_dict.items(), benchmark_details, obj.ip_pw_dict.items())
             else:
                 print (args.benchmark, ' is not a Template in the Directory - \
                             Enter a Valid file name. or use qtip.py -h for list')

@@ -21,8 +21,6 @@ import glanceclient
 from novaclient import client
 import time
 import json
-
-
 from func.create_zones import create_zones
 
 
@@ -81,17 +79,14 @@ class SpawnVM(Env_setup):
                  'type': 'string'
                 
                  }
-
-            Heat_Dic['resources'][
-                'public_port_' +
-                str(x)] = {
-                'type': 'OS::Neutron::Port',
-                'properties': {
-                    'network': {'get_resource': 'private_network'},
-                    'security_groups': [{ 'get_resource': 'demo1_security_Group'}],
-                    'fixed_ips': [
-                        {
-                            'subnet_id': {'get_resource': 'private_subnet'}}]}}
+            
+            Heat_Dic['resources']['public_port_' +str(x)] = {
+                    'type': 'OS::Neutron::Port',
+                    'properties': {
+                        'network': {'get_resource': 'private_network'},
+                        'security_groups': [{ 'get_resource': 'demo1_security_Group'}],
+                        'fixed_ips': [
+                            {'subnet_id': {'get_resource': 'private_subnet'}}]}}
 
             Heat_Dic['resources']['floating_ip_' + str(x)] = {
                 'type': 'OS::Neutron::FloatingIP',
@@ -108,11 +103,11 @@ class SpawnVM(Env_setup):
                 'type': 'OS::Nova::Server',
                 'properties': {
                     'image': img,
-                    'networks':
-                    [{'port': {'get_resource': 'public_port_' + str(x)}}],
+                    'networks':[
+                    {'port': {'get_resource': 'public_port_' + str(x)}}],
                     'flavor': flavor,
                     'availability_zone': avail_zone,
-                    'name': 'QTIP_Instance_' + str(x),
+                    'name': 'instance' + str(x),
                     'key_name': {'get_resource': 'KeyPairSavePrivate'},
                     'user_data_format': 'RAW',
                     'user_data': scriptcmd}}
@@ -124,9 +119,15 @@ class SpawnVM(Env_setup):
                     'rules': [{
                         'protocol': 'tcp',
                         'port_range_min': 22,
-                        'port_range_max': 22},
+                        'port_range_max': 5201},
+                        {'protocol': 'udp',
+                        'port_range_min': 22,
+                        'port_range_max': 5201},
                         {'protocol': 'icmp'}]}}
-
+                        
+            Heat_Dic['outputs']['instance_PIP_' +str(x)] = {
+                'description': 'IP address of the instance',
+                'value': {'get_attr': ['my_instance_' + str(x), 'first_address']}}
             Heat_Dic['outputs']['instance_ip_' +str(x)] = {
                 'description': 'IP address of the instance',
                 'value': {'get_attr': ['floating_ip_' + str(x), 'floating_ip_address']}}
@@ -205,10 +206,7 @@ class SpawnVM(Env_setup):
             qtip_image = glance.images.upload(
                 qtip_image.id, open('./Temp_Img/QTIP_CentOS.qcow2'))
         json_temp = json.dumps(Heat_template)
-#       cluster_body = {
-#           "stack_name": stackname,
-#           "template": Heat_template
-#           }
+        
         for checks in range(3):
             for prev_stacks in heat.stacks.list():
 
@@ -219,12 +217,12 @@ class SpawnVM(Env_setup):
 
         print '\nStack Creating Started\n'
         
-        try:
-            heat.stacks.create(stack_name=stackname, template=Heat_template)
+       # try:
+        heat.stacks.create(stack_name=stackname, template=Heat_template)
 
-        except:
-            print 'Create Failed :( '
-
+        #except:
+            #print 'Create Failed :( '
+        
         cluster_detail = heat.stacks.get(stackname)
         while(cluster_detail.status != 'COMPLETE'):
             if cluster_detail.status == 'IN_PROGRESS':
@@ -242,18 +240,17 @@ class SpawnVM(Env_setup):
  
                 if I['output_key'] == availabilityKey:
                     zone.insert(s,str(I['output_value']))
-                    s=s+1
-               
+                    s=s+1   
             for i in cluster_detail.outputs:
                 instanceKey = "instance_ip_" + str(vm + 1)
-                    
+                privateIPkey = 'instance_PIP_' + str(vm +1)
                 if i['output_key'] == instanceKey:
-                                       
-                    Env_setup.roles_dict[vm_role_ip_dict['role'][
-                                vm]].append(str(i['output_value']))
-   
-                    Env_setup.ip_pw_list.append(
-                                (str(i['output_value']),''))
+                    Env_setup.roles_dict[vm_role_ip_dict['role'][vm]].append(
+                                                        str(i['output_value']))
+                    Env_setup.ip_pw_list.append((str(i['output_value']),''))
+                    
+                if i['output_key'] == privateIPkey:
+                    Env_setup.ip_pw_dict[vm_role_ip_dict['role'][vm]]=str(i['output_value'])
                 if i['output_key'] == 'KeyPair_PublicKey':
                     sshkey = str(i['output_value'])
 

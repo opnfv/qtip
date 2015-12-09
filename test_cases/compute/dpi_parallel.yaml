@@ -15,7 +15,7 @@ Context:
       role: 1Run
       flavor: m1.large
      virtualmachine_2:
-      availability_zone: compute2
+      availability_zone: compute4
       OS_image: QTIP_CentOS
       public_network: 'provider_network'
       role: 1Run

@@ -7,10 +7,6 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-
-
-
-
 import os
 import sys
 from collections import defaultdict
@@ -23,12 +19,13 @@ class Env_setup():
     ip_pw_list = []  # IP and password, this will be used to ssh
     roles_dict = defaultdict(list)
     ip_pw_dict = defaultdict(list)
+    ip_pip_list = []
     vm_parameters = defaultdict(list)
+    benchmark_details= defaultdict()
     benchmark = ''
 
     def __init__(self):
         print '\nParsing class initiated\n'
-#        obj1 = SpawnVM()
 
     def writeTofile(self, role):
         fname2 = open('/etc/ansible/hosts', 'w')
@@ -113,11 +110,16 @@ class Env_setup():
 
     def GetVirtualMachineinfo(self, Virtualtag):
         num = len(Virtualtag)
-
         for x in range(num):
             hostlabel = 'virtualmachine_' + str(x + 1)
             for k, v in Virtualtag[hostlabel].iteritems():
                 self.vm_parameters[k].append(v)
+
+    def GetBenchmarkDetails(self, detail_dic):
+        
+        print detail_dic
+        for k,v in detail_dic.items():
+            self.benchmark_details[k]= v
 
     def parse(self, configfilepath):
         try:
@@ -131,12 +133,9 @@ class Env_setup():
                 self.GetVirtualMachineinfo(doc['Context']['Virtual_Machines'])
             if doc['Context']['Host_Machines']:
                 self.GetHostMachineinfo(doc['Context']['Host_Machines'])
-
-            # num = len(doc['Context']['Vir_Machines'])
-            # for x in range(num):
-            # lab = 'host_machine'+ str(x+1)
-            # self.roles_ip_list.insert(x,(doc[lab]['role'],doc[lab]['ip']))
-            # self.ip_pw_list.insert(x,(doc[lab]['ip'],doc[lab]['pw']))
+            if doc.get('Scenario',{}).get('benchmark_details',{}):
+                self.GetBenchmarkDetails(doc.get('Scenario',{}).get('benchmark_details',{}))
+            
             for k, v in self.roles_ip_list:
                 self.roles_dict[k].append(v)
             for k, v in self.ip_pw_list:
@@ -144,7 +143,9 @@ class Env_setup():
             return (
                 self.benchmark,
                 self.roles_dict.items(),
-                self.vm_parameters)
+                self.vm_parameters,
+                self.benchmark_details.items(),
+                self.ip_pw_dict.items())
         except KeyboardInterrupt:
             fname.close()
             print 'ConfigFile Closed: exiting!'

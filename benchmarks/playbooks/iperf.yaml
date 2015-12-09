@@ -1,0 +1,87 @@
+ - hosts: 127.0.0.1
+   connection: local
+   tasks: 
+
+    - name: getting directory
+      shell: echo $PWD
+      register: qtip_dir
+    - name: making Iperf directory
+      file: path=../../{{Dest_dir}}/iperf state=directory
+    - name: making temporary iperf directory
+      file: path=../../{{Dest_dir}}/iperf/iperf_temp state=directory
+
+
+ - hosts: "{{role}}"
+   tasks:
+    - name: Rolename
+      set_fact:
+        rolename: "{{role}}"
+        when: role is defined
+    - name: Get Hostname
+      shell: echo $HOSTNAME
+      register: hostID
+    - name: echo
+      shell: echo index_var
+    - name: checking_home directory
+      shell: echo $HOME
+      register: home_dir
+    - name: cleaning
+      shell: rm -rf $HOME/iperf
+    - name: cleaning previous results
+      shell: rm -rf $HOME/qtip_result
+    - name: making Iperf temporary directory
+      shell: mkdir $HOME/iperf
+    - name: making  results temporary directory
+      shell: mkdir $HOME/qtip_result
+    - include: ./sys_info_pbook.yaml
+    - name: Installing Epel-release when CentOS
+      shell: yum install epel-release -y
+      when: ansible_os_family == "RedHat"
+    - name: Getting Firewall entry number
+      shell: iptables -L INPUT --line-number | grep DROP | awk '{print $1}'
+      register: iptable_entry
+      ignore_errors: yes
+    - name: Removing entry number
+      shell: iptables -D INPUT {{iptable_entry.stdout}}
+      ignore_errors: yes
+      when: iptable_entry != ''
+    - name: Installing IPERF when Ubuntu
+      shell: apt-get install iperf3 -y
+      when: ansible_os_family == "Debian" and rolename == '1-server'  
+    - name: Installing Iperf3
+      shell: yum install iperf3 -y
+      when: ansible_os_family == "RedHat"
+    - name: Running iperf on server
+      shell: iperf3 -s
+      async: 400
+      poll: 0
+      when: rolename == "1-server"
+    - name: Running Iperf on Host
+      shell: iperf3  -Z --{{protocol}} --time {{duration}} -b {{bandwidthGbps}}G  -c {{item}} -J >> ./qtip_result/server{{hostID.stdout}}-{{item}}.json
+      ignore_errors: yes
+      with_items:
+        - "{{ip1}}"
+        - "{{ip2}}"
+      when: rolename == "2-host" and "{{ip2}}" != ''
+    - name: Running Iperf on Host
+      shell: iperf3  -Z --{{protocol}} --time {{duration}} -b {{bandwidthGbps}}G -c {{item}} -J >> ./qtip_result/server{{hostID.stdout}}-{{item}}.json
+      ignore_errors: yes
+      with_items: 
+        - "{{ip1}}"
+      when: rolename == "2-host" and "{{ip2}}" == ''
+    - name: Files to Copy  
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
+      register: files_to_copy
+    - name: copy results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest=../../{{Dest_dir}}/iperf/iperf_temp
+      with_items: files_to_copy.stdout_lines
+ - hosts: 127.0.0.1
+   connection: local
+   tasks:
+    - name: Rolename
+      set_fact:
+        rolename: "{{role}}"
+        when: role is defined
+    - name: extracting_json
+      shell: ( find  ../../{{Dest_dir}}/iperf/iperf_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/iperf/)
+      when: rolename == "2-host"

@@ -13,6 +13,7 @@ from keystoneclient.auth.identity import v2
 from keystoneclient import session
 from novaclient import client
 import os
+import re
 from collections import defaultdict
 
 
@@ -82,6 +83,11 @@ class create_zones:
         nova.aggregates.remove_host(id, host)
         nova.aggregates.delete(id)
 
+    def get_compute_num(self, computeName):
+
+        num = re.findall(r'\d+',computeName)
+        return (int(num[0])-1)
+
     def create_agg(self, D):
         nova = self._get_nova_client()
         hyper_list = nova.hypervisors.list()
@@ -100,18 +106,19 @@ class create_zones:
             zone_machine[k].append(' ')
 
         for x in range(len(zone_machine)):
-            if not self.check_aggregate(nova, hostnA[x]):
-                agg_idA = nova.aggregates.create(hostnA[x], D[x])
-                nova.aggregates.add_host(aggregate=agg_idA, host=hostnA[x])
+            compute_index = self.get_compute_num(D[x])
+            if not self.check_aggregate(nova, hostnA[compute_index]):
+                agg_idA = nova.aggregates.create(hostnA[compute_index], D[x])
+                nova.aggregates.add_host(aggregate=agg_idA, host=hostnA[compute_index])
 
             else:
 
-                id1 = self.get_aggregate_id(nova, hostnA[x])
-                self.del_agg(nova, id1, hostnA[x])
-                agg_idA = nova.aggregates.create(hostnA[x], D[x])
-                id1 = self.get_aggregate_id(nova, hostnA[x])
+                id1 = self.get_aggregate_id(nova, hostnA[compute_index])
+                self.del_agg(nova, id1, hostnA[compute_index])
+                agg_idA = nova.aggregates.create(hostnA[compute_index], D[x])
+                id1 = self.get_aggregate_id(nova, hostnA[compute_index])
 
                 if not self.check_host_added_to_aggregate(
-                        nova, id1, hostnA[x]):
+                        nova, id1, hostnA[compute_index]):
 
-                    nova.aggregates.add_host(aggregate=id1, host=hostnA[x])
+                    nova.aggregates.add_host(aggregate=id1, host=hostnA[compute_index])

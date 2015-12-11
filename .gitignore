@@ -58,3 +58,9 @@ docs/_build/
 
 # PyBuilder
 target/
+
+*~
+.*.sw?
+/docs_build/
+/docs_output/
+/releng/

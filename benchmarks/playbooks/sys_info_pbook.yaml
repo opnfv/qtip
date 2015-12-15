@@ -7,7 +7,6 @@
    - name: system info collection tool install when Ubuntu
      shell: apt-get install inxi -y
      when: ansible_os_family  == "Debian"
-<<<<<<< HEAD
    - name: Install ansible copy dependencies if remote host has selinux enabled
      shell: yum  install libselinux-python -y
      when: ansible_os_family == "RedHat"
@@ -22,11 +21,8 @@
    - name: collecting system information for network test  cases
      shell: cd $HOME/qtip_result && python info_collect.py n
      when: network
-=======
    - name: system_info script copy
      copy: src=./info_script/info_collect.py dest={{home_dir.stdout}}/qtip_result/
    - name: collecting_sys_info
-     shell: cd $HOME/qtip_result &&  python info_collect.py
->>>>>>> 5a7dcc0... Networking testcases for QTIP Framework
-   
+     shell: cd $HOME/qtip_result &&  python info_collect.py   
 

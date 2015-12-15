@@ -28,7 +28,7 @@ class Env_setup():
         print '\nParsing class initiated\n'
 
     def writeTofile(self, role):
-        fname2 = open('/etc/ansible/hosts', 'w')
+        fname2 = open('./data/hosts', 'w')
         print role.items()
         for k in role:
             fname2.write('[' + k + ']\n')
@@ -44,40 +44,40 @@ class Env_setup():
             pwvar = v
             print '\nBeginning SSH Test!\n'
             if v != '':
-                print ('\nSSH->>>>> %s\n' % k)
+                print ('\nSSH->>>>> {0} {1}\n'.format(k,v))
                 time.sleep(2)
 
                 ssh_c = 'ssh-keyscan {0} >> ~/.ssh/known_hosts'.format(k)
 
-                os.system(ssh_c)
-                ssh_cmd = 'expect ./data/ssh_exch.exp {0} {1}'.format(
-                    ipvar, pwvar)
+                #os.system(ssh_c)
+                ssh_cmd = 'expect ./data/ssh_exch.exp {0} {1}'.format(ipvar, pwvar)
+                print ssh_cmd
                 res = os.system(ssh_cmd)
-                '''
+                
                 for infinity in range(10000):
                     try :
                         ssh = paramiko.SSHClient()
                         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                        ssh.connect(hostname = k , username = 'root', password = v)
+                        ssh.connect(k , username = 'root', password = v)
                         stdin, stdout, stderr = ssh.exec_command('ls')
                         print('SSH successful')
                         break
                     except:
                         print 'Retrying SSH'
                         time.sleep(1)
-                '''
+                
             if v == '':
                 print ('SSH->>>>>', k)
                 ssh_c = 'ssh-keyscan {0} >> ~/.ssh/known_hosts'.format(k)
 
                 time.sleep(3)
                 os.system(ssh_c)
-                
+
                 for infinity in range(10000):
                     try :
                         ssh = paramiko.SSHClient()
                         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                        ssh.connect(hostname = k )
+                        ssh.connect(k, key_filename= './data/QtipKey')
                         stdin, stdout, stderr = ssh.exec_command('ls')
                         break
                     except:

@@ -7,8 +7,6 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-
-
 import os
 import sys
 from collections import defaultdict
@@ -22,7 +20,6 @@ from novaclient import client
 import time
 import json
 from func.create_zones import create_zones
-
 
 class SpawnVM(Env_setup):
     vm_role_ip_dict = defaultdict(list)
@@ -54,7 +51,8 @@ class SpawnVM(Env_setup):
                 print 'Error in qtip/heat/SampleHeat.yaml at: (%s,%s)' % (mark.line + 1, mark.column + 1)
                 print 'EXITING PROGRAM. Correct File and restart'
                 sys.exit(0)
-        fopen = open('/root/.ssh/id_rsa.pub', 'r')
+        #fopen = open('/root/.ssh/id_rsa.pub', 'r')
+        fopen = open('./data/QtipKey.pub', 'r')
         fopenstr = fopen.read()
         fopenstr = fopenstr.rstrip()
         scriptcmd = '#!/bin/bash \n echo {0} >>  foo.txt \n echo {1} >> /root/.ssh/authorized_keys'.format(

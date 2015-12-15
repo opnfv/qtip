@@ -6,18 +6,14 @@ Scenario:
 Context:
   Host_Machines:
      machine_1:
-      ip: 172.18.0.76
-      pw: r00tme
+      ip: 172.18.0.17
+      pw: Op3nStack
       role: 1host
-
+     machine_2:
+      ip: 172.18.0.16
+      pw: Op3nStack
+      role: 1host
   Virtual_Machines:
-     virtualmachine_1:
-      availability_zone: compute1
-      OS_image: QTIP_CentOS
-      public_network: 'provider_network'
-      role: 2host
-      flavor: m1.large
-
 Test_Description:
   Test_category: "Compute"
   Benchmark: "dpi"
@@ -28,6 +24,15 @@ Test_Description:
          availability_zone: compute1
          OS_image: QTIP_CentOS
          public_network: 'provider_network'
+
+          Virtual_Machines:
+             virtualmachine_1:
+              availability_zone: compute1
+              OS_image: QTIP_CentOS
+              public_network: 'provider_network'
+              role: 2host
+              flavor: m1.large
+
          role: 1host
          flavor: m1.large
         machine_1:

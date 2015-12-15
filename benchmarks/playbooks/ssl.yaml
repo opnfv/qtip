@@ -2,17 +2,9 @@
    connection: local
    tasks:
     - name: making ssl directory
-<<<<<<< HEAD
-      file: path={{Dest_dir}}/ssl state=directory
-    - name: making temporary ssl directory
-      file: path={{Dest_dir}}/ssl/ssl_temp state=directory
-=======
       file: path=../../{{Dest_dir}}/ssl state=directory
     - name: making temporary ssl directory
       file: path=../../{{Dest_dir}}/ssl/ssl_temp state=directory
->>>>>>> 5a7dcc0... Networking testcases for QTIP Framework
- 
-
  - hosts: "{{role}}"
    tasks:
    
@@ -28,11 +20,8 @@
     - name: making  results temporary directory
       shell: mkdir $HOME/qtip_result 
     - include: ./sys_info_pbook.yaml
-<<<<<<< HEAD
       vars:
           network: false
-=======
->>>>>>> 5a7dcc0... Networking testcases for QTIP Framework
     - name: Installing OpenSSL dependencies when CentOS
       shell: yum install git  wget gcc patch  perl-Time-HiRes autofconf automake libpcap-devel libtool -y
       when: ansible_os_family == "RedHat"
@@ -40,19 +29,19 @@
       shell: apt-get  install git gcc wget   perl autoconf automake libpcap-dev libtool -y
       when: ansible_os_family == "Debian"
     - name: Fetching OpenSSL
-      shell: cd $HOME/Open_SSL/ && wget https://www.openssl.org/source/openssl-1.0.2d.tar.gz
+      shell: cd $HOME/Open_SSL/ && wget https://www.openssl.org/source/openssl-1.0.2e.tar.gz
     - name: Untar OpenSSL
-      shell: cd $HOME/Open_SSL/ && tar -zxvf openssl-1.0.2d.tar.gz
+      shell: cd $HOME/Open_SSL/ && tar -zxvf openssl-1.0.2e.tar.gz
     - name: configure
-      shell: cd $HOME/Open_SSL/openssl-1.0.2d  && ./config
+      shell: cd $HOME/Open_SSL/openssl-1.0.2e  && ./config
     - name: make 
-      shell: cd  $HOME/Open_SSL/openssl-1.0.2d && make 
+      shell: cd  $HOME/Open_SSL/openssl-1.0.2e && make 
     - name: make install
-      shell: cd  $HOME/Open_SSL/openssl-1.0.2d && make install
+      shell: cd  $HOME/Open_SSL/openssl-1.0.2e  && make install
     - name: Benchmarking RSA signatures
-      shell: cd $HOME/Open_SSL/openssl-1.0.2d/apps  &&  ./openssl speed rsa >> $HOME/qtip_result/RSA_dump
+      shell: cd $HOME/Open_SSL/openssl-1.0.2e/apps  &&  ./openssl speed rsa >> $HOME/qtip_result/RSA_dump
     - name: Benchmaring AES-128-cbc cipher encryption  throughput
-      shell: cd $HOME/Open_SSL/openssl-1.0.2d/apps  &&  ./openssl speed -evp aes-128-cbc >> $HOME/qtip_result/AES-128-CBC_dump
+      shell: cd $HOME/Open_SSL/openssl-1.0.2e/apps  &&  ./openssl speed -evp aes-128-cbc >> $HOME/qtip_result/AES-128-CBC_dump
     - name: Fetching result transformation script
       copy: src=./result_transform/ssl/ssl_transform.py dest={{home_dir.stdout}}/qtip_result
     - name: Transforming result
@@ -83,21 +72,10 @@
    connection: local
    tasks:
     - name: extracting_json
-<<<<<<< HEAD
-      shell: ( find  {{Dest_dir}}/ssl/ssl_temp/ -name "*.json" | xargs cp -t {{Dest_dir}}/ssl/)
-    - name: making_logs_folder
-      shell: mkdir -p {{Dest_dir}}/ssl/logs
-    - name: extracting_log
-      shell: ( find {{Dest_dir}}/ssl/ssl_temp/ -name "*.log"  | xargs cp -t {{Dest_dir}}/ssl/logs)
-    - name: removing ssl_temp
-      shell: rm -rf {{Dest_dir}}/ssl/ssl_temp
-=======
       shell: ( find  ../../{{Dest_dir}}/ssl/ssl_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/ssl/)
     - name: making_logs_folder
-      shell: mkdir -p {{../../Dest_dir}}/ssl/logs
+      shell: mkdir -p ../../{{Dest_dir}}/ssl/logs
     - name: extracting_log
-      shell: ( find {{../../Dest_dir}}/ssl/ssl_temp/ -name "*.log"  | xargs cp -t {{../../Dest_dir}}/ssl/logs)
+      shell: ( find ../../{{Dest_dir}}/ssl/ssl_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/ssl/logs)
     - name: removing ssl_temp
-      shell: rm -rf {{../../Dest_dir}}/ssl/ssl_temp
->>>>>>> 5a7dcc0... Networking testcases for QTIP Framework
-
+      shell: rm -rf ../../{{Dest_dir}}/ssl/ssl_temp

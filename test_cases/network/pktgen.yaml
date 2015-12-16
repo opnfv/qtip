@@ -1,0 +1,44 @@
+Scenario:
+  benchmark: pktgen
+  topology: Client and Server on ONE compute
+  server : virtualmachine_1
+  client: virtualmachine_2
+  benchmark_details:
+    duration: "10" 
+    packetsize: "64"
+    ipaddr: "10.10.17.4"
+    numberofports: "10"
+
+Context:
+  Host_Machines:
+
+
+  Virtual_Machines:
+    virtualmachine_1:
+      availability_zone: compute2
+      OS_image: pktgenready
+      public_network: 'provider_network'
+      role: 1-server
+      flavor: m1.large   
+
+    virtualmachine_2:
+      availability_zone: compute2
+      OS_image: pktgenready
+      public_network: 'provider_network'
+      role: 2-host
+      flavor: m1.large
+    
+Test_Description:
+  Test_category: "network"
+  Benchmark: "iperf"
+  Overview: >
+        '''This test will run the IPERF benchmark  on virutalmachine_1 and virtualmachine_2. On the\n
+         same compute node
+         if you wish to add a host machine add the following information under the Host_Machine tag
+
+        machine_1:
+          ip:
+          pw:
+          role:
+          '''
+

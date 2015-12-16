@@ -2,9 +2,15 @@
    connection: local
    tasks:
     - name: making ssl directory
+<<<<<<< HEAD
       file: path={{Dest_dir}}/ssl state=directory
     - name: making temporary ssl directory
       file: path={{Dest_dir}}/ssl/ssl_temp state=directory
+=======
+      file: path=../../{{Dest_dir}}/ssl state=directory
+    - name: making temporary ssl directory
+      file: path=../../{{Dest_dir}}/ssl/ssl_temp state=directory
+>>>>>>> 5a7dcc0... Networking testcases for QTIP Framework
  
 
  - hosts: "{{role}}"
@@ -22,8 +28,11 @@
     - name: making  results temporary directory
       shell: mkdir $HOME/qtip_result 
     - include: ./sys_info_pbook.yaml
+<<<<<<< HEAD
       vars:
           network: false
+=======
+>>>>>>> 5a7dcc0... Networking testcases for QTIP Framework
     - name: Installing OpenSSL dependencies when CentOS
       shell: yum install git  wget gcc patch  perl-Time-HiRes autofconf automake libpcap-devel libtool -y
       when: ansible_os_family == "RedHat"
@@ -74,6 +83,7 @@
    connection: local
    tasks:
     - name: extracting_json
+<<<<<<< HEAD
       shell: ( find  {{Dest_dir}}/ssl/ssl_temp/ -name "*.json" | xargs cp -t {{Dest_dir}}/ssl/)
     - name: making_logs_folder
       shell: mkdir -p {{Dest_dir}}/ssl/logs
@@ -81,4 +91,13 @@
       shell: ( find {{Dest_dir}}/ssl/ssl_temp/ -name "*.log"  | xargs cp -t {{Dest_dir}}/ssl/logs)
     - name: removing ssl_temp
       shell: rm -rf {{Dest_dir}}/ssl/ssl_temp
+=======
+      shell: ( find  ../../{{Dest_dir}}/ssl/ssl_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/ssl/)
+    - name: making_logs_folder
+      shell: mkdir -p {{../../Dest_dir}}/ssl/logs
+    - name: extracting_log
+      shell: ( find {{../../Dest_dir}}/ssl/ssl_temp/ -name "*.log"  | xargs cp -t {{../../Dest_dir}}/ssl/logs)
+    - name: removing ssl_temp
+      shell: rm -rf {{../../Dest_dir}}/ssl/ssl_temp
+>>>>>>> 5a7dcc0... Networking testcases for QTIP Framework
 

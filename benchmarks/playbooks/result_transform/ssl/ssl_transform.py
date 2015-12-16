@@ -35,7 +35,11 @@ aes_1024B = os.popen(
 aes_8192B = os.popen(
     "cat AES-128-CBC_dump | grep  'aes-128-cbc  ' | awk '{print $6}' ").read().rstrip()
 
+<<<<<<< HEAD
 
+=======
+#    def get_nova_client(self):
+>>>>>>> 5a7dcc0... Networking testcases for QTIP Framework
 hostname = os.popen("hostname").read().rstrip()
 time_stamp = str(datetime.datetime.utcnow().isoformat())
 
@@ -43,6 +47,13 @@ time_stamp = str(datetime.datetime.utcnow().isoformat())
 os.system("mv RSA_dump " + hostname + "-" + time_stamp + ".log")
 os.system("cat AES-128-CBC_dump >> " + hostname + "-" + time_stamp + ".log")
 
+<<<<<<< HEAD
+=======
+#      if self._glance_client is None:
+##          keystone = self.get_keystone_client()
+#         nova = client.Client('2', token = keystone.auth_token)
+
+>>>>>>> 5a7dcc0... Networking testcases for QTIP Framework
 
 result = {}
 
@@ -64,4 +75,9 @@ result['3. AES-128-cbc throughput']['5. 16 Bytes block (B/sec)'] = [aes_8192B]
 with open('./result_temp', 'w+') as result_file:
     pickle.dump(result, result_file)
 
+<<<<<<< HEAD
 
+=======
+# print json.dumps(result, indent=4, sort_keys=True)
+# print result.items()
+>>>>>>> 5a7dcc0... Networking testcases for QTIP Framework

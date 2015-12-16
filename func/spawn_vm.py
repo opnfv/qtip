@@ -252,7 +252,7 @@ class SpawnVM(Env_setup):
                 if i['output_key'] == 'KeyPair_PublicKey':
                     sshkey = str(i['output_value'])
 
-        with open('/root/.ssh/my_key.pem', 'w') as fopen:
+        with open('./data/my_key.pem', 'w') as fopen:
             fopen.write(sshkey)
         fopen.close()
         print Env_setup.ip_pw_list

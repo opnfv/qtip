@@ -55,7 +55,7 @@ class create_zones:
 
         agg_name_exist = False
         for x in list1:
-            
+
             if x.name == agg_name:
                 agg_name_exist = True
         return agg_name_exist

@@ -7,8 +7,6 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-
-
 import os
 import sys
 from collections import defaultdict
@@ -22,7 +20,6 @@ from novaclient import client
 import time
 import json
 from func.create_zones import create_zones
-
 
 class SpawnVM(Env_setup):
     vm_role_ip_dict = defaultdict(list)
@@ -54,7 +51,8 @@ class SpawnVM(Env_setup):
                 print 'Error in qtip/heat/SampleHeat.yaml at: (%s,%s)' % (mark.line + 1, mark.column + 1)
                 print 'EXITING PROGRAM. Correct File and restart'
                 sys.exit(0)
-        fopen = open('/root/.ssh/id_rsa.pub', 'r')
+        #fopen = open('/root/.ssh/id_rsa.pub', 'r')
+        fopen = open('./data/QtipKey.pub', 'r')
         fopenstr = fopen.read()
         fopenstr = fopenstr.rstrip()
         scriptcmd = '#!/bin/bash \n echo {0} >>  foo.txt \n echo {1} >> /root/.ssh/authorized_keys'.format(
@@ -77,9 +75,9 @@ class SpawnVM(Env_setup):
                  'description': 'Availability Zone of the instance',
                  'default': avail_zone,
                  'type': 'string'
-                
+
                  }
-            
+
             Heat_Dic['resources']['public_port_' +str(x)] = {
                     'type': 'OS::Neutron::Port',
                     'properties': {
@@ -124,18 +122,18 @@ class SpawnVM(Env_setup):
                         'port_range_min': 22,
                         'port_range_max': 5201},
                         {'protocol': 'icmp'}]}}
-                        
+
             Heat_Dic['outputs']['instance_PIP_' +str(x)] = {
                 'description': 'IP address of the instance',
                 'value': {'get_attr': ['my_instance_' + str(x), 'first_address']}}
             Heat_Dic['outputs']['instance_ip_' +str(x)] = {
                 'description': 'IP address of the instance',
                 'value': {'get_attr': ['floating_ip_' + str(x), 'floating_ip_address']}}
-            
+
             Heat_Dic['outputs']['availability_instance_' + str(x)] = {
                 'description': 'Availability Zone of the Instance',
                 'value': { 'get_param': 'availability_zone_'+str(x)}}
-            
+
 
         Heat_Dic['outputs']['KeyPair_PublicKey'] = {
             'description': 'Private Key',
@@ -206,7 +204,7 @@ class SpawnVM(Env_setup):
             qtip_image = glance.images.upload(
                 qtip_image.id, open('./Temp_Img/QTIP_CentOS.qcow2'))
         json_temp = json.dumps(Heat_template)
-        
+
         for checks in range(3):
             for prev_stacks in heat.stacks.list():
 
@@ -216,13 +214,13 @@ class SpawnVM(Env_setup):
                     time.sleep(10)
 
         print '\nStack Creating Started\n'
-        
+
        # try:
         heat.stacks.create(stack_name=stackname, template=Heat_template)
 
         #except:
             #print 'Create Failed :( '
-        
+
         cluster_detail = heat.stacks.get(stackname)
         while(cluster_detail.status != 'COMPLETE'):
             if cluster_detail.status == 'IN_PROGRESS':
@@ -237,10 +235,10 @@ class SpawnVM(Env_setup):
 
             for I in cluster_detail.outputs:
                 availabilityKey = 'availability_instance_'+str(vm+1)
- 
+
                 if I['output_key'] == availabilityKey:
                     zone.insert(s,str(I['output_value']))
-                    s=s+1   
+                    s=s+1
             for i in cluster_detail.outputs:
                 instanceKey = "instance_ip_" + str(vm + 1)
                 privateIPkey = 'instance_PIP_' + str(vm +1)
@@ -248,13 +246,13 @@ class SpawnVM(Env_setup):
                     Env_setup.roles_dict[vm_role_ip_dict['role'][vm]].append(
                                                         str(i['output_value']))
                     Env_setup.ip_pw_list.append((str(i['output_value']),''))
-                    
+
                 if i['output_key'] == privateIPkey:
                     Env_setup.ip_pw_dict[vm_role_ip_dict['role'][vm]]=str(i['output_value'])
                 if i['output_key'] == 'KeyPair_PublicKey':
                     sshkey = str(i['output_value'])
 
-        with open('/root/.ssh/my_key.pem', 'w') as fopen:
+        with open('./data/my_key.pem', 'w') as fopen:
             fopen.write(sshkey)
         fopen.close()
         print Env_setup.ip_pw_list

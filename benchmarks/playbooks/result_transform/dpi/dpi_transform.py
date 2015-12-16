@@ -47,8 +47,3 @@ result['DPI_benchmark(M pps)'] = round(dpi_result_pps, 3)
 result['DPI_benchmark(Gb/s)'] = round(dpi_result_bps, 3)
 with open('./result_temp', 'w+') as result_file:
     pickle.dump(result, result_file)
-<<<<<<< HEAD
-
-=======
-print json.dumps(result, indent=4, sort_keys=True)
->>>>>>> 5a7dcc0... Networking testcases for QTIP Framework

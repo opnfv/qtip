@@ -43,7 +43,7 @@ class cli():
 
                 [benchmark, roles, vm_info, benchmark_details, pip] = obj.parse('./test_cases/' + args.suite
                                                  + '/' + args.benchmark)
-                
+
                 if len(vm_info) != 0:
                     vmObj = SpawnVM(vm_info)
                 obj.callpingtest()

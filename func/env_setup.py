@@ -28,7 +28,7 @@ class Env_setup():
         print '\nParsing class initiated\n'
 
     def writeTofile(self, role):
-        fname2 = open('/etc/ansible/hosts', 'w')
+        fname2 = open('./data/hosts', 'w')
         print role.items()
         for k in role:
             fname2.write('[' + k + ']\n')
@@ -44,48 +44,46 @@ class Env_setup():
             pwvar = v
             print '\nBeginning SSH Test!\n'
             if v != '':
-                print ('\nSSH->>>>> %s\n' % k)
+                print ('\nSSH->>>>> {0} {1}\n'.format(k,v))
                 time.sleep(2)
 
                 ssh_c = 'ssh-keyscan {0} >> ~/.ssh/known_hosts'.format(k)
 
-                os.system(ssh_c)
-                ssh_cmd = 'expect ./data/ssh_exch.exp {0} {1}'.format(
-                    ipvar, pwvar)
-                res = os.system(ssh_cmd)
-                '''
+                #os.system(ssh_c)
+                ssh_cmd = 'expect ./data/ssh_exch.exp {0} {1}'.format(ipvar, pwvar)
+                print ssh_cmd
+                res = os.system(ssh_cmd) 
                 for infinity in range(10000):
                     try :
                         ssh = paramiko.SSHClient()
                         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                        ssh.connect(hostname = k , username = 'root', password = v)
+                        ssh.connect(k , username = 'root', password = v)
                         stdin, stdout, stderr = ssh.exec_command('ls')
                         print('SSH successful')
                         break
                     except:
                         print 'Retrying SSH'
-                        time.sleep(1)
-                '''
+                        time.sleep(1)    
             if v == '':
                 print ('SSH->>>>>', k)
                 ssh_c = 'ssh-keyscan {0} >> ~/.ssh/known_hosts'.format(k)
 
                 time.sleep(3)
                 os.system(ssh_c)
-                
+
                 for infinity in range(10000):
                     try :
                         ssh = paramiko.SSHClient()
                         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                        ssh.connect(hostname = k )
+                        ssh.connect(k, key_filename= './data/QtipKey')
                         stdin, stdout, stderr = ssh.exec_command('ls')
                         break
                     except:
                         print 'Retrying SSH'
-                
+
     def pingtest(self, lister):
+
         pingFlag = 0
-        
         for k, v in lister.iteritems():
             time.sleep(10)
             for val in v:
@@ -98,9 +96,9 @@ class Env_setup():
                 print ('\n\n %s is UP \n\n ' % ipvar)
 
     def GetHostMachineinfo(self, Hosttag):
+
         num = len(Hosttag)
         offset = len(self.roles_ip_list)
-
         for x in range(num):
             hostlabel = 'machine_' + str(x + 1)
             self.roles_ip_list.insert(
@@ -109,6 +107,7 @@ class Env_setup():
                 offset, (Hosttag[hostlabel]['ip'], Hosttag[hostlabel]['pw']))
 
     def GetVirtualMachineinfo(self, Virtualtag):
+
         num = len(Virtualtag)
         for x in range(num):
             hostlabel = 'virtualmachine_' + str(x + 1)
@@ -116,7 +115,7 @@ class Env_setup():
                 self.vm_parameters[k].append(v)
 
     def GetBenchmarkDetails(self, detail_dic):
-        
+
         print detail_dic
         for k,v in detail_dic.items():
             self.benchmark_details[k]= v
@@ -135,7 +134,6 @@ class Env_setup():
                 self.GetHostMachineinfo(doc['Context']['Host_Machines'])
             if doc.get('Scenario',{}).get('benchmark_details',{}):
                 self.GetBenchmarkDetails(doc.get('Scenario',{}).get('benchmark_details',{}))
-            
             for k, v in self.roles_ip_list:
                 self.roles_dict[k].append(v)
             for k, v in self.ip_pw_list:

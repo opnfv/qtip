@@ -28,7 +28,7 @@ class Driver:
         self.dic_json['Dest_dir'] = str(result_dir)
         self.dic_json['ip1']=''
         self.dic_json['ip2']=''
-        
+
         for k,v in benchmark_detail:
             self.dic_json[k]=v
         for k, v in roles:
@@ -43,8 +43,8 @@ class Driver:
                         index= index+1
             dic_json = json.dumps(dict(self.dic_json.items()))
             print dic_json
-            run_play = 'ansible-playbook -s ./benchmarks/playbooks/{0} --extra-vars \'{1}\'  -vvv'.format(benchmark_name, dic_json)
+            run_play = 'ansible-playbook -s ./benchmarks/playbooks/{0} --private-key=./data/QtipKey -i ./data/hosts --extra-vars \'{1}\' '.format(benchmark_name, dic_json)
 #            run_play = 'ansible-playbook -s $PWD/benchmarks/playbooks/{0} --extra-vars "Dest_dir={1} role={2}" -vvv'.format(
 #            benchmark_name, result_dir, k)
             status = os.system(run_play)
-       
+

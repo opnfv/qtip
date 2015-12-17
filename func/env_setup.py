@@ -53,7 +53,7 @@ class Env_setup():
                 ssh_cmd = 'expect ./data/ssh_exch.exp {0} {1}'.format(ipvar, pwvar)
                 print ssh_cmd
                 res = os.system(ssh_cmd) 
-                for infinity in range(10000):
+                for infinity in range(100):
                     try :
                         ssh = paramiko.SSHClient()
                         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -71,7 +71,7 @@ class Env_setup():
                 time.sleep(3)
                 os.system(ssh_c)
 
-                for infinity in range(10000):
+                for infinity in range(100):
                     try :
                         ssh = paramiko.SSHClient()
                         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())

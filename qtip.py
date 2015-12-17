@@ -10,8 +10,10 @@
 
 
 from func.cli import cli
+import os
 
 def main():
+    os.system('./data/file_permission.sh')
     Objcli = cli()
 
 if __name__ == "__main__":

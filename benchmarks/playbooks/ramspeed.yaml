@@ -54,13 +54,13 @@
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
       register: files_to_copy
     - name: copy results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/ramspeed/ramspeed_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest=../../{{Dest_dir}}/ramspeed/ramspeed_temp
       with_items: files_to_copy.stdout_lines
     - name: registering log files
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
       register: copy_log_results
     - name: copying log results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/ramspeed/ramspeed_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest=../../{{Dest_dir}}/ramspeed/ramspeed_temp
       with_items: copy_log_results.stdout_lines
 
   
@@ -79,4 +79,3 @@
       shell: ( find ../../{{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/ramspeed/logs)
     - name: removing ramspeed_log
       shell: rm -rf ../../{{Dest_dir}}/ramspeed/ramspeed_temp
-

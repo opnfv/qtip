@@ -1,11 +1,14 @@
  - hosts: 127.0.0.1
    connection: local
+   remote_user: '{{ ansible_env.USER }}'
+   sudo: no
    tasks:
     - name: making ssl directory
       file: path=../../{{Dest_dir}}/ssl state=directory
     - name: making temporary ssl directory
       file: path=../../{{Dest_dir}}/ssl/ssl_temp state=directory
  - hosts: "{{role}}"
+   remote_user: root
    tasks:
    
     - name: checking_home directory
@@ -70,6 +73,8 @@
 
  - hosts: 127.0.0.1
    connection: local
+   remote_user: '{{ ansible_env.USER }}'
+   sudo: no
    tasks:
     - name: extracting_json
       shell: ( find  ../../{{Dest_dir}}/ssl/ssl_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/ssl/)

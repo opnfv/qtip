@@ -1,0 +1,82 @@
+ - hosts: 127.0.0.1
+   connection: local
+   tasks:
+    - name: making fio  directory
+      file: path={{Dest_dir}}/fio state=directory
+    - name: making temporary fio directory
+      file: path={{Dest_dir}}/fio/fio_temp state=directory
+ 
+
+ - hosts: "{{role}}"
+   tasks:
+   
+    - name: checking_home directory
+      shell: echo $HOME
+      register: home_dir
+    - name: cleaning
+      shell: rm -rf $HOME/fio
+    - name: cleaning previous results
+      shell: rm -rf $HOME/qtip_result
+    - name: making fio temporary directory
+      shell: mkdir $HOME/fio  
+    - name: making  results temporary directory
+      shell: mkdir $HOME/qtip_result 
+    - include: ./sys_info_pbook.yaml
+      vars:
+          network: false
+    - name: Installing fio dependencies when CentOS
+      shell: yum install wget gcc libaio-devel -y
+      when: ansible_os_family == "RedHat"
+    - name: Installing fio dependencies when Ubuntu
+      shell: apt-get  install wget gcc libaio-dev -y
+      when: ansible_os_family == "Debian"
+#    - name: make dummy file
+#      shell: touch $HOME/ramspeed/ramspeed.tar.gz
+    - name: Fetching fio
+      shell: cd $HOME/fio/ && wget http://freecode.com/urls/3aa21b8c106cab742bf1f20d60629e3f -O fio.tar.gz
+    - name: Untar fio
+      shell: cd $HOME/fio/ && tar -zxvf fio.tar.gz
+    - name: configure
+      shell: cd $HOME/fio/fio-2.1.10  && ./configure && make 
+    - name: Fetching fio job
+      copy: src=./../fio_jobs/test_job  dest={{home_dir.stdout}}/fio/fio-2.1.10/
+    - name: Benchmarking block storage through fio
+      shell: cd $HOME/fio/fio-2.1.10  &&  ./fio --output-format=json --output=$HOME/qtip_result/fio_result.json test_job
+    - name: Fetching result transformation script
+      copy: src=./result_transform/fio/fio_result_transform.py dest={{home_dir.stdout}}/qtip_result
+    - name: Transforming result
+      shell: cd $HOME/qtip_result  &&  python fio_result_transform.py
+    - name: copy report formation script
+      copy: src=./result_transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+    - name: consolidating report
+      shell: cd $HOME/qtip_result &&  python final_report.py FIO
+    - name: registering files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
+      register: files_to_copy
+    - name: copy results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/fio/fio_temp
+      with_items: files_to_copy.stdout_lines
+    - name: registering log files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
+      register: copy_log_results
+    - name: copying log results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/fio/fio_temp
+      with_items: copy_log_results.stdout_lines
+
+  
+    - name: copy results
+      fetch:  src=/root/results/{{item}}  dest={{Dest_dir}}/fio
+      with_items: files_to_copy.stdout_lines
+
+ - hosts: 127.0.0.1
+   connection: local
+   tasks:
+    - name: extracting_json
+      shell: ( find  {{Dest_dir}}/fio/fio_temp/ -name "*.json" | xargs cp -t {{Dest_dir}}/fio/)
+    - name: making_logs_folder
+      shell: mkdir -p {{Dest_dir}}/fio/logs
+    - name: extracting_log
+      shell: ( find {{Dest_dir}}/fio/fio_temp/ -name "*.log"  | xargs cp -t {{Dest_dir}}/fio/logs)
+    - name: removing fio_log
+      shell: rm -rf {{Dest_dir}}/fio/fio_temp
+

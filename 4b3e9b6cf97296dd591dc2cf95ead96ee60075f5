@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a5c5d37_8d79aa31",
+        "filename": "docker/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 459
+      },
+      "writtenOn": "2015-12-22T08:59:45Z",
+      "side": 1,
+      "message": "If QTIP generates data or downloads stuff, I recommend that you create another directory /home/opnfv/qtip to put it. Otherwise, it is not needed.",
+      "revId": "4b3e9b6cf97296dd591dc2cf95ead96ee60075f5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_ed8266ff",
+        "filename": "docker/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 459
+      },
+      "writtenOn": "2015-12-22T08:59:45Z",
+      "side": 1,
+      "message": "I\u0027m not sure if you need this 3 lines (for now), since we use it in Functest to pass an ssh_key for Apex...",
+      "revId": "4b3e9b6cf97296dd591dc2cf95ead96ee60075f5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

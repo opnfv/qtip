@@ -11,7 +11,7 @@
      shell: yum  install libselinux-python -y
      when: ansible_os_family == "RedHat"
    - name: Install ansiblle copy dependencies if remote host has selinux enaled
-     shell: apt-get install libselinux-python -y
+     shell: apt-get install python-selinux -y
      when: ansible_os_family == "Debian"
    - name: system_info script copy
      copy: src=./info_script/info_collect.py dest={{home_dir.stdout}}/qtip_result/

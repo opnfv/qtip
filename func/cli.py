@@ -16,41 +16,50 @@ import argparse
 
 
 class cli():
-
+    
+    def _getfile(self, filepath):
+        with open('test_list/'+filepath,'r') as finput:
+            _benchmarks=finput.readlines()
+        for items in range( len(_benchmarks)):
+            _benchmarks[items]=_benchmarks[items].rstrip()
+        return _benchmarks
+    def _getsuite(self, filepath):
+        for suites in range (len(filepath)):
+            xindex= filepath[suites].find('.')
+            filepath[suites]=filepath[suites][0:xindex]
+        return filepath
     def __init__(self):
-
+        suite=[]
         parser = argparse.ArgumentParser()
-
-        parser.add_argument('-s ', '--suite', help='compute network storage ')
-        parser.add_argument('-b', '--benchmark',
-                            help='''COMPUTE:
-                        dhrystone_serial.yaml \n
-                        dhrystone_paralle.yaml \n
-                        whetstone_serial.yaml \n
-                        whetstone_parllel.yaml \n
-                        dpi_serial.yaml \n
-                        dpi_paralle.yaml \n
-                        ssl_serial.yaml \n
-                        ssl_parallel.yaml ''')
+        parser.add_argument('-l ', '--lab', help='Name of Lab on which being tested ')
+        parser.add_argument('-f', '--file', help = 'File in test_list with the list ' \
+                                                'of tests')
         args = parser.parse_args()
-        if not (args.suite or args.benchmark):
-            parser.error('Not enough arguments, -h, --help ')
-            sys.exit(0)
-        if (args.suite and args.benchmark):
-            obj = Env_setup()
-            if os.path.isfile('./test_cases/' + args.suite +
-                    '/' + args.benchmark):
+        benchmarks = self._getfile(args.file)
+        suite.append(args.file)
+        suite=self._getsuite(suite)
+        for items in range (len(benchmarks)):
+            if (suite and benchmarks):
 
-                [benchmark, roles, vm_info, benchmark_details, pip] = obj.parse('./test_cases/' + args.suite
-                                                 + '/' + args.benchmark)
+                roles=''
+                vm_info=''
+                benchmark_details=''
+                pip=''
+                obj=''
+                obj = Env_setup()
+                if os.path.isfile('./test_cases/'+args.lab.lower()+'/'+suite[0]+'/' +benchmarks[items]):
+                    [benchmark, roles, vm_info, benchmark_details, pip] = obj.parse('./test_cases/'
+                                                                    +args.lab.lower()+'/'+suite[0]+'/'+benchmarks[items])
 
-                if len(vm_info) != 0:
-                    vmObj = SpawnVM(vm_info)
-                obj.callpingtest()
-                obj.callsshtest()
-                obj.updateAnsible()
-                dvr = Driver()
-                dvr.drive_bench(benchmark, obj.roles_dict.items(), benchmark_details, obj.ip_pw_dict.items())
-            else:
-                print (args.benchmark, ' is not a Template in the Directory - \
-                            Enter a Valid file name. or use qtip.py -h for list')
+                    if len(vm_info) != 0:
+                        vmObj =''
+                        vmObj = SpawnVM(vm_info)
+                    obj.callpingtest()
+                    obj.callsshtest()
+                    obj.updateAnsible()
+                    dvr = Driver()
+                    dvr.drive_bench(benchmark, obj.roles_dict.items(), benchmark_details, obj.ip_pw_dict.items())
+                else:
+                    print (args.benchmark, ' is not a Template in the Directory - \
+                                Enter a Valid file name. or use qtip.py -h for list')
+        

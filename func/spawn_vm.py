@@ -26,8 +26,6 @@ class SpawnVM(Env_setup):
 
     def __init__(self, vm_info):
         print 'SpawnVM Class initiated'
-
-   # def setupVM(self,vm_info):
         vm_role_ip_dict = vm_info.copy()
         print 'Generating Heat Template\n'
         self._keystone_client = None
@@ -37,12 +35,12 @@ class SpawnVM(Env_setup):
         nova =self. _get_nova_client()
         azoneobj = create_zones()
         azoneobj.create_agg(vm_info['availability_zone'])
-
         self.Heat_template1 = self.HeatTemplate_vm(vm_info)
         self.create_stack(vm_role_ip_dict, self.Heat_template1)
 
     def HeatTemplate_vm(self, vm_params):
         try:
+            Heat_Dic=''
             with open('./heat/SampleHeat.yaml', 'r+') as H_temp:
                 Heat_Dic = yaml.load(H_temp)
         except yaml.YAMLError as exc:
@@ -51,7 +49,6 @@ class SpawnVM(Env_setup):
                 print 'Error in qtip/heat/SampleHeat.yaml at: (%s,%s)' % (mark.line + 1, mark.column + 1)
                 print 'EXITING PROGRAM. Correct File and restart'
                 sys.exit(0)
-        #fopen = open('/root/.ssh/id_rsa.pub', 'r')
         fopen = open('./data/QtipKey.pub', 'r')
         fopenstr = fopen.read()
         fopenstr = fopenstr.rstrip()
@@ -65,6 +62,10 @@ class SpawnVM(Env_setup):
                     'save_private_key': 'true',
                     'name': 'my_key'
             }
+        }
+        Heat_Dic['parameters']['public_network'] = {
+            'type': 'string',
+            'default': vm_params['public_network'][0]
         }
         for x in range(1, len(vm_params['availability_zone']) + 1):
             avail_zone = vm_params['availability_zone'][x - 1]
@@ -215,11 +216,10 @@ class SpawnVM(Env_setup):
 
         print '\nStack Creating Started\n'
 
-       # try:
-        heat.stacks.create(stack_name=stackname, template=Heat_template)
-
-        #except:
-            #print 'Create Failed :( '
+        try:
+            heat.stacks.create(stack_name=stackname, template=Heat_template)
+        except:
+            print 'Create Failed :( '
 
         cluster_detail = heat.stacks.get(stackname)
         while(cluster_detail.status != 'COMPLETE'):

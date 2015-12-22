@@ -1,16 +1,10 @@
 heat_template_version: 2014-10-16
 parameters:
 
-  public_network:
-    type: string
-    label: Publi_N_ID
-    description: Public
-    default: 'net04_ext'
-
   private_net_name:
     type: string
     default: 'private_network'
-
+    
   availability_zone:
     type: string
     description: The AvailZone.

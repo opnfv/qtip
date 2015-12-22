@@ -26,6 +26,14 @@ class Env_setup():
 
     def __init__(self):
         print '\nParsing class initiated\n'
+        self.roles_ip_list[:]=[]
+        self.ip_pw_list[:] = []
+        self.roles_dict.clear()
+        self.ip_pw_dict.clear()
+        self.ip_pip_list[:] = []
+        self.vm_parameters.clear()
+        self.benchmark_details.clear()
+        self.benchmark = ''
 
     def writeTofile(self, role):
         fname2 = open('./data/hosts', 'w')

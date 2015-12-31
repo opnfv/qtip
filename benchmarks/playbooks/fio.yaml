@@ -63,11 +63,6 @@
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest=../../{{Dest_dir}}/fio/fio_temp
       with_items: copy_log_results.stdout_lines
 
-
-    - name: copy results
-      fetch:  src=/root/results/{{item}}  dest=../../{{Dest_dir}}/fio
-      with_items: files_to_copy.stdout_lines
-
  - hosts: 127.0.0.1
    connection: local
    tasks:

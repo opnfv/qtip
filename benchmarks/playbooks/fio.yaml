@@ -2,9 +2,9 @@
    connection: local
    tasks:
     - name: making fio  directory
-      file: path={{Dest_dir}}/fio state=directory
+      file: path=../../{{Dest_dir}}/fio state=directory
     - name: making temporary fio directory
-      file: path={{Dest_dir}}/fio/fio_temp state=directory
+      file: path=../../{{Dest_dir}}/fio/fio_temp state=directory
 
 
  - hosts: "{{role}}"
@@ -54,29 +54,29 @@
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
       register: files_to_copy
     - name: copy results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/fio/fio_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest=../../{{Dest_dir}}/fio/fio_temp
       with_items: files_to_copy.stdout_lines
     - name: registering log files
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
       register: copy_log_results
     - name: copying log results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/fio/fio_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest=../../{{Dest_dir}}/fio/fio_temp
       with_items: copy_log_results.stdout_lines
 
 
     - name: copy results
-      fetch:  src=/root/results/{{item}}  dest={{Dest_dir}}/fio
+      fetch:  src=/root/results/{{item}}  dest=../../{{Dest_dir}}/fio
       with_items: files_to_copy.stdout_lines
 
  - hosts: 127.0.0.1
    connection: local
    tasks:
     - name: extracting_json
-      shell: ( find  {{Dest_dir}}/fio/fio_temp/ -name "*.json" | xargs cp -t {{Dest_dir}}/fio/)
+      shell: ( find  ../../{{Dest_dir}}/fio/fio_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/fio/)
     - name: making_logs_folder
-      shell: mkdir -p {{Dest_dir}}/fio/logs
+      shell: mkdir -p ../../{{Dest_dir}}/fio/logs
     - name: extracting_log
-      shell: ( find {{Dest_dir}}/fio/fio_temp/ -name "*.log"  | xargs cp -t {{Dest_dir}}/fio/logs)
+      shell: ( find ../../{{Dest_dir}}/fio/fio_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/fio/logs)
     - name: removing fio_log
-      shell: rm -rf {{Dest_dir}}/fio/fio_temp
+      shell: rm -rf ../../{{Dest_dir}}/fio/fio_temp
 

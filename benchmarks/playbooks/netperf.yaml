@@ -72,3 +72,5 @@
     - name: extracting_json
       shell: ( find  ../../{{Dest_dir}}/netperf/netperf_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/netperf/)
       when: rolename == "2-host"
+    - name: removing netperf_temp
+      shell: rm -rf ../../{{Dest_dir}}/netperf/netperf_temp

@@ -5,8 +5,8 @@ Scenario:
   client: virtualmachine_2
   benchmark_details:
     duration: 20
-    protocol: udp
-    bandwidthGbps: 1
+    protocol: tcp
+    bandwidthGbps: 10
 
 Context:
   Host_Machines:
@@ -16,14 +16,14 @@ Context:
     virtualmachine_1:
       availability_zone: compute1
       OS_image: QTIP_CentOS
-      public_network: 'provider_network'
+      public_network: 'net04_ext'
       role: 1-server
       flavor: m1.large   
 
     virtualmachine_2:
       availability_zone: compute2
       OS_image: QTIP_CentOS
-      public_network: 'provider_network'
+      public_network: 'net04_ext'
       role: 2-host
       flavor: m1.large
     

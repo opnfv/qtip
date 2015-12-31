@@ -21,8 +21,8 @@
    - name: collecting system information for network test  cases
      shell: cd $HOME/qtip_result && python info_collect.py n
      when: network
-   - name: system_info script copy
-     copy: src=./info_script/info_collect.py dest={{home_dir.stdout}}/qtip_result/
-   - name: collecting_sys_info
-     shell: cd $HOME/qtip_result &&  python info_collect.py   
+
+
+
+
 

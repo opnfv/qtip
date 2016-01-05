@@ -57,15 +57,15 @@ class Env_setup():
 
                 ssh_c = 'ssh-keyscan {0} >> ~/.ssh/known_hosts'.format(k)
 
-                #os.system(ssh_c)
-                ssh_cmd = 'expect ./data/ssh_exch.exp {0} {1}'.format(ipvar, pwvar)
+                os.system(ssh_c)
+                ssh_cmd = './data/qtip_creds.sh  {0}'.format(ipvar)
                 print ssh_cmd
                 res = os.system(ssh_cmd) 
                 for infinity in range(100):
                     try :
                         ssh = paramiko.SSHClient()
                         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                        ssh.connect(k , username = 'root', password = v)
+                        ssh.connect(k , key_filename= './data/QtipKey')
                         stdin, stdout, stderr = ssh.exec_command('ls')
                         print('SSH successful')
                         break
@@ -79,7 +79,7 @@ class Env_setup():
                 time.sleep(3)
                 os.system(ssh_c)
 
-                for infinity in range(100):
+                for infinity in range(10):
                     try :
                         ssh = paramiko.SSHClient()
                         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())

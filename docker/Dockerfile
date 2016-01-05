@@ -10,7 +10,8 @@ LABEL version="0.1" description="OPNFV QTIP Docker container"
 
 
 
-ENV repos_dir /home/opnfv/repos
+ENV REPOS_DIR /home/opnfv/repos
+ENV QTIP_DIR /home/opnfv/repos/qtip
 WORKDIR /home/opnfv
 
 

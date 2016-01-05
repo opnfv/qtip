@@ -16,8 +16,8 @@ case "$INSTALLER_TYPE" in
        *)
         echo "Unkown installer $INSTALLER_TYPE specified";;
 esac
-
+echo $PWD
 sshoptions="-o StrictHostKeyChecking=no"
-sshpass -p $PSWD scp $sshoptions QtipKey.pub root@$INSTALLER_IP:/root
+sshpass -p $PSWD scp $sshoptions ./data/QtipKey.pub root@$INSTALLER_IP:/root
 sshpass -p $PSWD ssh $sshoptions root@$INSTALLER_IP "ssh-copy-id -i /root/QtipKey.pub root@$DEST_IP && rm -rf /root/QtipKey.pub"
 

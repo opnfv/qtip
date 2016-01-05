@@ -100,6 +100,47 @@ if [ "$installer_type" == "fuel" ]; then
     #NOTE: this is super ugly sed 's/v1\/.*/v1\//'OS_AUTH_URL
     # but sometimes the output of endpoint-list is like this: http://172.30.9.70:8004/v1/%(tenant_id)s
 
+elif [ "$installer_type" == "apex" ]; then
+    verify_connectivity $installer_ip
+
+    # The credentials file is located in the Instack VM (192.0.2.1)
+    # NOTE: This might change for bare metal deployments
+    info "Fetching rc file from Instack VM $installer_ip..."
+    if [ -f /root/.ssh/id_rsa ]; then
+        chmod 600 /root/.ssh/id_rsa
+    fi
+    sudo scp $ssh_options root@$installer_ip:/home/stack/overcloudrc $dest_path
+
+elif [ "$installer_type" == "compass" ]; then
+    verify_connectivity $installer_ip
+    controller_ip=$(sshpass -p'root' ssh 2>/dev/null $ssh_options root@${installer_ip} \
+        'mysql -ucompass -pcompass -Dcompass -e"select *  from cluster;"' \
+        | awk -F"," '{for(i=1;i<NF;i++)if($i~/\"host1\"/) {print $(i+1);break;}}'  \
+        | grep -oP "\d+.\d+.\d+.\d+")
+
+    if [ -z $controller_ip ]; then
+        error "The controller $controller_ip is not up. Please check that the POD is correctly deployed."
+    fi
+
+    info "Fetching rc file from controller $controller_ip..."
+    sshpass -p root ssh 2>/dev/null $ssh_options root@${installer_ip} \
+        "scp $ssh_options ${controller_ip}:/opt/admin-openrc.sh ." &> /dev/null
+    sshpass -p root scp 2>/dev/null $ssh_options root@${installer_ip}:~/admin-openrc.sh $dest_path &> /dev/null
+    echo 'export OS_REGION_NAME=regionOne' >> $dest_path
+
+    info "This file contains the mgmt keystone API, we need the public one for our rc file"
+    admin_ip=$(cat $dest_path | grep "OS_AUTH_URL" | sed 's/^.*\=//' | sed "s/^\([\"']\)\(.*\)\1\$/\2/g" | sed s'/\/$//')
+    info "admin_ip: $admin_ip"
+    public_ip=$(sshpass -p root ssh $ssh_options root@${installer_ip} \
+        "ssh ${controller_ip} 'source /opt/admin-openrc.sh; keystone endpoint-list'" \
+        | grep $admin_ip | sed 's/ /\n/g' | grep ^http | head -1)
+    info "public_ip: $public_ip"
+
+
+elif [ "$installer_type" == "joid" ]; then
+    # do nothing...for the moment
+    # we can either do a scp from the jumphost or use the -v option to transmit the param to the docker file
+    echo "Do nothing, creds will be provided through volume option at docker creation for joid"
 
 elif [ "$installer_type" == "foreman" ]; then
     #ip_foreman="172.30.10.73"
@@ -125,45 +166,21 @@ elif [ "$installer_type" == "foreman" ]; then
         'source keystonerc_admin;keystone endpoint-list'" \
         | grep $admin_ip | sed 's/ /\n/g' | grep ^http | head -1) &> /dev/null
 
-elif [ "$installer_type" == "compass" ]; then
-    #ip_compass="10.1.0.12"
-    verify_connectivity $installer_ip
-
-    # controller_ip='10.1.0.222'
-    controller_ip=$(sshpass -p'root' ssh 2>/dev/null -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@10.1.0.12 \
-        'mysql -ucompass -pcompass -Dcompass -e"select package_config  from cluster;"' \
-        | awk -F"," '{for(i=1;i<NF;i++)if($i~/\"ha_proxy\": {\"vip\":/)print $i}' \
-        | grep -oP "\d+.\d+.\d+.\d+")
-    if [ -z $controller_ip ]; then
-        error "The controller $controller_ip is not up. Please check that the POD is correctly deployed."
-    fi
-
-    info "Fetching rc file from controller $controller_ip..."
-    sshpass -p root ssh 2>/dev/null $ssh_options root@${installer_ip} \
-        "scp $ssh_options ${controller_ip}:/opt/admin-openrc.sh ." &> /dev/null
-    sshpass -p root scp 2>/dev/null $ssh_options root@${installer_ip}:~/admin-openrc.sh $dest_path &> /dev/null
-    echo 'export OS_REGION_NAME=regionOne' >> $dest_path
-
-    info "This file contains the mgmt keystone API, we need the public one for our rc file"
-    admin_ip=$(cat $dest_path | grep "OS_AUTH_URL" | sed 's/^.*\=//' | sed "s/^\([\"']\)\(.*\)\1\$/\2/g" | sed s'/\/$//')
-    info "admin_ip: $admin_ip"
-    public_ip=$(sshpass -p root ssh $ssh_options root@${installer_ip} \
-        "ssh ${controller_ip} 'source /opt/admin-openrc.sh; keystone endpoint-list'" \
-        | grep $admin_ip | sed 's/ /\n/g' | grep ^http | head -1)
-    info "public_ip: $public_ip"
-
 else
     error "Installer $installer is not supported by this script"
 fi
 
 
-
-if [ "$public_ip" == "" ]; then
-    error "Cannot retrieve the public IP from keystone"
+if [ ! -f $dest_path ]; then
+    error "There has been an error retrieving the credentials"
 fi
 
-info "Keystone public IP is $public_ip"
-sed -i  "/OS_AUTH_URL/c\export OS_AUTH_URL=\'$public_ip'" $dest_path
+if [ "$public_ip" != "" ]; then
+    info "Exchanging keystone public IP in rc file to $public_ip"
+    sed -i  "/OS_AUTH_URL/c\export OS_AUTH_URL=\'$public_ip'" $dest_path
+fi
+
+
 
 echo "-------- Credentials: --------"
 cat $dest_path

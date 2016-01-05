@@ -1,2 +1,2 @@
-fio_baremetal.yaml
+fio_bm.yaml
 fio_vm.yaml

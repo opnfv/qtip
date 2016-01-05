@@ -5,7 +5,7 @@
      shell: yum install inxi -y
      when: ansible_os_family == "RedHat"
    - name: system info collection tool install when Ubuntu
-     shell: apt-get install inxi -y
+     shell: apt-get update && apt-get install inxi -y
      when: ansible_os_family  == "Debian"
    - name: Install ansible copy dependencies if remote host has selinux enabled
      shell: yum  install libselinux-python -y

@@ -19,3 +19,4 @@ while getopts ":n:i:" optchar; do
            usage ;;
     esac
 done
+./fetch_os_creds.sh -d opnfv-creds.sh

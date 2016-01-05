@@ -48,18 +48,18 @@ os.system("cat AES-128-CBC_dump >> " + hostname + "-" + time_stamp + ".log")
 result = {}
 
 result['1. Version'] = [openssl_version]
-result['2. RSA singatures'] = {}
-result['2. RSA singatures']['1. 512 bits (sign/s)'] = [rsa_512_sps]
-result['2. RSA singatures']['2. 1024 bits (sign/s)'] = [rsa_1024_sps]
-result['2. RSA singatures']['3. 2048 bits (sign/s)'] = [rsa_2048_sps]
-result['2. RSA singatures']['4. 4096 bits (sign/s)'] = [rsa_4096_sps]
+result['2. RSA signatures'] = {}
+result['2. RSA signatures']['1. 512 bits (sign/s)'] = rsa_512_sps
+result['2. RSA signatures']['2. 1024 bits (sign/s)'] = rsa_1024_sps
+result['2. RSA signatures']['3. 2048 bits (sign/s)'] = rsa_2048_sps
+result['2. RSA signatures']['4. 4096 bits (sign/s)'] = rsa_4096_sps
 
 result['3. AES-128-cbc throughput'] = {}
-result['3. AES-128-cbc throughput']['1. 16 Bytes block (B/sec)'] = [aes_16B]
-result['3. AES-128-cbc throughput']['2. 64 Bytes block (B/sec)'] = [aes_64B]
-result['3. AES-128-cbc throughput']['3. 256 Bytes block (B/sec)'] = [aes_256B]
-result['3. AES-128-cbc throughput']['4. 1024 Bytes block (B/sec)'] = [aes_1024B]
-result['3. AES-128-cbc throughput']['5. 16 Bytes block (B/sec)'] = [aes_8192B]
+result['3. AES-128-cbc throughput']['1. 16 Bytes block (B/sec)'] = aes_16B
+result['3. AES-128-cbc throughput']['2. 64 Bytes block (B/sec)'] = aes_64B
+result['3. AES-128-cbc throughput']['3. 256 Bytes block (B/sec)'] = aes_256B
+result['3. AES-128-cbc throughput']['4. 1024 Bytes block (B/sec)'] = aes_1024B
+result['3. AES-128-cbc throughput']['5. 8192 Bytes block (B/sec)'] = aes_8192B
 
 
 with open('./result_temp', 'w+') as result_file:

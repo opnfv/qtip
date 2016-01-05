@@ -17,7 +17,7 @@ est_ob2.close()
 
 Info_dict={};
 inxi_host=os.popen("""cat $PWD/est_1 | grep -o -P '(?<=Host:).*(?=Kernel)' """).read().lstrip().rstrip()
-inxi_mem=os.popen("""cat $PWD/est_1 | grep -o -P '(?<=Memory:).*(?=Init)' """).read().lstrip().rstrip()
+inxi_mem=os.popen("""cat $PWD/est_1 | grep -o -P '(?<=Memory:).*(?=MB)' """).read().lstrip().rstrip()+"MB"
 inxi_cpu=os.popen("""cat $PWD/est_1 | grep -o -P '(?<=CPU).*(?=speed)' | cut -f2 -d':'""").read().lstrip().rstrip()
 inxi_distro=os.popen(""" cat $PWD/est_1 | grep -o -P '(?<=Distro:).*(?=Machine:)' """).read().rstrip().lstrip()
 inxi_kernel=os.popen(""" cat $PWD/est_1 | grep -o -P '(?<=Kernel:).*(?=Console:)' """).read().rstrip().lstrip()
@@ -72,7 +72,7 @@ if (network_flag == 'n'):
                 Info_dict['9_Network_Interfaces']['Interface_'+str(x)]['2_Interface_info']=inxi_card_2 
             else:
                 print "No network cards"
-    os.system("bwm-ng -c 1 | grep -v '=' | grep -v 'iface' | grep -v '-'   > bwm_dump")
+    os.system("bwm-ng -o plain -c 1 | grep -v '=' | grep -v 'iface' | grep -v '-'   > bwm_dump")
     n_interface=int(os.popen(" cat bwm_dump | grep -v 'total' |  wc -l ").read().rstrip())
     interface={};
     for x in range (1,n_interface):
@@ -82,7 +82,7 @@ if (network_flag == 'n'):
         interface[str(interface_name)]['Tx (KB/s)']=os.popen(" cat bwm_dump | awk 'NR=="+str(x)+"' | awk '{print $4}' ").read().rstrip()
         interface[str(interface_name)]['Total (KB/s)']=os.popen(" cat bwm_dump | awk 'NR== "+str(x)+"' | awk '{print $6}' ").read().rstrip()
  
-    Info_dict['Interface I/O']=interface
+    Info_dict['10.Interface I/O']=interface
 
 print Info_dict
     

@@ -1,0 +1,31 @@
+{
+    "1  Time of Report": "2016-01-04T04:57:03.318991", 
+    "2  System Information": {
+        "1_Hostname": "instance2", 
+        "2_Product": "OpenStack Nova v: 2014.2.2 serial: cfb53fc0-9d58-4499-bf27-68a03a3fabcb", 
+        "3_OS Distribution": "CentOS Linux release 7.1.1503 (Core)", 
+        "4_Kernel": "3.10.0-229.7.2.el7.x86_64 x86_64 (64 bit)", 
+        "5_CPU": "4 Single core Intel Xeon E312xx (Sandy Bridge)s (-SMP-)            speed", 
+        "6_CPU_Usage": "7.8%", 
+        "7_Memory Usage": "172.4/7984.5MB", 
+        "8_Disk usage": "85.9GB (1.7% used)", 
+        "9_Network_Interfaces": {
+            "Interface_1": {
+                "1_Network_Card": "Red Hat Virtio network device", 
+                "2_Interface_info": "eth0 state: up speed: N/A duplex: N/A mac: fa:16:3e:7a:3b:0d"
+            }
+        }, 
+        "Interface I/O": {}
+    }, 
+    "3  IPERF result": {
+        "1. Version": "iperf 3.0.11", 
+        "2. Bandwidth": {
+            "1. throughput Sender (b/s)": 9982390000.0, 
+            "2. throughput Received (b/s)": 9998070000.0
+        }, 
+        "3. CPU": {
+            "1. CPU host total (%)": 72.9347, 
+            "2. CPU remote total (%)": 17.2733
+        }
+    }
+}

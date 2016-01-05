@@ -1,0 +1,49 @@
+{
+    "1  Time of Report": "2016-01-05T05:47:52.369987", 
+    "2  System Information": {
+        "1_Hostname": "node-37.domain.tld", 
+        "2_Product": "PowerEdge M620 serial: 23Z78X1", 
+        "3_OS Distribution": "Ubuntu 14.04 trusty", 
+        "4_Kernel": "3.13.0-68-generic x86_64 (64 bit)", 
+        "5_CPU": "2 Hexa core Intel Xeon CPU E5-2640 0s (-HT-MCP-SMP-) clocked at 2500.010 MHz  Graphics", 
+        "6_CPU_Usage": "0.6%", 
+        "7_Memory Usage": "", 
+        "8_Disk usage": "598.9GB (0.9% used)"
+    }, 
+    "3  SSL result": {
+        "1. Version": [
+            "OpenSSL 1.0.2e 3 Dec 2015"
+        ], 
+        "2. RSA singatures": {
+            "1. 512 bits (sign/s)": [
+                "15546.1"
+            ], 
+            "2. 1024 bits (sign/s)": [
+                "5457.5"
+            ], 
+            "3. 2048 bits (sign/s)": [
+                "768.6"
+            ], 
+            "4. 4096 bits (sign/s)": [
+                "106.0"
+            ]
+        }, 
+        "3. AES-128-cbc throughput": {
+            "1. 16 Bytes block (B/sec)": [
+                "407529.63k"
+            ], 
+            "2. 64 Bytes block (B/sec)": [
+                "490972.71k"
+            ], 
+            "3. 256 Bytes block (B/sec)": [
+                "585397.84k"
+            ], 
+            "4. 1024 Bytes block (B/sec)": [
+                "590020.61k"
+            ], 
+            "5. 16 Bytes block (B/sec)": [
+                "590757.89k"
+            ]
+        }
+    }
+}

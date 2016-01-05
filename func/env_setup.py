@@ -56,7 +56,6 @@ class Env_setup():
                 time.sleep(2)
 
                 ssh_c = 'ssh-keyscan {0} >> ~/.ssh/known_hosts'.format(k)
-
                 os.system(ssh_c)
                 ssh_cmd = './data/qtip_creds.sh  {0}'.format(ipvar)
                 print ssh_cmd
@@ -70,7 +69,7 @@ class Env_setup():
                         print('SSH successful')
                         break
                     except:
-                        print 'Retrying SSH'
+                        print 'Retrying aSSH'
                         time.sleep(1)    
             if v == '':
                 print ('SSH->>>>>', k)

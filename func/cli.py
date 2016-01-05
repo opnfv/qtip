@@ -28,6 +28,7 @@ class cli():
             xindex= filepath[suites].find('.')
             filepath[suites]=filepath[suites][0:xindex]
         return filepath
+        
     def __init__(self):
         suite=[]
         parser = argparse.ArgumentParser()
@@ -50,7 +51,7 @@ class cli():
                 if os.path.isfile('./test_cases/'+args.lab.lower()+'/'+suite[0]+'/' +benchmarks[items]):
                     [benchmark, roles, vm_info, benchmark_details, pip] = obj.parse('./test_cases/'
                                                                     +args.lab.lower()+'/'+suite[0]+'/'+benchmarks[items])
-
+                    
                     if len(vm_info) != 0:
                         vmObj =''
                         vmObj = SpawnVM(vm_info)

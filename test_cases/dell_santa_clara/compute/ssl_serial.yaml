@@ -6,17 +6,16 @@ Scenario:
 Context:
   Host_Machines:
     machine_1:
-      ip: 172.18.0.16
-      pw: Op3nStack
+      ip: 10.20.0.7
+      pw: r00tme
       role: 1Run
   Virtual_Machines:  
     virtualmachine_1:
       availability_zone: compute1
-      public_network: 'net04_ext'
-      OS_image: QTIP_CentOS
+      public_network: net04_ext
+      OS_image: QTIP_Centos
       flavor: m1.large
-      role: 2Run
-
+      role: 1Run
 Test_Description:
   Test_category: "Compute"
   Benchmark: "ssl"

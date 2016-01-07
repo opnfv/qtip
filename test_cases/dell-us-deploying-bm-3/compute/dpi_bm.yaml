@@ -5,12 +5,12 @@ Scenario:
 Context:
   Host_Machines:
      machine_1:
-       ip: 10.20.0.6
-       pw: 
+       ip: 10.20.0.4
+       pw: Op3nStack
        role: 1host
      machine_2:
        ip: 10.20.0.5
-       pw: 
+       pw: Op3nStack
        role: 1host
   Virtual_Machines:
 Test_Description:

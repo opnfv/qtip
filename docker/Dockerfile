@@ -36,16 +36,16 @@ RUN apt-get install ansible --force-yes -y
 
 
 
-RUN mkdir -p ${repos_dir}
+RUN mkdir -p ${REPOS_DIR}
 RUN mkdir -p /root/.ssh
 RUN chmod 700 /root/.ssh
 
 #Cloning Repos
 
 RUN git config --global http.sslVerify false
-RUN git clone https://gerrit.opnfv.org/gerrit/qtip $repos_dir/qtip
-RUN git clone https://gerrit.opnfv.org/gerrit/releng $repos_dir/releng
+RUN git clone https://gerrit.opnfv.org/gerrit/qtip $REPOS_DIR/qtip
+RUN git clone https://gerrit.opnfv.org/gerrit/releng $REPOS_DIR/releng
 
-RUN pip install -r $repos_dir/qtip/docker/packages.pip
+RUN pip install -r $REPOS_DIR/qtip/docker/packages.pip
 
 

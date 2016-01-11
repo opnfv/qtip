@@ -24,9 +24,9 @@ class cli():
             _benchmarks[items]=_benchmarks[items].rstrip()
         return _benchmarks
     def _getsuite(self, filepath):
-        for suites in range (len(filepath)):
-            xindex= filepath[suites].find('.')
-            filepath[suites]=filepath[suites][0:xindex]
+#        for suites in range (len(filepath)):
+ #           xindex= filepath[suites].find('.')
+  #          filepath[suites]=filepath[suites][0:xindex]
         return filepath
         
     def __init__(self):

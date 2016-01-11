@@ -1,7 +1,6 @@
 Scenario:
   benchmark: dpi
   1Run : virtualmachine_1, virtualmachine_2
-  2Run:
 
 Context:
   Host_Machines:

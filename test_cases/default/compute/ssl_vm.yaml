@@ -1,7 +1,6 @@
 Scenario:
   benchmark: ssl
-  host: machine_1, machine_2
-  server: 
+  host: virtualmachine_1, virtualmachine_2
 
 Context:
   Host_Machines:

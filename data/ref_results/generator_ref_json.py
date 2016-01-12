@@ -20,6 +20,11 @@ dict_ref['compute']['ssl']['AES']['256B']=803323650
 dict_ref['compute']['ssl']['AES']['1024B']=808861020
 dict_ref['compute']['ssl']['AES']['8192B']=807701160
 
+dict_ref['compute']['ramspeed']={};
+dict_ref['compute']['ramspeed']['INTmem']={};
+dict_ref['compute']['ramspeed']['FLOATmem']={};
+dict_ref['compute']['ramspeed']['INTmem']['Average (MB/s)']=11775.85
+dict_ref['compute']['ramspeed']['FLOATmem']['Average (MB/s)']=9780.23
 
 dict_ref['storage']={};
 dict_ref['storage']['read']={};

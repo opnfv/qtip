@@ -7,7 +7,7 @@ cd ${QTIP_DIR}  &&  source get_env_info.sh \
 -n ${INSTALLER_TYPE} \
 -i ${INSTALLER_IP}
 
-source ${QTIP_DIR}/data/opnfv-creds.sh
+source ${QTIP_DIR}/opnfv-creds.sh
 
 if [ "$TEST_CASE" == "compute" ]; then
     cd ${QTIP_DIR}  && python qtip.py -l ${NODE_NAME} -f compute.txt

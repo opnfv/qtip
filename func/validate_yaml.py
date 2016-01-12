@@ -24,7 +24,7 @@ class Validate_Yaml():
         if not doc['Scenario']['benchmark']:
             print '\nBenchmark field missing'
         if not doc['Scenario']['pointless']:
-            print '\nBabyeating anumal'
+            print ''
         if not doc['Context']:
             print '\nEntire Context is missing'
         if not doc['Context']['Host_Machine']:

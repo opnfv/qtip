@@ -18,24 +18,58 @@ import argparse
 class cli():
     
     def _getfile(self, filepath):
+    
         with open('test_list/'+filepath,'r') as finput:
             _benchmarks=finput.readlines()
         for items in range( len(_benchmarks)):
             _benchmarks[items]=_benchmarks[items].rstrip()
         return _benchmarks
-    def _getsuite(self, filepath):
-#        for suites in range (len(filepath)):
- #           xindex= filepath[suites].find('.')
-  #          filepath[suites]=filepath[suites][0:xindex]
-        return filepath
         
+    def _getsuite(self, filepath):
+
+        return filepath
+    
+    def _checkTestList(self, filename):
+    
+        if os.path.isfile('test_list/'+filename):
+            return True
+        else:
+            return False
+
+    def _checkLabName(self, labname):
+
+        if os.path.isdir('test_cases/'+labname):
+            return True
+        else:
+            return False
+
     def __init__(self):
+    
         suite=[]
         parser = argparse.ArgumentParser()
-        parser.add_argument('-l ', '--lab', help='Name of Lab on which being tested ')
-        parser.add_argument('-f', '--file', help = 'File in test_list with the list ' \
-                                                'of tests')
+        parser.add_argument('-l ', '--lab', help='Name of Lab on which being tested, These can' \
+                                            'be found in the test_cases/ directory. Please ' \
+                                            'ensure that you have edited the respective files '\
+                                            'before using them. For testing other than through Jenkins'\
+                                            ' The user should list default after -l . all the fields in'\
+                                            ' the files are necessary and should be filled')
+        parser.add_argument('-f', '--file', help = 'File in test_list with the list of tests. there are three files' \
+                                            '\n compute '\
+                                            '\n storage '\
+                                            '\n network '\
+                                            'They contain all the tests that will be run. They are listed by suite.' \
+                                            'Please ensure there are no empty lines')
         args = parser.parse_args()
+        
+        if not self._checkTestList(args.file):
+            print '\n\n ERROR: Test File Does not exist in test_list/ please enter correct file \n\n'
+            sys.exit(0)
+
+        if not self._checkLabName(args.lab):
+            print '\n\n You have specified a lab that is not present in test_cases/ please enter correct'\
+                    ' file. If unsure how to proceed, use -l default.\n\n'
+            sys.exit(0)
+
         benchmarks = self._getfile(args.file)
         suite.append(args.file)
         suite=self._getsuite(suite)
@@ -63,4 +97,3 @@ class cli():
                 else:
                     print (args.benchmark, ' is not a Template in the Directory - \
                                 Enter a Valid file name. or use qtip.py -h for list')
-        

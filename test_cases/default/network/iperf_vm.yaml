@@ -3,14 +3,14 @@ Scenario:
   topology: Client and Server on ONE compute
   server : virtualmachine_1
   client: virtualmachine_2
+  description: 'Leave the bandwidth as 0 to throttle maximum traffic'
   benchmark_details:
     duration: 20 
     protocol: tcp
-    bandwidthGbps: 10
+    bandwidthGbps: 0
 
 Context:
   Host_Machines:
-
 
   Virtual_Machines:
     virtualmachine_1:
@@ -26,7 +26,7 @@ Context:
       public_network: 'net04_ext'
       role: 2-host
       flavor: m1.large
-    
+
 Test_Description:
   Test_category: "network"
   Benchmark: "iperf"

@@ -34,19 +34,19 @@ os.system("cp  Floatmem >> " + hostname + "-" + time_stamp + ".log")
 result = {};
 
 result['1. INTmem bandwidth'] = {};
-result['1. INTmem bandwidth']['1. Copy (MB/s)'] = [intmem_copy]
-result['1. INTmem bandwidth']['2. Add (MB/s)'] = [intmem_add]
-result['1. INTmem bandwidth']['3. Scale (MB/s)'] = [intmem_scale]
-result['1. INTmem bandwidth']['4.Triad (MB/s)']= [intmem_triad]
-result['1. INTmem bandwidth']['5. Average (MB/s)'] = [intmem_average]
+result['1. INTmem bandwidth']['1. Copy (MB/s)']=intmem_copy
+result['1. INTmem bandwidth']['2. Add (MB/s)']=intmem_add
+result['1. INTmem bandwidth']['3. Scale (MB/s)']=intmem_scale
+result['1. INTmem bandwidth']['4. Triad (MB/s)']=intmem_triad
+result['1. INTmem bandwidth']['5. Average (MB/s)']=intmem_average
 
 
 result['2. FLOATmem bandwidth'] = {};
-result['2. FLOATmem bandwidth']['1.Copy (MB/s)']=[floatmem_copy]
-result['2. FLOATmem bandwidth']['2.Add (MB/s)']=[floatmem_add]
-result['2. FLOATmem bandwidth']['3.Scale (MB/s)']=[floatmem_scale]
-result['2. FLOATmem bandwidth']['4.Triad (MB/s)']=[floatmem_triad]
-result['2. FLOATmem bandwidth']['4.Copy (MB/s)']=[floatmem_average]
+result['2. FLOATmem bandwidth']['1. Copy (MB/s)']=floatmem_copy
+result['2. FLOATmem bandwidth']['2. Add (MB/s)']=floatmem_add
+result['2. FLOATmem bandwidth']['3. Scale (MB/s)']=floatmem_scale
+result['2. FLOATmem bandwidth']['4. Triad (MB/s)']=floatmem_triad
+result['2. FLOATmem bandwidth']['5. Average(MB/s)']=floatmem_average
 
 
 

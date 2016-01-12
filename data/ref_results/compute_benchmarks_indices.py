@@ -9,7 +9,7 @@ def dpi_index ():
     for k,v in dpi_dict.iteritems():
         for i,j in dpi_dict[k].iteritems():
             if i=="3  DPI result": 
-                raw_num=int(dpi_dict[k][i]["DPI_benchmark(Gb/s)"])
+                raw_num=float(dpi_dict[k][i]["DPI_benchmark(Gb/s)"])
                 total=total+raw_num
     
     l=len(dpi_dict)
@@ -44,6 +44,37 @@ def dwstone_index (file_dir,benchmark):
     dwstone_dict_i['1. Index']=dwstone_index
     dwstone_dict_i['2. Results']=dwstone_dict
     return dwstone_dict_i
+
+
+def ramspeed_index ():
+    total_int=0
+    total_float=0
+    ramspeed_dict=concat('../../results/ramspeed/')
+    for k,v in ramspeed_dict.iteritems():
+        for i,j in ramspeed_dict[k].iteritems():
+            if i=="3  RamSpeed result":
+                for a,b in ramspeed_dict[k][i].iteritems():
+                    if a=="1. INTmem bandwidth":
+                        raw_int=ramspeed_dict[k][i][a]["5. Average (MB/s)"]
+                        total_int=total_int+float(raw_int)
+                    elif a=="2. FLOATmem bandwidth":
+                        raw_float=ramspeed_dict[k][i][a]["5. Average (MB/s)"]
+                        total_float=total_float+float(raw_float)
+
+    l=len(ramspeed_dict)
+    with open ('./reference.json') as reference_file:
+        reference_djson=json.load(reference_file)
+        int_mem_ref=reference_djson['compute']['ramspeed']['INTmem']['Average (MB/s)']
+        float_mem_ref=reference_djson['compute']['ramspeed']['FLOATmem']['Average (MB/s)']
+        
+    int_mem_index= float((total_int/l)/int_mem_ref)
+    float_mem_index=float((total_float/l)/float_mem_ref)
+    ramspeed_index=float((int_mem_index+float_mem_index)/2)
+    ramspeed_dict_i={};
+    ramspeed_dict_i['1. Index']=ramspeed_index
+    ramspeed_dict_i['2. Results']=ramspeed_dict
+    return ramspeed_dict_i
+
 
 def ssl_index ():
     total_512rsa=0

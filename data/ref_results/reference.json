@@ -2,6 +2,14 @@
     "compute": {
         "dhrystone": 3146.66, 
         "dpi": 8.12, 
+        "ramspeed": {
+            "FLOATmem": {
+                "Average (MB/s)": 9780.23
+            }, 
+            "INTmem": {
+                "Average (MB/s)": 11775.85
+            }
+        }, 
         "ssl": {
             "AES": {
                 "1024B": 808861020, 

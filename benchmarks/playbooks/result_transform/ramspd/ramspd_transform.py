@@ -46,7 +46,7 @@ result['2. FLOATmem bandwidth']['1. Copy (MB/s)']=floatmem_copy
 result['2. FLOATmem bandwidth']['2. Add (MB/s)']=floatmem_add
 result['2. FLOATmem bandwidth']['3. Scale (MB/s)']=floatmem_scale
 result['2. FLOATmem bandwidth']['4. Triad (MB/s)']=floatmem_triad
-result['2. FLOATmem bandwidth']['5. Average(MB/s)']=floatmem_average
+result['2. FLOATmem bandwidth']['5. Average (MB/s)']=floatmem_average
 
 
 

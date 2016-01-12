@@ -107,6 +107,9 @@ class create_zones:
 
         for x in range(len(zone_machine)):
             compute_index = self.get_compute_num(D[x])
+            if compute_index > len(hyper_list):
+                print '\n The specified compute node doesnt exist. using compute 1'
+                compute_index = 1
             if not self.check_aggregate(nova, hostnA[compute_index]):
                 agg_idA = nova.aggregates.create(hostnA[compute_index], D[x])
                 nova.aggregates.add_host(aggregate=agg_idA, host=hostnA[compute_index])

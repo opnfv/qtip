@@ -15,7 +15,7 @@ for benchmark in compute_bench_list:
 compute_suite_index=temp/len(compute_bench_list)
 
 compute_dict_f={};
-compute_dict_f['1. Compute Index']=compute_suite_index
+compute_dict_f['1. Index']=compute_suite_index
 compute_dict_f['2. Compute suite results']=compute_dict
 with open('../../results/compute_result.json', 'w+') as result_json:
     json.dump(compute_dict_f, result_json, indent=4, sort_keys=True)

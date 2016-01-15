@@ -13,11 +13,11 @@ Context:
     machine_1:
         ip: 10.20.0.5
         pw:
-        role: 1-server
+        role: 2-host
     machine_2:
         ip: 10.20.0.6
         pw:
-        role: 2-host
+        role: 1-server
 
   Virtual_Machines:
     

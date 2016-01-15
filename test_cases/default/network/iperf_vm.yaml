@@ -5,7 +5,7 @@ Scenario:
   client: virtualmachine_2
   description: 'Leave the bandwidth as 0 to throttle maximum traffic'
   benchmark_details:
-    duration: 20 
+    duration: 20
     protocol: tcp
     bandwidthGbps: 0
 
@@ -18,7 +18,7 @@ Context:
       OS_image: QTIP_CentOS
       public_network: 'net04_ext'
       role: 1-server
-      flavor: m1.large   
+      flavor: m1.large
 
     virtualmachine_2:
       availability_zone: compute4

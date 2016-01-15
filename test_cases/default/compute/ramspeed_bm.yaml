@@ -7,7 +7,7 @@ Scenario:
 Context:
   Host_Machines:
     machine_1:
-      ip: 10.20.0.6
+      ip: 10.20.0.4
       pw: 
       role: host
     machine_2:

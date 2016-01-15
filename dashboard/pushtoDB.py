@@ -42,7 +42,7 @@ def main():
     global payload_list
     populate_payload(suite_list)
     for suite,case in payload_list.items():
-        with open('results/'+suite,'r') as result_file: 
+        with open('results/'+suite,'r') as result_file:
             j=json.load(result_file)
         push_results_to_db(TEST_DB, case , j)
 

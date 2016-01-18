@@ -19,6 +19,7 @@ Contents:
    :maxdepth: 4
 
    documentation-example.rst
+   01-introduction.rst
 
 Indices and tables
 ==================

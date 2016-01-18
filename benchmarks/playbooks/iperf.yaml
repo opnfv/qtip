@@ -17,6 +17,9 @@
       set_fact:
         rolename: "{{role}}"
         when: role is defined
+    - name: installertype
+      set_fact:
+        installertype: "{{installer}}"
     - name: Get Hostname
       shell: echo $HOSTNAME
       register: hostID
@@ -43,10 +46,11 @@
       shell: iptables -L INPUT --line-number | grep DROP | awk '{print $1}'
       register: iptable_entry
       ignore_errors: yes
+      when: installertype == 'fuel'
     - name: Removing entry number
       shell: iptables -D INPUT {{iptable_entry.stdout}}
       ignore_errors: yes
-      when: iptable_entry != ''
+      when: iptable_entry != '' and installertype == 'fuel'
     - name: Installing IPERF when Ubuntu
       shell: apt-get install iperf3 -y
       when: ansible_os_family == "Debian" and rolename == '1-server'  

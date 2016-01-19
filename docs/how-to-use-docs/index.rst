@@ -20,6 +20,9 @@ Contents:
 
    documentation-example.rst
    01-introduction.rst
+   02-methodology.rst
+   03-usage-guide.rst
+
 
 Indices and tables
 ==================

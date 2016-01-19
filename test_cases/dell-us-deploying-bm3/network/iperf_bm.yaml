@@ -15,7 +15,7 @@ Context:
         pw:
         role: 1-server
     machine_2:
-        ip: 10.20.0.6
+        ip: 10.20.0.4
         pw:
         role: 2-host
 

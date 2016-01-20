@@ -67,10 +67,10 @@
    connection: local
    tasks:
     - name: extracting_json
-      shell: ( find  ../../{{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/ramspeed/)
+      shell: (find  ../../{{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/ramspeed/)
     - name: making_logs_folder
       shell: mkdir -p ../../{{Dest_dir}}/ramspeed/logs
     - name: extracting_log
-      shell: ( find ../../{{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/ramspeed/logs)
+      shell: (find ../../{{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/ramspeed/logs)
     - name: removing ramspeed_log
       shell: rm -rf ../../{{Dest_dir}}/ramspeed/ramspeed_temp

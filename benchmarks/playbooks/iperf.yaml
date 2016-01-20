@@ -111,12 +111,12 @@
         rolename: "{{role}}"
         when: role is defined
     - name: extracting_json
-      shell: ( find  ../../{{Dest_dir}}/iperf/iperf_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/iperf/)
+      shell: (find  ../../{{Dest_dir}}/iperf/iperf_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/iperf/)
       when: rolename == "2-host"
     - name: making_logs_folder
       shell: mkdir -p ../../{{Dest_dir}}/iperf/logs
     - name: extracting_log
-      shell: ( find ../../{{Dest_dir}}/iperf/iperf_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/iperf/logs)
+      shell: (find ../../{{Dest_dir}}/iperf/iperf_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/iperf/logs)
       when: rolename == "2-host"
     - name: removing iperf_raw file
       shell: rm -rf ../../{{Dest_dir}}/iperf/iperf_raw.json

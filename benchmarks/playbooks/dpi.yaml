@@ -77,10 +77,10 @@
    connection: local
    tasks:
     - name: extracting_json
-      shell: ( find  ../../{{Dest_dir}}/dpi/dpi_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/dpi/)
+      shell: (find  ../../{{Dest_dir}}/dpi/dpi_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/dpi/)
     - name: making_logs_folder
       shell: mkdir -p ../../{{Dest_dir}}/dpi/logs
     - name: extracting_log
-      shell: ( find ../../{{Dest_dir}}/dpi/dpi_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/dpi/logs)
+      shell: (find ../../{{Dest_dir}}/dpi/dpi_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/dpi/logs)
     - name: removing dpi_temp
       shell: rm -rf ../../{{Dest_dir}}/dpi/dpi_temp

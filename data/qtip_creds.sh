@@ -10,7 +10,7 @@ case "$INSTALLER_TYPE" in
     fuel)
         PSWD="r00tme";;
     compass)
-        PSWD="compass";;
+        PSWD="root";;
     joid)
         PSWD="joid";;
        *)

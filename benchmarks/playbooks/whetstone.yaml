@@ -72,10 +72,10 @@
    connection: local
    tasks:
     - name: extracting_json
-      shell: ( find  ../../{{Dest_dir}}/whetstone/whetstone_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/whetstone/)
+      shell: (find  ../../{{Dest_dir}}/whetstone/whetstone_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/whetstone/)
     - name: making_logs_folder
       shell: mkdir -p ../../{{Dest_dir}}/whetstone/logs
     - name: extracting_log
-      shell: ( find ../../{{Dest_dir}}/whetstone/whetstone_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/whetstone/logs)
+      shell: (find ../../{{Dest_dir}}/whetstone/whetstone_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/whetstone/logs)
     - name: removing whetstone_temp 
       shell: rm -rf ../../{{Dest_dir}}/whetstone/whetstone_temp

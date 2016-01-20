@@ -72,11 +72,11 @@
    connection: local
    tasks:
     - name: extracting_json
-      shell: ( find  ../../{{Dest_dir}}/dhrystone/dhrystone_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/dhrystone/)
+      shell: (find  ../../{{Dest_dir}}/dhrystone/dhrystone_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/dhrystone/)
     - name: making_logs_folder
       shell: mkdir -p ../../{{Dest_dir}}/dhrystone/logs
     - name: extracting_log
-      shell: ( find ../../{{Dest_dir}}/dhrystone/dhrystone_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/dhrystone/logs)
+      shell: (find ../../{{Dest_dir}}/dhrystone/dhrystone_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/dhrystone/logs)
     - name: removing dhrystone_temp 
       shell: rm -rf ../../{{Dest_dir}}/dhrystone/dhrystone_temp 
    # - name: cleaning_2

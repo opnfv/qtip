@@ -272,3 +272,42 @@ Sample dhrystone_vm.yaml file:
     Overview: >
     This test will run the dhrystone benchmark in parallel on 
     machine_1 and machine_2.\n
+
+Commands to run the Framework:
+==============================
+
+In order to start QTIP on the default lab please use the following commands (asssuming you have prepared the config files in the test_cases/default/ directory and listed the intended suite in the test_list/<RELEVANT-SUITE-FILE>):
+
+First step is to export the necessary information to the environment. 
+::
+
+  source get_env_info.sh -n <INSTALLER_TYPE> -i <INSTALLER_IP>
+
+for running qtip on an openstack deployed using FUEL with the Installer IP 10.20.0.2
+::
+
+   source get_env_info.sh -n fuel -i 10.20.0.2
+
+This will generate the `opnfv-creds.sh` file needed to use the python clients for keystone, glance, nova, and neutron.
+::
+
+  source opnfv-creds.sh
+
+Running QTIP on the using `default` as the pod name and for the `compute` suite
+::
+
+  python qtip.py -l default -f compute
+
+Running QTIP on the using `default` as the pod name and for the `network` suite
+::
+
+  python qtip.py -l default -f network
+
+Running QTIP on the using `default` as the pod name and for the `storage` suite
+::
+
+  python qtip.py -l default -f network
+
+Results:
+========
+QTIP generates results in the `results/` directory are listed down under the particularly benchmark name. So all the results for dhrystone would be listed and time stamped.

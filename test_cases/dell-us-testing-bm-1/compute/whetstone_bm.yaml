@@ -1,4 +1,4 @@
-  
+
 Scenario:
   benchmark: whetstone
   host: machine_1, machine_2
@@ -8,15 +8,15 @@ Context:
   Host_Machines:
     machine_1:
       ip: 10.20.0.6
-      pw: 
+      pw:
       role: host
     machine_2:
       ip: 10.20.0.5
       pw:
       role: host
-  Virtual_Machines:  
-   
-      
+  Virtual_Machines:
+
+
 
 Test_Description:
   Test_category: "Compute"
@@ -30,5 +30,5 @@ Test_Description:
           pw:
           role:
            '''
-  
- 
+
+

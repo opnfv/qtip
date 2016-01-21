@@ -4,13 +4,13 @@
    sudo: no
    tasks:
     - name: making ssl directory
-      file: path=../../{{Dest_dir}}/ssl state=directory
+      file: path={{workingdir}}/{{Dest_dir}}/ssl state=directory
     - name: making temporary ssl directory
-      file: path=../../{{Dest_dir}}/ssl/ssl_temp state=directory
+      file: path={{workingdir}}/{{Dest_dir}}/ssl/ssl_temp state=directory
  - hosts: "{{role}}"
    remote_user: root
    tasks:
-   
+
     - name: checking_home directory
       shell: echo $HOME
       register: home_dir
@@ -19,9 +19,9 @@
     - name: cleaning previous results
       shell: rm -rf $HOME/qtip_result
     - name: making OpenSSL temporary directory
-      shell: mkdir $HOME/Open_SSL  
+      shell: mkdir $HOME/Open_SSL
     - name: making  results temporary directory
-      shell: mkdir $HOME/qtip_result 
+      shell: mkdir $HOME/qtip_result
     - include: ./sys_info_pbook.yaml
       vars:
           network: false
@@ -37,8 +37,8 @@
       shell: cd $HOME/Open_SSL/ && tar -zxvf openssl-1.0.2e.tar.gz
     - name: configure
       shell: cd $HOME/Open_SSL/openssl-1.0.2e  && ./config
-    - name: make 
-      shell: cd  $HOME/Open_SSL/openssl-1.0.2e && make 
+    - name: make
+      shell: cd  $HOME/Open_SSL/openssl-1.0.2e && make
     - name: make install
       shell: cd  $HOME/Open_SSL/openssl-1.0.2e  && make install
     - name: Benchmarking RSA signatures
@@ -57,16 +57,16 @@
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
       register: files_to_copy
     - name: copy results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest=../../{{Dest_dir}}/ssl/ssl_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/ssl/ssl_temp
       with_items: files_to_copy.stdout_lines
     - name: registering log files
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
       register: copy_log_results
     - name: copying log results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest=../../{{Dest_dir}}/ssl/ssl_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/ssl/ssl_temp
       with_items: copy_log_results.stdout_lines
 
-  
+
   #  - name: copy results
   #    fetch:  src=/root/results/{{item}}  dest={{Dest_dir}}/ssl
   #    with_items: files_to_copy.stdout_lines
@@ -76,11 +76,13 @@
    remote_user: '{{ ansible_env.USER }}'
    sudo: no
    tasks:
+    - name: echo
+      shell: echo $PWD
     - name: extracting_json
-      shell: (find  ../../{{Dest_dir}}/ssl/ssl_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/ssl/)
+      shell: ( find {{workingdir}}/{{Dest_dir}}/ssl/ssl_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/ssl/)
     - name: making_logs_folder
-      shell: mkdir -p ../../{{Dest_dir}}/ssl/logs
+      shell: mkdir -p {{workingdir}}/{{Dest_dir}}/ssl/logs
     - name: extracting_log
-      shell: (find ../../{{Dest_dir}}/ssl/ssl_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/ssl/logs)
+      shell: ( find {{workingdir}}/{{Dest_dir}}/ssl/ssl_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/ssl/logs)
     - name: removing ssl_temp
-      shell: rm -rf ../../{{Dest_dir}}/ssl/ssl_temp
+      shell: rm -rf {{workingdir}}/{{Dest_dir}}/ssl/ssl_temp

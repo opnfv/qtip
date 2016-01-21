@@ -59,7 +59,7 @@ class Env_setup():
                 os.system(ssh_c)
                 ssh_cmd = './data/qtip_creds.sh  {0}'.format(ipvar)
                 print ssh_cmd
-                res = os.system(ssh_cmd) 
+                res = os.system(ssh_cmd)
                 for infinity in range(100):
                     try :
                         ssh = paramiko.SSHClient()
@@ -70,7 +70,7 @@ class Env_setup():
                         break
                     except:
                         print 'Retrying aSSH'
-                        time.sleep(1)    
+                        time.sleep(1)
             if v == '':
                 print ('SSH->>>>>', k)
                 ssh_c = 'ssh-keyscan {0} >> ~/.ssh/known_hosts'.format(k)

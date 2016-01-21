@@ -16,21 +16,21 @@ import argparse
 
 
 class cli():
-    
+
     def _getfile(self, filepath):
-    
+
         with open('test_list/'+filepath,'r') as finput:
             _benchmarks=finput.readlines()
         for items in range( len(_benchmarks)):
             _benchmarks[items]=_benchmarks[items].rstrip()
         return _benchmarks
-        
+
     def _getsuite(self, filepath):
 
         return filepath
-    
+
     def _checkTestList(self, filename):
-    
+
         if os.path.isfile('test_list/'+filename):
             return True
         else:
@@ -44,7 +44,7 @@ class cli():
             return False
 
     def __init__(self):
-    
+
         suite=[]
         parser = argparse.ArgumentParser()
         parser.add_argument('-l ', '--lab', help='Name of Lab on which being tested, These can' \
@@ -60,7 +60,7 @@ class cli():
                                             'They contain all the tests that will be run. They are listed by suite.' \
                                             'Please ensure there are no empty lines')
         args = parser.parse_args()
-        
+
         if not self._checkTestList(args.file):
             print '\n\n ERROR: Test File Does not exist in test_list/ please enter correct file \n\n'
             sys.exit(0)
@@ -85,7 +85,7 @@ class cli():
                 if os.path.isfile('./test_cases/'+args.lab.lower()+'/'+suite[0]+'/' +benchmarks[items]):
                     [benchmark, roles, vm_info, benchmark_details, pip] = obj.parse('./test_cases/'
                                                                     +args.lab.lower()+'/'+suite[0]+'/'+benchmarks[items])
-                    
+
                     if len(vm_info) != 0:
                         vmObj =''
                         vmObj = SpawnVM(vm_info)

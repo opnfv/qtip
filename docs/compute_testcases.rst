@@ -15,7 +15,7 @@ All the compute benchmarks could be run in 2 scenarios:
 1. On Baremetal Machines provisioned by an OPNFV installer (Host machines)
 2. On Virtual Machines brought up through OpenStack on an OPNFV platform
 
-Note: The Compute benchmark suite constains relatively old benchmarks such as dhrystone and whetstone. The suite would be updated for better benchmarks such as Linbench for the OPNFV C release. 
+Note: The Compute benchmark suite constains relatively old benchmarks such as dhrystone and whetstone. The suite would be updated for better benchmarks such as Linbench for the OPNFV C release.
 
 ============
 Benchmarks

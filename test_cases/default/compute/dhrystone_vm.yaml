@@ -6,7 +6,7 @@ Scenario:
 Context:
   Host_Machines:
 
-  Virtual_Machines:  
+  Virtual_Machines:
     virtualmachine_1:
       availability_zone: compute1
       public_network: 'net04_ext'
@@ -19,7 +19,7 @@ Context:
       OS_image: QTIP_CentOS
       flavor: m1.large
       role: host
-  
+
 Test_Description:
   Test_category: "Compute"
   Benchmark: "dhrystone"

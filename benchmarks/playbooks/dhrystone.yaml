@@ -2,9 +2,9 @@
    connection: local
    tasks:
     - name: making dhrystone directory
-      file: path=../../{{Dest_dir}}/dhrystone/dhrystone_temp state=directory
+      file: path={{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp state=directory
     - name: making temporary dhrystone directory
-      file: path=../../{{Dest_dir}}/dhrystone/dhrystone_temp state=directory
+      file: path={{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp state=directory
  
  - hosts:  "{{role}}"
 
@@ -53,13 +53,13 @@
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
       register: files_to_copy
     - name: copy results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest=../../{{Dest_dir}}/dhrystone/dhrystone_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp
       with_items: files_to_copy.stdout_lines 
     - name: registering log files
       shell: (cd $HOME/qtip_result/log/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
       register: copy_log_results
     - name: copying log results
-      fetch:  src={{home_dir.stdout}}/qtip_result/log/{{item}} dest=../../{{Dest_dir}}/dhrystone/dhrystone_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/log/{{item}} dest={{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp
       with_items: copy_log_results.stdout_lines
      
     - name: cleaning tempT
@@ -72,13 +72,13 @@
    connection: local
    tasks:
     - name: extracting_json
-      shell: (find  ../../{{Dest_dir}}/dhrystone/dhrystone_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/dhrystone/)
+      shell: ( find  {{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/dhrystone/)
     - name: making_logs_folder
-      shell: mkdir -p ../../{{Dest_dir}}/dhrystone/logs
+      shell: mkdir -p {{workingdir}}/{{Dest_dir}}/dhrystone/logs
     - name: extracting_log
-      shell: (find ../../{{Dest_dir}}/dhrystone/dhrystone_temp/ -name "*.log"  | xargs cp -t ../../{{Dest_dir}}/dhrystone/logs)
+      shell: ( find {{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/dhrystone/logs)
     - name: removing dhrystone_temp 
-      shell: rm -rf ../../{{Dest_dir}}/dhrystone/dhrystone_temp 
+      shell: rm -rf {{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp 
    # - name: cleaning_2
    #   file: path=/root/tempT  state=absent
    #   file: path=/root/qtip_result state=absent

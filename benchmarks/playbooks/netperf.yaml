@@ -6,9 +6,9 @@
       shell: echo $PWD
       register: qtip_dir
     - name: making Netperf directory
-      file: path=../../{{Dest_dir}}/netperf state=directory
+      file: path={{workingdir}}/{{Dest_dir}}/netperf state=directory
     - name: making temporary netperf directory
-      file: path=../../{{Dest_dir}}/netperf/netperf_temp state=directory
+      file: path={{workingdir}}/{{Dest_dir}}/netperf/netperf_temp state=directory
 
 
  - hosts: "{{role}}"
@@ -60,7 +60,7 @@
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
       register: files_to_copy
     - name: copy results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest=../../{{Dest_dir}}/netperf/netperf_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/netperf/netperf_temp
       with_items: files_to_copy.stdout_lines
  - hosts: 127.0.0.1
    connection: local
@@ -70,7 +70,7 @@
         rolename: "{{role}}"
         when: role is defined
     - name: extracting_json
-      shell: ( find  ../../{{Dest_dir}}/netperf/netperf_temp/ -name "*.json" | xargs cp -t ../../{{Dest_dir}}/netperf/)
+      shell: ( find  {{workingdir}}/{{Dest_dir}}/netperf/netperf_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/netperf/)
       when: rolename == "2-host"
     - name: removing netperf_temp
-      shell: rm -rf ../../{{Dest_dir}}/netperf/netperf_temp
+      shell: rm -rf {{workingdir}}/{{Dest_dir}}/netperf/netperf_temp

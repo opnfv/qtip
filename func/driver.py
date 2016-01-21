@@ -18,6 +18,7 @@ class Driver:
     def __init__(self):
 
         print "Class driver initialized\n"
+        print os.environ['PWD']
         self.dic_json = defaultdict()
 
     def drive_bench(self, benchmark, roles, benchmark_detail= None, pip_dict = None):
@@ -30,6 +31,7 @@ class Driver:
         self.dic_json['ip1']=''
         self.dic_json['ip2']=''
         self.dic_json['installer']=str(os.environ['INSTALLER_TYPE'])
+        self.dic_json['workingdir']=str(os.environ['PWD'])
         for k,v in benchmark_detail:
             self.dic_json[k]=v
         for k, v in roles:

@@ -19,7 +19,9 @@ def push_results_to_db(db_url, case_name, payload,logger=None, pod_name="dell-us
               "version": "test" , "details": payload}
 
     headers = {'Content-Type': 'application/json'}
-    print json.dumps(params)
+    print pod_name
+    print installer
+    print creation_date
 
     try:
         r = requests.post(url, data=json.dumps(params), headers=headers)
@@ -41,10 +43,15 @@ def main():
 
     global payload_list
     populate_payload(suite_list)
-    for suite,case in payload_list.items():
-        with open('results/'+suite,'r') as result_file:
-            j=json.load(result_file)
-        push_results_to_db(TEST_DB, case , j)
+    if payload_list:
+        print payload_list
+        for suite,case in payload_list.items():
+            with open('results/'+suite,'r') as result_file:
+                j=json.load(result_file)
+            push_results_to_db(TEST_DB, case , j)
+    elif not payload_list:
+        print 'Results not found'
+
 
 if __name__ == "__main__":
     main()

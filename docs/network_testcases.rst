@@ -1,13 +1,13 @@
 NETWORK THROUGHPUT TESTCASE
 
 QTIP uses IPerf3 as the main tool for testing the network throughput.
-There are two tests that are run through the QTIP framework. 
+There are two tests that are run through the QTIP framework.
 
 Network Throughput for VMs
 Network Throughput for Compute Nodes
 
-For the throughout of the compute nodes we simply go into the systems-under-test 
-and install iperf3 on the nodes. One of the SUTs is used a server and the other as a 
+For the throughout of the compute nodes we simply go into the systems-under-test
+and install iperf3 on the nodes. One of the SUTs is used a server and the other as a
 client. The client pushes traffic to the server for a duration specified by the user
 configuration file for iperf. These files can be found in the test_cases/{POD}/network/
 directory. The bandwidth is limited only by the physical link layer speed available to the server.
@@ -32,11 +32,10 @@ involved in this topology, only the OVS (Integration bridge) is being benchmarke
 of 14-15 Gbps.
 
 For the topology where the VMs are spawned on different compute nodes, the path the packet takes becomes more cumbersome.
-The packet leaves a VM and makes its way to the Integration Bridge as in the first topology however the integration bridge 
+The packet leaves a VM and makes its way to the Integration Bridge as in the first topology however the integration bridge
 forwards the packet to the physical link through the ethernet bridge. The packet then gets a VLAN/Tunnel depending on the network
 and is forwarded to the particular Compute node where the second VM is spwaned. The packets enter the compute node through the physical
 ethernet port and makes its way to the VM through the integration bridge and linux bridge. As seen here the path is much more involved
 even when discussed without the mention of overheads faced at all the internfaces so we are seeing the results in the range of 2 Gbps.
 
 
- 

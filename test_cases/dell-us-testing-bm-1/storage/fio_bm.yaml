@@ -7,11 +7,11 @@ Context:
   Host_Machines:
     machine_1:
       ip: 10.20.0.7
-      pw: 
+      pw:
       role: host
     machine_2:
       ip: 10.20.0.6
-      pw: 
+      pw:
       role: host
 
 
@@ -27,7 +27,7 @@ Test_Description:
          The job conists of an fio load of:
           1.50% rand read 50% rand write
           2.Asynch engine
-          3.Direct IO. 
+          3.Direct IO.
           4.Queing depth of 2
 
          if you wish to add another  machine add the following information under the Host_Machines tag

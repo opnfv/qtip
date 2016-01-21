@@ -1,7 +1,8 @@
-dhrystone_vm.yaml
 dhrystone_bm.yaml
+dhrystone_vm.yaml
 whetstone_bm.yaml
 whetstone_vm.yaml
 ssl_bm.yaml
+ssl_vm.yaml
 dpi_bm.yaml
-ramspeed_bm.yaml
+dpi_vm.yaml

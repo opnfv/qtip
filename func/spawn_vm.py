@@ -43,20 +43,22 @@ class SpawnVM(Env_setup):
     def get_installer_type(self):
         print 'Getting Installer Name'
         return os.environ['INSTALLER_TYPE']
-    
+
     def get_public_network(self,installer_detected):
-    
+
         '''
         TODO: GET THE NAMES OF THE PUBLIC NETWORKS for OTHER PROJECTS
-        '''        
+        '''
         print 'Getting Public Network'
         if installer_detected.lower() == 'fuel':
             return 'net04_ext'
         if installer_detected.lower() == 'apex':
-            return 'net04_ext'
+            return 'external'
         if installer_detected.lower() == 'compass':
-            return 'net04_ext'
-            
+            return 'ext-net'
+        if installer_detected.lower() == 'joid':
+            return 'ext-net'
+
     def HeatTemplate_vm(self, vm_params, installer):
         try:
             Heat_Dic=''
@@ -73,7 +75,7 @@ class SpawnVM(Env_setup):
         fopenstr = fopenstr.rstrip()
         scriptcmd = '#!/bin/bash \n echo {0} >>  foo.txt \n echo {1} >> /root/.ssh/authorized_keys'.format(
             fopenstr, fopenstr)
-            
+
         netName = self.get_public_network(installer)
         print netName
         Heat_Dic['heat_template_version'] = '2014-10-16'

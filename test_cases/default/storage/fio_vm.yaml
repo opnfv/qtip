@@ -5,7 +5,7 @@ Scenario:
 
 Context:
   Host_Machines:
-    
+
   Virtual_Machines:
     virtualmachine_1:
       availability_zone: compute1
@@ -29,11 +29,11 @@ Test_Description:
          The job conists of an fio load of:
           1.50% rand read 50% rand write
           2.Asynch engine
-          3.Direct IO. 
+          3.Direct IO.
           4.Queing depth of 2
 
          if you wish to add a virtual machine add the following information under the Virtual_Machine tag
-  
+
         virtualmachine_3:
           availability_zone:
           public_network:

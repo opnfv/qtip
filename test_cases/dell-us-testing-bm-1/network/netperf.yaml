@@ -4,7 +4,7 @@ Scenario:
   server : virtualmachine_1
   client: virtualmachine_2
   benchmark_details:
-    duration: 10 
+    duration: 10
     teststream: udp_stream
 
 Context:
@@ -17,7 +17,7 @@ Context:
       OS_image: QTIP_CentOS
       public_network: 'net04_ext'
       role: 1-server
-      flavor: m1.large   
+      flavor: m1.large
 
     virtualmachine_2:
       availability_zone: compute2
@@ -25,7 +25,7 @@ Context:
       public_network: 'net04_ext'
       role: 2-host
       flavor: m1.large
-    
+
 Test_Description:
   Test_category: "network"
   Benchmark: "netperf"

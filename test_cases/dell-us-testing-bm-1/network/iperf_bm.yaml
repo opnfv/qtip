@@ -20,7 +20,7 @@ Context:
         role: 2-host
 
   Virtual_Machines:
-    
+
 Test_Description:
   Test_category: "network"
   Benchmark: "iperf"
@@ -33,7 +33,7 @@ Test_Description:
           OS_image: QTIP_CentOS
           public_network: 'net04_ext'
           role: 1-server
-          flavor: m1.large   
+          flavor: m1.large
 
         virtualmachine_2:
           availability_zone: compute2
@@ -41,7 +41,7 @@ Test_Description:
           public_network: 'net04_ext'
           role: 2-host
           flavor: m1.large
-    
+
         machine_1:
           ip:
           pw:

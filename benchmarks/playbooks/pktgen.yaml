@@ -1,14 +1,14 @@
  - hosts: 127.0.0.1
    connection: local
-   tasks: 
+   tasks:
 
     - name: getting directory
       shell: echo $PWD
       register: qtip_dir
     - name: making pktgen directory
-      file: path=../../{{Dest_dir}}/pktgen state=directory
+      file: path={{workingdir}}/{{Dest_dir}}/pktgen state=directory
     - name: making temporary pktgen directory
-      file: path=../../{{Dest_dir}}/pktgen/pktgen_temp state=directory
+      file: path={{workingdir}}/{{Dest_dir}}/pktgen/pktgen_temp state=directory
 
 
  - hosts: "{{role}}"
@@ -17,7 +17,7 @@
       set_fact:
         rolename: "{{role}}"
         when: role is defined
-    
+
     - name: IPTABLE Setup
       shell: iptables -F
       when: rolename == '1-server'
@@ -30,7 +30,7 @@
  - hosts: "{{role}}"
    tasks:
     - name: Rolename
-      set_fact: 
+      set_fact:
         rolename: "{{role}}"
         when: role is defined
     - name: Get server packetsize

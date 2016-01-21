@@ -5,7 +5,7 @@ Scenario:
 Context:
   Host_Machines:
 
-  Virtual_Machines:  
+  Virtual_Machines:
     virtualmachine_1:
       availability_zone: compute1
       public_network: 'net04_ext'
@@ -33,4 +33,4 @@ Test_Description:
           OS_image:
           flavor:
           role:
-          '''   
+          '''

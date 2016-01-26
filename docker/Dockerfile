@@ -25,6 +25,7 @@ git \
 gcc \
 ssh \
 expect \
+python-matplotlib \
 python-dev \
 python-pip \
 --no-install-recommends

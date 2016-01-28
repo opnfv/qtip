@@ -21,7 +21,7 @@ class Driver:
         print os.environ['PWD']
         self.dic_json = defaultdict()
 
-    def drive_bench(self, benchmark, roles, benchmark_detail = None, pip_dict = None):
+    def drive_bench(self, benchmark, roles, benchmark_fname, benchmark_detail = None, pip_dict = None):
 
         roles= sorted(roles)
         pip_dict = sorted(pip_dict)
@@ -32,6 +32,12 @@ class Driver:
         self.dic_json['ip2']=''
         self.dic_json['installer']=str(os.environ['INSTALLER_TYPE'])
         self.dic_json['workingdir']=str(os.environ['PWD'])
+        self.dic_json['fname']=str(benchmark_fname)
+        self.dic_json['username']= str('root')
+
+        if os.environ['INSTALLER_TYPE'] == str('joid'):
+            self.dic_json['username']=str('ubuntu')
+
         for k,v in benchmark_detail:
             self.dic_json[k]=v
         for k, v in roles:
@@ -49,5 +55,5 @@ class Driver:
                         index= index+1
             dic_json = json.dumps(dict(self.dic_json.items()))
             print dic_json
-            run_play = 'ansible-playbook -s ./benchmarks/playbooks/{0} --private-key=./data/QtipKey -i ./data/hosts --extra-vars \'{1}\' -v '.format(benchmark_name, dic_json)
+            run_play = 'ansible-playbook ./benchmarks/playbooks/{0}  --private-key=./data/QtipKey -i ./data/hosts --extra-vars \'{1}\' -v'.format(benchmark_name, dic_json)
             status = os.system(run_play)

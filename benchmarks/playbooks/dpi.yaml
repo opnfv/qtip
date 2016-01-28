@@ -7,8 +7,11 @@
       file: path={{workingdir}}/{{Dest_dir}}/dpi/dpi_temp state=directory
 
  - hosts: "{{role}}"
+   become: yes
+   become_user: "{{username}}"
    tasks:
-
+    - name: echo
+      shell: echo $USER
     - name: checking_home directory
       shell: echo $HOME
       register: home_dir

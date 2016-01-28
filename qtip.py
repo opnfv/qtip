@@ -18,7 +18,7 @@ def main():
     os.system('cd data/ref_results && python compute_suite.py')
     os.system('cd data/ref_results && python storage_suite.py')
     os.system('cd data/ref_results && python network_suite.py')
-    os.system('cd data/report && python Qtip_Report.py')
+#   os.system('cd data/report && python Qtip_Report.py')
 
 if __name__ == "__main__":
     main()

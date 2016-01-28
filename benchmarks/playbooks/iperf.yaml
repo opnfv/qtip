@@ -12,6 +12,8 @@
 
 
  - hosts: "{{role}}"
+   become: yes
+   become_user: "{{username}}"
    tasks:
     - name: Rolename
       set_fact:

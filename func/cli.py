@@ -43,6 +43,10 @@ class cli():
         else:
             return False
 
+    def _get_fname(self,file_name):
+        
+        return file_name[0: file_name.find('.')]
+
     def __init__(self):
 
         suite=[]
@@ -93,7 +97,11 @@ class cli():
                     obj.callsshtest()
                     obj.updateAnsible()
                     dvr = Driver()
-                    dvr.drive_bench(benchmark, obj.roles_dict.items(), benchmark_details, obj.ip_pw_dict.items())
+                    dvr.drive_bench(benchmark, 
+                                    obj.roles_dict.items(),
+                                    self._get_fname(benchmarks[items]),
+                                    benchmark_details,
+                                    obj.ip_pw_dict.items())
                 else:
                     print (args.benchmark, ' is not a Template in the Directory - \
                                 Enter a Valid file name. or use qtip.py -h for list')

@@ -9,7 +9,8 @@
  - hosts: "{{role}}"
 
    tasks:
-
+   become: yes
+   become_user: "{{username}}"
     - name: storing_home
       shell: echo $HOME
       register: home_dir

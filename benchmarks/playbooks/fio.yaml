@@ -8,9 +8,9 @@
 
 
  - hosts: "{{role}}"
-   tasks:
    become: yes
    become_user: "{{username}}"
+   tasks:
     - name: checking_home directory
       shell: echo $HOME
       register: home_dir

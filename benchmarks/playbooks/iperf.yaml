@@ -55,7 +55,7 @@
       when: iptable_entry != '' and installertype == 'fuel'
     - name: Installing IPERF when Ubuntu
       shell: apt-get install iperf3 -y
-      when: ansible_os_family == "Debian" and rolename == '1-server'
+      when: ansible_os_family == "Debian"
     - name: Installing Iperf3
       shell: yum install iperf3 -y
       when: ansible_os_family == "RedHat"

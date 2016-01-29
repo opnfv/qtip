@@ -50,7 +50,7 @@
     - name: copy report formation script
       copy: src=./result_transform/final_report.py dest={{home_dir.stdout}}/qtip_result
     - name: consolidating report
-      shell: cd $HOME/qtip_result &&  python final_report.py FIO
+      shell: cd $HOME/qtip_result &&  python final_report.py FIO {{fname}}
     - name: registering files
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
       register: files_to_copy

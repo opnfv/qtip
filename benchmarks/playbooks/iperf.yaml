@@ -85,7 +85,7 @@
       copy: src=./result_transform/final_report.py dest={{home_dir.stdout}}/qtip_result
       when: rolename =="2-host" and "{{ip2}}" == ''
     - name: consolidating report
-      shell: cd $HOME/qtip_result &&  python final_report.py IPERF
+      shell: cd $HOME/qtip_result &&  python final_report.py IPERF {{fname}}
       when: rolename =="2-host" and "{{ip2}}" == ''
     - name: Files to Copy
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2

@@ -45,7 +45,7 @@
     - name: copying consolidated report script
       copy: src=./result_transform/final_report.py  dest={{home_dir.stdout}}/qtip_result/
     - name: making consolidated report
-      shell: cd $HOME/qtip_result && python final_report.py Dhrystone
+      shell: cd $HOME/qtip_result && python final_report.py Dhrystone {{fname}}
     - name: making directory
       file: path={{home_dir.stdout}}/qtip_result/log state=directory
     - name: copying result to temp directory

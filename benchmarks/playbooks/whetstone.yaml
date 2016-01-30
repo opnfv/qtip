@@ -7,10 +7,9 @@
       file: path={{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp state=directory
 
  - hosts: "{{role}}"
-
-   tasks:
    become: yes
    become_user: "{{username}}"
+   tasks:
     - name: storing_home
       shell: echo $HOME
       register: home_dir

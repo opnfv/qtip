@@ -30,19 +30,19 @@
       shell: apt-get  install git gcc wget   perl autoconf automake libpcap-dev libtool -y
       when: ansible_os_family == "Debian"
     - name: Fetching OpenSSL
-      shell: cd $HOME/Open_SSL/ && wget https://www.openssl.org/source/openssl-1.0.2e.tar.gz
+      shell: cd $HOME/Open_SSL/ && wget https://www.openssl.org/source/openssl-1.0.2f.tar.gz
     - name: Untar OpenSSL
-      shell: cd $HOME/Open_SSL/ && tar -zxvf openssl-1.0.2e.tar.gz
+      shell: cd $HOME/Open_SSL/ && tar -zxvf openssl-1.0.2f.tar.gz
     - name: configure
-      shell: cd $HOME/Open_SSL/openssl-1.0.2e  && ./config
+      shell: cd $HOME/Open_SSL/openssl-1.0.2f  && ./config
     - name: make
-      shell: cd  $HOME/Open_SSL/openssl-1.0.2e && make
+      shell: cd  $HOME/Open_SSL/openssl-1.0.2f && make
     - name: make install
-      shell: cd  $HOME/Open_SSL/openssl-1.0.2e  && make install
+      shell: cd  $HOME/Open_SSL/openssl-1.0.2f  && make install
     - name: Benchmarking RSA signatures
-      shell: cd $HOME/Open_SSL/openssl-1.0.2e/apps  &&  ./openssl speed rsa >> $HOME/qtip_result/RSA_dump
+      shell: cd $HOME/Open_SSL/openssl-1.0.2f/apps  &&  ./openssl speed rsa >> $HOME/qtip_result/RSA_dump
     - name: Benchmaring AES-128-cbc cipher encryption  throughput
-      shell: cd $HOME/Open_SSL/openssl-1.0.2e/apps  &&  ./openssl speed -evp aes-128-cbc >> $HOME/qtip_result/AES-128-CBC_dump
+      shell: cd $HOME/Open_SSL/openssl-1.0.2f/apps  &&  ./openssl speed -evp aes-128-cbc >> $HOME/qtip_result/AES-128-CBC_dump
     - name: Fetching result transformation script
       copy: src=./result_transform/ssl/ssl_transform.py dest={{home_dir.stdout}}/qtip_result
     - name: Transforming result

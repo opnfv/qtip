@@ -36,9 +36,10 @@ def generic_index(dict_gen,testcase,reference_num,*args):
             count=count+1
             for arg in args:
                 if arg == args[c-1]:
-                    result=float(dict_temp.get(str(arg)))
+                    try:
+                        result=float(dict_temp.get(str(arg)))
+                    except ValueError:
+                        result=float(dict_temp.get(str(arg))[:-1])*1000
                 dict_temp=dict_temp.get(str(arg))
             total=total+result
-    return compute_index(total, reference_num, count)
-    
-    
+    return compute_index(total, reference_num, count) 

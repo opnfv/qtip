@@ -3,7 +3,7 @@
    tasks:
 
     - name: getting directory
-      shell: echo $PWD
+      shell: sudo echo $PWD
       register: qtip_dir
     - name: making Iperf directory
       file: path={{workingdir}}/{{Dest_dir}}/iperf state=directory
@@ -19,86 +19,111 @@
       set_fact:
         rolename: "{{role}}"
         when: role is defined
+
     - name: installertype
       set_fact:
         installertype: "{{installer}}"
+
     - name: Get Hostname
       shell: echo $HOSTNAME
       register: hostID
+
     - name: echo
       shell: echo index_var
+
     - name: checking_home directory
       shell: echo $HOME
       register: home_dir
+
     - name: cleaning
-      shell: rm -rf $HOME/iperf
+      shell: sudo rm -rf $HOME/iperf
+
     - name: cleaning previous results
-      shell: rm -rf $HOME/qtip_result
+      shell: sudo rm -rf $HOME/qtip_result
+
     - name: making Iperf temporary directory
-      shell: mkdir $HOME/iperf
+      shell: sudo mkdir $HOME/iperf
+
     - name: making  results temporary directory
-      shell: mkdir $HOME/qtip_result
+      shell: sudo mkdir $HOME/qtip_result
+
     - include: ./sys_info_pbook.yaml
       vars:
         network: true
+
     - name: Installing Epel-release when CentOS
-      shell: yum install epel-release -y
+      shell: sudo yum install epel-release -y
       when: ansible_os_family == "RedHat"
+
     - name: Getting Firewall entry number
-      shell: iptables -L INPUT --line-number | grep DROP | awk '{print $1}'
+      shell: sudo iptables -L INPUT --line-number | grep DROP | awk '{print $1}'
       register: iptable_entry
       ignore_errors: yes
       when: installertype == 'fuel'
+
     - name: Removing entry number
-      shell: iptables -D INPUT {{iptable_entry.stdout}}
+      shell: sudo iptables -D INPUT {{iptable_entry.stdout}}
       ignore_errors: yes
       when: iptable_entry != '' and installertype == 'fuel'
+
     - name: Installing IPERF when Ubuntu
-      shell: apt-get install iperf3 -y
+      shell: sudo apt-get install iperf3 -y
       when: ansible_os_family == "Debian"
+
     - name: Installing Iperf3
-      shell: yum install iperf3 -y
+      shell: sudo yum install iperf3 -y
       when: ansible_os_family == "RedHat"
+
     - name: Running iperf on server
-      shell: iperf3 -s
+      shell: sudo iperf3 -s
       async: 400
       poll: 0
       when: rolename == "1-server"
+
     - name: Running Iperf on Host
-      shell: iperf3  --time {{duration}} -b {{bandwidthGbps}}G -c {{ip1}} -J -O10 >> ./qtip_result/iperf_raw.json
+      shell: sudo iperf3  --time {{duration}} -b {{bandwidthGbps}}G -c {{ip1}} -J -O10 >> ./qtip_result/iperf_raw.json
       ignore_errors: yes
       with_items:
         - "{{ip1}}"
       when: rolename == "2-host" and "{{privateip1}}" == "NONE"
+
     - name: Running Iperf on Host
-      shell: iperf3  --time {{duration}} -b{{bandwidthGbps}}G -c {{privateip1}} -J -O10 >> ./qtip_result/iperf_raw.json
+      shell: sudo iperf3  --time {{duration}} -b{{bandwidthGbps}}G -c {{privateip1}} -J -O10 >> ./qtip_result/iperf_raw.json
       ignore_errors: yes
       with_items:
         - "{{ip1}}"
       when: rolename == "2-host" and "{{privateip1}}" != "NONE"
+
     - name: Fetching result transformation script
       copy: src=./result_transform/iperf/iperf_transform.py dest={{home_dir.stdout}}/qtip_result
     - name: Transforming result
-      shell: cd $HOME/qtip_result  &&  python iperf_transform.py
+
+      shell: cd $HOME/qtip_result  &&  sudo python iperf_transform.py
       when: rolename =="2-host" and "{{ip2}}" == ''
+
     - name: copy report formation script
       copy: src=./result_transform/final_report.py dest={{home_dir.stdout}}/qtip_result
       when: rolename =="2-host" and "{{ip2}}" == ''
+
     - name: consolidating report
-      shell: cd $HOME/qtip_result &&  python final_report.py IPERF {{fname}}
+      shell: cd $HOME/qtip_result &&  sudo python final_report.py IPERF {{fname}}
       when: rolename =="2-host" and "{{ip2}}" == ''
+
     - name: Files to Copy
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
       register: files_to_copy
       when: rolename =="2-host" and "{{ip2}}" == ''
+
     - name: copy results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/iperf/iperf_temp
       with_items: files_to_copy.stdout_lines
       when: rolename =="2-host" and "{{ip2}}" == ''
+
     - name: registering log files
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
       register: copy_log_results
       when: rolename =="2-host" and "{{ip2}}" == ''
+
     - name: copying log results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/iperf/iperf_temp
       with_items: copy_log_results.stdout_lines

@@ -3,6 +3,7 @@
    tasks:
     - name: making whetstone directory
       file: path={{workingdir}}/{{Dest_dir}}/whetstone state=directory
+
     - name: making temporary whetstone directory
       file: path={{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp state=directory
 
@@ -13,59 +14,82 @@
     - name: storing_home
       shell: echo $HOME
       register: home_dir
+
     - name: cleaning tempT
-      shell: rm -rf $HOME/tempT
+      shell: sudo rm -rf $HOME/tempT
+
     - name: cleaning_qtip_result
-      shell: rm -rf $HOME/qtip_result
+      shell: sudo rm -rf $HOME/qtip_result
+
     - name: make directory
-      shell: mkdir $HOME/qtip_result
+      shell: sudo mkdir $HOME/qtip_result
+
     - include: ./sys_info_pbook.yaml
       vars:
           network: false
+
     - name: Installing UnixBench dependencies if CentOS
-      shell: yum install git gcc patch perl-Time-HiRes -y
+      shell: sudo yum install git gcc patch perl-Time-HiRes -y
       when: ansible_os_family == "RedHat"
+
     - name: Installing UnixBench dependencies if Ubuntu
-      shell: apt-get install git gcc  patch perl -y
+      shell: sudo apt-get install git gcc  patch perl -y
       when: ansible_os_family == "Debian"
+
     - name: Clone unixbench
       shell: git clone https://github.com/kdlucas/byte-unixbench.git $HOME/tempT
+
     - name: make
-      shell: make --directory $HOME/tempT/UnixBench/
+      shell: sudo make --directory $HOME/tempT/UnixBench/
+
     - name: downloading_patch
-      shell: cd $HOME/tempT/UnixBench/ && wget https://www.dropbox.com/s/11z85gfu0trkhus/fix-limitation.patch
+      shell: cd $HOME/tempT/UnixBench/ && sudo wget https://www.dropbox.com/s/11z85gfu0trkhus/fix-limitation.patch
+
     - name: applying_patch
-      shell: cd $HOME/tempT/UnixBench/ &&  patch Run fix-limitation.patch
+      shell: cd $HOME/tempT/UnixBench/ && sudo patch Run fix-limitation.patch
+
     - name: Run Whetstone
       shell: cd $HOME/tempT/UnixBench/&&./Run -v whetstone
+
     - name: collecting and transforming result script copy
       copy: src=./result_transform/ubench_transform.py dest={{home_dir.stdout}}/qtip_result/
+
     - name: transforming result
-      shell: cd $HOME/qtip_result &&  python ubench_transform.py
+      shell: cd $HOME/qtip_result &&  sudo python ubench_transform.py
+
     - name: copying consolidated report script
       copy: src=./result_transform/final_report.py  dest={{home_dir.stdout}}/qtip_result/
+
     - name: making consolidated report
-      shell: cd $HOME/qtip_result && python final_report.py Whetstone {{fname}}
+      shell: cd $HOME/qtip_result && sudo python final_report.py Whetstone {{fname}}
+
     - name: making directory
       file: path={{home_dir.stdout}}/qtip_result/log state=directory
+
     - name: copying result to temp directory
-      shell: cp -r $HOME/tempT/UnixBench/results/* $HOME/qtip_result/log/
+      shell: sudo cp -r $HOME/tempT/UnixBench/results/* $HOME/qtip_result/log
+
     - name: registering files
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
       register: files_to_copy
+
     - name: copy results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp
       with_items: files_to_copy.stdout_lines
+
     - name: registering log files
       shell: (cd $HOME/qtip_result/log/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
       register: copy_log_results
+
     - name: copying log results
       fetch:  src={{home_dir.stdout}}/qtip_result/log/{{item}} dest={{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp
       with_items: copy_log_results.stdout_lines
+
     - name: cleaning tempT
-      shell: rm -rf $HOME/tempT
+      shell: sudo rm -rf $HOME/tempT
+
     - name: cleaning_qtip_result
-      shell: rm -rf $HOME/qtip_result
+      shell: sudo rm -rf $HOME/qtip_result
 
 
  - hosts: 127.0.0.1
@@ -73,9 +97,12 @@
    tasks:
     - name: extracting_json
       shell: ( find  {{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/whetstone/)
+
     - name: making_logs_folder
       shell: mkdir -p {{workingdir}}/{{Dest_dir}}/whetstone/logs
+
     - name: extracting_log
       shell: ( find {{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/whetstone/logs)
+
     - name: removing whetstone_temp
       shell: rm -rf {{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp

@@ -33,7 +33,7 @@ Both Single CPU performance is measured along multi-cpu performance.
 Dhrystone, however, is a dated benchmark and has some short comings.
 Written in C, it is a small program that doesn't test the CPU memory subsystem. Additionally, dhrystone results could be modified by optimizing the compiler and insome cases hardware configuration.
 
-References:
+References: http://www.eembc.org/techlit/datasheets/dhrystone_wp.pdf
 
 2. Whetstone
 
@@ -41,7 +41,7 @@ Whetstone is a synthetic benchmark to measure CPU floating point operation perfo
 
 Like Dhrystone, Whetstone is a dated benchmark and has short comings.
 
-References:
+References: http://www.netlib.org/benchmark/whetstone.c
 
 3. OpenSSL Speed
 
@@ -49,7 +49,7 @@ OpenSSL Speed can be used to benchmark compute performance of a machine. In QTIP
 1. RSA signatures/sec signed by a machine
 2. AES 128-bit encryption throught for a machine for cipher block sizes
 
-References
+References: https://www.openssl.org/docs/manmaster/apps/speed.html
 
 4. RAMSpeed
 
@@ -62,6 +62,7 @@ d. Triad: a(i)=b(i)+c(i)*d
 
 INTmem uses integers in these four benchmarks whereas FLOATmem uses floating points for these benchmarks.
 
+References: http://alasir.com/software/ramspeed/, https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/W51a7ffcf4dfd_4b40_9d82_446ebc23c550/page/Untangling+memory+access+measurements
 
 5. DPI
 
@@ -69,3 +70,5 @@ nDPI is a modified  variant of  OpenDPI, Open source Deep packet Inspection, tha
 An example application called *pcapreader* has been developed and is available for use along nDPI.
 
 A sample .pcap file is passed to the *pcapreader* application. nDPI classifies traffic in the pcap file into different categories based on string matching . The *pcapreader* application provides a throughput number for the rate at which traffic was classified, indicating a machine's computational performance. The results are run 10 times and an average is taken for the obtained number.
+
+References: http://www.ntop.org/products/deep-packet-inspection/ndpi/, http://www.ntop.org/wp-content/uploads/2013/12/nDPI_QuickStartGuide.pdf

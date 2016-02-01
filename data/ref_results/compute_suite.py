@@ -12,12 +12,14 @@ except  OSError:
    
 
 try:
-    compute_dict['Dhrystone']=benchmark_indices.dwstone_index('dhrystone','Dhrystone')
+    compute_dict['Dhrystone']=benchmark_indices.dhrystone_index()
 except OSError:
     pass
 
+
+
 try:
-    compute_dict['Whetstone']=benchmark_indices.dwstone_index('whetstone','Whetstone') 
+    compute_dict['Whetstone']=benchmark_indices.whetstone_index()
 except OSError:
     pass
 

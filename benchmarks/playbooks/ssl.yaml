@@ -62,7 +62,7 @@
       copy: src=./result_transform/ssl/ssl_transform.py dest={{home_dir.stdout}}/qtip_result
 
     - name: Transforming result
-      shell: sudo cd $HOME/qtip_result  &&  python ssl_transform.py
+      shell: cd $HOME/qtip_result  &&  python ssl_transform.py
 
     - name: copy report formation script
       copy: src=./result_transform/final_report.py dest={{home_dir.stdout}}/qtip_result

@@ -8,10 +8,10 @@ dict_ref['compute']['dpi_vm']=22.12
 
 dict_ref['compute']['whetstone_bm']={};
 dict_ref['compute']['whetstone_vm']={};
-dict_ref['compute']['whetstone_bm']['single_cpu']=859.1
-dict_ref['compute']['whetstone_bm']['multi_cpu']=859.1
-dict_ref['compute']['whetstone_vm']['single_cpu']=859.1
-dict_ref['compute']['whetstone_vm']['multi_cpu']=859.
+dict_ref['compute']['whetstone_bm']['single_cpu']=806.1
+dict_ref['compute']['whetstone_bm']['multi_cpu']=41483.3
+dict_ref['compute']['whetstone_vm']['single_cpu']=789.0
+dict_ref['compute']['whetstone_vm']['multi_cpu']=2950.6
 
 dict_ref['compute']['dhrystone_bm']={};
 dict_ref['compute']['dhrystone_vm']={};
@@ -50,14 +50,14 @@ dict_ref['compute']['ssl_vm']['AES']['8192B']=807701160
 dict_ref['compute']['ramspeed_bm']={};
 dict_ref['compute']['ramspeed_bm']['INTmem']={};
 dict_ref['compute']['ramspeed_bm']['FLOATmem']={};
-dict_ref['compute']['ramspeed_bm']['INTmem']['Average (MB/s)']=11775.85
-dict_ref['compute']['ramspeed_bm']['FLOATmem']['Average (MB/s)']=9780.23
+dict_ref['compute']['ramspeed_bm']['INTmem']['Average (MB/s)']=12268.38
+dict_ref['compute']['ramspeed_bm']['FLOATmem']['Average (MB/s)']=9758.79
 
 dict_ref['compute']['ramspeed_vm']={};
 dict_ref['compute']['ramspeed_vm']['INTmem']={};
 dict_ref['compute']['ramspeed_vm']['FLOATmem']={};
-dict_ref['compute']['ramspeed_vm']['INTmem']['Average (MB/s)']=11775.85
-dict_ref['compute']['ramspeed_vm']['FLOATmem']['Average (MB/s)']=9780.23
+dict_ref['compute']['ramspeed_vm']['INTmem']['Average (MB/s)']=12147.59
+dict_ref['compute']['ramspeed_vm']['FLOATmem']['Average (MB/s)']=9064.09
 
 
 dict_ref['storage']={};

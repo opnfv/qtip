@@ -75,20 +75,20 @@
       when: ansible_os_family == "RedHat"
 
     - name: Running iperf on server
-      shell: sudo iperf3 -s
+      shell: iperf3 -s
       async: 400
       poll: 0
       when: rolename == "1-server"
 
     - name: Running Iperf on Host
-      shell: sudo iperf3  --time {{duration}} -b {{bandwidthGbps}}G -c {{ip1}} -J -O10 >> ./qtip_result/iperf_raw.json
+      shell: iperf3  --time {{duration}} -b {{bandwidthGbps}}G -c {{ip1}} -J -O10 >> ./qtip_result/iperf_raw.json
       ignore_errors: yes
       with_items:
         - "{{ip1}}"
       when: rolename == "2-host" and "{{privateip1}}" == "NONE"
 
     - name: Running Iperf on Host
-      shell: sudo iperf3  --time {{duration}} -b{{bandwidthGbps}}G -c {{privateip1}} -J -O10 >> ./qtip_result/iperf_raw.json
+      shell: iperf3  --time {{duration}} -b{{bandwidthGbps}}G -c {{privateip1}} -J -O10 >> ./qtip_result/iperf_raw.json
       ignore_errors: yes
       with_items:
         - "{{ip1}}"

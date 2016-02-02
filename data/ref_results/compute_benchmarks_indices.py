@@ -74,7 +74,7 @@ def ramspeed_index ():
     ramspeed_int_bm_index=get_index(ramspeed_dict, 'ramspeed_bm', ramspeed_int_bm_ref,'4  RamSpeed result','1. INTmem bandwidth','5. Average (MB/s)')
     
     ramspeed_float_bm_ref=get_reference('compute','ramspeed_bm','FLOATmem','Average (MB/s)')
-    ramspeed_float_bm_index=get_index(ramspeed_dict, 'ramspeed_bm', ramspeed_float_bm_ref,'4  RamSpeed result','1. FLOATmem bandwidth','5. Average (MB/s)')
+    ramspeed_float_bm_index=get_index(ramspeed_dict, 'ramspeed_bm', ramspeed_float_bm_ref,'4  RamSpeed result','2. FLOATmem bandwidth','5. Average (MB/s)')
     
     ramspeed_bm_index=(ramspeed_int_bm_index+ramspeed_float_bm_index)/2
     
@@ -82,7 +82,7 @@ def ramspeed_index ():
     ramspeed_int_vm_index=get_index(ramspeed_dict, 'ramspeed_vm', ramspeed_int_vm_ref,'4  RamSpeed result','1. INTmem bandwidth','5. Average (MB/s)')
     
     ramspeed_float_vm_ref=get_reference('compute','ramspeed_vm','FLOATmem','Average (MB/s)')
-    ramspeed_float_vm_index=get_index(ramspeed_dict, 'ramspeed_vm', ramspeed_float_vm_ref,'4  RamSpeed result','1. FLOATmem bandwidth','5. Average (MB/s)')
+    ramspeed_float_vm_index=get_index(ramspeed_dict, 'ramspeed_vm', ramspeed_float_vm_ref,'4  RamSpeed result','2. FLOATmem bandwidth','5. Average (MB/s)')
     
     ramspeed_vm_index=(ramspeed_int_vm_index+ramspeed_float_vm_index)/2
     

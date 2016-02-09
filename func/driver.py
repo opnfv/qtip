@@ -37,7 +37,8 @@ class Driver:
 
         if os.environ['INSTALLER_TYPE'] == str('joid'):
             self.dic_json['username']=str('ubuntu')
-
+        if os.environ['INSTALLER_TYPE'] == str('apex'):
+            self.dic_json['username']=str('heat-admin')
         for k,v in benchmark_detail:
             self.dic_json[k]=v
         for k, v in roles:

@@ -1,11 +1,17 @@
-..
-   TODO As things will change, then this document has to be revised before the
-   next release. Steps:
-   1. Verify that the instructions below are correct and have not been changed.
-   2. Add everything that is currently missing and should be included in this document.
-   3. Make sure each title has a paragraph or an introductory sentence under it.
-   4. Make sure each sentence is grammatically correct and easily understandable.
-   5. Remove this comment section.
+.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. http://creativecommons.org/licenses/by/4.0
+.. (c) <optionally add copywriters name>
+
+
+.. two dots create a comment. please leave this logo at the top of each of your rst files.
+image:: ../etc/opnfv-logo.png
+  :height: 40
+  :width: 200
+  :alt: OPNFV
+  :align: left
+.. these two pipes are to seperate the logo from the first title
+|
+|
 
 Installation
 ==============
@@ -95,7 +101,7 @@ Verify that opnfv/qtip has been downloaded. It should be listed as an image by r
 ::
 
   sudo docker images
- 
+
 Run the Docker instance:
 ::
 
@@ -129,7 +135,7 @@ For running QTIP manually, it is also necessary to export the installer type. ::
 QTIP  default key pair
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 QTIP uses a SSH key pair to connect to the guest image. This key pair can
-be found in the ``data/`` directory. 
+be found in the ``data/`` directory.
 
 Examples
 --------

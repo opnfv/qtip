@@ -1,8 +1,23 @@
-Qtip Compute testcases
+.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. http://creativecommons.org/licenses/by/4.0
+.. (c) <optionally add copywriters name>
+
+
+.. two dots create a comment. please leave this logo at the top of each of your rst files.
+image:: ../etc/opnfv-logo.png
+  :height: 40
+  :width: 200
+  :alt: OPNFV
+  :align: left
+.. these two pipes are to seperate the logo from the first title
+|
+|
+
+Compute test cases
 ======================
-============
+
 Introduction
-============
+------------
 
 The QTIP testing suite aims to benchmark the compute components of an OPNFV platform.
 Such components include, the CPU performance, the memory performance.
@@ -17,14 +32,13 @@ All the compute benchmarks could be run in 2 scenarios:
 
 Note: The Compute benchmark suite constains relatively old benchmarks such as dhrystone and whetstone. The suite would be updated for better benchmarks such as Linbench for the OPNFV C release.
 
-============
 Benchmarks
-============
+----------
 
 
 The benchmarks include:
 
-1. Dhrystone 2.1
+**1. Dhrystone 2.1**
 
 Dhrystone is a synthetic benchmark for measuring CPU performance. It uses integer calculations to evaluate CPU capabilities.
 Both Single CPU performance is measured along multi-cpu performance.
@@ -35,7 +49,7 @@ Written in C, it is a small program that doesn't test the CPU memory subsystem. 
 
 References: http://www.eembc.org/techlit/datasheets/dhrystone_wp.pdf
 
-2. Whetstone
+**2. Whetstone**
 
 Whetstone is a synthetic benchmark to measure CPU floating point operation performance. Both Single CPU performance is measured along multi-cpu performance.
 
@@ -43,7 +57,7 @@ Like Dhrystone, Whetstone is a dated benchmark and has short comings.
 
 References: http://www.netlib.org/benchmark/whetstone.c
 
-3. OpenSSL Speed
+**3. OpenSSL Speed**
 
 OpenSSL Speed can be used to benchmark compute performance of a machine. In QTIP, two OpenSSL Speed benchmarks are incorporated:
 1. RSA signatures/sec signed by a machine
@@ -51,7 +65,7 @@ OpenSSL Speed can be used to benchmark compute performance of a machine. In QTIP
 
 References: https://www.openssl.org/docs/manmaster/apps/speed.html
 
-4. RAMSpeed
+**4. RAMSpeed**
 
 RAMSpeed is used to measure a machine's memory perfomace. The problem(array)size is large enough to ensure Cache Misses so that the main machine memory is used. INTmem and FLOATmem benchmarks are executed in 4 different scenarios:
 
@@ -64,7 +78,7 @@ INTmem uses integers in these four benchmarks whereas FLOATmem uses floating poi
 
 References: http://alasir.com/software/ramspeed/, https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/W51a7ffcf4dfd_4b40_9d82_446ebc23c550/page/Untangling+memory+access+measurements
 
-5. DPI
+**5. DPI**
 
 nDPI is a modified  variant of  OpenDPI, Open source Deep packet Inspection, that is maintained by ntop.
 An example application called *pcapreader* has been developed and is available for use along nDPI.

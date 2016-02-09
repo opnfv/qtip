@@ -1,14 +1,21 @@
-..
-   TODO As things will change, then this document has to be revised before the
-   next release. Steps:
-   1. Verify that the instructions below are correct and have not been changed.
-   2. Add everything that is currently missing and should be included in this document.
-   3. Make sure each title has a paragraph or an introductory sentence under it.
-   4. Make sure each sentence is grammatically correct and easily understandable.
-   5. Remove this comment section.
-
 Guide to run QTIP:
 ==================
+
+.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. http://creativecommons.org/licenses/by/4.0
+.. (c) <optionally add copywriters name>
+
+
+.. two dots create a comment. please leave this logo at the top of each of your rst files.
+.. image:: ../etc/opnfv-logo.png
+  :height: 40
+  :width: 200
+  :alt: OPNFV
+  :align: left
+.. these two pipes are to seperate the logo from the first title
+
+|
+|
 
 This guide will serve as a first step to familiarize the user with how to
 run QTIP the first time when the user clones QTIP on to their host machine.
@@ -22,8 +29,7 @@ The QTIP directory has been sectioned off into multiple folders to facilitate
  segmenting information into relevant categories. The folders that concern
  the end user are `test_cases/` and `test_list/`.
 
-test_cases/:
-------------
+**test_cases/:**
 
 This folder is used to store all the config files which are used to setup the
  environment prior to a test. This folder is further divided into opnfv pods
@@ -60,8 +66,7 @@ distinguishes between a test to be run on the Virtual Machine or the compute
 node itself, respectively.
 
 
-test_list/:
------------
+**test_list/:**
 
 This folder contains three files, namely `compute`, `network` and `storage`.
 These files list the benchmarks are to be run by the QTIP framework. Sample
@@ -82,6 +87,7 @@ Preparing a config file for test:
 
 We will be using dhrystone as a example to list out the changes that the
 user will need to do in order to run the benchmark.
+
 Dhrystone on Compute Nodes:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -274,7 +280,7 @@ Sample dhrystone_vm.yaml file:
     machine_1 and machine_2.\n
 
 Commands to run the Framework:
-==============================
+------------------------------
 
 In order to start QTIP on the default lab please use the following commands (asssuming you have prepared the config files in the test_cases/default/ directory and listed the intended suite in the test_list/<RELEVANT-SUITE-FILE>):
 
@@ -309,5 +315,6 @@ Running QTIP on the using `default` as the pod name and for the `storage` suite
   python qtip.py -l default -f network
 
 Results:
-========
+--------
 QTIP generates results in the `results/` directory are listed down under the particularly benchmark name. So all the results for dhrystone would be listed and time stamped.
+

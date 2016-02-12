@@ -10,21 +10,23 @@ from get_results import report_concat
 from get_results import generate_result
 
 def dump_result(Stor,directory, testcase):
-    lower_s=testcase.lower()
-    Stor.append(Paragraph(testcase,Style['h3']))
-    l1=report_concat(directory,lower_s)
-    l=1
-    for a in l1:
-        Stor.append(Paragraph(testcase+" result_"+str(l),Style['h5']))
-        raw_string=generate_result(a,0)
-        replaced_string=raw_string.replace('\n', '<br/> ').replace(' ','&nbsp;')
-        Stor.append(Paragraph(replaced_string,Style['BodyText']))
-        l=l+1
-
+    try:   
+        lower_s=testcase.lower()
+        Stor.append(Paragraph(testcase,Style['h3']))
+        l1=report_concat(directory,lower_s)
+        l=1
+        for a in l1:
+            Stor.append(Paragraph(testcase+" result_"+str(l),Style['h5']))
+            raw_string=generate_result(a,0)
+            replaced_string=raw_string.replace('\n', '<br/> ').replace(' ','&nbsp;')
+            Stor.append(Paragraph(replaced_string,Style['BodyText']))
+            l=l+1
+    except OSError:
+        print "Results for {0} not found".format(testcase)
+ 
 doc = SimpleDocTemplate("../../results/QTIP_results.pdf",pagesize=letter,
                         rightMargin=72,leftMargin=72,
                         topMargin=72,bottomMargin=18)
-
 Stor=[]
 Style=getSampleStyleSheet()
 Title="QTIP Benchmark Suite"

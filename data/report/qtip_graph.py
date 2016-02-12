@@ -1,5 +1,7 @@
-import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import numpy as np
 
 def plot_indices(a,b,c):
     N=3
@@ -18,17 +20,10 @@ def plot_indices(a,b,c):
     ax.set_xticks(ind+width/2)
     ax.set_xticklabels(['Compute','Storage','Network'])
     ax.axis([0,3,0,1.25])
-    f.text(0.7,0.01,'* With Comparison to Refernece POD', fontsize=9) 
-    
+    f.text(0.7,0.01,'* With Comparison to Refernece POD', fontsize=9)
+
     for rect in my_bars:
         height = rect.get_height()
         ax.text(rect.get_x() + rect.get_width()/2., 1.05*height, height , ha='center', va='bottom')
 
     f.savefig('qtip_graph.jpeg')
-
-         
-def main():
-    plot_indices(0.83,0.7,1.0)
-
-if __name__ == "__main__":
-    main()

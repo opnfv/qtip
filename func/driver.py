@@ -56,5 +56,5 @@ class Driver:
                         index= index+1
             dic_json = json.dumps(dict(self.dic_json.items()))
             print dic_json
-            run_play = 'ansible-playbook ./benchmarks/playbooks/{0}  --private-key=./data/QtipKey -i ./data/hosts --extra-vars \'{1}\' -v'.format(benchmark_name, dic_json)
+            run_play = 'ansible-playbook ./benchmarks/playbooks/{0}  --private-key=./data/QtipKey -i ./data/hosts --extra-vars \'{1}\''.format(benchmark_name, dic_json)
             status = os.system(run_play)

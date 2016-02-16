@@ -11,11 +11,11 @@ Scenario:
 Context:
   Host_Machines:
     machine_1:
-        ip: 10.20.0.5
+        ip: 10.20.0.4
         pw:
         role: 1-server
     machine_2:
-        ip: 10.20.0.4
+        ip: 10.20.0.5
         pw:
         role: 2-host
 

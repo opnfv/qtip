@@ -9,7 +9,7 @@
 
  - hosts: "{{role}}"
    become: yes
-   become_user: "{{username}}"
+   remote_user: "{{username}}"
    tasks:
     - name: storing_home
       shell: echo $HOME

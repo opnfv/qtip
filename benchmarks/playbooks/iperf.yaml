@@ -13,7 +13,7 @@
 
  - hosts: "{{role}}"
    become: yes
-   become_user: "{{username}}"
+   remote_user: "{{username}}"
    tasks:
     - name: Rolename
       set_fact:
@@ -81,14 +81,14 @@
       when: rolename == "1-server"
 
     - name: Running Iperf on Host
-      shell: iperf3  --time {{duration}} -b {{bandwidthGbps}}G -c {{ip1}} -J -O10 >> ./qtip_result/iperf_raw.json
+      shell: iperf3  --time {{duration}} -b 0 G -c {{ip1}} -J -O10 >> {{home_dir.stdout}}/qtip_result/iperf_raw.json
       ignore_errors: yes
       with_items:
         - "{{ip1}}"
       when: rolename == "2-host" and "{{privateip1}}" == "NONE"
 
     - name: Running Iperf on Host
-      shell: iperf3  --time {{duration}} -b{{bandwidthGbps}}G -c {{privateip1}} -J -O10 >> ./qtip_result/iperf_raw.json
+      shell: iperf3  --time {{duration}} -b 0 G -c {{privateip1}} -J -O10 >> {{home_dir.stdout}}/qtip_result/iperf_raw.json
       ignore_errors: yes
       with_items:
         - "{{ip1}}"

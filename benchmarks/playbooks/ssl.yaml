@@ -7,7 +7,7 @@
       file: path={{workingdir}}/{{Dest_dir}}/ssl/ssl_temp state=directory
  - hosts: "{{role}}"
    become: yes
-   become_user: "{{username}}"
+   remote_user: "{{username}}"
    tasks:
     - name: checking_home directory
       shell: sudo echo $HOME

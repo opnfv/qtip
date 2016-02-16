@@ -12,6 +12,9 @@
 
 
  - hosts: "{{role}}"
+   become: yes
+   remote_user: "{{username}}"
+
    tasks:
     - name: Rolename
       set_fact:

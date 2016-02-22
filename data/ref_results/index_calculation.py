@@ -1,7 +1,6 @@
 import json
 from cinderclient.utils import arg
 from result_accum import result_concat as concat
-from cliff.tests.test_formatters_table import args
 
 def compute_index(total_measured,ref_result,count):
     try:

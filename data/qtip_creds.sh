@@ -6,19 +6,21 @@ echo $INSTALLER_IP
 sshoptions="-o StrictHostKeyChecking=no"
 case "$INSTALLER_TYPE" in
     apex)
-        PSWD="vagrant"
+        scp $sshoptions -i $APEX_KEY ./data/QtipKey.pub stack@$INSTALLER_IP:/home/stack
+        scp $sshoptions -i $APEX_KEY ./data/QtipKey stack@$INSTALLER_IP:/home/stack
+        ssh $sshoptions -i $APEX_KEY stack@$INSTALLER_IP "ssh-copy-id $sshoptions -i /home/stack/QtipKey.pub heat-admin@$DEST_IP && rm -rf /home/stack/QtipKey && rm -rf /home/stack/QtipKey.pub"
         ;;
     fuel)
         PSWD="r00tme"
         sshpass -p $PSWD scp $sshoptions ./data/QtipKey.pub root@$INSTALLER_IP:/root
         sshpass -p $PSWD scp $sshoptions ./data/QtipKey root@$INSTALLER_IP:/root
-        sshpass -p $PSWD ssh $sshoptions root@$INSTALLER_IP "ssh-copy-id -i /root/QtipKey.pub root@$DEST_IP && rm -rf /root/QtipKey && rm -rf /root/QtipKey.pub"
+        sshpass -p $PSWD ssh $sshoptions root@$INSTALLER_IP "ssh-copy-id $sshoptions -i /root/QtipKey.pub root@$DEST_IP && rm -rf /root/QtipKey && rm -rf /root/QtipKey.pub"
         ;;
     compass)
         PSWD="root"
         sshpass -p $PSWD scp $sshoptions ./data/QtipKey.pub root@$INSTALLER_IP:/root
         sshpass -p $PSWD scp $sshoptions ./data/QtipKey root@$INSTALLER_IP:/root
-        sshpass -p $PSWD ssh $sshoptions root@$INSTALLER_IP "ssh-copy-id -i /root/QtipKey.pub root@$DEST_IP && rm -rf /root/QtipKey && rm -rf /root/QtipKey.pub"
+        sshpass -p $PSWD ssh $sshoptions root@$INSTALLER_IP "ssh-copy-id $sshoptions -i /root/QtipKey.pub root@$DEST_IP && rm -rf /root/QtipKey && rm -rf /root/QtipKey.pub"
         ;;
     joid)
         PSWD="joid";;

@@ -38,7 +38,7 @@
       when: ansible_os_family == "Debian"
 
     - name: Fetching OpenSSL
-      shell: cd $HOME/Open_SSL/ && sudo wget https://www.openssl.org/source/openssl-1.0.2f.tar.gz
+      shell: cd $HOME/Open_SSL/ && sudo wget http://artifacts.opnfv.org/qtip/utilities/openssl-1.0.2f.tar.gz
 
     - name: Untar OpenSSL
       shell: cd $HOME/Open_SSL/ && sudo tar -zxvf openssl-1.0.2f.tar.gz

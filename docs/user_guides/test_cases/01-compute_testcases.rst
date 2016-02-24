@@ -103,6 +103,8 @@ nDPI classifies traffic in the pcap file into different categories based on stri
 The *pcapreader* application provides a throughput number for the rate at which traffic was classified, indicating a machine's computational performance.
 The results are run 10 times and an average is taken for the obtained number.
 
+*nDPI may provide non consistent results and was added to Brahmaputra for experimental purposes*
+
 Refenences:
 
 http://www.ntop.org/products/deep-packet-inspection/ndpi/

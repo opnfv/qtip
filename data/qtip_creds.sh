@@ -14,7 +14,8 @@ case "$INSTALLER_TYPE" in
         PSWD="r00tme"
         sshpass -p $PSWD scp $sshoptions ./data/QtipKey.pub root@$INSTALLER_IP:/root
         sshpass -p $PSWD scp $sshoptions ./data/QtipKey root@$INSTALLER_IP:/root
-        sshpass -p $PSWD ssh $sshoptions root@$INSTALLER_IP "ssh-copy-id $sshoptions -i /root/QtipKey.pub root@$DEST_IP && rm -rf /root/QtipKey && rm -rf /root/QtipKey.pub"
+        sshpass  -p $PSWD ssh $sshoptions root@$INSTALLER_IP "cat /root/QtipKey.pub | ssh root@$DEST_IP 'cat >> .ssh/authorized_keys'"
+        sshpass  -p $PSWD ssh $sshoptions root@$INSTALLER_IP "rm -rf /root/QtipKey && rm -rf /root/QtipKey.pub"
         ;;
     compass)
         PSWD="root"

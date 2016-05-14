@@ -1,18 +1,18 @@
- ## This is a sample Config.yaml file 
+ ## This is a sample Config.yaml file
 
 #Scenario would define the test case scenario.
 #The benchmark key contains the benchmark to run such as dhrystone,whetstone,dpi,ssh etc.
-# Host and server list he differnet machines on which the benchmark would run.
-# On machines lised within hosts, the benchmarks would run in parallel.
+# Host and server list the different machines on which the benchmark would run.
+# On machines listed within hosts, the benchmarks would run in parallel.
 # On machines listed within server, the benchmarks would run when the benechmarks running on hosts have been completed.
 # This has been used  to control the folow of the testcase. For example, running the testcases on a vm vs hostmachin, we would like to run the test case serially. It should run first on the host machine and then on the vm. This testcase flow control could be used for other testcases to be developed such as those for networking.
-Scenario:   
+Scenario:
   benchmark: dhrystone
   host: machine_1, machine_2, virtualmachine_1
-  server: 
+  server:
 
 
-#Context would define the enviironment on wichic to run:
+#Context would define the environment on which to run:
 #Host Machine keys would contain Host_Machines/ Baremetal machines to run the benchmarks on
 #e.g  in Host Machine , machine_1 and machine_2 are the bare metal machines. For each baremetal machine its IP(which should be reachable from the location on which you run QTIP), passwords and its role(host or server)
 Context:
@@ -21,7 +21,7 @@ Context:
       ip: 172.18.0.16
       pw: Op3nStack
       role: host
-  Virtual_Machines:  
+  Virtual_Machines:
     virtualmachine_1:
       availability_zone: nova
       public_network: 'net04_ext'
@@ -29,7 +29,7 @@ Context:
       flavor: m1.large
       role: server
 
-# A geeral description of the testcase. Could be used later for reports.
+# A general description of the testcase. Could be used later for reports.
 Test_Description:
   Test_category: "Compute"
   Benchmark: "dhrystone"

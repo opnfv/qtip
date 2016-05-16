@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a91bd0f_6b577f03",
+        "filename": "docs/sample_config.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-05-16T00:33:32Z",
+      "side": 1,
+      "message": "This whitespace need be delete.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 1
+      },
+      "revId": "a9a6ab08260d63388aa55bd016267bf30d880b3b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_8b5c4327",
+        "filename": "docs/sample_config.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-05-16T00:33:32Z",
+      "side": 1,
+      "message": "May it is better to have a whitespace here. Same with line 4",
+      "range": {
+        "startLine": 3,
+        "startChar": 1,
+        "endLine": 3,
+        "endChar": 46
+      },
+      "revId": "a9a6ab08260d63388aa55bd016267bf30d880b3b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_0b3113ec",
+        "filename": "docs/sample_config.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-05-16T00:33:32Z",
+      "side": 1,
+      "message": "There are two whitespace.",
+      "range": {
+        "startLine": 8,
+        "startChar": 20,
+        "endLine": 8,
+        "endChar": 22
+      },
+      "revId": "a9a6ab08260d63388aa55bd016267bf30d880b3b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_ab4d8774",
+        "filename": "docs/sample_config.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-05-16T00:33:32Z",
+      "side": 1,
+      "message": "It would be flow",
+      "range": {
+        "startLine": 8,
+        "startChar": 37,
+        "endLine": 8,
+        "endChar": 42
+      },
+      "revId": "a9a6ab08260d63388aa55bd016267bf30d880b3b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_cb524b13",
+        "filename": "docs/sample_config.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-05-16T00:33:32Z",
+      "side": 1,
+      "message": "It would be hostmachine",
+      "range": {
+        "startLine": 8,
+        "startChar": 106,
+        "endLine": 8,
+        "endChar": 116
+      },
+      "revId": "a9a6ab08260d63388aa55bd016267bf30d880b3b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_eb338ff4",
+        "filename": "docs/sample_config.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-05-16T00:33:32Z",
+      "side": 1,
+      "message": "Please delete the whitespace.Same with line 47",
+      "revId": "a9a6ab08260d63388aa55bd016267bf30d880b3b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -243,6 +243,33 @@ virtualmachine_1 and then run on virtualmachine_2.
 The above field is purely for a decription purpose to explain to
 the user the working of the test and is not fed to the framework.
 
+Running dhrystone with proxy (Optional):
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In order to run the dhrystone on the hosts or vms which can only access the
+public network by proxy, the user needs to add the `Proxy_Environment` info
+in `Context` tag.
+
+::
+
+  Context:
+    Host_Machines:
+      machine_1:
+        ip: 10.20.0.29
+        pw:
+        role: host
+      machine_2:
+        ip: 10.20.0.30
+        pw:
+        role: host
+
+    Virtual_Machines:
+
+    Proxy_Environment:
+      http_proxy: http://10.20.0.1:8118
+      https_proxy: http://10.20.0.1:8118
+      no_proxy: localhost,127.0.0.1,10.20.*,192.168.*
+
 Sample dhrystone_vm.yaml file:
 ------------------------------
 ::

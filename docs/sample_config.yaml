@@ -28,6 +28,11 @@ Context:
       OS_image: QTIP_CentOS
       flavor: m1.large
       role: server
+#Proxy_Environment key was optional.If all the Machines could access the public network, no need to define Proxy_Environment.Could be used later for getting http,https proxy infos which would be setted on all the Host_Manchines and Virtual_Machines.
+  Proxy_Environment:
+        http_proxy: http://10.20.0.1:8118
+        https_proxy: http://10.20.0.1:8118
+        no_proxy: localhost,127.0.0.1,10.20.*,192.168.*
 
 # A general description of the testcase. Could be used later for reports.
 Test_Description:

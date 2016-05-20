@@ -1,0 +1,39 @@
+
+Scenario:
+  benchmark: dhrystone
+  host: machine_1, machine_2
+  server:
+
+Context:
+  Host_Machines:
+    machine_1:
+      ip: 10.20.0.24
+      pw:
+      role: host
+    machine_2:
+      ip: 10.20.0.25
+      pw:
+      role: host
+
+  Virtual_Machines:
+ 
+  Proxy_Environment:
+      http_proxy: http://10.20.0.1:8118
+      https_proxy: http://10.20.0.1:8118
+      no_proxy: localhost,127.0.0.1,10.20.*,192.168.*
+      
+
+
+Test_Description:
+  Test_category: "Compute"
+  Benchmark: "dhrystone"
+  Overview: >
+        ''' This test will run the dhrystone benchmark in parallel  on machine_1 and machine_2.\n
+         if you wish to add a virtual machine add the following information under the Virtual_Machine tag
+
+        virtualmachine_1:
+          availability_zone:
+          public_network:
+          OS_image:
+          flavor:
+          role: '''

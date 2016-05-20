@@ -31,6 +31,7 @@ class Env_setup():
         self.roles_dict.clear()
         self.ip_pw_dict.clear()
         self.ip_pip_list[:] = []
+        self.proxy_info = {}
         self.vm_parameters.clear()
         self.benchmark_details.clear()
         self.benchmark = ''
@@ -141,6 +142,10 @@ class Env_setup():
                 self.GetHostMachineinfo(doc['Context']['Host_Machines'])
             if doc.get('Scenario',{}).get('benchmark_details',{}):
                 self.GetBenchmarkDetails(doc.get('Scenario',{}).get('benchmark_details',{}))
+            if 'Proxy_Environment' in doc['Context'].keys(): 
+                self.proxy_info['http_proxy'] = doc['Context']['Proxy_Environment']['http_proxy']
+                self.proxy_info['https_proxy'] = doc['Context']['Proxy_Environment']['https_proxy']
+                self.proxy_info['no_proxy'] =  doc['Context']['Proxy_Environment']['no_proxy']
             for k, v in self.roles_ip_list:
                 self.roles_dict[k].append(v)
             for k, v in self.ip_pw_list:
@@ -150,7 +155,9 @@ class Env_setup():
                 self.roles_dict.items(),
                 self.vm_parameters,
                 self.benchmark_details.items(),
-                self.ip_pw_dict.items())
+                self.ip_pw_dict.items(),
+                self.proxy_info)
+               
         except KeyboardInterrupt:
             fname.close()
             print 'ConfigFile Closed: exiting!'

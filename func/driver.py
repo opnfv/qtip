@@ -21,20 +21,22 @@ class Driver:
         print os.environ['PWD']
         self.dic_json = defaultdict()
 
-    def drive_bench(self, benchmark, roles, benchmark_fname, benchmark_detail = None, pip_dict = None):
-
+    def drive_bench(self, benchmark, roles, benchmark_fname, benchmark_detail = None, pip_dict = None, proxy_info = None):
         roles= sorted(roles)
         pip_dict = sorted(pip_dict)
         result_dir = 'results'
         benchmark_name = benchmark + '.yaml'
         self.dic_json['Dest_dir'] = str(result_dir)
-        self.dic_json['ip1']=''
-        self.dic_json['ip2']=''
-        self.dic_json['installer']=str(os.environ['INSTALLER_TYPE'])
-        self.dic_json['workingdir']=str(os.environ['PWD'])
-        self.dic_json['fname']=str(benchmark_fname)
-        self.dic_json['username']= str('root')
-
+        self.dic_json['ip1'] = ''
+        self.dic_json['ip2'] = ''
+        self.dic_json['installer'] = str(os.environ['INSTALLER_TYPE'])
+        self.dic_json['workingdir'] = str(os.environ['PWD'])
+        self.dic_json['fname'] = str(benchmark_fname)
+        self.dic_json['username'] = str('root')
+        
+        for key in proxy_info.keys():
+            self.dic_json[key] = proxy_info[key]
+                    
         if os.environ['INSTALLER_TYPE'] == str('joid'):
             self.dic_json['username']=str('ubuntu')
         if os.environ['INSTALLER_TYPE'] == str('apex'):

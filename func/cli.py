@@ -103,5 +103,5 @@ class cli():
                                     benchmark_details,
                                     obj.ip_pw_dict.items())
                 else:
-                    print (args.benchmark, ' is not a Template in the Directory - \
+                    print (benchmarks[items], ' is not a Template in the Directory - \
                                 Enter a Valid file name. or use qtip.py -h for list')

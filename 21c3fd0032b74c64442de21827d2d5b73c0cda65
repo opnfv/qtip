@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a91bd0f_ee871860",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-05-20T08:33:08Z",
+      "side": 1,
+      "message": "Prefer to start with a summary line and bullets below, e.g.\n\nSummary of the patch\n\n- modification 1\n- modification 2",
+      "revId": "21c3fd0032b74c64442de21827d2d5b73c0cda65",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_6eac68ee",
+        "filename": "benchmarks/playbooks/dhrystone.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-05-20T08:33:08Z",
+      "side": 1,
+      "message": "insert new line to separate?",
+      "revId": "21c3fd0032b74c64442de21827d2d5b73c0cda65",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a91bd0f_e9a632c1",
+        "filename": "func/env_setup.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-05-23T01:14:01Z",
+      "side": 1,
+      "message": "please delete the whitespace.",
+      "range": {
+        "startLine": 145,
+        "startChar": 60,
+        "endLine": 145,
+        "endChar": 61
+      },
+      "revId": "1dd916e557d60a05dcedc0e741ab7cbb94f85c64",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

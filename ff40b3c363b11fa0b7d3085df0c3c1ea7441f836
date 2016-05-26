@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a91bd0f_0f9cb1bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-05-26T13:38:57Z",
+      "side": 1,
+      "message": "This is not necessary in my humble opinion. The bullets always explain the details.",
+      "revId": "ff40b3c363b11fa0b7d3085df0c3c1ea7441f836",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_6f5f7d0f",
+        "filename": "benchmarks/playbooks/iperf.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-05-26T13:38:57Z",
+      "side": 1,
+      "message": "Please add comment or assign to a named variable to help user understand the magic number 5201.",
+      "revId": "ff40b3c363b11fa0b7d3085df0c3c1ea7441f836",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_4f62b9d9",
+        "filename": "benchmarks/playbooks/iperf.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-05-26T13:38:57Z",
+      "side": 1,
+      "message": "In ansible, it is recommended to use `become` for previledge escalation. See http://docs.ansible.com/ansible/become.html for details.\n\nCurrently `sudo` is used everywhere in the playbook. We may need to refactor it in a separate patch.",
+      "revId": "ff40b3c363b11fa0b7d3085df0c3c1ea7441f836",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

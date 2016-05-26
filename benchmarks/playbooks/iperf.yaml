@@ -55,16 +55,12 @@
       shell: sudo yum install epel-release -y
       when: ansible_os_family == "RedHat"
 
-    - name: Getting Firewall entry number
-      shell: sudo iptables -L INPUT --line-number | grep DROP | awk '{print $1}'
-      register: iptable_entry
+    - name: Allow iperf server port in iptables input rules
+      shell: iptables -A INPUT -p tcp --dport {{iperf_port}} -j ACCEPT
+      vars:
+        iperf_port: 5201
       ignore_errors: yes
-      when: installertype == 'fuel'
-
-    - name: Removing entry number
-      shell: sudo iptables -D INPUT {{iptable_entry.stdout}}
-      ignore_errors: yes
-      when: iptable_entry != '' and installertype == 'fuel'
+      when: rolename == "1-server" and installertype == 'fuel'
 
     - name: Installing IPERF when Ubuntu
       shell: sudo apt-get install iperf3 -y

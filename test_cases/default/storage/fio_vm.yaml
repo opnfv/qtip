@@ -1,7 +1,7 @@
 Scenario:
   benchmark: fio
-  host: machine_1, machine_2
-  server: blakc
+  host: virtualmachine_1, virtualmachine_2
+  server:
 
 Context:
   Host_Machines:

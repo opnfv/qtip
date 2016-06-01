@@ -87,7 +87,7 @@ class cli():
                 obj=''
                 obj = Env_setup()
                 if os.path.isfile('./test_cases/'+args.lab.lower()+'/'+suite[0]+'/' +benchmarks[items]):
-                    [benchmark, roles, vm_info, benchmark_details, pip] = obj.parse('./test_cases/'
+                    [benchmark, roles, vm_info, benchmark_details, pip, proxy_info] = obj.parse('./test_cases/'
                                                                     +args.lab.lower()+'/'+suite[0]+'/'+benchmarks[items])
 
                     if len(vm_info) != 0:
@@ -101,7 +101,8 @@ class cli():
                                     obj.roles_dict.items(),
                                     self._get_fname(benchmarks[items]),
                                     benchmark_details,
-                                    obj.ip_pw_dict.items())
+                                    obj.ip_pw_dict.items(),
+                                    proxy_info)
                 else:
                     print (benchmarks[items], ' is not a Template in the Directory - \
                                 Enter a Valid file name. or use qtip.py -h for list')

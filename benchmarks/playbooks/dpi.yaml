@@ -25,6 +25,9 @@
 
     - name: make qtip_result
       shell: sudo mkdir $HOME/qtip_result
+    
+    - include: ./sys_proxy_pbook.yaml
+
     - include: ./sys_info_pbook.yaml
       vars:
           network: false
@@ -39,6 +42,8 @@
 
     - name: making  nDPI temporary directory
       shell: sudo mkdir $HOME/tempD
+
+    - include: ./git_proxy_pbook.yaml
 
     - name: Clone nDPI
       shell: cd $HOME/tempD && git clone https://github.com/ntop/nDPI.git

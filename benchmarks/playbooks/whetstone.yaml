@@ -24,6 +24,8 @@
     - name: make directory
       shell: sudo mkdir $HOME/qtip_result
 
+    - include: ./sys_proxy_pbook.yaml
+
     - include: ./sys_info_pbook.yaml
       vars:
           network: false
@@ -35,6 +37,8 @@
     - name: Installing UnixBench dependencies if Ubuntu
       shell: sudo apt-get install git gcc  patch perl -y
       when: ansible_os_family == "Debian"
+
+    - include: ./git_proxy_pbook.yaml
 
     - name: Clone unixbench
       shell: git clone https://github.com/kdlucas/byte-unixbench.git $HOME/tempT

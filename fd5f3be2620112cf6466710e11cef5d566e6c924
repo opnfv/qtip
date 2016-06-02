@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a7ca5a3_0ae4c70b",
+        "filename": "func/spawn_vm.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-06-02T15:59:33Z",
+      "side": 1,
+      "message": "IIRC `net04_ext` is replaced by `admin_floating_net` since v8.0 https://github.com/openstack/fuel-web/commit/8b07f46ab6b2f03a997be83b5af2de6dbaebd9ec#diff-5fb3c1ccd61a48334b6d9f0caf6d75e6L485\n\nIf there is still lots of v7.0 instance of fuel running, we need to consider the back-compatibility.",
+      "revId": "fd5f3be2620112cf6466710e11cef5d566e6c924",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

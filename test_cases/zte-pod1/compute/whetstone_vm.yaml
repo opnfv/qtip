@@ -1,0 +1,48 @@
+Scenario:
+  benchmark: whetstone
+  host: virtualmachine_1, virtualmachine_1
+  server:
+
+Context:
+  Host_Machines:
+
+  Virtual_Machines:
+    virtualmachine_1:
+      availability_zone: compute1
+      public_network: 'admin-floating_net'
+      OS_image: QTIP_CentOS
+      flavor: m1.large
+      role: host
+    virtualmachine_2:
+      availability_zone: compute2
+      public_network: 'admin-floating_net'
+      OS_image: QTIP_CentOS
+      flavor: m1.large
+      role: host
+
+  Proxy_Environment:
+    http_proxy: http://10.20.0.1:8118
+    https_proxy: http://10.20.0.1:8118
+    no_proxy: localhost,127.0.0.1,10.20.*,192.168.*
+
+Test_Description:
+  Test_category: "Compute"
+  Benchmark: "dhrystone"
+  Overview: >
+        '''This test will run the whetstone benchmark in parallel on machine_1 and machine_2.\n
+         if you wish to add a virtual machine add the following information under the Virtual_Machine tag
+        virtualmachine_1:
+        availability_zone: nova
+        public_network: 'net04_ext'
+        OS_image: QTIP_CentOS
+        flavor: m1.large
+        role: host
+
+        virtualmachine_1:
+          availability_zone:
+          public_network:
+          OS_image:
+          flavor:
+          role:
+          '''
+

@@ -1,3 +1,4 @@
 iperf_bm.yaml
 iperf_vm.yaml
 iperf_vm_2.yaml
+netperf.yaml

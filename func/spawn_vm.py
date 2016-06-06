@@ -51,7 +51,7 @@ class SpawnVM(Env_setup):
         '''
         print 'Getting Public Network'
         if installer_detected.lower() == 'fuel':
-            return 'net04_ext'
+            return 'admin_floating_net'
         if installer_detected.lower() == 'apex':
             return 'external'
         if installer_detected.lower() == 'compass':

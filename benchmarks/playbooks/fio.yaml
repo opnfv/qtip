@@ -27,6 +27,8 @@
     - name: making  results temporary directory
       shell: sudo mkdir $HOME/qtip_result
 
+    - include: ./sys_proxy_pbook.yaml
+
     - include: ./sys_info_pbook.yaml
       vars:
           network: false

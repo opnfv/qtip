@@ -6,15 +6,13 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-
-
-
 from func.cli import cli
 import os
 
+
 def main():
     os.system('./data/file_permission.sh')
-    Objcli = cli()
+    cli()
 #    os.system('cd data/ref_results && python compute_suite.py')
 #    os.system('cd data/ref_results && python storage_suite.py')
 #    os.system('cd data/ref_results && python network_suite.py')

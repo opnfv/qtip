@@ -2,7 +2,7 @@ import requests
 import json
 import datetime
 import os
-TEST_DB = 'http://testresults.opnfv.org/testapi'
+TEST_DB = 'http://testresults.opnfv.org/test/api/v1/results'
 
 suite_list = [('compute_result.json', 'compute_test_suite'),('network_result.json', 'network_test_suite'),('storage_result.json', 'storage_test_suite')]
 payload_list = { }

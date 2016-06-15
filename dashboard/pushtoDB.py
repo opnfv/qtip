@@ -15,7 +15,7 @@ def push_results_to_db(db_url, case_name, payload,logger=None, pod_name="dell-us
     pod_name = os.environ['NODE_NAME']
 
     params = {"project_name": "qtip", "case_name": case_name,
-              "pod_name": pod_name, "installer": installer, "creation_date": creation_date,
+              "pod_name": pod_name, "installer": installer, "start_date": creation_date,
               "version": "test" , "details": payload}
 
     headers = {'Content-Type': 'application/json'}

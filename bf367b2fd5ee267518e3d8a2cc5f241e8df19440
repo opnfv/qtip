@@ -22,6 +22,30 @@
       "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_9d04957f",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-06-16T08:26:55Z",
+      "side": 1,
+      "message": "@Zhihui, would you please provide a brief introduction on DPDK and why we should consider included in QTIP? I\u0027m not very familiar with it.",
+      "parentUuid": "5a7ca5a3_dd19ad23",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 31
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

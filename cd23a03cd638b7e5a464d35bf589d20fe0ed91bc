@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a7ca5a3_3dcea15b",
+        "filename": "data/qtip_creds.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-06-16T08:22:44Z",
+      "side": 1,
+      "message": "comments required on why we need to patch the `ssh-copy-id` script",
+      "revId": "cd23a03cd638b7e5a464d35bf589d20fe0ed91bc",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

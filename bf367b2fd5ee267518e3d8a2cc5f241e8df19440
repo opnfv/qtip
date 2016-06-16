@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a7ca5a3_8c09c42e",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-06-16T13:55:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a7ca5a3_5d9fdd03",
+      "range": {
+        "startLine": 14,
+        "startChar": 66,
+        "endLine": 14,
+        "endChar": 70
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7ca5a3_1d8965ca",
         "filename": "docs/roadmap.rst",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-16T09:21:34Z",
       "side": 1,
       "message": "resources",
+      "range": {
+        "startLine": 15,
+        "startChar": 12,
+        "endLine": 15,
+        "endChar": 20
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_ac0e0033",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-06-16T13:55:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a7ca5a3_1d8965ca",
       "range": {
         "startLine": 15,
         "startChar": 12,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5a7ca5a3_4c13ac5c",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-06-16T13:55:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a7ca5a3_bdc151e6",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 2
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7ca5a3_3dad4132",
         "filename": "docs/roadmap.rst",
         "patchSetId": 3
@@ -94,6 +166,24 @@
     },
     {
       "key": {
+        "uuid": "5a7ca5a3_ec2b9880",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-06-16T13:55:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a7ca5a3_3dad4132",
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7ca5a3_1db0858a",
         "filename": "docs/roadmap.rst",
         "patchSetId": 3
@@ -111,6 +201,24 @@
         "endLine": 24,
         "endChar": 49
       },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_cc26dcba",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-06-16T13:55:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a7ca5a3_1db0858a",
       "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -157,6 +265,24 @@
         "endLine": 43,
         "endChar": 60
       },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_ac25a0ac",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-06-16T13:55:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a7ca5a3_9d63351a",
       "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -256,6 +382,24 @@
     },
     {
       "key": {
+        "uuid": "5a7ca5a3_cc749c9e",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-06-16T13:55:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a7ca5a3_5d44bd73",
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7ca5a3_1d5e4546",
         "filename": "docs/roadmap.rst",
         "patchSetId": 3
@@ -267,6 +411,24 @@
       "writtenOn": "2016-06-16T09:21:34Z",
       "side": 1,
       "message": "DPDK is the key technology to improve the NIC\u0027s performance through poll mode which dismisses physical interrupt as less as possible. The byproduct of DPDK is nearly 100% CPU usage. DPDK can also be used in VM.",
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_2c48b05a",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-06-16T13:55:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a7ca5a3_1d5e4546",
       "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -296,6 +458,24 @@
     },
     {
       "key": {
+        "uuid": "5a7ca5a3_6c3ea8ba",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-06-16T13:55:14Z",
+      "side": 1,
+      "message": "WIP",
+      "parentUuid": "5a7ca5a3_3d5b0156",
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7ca5a3_dd576d25",
         "filename": "docs/roadmap.rst",
         "patchSetId": 3
@@ -313,6 +493,24 @@
         "endLine": 85,
         "endChar": 16
       },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_0c4b745a",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-06-16T13:55:14Z",
+      "side": 1,
+      "message": "WIP",
+      "parentUuid": "5a7ca5a3_dd576d25",
       "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

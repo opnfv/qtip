@@ -2,6 +2,190 @@
   "comments": [
     {
       "key": {
+        "uuid": "5a7ca5a3_5d9fdd03",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-06-16T09:21:34Z",
+      "side": 1,
+      "message": "due to",
+      "range": {
+        "startLine": 14,
+        "startChar": 66,
+        "endLine": 14,
+        "endChar": 70
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_1d8965ca",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-06-16T09:21:34Z",
+      "side": 1,
+      "message": "resources",
+      "range": {
+        "startLine": 15,
+        "startChar": 12,
+        "endLine": 15,
+        "endChar": 20
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_bdc151e6",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-06-16T09:21:34Z",
+      "side": 1,
+      "message": "Qtip",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 2
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_3dad4132",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-06-16T09:21:34Z",
+      "side": 1,
+      "message": "contributors",
+      "range": {
+        "startLine": 23,
+        "startChar": 34,
+        "endLine": 23,
+        "endChar": 44
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_1db0858a",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-06-16T09:21:34Z",
+      "side": 1,
+      "message": "suggest to use list for better reading:\nWe will focus on:\n* integrating ...\n* supporting ...\n* attracting ...",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 49
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_fda6e952",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-06-16T09:21:34Z",
+      "side": 1,
+      "message": "~The~",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 3
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_9d63351a",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-06-16T09:21:34Z",
+      "side": 1,
+      "message": "a nice",
+      "range": {
+        "startLine": 43,
+        "startChar": 56,
+        "endLine": 43,
+        "endChar": 60
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_bd6871f6",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-06-16T09:21:34Z",
+      "side": 1,
+      "message": "keep it",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 13
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7ca5a3_dd19ad23",
         "filename": "docs/roadmap.rst",
         "patchSetId": 3
@@ -42,6 +226,92 @@
         "startChar": 0,
         "endLine": 75,
         "endChar": 31
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_5d44bd73",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-06-16T09:21:34Z",
+      "side": 1,
+      "message": "SR-IOV is the key technology to improve network performance in VM and the VM can achieve nearly physical NIC\u0027s performance.",
+      "range": {
+        "startLine": 77,
+        "startChar": 3,
+        "endLine": 77,
+        "endChar": 9
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_1d5e4546",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-06-16T09:21:34Z",
+      "side": 1,
+      "message": "DPDK is the key technology to improve the NIC\u0027s performance through poll mode which dismisses physical interrupt as less as possible. The byproduct of DPDK is nearly 100% CPU usage. DPDK can also be used in VM.",
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_3d5b0156",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-06-16T09:21:34Z",
+      "side": 1,
+      "message": "can we add more detailed info for CI",
+      "range": {
+        "startLine": 84,
+        "startChar": 3,
+        "endLine": 84,
+        "endChar": 25
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_dd576d25",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-06-16T09:21:34Z",
+      "side": 1,
+      "message": "what\u0027s the target and next steps of documentation",
+      "range": {
+        "startLine": 85,
+        "startChar": 3,
+        "endLine": 85,
+        "endChar": 16
       },
       "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",

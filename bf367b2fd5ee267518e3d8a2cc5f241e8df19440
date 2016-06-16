@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a7ca5a3_dd19ad23",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-06-16T06:20:27Z",
+      "side": 1,
+      "message": "How about DPDK?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 31
+      },
+      "revId": "bf367b2fd5ee267518e3d8a2cc5f241e8df19440",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

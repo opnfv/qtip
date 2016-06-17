@@ -13,7 +13,6 @@ from collections import defaultdict
 import yaml
 import time
 import paramiko
-
 class Env_setup():
     roles_ip_list = []  # ROLE and its corresponding IP address list
     ip_pw_list = []  # IP and password, this will be used to ssh
@@ -90,18 +89,23 @@ class Env_setup():
                         print 'Retrying SSH'
 
     def pingtest(self, lister):
-
         pingFlag = 0
+        result = True
         for k, v in lister.iteritems():
             time.sleep(10)
             for val in v:
                 ipvar = val
                 ping_cmd = 'ping -D -c1 {0}'.format(ipvar)
-                while os.system(ping_cmd) != 0:
+                while (os.system(ping_cmd) != 0) &(pingFlag <=20):
                     print '\nWaiting for machine\n'
                     time.sleep(10)
-                pingFlag = 0
-                print ('\n\n %s is UP \n\n ' % ipvar)
+                    pingFlag = pingFlag+1
+                if pingFlag <= 2:
+                    print ('\n\n %s is UP \n\n ' % ipvar)
+                else:
+                    result = False
+        return result 
+              
 
     def GetHostMachineinfo(self, Hosttag):
 

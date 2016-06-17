@@ -93,16 +93,16 @@ class cli():
                     if len(vm_info) != 0:
                         vmObj =''
                         vmObj = SpawnVM(vm_info)
-                    obj.callpingtest()
-                    obj.callsshtest()
-                    obj.updateAnsible()
-                    dvr = Driver()
-                    dvr.drive_bench(benchmark,
-                                    obj.roles_dict.items(),
-                                    self._get_fname(benchmarks[items]),
-                                    benchmark_details,
-                                    obj.ip_pw_dict.items(),
-                                    proxy_info)
+                    if obj.callpingtest():
+                        obj.callsshtest()
+                        obj.updateAnsible()
+                        dvr = Driver()
+                        dvr.drive_bench(benchmark,
+                                       obj.roles_dict.items(),
+                                       self._get_fname(benchmarks[items]),
+                                       benchmark_details,
+                                       obj.ip_pw_dict.items(),
+                                       proxy_info)
                 else:
                     print (benchmarks[items], ' is not a Template in the Directory - \
                                 Enter a Valid file name. or use qtip.py -h for list')

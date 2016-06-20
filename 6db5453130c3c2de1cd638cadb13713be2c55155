@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a7ca5a3_0206dd20",
+        "filename": "docs/roadmap.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-06-20T12:01:28Z",
+      "side": 1,
+      "message": "We need to impove the qtip dashboard, so than we can know the test result easy.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "6db5453130c3c2de1cd638cadb13713be2c55155",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

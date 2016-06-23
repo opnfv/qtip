@@ -7,7 +7,7 @@ TEST_DB = 'http://testresults.opnfv.org/test/api/v1'
 suite_list = [('compute_result.json', 'compute_test_suite'),('network_result.json', 'network_test_suite'),('storage_result.json', 'storage_test_suite')]
 payload_list = { }
 
-def push_results_to_db(db_url, case_name, payload,logger=None, pod_name="dell-us-testing-bm-1"):
+def push_results_to_db(db_url, case_name, payload,logger=None, pod_name="dell-pod1"):
 
     url = db_url + "/results"
     creation_date= str(datetime.datetime.utcnow().isoformat())

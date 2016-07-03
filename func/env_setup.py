@@ -13,19 +13,22 @@ from collections import defaultdict
 import yaml
 import time
 import paramiko
-class Env_setup():
+import socket
+
+
+class Env_setup:
     roles_ip_list = []  # ROLE and its corresponding IP address list
     ip_pw_list = []  # IP and password, this will be used to ssh
     roles_dict = defaultdict(list)
     ip_pw_dict = defaultdict(list)
     ip_pip_list = []
     vm_parameters = defaultdict(list)
-    benchmark_details= defaultdict()
+    benchmark_details = defaultdict()
     benchmark = ''
 
     def __init__(self):
         print '\nParsing class initiated\n'
-        self.roles_ip_list[:]=[]
+        self.roles_ip_list[:] = []
         self.ip_pw_list[:] = []
         self.roles_dict.clear()
         self.ip_pw_dict.clear()
@@ -35,41 +38,44 @@ class Env_setup():
         self.benchmark_details.clear()
         self.benchmark = ''
 
-    def writeTofile(self, role):
-        fname2 = open('./data/hosts', 'w')
+    @staticmethod
+    def write_to_file(role):
+        f_name_2 = open('./data/hosts', 'w')
         print role.items()
         for k in role:
-            fname2.write('[' + k + ']\n')
+            f_name_2.write('[' + k + ']\n')
             num = len(role[k])
             for x in range(num):
-                fname2.write(role[k][x] + '\n')
-        fname2.close
+                f_name_2.write(role[k][x] + '\n')
+        f_name_2.close()
 
-    def sshtest(self, lister):
-        print 'list: ',lister
+    @staticmethod
+    def ssh_test(lister):
+        print 'list: ', lister
         for k, v in lister:
-            ipvar = k
-            pwvar = v
+            ip_var = k
             print '\nBeginning SSH Test!\n'
             if v != '':
-                print ('\nSSH->>>>> {0} {1}\n'.format(k,v))
+                print ('\nSSH->>>>> {0} {1}\n'.format(k, v))
                 time.sleep(2)
 
                 ssh_c = 'ssh-keyscan {0} >> ~/.ssh/known_hosts'.format(k)
                 os.system(ssh_c)
-                ssh_cmd = './data/qtip_creds.sh  {0}'.format(ipvar)
+                ssh_cmd = './data/qtip_creds.sh  {0}'.format(ip_var)
                 print ssh_cmd
-                res = os.system(ssh_cmd)
+                os.system(ssh_cmd)
                 for infinity in range(100):
-                    try :
+                    try:
                         ssh = paramiko.SSHClient()
                         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                        ssh.connect(k , key_filename= './data/QtipKey')
+                        ssh.connect(k, key_filename='./data/QtipKey')
                         stdin, stdout, stderr = ssh.exec_command('ls')
                         print('SSH successful')
+                        for line in stdout:
+                            print '... ' + line.strip('\n')
                         break
-                    except:
-                        print 'Retrying aSSH'
+                    except socket.error:
+                        print 'Retrying aSSH %s' % infinity
                         time.sleep(1)
             if v == '':
                 print ('SSH->>>>>', k)
@@ -79,99 +85,91 @@ class Env_setup():
                 os.system(ssh_c)
 
                 for infinity in range(10):
-                    try :
+                    try:
                         ssh = paramiko.SSHClient()
                         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                        ssh.connect(k, key_filename= './data/QtipKey')
+                        ssh.connect(k, key_filename='./data/QtipKey')
                         stdin, stdout, stderr = ssh.exec_command('ls')
+                        print('SSH successful')
+                        for line in stdout:
+                            print '... ' + line.strip('\n')
                         break
-                    except:
-                        print 'Retrying SSH'
+                    except socket.error:
+                        print 'Retrying SSH %s' % infinity
 
-    def pingtest(self, lister):
-        pingFlag = 0
-        result = True
+    @staticmethod
+    def ping_test(lister):
+
         for k, v in lister.iteritems():
             time.sleep(10)
             for val in v:
                 ipvar = val
                 ping_cmd = 'ping -D -c1 {0}'.format(ipvar)
-                while (os.system(ping_cmd) != 0) &(pingFlag <=20):
+                while os.system(ping_cmd) != 0:
                     print '\nWaiting for machine\n'
                     time.sleep(10)
-                    pingFlag = pingFlag+1
-                if pingFlag <= 2:
-                    print ('\n\n %s is UP \n\n ' % ipvar)
-                else:
-                    result = False
-        return result 
-              
+                print ('\n\n %s is UP \n\n ' % ipvar)
 
-    def GetHostMachineinfo(self, Hosttag):
+    def get_host_machine_info(self, host_tag):
 
-        num = len(Hosttag)
+        num = len(host_tag)
         offset = len(self.roles_ip_list)
         for x in range(num):
             hostlabel = 'machine_' + str(x + 1)
             self.roles_ip_list.insert(
-                offset, (Hosttag[hostlabel]['role'], Hosttag[hostlabel]['ip']))
+                offset, (host_tag[hostlabel]['role'], host_tag[hostlabel]['ip']))
             self.ip_pw_list.insert(
-                offset, (Hosttag[hostlabel]['ip'], Hosttag[hostlabel]['pw']))
+                offset, (host_tag[hostlabel]['ip'], host_tag[hostlabel]['pw']))
 
-    def GetVirtualMachineinfo(self, Virtualtag):
+    def get_virtual_machine_info(self, virtual_tag):
 
-        num = len(Virtualtag)
+        num = len(virtual_tag)
         for x in range(num):
-            hostlabel = 'virtualmachine_' + str(x + 1)
-            for k, v in Virtualtag[hostlabel].iteritems():
+            host_label = 'virtualmachine_' + str(x + 1)
+            for k, v in virtual_tag[host_label].iteritems():
                 self.vm_parameters[k].append(v)
 
-    def GetBenchmarkDetails(self, detail_dic):
+    def get_bench_mark_details(self, detail_dic):
 
         print detail_dic
-        for k,v in detail_dic.items():
-            self.benchmark_details[k]= v
+        for k, v in detail_dic.items():
+            self.benchmark_details[k] = v
 
-    def parse(self, configfilepath):
+    def parse(self, config_file_path):
         try:
-            fname = open(configfilepath, 'r+')
-            doc = yaml.load(fname)
-#			valid_file = validate_yaml.Validate_Yaml(doc)
-            fname.close()
-            for scenario in doc:
+            f_name = open(config_file_path, 'r+')
+            doc = yaml.load(f_name)
+            f_name.close()
+            if doc['Scenario']['benchmark']:
                 self.benchmark = doc['Scenario']['benchmark']
             if doc['Context']['Virtual_Machines']:
-                self.GetVirtualMachineinfo(doc['Context']['Virtual_Machines'])
+                self.get_virtual_machine_info(doc['Context']['Virtual_Machines'])
             if doc['Context']['Host_Machines']:
-                self.GetHostMachineinfo(doc['Context']['Host_Machines'])
-            if doc.get('Scenario',{}).get('benchmark_details',{}):
-                self.GetBenchmarkDetails(doc.get('Scenario',{}).get('benchmark_details',{}))
-            if 'Proxy_Environment' in doc['Context'].keys(): 
+                self.get_host_machine_info(doc['Context']['Host_Machines'])
+            if doc.get('Scenario', {}).get('benchmark_details', {}):
+                self.get_bench_mark_details(doc.get('Scenario', {}).get('benchmark_details', {}))
+            if 'Proxy_Environment' in doc['Context'].keys():
                 self.proxy_info['http_proxy'] = doc['Context']['Proxy_Environment']['http_proxy']
                 self.proxy_info['https_proxy'] = doc['Context']['Proxy_Environment']['https_proxy']
-                self.proxy_info['no_proxy'] =  doc['Context']['Proxy_Environment']['no_proxy']
+                self.proxy_info['no_proxy'] = doc['Context']['Proxy_Environment']['no_proxy']
             for k, v in self.roles_ip_list:
                 self.roles_dict[k].append(v)
             for k, v in self.ip_pw_list:
                 self.ip_pw_dict[k].append(v)
             return (
                 self.benchmark,
-                self.roles_dict.items(),
                 self.vm_parameters,
                 self.benchmark_details.items(),
-                self.ip_pw_dict.items(),
                 self.proxy_info)
-               
         except KeyboardInterrupt:
-            fname.close()
             print 'ConfigFile Closed: exiting!'
             sys.exit(0)
 
-    def updateAnsible(self):
-        self.writeTofile(self.roles_dict)
+    def update_ansible(self):
+        self.write_to_file(self.roles_dict)
 
-    def callpingtest(self):
-        self.pingtest(self.roles_dict)
+    def call_ping_test(self):
+        self.ping_test(self.roles_dict)
 
-    def callsshtest(self):
-        self.sshtest(self.ip_pw_list)
+    def call_ssh_test(self):
+        self.ssh_test(self.ip_pw_list)

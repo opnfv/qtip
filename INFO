@@ -13,15 +13,11 @@ Project Wiki: https://wiki.opnfv.org/platform_performance_benchmarking
 
 Committers:
 
-Wenjing Chu, wenjing_chu@dell.com
-Shrinivas Chavan, shrinivas.chavan@ericsson.com
-Sheng-Ann Yu sheng-ann.yu@ericsson.com
-Rodriguez, Iben Iben.Rodriguez@spirent.com
-Prabu, Kuppuswamy Prabu.Kuppuswamy@spirent.com
-Cooper, Trevor trevor.cooper@intel.com
-Michael Haugh mhaugh@ixiacom.com
-Prakash Ramchandran Prakash.Ramchandran@huawei.com
-Richomme, Morgan morgan.richomme@orange.com
-
-
-
+Michael Haugh       mhaugh@ixiacom.com
+Morgan  Richomme    morgan.richomme@orange.com
+Nauman  Ahad        Nauman_Ahad@dell.com
+Prabu   Kuppuswamy  prabu.kuppuswamy@spirent.com
+Prakash Ramchandran prakash.ramchandran@huawei.com
+Trevor  Cooper      trevor.cooper@intel.com
+Vikram  Dham        vikram@kamboi.com
+Wenjing Chu         chu.wenjing@gmail.com

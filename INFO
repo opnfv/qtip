@@ -1,7 +1,7 @@
 Project Name: QTIP, Platform Performance Benchmarking
 Project Repository: QTIP
 Project Category: Integration & Testing
-Etherpad: https://etherpad.opnfv.org/p/Qtip
+Etherpad: https://etherpad.opnfv.org/p/qtip
 Jira: https://jira.opnfv.org/browse/QTIP
 Gerrit: https://gerrit.opnfv.org/gerrit/#/admin/projects/qtip
 GIT: https://git.opnfv.org/cgit/qtip/
@@ -9,15 +9,14 @@ Mailing list tag: [QTIP]
 IRC: #opnfv-qtip
 Project Wiki: https://wiki.opnfv.org/platform_performance_benchmarking
 
-
-
 Committers:
 
 Michael Haugh       mhaugh@ixiacom.com
 Morgan  Richomme    morgan.richomme@orange.com
-Nauman  Ahad        Nauman_Ahad@dell.com
+Nauman  Ahad        nauman.ahad@xflowresearch.com
 Prabu   Kuppuswamy  prabu.kuppuswamy@spirent.com
 Prakash Ramchandran prakash.ramchandran@huawei.com
 Trevor  Cooper      trevor.cooper@intel.com
 Vikram  Dham        vikram@kamboi.com
 Wenjing Chu         chu.wenjing@gmail.com
+Yujun   Zhang       zhang.yujunz@zte.com.cn

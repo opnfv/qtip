@@ -6,9 +6,6 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-
-
-
 import os
 import time
 
@@ -19,7 +16,8 @@ class FetchImg:
         print 'Fetching Image!'
         print 'Fetching QTIP_VM Image'
 
-    def download(self):
+    @staticmethod
+    def download():
         time.sleep(2)
         os.system(
             'mkdir -p Temp_Img && wget http://artifacts.opnfv.org/qtip/QTIP_CentOS.qcow2 -P Temp_Img')

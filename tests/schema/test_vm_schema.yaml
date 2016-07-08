@@ -1,0 +1,80 @@
+type: map
+mapping:
+  Scenario:
+    type: map
+    mapping:
+      benchmark:
+        type: str
+        required: True
+      host:
+        type: str
+      server:
+        type: str
+        allowempty: True
+      1Run:
+        type: str
+      client:
+        type: str
+        allowempty: True
+      topology:
+        type: str
+        allowempty: True
+      benchmark_details:
+        type: map
+        mapping:
+          duration:
+            type: int
+          protocol:
+            type: str
+          bandwidthGbps:
+            type: int
+          teststream:
+            type: str
+      description:
+        type: str
+
+  Context:
+    type: map
+    mapping:
+         Host_Machines:
+           type: map
+           allowempty: True
+         Virtual_Machines:
+           type: map
+           required: True
+           mapping:
+             regex;(^virtualmachine):
+               type: map
+               mapping:
+                 availability_zone:
+                   type: str
+                 OS_image:
+                   type: str
+                 public_network:
+                   type: str
+                 role:
+                   type: str
+                 flavor:
+                   type: str
+         Proxy_Environment:
+           type: map
+           mapping:
+             http_proxy:
+               type: str
+             https_proxy:
+               type: str
+             no_proxy:
+               type: str
+
+  Test_Description:
+    type: map
+    mapping:
+      Test_category:
+        type: str
+        allowempty: True
+      Benchmark:
+        type: str
+        allowempty: True
+      Overview:
+        type: str
+        allowempty: True

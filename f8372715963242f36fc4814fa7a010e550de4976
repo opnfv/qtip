@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a7ca5a3_61c0d450",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-07-13T01:17:19Z",
+      "side": 1,
+      "message": "\u003d\u003e benchmarks",
+      "range": {
+        "startLine": 7,
+        "startChar": 36,
+        "endLine": 7,
+        "endChar": 45
+      },
+      "revId": "f8372715963242f36fc4814fa7a010e550de4976",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

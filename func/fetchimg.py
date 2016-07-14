@@ -9,6 +9,7 @@
 import os
 import time
 
+IMGSTORE="/iso_mount/opnfv_ci/master"
 
 class FetchImg:
 
@@ -19,10 +20,16 @@ class FetchImg:
     @staticmethod
     def download():
         time.sleep(2)
-        os.system(
-            'mkdir -p Temp_Img && wget http://artifacts.opnfv.org/qtip/QTIP_CentOS.qcow2 -P Temp_Img')
-
+        os.system('mkdir -p Temp_Img')
         filepath = './Temp_Img/QTIP_CentOS.qcow2'
-        while not os.path.isfile(filepath):
-            time.sleep(10)
-        print 'Download Completed!'
+        imgstorepath = IMGSTORE+"/QTIP_CentOS.qcow2"
+        if os.path.isfile(imgstorepath):
+            os.system("ln -s %s %s" % (imgstorepath, filepath))
+            print "QTIP_CentOS IMG exists locally. Skipping the download and using the file from IMG store"
+        else:
+            os.system(
+            'wget http://artifacts.opnfv.org/qtip/QTIP_CentOS.qcow2 -P Temp_Img')
+
+            while not os.path.isfile(filepath):
+                time.sleep(10)
+            print 'Download Completed!'

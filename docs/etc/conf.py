@@ -1,6 +1,5 @@
 import datetime
-import sys
-import os
+
 
 try:
     __import__('imp').find_module('sphinx.ext.numfig')
@@ -20,9 +19,7 @@ html_use_index = False
 
 pdf_documents = [('index', u'OPNFV', u'OPNFV Project', u'OPNFV')]
 pdf_fit_mode = "shrink"
-pdf_stylesheets = ['sphinx','kerning','a4']
-#latex_domain_indices = False
-#latex_use_modindex = False
+pdf_stylesheets = ['sphinx', 'kerning', 'a4']
 
 latex_elements = {
     'printindex': '',

@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a7ca5a3_29063ecf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-07-15T03:29:45Z",
+      "side": 1,
+      "message": "\u003d\u003e image",
+      "range": {
+        "startLine": 7,
+        "startChar": 28,
+        "endLine": 7,
+        "endChar": 31
+      },
+      "revId": "c35a48cbf4397e307461cfbcf679b1c7004372b6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_490b7ad6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-07-15T03:29:45Z",
+      "side": 1,
+      "message": "+ if exists.",
+      "range": {
+        "startLine": 7,
+        "startChar": 36,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "c35a48cbf4397e307461cfbcf679b1c7004372b6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_c96f8a91",
+        "filename": "func/fetchimg.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-07-15T03:29:45Z",
+      "side": 1,
+      "message": "typo of `home`?",
+      "range": {
+        "startLine": 12,
+        "startChar": 11,
+        "endLine": 12,
+        "endChar": 15
+      },
+      "revId": "c35a48cbf4397e307461cfbcf679b1c7004372b6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_696c369d",
+        "filename": "func/fetchimg.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-07-15T03:29:45Z",
+      "side": 1,
+      "message": "This naming looks strange. Either keep it as `QTIP_CentOS.qcow2` or change to a generic name `QTIP VM image`.",
+      "range": {
+        "startLine": 27,
+        "startChar": 19,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "c35a48cbf4397e307461cfbcf679b1c7004372b6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_8969928d",
+        "filename": "func/fetchimg.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-07-15T03:29:45Z",
+      "side": 1,
+      "message": "Better to keep consistency with L27",
+      "range": {
+        "startLine": 29,
+        "startChar": 28,
+        "endLine": 29,
+        "endChar": 41
+      },
+      "revId": "c35a48cbf4397e307461cfbcf679b1c7004372b6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

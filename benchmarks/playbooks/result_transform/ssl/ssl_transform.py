@@ -1,9 +1,6 @@
 import os
-import json
 import pickle
 import datetime
-
-#total_cpu=os.popen("cat $HOME/tempD/nDPI/example/result.txt | tail -1").read()
 
 openssl_version = os.popen("cat RSA_dump | head -1").read().rstrip()
 rsa_512_sps = os.popen(
@@ -23,7 +20,6 @@ rsa_4096_sps = os.popen(
 rsa_4096_vps = os.popen(
     "cat RSA_dump | grep  '4096 bits ' | awk '{print $7}' ").read().rstrip()
 
-
 aes_16B = os.popen(
     "cat AES-128-CBC_dump | grep  'aes-128-cbc  ' | awk '{print $2}' ").read().rstrip()
 aes_64B = os.popen(
@@ -35,15 +31,11 @@ aes_1024B = os.popen(
 aes_8192B = os.popen(
     "cat AES-128-CBC_dump | grep  'aes-128-cbc  ' | awk '{print $6}' ").read().rstrip()
 
-
 hostname = os.popen("hostname").read().rstrip()
 time_stamp = str(datetime.datetime.utcnow().isoformat())
 
-
 os.system("mv RSA_dump " + hostname + "-" + time_stamp + ".log")
 os.system("cat AES-128-CBC_dump >> " + hostname + "-" + time_stamp + ".log")
-
-
 
 result = {}
 
@@ -64,4 +56,3 @@ result['3. AES-128-cbc throughput']['5. 8192 Bytes block (B/sec)'] = aes_8192B
 
 with open('./result_temp', 'w+') as result_file:
     pickle.dump(result, result_file)
-

@@ -1,7 +1,6 @@
 import os
 import json
 import pickle
-import datetime
 
 total_cpu = os.popen(
     "cat $HOME/tempT/UnixBench/results/* | grep 'of tests' | awk '{print $1;}' | awk 'NR==1'").read().rstrip()

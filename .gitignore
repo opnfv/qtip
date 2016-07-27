@@ -45,6 +45,8 @@ nosetests.xml
 coverage.xml
 *,cover
 .hypothesis/
+data/hosts
+data/my_key.pem
 
 # Translations
 *.mo

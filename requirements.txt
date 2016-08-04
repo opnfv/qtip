@@ -7,3 +7,6 @@ python-cinderclient==1.4.0
 python-heatclient==0.6.0
 python-keystoneclient==1.6.0
 reportlab==3.0
+Flask==0.11.1
+Flask-RESTful==0.3.5
+flask-restful-swagger==0.19

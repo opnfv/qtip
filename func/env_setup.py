@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2015 Dell Inc  and others.
+# Copyright (c) 2016 Dell Inc, ZTE and others.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
@@ -14,9 +14,16 @@ import yaml
 import time
 import paramiko
 import socket
+from os.path import expanduser
+import random
+import logging
+
+LOG = logging.getLogger(__name__)
+LOG.setLevel(logging.DEBUG)
 
 
 class Env_setup:
+
     roles_ip_list = []  # ROLE and its corresponding IP address list
     ip_pw_list = []  # IP and password, this will be used to ssh
     roles_dict = defaultdict(list)
@@ -110,10 +117,58 @@ class Env_setup:
                     time.sleep(10)
                 print ('\n\n %s is UP \n\n ' % ipvar)
 
-    def get_host_machine_info(self, host_tag):
+    @staticmethod
+    def fetch_compute_ips():
+        LOG.info("Fetch compute ips through installer")
+        ips = []
 
+        installer_type = os.environ['INSTALLER_TYPE']
+        installer_ip = os.environ['INSTALLER_IP']
+        if installer_type.down.lower() != "fuel" or "compass":
+            raise RuntimeError("%s is not supported" % installer_type)
+        if installer_ip:
+            raise RuntimeError("undefine environment variable INSTALLER_IP")
+
+        cmd = "bash ./fetch_compute_ip.sh -i %s -a %s" % \
+            (installer_type, installer_ip)
+        os.system(cmd)
+        home = expanduser("~")
+        os.chdir(home)
+        with open("ips.log", "r") as file:
+            data = file.read()
+        if data:
+            ips.extend(data.rstrip('\n').split('\n'))
+        LOG.info("All compute ips: %s" % ips)
+        return ips
+
+    def check_machine_ips(self, host_tag):
+        LOG.info("Check machine ips")
+        ips = self.fetch_compute_ips()
+        ips_num = len(ips)
+        num = len(host_tag)
+        if num > ips_num:
+            err = "host num %s > compute ips num %s" % (num, ips_num)
+            raise RuntimeError(err)
+
+        for x in range(num):
+            hostlabel = 'machine_' + str(x + 1)
+            if host_tag[hostlabel]['ip']:
+                if host_tag[hostlabel]['ip'] in ips:
+                    info = "%s's ip %s is defined by test case yaml file" % \
+                        (hostlabel, host_tag[hostlabel]['ip'])
+                    LOG.info(info)
+                else:
+                    err = "%s is not in %s" % (host_tag[hostlabel]['ip'], ips)
+                    raise RuntimeError(err)
+            else:
+                host_tag[hostlabel]['ip'] = random.choice(ips)
+                info = "assign ip %s to %s" % (host_tag[hostlabel]['ip'], hostlabel)
+            ips.remove(host_tag[hostlabel]['ip'])
+
+    def get_host_machine_info(self, host_tag):
         num = len(host_tag)
         offset = len(self.roles_ip_list)
+        self.check_machine_ips(host_tag)
         for x in range(num):
             hostlabel = 'machine_' + str(x + 1)
             self.roles_ip_list.insert(

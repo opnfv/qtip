@@ -14,10 +14,6 @@ Context:
        role: host
   Virtual_Machines:
 
-  Proxy_Environment:
-     http_proxy: http://10.20.0.1:8118
-     https_proxy: http://10.20.0.1:8118
-     no_proxy: localhost,127.0.0.1,10.20.*,192.168.*
 
 Test_Description:
   Test_category: "Compute"

@@ -26,7 +26,6 @@ class SpawnVM(Env_setup):
     installer = ''
 
     def __init__(self, vm_info):
-        Env_setup.__init__(self)
         print 'SpawnVM Class initiated'
         vm_role_ip_dict = vm_info.copy()
         print 'Generating Heat Template\n'

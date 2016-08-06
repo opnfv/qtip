@@ -1,0 +1,268 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_9dd6ccc4",
+        "filename": "restful_server/db.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-06T16:03:38Z",
+      "side": 1,
+      "message": "please add the license info in the head",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "e7dcb3c2c0eb82fec9f72777a79c587305d51749",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_3ddbf8ee",
+        "filename": "restful_server/db.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-06T16:03:38Z",
+      "side": 1,
+      "message": "the next 2 lines not necessary, I think",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 19
+      },
+      "revId": "e7dcb3c2c0eb82fec9f72777a79c587305d51749",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_fdfb4045",
+        "filename": "restful_server/restful_server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-06T16:03:38Z",
+      "side": 1,
+      "message": "maybe qtip, qtipservice or qtipserver is more meaningful",
+      "revId": "e7dcb3c2c0eb82fec9f72777a79c587305d51749",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_5dd834ef",
+        "filename": "restful_server/restful_server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-06T16:03:38Z",
+      "side": 1,
+      "message": "db us usually abbreviation for database, other words will be better",
+      "range": {
+        "startLine": 4,
+        "startChar": 7,
+        "endLine": 4,
+        "endChar": 9
+      },
+      "revId": "e7dcb3c2c0eb82fec9f72777a79c587305d51749",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_fde4a0ad",
+        "filename": "restful_server/restful_server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-06T16:03:38Z",
+      "side": 1,
+      "message": "{\n                 \"code\": 404,\n                 \"message\": \"Can\u0027t not find the job id XXXXXXX\"\n }",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 60
+      },
+      "revId": "e7dcb3c2c0eb82fec9f72777a79c587305d51749",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_bdee288a",
+        "filename": "restful_server/restful_server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-06T16:03:38Z",
+      "side": 1,
+      "message": "better choice is set this in a string?",
+      "range": {
+        "startLine": 47,
+        "startChar": 42,
+        "endLine": 47,
+        "endChar": 73
+      },
+      "revId": "e7dcb3c2c0eb82fec9f72777a79c587305d51749",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_1de2bc9f",
+        "filename": "restful_server/restful_server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-06T16:03:38Z",
+      "side": 1,
+      "message": "sake as last",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 56
+      },
+      "revId": "e7dcb3c2c0eb82fec9f72777a79c587305d51749",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_3d02183f",
+        "filename": "restful_server/restful_server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-06T16:03:38Z",
+      "side": 1,
+      "message": "no blank line is better",
+      "revId": "e7dcb3c2c0eb82fec9f72777a79c587305d51749",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_9ded6c8e",
+        "filename": "restful_server/restful_server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-06T16:03:38Z",
+      "side": 1,
+      "message": "If",
+      "range": {
+        "startLine": 79,
+        "startChar": 12,
+        "endLine": 79,
+        "endChar": 14
+      },
+      "revId": "e7dcb3c2c0eb82fec9f72777a79c587305d51749",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_7de8907c",
+        "filename": "restful_server/restful_server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-06T16:03:38Z",
+      "side": 1,
+      "message": "iteration, default",
+      "range": {
+        "startLine": 80,
+        "startChar": 20,
+        "endLine": 80,
+        "endChar": 37
+      },
+      "revId": "e7dcb3c2c0eb82fec9f72777a79c587305d51749",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_ddf3e471",
+        "filename": "restful_server/restful_server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-06T16:03:38Z",
+      "side": 1,
+      "message": "name, default",
+      "range": {
+        "startLine": 82,
+        "startChar": 16,
+        "endLine": 82,
+        "endChar": 28
+      },
+      "revId": "e7dcb3c2c0eb82fec9f72777a79c587305d51749",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_5dffd434",
+        "filename": "restful_server/restful_server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-06T16:03:38Z",
+      "side": 1,
+      "message": "is this part of code move into __init__.py",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 23
+      },
+      "revId": "e7dcb3c2c0eb82fec9f72777a79c587305d51749",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

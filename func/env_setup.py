@@ -98,16 +98,18 @@ class Env_setup:
                         print 'Retrying SSH %s' % infinity
 
     @staticmethod
-    def ping_test(lister):
-
+    def ping_test(lister, attempts=30):
         for k, v in lister.iteritems():
             time.sleep(10)
             for val in v:
                 ipvar = val
                 ping_cmd = 'ping -D -c1 {0}'.format(ipvar)
-                while os.system(ping_cmd) != 0:
-                    print '\nWaiting for machine\n'
-                    time.sleep(10)
+                for i in range(attempts):
+                    if os.system(ping_cmd) != 0:
+                        print '\nWaiting for machine\n'
+                        time.sleep(10)
+                    else:
+                        break
                 print ('\n\n %s is UP \n\n ' % ipvar)
 
     def get_host_machine_info(self, host_tag):

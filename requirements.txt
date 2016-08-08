@@ -10,3 +10,4 @@ reportlab==3.0
 Flask==0.11.1
 Flask-RESTful==0.3.5
 flask-restful-swagger==0.19
+ansible==2.1.1.0

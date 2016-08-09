@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_53e4a50c",
+        "filename": "func/ansible_api.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-08-09T00:52:07Z",
+      "side": 1,
+      "message": "\"execut\" is not a common abbreviation. Please consider using \"exec\" or \"execute\"",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "884b1f11be8e6b2939c08adf071921bee93a2a74",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

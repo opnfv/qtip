@@ -54,13 +54,15 @@ class cli:
     @staticmethod
     def _parse_args(args):
         parser = argparse.ArgumentParser()
-        parser.add_argument('-l ', '--lab', help='Name of Lab on which being tested, These can'
+        parser.add_argument('-l ', '--lab', required=True, help='Name of Lab '
+                            'on which being tested, These can'
                             'be found in the test_cases/ directory. Please '
                             'ensure that you have edited the respective files '
                             'before using them. For testing other than through Jenkins'
                             ' The user should list default after -l . all the fields in'
                             ' the files are necessary and should be filled')
-        parser.add_argument('-f', '--file', help='File in test_list with the list of tests. there are three files'
+        parser.add_argument('-f', '--file', required=True, help='File in '
+                            'test_list with the list of tests. there are three files'
                             '\n compute '
                             '\n storage '
                             '\n network '

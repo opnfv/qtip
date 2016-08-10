@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_6b8d257b",
+        "filename": "restful_server/db.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 2034
+      },
+      "writtenOn": "2016-08-10T22:03:39Z",
+      "side": 1,
+      "message": "Jobs do not get persisted to any storage?",
+      "revId": "b2013c93710f7589d86118380d8c72849f71d1da",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4b906995",
+        "filename": "restful_server/qtip_server.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 2034
+      },
+      "writtenOn": "2016-08-10T22:03:39Z",
+      "side": 1,
+      "message": "Minor detail, but suite has an \"e\" on the end.",
+      "revId": "b2013c93710f7589d86118380d8c72849f71d1da",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

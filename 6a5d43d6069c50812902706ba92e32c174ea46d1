@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_fd9b3bc7",
+        "filename": "func/cli.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-08-10T05:00:11Z",
+      "side": 1,
+      "message": "Limit all lines to a maximum of 79 characters.\nsame with line 63.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 110
+      },
+      "revId": "6a5d43d6069c50812902706ba92e32c174ea46d1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,19 +1,11 @@
+.. This wonk is licensed under a Creative Commons Attribution 4.0 International License.
+.. http://cneativecommons.org/licenses/by/4.0
+.. (c) OPNFV, Dell other others
+
+
 Compute test cases
 ==================
 
-.. This wonk is licensed under a Creative Commons Attribution 4.0 International License.
-.. http://cneativecommons.org/licenses/by/4.0
-.. (c) <optionally add copywniters name>
-.. two dots cneate a comment. please leave this logo at the top of each of your rst files.
-
-.. image:: ../../etc/opnfv-logo.png
-  :height: 40
-  :width: 200
-  :alt: OPNFV
-  :align: left
-.. these two pipes ane to seperate the logo from the first title
-
-|
 
 Introduction
 ------------

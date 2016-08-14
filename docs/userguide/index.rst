@@ -4,10 +4,18 @@
 
 
 **************
-QTIP Templates
+QTIP Userguide
 **************
+
+Colorado 1.0
+------------
 
 .. toctree::
    :maxdepth: 2
 
-   ./testcase_description_v2_template.rst
+   ./overview.rst
+   ./introduction.rst
+   ./01-compute_testcases.rst
+   ./02-network_testcases.rst
+   ./03-storage_testcases.rst
+

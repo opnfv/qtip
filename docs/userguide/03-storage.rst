@@ -1,18 +1,11 @@
-Storage test cases
-==================
-
 .. This work is licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
 .. (c) <optionally add copywriters name>
 .. two dots create a comment. please leave this logo at the top of each of your rst files.
-.. image:: ../../etc/opnfv-logo.png
-  :height: 40
-  :width: 200
-  :alt: OPNFV
-  :align: left
-.. these two pipes are to seperate the logo from the first title
 
-|
+
+Storage test cases
+==================
 
 The QTIP benchmark suite aims to evaluate storage components within an OPNFV platform.
 For Brahamaputra release, FIO would evaluate File System performance for the host machine.

@@ -2,12 +2,12 @@
 .. http://creativecommons.org/licenses/by/4.0
 .. (c) OPNFV, Dell and others
 
-
-**************
-QTIP Templates
-**************
+************
+Qtip Roadmap
+************
 
 .. toctree::
    :maxdepth: 2
 
-   ./testcase_description_v2_template.rst
+   ./roadmap.rst
+

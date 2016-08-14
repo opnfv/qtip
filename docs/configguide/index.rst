@@ -2,12 +2,12 @@
 .. http://creativecommons.org/licenses/by/4.0
 .. (c) OPNFV, Dell and others
 
-
-**************
-QTIP Templates
-**************
+****************
+QTIP Configguide
+****************
 
 .. toctree::
    :maxdepth: 2
 
-   ./testcase_description_v2_template.rst
+   ./configuration.rst
+

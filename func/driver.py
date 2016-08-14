@@ -8,7 +8,6 @@
 ##############################################################################
 import os
 import json
-from collections import defaultdict
 
 
 class Driver:
@@ -17,44 +16,51 @@ class Driver:
 
         print "Class driver initialized\n"
         print os.environ['PWD']
-        self.dic_json = defaultdict()
+        self.installer_username = {'fuel': 'root',
+                                   'joid': 'ubuntu',
+                                   'apex': 'heat-admin'}
+
+    @staticmethod
+    def merge_two_dicts(x, y):
+        z = x.copy()
+        z.update(y)
+        return z
+
+    def get_common_var_json(self, benchmark_fname, benchmark_detail, pip_dict, proxy_info):
+        dic_json = {'Dest_dir': 'results',
+                    'ip1': '',
+                    'ip2': '',
+                    'installer': str(os.environ['INSTALLER_TYPE']),
+                    'workingdir': str(os.environ['PWD']),
+                    'fname': str(benchmark_fname),
+                    'username': self.installer_username[str(os.environ['INSTALLER_TYPE'])]}
+        dic_json.update(benchmark_detail) if benchmark_detail else None
+        dic_json.update(proxy_info) if proxy_info else None
+        return dic_json
+
+    def get_special_var_json(self, role, roles, benchmark_detail, pip_dict):
+        special_json = {}
+        index = roles.index(role) + 1
+        special_json.update({'role': role[0]})
+        private_ip = pip_dict[0][1] if pip_dict[0][1][0] else 'NONE'
+        map(lambda x: special_json.update({'ip' + str(index): x}), role[1])\
+            if benchmark_detail and (role[0] == '1-server') else None
+        map(lambda x: special_json.update({'privateip' + str(index): private_ip}), role[1])\
+            if benchmark_detail and (role[0] == '1-server') else None
+        return special_json
+
+    def run_ansible_playbook(self, benchmark, extra_vars):
+        dic_json = json.dumps(dict(extra_vars.items()))
+        print dic_json
+        run_play = 'ansible-playbook ./benchmarks/playbooks/{0}.yaml  --private-key=./data/QtipKey -i ./data/hosts --extra-vars \'{1}\''.format(benchmark, dic_json)
+        os.system(run_play)
 
     def drive_bench(self, benchmark, roles, benchmark_fname, benchmark_detail=None, pip_dict=None, proxy_info=None):
         roles = sorted(roles)
         pip_dict = sorted(pip_dict)
-        result_dir = 'results'
-        benchmark_name = benchmark + '.yaml'
-        self.dic_json['Dest_dir'] = str(result_dir)
-        self.dic_json['ip1'] = ''
-        self.dic_json['ip2'] = ''
-        self.dic_json['installer'] = str(os.environ['INSTALLER_TYPE'])
-        self.dic_json['workingdir'] = str(os.environ['PWD'])
-        self.dic_json['fname'] = str(benchmark_fname)
-        self.dic_json['username'] = str('root')
-
-        for key in proxy_info.keys():
-            self.dic_json[key] = proxy_info[key]
-
-        if os.environ['INSTALLER_TYPE'] == str('joid'):
-            self.dic_json['username'] = str('ubuntu')
-        if os.environ['INSTALLER_TYPE'] == str('apex'):
-            self.dic_json['username'] = str('heat-admin')
-        for k, v in benchmark_detail:
-            self.dic_json[k] = v
-        for k, v in roles:
-            self.dic_json['role'] = k
-            index = 1
-            if benchmark_detail is not None:
-                for values in v:
-                    if k == '1-server':
-                        print values, 'saving IP'
-                        self.dic_json['ip' + str(index)] = str(values)
-                        if pip_dict[0][1][0]:
-                            self.dic_json['privateip' + str(index)] = pip_dict[0][1]
-                        if not pip_dict[0][1][0]:
-                            self.dic_json['privateip' + str(index)] = 'NONE'
-                        index = index + 1
-            dic_json = json.dumps(dict(self.dic_json.items()))
-            print dic_json
-            run_play = 'ansible-playbook ./benchmarks/playbooks/{0}  --private-key=./data/QtipKey -i ./data/hosts --extra-vars \'{1}\''.format(benchmark_name, dic_json)
-            os.system(run_play)
+        var_json = self.get_common_var_json(benchmark_fname, benchmark_detail, pip_dict, proxy_info)
+        map(lambda role: self.run_ansible_playbook
+            (benchmark, self.merge_two_dicts(var_json,
+                                             self.get_special_var_json(role, roles,
+                                                                       benchmark_detail,
+                                                                       pip_dict))), roles)

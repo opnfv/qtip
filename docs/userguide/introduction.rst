@@ -1,18 +1,12 @@
-Guide to run QTIP:
-==================
-
 .. This work is licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
-.. (c) <optionally add copywriters name>
-.. two dots create a comment. please leave this logo at the top of each of your rst files.
-.. image:: ../etc/opnfv-logo.png
-  :height: 40
-  :width: 200
-  :alt: OPNFV
-  :align: left
-.. these two pipes are to seperate the logo from the first title
+.. (c) 2015 Dell Inc.
+.. (c) 2016 ZTE Corp.
 
-|
+
+*****************
+Qtip Introduction
+*****************
 
 This guide will serve as a first step to familiarize the user with how to
 run QTIP the first time when the user clones QTIP on to their host machine.
@@ -341,4 +335,3 @@ Running QTIP on the using `default` as the pod name and for the `storage` suite
 Results:
 --------
 QTIP generates results in the `results/` directory are listed down under the particularly benchmark name. So all the results for dhrystone would be listed and time stamped.
-

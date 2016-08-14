@@ -3,11 +3,11 @@
 .. (c) 2015 Dell Inc.
 .. (c) 2016 ZTE Corp.
 
-**************
-QTIP Templates
-**************
+****************
+QTIP Configguide
+****************
 
 .. toctree::
    :maxdepth: 2
 
-   ./testcase_description_v2_template.rst
+   ./configuration.rst

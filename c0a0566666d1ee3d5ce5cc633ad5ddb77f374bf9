@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_f4d02d55",
+        "filename": "func/driver.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-08-15T01:49:06Z",
+      "side": 1,
+      "message": "recommend to rename to `common_json` for consistency with the function `get_special_var_json`",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "c0a0566666d1ee3d5ce5cc633ad5ddb77f374bf9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_14d60950",
+        "filename": "func/driver.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-08-15T01:49:06Z",
+      "side": 1,
+      "message": "Recommend to use `dict_json`. `dic` is not a common abbreviation.",
+      "range": {
+        "startLine": 53,
+        "startChar": 8,
+        "endLine": 53,
+        "endChar": 16
+      },
+      "revId": "c0a0566666d1ee3d5ce5cc633ad5ddb77f374bf9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

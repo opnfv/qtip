@@ -1,18 +1,11 @@
-Storage test cases
-==================
-
 .. This work is licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
-.. (c) <optionally add copywriters name>
-.. two dots create a comment. please leave this logo at the top of each of your rst files.
-.. image:: ../../etc/opnfv-logo.png
-  :height: 40
-  :width: 200
-  :alt: OPNFV
-  :align: left
-.. these two pipes are to seperate the logo from the first title
+.. (c) 2015 Dell Inc.
+.. (c) 2016 ZTE Corp.
 
-|
+
+Storage test cases
+==================
 
 The QTIP benchmark suite aims to evaluate storage components within an OPNFV platform.
 For Brahamaputra release, FIO would evaluate File System performance for the host machine.
@@ -36,4 +29,3 @@ The FIO Job would consist of:
 6. Block size :4K
 
 For this Job, I/O per second would be measured along mean I/O latency to provide storage performance numbers.
-

@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_25f2f19a",
+        "filename": "func/ansible_api.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-08-17T02:17:41Z",
+      "side": 1,
+      "message": "suggest to use LOG instead of print",
+      "range": {
+        "startLine": 28,
+        "startChar": 12,
+        "endLine": 28,
+        "endChar": 69
+      },
+      "revId": "d79830b5dea00631e3bbc83a6bc8bbbc9010f15c",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_c503fd71",
+        "filename": "func/ansible_api.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-08-17T02:17:41Z",
+      "side": 1,
+      "message": "line37,38,39,42: Limit all lines to a maximum of 79 characters.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 111
+      },
+      "revId": "d79830b5dea00631e3bbc83a6bc8bbbc9010f15c",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_e52b99e9",
+        "filename": "tests/ansible_api_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-08-17T02:17:41Z",
+      "side": 1,
+      "message": "Limit all lines to a maximum of 79 characters.",
+      "revId": "d79830b5dea00631e3bbc83a6bc8bbbc9010f15c",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

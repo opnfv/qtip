@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_853c2531",
+        "filename": "func/driver.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-08-17T02:40:02Z",
+      "side": 1,
+      "message": "how about we use dict1, dict2",
+      "range": {
+        "startLine": 24,
+        "startChar": 24,
+        "endLine": 24,
+        "endChar": 28
+      },
+      "revId": "081e3c588c6576832dec0e16fc859c62e0cf3b92",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_254991d0",
+        "filename": "func/driver.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-08-17T02:40:02Z",
+      "side": 1,
+      "message": "how about we use temp",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 9
+      },
+      "revId": "081e3c588c6576832dec0e16fc859c62e0cf3b92",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_e512b9b3",
+        "filename": "func/driver.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-08-17T02:40:02Z",
+      "side": 1,
+      "message": "judge whether the env parameter is None or invalid parameter or unsupported installer type.",
+      "range": {
+        "startLine": 33,
+        "startChar": 40,
+        "endLine": 33,
+        "endChar": 68
+      },
+      "revId": "081e3c588c6576832dec0e16fc859c62e0cf3b92",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_653f8926",
+        "filename": "func/driver.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-08-17T02:40:02Z",
+      "side": 1,
+      "message": "suggest to use logging instead of print",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 29
+      },
+      "revId": "081e3c588c6576832dec0e16fc859c62e0cf3b92",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_c53a1d36",
+        "filename": "func/driver.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-08-17T02:40:02Z",
+      "side": 1,
+      "message": "PEP8: Limit all lines to a maximum of 79 characters.",
+      "revId": "081e3c588c6576832dec0e16fc859c62e0cf3b92",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_a535a147",
+        "filename": "func/driver.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-08-17T02:40:02Z",
+      "side": 1,
+      "message": "PEP8: Limit all lines to a maximum of 79 characters.",
+      "revId": "081e3c588c6576832dec0e16fc859c62e0cf3b92",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

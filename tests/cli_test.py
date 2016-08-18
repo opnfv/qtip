@@ -16,5 +16,5 @@ class TestClass:
     def test_cli_error(self, capfd, test_input, expected):
         with pytest.raises(SystemExit):
             cli(test_input)
-            resout, reserr = capfd.readouterr()
-            assert expected in resout
+        resout, reserr = capfd.readouterr()
+        assert expected in resout

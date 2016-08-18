@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_7d2f19a2",
+        "filename": "func/driver.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-08-18T16:08:10Z",
+      "side": 1,
+      "message": "2016 Dell Inc, ZTE and others",
+      "revId": "27b463c5a9e50c610692c359e6ccdb982a6d1975",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_9d2c75ad",
+        "filename": "func/driver.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-08-18T16:08:10Z",
+      "side": 1,
+      "message": "what about compass? root is for compass.",
+      "revId": "27b463c5a9e50c610692c359e6ccdb982a6d1975",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_dd22edb8",
+        "filename": "tests/driver_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-08-18T16:08:10Z",
+      "side": 1,
+      "message": "license missing",
+      "revId": "27b463c5a9e50c610692c359e6ccdb982a6d1975",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

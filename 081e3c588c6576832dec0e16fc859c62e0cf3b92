@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_8f819f91",
+        "filename": "func/driver.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-08-18T07:11:12Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "1a76adc5_25775104",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "081e3c588c6576832dec0e16fc859c62e0cf3b92",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_e512b9b3",
         "filename": "func/driver.py",
         "patchSetId": 2
@@ -130,6 +154,30 @@
       "writtenOn": "2016-08-17T02:40:02Z",
       "side": 1,
       "message": "judge whether the env parameter is None or invalid parameter or unsupported installer type.",
+      "range": {
+        "startLine": 33,
+        "startChar": 40,
+        "endLine": 33,
+        "endChar": 68
+      },
+      "revId": "081e3c588c6576832dec0e16fc859c62e0cf3b92",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_ef74d3d0",
+        "filename": "func/driver.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-08-18T07:11:12Z",
+      "side": 1,
+      "message": "I perfer to check the system environ in cli.py.",
+      "parentUuid": "1a76adc5_e512b9b3",
       "range": {
         "startLine": 33,
         "startChar": 40,

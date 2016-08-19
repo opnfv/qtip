@@ -80,9 +80,14 @@ class cli:
             sys.exit(0)
 
         if not self._check_lab_name(args.lab):
-            print '\n\n You have specified a lab that is not present in test_cases/ please enter correct \
-                   file. If unsure how to proceed, use -l default.\n\n'
-            sys.exit(0)
+            print '\n\n You have specified a lab that is not present in test_cases \n\n'
+
+            if str(os.environ['INSTALLER_TYPE']).lower() == "fuel" or "compass":
+                print '\n\n test cases under test_case/default will be execute. \n\n'
+                args.lab = 'default'
+            else:
+                print '\n\n please enter correct file. If unsure how to proceed, use -l default.\n\n'
+                sys.exit(0)
 
         benchmarks = self._getfile(args.file)
         suite.append(args.file)

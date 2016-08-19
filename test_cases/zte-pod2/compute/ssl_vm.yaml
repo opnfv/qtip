@@ -1,0 +1,36 @@
+Scenario:
+  benchmark: ssl
+  host: virtualmachine_1, virtualmachine_2
+
+Context:
+  Host_Machines:
+
+  Virtual_Machines:
+    virtualmachine_1:
+      availability_zone: compute1
+      public_network: 'admin-floating_net'
+      OS_image: 'QTIP_CentOS'
+      flavor: 'm1.large'
+      role: host
+    virtualmachine_2:
+      availability_zone: compute2
+      public_network: 'admin-floating_net'
+      OS_image: 'QTIP_CentOS'
+      flavor: 'm1.large'
+      role: host
+
+
+Test_Description:
+  Test_category: "Compute"
+  Benchmark: "ssl"
+  Overview: >
+        '''This test will run the SSL benchmark in parallel on virtualmachine_1 and machine_1.\n
+         if you wish to add a virtual machine add the following information under the Virtual_Machine tag
+
+        virtualmachine_1:
+          availability_zone:
+          public_network:
+          OS_image:
+          flavor:
+          role:
+          '''

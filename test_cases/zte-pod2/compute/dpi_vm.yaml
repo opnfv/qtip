@@ -1,0 +1,35 @@
+Scenario:
+  benchmark: dpi
+  1Run : virtualmachine_1, virtualmachine_2
+
+Context:
+  Host_Machines:
+
+
+  Virtual_Machines:
+     virtualmachine_1:
+      availability_zone: compute1
+      OS_image: QTIP_CentOS
+      public_network: 'admin-floating_net'
+      role: 1Run
+      flavor: m1.large
+     virtualmachine_2:
+      availability_zone: compute2
+      OS_image: QTIP_CentOS
+      public_network: 'admin-floating_net'
+      role: 1Run
+      flavor: m1.large
+
+Test_Description:
+  Test_category: "Compute"
+  Benchmark: "dpi"
+  Overview: >
+        '''This test will run the DPI benchmark in parallel on virutalmachine_1 and virtualmachine_2.\n
+         if you wish to add a host machine add the following information under the Host_Machine tag
+
+        machine_1:
+          ip:
+          pw:
+          role:
+          '''
+

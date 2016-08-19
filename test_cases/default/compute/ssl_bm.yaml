@@ -1,17 +1,17 @@
 Scenario:
   benchmark: ssl
-  1Run: machine_1,machine_2
+  host: machine_1,machine_2
 
 Context:
   Host_Machines:
     machine_1:
-      ip: 10.20.0.4
+      ip:
       pw:
-      role: 1Run
+      role: host
     machine_2:
-      ip: 10.20.0.5
+      ip:
       pw:
-      role: 1Run
+      role: host
   Virtual_Machines:
 
 

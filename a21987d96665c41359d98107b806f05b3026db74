@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_f28353ca",
+        "filename": "tests/ansible_api_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-08-20T08:28:59Z",
+      "side": 1,
+      "message": "I did not put the license in all test files. Do we need?",
+      "parentUuid": "1a76adc5_fd448975",
+      "revId": "a21987d96665c41359d98107b806f05b3026db74",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_1d4aa580",
         "filename": "tests/ansible_api_test.py",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2016-08-18T16:01:03Z",
       "side": 1,
       "message": "PEP8, just curious? dose the jenkins verify job miss this rules?",
+      "revId": "a21987d96665c41359d98107b806f05b3026db74",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_12892feb",
+        "filename": "tests/ansible_api_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-08-20T08:28:59Z",
+      "side": 1,
+      "message": "flake8 in the releng seems did not check max-line-length.",
+      "parentUuid": "1a76adc5_1d4aa580",
       "revId": "a21987d96665c41359d98107b806f05b3026db74",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

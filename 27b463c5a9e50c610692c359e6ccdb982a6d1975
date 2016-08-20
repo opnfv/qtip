@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_b26ddb34",
+        "filename": "func/driver.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-08-20T08:28:33Z",
+      "side": 1,
+      "message": "This is not new file. I dont think we should change the license.",
+      "parentUuid": "1a76adc5_7d2f19a2",
+      "revId": "27b463c5a9e50c610692c359e6ccdb982a6d1975",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_9d2c75ad",
         "filename": "func/driver.py",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2016-08-18T16:08:10Z",
       "side": 1,
       "message": "what about compass? root is for compass.",
+      "revId": "27b463c5a9e50c610692c359e6ccdb982a6d1975",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_d26ad719",
+        "filename": "func/driver.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-08-20T08:28:33Z",
+      "side": 1,
+      "message": "The old driver.py also did not include the compass.",
+      "parentUuid": "1a76adc5_9d2c75ad",
       "revId": "27b463c5a9e50c610692c359e6ccdb982a6d1975",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

@@ -16,7 +16,6 @@ class Driver:
     def __init__(self):
 
         print "Class driver initialized\n"
-        print os.environ['PWD']
         self.dic_json = defaultdict()
 
     def drive_bench(self, benchmark, roles, benchmark_fname, benchmark_detail=None, pip_dict=None, proxy_info=None):

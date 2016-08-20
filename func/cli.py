@@ -8,48 +8,11 @@
 ##############################################################################
 
 import sys
-import os
-from func.env_setup import Env_setup
-from func.driver import Driver
-from func.spawn_vm import SpawnVM
+import args_handler
 import argparse
 
 
 class cli:
-
-    @staticmethod
-    def _getfile(file_path):
-        with open('test_list/' + file_path, 'r') as fin_put:
-            _benchmarks = fin_put.readlines()
-        for items in range(len(_benchmarks)):
-            _benchmarks[items] = _benchmarks[items].rstrip()
-        return _benchmarks
-
-    @staticmethod
-    def _getsuite(file_path):
-
-        return file_path
-
-    @staticmethod
-    def _check_test_list(filename):
-
-        if os.path.isfile('test_list/' + filename):
-            return True
-        else:
-            return False
-
-    @staticmethod
-    def _check_lab_name(lab_name):
-
-        if os.path.isdir('test_cases/' + lab_name):
-            return True
-        else:
-            return False
-
-    @staticmethod
-    def _get_f_name(file_name):
-
-        return file_name[0: file_name.find('.')]
 
     @staticmethod
     def _parse_args(args):
@@ -72,40 +35,22 @@ class cli:
 
     def __init__(self, args=sys.argv[1:]):
 
-        suite = []
         args = self._parse_args(args)
-
-        if not self._check_test_list(args.file):
+        if not args_handler.check_suit_in_test_list(args.file):
             print '\n\n ERROR: Test File Does not exist in test_list/ please enter correct file \n\n'
             sys.exit(0)
 
-        if not self._check_lab_name(args.lab):
+        if not args_handler.check_lab_name(args.lab):
             print '\n\n You have specified a lab that is not present in test_cases/ please enter correct \
                    file. If unsure how to proceed, use -l default.\n\n'
             sys.exit(0)
+        suite = args.file
+        benchmarks = args_handler.get_files_in_test_list(suite)
+        test_cases = args_handler.get_files_in_test_case(args.lab, suite)
+        benchmarks_list = filter(lambda x: x in test_cases, benchmarks)
 
-        benchmarks = self._getfile(args.file)
-        suite.append(args.file)
-        suite = self._getsuite(suite)
-        for items in range(len(benchmarks)):
-            if suite and benchmarks:
-                obj = Env_setup()
-                if os.path.isfile('./test_cases/' + args.lab.lower() + '/' + suite[0] + '/' + benchmarks[items]):
-                    [benchmark, vm_info, benchmark_details, proxy_info] = \
-                        obj.parse('./test_cases/' + args.lab.lower() + '/' + suite[0] + '/' + benchmarks[items])
+        map(lambda x: args_handler.prepare_and_run_benchmark(
+            args_handler.get_benchmark_path(args.lab.lower(), suite, x)), benchmarks_list)
 
-                    if len(vm_info) != 0:
-                        SpawnVM(vm_info)
-                    obj.call_ping_test()
-                    obj.call_ssh_test()
-                    obj.update_ansible()
-                    dvr = Driver()
-                    dvr.drive_bench(benchmark,
-                                    obj.roles_dict.items(),
-                                    self._get_f_name(benchmarks[items]),
-                                    benchmark_details,
-                                    obj.ip_pw_dict.items(),
-                                    proxy_info)
-                else:
-                    print (benchmarks[items], ' is not a Template in the Directory - \
-                                Enter a Valid file name. or use qtip.py -h for list')
+        print('{0} is not a Template in the Directory Enter a Valid file name.'
+              'or use qtip.py -h for list'.format(filter(lambda x: x not in test_cases, benchmarks)))

@@ -34,7 +34,7 @@ def create_job(args):
 
 def delete_job(job_id):
     if job_id in jobs.keys():
-        jobs[job_id]['end_time'] = datetime.now()
+        jobs[job_id]['end_time'] = str(datetime.now())
         jobs[job_id]['state'] = 'terminated'
         return True
     else:
@@ -46,3 +46,23 @@ def get_job_info(job_id):
         return jobs[job_id]
     else:
         return None
+
+
+def finish_job(job_id, state):
+    jobs[job_id]['end-time'] = str(datetime.now())
+    jobs[job_id]['state'] = state
+
+
+def update_job_state_detail(job_id, state_detail):
+    jobs[job_id][state_detail] = state_detail
+
+
+def update_job_result(job_id, result):
+    jobs[job_id][result] = result
+
+
+def is_job_timeout(job_id):
+    period = datetime.now() - datetime.strptime(jobs[job_id]['start_time'],
+                                                "%Y-%m-%d %H:%M:%S.%f")
+    return True if jobs[job_id]['deadline'] * 60 >= period.total_seconds()\
+        else False

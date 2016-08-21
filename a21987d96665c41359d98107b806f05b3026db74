@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_32646b21",
+        "filename": "tests/ansible_api_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-08-21T00:01:08Z",
+      "side": 1,
+      "message": "We may solve it automatically after decision is made.",
+      "parentUuid": "1a76adc5_f28353ca",
+      "revId": "a21987d96665c41359d98107b806f05b3026db74",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_1d4aa580",
         "filename": "tests/ansible_api_test.py",
         "patchSetId": 6
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "max-line-length limited to 120 is better. 79 is only the default value.",
       "parentUuid": "1a76adc5_12892feb",
+      "revId": "a21987d96665c41359d98107b806f05b3026db74",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_5269e7f7",
+        "filename": "tests/ansible_api_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-08-21T00:01:08Z",
+      "side": 1,
+      "message": "The same as L1",
+      "parentUuid": "1a76adc5_b254fb54",
       "revId": "a21987d96665c41359d98107b806f05b3026db74",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

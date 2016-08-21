@@ -123,6 +123,24 @@
       "revId": "a21987d96665c41359d98107b806f05b3026db74",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_d27417d1",
+        "filename": "tests/ansible_api_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-08-21T00:09:18Z",
+      "side": 1,
+      "message": "See https://www.python.org/dev/peps/pep-0008/#maximum-line-length the recommended value is 80 to 100",
+      "parentUuid": "1a76adc5_b254fb54",
+      "revId": "a21987d96665c41359d98107b806f05b3026db74",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

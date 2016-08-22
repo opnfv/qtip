@@ -65,3 +65,4 @@ target/
 .*.sw?
 /docs_build/
 /docs_output/
+.idea

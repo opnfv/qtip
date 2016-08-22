@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_b5e70512",
+        "filename": "restful_server/db.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-08-22T00:35:36Z",
+      "side": 1,
+      "message": "`check_job_deadline` returns True does not give an explicit meaning.\n\nPerfer to use more explicit function name such as `is_job_timeout`.",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 22
+      },
+      "revId": "6749b58c1b8394b91d2e6e11e42b4f5e070999da",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

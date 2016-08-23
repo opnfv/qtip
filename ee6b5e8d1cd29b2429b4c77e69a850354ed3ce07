@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_26c8ad21",
+        "filename": "restful_server/db.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-08-23T06:22:55Z",
+      "side": 1,
+      "message": "Should it be period \u003e deadline?\n\nAnd it will be more readable if we rename \u0027deadline\u0027 to \u0027max-minutes\u0027. \u0027deadline\u0027 usually refers to an absolute timestamp.",
+      "revId": "ee6b5e8d1cd29b2429b4c77e69a850354ed3ce07",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

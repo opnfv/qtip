@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_dc3bc6e9",
+        "filename": "test_cases/default/compute/dhrystone_bm.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-08-24T00:39:53Z",
+      "side": 1,
+      "message": "trailing space?",
+      "range": {
+        "startLine": 14,
+        "startChar": 9,
+        "endLine": 14,
+        "endChar": 10
+      },
+      "revId": "e6342f538dde2325ced3528c52c1e05d8bb1a757",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_5c2fb6a1",
+        "filename": "test_cases/default/compute/dpi_bm.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-08-24T00:39:53Z",
+      "side": 1,
+      "message": "more trailing spaces...",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 13
+      },
+      "revId": "e6342f538dde2325ced3528c52c1e05d8bb1a757",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

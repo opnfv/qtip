@@ -124,20 +124,23 @@ class Env_setup:
         LOG.info("Fetch compute ips through installer")
         ips = []
 
-        installer_type = os.environ['INSTALLER_TYPE']
-        installer_ip = os.environ['INSTALLER_IP']
-        if installer_type.down.lower() != "fuel" or "compass":
+        installer_type = str(os.environ['INSTALLER_TYPE'].lower())
+        installer_ip = str(os.environ['INSTALLER_IP'])
+        if installer_type != "fuel":
             raise RuntimeError("%s is not supported" % installer_type)
-        if installer_ip:
+        if not installer_ip:
             raise RuntimeError("undefine environment variable INSTALLER_IP")
 
-        cmd = "bash ./fetch_compute_ip.sh -i %s -a %s" % \
+        cmd = "bash ./func/fetch_compute_ips.sh -i %s -a %s" % \
             (installer_type, installer_ip)
+        LOG.info(cmd)
         os.system(cmd)
+        path = sys.path[0]
         home = expanduser("~")
         os.chdir(home)
         with open("ips.log", "r") as file:
             data = file.read()
+        os.chdir(path)
         if data:
             ips.extend(data.rstrip('\n').split('\n'))
         LOG.info("All compute ips: %s" % ips)
@@ -171,6 +174,7 @@ class Env_setup:
         num = len(host_tag)
         offset = len(self.roles_ip_list)
         self.check_machine_ips(host_tag)
+        os.chdir(path)
         for x in range(num):
             hostlabel = 'machine_' + str(x + 1)
             self.roles_ip_list.insert(

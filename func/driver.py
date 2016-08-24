@@ -16,7 +16,6 @@ class Driver:
     def __init__(self):
 
         logging.info("Class driver initialized\n")
-        logging.info(os.environ['PWD'])
         self.installer_username = {'fuel': 'root',
                                    'joid': 'ubuntu',
                                    'apex': 'heat-admin'}

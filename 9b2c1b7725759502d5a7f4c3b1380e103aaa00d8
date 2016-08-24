@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_de589958",
+        "filename": "func/env_setup.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-24T22:49:17Z",
+      "side": 1,
+      "message": "from this patch, only Fuel installer is support by Qtip?",
+      "range": {
+        "startLine": 129,
+        "startChar": 8,
+        "endLine": 129,
+        "endChar": 36
+      },
+      "revId": "9b2c1b7725759502d5a7f4c3b1380e103aaa00d8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_fe531537",
+        "filename": "func/env_setup.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2016-08-24T22:49:17Z",
+      "side": 1,
+      "message": "I don\u0027t line 138, 143 is a good solution. \nmaybe line 140 and line 141 will be improved.",
+      "range": {
+        "startLine": 138,
+        "startChar": 8,
+        "endLine": 138,
+        "endChar": 26
+      },
+      "revId": "9b2c1b7725759502d5a7f4c3b1380e103aaa00d8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -57,7 +57,7 @@ class Driver:
         extra_vars_json = json.dumps(dict(extra_vars.items()))
         logging.info(extra_vars_json)
         run_play = 'ansible-playbook ./benchmarks/playbooks/{0}.yaml' \
-                   '--private-key=./data/QtipKey -i ./data/hosts --extra-vars \'{1}\'' \
+                   ' --private-key=./data/QtipKey -i ./data/hosts --extra-vars \'{1}\'' \
                    .format(benchmark, extra_vars_json)
         os.system(run_play)
 

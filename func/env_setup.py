@@ -57,52 +57,31 @@ class Env_setup:
         f_name_2.close()
 
     @staticmethod
-    def ssh_test(lister):
-        print 'list: ', lister
-        for k, v in lister:
-            ip_var = k
-            print '\nBeginning SSH Test!\n'
-            if v != '':
-                print ('\nSSH->>>>> {0} {1}\n'.format(k, v))
-                time.sleep(2)
+    def ssh_test(hosts):
+        for ip, pw in hosts:
+            print '\nBeginning SSH Test: %s \n' % ip
+            os.system('ssh-keyscan %s >> ~/.ssh/known_hosts' % ip)
+            time.sleep(2)
 
-                ssh_c = 'ssh-keyscan {0} >> ~/.ssh/known_hosts'.format(k)
-                os.system(ssh_c)
-                ssh_cmd = './data/qtip_creds.sh  {0}'.format(ip_var)
-                print ssh_cmd
-                os.system(ssh_cmd)
-                for infinity in range(100):
-                    try:
-                        ssh = paramiko.SSHClient()
-                        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                        ssh.connect(k, key_filename='./data/QtipKey')
-                        stdin, stdout, stderr = ssh.exec_command('ls')
+            ssh_cmd = './data/qtip_creds.sh %s' % ip
+            print "run command: %s " % ssh_cmd
+            os.system(ssh_cmd)
+
+            ssh = paramiko.SSHClient()
+            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            ssh.connect(ip, key_filename='./data/QtipKey')
+
+            for attempts in range(100):
+                try:
+                    stdin, stdout, stderr = ssh.exec_command('uname')
+                    if not stderr.readlines():
                         print('SSH successful')
-                        for line in stdout:
-                            print '... ' + line.strip('\n')
                         break
-                    except socket.error:
-                        print 'Retrying aSSH %s' % infinity
-                        time.sleep(1)
-            if v == '':
-                print ('SSH->>>>>', k)
-                ssh_c = 'ssh-keyscan {0} >> ~/.ssh/known_hosts'.format(k)
-
-                time.sleep(3)
-                os.system(ssh_c)
-
-                for infinity in range(10):
-                    try:
-                        ssh = paramiko.SSHClient()
-                        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                        ssh.connect(k, key_filename='./data/QtipKey')
-                        stdin, stdout, stderr = ssh.exec_command('ls')
-                        print('SSH successful')
-                        for line in stdout:
-                            print '... ' + line.strip('\n')
-                        break
-                    except socket.error:
-                        print 'Retrying SSH %s' % infinity
+                except socket.error:
+                    print 'SSH is still unavailable, retry!'
+                    time.sleep(2)
+                    if attempts == 99:
+                        print "Try 99 times, SSH failed: %s" % ip
 
     @staticmethod
     def ping_test(lister, attempts=30):

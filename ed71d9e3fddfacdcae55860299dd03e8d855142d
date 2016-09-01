@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_8eb74686",
+        "filename": "func/create_zones.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 584
+      },
+      "writtenOn": "2016-09-01T17:11:39Z",
+      "side": 1,
+      "message": "watch out for empty spaces",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 8
+      },
+      "revId": "ed71d9e3fddfacdcae55860299dd03e8d855142d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -61,18 +61,16 @@ class TestClass:
            'bandwidthGbps': 0,
            "role": "2-host"}])
     ])
-    @mock.patch('func.driver.os.system')
-    def test_driver_success(self, mock_system, test_input, expected):
-        mock_system.return_value = True
+    @mock.patch('func.driver.AnsibleApi')
+    def test_driver_success(self, mock_ansible, test_input, expected):
+        mock_ansible.execute_playbook.return_value = True
         k = mock.patch.dict(os.environ, {'INSTALLER_TYPE': test_input[6], 'PWD': '/home'})
         k.start()
         dri = Driver()
         dri.drive_bench(test_input[0], test_input[1], test_input[2], test_input[3], test_input[4], test_input[5])
-        call_list = mock_system.call_args_list
+        call_list = mock_ansible.execute_playbook.call_args_list
         k.stop()
-        print call_list
         for call in call_list:
             call_args, call_kwargs = call
-            real_call = call_args[0].split('extra-vars \'')[1]
-            real_call = real_call[0: len(real_call) - 1]
-            assert json.loads(real_call) == json.loads(json.dumps(expected[call_list.index(call)]))
+            real_call = call_args[3]
+            assert real_call == expected[call_list.index(call)]

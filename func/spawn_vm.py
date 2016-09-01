@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2015 Dell Inc  and others.
+# Copyright (c) 2016 Dell Inc, ZTE  and others.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
@@ -18,8 +18,8 @@ import keystoneclient
 import glanceclient
 from novaclient import client
 import time
-from func.create_zones import create_zones
-
+from func.create_zones import AvailabilityZone
+import json
 
 class SpawnVM(Env_setup):
     vm_role_ip_dict = defaultdict(list)
@@ -34,16 +34,12 @@ class SpawnVM(Env_setup):
         self._glance_client = None
         self._nova_client = None
         self. _get_nova_client()
-        azoneobj = create_zones()
+        azoneobj = AvailabilityZone()
+        azoneobj.clean_all_aggregates()
         azoneobj.create_agg(vm_info['availability_zone'])
-        installer = self.get_installer_type()
+        installer = os.environ['INSTALLER_TYPE']
         self.Heat_template1 = self.heat_template_vm(vm_info, installer)
         self.create_stack(vm_role_ip_dict, self.Heat_template1)
-
-    @staticmethod
-    def get_installer_type():
-        print 'Getting Installer Name'
-        return os.environ['INSTALLER_TYPE']
 
     @staticmethod
     def get_public_network(installer_detected):
@@ -51,6 +47,9 @@ class SpawnVM(Env_setup):
         """
         TODO: GET THE NAMES OF THE PUBLIC NETWORKS for OTHER PROJECTS
         """
+        if installer_detected == '':
+            raise RuntimeError("installer is None")
+
         print 'Getting Public Network'
         if installer_detected.lower() == 'fuel':
             return 'admin_floating_net'
@@ -69,99 +68,56 @@ class SpawnVM(Env_setup):
         except yaml.YAMLError as exc:
             if hasattr(exc, 'problem_mark'):
                 mark = exc.problem_mark
-                print 'Error in qtip/heat/SampleHeat.yaml at: (%s,%s)' % (mark.line + 1, mark.column + 1)
+                print 'Error in qtip/heat/SampleHeat.yaml at: (%s,%s)' % (   mark.line + 1, mark.column + 1)
                 print 'EXITING PROGRAM. Correct File and restart'
                 sys.exit(0)
-        fopen = open('./data/QtipKey.pub', 'r')
-        fopenstr = fopen.read()
-        fopenstr = fopenstr.rstrip()
-        scriptcmd = '#!/bin/bash \n echo {0} >>  foo.txt \n echo {1} >> /root/.ssh/authorized_keys'.format(
-            fopenstr, fopenstr)
 
+        Heat_Dic['heat_template_version'] = '2015-04-30'
         netName = self.get_public_network(installer)
-        print netName
-        Heat_Dic['heat_template_version'] = '2014-10-16'
-        Heat_Dic['resources']['KeyPairSavePrivate'] = {
-            'type': 'OS::Nova::KeyPair',
-            'properties': {
-                    'save_private_key': 'true',
-                    'name': 'my_key'
-            }
-        }
-        Heat_Dic['parameters']['public_network'] = {
-            'type': 'string',
-            'default': netName
-        }
+        Heat_Dic['parameters']['external_net_name']['default'] = netName
+        
         for x in range(1, len(vm_params['availability_zone']) + 1):
             avail_zone = vm_params['availability_zone'][x - 1]
-            img = vm_params['OS_image'][x - 1]
-            flavor = vm_params['flavor'][x - 1]
-
             Heat_Dic['parameters']['availability_zone_' + str(x)] = \
                 {'description': 'Availability Zone of the instance',
                  'default': avail_zone,
                  'type': 'string'}
 
-            Heat_Dic['resources']['public_port_' + str(x)] = \
-                {'type': 'OS::Neutron::Port',
-                 'properties': {'network': {'get_resource': 'private_network'},
-                                'security_groups': [{'get_resource': 'demo1_security_Group'}],
-                                'fixed_ips': [{'subnet_id':
-                                               {'get_resource': 'private_subnet'}}]}}
+            Heat_Dic['resources']['floating_ip_' + str(x)] = \
+                {'type': 'OS::Neutron::FloatingIP',
+                 'properties': {'floating_network': {'get_param': 'external_net_name'}}}
 
-            Heat_Dic['resources']['floating_ip_' + str(x)] = {
-                'type': 'OS::Neutron::FloatingIP',
-                'properties': {
-                    'floating_network': {'get_param': 'public_network'}}}
+            Heat_Dic['resources']['floating_ip_assoc_' + str(x)] = \
+                {'type': 'OS::Nova::FloatingIPAssociation',
+                 'properties': {
+                    'floating_ip': {'get_resource': 'floating_ip_' + str(x)},
+                    'server_id': {'get_resource': 'instance_' + str(x)}}}
 
-            Heat_Dic['resources']['floating_ip_assoc_' + str(x)] = {
-                'type': 'OS::Neutron::FloatingIPAssociation',
-                'properties': {
-                    'floatingip_id': {'get_resource': 'floating_ip_' + str(x)},
-                    'port_id': {'get_resource': 'public_port_' + str(x)}}}
-
-            Heat_Dic['resources']['my_instance_' + str(x)] = \
+            Heat_Dic['resources']['instance_' + str(x)] = \
                 {'type': 'OS::Nova::Server',
-                 'properties': {'image': img,
+                 'depends_on': ['subnet', 'keypair', 'flavor', 'security_group'],
+                 'properties': {'image': {'get_param': 'image'},
                                 'networks':
-                                    [{'port': {'get_resource': 'public_port_' + str(x)}}],
-                                'flavor': flavor,
+                                    [{'network': {'get_resource': 'network'}}],
+                                'flavor': {'get_resource': 'flavor'},
+                                'name': 'qtip_instance' + str(x),
+                                'key_name': {'get_resource': 'keypair'},
                                 'availability_zone': avail_zone,
-                                'name': 'instance' + str(x),
-                                'key_name': {'get_resource': 'KeyPairSavePrivate'},
-                                'user_data_format': 'RAW',
-                                'user_data': scriptcmd}}
-
-            Heat_Dic['resources']['demo1_security_Group'] = {
-                'type': 'OS::Neutron::SecurityGroup',
-                'properties': {
-                    'name': 'demo1_security_Group',
-                    'rules': [{
-                        'protocol': 'tcp',
-                        'port_range_min': 22,
-                        'port_range_max': 5201},
-                        {'protocol': 'udp',
-                         'port_range_min': 22,
-                         'port_range_max': 5201},
-                        {'protocol': 'icmp'}]}}
+                                'security_groups': [{'get_resource': 'security_group'}]}}
 
             Heat_Dic['outputs']['instance_PIP_' + str(x)] = {
-                'description': 'IP address of the instance',
-                'value': {'get_attr': ['my_instance_' + str(x), 'first_address']}}
-            Heat_Dic['outputs']['instance_ip_' + str(x)] = {
-                'description': 'IP address of the instance',
+                'description': 'Private IP address of the instance',
+                'value': {'get_attr': ['instance_' + str(x), 'first_address']}}
+            Heat_Dic['outputs']['instance_FIP_' + str(x)] = {
+                'description': 'Floating IP address of the instance',
                 'value': {'get_attr': ['floating_ip_' + str(x), 'floating_ip_address']}}
 
             Heat_Dic['outputs']['availability_instance_' + str(x)] = {
                 'description': 'Availability Zone of the Instance',
                 'value': {'get_param': 'availability_zone_' + str(x)}}
-
-        Heat_Dic['outputs']['KeyPair_PublicKey'] = {
-            'description': 'Private Key',
-            'value': {'get_attr': ['KeyPairSavePrivate', 'private_key']}
-        }
-        del Heat_Dic['outputs']['description']
-        print Heat_Dic
+        
+        del Heat_Dic['outputs']['description']            
+       # print Heat_Dic
         return Heat_Dic
 
     def _get_keystone_client(self):
@@ -200,22 +156,16 @@ class SpawnVM(Env_setup):
                 '2', glance_endpoint, token=keystone.auth_token)
         return self._glance_client
 
-    def create_stack(self, vm_role_ip_dict, heat_template):
-
-        global sshkey
-        stackname = 'QTIP'
-        heat = self._get_heat_client()
+    def prepare_qtip_image(self):
         glance = self._get_glance_client()
 
         available_images = []
         for image_list in glance.images.list():
-
             available_images.append(image_list.name)
 
         if 'QTIP_CentOS' in available_images:
             print 'Image Present'
-
-        elif 'QTIP_CentOS' not in available_images:
+        else:
             fetchImage = FetchImg()
             fetchImage.download()
             print 'Uploading Image to Glance. Please wait'
@@ -224,30 +174,53 @@ class SpawnVM(Env_setup):
                 visibility='public',
                 disk_format='qcow2',
                 container_format='bare')
-            glance.images.upload(
-                qtip_image.id, open('./Temp_Img/QTIP_CentOS.qcow2'))
-        for checks in range(3):
-            print "Try to delete heats %s" % checks
-            for prev_stacks in heat.stacks.list():
-                if prev_stacks.stack_name == 'QTIP':
-                    print 'QTIP Stacks exists.\nDeleting Existing Stack'
-                    heat.stacks.delete('QTIP')
-                    time.sleep(10)
+            res = glance.images.upload(qtip_image.id, 
+                                      open('./Temp_Img/QTIP_CentOS.qcow2'))
+            print res
 
-        print '\nStack Creating Started\n'
+    def delete_stack(self, stack_name):
+        heat = self._get_heat_client()
+        
+        stacks = heat.stacks.list()
+        exists = map(lambda x: x.stack_name, stacks)
+        if stack_name in exists:
+            heat.stacks.delete(stack_name)
+            while stack_name in exists:
+                time.sleep(10)
+                stacks = heat.stacks.list()
+                exists = map(lambda x: x.stack_name, stacks)
+                print "exists_stacks: %s" % exists
+        print "%s doesn't exist" % stack_name
 
-        try:
-            heat.stacks.create(stack_name=stackname, template=heat_template)
-        except Exception:
-            print 'Create Failed :( '
+    def create_stack(self, vm_role_ip_dict, heat_template):
+        global sshkey
+        stackname = 'QTIP'
+        heat = self._get_heat_client()
+
+        self.prepare_qtip_image()
+
+        self.delete_stack('QTIP')
+
+        print '\nStart to Create QTIP stack\n'
+        json_template = json.dumps(heat_template)
+        print "++++++++++++++++++++++++++++++++++++++"
+        print json_template
+        print "++++++++++++++++++++++++++++++++++++++"
+        heat.stacks.create(stack_name=stackname, template=json_template)
 
         cluster_detail = heat.stacks.get(stackname)
         while cluster_detail.status != 'COMPLETE':
             if cluster_detail.status == 'IN_PROGRESS':
-                print 'Stack Creation in Progress'
+                print 'Stack Creation: in Progress'
+            if cluster_detail.status == 'CREATE_FAILED':
+                print 'Stack Creation: Create Failed!'
+                raise RuntimeError("Stack QTIP created failed!") 
             cluster_detail = heat.stacks.get(stackname)
             time.sleep(10)
-        print 'Stack Created'
+        print 'Stack QTIP Created Complete!'
+        print "**************************"
+        print cluster_detail
+        print "**************************"
         print 'Getting Public IP(s)'
         zone = []
         s = 0
@@ -260,7 +233,7 @@ class SpawnVM(Env_setup):
                     zone.insert(s, str(I['output_value']))
                     s = s + 1
             for i in cluster_detail.outputs:
-                instanceKey = "instance_ip_" + str(vm + 1)
+                instanceKey = "instance_FIP_" + str(vm + 1)
                 privateIPkey = 'instance_PIP_' + str(vm + 1)
                 if i['output_key'] == instanceKey:
                     Env_setup.roles_dict[vm_role_ip_dict['role'][vm]] \
@@ -272,7 +245,4 @@ class SpawnVM(Env_setup):
                 if i['output_key'] == 'KeyPair_PublicKey':
                     sshkey = str(i['output_value'])
 
-        with open('./data/my_key.pem', 'w') as fopen:
-            fopen.write(sshkey)
-        fopen.close()
         print Env_setup.ip_pw_list

@@ -7,8 +7,8 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 import os
-import json
 import logging
+from func.ansible_api import AnsibleApi
 
 
 class Driver:
@@ -54,12 +54,12 @@ class Driver:
         return special_json
 
     def run_ansible_playbook(self, benchmark, extra_vars):
-        extra_vars_json = json.dumps(dict(extra_vars.items()))
-        logging.info(extra_vars_json)
-        run_play = 'ansible-playbook ./benchmarks/playbooks/{0}.yaml' \
-                   ' --private-key=./data/QtipKey -i ./data/hosts --extra-vars \'{1}\'' \
-                   .format(benchmark, extra_vars_json)
-        os.system(run_play)
+        logging.info(extra_vars)
+        ansible_api = AnsibleApi()
+        ansible_api.execute_playbook('./data/hosts',
+                                     './benchmarks/playbooks/{0}.yaml'.format(benchmark),
+                                     './data/QtipKey', extra_vars)
+        return ansible_api.get_detail_playbook_stats()
 
     def drive_bench(self, benchmark, roles, benchmark_fname,
                     benchmark_detail=None, pip_dict=None, proxy_info=None):

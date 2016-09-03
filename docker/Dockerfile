@@ -45,6 +45,9 @@ RUN mkdir -p ${REPOS_DIR}
 RUN mkdir -p /root/.ssh
 RUN chmod 700 /root/.ssh
 
+#Config ansible
+COPY ansible.cfg /root/.ansible.cfg
+
 #Cloning Repos
 
 RUN git config --global http.sslVerify false

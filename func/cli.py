@@ -8,6 +8,7 @@
 ##############################################################################
 
 import sys
+import os
 import args_handler
 import argparse
 
@@ -37,12 +38,12 @@ class cli:
 
         args = self._parse_args(args)
         if not args_handler.check_suit_in_test_list(args.file):
-            print '\n\n ERROR: Test File Does not exist in test_list/ please enter correct file \n\n'
+            print('\n\n ERROR: Test File Does not exist in test_list/ please enter correct file \n\n')
             sys.exit(0)
 
         if not args_handler.check_lab_name(args.lab):
-            print '\n\n You have specified a lab that is not present in test_cases/ please enter \
-                   correct file. If unsure how to proceed, use -l default.\n\n'
+            print('\n\n You have specified a lab that is not present in test_cases/ please enter \
+                   correct file. If unsure how to proceed, use -l default.\n\n')
             sys.exit(0)
         suite = args.file
         benchmarks = args_handler.get_files_in_test_list(suite)
@@ -50,6 +51,7 @@ class cli:
         benchmarks_list = filter(lambda x: x in test_cases, benchmarks)
 
         map(lambda x: args_handler.prepare_and_run_benchmark(
+            os.environ['INSTALLER_TYPE'], os.environ['PWD'],
             args_handler.get_benchmark_path(args.lab.lower(), suite, x)), benchmarks_list)
 
         print('{0} is not a Template in the Directory Enter a Valid file name.'

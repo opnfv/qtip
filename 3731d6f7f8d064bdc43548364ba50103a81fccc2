@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_10ab50d7",
+        "filename": "docker/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-04T00:30:58Z",
+      "side": 1,
+      "message": "Better to use `ansible.cfg.default` to avoid overriding issue. i.e.\n\n`COPY ansible.cfg.default /root/.ansible.cfg`\n\nSee details about ansible config.\n\n\u003e # ansible will read ANSIBLE_CONFIG,\n# ansible.cfg in the current working directory, .ansible.cfg in\n# the home directory or /etc/ansible/ansible.cfg, whichever it\n# finds first",
+      "revId": "3731d6f7f8d064bdc43548364ba50103a81fccc2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

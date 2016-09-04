@@ -13,8 +13,8 @@ import func.args_handler
 
 class TestClass:
     @pytest.mark.parametrize("test_input, expected", [
-        ('./test_cases/zte-pod1/network/iperf_bm.yaml',
-         ["iperf",
+        (['fuel', '/home', './test_cases/zte-pod1/network/iperf_bm.yaml'],
+         ['fuel', '/home', "iperf",
           [('1-server', ['10.20.0.23']), ('2-host', ['10.20.0.24'])],
           "iperf_bm.yaml",
           [('duration', 20), ('protocol', 'tcp'), ('bandwidthGbps', 10)],
@@ -29,7 +29,7 @@ class TestClass:
                                                   mock_env_setup_ssh, mock_update_ansible, test_input, expected):
         mock_ips = mock.Mock(return_value=["10.20.0.23", "10.20.0.24"])
         func.args_handler.Env_setup.fetch_compute_ips = mock_ips
-        func.args_handler.prepare_and_run_benchmark(test_input)
+        func.args_handler.prepare_and_run_benchmark(test_input[0], test_input[1], test_input[2])
         call = mock_driver.call_args
         call_args, call_kwargs = call
         assert sorted(map(sorted, call_args)) == sorted(map(sorted, expected))

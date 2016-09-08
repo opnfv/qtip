@@ -7,8 +7,10 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 import os
-from func.env_setup import Env_setup
-from func.spawn_vm import SpawnVM
+import yaml
+import sys
+from func.baremetal_setup import Baremetal
+from func.virtual_setup import Virtual
 from func.driver import Driver
 
 
@@ -38,14 +40,32 @@ def _get_f_name(test_case_path):
     return test_case_path.split('/')[-1]
 
 
+def setup_test_env(test_case):
+    try:
+        f_name = open(test_case, 'r+')
+        doc = yaml.load(f_name)
+        f_name.close()
+    except KeyboardInterrupt:
+        print 'ConfigFile Closed: exiting!'
+        sys.exit(0)
+    if doc['Context']['Virtual_Machines']:
+        virtual_env = Virtual(doc)
+        return virtual_env
+    elif doc['Context']['Host_Machines']:
+        bare_env = Baremetal(doc)
+        return bare_env
+    else:
+        raise KeyError("Keyword Virtual_Machines or Host_Machines is None in %s" % test_case)
+
+
 def prepare_ansible_env(benchmark_test_case):
-    env_setup = Env_setup()
-    [benchmark, vm_info, benchmark_details, proxy_info] = env_setup.parse(benchmark_test_case)
-    SpawnVM(vm_info) if len(vm_info) else None
-    env_setup.call_ping_test()
-    env_setup.call_ssh_test()
-    env_setup.update_ansible()
-    return benchmark, benchmark_details, proxy_info, env_setup
+    env = setup_test_env(benchmark_test_case)
+    env.setup()
+    [benchmark, benchmark_details, proxy_info] = env.handler_args()
+    env.call_ping_test()
+    env.call_ssh_test()
+    env.update_ansible()
+    return benchmark, benchmark_details, proxy_info, env
 
 
 def run_benchmark(benchmark, benchmark_details, proxy_info, env_setup, benchmark_test_case):
@@ -55,5 +75,13 @@ def run_benchmark(benchmark, benchmark_details, proxy_info, env_setup, benchmark
 
 
 def prepare_and_run_benchmark(benchmark_test_case):
+    print "-----------------------------------------------"
+    print "benchmark_test_case: %s" % benchmark_test_case
     benchmark, benchmark_details, proxy_info, env_setup = prepare_ansible_env(benchmark_test_case)
     run_benchmark(benchmark, benchmark_details, proxy_info, env_setup, benchmark_test_case)
+    cleanup_env(env_setup)
+
+
+def cleanup_env(env):
+    if env:
+        env.cleanup()

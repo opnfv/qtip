@@ -46,7 +46,7 @@ class AnsibleApi:
                           connection='ssh', module_path=None, forks=100, remote_user='root',
                           private_key_file=pub_key_file, ssh_common_args=None,
                           ssh_extra_args=None, sftp_extra_args=None, scp_extra_args=None,
-                          become=True, become_method=None, become_user='root', verbosity=None,
+                          become=True, become_method='sudo', become_user='root', verbosity=None,
                           check=False)
         self.variable_manager.extra_vars = vars
 

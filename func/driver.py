@@ -6,7 +6,6 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-import os
 import logging
 from func.ansible_api import AnsibleApi
 
@@ -30,14 +29,15 @@ class Driver:
         z.update(y)
         return z
 
-    def get_common_var_json(self, benchmark_fname, benchmark_detail, pip_dict, proxy_info):
+    def get_common_var_json(self, installer_type, pwd, benchmark_fname,
+                            benchmark_detail, pip_dict, proxy_info):
         common_json = {'Dest_dir': 'results',
                        'ip1': '',
                        'ip2': '',
-                       'installer': str(os.environ['INSTALLER_TYPE']),
-                       'workingdir': str(os.environ['PWD']),
+                       'installer': str(installer_type),
+                       'workingdir': str(pwd),
                        'fname': str(benchmark_fname),
-                       'username': self.installer_username[str(os.environ['INSTALLER_TYPE'])]}
+                       'username': self.installer_username[str(installer_type)]}
         common_json.update(benchmark_detail) if benchmark_detail else None
         common_json.update(proxy_info) if proxy_info else None
         return common_json
@@ -61,11 +61,12 @@ class Driver:
                                      './data/QtipKey', extra_vars)
         return ansible_api.get_detail_playbook_stats()
 
-    def drive_bench(self, benchmark, roles, benchmark_fname,
+    def drive_bench(self, installer_type, pwd, benchmark, roles, benchmark_fname,
                     benchmark_detail=None, pip_dict=None, proxy_info=None):
         roles = sorted(roles)
         pip_dict = sorted(pip_dict)
-        var_json = self.get_common_var_json(benchmark_fname, benchmark_detail, pip_dict, proxy_info)
+        var_json = self.get_common_var_json(installer_type, pwd, benchmark_fname,
+                                            benchmark_detail, pip_dict, proxy_info)
         map(lambda role: self.run_ansible_playbook
             (benchmark, self.merge_two_dicts(var_json,
                                              self.get_special_var_json(role, roles,

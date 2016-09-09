@@ -10,6 +10,7 @@ from datetime import datetime
 import uuid
 
 jobs = {}
+threads = {}
 
 
 def create_job(args):
@@ -33,6 +34,8 @@ def create_job(args):
 
 
 def delete_job(job_id):
+    if job_id in threads.keys():
+        stop_thread(job_id)
     if job_id in jobs.keys():
         jobs[job_id]['end_time'] = str(datetime.now())
         jobs[job_id]['state'] = 'terminated'
@@ -48,17 +51,18 @@ def get_job_info(job_id):
         return None
 
 
-def finish_job(job_id, state):
+def finish_job(job_id):
     jobs[job_id]['end-time'] = str(datetime.now())
-    jobs[job_id]['state'] = state
+    jobs[job_id]['state'] = 'finished'
+    del threads[job_id]
 
 
 def update_job_state_detail(job_id, state_detail):
-    jobs[job_id][state_detail] = state_detail
+    jobs[job_id]["state_detail"] = state_detail
 
 
 def update_job_result(job_id, result):
-    jobs[job_id][result] = result
+    jobs[job_id]["result"] = result
 
 
 def is_job_timeout(job_id):
@@ -66,3 +70,13 @@ def is_job_timeout(job_id):
                                                 "%Y-%m-%d %H:%M:%S.%f")
     return True if jobs[job_id]['max-minutes'] * 60 < period.total_seconds()\
         else False
+
+
+def start_thread(job_id, thread):
+    threads[job_id] = thread
+    thread.start()
+
+
+def stop_thread(job_id):
+    threads[job_id].stop()
+    del threads[job_id]

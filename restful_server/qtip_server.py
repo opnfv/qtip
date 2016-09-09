@@ -9,7 +9,10 @@
 from flask import Flask, abort
 from flask_restful import Api, Resource, fields, reqparse
 from flask_restful_swagger import swagger
+import threading
+from copy import copy
 import db
+import func.args_handler as args_handler
 
 
 app = Flask(__name__)
@@ -93,8 +96,8 @@ for any single test iteration, default is '10',
 
 "pod_name": If specified, the Pod name, default is 'default',
 
-"suite_name": If specified, Test suite name, for example 'compute', 'network', 'storage', 'all',
-default is 'all'
+"suite_name": If specified, Test suite name, for example 'compute', 'network', 'storage',
+default is 'compute'
 "type": BM or VM,default is 'BM'
                 """,
                 "required": True,
@@ -124,11 +127,46 @@ default is 'all'
         parser.add_argument('installer_ip', type=str, required=True, help='Installer_ip is required')
         parser.add_argument('max-minutes', type=int, required=False, default=10, help='max-minutes should be integer')
         parser.add_argument('pod_name', type=str, required=False, default='default', help='pod_name should be string')
-        parser.add_argument('suite_name', type=str, required=False, default='all', help='suite_name should be string')
+        parser.add_argument('suite_name', type=str, required=False, default='compute', help='suite_name should be string')
         parser.add_argument('type', type=str, required=False, default='BM', help='type should be BM, VM and ALL')
         args = parser.parse_args()
-        ret = db.create_job(args)
-        return {'job_id': str(ret)} if ret else abort(409, 'message:It already has one job running now!')
+        if not args_handler.check_suit_in_test_list(args["suite_name"]):
+            return abort(404, 'message:Test Suit {0} does not exist in test_list'.format(args["suite_name"]))
+        if not args_handler.check_lab_name(args["pod_name"]):
+            return abort(404, 'message: You have specified a lab {0}\
+                               that is not present in test_cases'.format(args['pod_name']))
+
+        job_id = db.create_job(args)
+        if not job_id:
+            return abort(409, 'message:It already has one job running now!')
+
+        benchmarks = args_handler.get_files_in_test_list(args["suite_name"],
+                                                         args["type"].lower())
+        test_cases = args_handler.get_files_in_test_case(args["pod_name"],
+                                                         args["suite_name"],
+                                                         args["type"].lower())
+        benchmarks_list = filter(lambda x: x in test_cases, benchmarks)
+        state_detail = map(lambda x: {'benchmark': x, 'state': 'idle'}, benchmarks_list)
+        db.update_job_state_detail(job_id, copy(state_detail))
+        post_thread = threading.Thread(target=self.thread_post, args=(args["installer_type"],
+                                                                      benchmarks_list,
+                                                                      args["pod_name"],
+                                                                      args["suite_name"],
+                                                                      job_id))
+        db.start_thread(job_id, post_thread)
+        return {'job_id': str(job_id)}
+
+    def thread_post(self, installer_type, benchmarks_list, pod_name, suite_name, job_id):
+        for benchmark in benchmarks_list:
+            detail = map(lambda x: {'benchmark': benchmark, 'state': 'processing'} if x["benchmark"] == benchmark else x,
+                         db.get_job_info(job_id)["state_detail"])
+            db.update_job_state_detail(job_id, copy(detail))
+            args_handler.prepare_and_run_benchmark(installer_type, '/home',
+                                                   args_handler.get_benchmark_path(pod_name, suite_name, benchmark))
+            detail = map(lambda x: {'benchmark': benchmark, 'state': 'finished'} if x["benchmark"] == benchmark else x,
+                         db.get_job_info(job_id)["state_detail"])
+            db.update_job_state_detail(job_id, copy(detail))
+        db.finish_job(job_id)
 
 
 api.add_resource(JobList, '/api/v1.0/jobs')

@@ -22,6 +22,30 @@
       "revId": "6612d7c20e329cd5b133a41a6b35c67539f3369b",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_e0183977",
+        "filename": "func/driver.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-09-09T13:15:55Z",
+      "side": 1,
+      "message": "I did not change the logic part of this part. If you ready think user name have problem please change it in other commit.",
+      "parentUuid": "1a76adc5_2aacd034",
+      "range": {
+        "startLine": 40,
+        "startChar": 35,
+        "endLine": 40,
+        "endChar": 80
+      },
+      "revId": "6612d7c20e329cd5b133a41a6b35c67539f3369b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

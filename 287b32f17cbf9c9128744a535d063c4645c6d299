@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_e0b4b936",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-09-09T13:52:29Z",
+      "side": 1,
+      "message": "Better to mention \"This used to work in Ansible 1.9.x with 127.0.0.1;But does not work in Asible 2.x\"",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 53
+      },
+      "revId": "287b32f17cbf9c9128744a535d063c4645c6d299",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_80838555",
+        "filename": "func/env_setup.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-09-09T13:52:29Z",
+      "side": 1,
+      "message": "No need to add this in hosts file.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "287b32f17cbf9c9128744a535d063c4645c6d299",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

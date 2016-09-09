@@ -1,19 +1,23 @@
- - hosts: 127.0.0.1
+ - hosts: localhost
    connection: local
+   gather_facts: no
+
    tasks:
     - name: making dpi directory
       file: path={{workingdir}}/{{Dest_dir}}/dpi state=directory
+
     - name: making temporary whetstone directory
       file: path={{workingdir}}/{{Dest_dir}}/dpi/dpi_temp state=directory
 
  - hosts: "{{role}}"
    become: yes
    remote_user: "{{username}}"
+
    tasks:
     - name: echo
       shell: echo $USER
 
-    - name: checking_home directory
+    - name: checking home directory
       shell: echo $HOME
       register: home_dir
 
@@ -46,7 +50,8 @@
     - include: ./git_proxy_pbook.yaml
 
     - name: Clone nDPI
-      shell: cd $HOME/tempD && git clone https://github.com/ntop/nDPI.git
+      git: repo=https://github.com/ntop/nDPI.git
+           dest=$HOME/tempD
 
     - name: autogen
       shell: cd $HOME/tempD/nDPI && sudo ./autogen.sh
@@ -55,7 +60,7 @@
       shell: cd $HOME/tempD/nDPI && sudo ./configure
 
     - name: make
-      shell: cd  $HOME/tempD/nDPI && sudo make
+      shell: cd $HOME/tempD/nDPI && sudo make
 
     - name: Fetching Test_pcap file
       shell: cd $HOME/tempD/nDPI/example  &&  wget http://artifacts.opnfv.org/qtip/utilities/test.pcap
@@ -87,7 +92,7 @@
 
     - name: copy results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/dpi/dpi_temp
-      with_items: files_to_copy.stdout_lines
+      with_items: "{{files_to_copy.stdout_lines}}"
 
     - name: registering log files
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
@@ -95,16 +100,21 @@
 
     - name: copying log results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/dpi/dpi_temp
-      with_items: copy_log_results.stdout_lines
+      with_items: "{{copy_log_results.stdout_lines}}"
 
- - hosts: 127.0.0.1
+ - hosts: localhost
    connection: local
+   gather_facts: no
+
    tasks:
     - name: extracting_json
       shell: ( find  {{workingdir}}/{{Dest_dir}}/dpi/dpi_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/dpi/)
+
     - name: making_logs_folder
       shell: mkdir -p {{workingdir}}/{{Dest_dir}}/dpi/logs
+
     - name: extracting_log
       shell: ( find {{workingdir}}/{{Dest_dir}}/dpi/dpi_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/dpi/logs)
+
     - name: removing dpi_temp
       shell: rm -rf {{workingdir}}/{{Dest_dir}}/dpi/dpi_temp

@@ -1,4 +1,3 @@
- 
  - hosts: "{{ roles }}"
 
    tasks:
@@ -7,32 +6,44 @@
       shell: rm -rf  /usr/share/doc/phoronix-test-suite/
       shell: rm -rf  /usr/share/phoronix-test-suite
       shell: rm -rf  /root/photmp/
+
     - name: cleaning results
       file: path=/root/results state=absent
+
     - name: make direc
       file: path=/root/photmp/ state=directory
-    - name: Fetch Phornonix 
+
+    - name: Fetch Phornonix
       shell: cd /root/photmp/ && wget https://www.dropbox.com/s/5kks513ozxy7vvs/phoronix-suite.tar.gz
+
     - name: unarchive Phoronix
       shell: cd /root/photmp/ && tar -zxvf  phoronix-suite.tar.gz
+
     - name: Install Phornonix Dependencies
       shell: yum install php  php-xml php-client php-process -y
+
     - name: Install Phornonix
-      shell: cd /root/photmp/phoronix-test-suite-master/&&./install-sh    
+      shell: cd /root/photmp/phoronix-test-suite-master/&&./install-sh
+
     - name: batchSetup
       shell: phoronix-test-suite batch-setup
+
     - name: install
       shell: phoronix-test-suite batch-install cachebench
+
     - name: run
-      shell:  phoronix-test-suite batch-run cachebench
+      shell: phoronix-test-suite batch-run cachebench
+
     - name: making directory
       file: path=/root/results state=directory
+
     - name: copying result to temp directory
       shell: cp -r /var/lib/phoronix-test-suite/test-results/* /root/results/
+
     - name: registering files
       shell: (cd /root/results/; find . -maxdepth 1 -type f) | cut -d'/' -f2
       register: files_to_copy
+
     - name: copy results
       fetch:  src=/root/results/{{item}} dest={{workingdir}}/{{Dest_dir}}/cachebench
-      with_items: files_to_copy.stdout_lines
-
+      with_items: "{{files_to_copy.stdout_lines}}"

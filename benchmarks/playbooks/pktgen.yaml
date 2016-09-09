@@ -1,17 +1,21 @@
- - hosts: 127.0.0.1
+ - hosts: localhost
    connection: local
-   tasks:
+   gather_facts: no
 
+   tasks:
     - name: getting directory
       shell: echo $PWD
       register: qtip_dir
+
     - name: making pktgen directory
       file: path={{workingdir}}/{{Dest_dir}}/pktgen state=directory
+
     - name: making temporary pktgen directory
       file: path={{workingdir}}/{{Dest_dir}}/pktgen/pktgen_temp state=directory
 
 
  - hosts: "{{role}}"
+
    tasks:
     - name: Rolename
       set_fact:
@@ -21,18 +25,23 @@
     - name: IPTABLE Setup
       shell: iptables -F
       when: rolename == '1-server'
+
     - name: iptables
       shell: sudo iptables -A INPUT -p udp --dport 1000 -j DROP
       when: rolename == '1-server'
+
     - name: run pktgen
       shell: bash pktgen.sh {{privateip1}} 1 {{packetsize}} {{duration}} >> .json
       when: rolename == '2-host'
+
  - hosts: "{{role}}"
+
    tasks:
     - name: Rolename
       set_fact:
         rolename: "{{role}}"
         when: role is defined
+
     - name: Get server packetsize
       shell: iptables -L -vnx >> pktgenServer{{privateip1}}.txt
       when: rolename == '1-server'

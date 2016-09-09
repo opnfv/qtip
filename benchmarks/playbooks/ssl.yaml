@@ -1,15 +1,20 @@
- - hosts: 127.0.0.1
+ - hosts: localhost
    connection: local
+   gather_facts: no
+
    tasks:
     - name: making ssl directory
       file: path={{workingdir}}/{{Dest_dir}}/ssl state=directory
+
     - name: making temporary ssl directory
       file: path={{workingdir}}/{{Dest_dir}}/ssl/ssl_temp state=directory
+
  - hosts: "{{role}}"
    become: yes
    remote_user: "{{username}}"
+
    tasks:
-    - name: checking_home directory
+    - name: checking home directory
       shell: sudo echo $HOME
       register: home_dir
 
@@ -32,11 +37,11 @@
           network: false
 
     - name: Installing OpenSSL dependencies when CentOS
-      shell: sudo yum install git  wget gcc patch  perl-Time-HiRes autofconf automake libpcap-devel libtool -y
+      shell: sudo yum install git wget gcc patch perl-Time-HiRes autofconf automake libpcap-devel libtool -y
       when: ansible_os_family == "RedHat"
 
     - name: Installing OpenSSL dependencies when Ubuntu
-      shell: sudo apt-get  install git gcc wget   perl autoconf automake libpcap-dev libtool -y
+      shell: sudo apt-get install git gcc wget  perl autoconf automake libpcap-dev libtool -y
       when: ansible_os_family == "Debian"
 
     - name: Fetching OpenSSL
@@ -59,7 +64,6 @@
     - name: Benchmaring AES-128-cbc cipher encryption  throughput
       shell: cd $HOME/Open_SSL/openssl-1.0.2f/apps  &&  sudo ./openssl speed -evp aes-128-cbc >> $HOME/qtip_result/AES-128-CBC_dump
 
-
     - name: Fetching result transformation script
       copy: src=./result_transform/ssl/ssl_transform.py dest={{home_dir.stdout}}/qtip_result
 
@@ -78,7 +82,7 @@
 
     - name: copy results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/ssl/ssl_temp
-      with_items: files_to_copy.stdout_lines
+      with_items: "{{files_to_copy.stdout_lines}}"
 
     - name: registering log files
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
@@ -86,19 +90,24 @@
 
     - name: copying log results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/ssl/ssl_temp
-      with_items: copy_log_results.stdout_lines
+      with_items: "{{copy_log_results.stdout_lines}}"
 
-
- - hosts: 127.0.0.1
+ - hosts: localhost
    connection: local
+   gather_facts: no
+
    tasks:
     - name: echo
       shell: echo $PWD
+
     - name: extracting_json
       shell: ( find {{workingdir}}/{{Dest_dir}}/ssl/ssl_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/ssl/)
+
     - name: making_logs_folder
       shell: mkdir -p {{workingdir}}/{{Dest_dir}}/ssl/logs
+
     - name: extracting_log
       shell: ( find {{workingdir}}/{{Dest_dir}}/ssl/ssl_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/ssl/logs)
+
     - name: removing ssl_temp
       shell: rm -rf {{workingdir}}/{{Dest_dir}}/ssl/ssl_temp

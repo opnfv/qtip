@@ -1,5 +1,7 @@
- - hosts: 127.0.0.1
+ - hosts: localhost
    connection: local
+   gather_facts: no
+
    tasks:
     - name: making whetstone directory
       file: path={{workingdir}}/{{Dest_dir}}/whetstone state=directory
@@ -10,6 +12,7 @@
  - hosts: "{{role}}"
    become: yes
    remote_user: "{{username}}"
+
    tasks:
     - name: storing_home
       shell: echo $HOME
@@ -41,7 +44,8 @@
     - include: ./git_proxy_pbook.yaml
 
     - name: Clone unixbench
-      shell: git clone https://github.com/kdlucas/byte-unixbench.git $HOME/tempT
+      git: repo=https://github.com/kdlucas/byte-unixbench.git
+           dest=$HOME/tempT
 
     - name: make
       shell: sudo make --directory $HOME/tempT/UnixBench/
@@ -79,7 +83,7 @@
 
     - name: copy results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp
-      with_items: files_to_copy.stdout_lines
+      with_items: "{{files_to_copy.stdout_lines}}"
 
     - name: registering log files
       shell: (cd $HOME/qtip_result/log/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
@@ -87,7 +91,7 @@
 
     - name: copying log results
       fetch:  src={{home_dir.stdout}}/qtip_result/log/{{item}} dest={{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp
-      with_items: copy_log_results.stdout_lines
+      with_items: "{{copy_log_results.stdout_lines}}"
 
     - name: cleaning tempT
       shell: sudo rm -rf $HOME/tempT
@@ -95,9 +99,10 @@
     - name: cleaning_qtip_result
       shell: sudo rm -rf $HOME/qtip_result
 
-
- - hosts: 127.0.0.1
+ - hosts: localhost
    connection: local
+   gather_facts: no
+
    tasks:
     - name: extracting_json
       shell: ( find  {{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/whetstone/)

@@ -1,8 +1,11 @@
- - hosts: 127.0.0.1
+ - hosts: localhost
    connection: local
+   gather_facts: no
+
    tasks:
     - name: making ramspeed  directory
       file: path={{workingdir}}/{{Dest_dir}}/ramspeed state=directory
+
     - name: making temporary ramspeed directory
       file: path={{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp state=directory
 
@@ -10,8 +13,9 @@
  - hosts:  "{{role}}"
    become: yes
    remote_user: "{{username}}"
+
    tasks:
-    - name: checking_home directory
+    - name: checking home directory
       shell: echo $HOME
       register: home_dir
 
@@ -77,7 +81,7 @@
 
     - name: copy results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp
-      with_items: files_to_copy.stdout_lines
+      with_items: "{{files_to_copy.stdout_lines}}"
 
     - name: registering log files
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
@@ -85,16 +89,21 @@
 
     - name: copying log results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp
-      with_items: copy_log_results.stdout_lines
+      with_items: "{{copy_log_results.stdout_lines}}"
 
- - hosts: 127.0.0.1
+ - hosts: localhost
    connection: local
+   gather_facts: no
+
    tasks:
     - name: extracting_json
       shell: ( find  {{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/ramspeed/)
+
     - name: making_logs_folder
       shell: mkdir -p {{workingdir}}/{{Dest_dir}}/ramspeed/logs
+
     - name: extracting_log
       shell: ( find {{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/ramspeed/logs)
+
     - name: removing ramspeed_log
       shell: rm -rf {{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp

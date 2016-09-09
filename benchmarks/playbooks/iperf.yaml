@@ -1,12 +1,15 @@
- - hosts: 127.0.0.1
+ - hosts: localhost
    connection: local
-   tasks:
+   gather_facts: no
 
+   tasks:
     - name: getting directory
       shell: sudo echo $PWD
       register: qtip_dir
+
     - name: making Iperf directory
       file: path={{workingdir}}/{{Dest_dir}}/iperf state=directory
+
     - name: making temporary iperf directory
       file: path={{workingdir}}/{{Dest_dir}}/iperf/iperf_temp state=directory
 
@@ -14,6 +17,7 @@
  - hosts: "{{role}}"
    become: yes
    remote_user: "{{username}}"
+
    tasks:
     - name: Rolename
       set_fact:
@@ -31,7 +35,7 @@
     - name: echo
       shell: echo index_var
 
-    - name: checking_home directory
+    - name: checking home directory
       shell: echo $HOME
       register: home_dir
 
@@ -44,7 +48,7 @@
     - name: making Iperf temporary directory
       shell: sudo mkdir $HOME/iperf
 
-    - name: making  results temporary directory
+    - name: making results temporary directory
       shell: sudo mkdir $HOME/qtip_result
 
     - include: ./sys_proxy_pbook.yaml
@@ -128,23 +132,30 @@
       when: rolename =="2-host" and "{{ip2}}" == ''
 
 
- - hosts: 127.0.0.1
+ - hosts: localhost
    connection: local
+   gather_facts: no
+
    tasks:
     - name: Rolename
       set_fact:
         rolename: "{{role}}"
         when: role is defined
+
     - name: extracting_json
       shell: ( find  {{workingdir}}/{{Dest_dir}}/iperf/iperf_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/iperf/)
       when: rolename == "2-host"
+
     - name: making_logs_folder
       shell: mkdir -p {{workingdir}}/{{Dest_dir}}/iperf/logs
+
     - name: extracting_log
       shell: ( find {{workingdir}}/{{Dest_dir}}/iperf/iperf_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/iperf/logs)
       when: rolename == "2-host"
+
     - name: removing iperf_raw file
       shell: rm -rf {{workingdir}}/{{Dest_dir}}/iperf/iperf_raw.json
       when: rolename == "2-host"
+
     - name: removing iperf_temp
       shell: rm -rf {{workingdir}}/{{Dest_dir}}/iperf/iperf_temp

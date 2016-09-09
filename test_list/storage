@@ -1,2 +1,8 @@
-fio_bm.yaml
-fio_vm.yaml
+{
+    "bm": [
+        "fio_bm.yaml"
+    ],
+    "vm": [
+        "fio_vm.yaml"
+    ]
+}

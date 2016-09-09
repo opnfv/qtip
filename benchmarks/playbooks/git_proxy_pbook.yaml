@@ -1,4 +1,3 @@
-
 #git
 - name: set git proxy(http)
   shell: "git config --global http.proxy {{ http_proxy }}"

@@ -8,8 +8,10 @@
 ##############################################################################
 from datetime import datetime
 import uuid
+from copy import copy
 
 jobs = {}
+threads = {}
 
 
 def create_job(args):
@@ -23,8 +25,8 @@ def create_job(args):
                'suite_name': args["suite_name"],
                'max-minutes': args["max-minutes"],
                'type': args["type"],
-               'start-time': str(datetime.now()),
-               'end-time': None,
+               'start_time': str(datetime.now()),
+               'end_time': None,
                'state': 'processing',
                'state_detail': [],
                'result': []}
@@ -33,6 +35,8 @@ def create_job(args):
 
 
 def delete_job(job_id):
+    if job_id in threads.keys():
+        stop_thread(job_id)
     if job_id in jobs.keys():
         jobs[job_id]['end_time'] = str(datetime.now())
         jobs[job_id]['state'] = 'terminated'
@@ -48,17 +52,18 @@ def get_job_info(job_id):
         return None
 
 
-def finish_job(job_id, state):
-    jobs[job_id]['end-time'] = str(datetime.now())
-    jobs[job_id]['state'] = state
+def finish_job(job_id):
+    jobs[job_id]['end_time'] = str(datetime.now())
+    jobs[job_id]['state'] = 'finished'
+    del threads[job_id]
 
 
 def update_job_state_detail(job_id, state_detail):
-    jobs[job_id][state_detail] = state_detail
+    jobs[job_id]["state_detail"] = state_detail
 
 
 def update_job_result(job_id, result):
-    jobs[job_id][result] = result
+    jobs[job_id]["result"] = result
 
 
 def is_job_timeout(job_id):
@@ -66,3 +71,21 @@ def is_job_timeout(job_id):
                                                 "%Y-%m-%d %H:%M:%S.%f")
     return True if jobs[job_id]['max-minutes'] * 60 < period.total_seconds()\
         else False
+
+
+def start_thread(job_id, thread, thread_stop):
+    threads[job_id] = {'thread': thread_stop,
+                       'thread_stop': thread_stop}
+    thread.start()
+
+
+def stop_thread(job_id):
+    if threads[job_id]['thread'].isAlive():
+        threads[job_id]['thread_stop'].set()
+        threads[job_id]['thread'].join()
+    del threads[job_id]
+
+
+def update_benmark_state_in_state_detail(job_id, benchmark, benchmark_state):
+    filter(lambda x: x["benchmark"] == benchmark,
+           get_job_info(job_id)["state_detail"])[0]['state'] = benchmark_state

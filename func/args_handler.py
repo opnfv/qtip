@@ -12,14 +12,17 @@ from func.spawn_vm import SpawnVM
 from func.driver import Driver
 
 
-def get_files_in_test_list(suit_name):
+def get_files_in_test_list(suit_name, case_type='all'):
     with open('test_list/' + suit_name, 'r') as fin_put:
-        benchmark_list = fin_put.readlines()
-        return map(lambda x: x.rstrip(), benchmark_list)
+        benchmark_list = map(lambda x: x.rstrip(), fin_put.readlines())
+        return benchmark_list if case_type == 'all' else \
+            filter(lambda x: case_type in x, benchmark_list)
 
 
-def get_files_in_test_case(lab, suit_name):
-    return os.listdir('./test_cases/{0}/{1}'.format(lab, suit_name))
+def get_files_in_test_case(lab, suit_name, case_type='all'):
+    test_case_all = os.listdir('./test_cases/{0}/{1}'.format(lab, suit_name))
+    return test_case_all if case_type == 'all' else \
+        filter(lambda x: case_type in x, test_case_all)
 
 
 def get_benchmark_path(lab, suit, benchmark):

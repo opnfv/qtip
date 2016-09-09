@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_004c5541",
+        "filename": "func/args_handler.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-09-09T16:05:21Z",
+      "side": 1,
+      "message": "Why we need read body in the file to know the BM or VM? File name \"XXX_bm\" \"XXX_vm\" already indicate the type.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 9
+      },
+      "revId": "b25e8e2b00c28277eb746454c4d6e083f6b4d307",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

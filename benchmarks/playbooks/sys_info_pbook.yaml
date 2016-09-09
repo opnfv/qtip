@@ -40,8 +40,3 @@
    - name: collecting system information for network test  cases
      shell: cd $HOME/qtip_result && sudo python info_collect.py n
      when: network
-
-
-
-
-

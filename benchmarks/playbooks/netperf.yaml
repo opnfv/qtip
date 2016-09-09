@@ -1,12 +1,15 @@
- - hosts: 127.0.0.1
+ - hosts: localhost
    connection: local
-   tasks:
+   gather_facts: no
 
+   tasks:
     - name: getting directory
       shell: echo $PWD
       register: qtip_dir
+
     - name: making Netperf directory
       file: path={{workingdir}}/{{Dest_dir}}/netperf state=directory
+
     - name: making temporary netperf directory
       file: path={{workingdir}}/{{Dest_dir}}/netperf/netperf_temp state=directory
 
@@ -24,27 +27,36 @@
     - name: Get Hostname
       shell: echo $HOSTNAME
       register: hostID
-    - name: checking_home directory
+
+    - name: checking home directory
       shell: echo $HOME
       register: home_dir
+
     - name: cleaning
       shell: rm -rf $HOME/netperf
+
     - name: cleaning previous results
       shell: rm -rf $HOME/qtip_result
+
     - name: making netperf temporary directory
       shell: mkdir $HOME/netperf
+
     - name: making  results temporary directory
       shell: mkdir $HOME/qtip_result
 
     - name: Fetching netperf
       shell: wget ftp://ftp.netperf.org/netperf/netperf-2.7.0.tar.gz
       when: ansible_os_family == "RedHat"
+
     - name: Extracting Netperf
       shell: tar -xvf netperf-2.7.0.tar.gz
+
     - name: configuring netperf
       shell: cd $HOME/netperf-2.7.0  && ./configure
+
     - name: Making Netperf
       shell: cd $HOME/netperf-2.7.0 && make
+
     - name: Installing Netperf
       shell: cd $HOME/netperf-2.7.0 && make install
 
@@ -62,18 +74,24 @@
     - name: Files to Copy
       shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
       register: files_to_copy
+
     - name: copy results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/netperf/netperf_temp
-      with_items: files_to_copy.stdout_lines
- - hosts: 127.0.0.1
+      with_items: "{{files_to_copy.stdout_lines}}"
+
+ - hosts: localhost
    connection: local
+   gather_facts: no
+
    tasks:
     - name: Rolename
       set_fact:
         rolename: "{{role}}"
         when: role is defined
+
     - name: extracting_json
       shell: ( find  {{workingdir}}/{{Dest_dir}}/netperf/netperf_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/netperf/)
       when: rolename == "2-host"
+
     - name: removing netperf_temp
       shell: rm -rf {{workingdir}}/{{Dest_dir}}/netperf/netperf_temp

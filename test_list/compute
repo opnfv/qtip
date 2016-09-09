@@ -1,10 +1,1 @@
-dhrystone_bm.yaml
-dhrystone_vm.yaml
-whetstone_bm.yaml
-whetstone_vm.yaml
-ramspeed_bm.yaml
-ramspeed_vm.yaml
-dpi_bm.yaml
-dpi_vm.yaml
-ssl_bm.yaml
-ssl_vm.yaml
+{"bm":["dhrystone_bm.yaml","whetstone_bm.yaml","ramspeed_bm.yaml","dpi_bm.yaml","ssl_bm.yaml"],"vm":["dhrystone_vm.yaml","whetstone_vm.yaml","ramspeed_vm.yaml","dpi_vm.yaml","ssl_vm.yaml"]}

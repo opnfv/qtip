@@ -1,3 +1,1 @@
-iperf_bm.yaml
-iperf_vm.yaml
-iperf_vm_2.yaml
+{"bm": ["iperf_bm.yaml"],"vm": ["iperf_vm.yaml","iperf_vm_2.yaml"]

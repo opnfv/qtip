@@ -22,6 +22,29 @@
       "revId": "b25e8e2b00c28277eb746454c4d6e083f6b4d307",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_e04919b8",
+        "filename": "func/virtual_setup.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-09-10T01:46:34Z",
+      "side": 1,
+      "message": "Please don\u0027t get installer type by os environ, it can not call by restful api",
+      "range": {
+        "startLine": 49,
+        "startChar": 20,
+        "endLine": 49,
+        "endChar": 48
+      },
+      "revId": "b25e8e2b00c28277eb746454c4d6e083f6b4d307",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

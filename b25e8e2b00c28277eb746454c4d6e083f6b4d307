@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_406ecd02",
+        "filename": "func/args_handler.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-10T07:09:53Z",
+      "side": 1,
+      "message": "On this point, I would stand for explicit configuration for test env check. The filename could be a convention to follow, but not a criteria.",
+      "parentUuid": "1a76adc5_004c5541",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 9
+      },
+      "revId": "b25e8e2b00c28277eb746454c4d6e083f6b4d307",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_e04919b8",
         "filename": "func/virtual_setup.py",
         "patchSetId": 5

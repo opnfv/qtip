@@ -54,6 +54,6 @@ RUN git config --global http.sslVerify false
 RUN git clone https://gerrit.opnfv.org/gerrit/qtip $REPOS_DIR/qtip
 RUN git clone https://gerrit.opnfv.org/gerrit/releng $REPOS_DIR/releng
 
-RUN pip install -r $REPOS_DIR/qtip/docker/packages.pip
+RUN pip install -r $REPOS_DIR/qtip/requirements.txt
 
 

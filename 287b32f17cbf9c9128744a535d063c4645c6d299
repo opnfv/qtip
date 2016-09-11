@@ -45,6 +45,30 @@
       "revId": "287b32f17cbf9c9128744a535d063c4645c6d299",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_fbaf88e1",
+        "filename": "func/env_setup.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-09-11T04:00:19Z",
+      "side": 1,
+      "message": "if no add these two lines, it still cannot find 127.0.0.1.",
+      "parentUuid": "1a76adc5_80838555",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "287b32f17cbf9c9128744a535d063c4645c6d299",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

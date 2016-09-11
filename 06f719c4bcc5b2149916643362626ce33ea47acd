@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_7b3858a0",
+        "filename": "restful_server/db.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-11T13:30:16Z",
+      "side": 1,
+      "message": "The relationship between jobs and threads are not clear without comments.\n\nIt seems we can merge the content of `threads` into `jobs` if they are one to one mapping.",
+      "revId": "06f719c4bcc5b2149916643362626ce33ea47acd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_fbc46893",
+        "filename": "restful_server/db.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-11T13:30:16Z",
+      "side": 1,
+      "message": "I think `if job_id in threads` will do the same and theoretically more efficient.",
+      "revId": "06f719c4bcc5b2149916643362626ce33ea47acd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_bbbef0fd",
+        "filename": "restful_server/db.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-11T13:30:16Z",
+      "side": 1,
+      "message": "mixture usage of single quote and double quote",
+      "range": {
+        "startLine": 61,
+        "startChar": 17,
+        "endLine": 61,
+        "endChar": 18
+      },
+      "revId": "06f719c4bcc5b2149916643362626ce33ea47acd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_dbb96c16",
+        "filename": "restful_server/db.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-11T13:30:16Z",
+      "side": 1,
+      "message": "The same as L61",
+      "range": {
+        "startLine": 65,
+        "startChar": 17,
+        "endLine": 65,
+        "endChar": 18
+      },
+      "revId": "06f719c4bcc5b2149916643362626ce33ea47acd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

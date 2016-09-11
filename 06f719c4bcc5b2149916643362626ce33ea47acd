@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "1a76adc5_3b42e010",
+        "filename": "func/args_handler.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-11T13:33:53Z",
+      "side": 1,
+      "message": "If I understand it correctly, we check the file name for test case type. IMO, this is not reliable. Suppose we have a file named `devmemory_bm.yaml`, it will match both `vm` and `bm`.\n\nFilename could be a convention, but we need more explicit rule for test case type checking.",
+      "revId": "06f719c4bcc5b2149916643362626ce33ea47acd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_7b3858a0",
         "filename": "restful_server/db.py",
         "patchSetId": 3

@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_a816a3ef",
+        "filename": "restful_server/db.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-13T10:18:42Z",
+      "side": 1,
+      "message": "Alright",
+      "parentUuid": "1a76adc5_05a1c246",
+      "revId": "06f719c4bcc5b2149916643362626ce33ea47acd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_fbc46893",
         "filename": "restful_server/db.py",
         "patchSetId": 3

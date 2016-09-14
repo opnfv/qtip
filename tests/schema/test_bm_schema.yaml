@@ -45,6 +45,7 @@ mapping:
                    type: str
                  ip:
                    type: str
+                   allowempty: True
                  pw:
                    type: str
                    allowempty: True

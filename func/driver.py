@@ -45,12 +45,16 @@ class Driver:
     def get_special_var_json(self, role, roles, benchmark_detail, pip_dict):
         special_json = {}
         index = roles.index(role) + 1
-        special_json.update({'role': role[0]})
-        private_ip = pip_dict[0][1] if pip_dict[0][1][0] else 'NONE'
+        private_ip = pip_dict[0][1][0] if pip_dict[0][1][0] else 'NONE'
         map(lambda x: special_json.update({'ip' + str(index): x}), role[1])\
             if benchmark_detail and (role[0] == '1-server') else None
         map(lambda x: special_json.update({'privateip' + str(index): private_ip}), role[1])\
             if benchmark_detail and (role[0] == '1-server') else None
+        special_json = self.get_special_var_json(filter(lambda x: x[0] == '1-server', roles)[0],
+                                                 roles,
+                                                 benchmark_detail,
+                                                 pip_dict) if role[0] == '2-host' else special_json
+        special_json.update({'role': role[0]})
         return special_json
 
     def run_ansible_playbook(self, benchmark, extra_vars):

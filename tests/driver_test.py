@@ -41,7 +41,7 @@ class TestClass:
            'ip1': '10.20.0.13',
            'ip2': '',
            'installer': 'joid',
-           "privateip1": "NONE",
+           'privateip1': 'NONE',
            'workingdir': '/home',
            'fname': 'iperf_vm.yaml',
            'username': 'ubuntu',
@@ -50,9 +50,10 @@ class TestClass:
            'bandwidthGbps': 0,
            "role": "1-server"},
           {'Dest_dir': 'results',
-           'ip1': '',
+           'ip1': '10.20.0.13',
            'ip2': '',
            'installer': 'joid',
+           'privateip1': 'NONE',
            'workingdir': '/home',
            'fname': 'iperf_vm.yaml',
            'username': 'ubuntu',
@@ -61,13 +62,13 @@ class TestClass:
            'bandwidthGbps': 0,
            "role": "2-host"}])
     ])
-    @mock.patch('func.driver.AnsibleApi')
+    @mock.patch('func.driver.AnsibleApi.execute_playbook')
     def test_driver_success(self, mock_ansible, test_input, expected):
-        mock_ansible.execute_playbook.return_value = True
+        mock_ansible.return_value = True
         dri = Driver()
         dri.drive_bench(test_input[0], test_input[1], test_input[2], test_input[3],
                         test_input[4], test_input[5], test_input[6], test_input[7])
-        call_list = mock_ansible.execute_playbook.call_args_list
+        call_list = mock_ansible.call_args_list
         for call in call_list:
             call_args, call_kwargs = call
             real_call = call_args[3]

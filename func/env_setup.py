@@ -54,8 +54,6 @@ class Env_setup:
             num = len(role[k])
             for x in range(num):
                 f_name_2.write(role[k][x] + '\n')
-        f_name_2.write('[localhost]\n')
-        f_name_2.write('127.0.0.1\n')
         f_name_2.close()
 
     @staticmethod

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_cb6e7496",
+        "filename": "func/driver.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-15T23:50:11Z",
+      "side": 1,
+      "message": "Additional comments to the fix\n\n1. Difficult to understand these magic numbers 0, 1, 0...\n2. Should it be \u0027NONE\u0027 or None ?\n3. Is it equivalent to `pip_dict[0][1][0] or \u0027NONE\u0027 ?",
+      "revId": "fac2a3bff97efed6d4e50bfe249c8107100b8f52",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

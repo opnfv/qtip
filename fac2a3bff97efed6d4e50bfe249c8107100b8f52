@@ -16,6 +16,24 @@
       "revId": "fac2a3bff97efed6d4e50bfe249c8107100b8f52",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_3c016c05",
+        "filename": "func/driver.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-09-17T08:41:43Z",
+      "side": 1,
+      "message": "It should be \u0027NONE\u0027. In the ansible iperf.yaml, condition is \u0027when: rolename \u003d\u003d \"2-host\" and \"{{privateip1}}\" !\u003d \"NONE\"\u0027",
+      "parentUuid": "1a76adc5_cb6e7496",
+      "revId": "fac2a3bff97efed6d4e50bfe249c8107100b8f52",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

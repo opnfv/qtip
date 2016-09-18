@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_3c972cee",
+        "filename": "func/args_handler.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-09-18T06:46:37Z",
+      "side": 1,
+      "message": "Is lab still necessary?",
+      "range": {
+        "startLine": 24,
+        "startChar": 61,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "2ef91b65ffad6717a629a7eb5faafbacb6edbfff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_1ca4b055",
+        "filename": "restful_server/qtip_server.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-09-18T06:46:37Z",
+      "side": 1,
+      "message": "How about smock? Maybe we can pick one test case as smock test case.",
+      "range": {
+        "startLine": 100,
+        "startChar": 12,
+        "endLine": 100,
+        "endChar": 19
+      },
+      "revId": "2ef91b65ffad6717a629a7eb5faafbacb6edbfff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

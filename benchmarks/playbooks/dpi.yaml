@@ -51,7 +51,7 @@
 
     - name: Clone nDPI
       git: repo=https://github.com/ntop/nDPI.git
-           dest=$HOME/tempD
+           dest=$HOME/tempD/nDPI
 
     - name: autogen
       shell: cd $HOME/tempD/nDPI && sudo ./autogen.sh

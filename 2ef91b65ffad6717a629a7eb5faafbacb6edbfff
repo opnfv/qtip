@@ -62,6 +62,24 @@
       "revId": "2ef91b65ffad6717a629a7eb5faafbacb6edbfff",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_57944336",
+        "filename": "test_list/compute",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-09-19T01:57:26Z",
+      "side": 1,
+      "message": "How about use a yaml file to write the test suites file?",
+      "parentUuid": "1a76adc5_9c8f60cc",
+      "revId": "2ef91b65ffad6717a629a7eb5faafbacb6edbfff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

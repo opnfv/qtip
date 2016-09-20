@@ -50,12 +50,6 @@
     - name: make
       shell: sudo make --directory $HOME/tempT/UnixBench/
 
-    - name: downloading_patch
-      shell: cd $HOME/tempT/UnixBench/ && sudo wget https://www.dropbox.com/s/11z85gfu0trkhus/fix-limitation.patch
-
-    - name: applying_patch
-      shell: cd $HOME/tempT/UnixBench/ && sudo patch Run fix-limitation.patch
-
     - name: Run Whetstone
       shell: cd $HOME/tempT/UnixBench/&&./Run -v whetstone
 

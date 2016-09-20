@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_9a143b45",
+        "filename": "func/args_handler.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-09-20T07:01:18Z",
+      "side": 1,
+      "message": "yes.necessary,before we can get all the compute node ip of all kind of installer.",
+      "parentUuid": "1a76adc5_3c972cee",
+      "range": {
+        "startLine": 24,
+        "startChar": 61,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "2ef91b65ffad6717a629a7eb5faafbacb6edbfff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_1ca4b055",
         "filename": "restful_server/qtip_server.py",
         "patchSetId": 4
@@ -53,6 +77,30 @@
       "writtenOn": "2016-09-18T06:46:37Z",
       "side": 1,
       "message": "How about smock? Maybe we can pick one test case as smock test case.",
+      "range": {
+        "startLine": 100,
+        "startChar": 12,
+        "endLine": 100,
+        "endChar": 19
+      },
+      "revId": "2ef91b65ffad6717a629a7eb5faafbacb6edbfff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_1a4fcb6c",
+        "filename": "restful_server/qtip_server.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-09-20T07:01:18Z",
+      "side": 1,
+      "message": "parameter \"testcase\" will be added in the next step.",
+      "parentUuid": "1a76adc5_1ca4b055",
       "range": {
         "startLine": 100,
         "startChar": 12,
@@ -93,6 +141,24 @@
       "writtenOn": "2016-09-19T01:57:26Z",
       "side": 1,
       "message": "How about use a yaml file to write the test suites file?",
+      "parentUuid": "1a76adc5_9c8f60cc",
+      "revId": "2ef91b65ffad6717a629a7eb5faafbacb6edbfff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_5a4c6370",
+        "filename": "test_list/compute",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-09-20T07:01:18Z",
+      "side": 1,
+      "message": "ok",
       "parentUuid": "1a76adc5_9c8f60cc",
       "revId": "2ef91b65ffad6717a629a7eb5faafbacb6edbfff",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",

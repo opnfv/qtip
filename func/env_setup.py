@@ -8,18 +8,15 @@
 ##############################################################################
 
 import os
-import sys
-from collections import defaultdict
-import yaml
-import time
-import paramiko
-import socket
-from os.path import expanduser
 import random
-import logging
+import socket
+import sys
+import time
+from collections import defaultdict
+from os.path import expanduser
 
-LOG = logging.getLogger(__name__)
-LOG.setLevel(logging.DEBUG)
+import paramiko
+import yaml
 
 
 class Env_setup:

@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "1a76adc5_b7c0327d",
+        "filename": "func/args_handler.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-09-20T02:45:37Z",
+      "side": 1,
+      "message": "Imports should be grouped in the following order:\n1. standard library imports\n2. related third party imports\n3. local application/library specific imports\nplease reference openstack style guidelines in http://docs.openstack.org/developer/hacking/",
+      "revId": "2ef91b65ffad6717a629a7eb5faafbacb6edbfff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_3c972cee",
         "filename": "func/args_handler.py",
         "patchSetId": 4

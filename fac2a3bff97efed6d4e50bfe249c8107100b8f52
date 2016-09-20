@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_5a6303dc",
+        "filename": "restful_server/qtip_server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-20T07:04:34Z",
+      "side": 0,
+      "message": "Not sure if we are using debug message. Since it is under development, it could be useful.",
+      "range": {
+        "startLine": 138,
+        "startChar": 12,
+        "endLine": 138,
+        "endChar": 22
+      },
+      "revId": "fac2a3bff97efed6d4e50bfe249c8107100b8f52",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

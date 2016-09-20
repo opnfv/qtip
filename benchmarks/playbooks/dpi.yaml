@@ -51,7 +51,7 @@
 
     - name: Clone nDPI
       git: repo=https://github.com/ntop/nDPI.git
-           dest=$HOME/tempD
+           dest=$HOME/tempD/nDPI
 
     - name: autogen
       shell: cd $HOME/tempD/nDPI && sudo ./autogen.sh
@@ -63,7 +63,7 @@
       shell: cd $HOME/tempD/nDPI && sudo make
 
     - name: Fetching Test_pcap file
-      shell: cd $HOME/tempD/nDPI/example  &&  wget http://artifacts.opnfv.org/qtip/utilities/test.pcap
+      shell: cd $HOME/tempD/nDPI/example  &&  wget http://build.opnfv.org/artifacts.opnfv.org/qtip/utilities/test.pcap
 
     - name: fetch Averaging script
       copy: src=./result_transform/dpi/dpi_average.sh dest={{home_dir.stdout}}/tempD/nDPI/example mode=777

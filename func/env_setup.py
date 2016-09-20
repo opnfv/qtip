@@ -8,18 +8,19 @@
 ##############################################################################
 
 import os
-import sys
-from collections import defaultdict
-import yaml
-import time
-import paramiko
-import socket
-from os.path import expanduser
 import random
-import logging
+import socket
+import sys
+import time
+from collections import defaultdict
+from os.path import expanduser
 
-LOG = logging.getLogger(__name__)
-LOG.setLevel(logging.DEBUG)
+import paramiko
+import yaml
+
+from utils import logger_utils
+
+logger = logger_utils.QtipLogger(__file__).get
 
 
 class Env_setup:
@@ -100,7 +101,7 @@ class Env_setup:
 
     @staticmethod
     def fetch_compute_ips():
-        LOG.info("Fetch compute ips through installer")
+        logger.info("Fetch compute ips through installer")
         ips = []
 
         installer_type = str(os.environ['INSTALLER_TYPE'].lower())
@@ -112,18 +113,18 @@ class Env_setup:
 
         cmd = "bash ./func/fetch_compute_ips.sh -i %s -a %s" % \
             (installer_type, installer_ip)
-        LOG.info(cmd)
+        logger.info(cmd)
         os.system(cmd)
         home = expanduser("~")
         with open(home + "/ips.log", "r") as file:
             data = file.read()
         if data:
             ips.extend(data.rstrip('\n').split('\n'))
-        LOG.info("All compute ips: %s" % ips)
+        logger.info("All compute ips: %s" % ips)
         return ips
 
     def check_machine_ips(self, host_tag):
-        LOG.info("Check machine ips")
+        logger.info("Check machine ips")
         ips = self.fetch_compute_ips()
         ips_num = len(ips)
         num = len(host_tag)
@@ -137,7 +138,7 @@ class Env_setup:
                 if host_tag[hostlabel]['ip'] in ips:
                     info = "%s's ip %s is defined by test case yaml file" % \
                         (hostlabel, host_tag[hostlabel]['ip'])
-                    LOG.info(info)
+                    logger.info(info)
                 else:
                     err = "%s is not in %s" % (host_tag[hostlabel]['ip'], ips)
                     raise RuntimeError(err)

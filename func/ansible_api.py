@@ -8,12 +8,15 @@
 ##############################################################################
 import os
 from collections import namedtuple
-import logging
 
+from ansible.executor.playbook_executor import PlaybookExecutor
+from ansible.inventory import Inventory
 from ansible.parsing.dataloader import DataLoader
 from ansible.vars import VariableManager
-from ansible.inventory import Inventory
-from ansible.executor.playbook_executor import PlaybookExecutor
+
+from utils import logger_utils
+
+logger = logger_utils.QtipLogger(__name__).get
 
 
 class AnsibleApi:
@@ -26,7 +29,7 @@ class AnsibleApi:
 
     def _check_path(self, file_path):
         if not os.path.exists(file_path):
-            logging.error('The playbook %s does not exist' % file_path)
+            logger.error('The playbook %s does not exist' % file_path)
             return False
         else:
             return True

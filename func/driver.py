@@ -6,15 +6,17 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-import logging
-from func.ansible_api import AnsibleApi
+from utils import logger_utils
+from ansible_api import AnsibleApi
+
+logger = logger_utils.QtipLogger(__name__).get
 
 
 class Driver:
 
     def __init__(self):
 
-        logging.info("Class driver initialized\n")
+        logger.info("Class driver initialized\n")
         self.installer_username = {'fuel': 'root',
                                    'joid': 'ubuntu',
                                    'apex': 'heat-admin'}
@@ -58,7 +60,7 @@ class Driver:
         return special_json
 
     def run_ansible_playbook(self, benchmark, extra_vars):
-        logging.info(extra_vars)
+        logger.info(extra_vars)
         ansible_api = AnsibleApi()
         ansible_api.execute_playbook('./data/hosts',
                                      './benchmarks/playbooks/{0}.yaml'.format(benchmark),

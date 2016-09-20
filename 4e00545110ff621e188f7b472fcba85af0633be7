@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_5af223d3",
+        "filename": "utils/logger_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-09-20T07:36:10Z",
+      "side": 1,
+      "message": "aha, I copied from my releng file, I will modify it.",
+      "parentUuid": "1a76adc5_9a4c3b44",
+      "revId": "4e00545110ff621e188f7b472fcba85af0633be7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_ba47b71c",
         "filename": "utils/logger_utils.py",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2016-09-20T07:14:05Z",
       "side": 1,
       "message": "functest?",
+      "range": {
+        "startLine": 19,
+        "startChar": 10,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "4e00545110ff621e188f7b472fcba85af0633be7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_bae33704",
+        "filename": "utils/logger_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-09-20T07:36:10Z",
+      "side": 1,
+      "message": "aha, I copied from releng file directly, I will modify it in both places",
+      "parentUuid": "1a76adc5_ba47b71c",
       "range": {
         "startLine": 19,
         "startChar": 10,

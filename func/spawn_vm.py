@@ -65,7 +65,7 @@ class SpawnVM(Env_setup):
         Heat_Dic = {}
         try:
             with open('./heat/SampleHeat.yaml', 'r+') as H_temp:
-                Heat_Dic = yaml.load(H_temp)
+                Heat_Dic = yaml.safe_load(H_temp)
         except yaml.YAMLError as exc:
             if hasattr(exc, 'problem_mark'):
                 mark = exc.problem_mark

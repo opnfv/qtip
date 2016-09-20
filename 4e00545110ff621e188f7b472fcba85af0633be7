@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_9a4c3b44",
+        "filename": "utils/logger_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-20T07:14:05Z",
+      "side": 1,
+      "message": "All other qtip files are licensed to organization. Better to follow the convention.",
+      "revId": "4e00545110ff621e188f7b472fcba85af0633be7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_ba47b71c",
+        "filename": "utils/logger_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-20T07:14:05Z",
+      "side": 1,
+      "message": "functest?",
+      "range": {
+        "startLine": 19,
+        "startChar": 10,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "4e00545110ff621e188f7b472fcba85af0633be7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

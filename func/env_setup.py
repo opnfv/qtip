@@ -174,7 +174,7 @@ class Env_setup:
     def parse(self, config_file_path):
         try:
             f_name = open(config_file_path, 'r+')
-            doc = yaml.load(f_name)
+            doc = yaml.safe_load(f_name)
             f_name.close()
             if doc['Scenario']['benchmark']:
                 self.benchmark = doc['Scenario']['benchmark']

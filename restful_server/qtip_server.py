@@ -173,4 +173,4 @@ api.add_resource(JobList, '/api/v1.0/jobs')
 api.add_resource(Job, '/api/v1.0/jobs/<string:id>')
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

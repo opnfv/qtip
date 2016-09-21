@@ -22,6 +22,30 @@
       "revId": "fac2a3bff97efed6d4e50bfe249c8107100b8f52",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_3dab9c1e",
+        "filename": "restful_server/qtip_server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-09-21T07:06:37Z",
+      "side": 0,
+      "message": "I think interactive debug will rarely be used, we can reopen it locally if necessary, as a published version, I\u0027d like to close",
+      "parentUuid": "1a76adc5_5a6303dc",
+      "range": {
+        "startLine": 138,
+        "startChar": 12,
+        "endLine": 138,
+        "endChar": 22
+      },
+      "revId": "fac2a3bff97efed6d4e50bfe249c8107100b8f52",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

@@ -58,7 +58,7 @@ running the following command.
 Run the Docker instance:
 ::
 
-  docker run opnfv/qtip -i -t bash
+  docker run -it opnfv/qtip
 
 Now you are in the container and QTIP can be found in the  /repos/qtip and can
 be navigated to using the following command.

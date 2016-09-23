@@ -45,6 +45,6 @@ else:
     compute_suite_index = temp / l
     compute_dict_f = {}
     compute_dict_f['index'] = compute_suite_index
-    compute_dict_f['suite results'] = compute_dict
+    compute_dict_f['suite_results'] = compute_dict
     with open('../../results/compute_result.json', 'w+') as result_json:
         json.dump(compute_dict_f, result_json, indent=4, sort_keys=True)

@@ -11,16 +11,14 @@ total_byte_received = raw_iperf_data['end']['sum_received']['bytes']
 cpu_host_total_percent = raw_iperf_data['end']['cpu_utilization_percent']['host_total']
 cpu_remote_total_percent = raw_iperf_data['end']['cpu_utilization_percent']['remote_total']
 
-result = {}
 time_stamp = str(datetime.datetime.utcnow().isoformat())
 
-result['1. Version'] = raw_iperf_data['start']['version']
-result['2. Bandwidth'] = {}
-result['2. Bandwidth']['1. throughput Sender (b/s)'] = bits_sent
-result['2. Bandwidth']['2. throughput Received (b/s)'] = bits_received
-result['3. CPU'] = {}
-result['3. CPU']['1. CPU host total (%)'] = cpu_host_total_percent
-result['3. CPU']['2. CPU remote total (%)'] = cpu_remote_total_percent
+result = {'version': raw_iperf_data['start']['version'],
+          'bandwidth': {'sender_throughput': bits_sent,
+                        'received_throughput': bits_received},
+          'cpu': {'cpu_host': cpu_host_total_percent,
+                  'cpu_remote': cpu_remote_total_percent}
+          }
 
 with open('iperf_raw-' + time_stamp + '.log', 'w+') as ofile:
     ofile.write(json.dumps(raw_iperf_data))

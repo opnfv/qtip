@@ -28,7 +28,7 @@ def generic_index(dict_gen, testcase, reference_num, *args):
     result = 0
     for k, v in dict_gen.iteritems():
         dict_temp = dict_gen[k]
-        if dict_gen[k]['1  Testcase Name'] == str(testcase):
+        if dict_gen[k]['name'] == str(testcase):
             count = count + 1
             for arg in args:
                 if arg == args[c - 1]:

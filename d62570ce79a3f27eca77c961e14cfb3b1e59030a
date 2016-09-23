@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_26c38858",
+        "filename": "docs/configguide/configuration.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-09-23T01:18:59Z",
+      "side": 1,
+      "message": "It would be better to be \"docker run -it opnfv/qtip /bin/bash\".",
+      "revId": "d62570ce79a3f27eca77c961e14cfb3b1e59030a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

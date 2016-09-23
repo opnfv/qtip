@@ -10,15 +10,6 @@ class KeystoneMock(MagicMock):
     v2_0 = Mock()
 
 
-class ImageMock(MagicMock):
-    name = 'QTIP_CentOS'
-
-
-class ImagesMock(MagicMock):
-    def list(self):
-        return [ImageMock()]
-
-
 class StackMock(MagicMock):
     status = 'COMPLETE'
     outputs = [{'output_key': 'availability_instance_1',
@@ -55,13 +46,11 @@ class TestClass:
     @mock.patch('func.spawn_vm.FetchImg')
     @mock.patch('func.spawn_vm.create_zones')
     @mock.patch('func.spawn_vm.client', autospec=True)
-    @mock.patch('func.spawn_vm.glanceclient', autospec=True)
     @mock.patch('func.spawn_vm.keystoneclient.v2_0', autospec=True)
     @mock.patch('func.spawn_vm.heatclient.client', autospec=True)
-    def test_create_zones_success(self, mock_heat, mock_keystone, mock_glance,
+    def test_create_zones_success(self, mock_heat, mock_keystone,
                                   mock_nova_client, mock_zone, mock_fetch,
                                   mock_setup, test_input, expected):
-        mock_glance.Client.return_value = Mock(images=ImagesMock())
         mock_nova_client.Client.return_value = Mock()
         mock_heat.Client.return_value = Mock(stacks=HeatMock())
         k = mock.patch.dict(os.environ, {'INSTALLER_TYPE': 'fuel'})

@@ -11,11 +11,9 @@ import os
 import sys
 from collections import defaultdict
 from func.env_setup import Env_setup
-from func.fetchimg import FetchImg
 import yaml
 import heatclient.client
 import keystoneclient
-import glanceclient
 from novaclient import client
 import time
 from func.create_zones import create_zones
@@ -191,48 +189,11 @@ class SpawnVM(Env_setup):
                 '1', endpoint=heat_endpoint, token=keystone.auth_token)
         return self._heat_client
 
-    def _get_glance_client(self):
-        if self._glance_client is None:
-            keystone = self._get_keystone_client()
-            glance_endpoint = keystone.service_catalog.url_for(
-                service_type='image')
-            self._glance_client = glanceclient.Client(
-                '2', glance_endpoint, token=keystone.auth_token)
-        return self._glance_client
-
     def create_stack(self, vm_role_ip_dict, heat_template):
 
         global sshkey
         stackname = 'QTIP'
         heat = self._get_heat_client()
-        glance = self._get_glance_client()
-
-        available_images = []
-        for image_list in glance.images.list():
-
-            available_images.append(image_list.name)
-
-        if 'QTIP_CentOS' in available_images:
-            print 'Image Present'
-
-        elif 'QTIP_CentOS' not in available_images:
-            fetchImage = FetchImg()
-            fetchImage.download()
-            print 'Uploading Image to Glance. Please wait'
-            qtip_image = glance.images.create(
-                name='QTIP_CentOS',
-                visibility='public',
-                disk_format='qcow2',
-                container_format='bare')
-            glance.images.upload(
-                qtip_image.id, open('./Temp_Img/QTIP_CentOS.qcow2'))
-        for checks in range(3):
-            print "Try to delete heats %s" % checks
-            for prev_stacks in heat.stacks.list():
-                if prev_stacks.stack_name == 'QTIP':
-                    print 'QTIP Stacks exists.\nDeleting Existing Stack'
-                    heat.stacks.delete('QTIP')
-                    time.sleep(10)
 
         print '\nStack Creating Started\n'
 

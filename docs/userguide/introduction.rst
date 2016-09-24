@@ -320,17 +320,17 @@ This will generate the `opnfv-creds.sh` file needed to use the python clients fo
 Running QTIP on the using `default` as the pod name and for the `compute` suite
 ::
 
-  python qtip.py -l default -f compute
+  python qtip.py -l default -f compute -b dhrystone_bm.yaml
 
 Running QTIP on the using `default` as the pod name and for the `network` suite
 ::
 
-  python qtip.py -l default -f network
+  python qtip.py -l default -f network iperf_bm.yaml
 
 Running QTIP on the using `default` as the pod name and for the `storage` suite
 ::
 
-  python qtip.py -l default -f network
+  python qtip.py -l default -f network -b fio_bm.yaml
 
 Results:
 --------

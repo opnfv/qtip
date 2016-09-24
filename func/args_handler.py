@@ -38,6 +38,10 @@ def check_lab_name(lab_name):
     return True if os.path.isdir('test_cases/' + lab_name) else False
 
 
+def check_benchmark_name(lab, file, benchmark):
+    return True if os.path.isfile('test_cases/' + lab + '/' + file + '/' + benchmark) else False
+
+
 def _get_f_name(test_case_path):
     return test_case_path.split('/')[-1]
 
@@ -65,3 +69,4 @@ def prepare_and_run_benchmark(installer_type, pwd, benchmark_test_case):
     benchmark, benchmark_details, proxy_info, env_setup = prepare_ansible_env(benchmark_test_case)
     return run_benchmark(installer_type, pwd, benchmark, benchmark_details,
                          proxy_info, env_setup, benchmark_test_case)
+

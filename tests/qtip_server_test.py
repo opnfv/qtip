@@ -41,7 +41,7 @@ class TestClass:
                            {'state': 'finished', 'benchmark': 'ramspeed_bm.yaml'},
                            {'state': 'finished', 'benchmark': 'dpi_bm.yaml'},
                            {'state': 'finished', 'benchmark': 'ssl_bm.yaml'}],
-          'result': []}),
+          'result': 0}),
         ({'installer_type': 'fuel',
           'installer_ip': '10.20.0.2',
           'pod_name': 'zte-pod1',
@@ -61,10 +61,27 @@ class TestClass:
                            {u'state': u'finished', u'benchmark': u'ramspeed_vm.yaml'},
                            {u'state': u'finished', u'benchmark': u'dpi_vm.yaml'},
                            {u'state': u'finished', u'benchmark': u'ssl_vm.yaml'}],
-          'result': []})
+          'result': 0})
     ])
     @mock.patch('restful_server.qtip_server.args_handler.prepare_and_run_benchmark')
     def test_post_get_delete_job_successful(self, mock_args_handler, app_client, body, expected):
+        mock_args_handler.return_value = {'result': 0,
+                                          'detail': {'host': [(u'10.20.6.14', {'unreachable': 0,
+                                                                               'skipped': 13,
+                                                                               'ok': 27,
+                                                                               'changed': 26,
+                                                                               'failures': 0}),
+                                                              ('localhost', {'unreachable': 0,
+                                                                             'skipped': 0,
+                                                                             'ok': 6,
+                                                                             'changed': 6,
+                                                                             'failures': 0}),
+                                                              (u'10.20.6.13', {'unreachable': 0,
+                                                                               'skipped': 13,
+                                                                               'ok': 27,
+                                                                               'changed': 26,
+                                                                               'failures': 0})]}}
+
         reply = app_client.post("/api/v1.0/jobs", data=body)
         print(reply.data)
         id = json.loads(reply.data)['job_id']

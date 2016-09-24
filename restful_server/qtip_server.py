@@ -163,8 +163,12 @@ default is 'compute'
             if db.is_job_timeout(job_id) or stop_event.is_set():
                 break
             db.update_benmark_state_in_state_detail(job_id, benchmark, 'processing')
-            args_handler.prepare_and_run_benchmark(installer_type, '/home',
-                                                   args_handler.get_benchmark_path(pod_name, suite_name, benchmark))
+            result = args_handler.prepare_and_run_benchmark(installer_type,
+                                                            '/home',
+                                                            args_handler.get_benchmark_path(pod_name,
+                                                                                            suite_name,
+                                                                                            benchmark))
+            db.update_job_result_detail(job_id, benchmark, copy(result))
             db.update_benmark_state_in_state_detail(job_id, benchmark, 'finished')
         db.finish_job(job_id)
 
@@ -173,4 +177,4 @@ api.add_resource(JobList, '/api/v1.0/jobs')
 api.add_resource(Job, '/api/v1.0/jobs/<string:id>')
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', debug=True)

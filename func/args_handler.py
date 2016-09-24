@@ -37,6 +37,8 @@ def check_suit_in_test_list(suit_name):
 def check_lab_name(lab_name):
     return True if os.path.isdir('test_cases/' + lab_name) else False
 
+def check_benchmark_name(lab, file, benchmark):
+    return True if os.path.isfile('test_cases/' + lab + '/' + file + '/' + benchmark) else False
 
 def _get_f_name(test_case_path):
     return test_case_path.split('/')[-1]

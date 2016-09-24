@@ -63,13 +63,30 @@ class TestClass:
            "role": "2-host"}])
     ])
     @mock.patch('func.driver.AnsibleApi.execute_playbook')
-    def test_driver_success(self, mock_ansible, test_input, expected):
+    @mock.patch('func.driver.AnsibleApi.get_detail_playbook_stats')
+    def test_driver_success(self, mock_stats, mock_ansible, test_input, expected):
         mock_ansible.return_value = True
+        mock_stats.return_value = [(u'10.20.6.14', {'unreachable': 0,
+                                                    'skipped': 13,
+                                                    'ok': 27,
+                                                    'changed': 26,
+                                                    'failures': 0}),
+                                   ('localhost', {'unreachable': 0,
+                                                  'skipped': 0,
+                                                  'ok': 6,
+                                                  'changed': 6,
+                                                  'failures': 0}),
+                                   (u'10.20.6.13', {'unreachable': 0,
+                                                    'skipped': 13,
+                                                    'ok': 27,
+                                                    'changed': 26,
+                                                    'failures': 0})]
         dri = Driver()
-        dri.drive_bench(test_input[0], test_input[1], test_input[2], test_input[3],
-                        test_input[4], test_input[5], test_input[6], test_input[7])
+        result = dri.drive_bench(test_input[0], test_input[1], test_input[2], test_input[3],
+                                 test_input[4], test_input[5], test_input[6], test_input[7])
         call_list = mock_ansible.call_args_list
         for call in call_list:
             call_args, call_kwargs = call
             real_call = call_args[3]
             assert real_call == expected[call_list.index(call)]
+        assert result['result'] == 0

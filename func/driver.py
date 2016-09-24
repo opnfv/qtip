@@ -83,6 +83,7 @@ class Driver:
         return reduce(self._merge_ansible_result, result)
 
     def get_ansible_result(self, role, stats):
+        logger.info(stats)
         result = reduce(add, map(lambda x: x[1]['failures'] + x[1]['unreachable'], stats))
         return {'result': result,
                 'detail': {role: stats}}

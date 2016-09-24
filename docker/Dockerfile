@@ -57,4 +57,4 @@ RUN git clone https://gerrit.opnfv.org/gerrit/releng $REPOS_DIR/releng
 
 RUN pip install -r $REPOS_DIR/qtip/requirements.txt
 
-
+CMD python $REPOS_DIR/qtip/restful_server/qtip_server.py &

@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_c98ae51a",
+        "filename": "docker/run_qtip.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-09-24T06:45:05Z",
+      "side": 1,
+      "message": "How about separate the prepare commands to a independent shell? So that we can call it also in the restful server or cli, debug",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 33
+      },
+      "revId": "da3baab984193b4e434a6210d3ef11a0db895b88",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4997b548",
+        "filename": "docker/run_qtip.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-09-24T06:45:05Z",
+      "side": 1,
+      "message": "After this change, we have to use this run_qtip.sh to run the qtip test,before we only use it in CI.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 10
+      },
+      "revId": "da3baab984193b4e434a6210d3ef11a0db895b88",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

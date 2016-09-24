@@ -7,6 +7,7 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 from datetime import datetime
+from operator import add
 import uuid
 
 jobs = {}
@@ -28,7 +29,8 @@ def create_job(args):
                'end_time': None,
                'state': 'processing',
                'state_detail': [],
-               'result': []}
+               'result': None,
+               'result_detail': []}
         jobs[job['job_id']] = job
         return job['job_id']
 
@@ -54,6 +56,8 @@ def get_job_info(job_id):
 def finish_job(job_id):
     jobs[job_id]['end_time'] = str(datetime.now())
     jobs[job_id]['state'] = 'finished'
+    jobs[job_id]['result'] = reduce(add, map(lambda x: x['result'],
+                                             jobs[job_id]['result_detail']))
     del threads[job_id]
 
 
@@ -61,8 +65,9 @@ def update_job_state_detail(job_id, state_detail):
     jobs[job_id]['state_detail'] = state_detail
 
 
-def update_job_result(job_id, result):
-    jobs[job_id]['result'] = result
+def update_job_result_detail(job_id, benchmark, result):
+    result['benchmark'] = benchmark
+    jobs[job_id]['result_detail'].append(result)
 
 
 def is_job_timeout(job_id):

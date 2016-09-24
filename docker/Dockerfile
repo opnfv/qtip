@@ -12,6 +12,7 @@ LABEL version="0.1" description="OPNFV QTIP Docker container"
 
 ENV REPOS_DIR /home/opnfv/repos
 ENV QTIP_DIR /home/opnfv/repos/qtip
+ENV PYTHONPATH /home/opnfv/repos/qtip
 WORKDIR /home/opnfv
 
 
@@ -57,4 +58,4 @@ RUN git clone https://gerrit.opnfv.org/gerrit/releng $REPOS_DIR/releng
 
 RUN pip install -r $REPOS_DIR/qtip/requirements.txt
 
-
+CMD cd $REPOS_DIR/qtip && python restful_server/qtip_server.py& >/var/log/qtip/run.log

@@ -38,13 +38,19 @@ def check_lab_name(lab_name):
     return True if os.path.isdir('test_cases/' + lab_name) else False
 
 
+def check_benchmark_name(lab, filename, benchmark):
+    return True if os.path.isfile(
+        'test_cases/' + lab + '/' + filename + '/' + benchmark) else False
+
+
 def _get_f_name(test_case_path):
     return test_case_path.split('/')[-1]
 
 
 def prepare_ansible_env(benchmark_test_case):
     env_setup = Env_setup()
-    [benchmark, vm_info, benchmark_details, proxy_info] = env_setup.parse(benchmark_test_case)
+    [benchmark, vm_info, benchmark_details, proxy_info] = \
+        env_setup.parse(benchmark_test_case)
     SpawnVM(vm_info) if len(vm_info) else None
     env_setup.call_ping_test()
     env_setup.call_ssh_test()
@@ -58,10 +64,13 @@ def run_benchmark(installer_type, pwd, benchmark, benchmark_details,
     return driver.drive_bench(installer_type, pwd, benchmark,
                               env_setup.roles_dict.items(),
                               _get_f_name(benchmark_test_case),
-                              benchmark_details, env_setup.ip_pw_dict.items(), proxy_info)
+                              benchmark_details,
+                              env_setup.ip_pw_dict.items(),
+                              proxy_info)
 
 
 def prepare_and_run_benchmark(installer_type, pwd, benchmark_test_case):
-    benchmark, benchmark_details, proxy_info, env_setup = prepare_ansible_env(benchmark_test_case)
+    benchmark, benchmark_details, proxy_info, env_setup = \
+        prepare_ansible_env(benchmark_test_case)
     return run_benchmark(installer_type, pwd, benchmark, benchmark_details,
                          proxy_info, env_setup, benchmark_test_case)

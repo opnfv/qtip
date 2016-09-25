@@ -49,7 +49,7 @@ class Driver:
     def get_special_var_json(self, role, roles, benchmark_detail, pip_dict):
         special_json = {}
         index = roles.index(role) + 1
-        private_ip = pip_dict[0][1][0] if pip_dict[0][1][0] else 'NONE'
+        private_ip = pip_dict[0][1] if pip_dict[0][1][0] else 'NONE'
         map(lambda x: special_json.update({'ip' + str(index): x}), role[1])\
             if benchmark_detail and (role[0] == '1-server') else None
         map(lambda x: special_json.update({'privateip' + str(index): private_ip}), role[1])\

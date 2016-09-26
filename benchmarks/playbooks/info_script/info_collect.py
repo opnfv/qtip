@@ -13,7 +13,6 @@ est_ob2.write(in_string)
 est_ob.close()
 est_ob2.close()
 
-Info_dict = {}
 inxi_host = os.popen("""cat $PWD/est_1 | grep -o -P '(?<=Host:).*(?=Kernel)' """).read().lstrip().rstrip()
 inxi_mem = os.popen("""cat $PWD/est_1 | grep -o -P '(?<=Memory:).*(?=MB)' """).read().lstrip().rstrip() + "MB"
 inxi_cpu = os.popen("""cat $PWD/est_1 | grep -o -P '(?<=CPU).*(?=speed)' | cut -f2 -d':'""").read().lstrip().rstrip()
@@ -22,19 +21,19 @@ inxi_kernel = os.popen(""" cat $PWD/est_1 | grep -o -P '(?<=Kernel:).*(?=Console
 inxi_HD = os.popen(""" cat $PWD/est_1 | grep -o -P '(?<=HDD Total Size:).*(?=Info:)' """).read().rstrip().lstrip()
 inxi_product = os.popen(""" cat $PWD/est_1 | grep -o -P '(?<=product:).*(?=Mobo:)' """).read().rstrip().lstrip()
 
-Info_dict['1_Hostname'] = inxi_host
-Info_dict['2_Product'] = inxi_product
-Info_dict['3_OS Distribution'] = inxi_distro
-Info_dict['4_Kernel'] = inxi_kernel
-Info_dict['5_CPU'] = inxi_cpu
-Info_dict['6_CPU_Usage'] = str(round(cpu_usage, 3)) + '%'
-Info_dict['7_Memory Usage'] = inxi_mem
-Info_dict['8_Disk usage'] = inxi_HD
+info_dict = {'hostname': inxi_host,
+             'product': inxi_product,
+             'os': inxi_distro,
+             'kernel': inxi_kernel,
+             'cpu': inxi_cpu,
+             'cpu_usage': '{0}%'.format(str(round(cpu_usage, 3))),
+             'memory_usage': inxi_mem,
+             'disk_usage': inxi_HD}
 network_flag = str(sys.argv[1]).rstrip()
 
 if (network_flag == 'n'):
 
-    Info_dict['9_Network_Interfaces'] = {}
+    info_dict['network_interfaces'] = {}
     tem_2 = """ cat $PWD/est_1 | grep -o -P '(?<=Network:).*(?=Info:)'"""
     print os.system(tem_2 + ' > Hello')
     i = int(os.popen(tem_2 + " | grep -o 'Card' | wc -l ").read())
@@ -46,24 +45,24 @@ if (network_flag == 'n'):
                 tem = """ cat $PWD/est_1 | grep -o -P '(?<=Network:).*(?=Info:)'"""
                 inxi_card_1 = ((os.popen(tem + " | grep -o -P '(?<=Card:).*(?=Drives:)'|sed 's/ *driver:.*//'").read().rstrip().lstrip()))
                 print inxi_card_1
-                Info_dict['9_Network_Interfaces']['Interface_' + str(x)] = {}
-                Info_dict['9_Network_Interfaces']['Interface_' + str(x)]['1_Network_Card'] = inxi_card_1
+                info_dict['network_interfaces']['interface_' + str(x)] = {}
+                info_dict['network_interfaces']['interface_' + str(x)]['network_card'] = inxi_card_1
                 inxi_card_2 = ((os.popen(tem + "| grep -o -P '(?<=Card:).*(?=Drives:)'|sed -e 's/^.*IF: //'").read())).rstrip().lstrip()
-                Info_dict['9_Network_Interfaces']['Interface_' + str(x)]['2_Interface_info'] = inxi_card_2
+                info_dict['network_interfaces']['interface_' + str(x)]['interface_info'] = inxi_card_2
             elif x < (i):
                 print "two"
                 inxi_card_1 = ((os.popen(tem + "| sed 's/ *driver:.*//'").read().rstrip().lstrip()))
-                Info_dict['9_Network_Interfaces']['Interface_' + str(x)] = {}
-                Info_dict['9_Network_Interfaces']['Interface_' + str(x)]['1_Network_Card'] = inxi_card_1
+                info_dict['network_interfaces']['interface_' + str(x)] = {}
+                info_dict['network_interfaces']['interface_' + str(x)]['network_Card'] = inxi_card_1
                 inxi_card_2 = ((os.popen(tem + "|sed -e 's/^.*IF: //'").read())).rstrip().lstrip()
-                Info_dict['9_Network_Interfaces']['Interface_' + str(x)]['2_Interface_info'] = inxi_card_2
+                info_dict['network_interfaces']['interface_' + str(x)]['interface_info'] = inxi_card_2
             elif x == i:
                 print "Three"
-                Info_dict['9_Network_Interfaces']['Interface_' + str(x)] = {}
+                info_dict['network_interfaces']['interface_' + str(x)] = {}
                 inxi_card_1 = ((os.popen(""" cat $PWD/est_1 | grep -o -P '(?<=Card-""" + str(x) + """:).*(?=Drives:)'| sed 's/ *driver:.*//' """).read().rstrip().lstrip()))
-                Info_dict['9_Network_Interfaces']['Interface_' + str(x)]['1_Network_Card'] = inxi_card_1
+                info_dict['network_interfaces']['interface_' + str(x)]['network_Card'] = inxi_card_1
                 inxi_card_2 = ((os.popen(""" cat $PWD/est_1 | grep -o -P '(?<=Card-""" + str(x) + """:).*(?=Drives:)'| sed -e 's/^.*IF: //' """).read().rstrip().lstrip()))
-                Info_dict['9_Network_Interfaces']['Interface_' + str(x)]['2_Interface_info'] = inxi_card_2
+                info_dict['network_interfaces']['interface_' + str(x)]['interface_info'] = inxi_card_2
             else:
                 print "No network cards"
     os.system("bwm-ng -o plain -c 1 | grep -v '=' | grep -v 'iface' | grep -v '-'   > bwm_dump")
@@ -76,12 +75,12 @@ if (network_flag == 'n'):
         interface[str(interface_name)]['Tx (KB/s)'] = os.popen(" cat bwm_dump | awk 'NR==" + str(x) + "' | awk '{print $4}' ").read().rstrip()
         interface[str(interface_name)]['Total (KB/s)'] = os.popen(" cat bwm_dump | awk 'NR== " + str(x) + "' | awk '{print $6}' ").read().rstrip()
 
-    Info_dict['10.Interface I/O'] = interface
+    info_dict['interface_io'] = interface
 
-print Info_dict
+print info_dict
 
 with open('./sys_info_temp', 'w+')as out_info:
-    pickle.dump(Info_dict, out_info)
+    pickle.dump(info_dict, out_info)
 
 with open('temp', 'w+') as result_json:
-    json.dump(Info_dict, result_json, indent=4, sort_keys=True)
+    json.dump(info_dict, result_json, indent=4, sort_keys=True)

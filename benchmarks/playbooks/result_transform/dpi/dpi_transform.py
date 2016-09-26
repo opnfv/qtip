@@ -41,8 +41,7 @@ os.popen(
 
 home_dir = str(os.popen("echo $HOME").read().rstrip())
 host = os.popen("echo $HOSTNAME")
-result = {}
-result['DPI_benchmark(M pps)'] = round(dpi_result_pps, 3)
-result['DPI_benchmark(Gb/s)'] = round(dpi_result_bps, 3)
+result = {'pps': round(dpi_result_pps, 3),
+          'bps': round(dpi_result_bps, 3)}
 with open('./result_temp', 'w+') as result_file:
     pickle.dump(result, result_file)

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_ec3ecf8b",
+        "filename": "docker/run_qtip.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-09-26T01:08:07Z",
+      "side": 1,
+      "message": "I agreen. a prepare_env.sh is needed. But I suggest to do the separation in a new patch. When I separate these commands from run_qtip.sh, it need a synchronous change in qtip script in releng.",
+      "parentUuid": "1a76adc5_c98ae51a",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 33
+      },
+      "revId": "da3baab984193b4e434a6210d3ef11a0db895b88",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_4997b548",
         "filename": "docker/run_qtip.sh",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-24T06:45:05Z",
       "side": 1,
       "message": "After this change, we have to use this run_qtip.sh to run the qtip test,before we only use it in CI.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 10
+      },
+      "revId": "da3baab984193b4e434a6210d3ef11a0db895b88",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_8c3f1b87",
+        "filename": "docker/run_qtip.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-09-26T01:08:07Z",
+      "side": 1,
+      "message": "I think prepare_env.sh can solve this issue.",
+      "parentUuid": "1a76adc5_4997b548",
       "range": {
         "startLine": 57,
         "startChar": 0,

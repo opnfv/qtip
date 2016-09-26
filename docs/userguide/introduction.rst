@@ -27,7 +27,8 @@ This folder is used to store all the config files which are used to setup the
  which run QTIP. Inside each pod there are folders which contain the config
  files segmented based on test cases. Namely, these include, `Compute`,
  `Network` and `Storage`. The default folder is there for the end user who
- is interested in testing their infrastructure but arent part of a opnfv pod.
+ is interested in testing their infrastructure which is installed by fuel 
+or compass but aren't part of a opnfv pod,and for opnfv CI.
 
 The structure of the directory for the user appears as follows
 ::
@@ -64,14 +65,25 @@ These files list the benchmarks are to be run by the QTIP framework. Sample
 compute test file is shown below
 ::
 
-  dhrystone_vm.yaml
-  dhrystone_bm.yaml
-  whetstone_vm.yaml
-  ssl_bm.yaml
+{
+    "bm": [
+        "dhrystone_bm.yaml",
+        "whetstone_bm.yaml",
+        "ramspeed_bm.yaml",
+        "dpi_bm.yaml",
+        "ssl_bm.yaml"
+    ],
+    "vm": [
+        "dhrystone_vm.yaml",
+        "whetstone_vm.yaml",
+        "ramspeed_vm.yaml",
+        "dpi_vm.yaml",
+        "ssl_vm.yaml"
+    ]
+}
 
 The compute file will now run all the benchmarks listed above one after
-another on the environment. `NOTE: Please ensure there are no blank lines
-in this file as that has been known to throw an exception`.
+another on the environment.
 
 Preparing a config file for test:
 ---------------------------------
@@ -317,20 +329,56 @@ This will generate the `opnfv-creds.sh` file needed to use the python clients fo
 
   source opnfv-creds.sh
 
-Running QTIP on the using `default` as the pod name and for the `compute` suite
+Running QTIP on the using `default` as the pod name and for the `compute` suite by cli
 ::
 
   python qtip.py -l default -f compute
 
-Running QTIP on the using `default` as the pod name and for the `network` suite
+Running QTIP on the using 'default' as the pod name and for the 'compute' suite 'bm' type by restful api
+::
+
+  curl  --trace-ascii debug.txt -X POST -d '{ "installer_ip": "10.20.6.2","installer_type":"fuel", "suite_name":"compute", "type": "BM"}' -H "Content-Type: application/json"  http://qtip_server_ip:5000/api/v1.0/jobs
+  
+
+Running QTIP on the using 'default' as the pod name and for the 'compute' suite 'vm' type by restful api
+::
+
+  curl  --trace-ascii debug.txt -X POST -d '{ "installer_ip": "10.20.6.2","installer_type":"fuel", "suite_name":"compute", "type": "VM"}' -H "Content-Type: application/json"  http://qtip_server_ip:5000/api/v1.0/jobs
+
+
+Running QTIP on the using `default` as the pod name and for the `network` suite by cli
 ::
 
   python qtip.py -l default -f network
 
-Running QTIP on the using `default` as the pod name and for the `storage` suite
+Running QTIP on the using 'default' as the pod name and for the 'network' suite 'bm' type by restful api
+::
+
+  curl  --trace-ascii debug.txt -X POST -d '{ "installer_ip": "10.20.6.2","installer_type":"fuel", "suite_name":"network", "type": "BM"}' -H "Content-Type: application/json"  http://qtip_server_ip:5000/api/v1.0/jobs
+
+Running QTIP on the using `default` as the pod name and for the `storage` suite by cli
 ::
 
   python qtip.py -l default -f network
+
+Running QTIP on the using 'default' as the pod name and for the 'storage' suite 'bm' type by restful api
+::
+
+  curl  --trace-ascii debug.txt -X POST -d '{ "installer_ip": "10.20.6.2","installer_type":"fuel", "suite_name":"storage", "type": "BM"}' -H "Content-Type: application/json"  http://qtip_server_ip:5000/api/v1.0/jobs
+
+Get running QTIP job status by restful api
+::
+
+  curl --trace-ascii debug.txt -X GET http://qtip_server_ip:5000/api/v1.0/jobs/job-id
+  For example:
+  curl --trace-ascii debug.txt -X GET http://172.37.0.3:5000/api/v1.0/jobs/5b71f035-3fd6-425c-9cc7-86acd3a04214
+
+Stop running QTIP job by restful api.The job will finish the current benchmark test and stop.
+::
+
+  curl --trace-ascii debug.txt -X DELTET http://qtip_server_ip:5000/api/v1.0/jobs/job-id
+  For example:
+  curl --trace-ascii debug.txt -X DELETE http://172.37.0.3:5000/api/v1.0/jobs/5b71f035-3fd6-425c-9cc7-86acd3a04214q
 
 Results:
 --------

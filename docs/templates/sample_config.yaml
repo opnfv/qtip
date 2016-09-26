@@ -14,7 +14,7 @@ Scenario:
 
 #Context would define the environment on which to run:
 #Host Machine keys would contain Host_Machines/ Baremetal machines to run the benchmarks on
-#e.g  in Host Machine , machine_1 and machine_2 are the bare metal machines. For each baremetal machine its IP(which should be reachable from the location on which you run QTIP), passwords and its role(host or server)
+#e.g  in Host Machine , machine_1 and machine_2 are the bare metal machines. For each baremetal machine its IP(which should be reachable from the location on which you run QTIP), passwords and its role(host or server). If your installer is 'fuel' or 'compass' and you left baremetal machine IP empty,qtip will get compute node ip from installer automaticly.
 Context:
   Host_Machines:
     machine_1:

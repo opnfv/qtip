@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_52975a48",
+        "filename": "benchmarks/playbooks/fio.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 3299
+      },
+      "writtenOn": "2016-09-27T13:57:13Z",
+      "side": 1,
+      "message": "Could use the file module here.",
+      "revId": "c57064f4f0295b78365dd4e62bb1a9a2a191de78",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_7294d642",
+        "filename": "benchmarks/playbooks/fio.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 3299
+      },
+      "writtenOn": "2016-09-27T13:57:13Z",
+      "side": 1,
+      "message": "You should use the stat module and loop through the logs with the file module.",
+      "revId": "c57064f4f0295b78365dd4e62bb1a9a2a191de78",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_129d6266",
+        "filename": "benchmarks/playbooks/fio.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 3299
+      },
+      "writtenOn": "2016-09-27T13:57:13Z",
+      "side": 1,
+      "message": "You can just use the file module here and state: absent",
+      "revId": "c57064f4f0295b78365dd4e62bb1a9a2a191de78",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_92a3b2ff",
+        "filename": "docker/prepare_qtip_image.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-27T09:58:46Z",
+      "side": 1,
+      "message": "`-r` is not required for a regular file",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 6
+      },
+      "revId": "1a2b55736da4d18758f81444933181e380202f60",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -301,6 +301,7 @@ Commands to run the Framework:
 ------------------------------
 
 In order to start QTIP on the default lab please use the following commands (asssuming you have prepared the config files in the test_cases/default/ directory and listed the intended suite in the test_list/<RELEVANT-SUITE-FILE>):
+Please ensure that you have edited the respective files before using them. For testing other than through Jenkins. The user should list default after -l. All the fields in the files are necessary and should be filled.
 
 First step is to export the necessary information to the environment.
 ::
@@ -317,20 +318,20 @@ This will generate the `opnfv-creds.sh` file needed to use the python clients fo
 
   source opnfv-creds.sh
 
-Running QTIP on the using `default` as the pod name and for the `compute` suite
+Running QTIP on the using `default` as the pod name and for a single `compute` test case
 ::
 
-  python qtip.py -l default -f compute
+  python qtip.py -l default -f compute -b dhrystone_bm.yaml
 
-Running QTIP on the using `default` as the pod name and for the `network` suite
+Running QTIP on the using `default` as the pod name and for a single `network` testcase
 ::
 
-  python qtip.py -l default -f network
+  python qtip.py -l default -f network - iper_bm.yaml
 
-Running QTIP on the using `default` as the pod name and for the `storage` suite
+Running QTIP on the using `default` as the pod name and for a single `storage` testcase
 ::
 
-  python qtip.py -l default -f network
+  python qtip.py -l default -f network fio_bm.yaml
 
 Results:
 --------

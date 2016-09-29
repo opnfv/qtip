@@ -38,6 +38,11 @@ def check_lab_name(lab_name):
     return True if os.path.isdir('test_cases/' + lab_name) else False
 
 
+def check_benchmark_name(lab, file, benchmark):
+    return os.path.isfile('test_cases/' + lab + '/' + file + '/' +
+                           benchmark)
+
+
 def _get_f_name(test_case_path):
     return test_case_path.split('/')[-1]
 
@@ -58,7 +63,8 @@ def run_benchmark(installer_type, pwd, benchmark, benchmark_details,
     return driver.drive_bench(installer_type, pwd, benchmark,
                               env_setup.roles_dict.items(),
                               _get_f_name(benchmark_test_case),
-                              benchmark_details, env_setup.ip_pw_dict.items(), proxy_info)
+                              benchmark_details, env_setup.ip_pw_dict.items(),
+                              proxy_info)
 
 
 def prepare_and_run_benchmark(installer_type, pwd, benchmark_test_case):

@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_ef91dc47",
+        "filename": "func/args_handler.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-30T02:31:30Z",
+      "side": 1,
+      "message": "isfile() returns a boolean which means you can simple use\n```\nreturn os.path.isfile(...)\n```",
+      "revId": "cf7e3affbe3c7ca7f556a36504355c582b618279",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_cfb3c0e7",
+        "filename": "func/cli.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-09-30T02:31:30Z",
+      "side": 1,
+      "message": "This is a bit too long for inline help message of a CLI tools, we usually limit it in oneline. The details can be put into document.",
+      "revId": "cf7e3affbe3c7ca7f556a36504355c582b618279",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

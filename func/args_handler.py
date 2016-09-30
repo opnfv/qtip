@@ -38,6 +38,10 @@ def check_lab_name(lab_name):
     return True if os.path.isdir('test_cases/' + lab_name) else False
 
 
+def check_benchmark_name(lab, file, benchmark):
+    return os.path.isfile('test_cases/' + lab + '/' + file + '/' + benchmark)
+
+
 def _get_f_name(test_case_path):
     return test_case_path.split('/')[-1]
 

@@ -39,12 +39,12 @@ class cli:
         args = self._parse_args(args)
         if not args_handler.check_suit_in_test_list(args.file):
             print('\n\n ERROR: Test File Does not exist in test_list/ please enter correct file \n\n')
-            sys.exit(0)
+            sys.exit(1)
 
         if not args_handler.check_lab_name(args.lab):
             print('\n\n You have specified a lab that is not present in test_cases/ please enter \
                    correct file. If unsure how to proceed, use -l default.\n\n')
-            sys.exit(0)
+            sys.exit(1)
         suite = args.file
         benchmarks = args_handler.get_files_in_test_list(suite)
         test_cases = args_handler.get_files_in_test_case(args.lab, suite)

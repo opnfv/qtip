@@ -16,6 +16,6 @@ Colorado 1.0
 
    ./overview.rst
    ./introduction.rst
-   ./01-compute_testcases.rst
-   ./02-network_testcases.rst
-   ./03-storage_testcases.rst
+   ./01-compute.rst
+   ./02-network.rst
+   ./03-storage.rst

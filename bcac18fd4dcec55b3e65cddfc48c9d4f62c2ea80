@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_22ab6b76",
+        "filename": "func/cli.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-01T00:14:16Z",
+      "side": 1,
+      "message": "This is not relevant to this fix. You may leave it unchanged and git will merge the changes from other patch. It is important to do only one thing and do it right in one commit. That is the reason I reverted all other changes in previous patch.",
+      "range": {
+        "startLine": 45,
+        "startChar": 21,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "bcac18fd4dcec55b3e65cddfc48c9d4f62c2ea80",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_42a8e776",
+        "filename": "func/cli.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-01T00:14:16Z",
+      "side": 1,
+      "message": "The same as L45",
+      "range": {
+        "startLine": 50,
+        "startChar": 21,
+        "endLine": 50,
+        "endChar": 22
+      },
+      "revId": "bcac18fd4dcec55b3e65cddfc48c9d4f62c2ea80",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_e2b813ca",
+        "filename": "func/cli.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-01T00:14:16Z",
+      "side": 1,
+      "message": "I suppose it is a string, is it?",
+      "range": {
+        "startLine": 56,
+        "startChar": 29,
+        "endLine": 56,
+        "endChar": 30
+      },
+      "revId": "bcac18fd4dcec55b3e65cddfc48c9d4f62c2ea80",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

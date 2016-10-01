@@ -69,7 +69,7 @@ class SpawnVM(Env_setup):
                 mark = exc.problem_mark
                 print 'Error in qtip/heat/SampleHeat.yaml at: (%s,%s)' % (mark.line + 1, mark.column + 1)
                 print 'EXITING PROGRAM. Correct File and restart'
-                sys.exit(0)
+                sys.exit(1)
         fopen = open('./data/QtipKey.pub', 'r')
         fopenstr = fopen.read()
         fopenstr = fopenstr.rstrip()

@@ -25,6 +25,8 @@ def create_job(args):
                'suite_name': args["suite_name"],
                'max_minutes': args["max_minutes"],
                'type': args["type"],
+               'testdb_url': args["testdb_url"],
+               'node_name': args["node_name"],
                'start_time': str(datetime.now()),
                'end_time': None,
                'state': 'processing',

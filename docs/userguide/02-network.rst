@@ -20,7 +20,7 @@ There are three tests that are run through the QTIP framework.
 Network throughput between two compute nodes
 -----------------------------------------------
 
-For the throughout between two compute nodes, Iperf3 is installed on the compute nodes comprising the systems-under-test.
+For the throughput between two compute nodes, Iperf3 is installed on the compute nodes comprising the systems-under-test.
 One of the compute nodes is used as a server and the other as a client.
 The client pushes traffic to the server for a duration specified by the user in the configuration file for Iperf3.
 
@@ -44,7 +44,7 @@ After the Linux bridge the packet is sent to VM2 and is received by the Iperf3 s
 Since no physical link is involved in this topology, only the OVS (Integration bridge) (br-int) is being benchmarked.
 
 
-Network throughput between two VMs on the same compute node
+Network throughput between two VMs on different compute nodes
 --------------------------------------------------------------
 
 

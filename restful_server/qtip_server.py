@@ -130,8 +130,8 @@ default is 'compute'
         parser.add_argument('suite_name', type=str, required=False, default='compute', help='suite_name should be string')
         parser.add_argument('type', type=str, required=False, default='BM', help='type should be BM, VM and ALL')
         args = parser.parse_args()
-        if not args_handler.check_suit_in_test_list(args["suite_name"]):
-            return abort(404, 'message:Test Suit {0} does not exist in test_list'.format(args["suite_name"]))
+        if not args_handler.check_suite_in_test_list(args["suite_name"]):
+            return abort(404, 'message:Test suite {0} does not exist in test_list'.format(args["suite_name"]))
         if not args_handler.check_lab_name(args["pod_name"]):
             return abort(404, 'message: You have specified a lab {0}\
                                that is not present in test_cases'.format(args['pod_name']))

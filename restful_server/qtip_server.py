@@ -28,7 +28,9 @@ class JobModel:
         'pod_name': fields.String,
         'suite_name': fields.String,
         'type': fields.String,
-        'benchmark_name': fields.String
+        'benchmark_name': fields.String,
+        'testdb_url': fields.String,
+        'node_name': fields.String
     }
     required = ['installer_type', 'installer_ip']
 
@@ -98,10 +100,16 @@ for any single test iteration, default is '60',
 "pod_name": If specified, the Pod name, default is 'default',
 
 "suite_name": If specified, Test suite name, for example 'compute', 'network', 'storage',
-default is 'compute'
-"type": BM or VM,default is 'BM'
+default is 'compute',
+
+"type": BM or VM,default is 'BM',
+
 "benchmark_name": If specified, benchmark name in suite, for example 'dhrystone_bm.yaml',
-default is all benchmarks in suite with specified type
+default is all benchmarks in suite with specified type,
+
+"testdb_url": test db http url, for example 'http://testresults.opnfv.org/test/api/v1',
+
+"node_name": node name reported to test db
                 """,
                 "required": True,
                 "type": "JobModel",
@@ -133,6 +141,9 @@ default is all benchmarks in suite with specified type
         parser.add_argument('suite_name', type=str, required=False, default='compute', help='suite_name should be string')
         parser.add_argument('type', type=str, required=False, default='BM', help='type should be BM, VM and ALL')
         parser.add_argument('benchmark_name', type=str, required=False, default='all', help='benchmark_name should be string')
+        parser.add_argument('testdb_url', type=str, required=False, default=None,
+                            help='testdb_url should be test db http url,for example http://testresults.opnfv.org/test/api/v1')
+        parser.add_argument('node_name', type=str, required=False, default=None, help='node_name should be string')
         args = parser.parse_args()
         if not args_handler.check_suite_in_test_list(args["suite_name"]):
             return abort(404, 'message:Test suite {0} does not exist in test_list'.format(args["suite_name"]))

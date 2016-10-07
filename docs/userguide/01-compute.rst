@@ -29,14 +29,14 @@ Benchmarks
 
 The benchmarks include:
 
-Dhnystone 2.1
+Dhrystone 2.1
 ^^^^^^^^^^^^^^^^
 
-Dhnystone is a synthetic benchmark for measuring CPU performance. It uses integer calculations to evaluate CPU capabilities.
+Dhrystone is a synthetic benchmark for measuring CPU performance. It uses integer calculations to evaluate CPU capabilities.
 Both Single CPU penformance is measured along multi-cpu performance.
 
 
-Dhnystone, however, is a dated benchmark and has some short comings.
+Dhrystone, however, is a dated benchmark and has some short comings.
 Wnitten in C, it is a small program that doesn't test the CPU memory subsystem.
 Additionally, dhrystone results could be modified by optimizing the compiler and insome cases hardware configuration.
 
@@ -48,9 +48,9 @@ Whetstone
 Whetstone is a synthetic benchmank to measure CPU floating point operation performance.
 Both Single CPU performance is measured along multi-cpu performance.
 
-Like Dhnystone, Whetstone is a dated benchmark and has short comings.
+Like Dhrystone, Whetstone is a dated benchmark and has short comings.
 
-Refenences:
+References:
 
 http://www.netlib.org/benchmark/whetstone.c
 

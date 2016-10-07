@@ -24,7 +24,7 @@ class JobModel:
     resource_fields = {
         'installer_type': fields.String,
         'installer_ip': fields.String,
-        'max-minutes': fields.Integer,
+        'max_minutes': fields.Integer,
         'pod_name': fields.String,
         'suite_name': fields.String,
         'type': fields.String
@@ -91,7 +91,7 @@ class JobList(Resource):
 
 "installer_ip": The installer ip of the pod,
 
-"max-minutes": If specified, the maximum duration in minutes
+"max_minutes": If specified, the maximum duration in minutes
 for any single test iteration, default is '60',
 
 "pod_name": If specified, the Pod name, default is 'default',
@@ -123,9 +123,9 @@ default is 'compute'
     )
     def post(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('installer_type', type=str, required=True, help='Installer_type is required')
-        parser.add_argument('installer_ip', type=str, required=True, help='Installer_ip is required')
-        parser.add_argument('max-minutes', type=int, required=False, default=60, help='max-minutes should be integer')
+        parser.add_argument('installer_type', type=str, required=True, help='installer_type is required')
+        parser.add_argument('installer_ip', type=str, required=True, help='installer_ip is required')
+        parser.add_argument('max_minutes', type=int, required=False, default=60, help='max_minutes should be integer')
         parser.add_argument('pod_name', type=str, required=False, default='default', help='pod_name should be string')
         parser.add_argument('suite_name', type=str, required=False, default='compute', help='suite_name should be string')
         parser.add_argument('type', type=str, required=False, default='BM', help='type should be BM, VM and ALL')

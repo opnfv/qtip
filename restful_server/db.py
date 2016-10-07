@@ -23,7 +23,7 @@ def create_job(args):
                'installer_ip': args["installer_ip"],
                'pod_name': args["pod_name"],
                'suite_name': args["suite_name"],
-               'max-minutes': args["max-minutes"],
+               'max_minutes': args["max_minutes"],
                'type': args["type"],
                'start_time': str(datetime.now()),
                'end_time': None,
@@ -73,7 +73,7 @@ def update_job_result_detail(job_id, benchmark, result):
 def is_job_timeout(job_id):
     period = datetime.now() - datetime.strptime(jobs[job_id]['start_time'],
                                                 "%Y-%m-%d %H:%M:%S.%f")
-    return True if jobs[job_id]['max-minutes'] * 60 < period.total_seconds()\
+    return True if jobs[job_id]['max_minutes'] * 60 < period.total_seconds()\
         else False
 
 

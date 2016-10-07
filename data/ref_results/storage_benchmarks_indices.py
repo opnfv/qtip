@@ -4,7 +4,7 @@ from result_accum import result_concat as concat
 
 
 def fio_index():
-    fio_dict = concat('../../results/fio/')
+    fio_dict = concat('results/fio/')
     fio_r_bm_ref = get_reference('storage', 'fio_bm', 'read', 'IOPS')
     fio_r_bm_index = get_index(fio_dict, 'fio_bm', fio_r_bm_ref, 'details', 'job_0', 'read', 'io_ps')
     fio_w_bm_ref = get_reference('storage', 'fio_bm', 'write', 'IOPS')

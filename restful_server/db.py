@@ -91,6 +91,6 @@ def stop_thread(job_id):
         del threads[job_id]
 
 
-def update_benmark_state_in_state_detail(job_id, benchmark, benchmark_state):
+def update_benchmark_state(job_id, benchmark, benchmark_state):
     filter(lambda x: x["benchmark"] == benchmark,
            get_job_info(job_id)["state_detail"])[0]['state'] = benchmark_state

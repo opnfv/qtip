@@ -162,14 +162,14 @@ default is 'compute'
         for benchmark in benchmarks_list:
             if db.is_job_timeout(job_id) or stop_event.is_set():
                 break
-            db.update_benmark_state_in_state_detail(job_id, benchmark, 'processing')
+            db.update_benchmark_state(job_id, benchmark, 'processing')
             result = args_handler.prepare_and_run_benchmark(installer_type,
                                                             '/home',
                                                             args_handler.get_benchmark_path(pod_name,
                                                                                             suite_name,
                                                                                             benchmark))
             db.update_job_result_detail(job_id, benchmark, copy(result))
-            db.update_benmark_state_in_state_detail(job_id, benchmark, 'finished')
+            db.update_benchmark_state(job_id, benchmark, 'finished')
         db.finish_job(job_id)
 
 

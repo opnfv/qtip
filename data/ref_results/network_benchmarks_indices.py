@@ -4,7 +4,7 @@ from result_accum import result_concat as concat
 
 
 def iperf_index():
-    iperf_dict = concat('../../results/iperf/')
+    iperf_dict = concat('results/iperf/')
     iperf_bm_ref = get_reference('network', 'iperf_bm', 'throughput received(b/s)')
     iperf_bm_index = get_index(iperf_dict, 'iperf_bm', iperf_bm_ref, 'details', 'bandwidth', 'received_throughput')
     iperf_vm_ref = get_reference('network', 'iperf_vm', 'throughput received(b/s)')

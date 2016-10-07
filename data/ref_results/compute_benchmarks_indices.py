@@ -4,7 +4,7 @@ from result_accum import result_concat as concat
 
 
 def dpi_index():
-    dpi_dict = concat('../../results/dpi/')
+    dpi_dict = concat('results/dpi/')
     dpi_bm_ref = get_reference('compute', 'dpi_bm')
     dpi_bm_index = get_index(dpi_dict, 'dpi_bm', dpi_bm_ref, 'details', 'bps')
 
@@ -20,7 +20,7 @@ def dpi_index():
 
 def dhrystone_index():
 
-    dhrystone_dict = concat('../../results/dhrystone/')
+    dhrystone_dict = concat('results/dhrystone/')
     dhrystone_single_bm_ref = get_reference('compute', 'dhrystone_bm', 'single_cpu')
     dhrystone_single_bm_index = get_index(dhrystone_dict, 'dhrystone_bm', dhrystone_single_bm_ref, 'details', 'single', 'score')
 
@@ -46,7 +46,7 @@ def dhrystone_index():
 
 def whetstone_index():
 
-    whetstone_dict = concat('../../results/whetstone/')
+    whetstone_dict = concat('results/whetstone/')
     whetstone_single_bm_ref = get_reference('compute', 'whetstone_bm', 'single_cpu')
     whetstone_single_bm_index = get_index(whetstone_dict, 'whetstone_bm', whetstone_single_bm_ref, 'details', 'single', 'score')
 
@@ -72,7 +72,7 @@ def whetstone_index():
 
 def ramspeed_index():
 
-    ramspeed_dict = concat('../../results/ramspeed/')
+    ramspeed_dict = concat('results/ramspeed/')
     ramspeed_int_bm_ref = get_reference('compute', 'ramspeed_bm', 'INTmem', 'Average (MB/s)')
     ramspeed_int_bm_index = get_index(ramspeed_dict, 'ramspeed_bm', ramspeed_int_bm_ref, 'details', 'int_bandwidth', 'average')
 
@@ -99,7 +99,7 @@ def ramspeed_index():
 
 def ssl_index():
 
-    ssl_dict = concat('../../results/ssl/')
+    ssl_dict = concat('results/ssl/')
 
     ssl_RSA512b_bm_ref = get_reference('compute', 'ssl_bm', 'RSA', '512b')
     ssl_RSA1024b_bm_ref = get_reference('compute', 'ssl_bm', 'RSA', '1024b')

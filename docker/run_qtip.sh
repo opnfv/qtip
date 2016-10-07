@@ -15,9 +15,9 @@ run_test_suite()
         cd ${QTIP_DIR}  && python qtip.py -l default -f storage
         cd ${QTIP_DIR}  && python qtip.py -l default -f network
     
-        cd ${QTIP_DIR}/data/ref_results/ && python compute_suite.py
-        cd ${QTIP_DIR}/data/ref_results/ && python storage_suite.py
-        cd ${QTIP_DIR}/data/ref_results/ && python network_suite.py
+        cd ${QTIP_DIR}/data/ref_results/ && python suite_result.py compute
+        cd ${QTIP_DIR}/data/ref_results/ && python suite_result.py storage
+        cd ${QTIP_DIR}/data/ref_results/ && python suite_result.py network
     fi
 }
 

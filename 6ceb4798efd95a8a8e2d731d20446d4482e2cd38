@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dad5f5cf_7a1d2d73",
+        "filename": "docker/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-10-08T06:32:16Z",
+      "side": 1,
+      "message": "/home/opnfv/repos/qtip/logs",
+      "range": {
+        "startLine": 47,
+        "startChar": 14,
+        "endLine": 47,
+        "endChar": 34
+      },
+      "revId": "6ceb4798efd95a8a8e2d731d20446d4482e2cd38",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

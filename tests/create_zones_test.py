@@ -2,7 +2,7 @@ import pytest
 import mock
 from mock import Mock, MagicMock
 import os
-from func.create_zones import create_zones
+from func.create_zones import AvailabilityZone
 
 return_list = []
 
@@ -22,7 +22,7 @@ class HyperMock(MagicMock):
 
 class AggMock(MagicMock):
     def get_details(self, agg_id):
-        print "get_detail:{0}".format(agg_id)
+        print "get_details:{0}".format(agg_id)
         return Mock(hosts=[])
 
     def create(self, host, agg):
@@ -41,6 +41,7 @@ class AggMock(MagicMock):
         pass
 
     def remove_host(self, agg_id, host):
+        print "remove_host:{0}:{1}".format(agg_id, host)
         pass
 
 
@@ -51,29 +52,19 @@ class NovaMock(MagicMock):
 
 class TestClass:
     @pytest.mark.parametrize("test_input, expected", [
-        ([[], ['compute1', 'compute2']],
-         ['create:10.20.0.4:compute1',
+        (['compute1', 'compute2'],
+         ['create:compute1:compute1',
           'add_host:compute1:10.20.0.4',
-          'create:10.20.0.5:compute2',
+          'create:compute2:compute2',
           'add_host:compute2:10.20.0.5']),
-        ([[get_agg_mock('10.20.0.4'), get_agg_mock('10.20.0.5')], ['compute1', 'compute2']],
-         ['delete:10.20.0.4',
-          'create:10.20.0.4:compute1',
-          'get_detail:10.20.0.4',
-          'add_host:10.20.0.4:10.20.0.4',
-          'delete:10.20.0.5',
-          'create:10.20.0.5:compute2',
-          'get_detail:10.20.0.5',
-          'add_host:10.20.0.5:10.20.0.5']),
-        ([[], ['compute1', 'compute5']],
-         ['The specified compute node doesnt exist. using compute 1'])
+        (['compute1', 'compute1'],
+         ['create:compute1:compute1',
+          'add_host:compute1:10.20.0.4']),
     ])
     @mock.patch('func.create_zones.client', autospec=True)
     @mock.patch('func.create_zones.v2', autospec=True)
     @mock.patch('func.create_zones.session')
     def test_create_zones_success(self, mock_keystone_session, mock_keystone_v2, mock_nova_client, test_input, expected, capfd):
-        global return_list
-        return_list = test_input[0]
         nova_obj = NovaMock()
         mock_nova_client.Client.return_value = nova_obj()
         k = mock.patch.dict(os.environ, {'OS_AUTH_URL': 'http://172.10.0.5:5000',
@@ -81,8 +72,37 @@ class TestClass:
                                          'OS_PASSWORD': 'admin',
                                          'OS_TENANT_NAME': 'admin'})
         k.start()
-        create = create_zones()
-        create.create_agg(test_input[1])
+        azone = AvailabilityZone()
+        azone.create_agg(test_input)
+        k.stop()
+        resout, reserr = capfd.readouterr()
+        for x in expected:
+            assert x in resout
+
+    @pytest.mark.parametrize("test_input, expected", [
+        ([get_agg_mock('10.20.0.4'), get_agg_mock('10.20.0.5')],
+         ['get_details:10.20.0.4',
+          'delete:10.20.0.4',
+          'get_details:10.20.0.5',
+          'delete:10.20.0.5']),
+        ([],
+         []),
+    ])
+    @mock.patch('func.create_zones.client', autospec=True)
+    @mock.patch('func.create_zones.v2', autospec=True)
+    @mock.patch('func.create_zones.session')
+    def test_clean_all_aggregates(self, mock_keystone_session, mock_keystone_v2, mock_nova_client, test_input, expected, capfd):
+        global return_list
+        return_list = test_input
+        nova_obj = NovaMock()
+        mock_nova_client.Client.return_value = nova_obj()
+        k = mock.patch.dict(os.environ, {'OS_AUTH_URL': 'http://172.10.0.5:5000',
+                                         'OS_USERNAME': 'admin',
+                                         'OS_PASSWORD': 'admin',
+                                         'OS_TENANT_NAME': 'admin'})
+        k.start()
+        azone = AvailabilityZone()
+        azone.clean_all_aggregates()
         k.stop()
         resout, reserr = capfd.readouterr()
         for x in expected:

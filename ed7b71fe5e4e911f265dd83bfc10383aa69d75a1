@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dad5f5cf_fa227d00",
+        "filename": "data/ref_results/suite_result.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-10-08T01:02:34Z",
+      "side": 1,
+      "message": "miss licence header",
+      "revId": "ed7b71fe5e4e911f265dd83bfc10383aa69d75a1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -14,10 +14,8 @@ import sys
 import time
 from collections import defaultdict
 from os.path import expanduser
-
 import paramiko
 import yaml
-
 from utils import logger_utils
 
 logger = logger_utils.QtipLogger('env_setup').get
@@ -111,7 +109,7 @@ class Env_setup:
         if not installer_ip:
             raise RuntimeError("undefine environment variable INSTALLER_IP")
 
-        cmd = "bash ./func/fetch_compute_ips.sh -i %s -a %s" % \
+        cmd = "bash ./data/fetch_compute_ips.sh -i %s -a %s" % \
             (installer_type, installer_ip)
         logger.info(cmd)
         os.system(cmd)

@@ -40,7 +40,7 @@ class cli:
     def __init__(self, args=sys.argv[1:]):
 
         args = self._parse_args(args)
-        if not args_handler.check_suit_in_test_list(args.file):
+        if not args_handler.check_suite_in_test_list(args.file):
             print('\n\n ERROR: Test File Does not exist in test_list/ please enter correct file \n\n')
             sys.exit(1)
 

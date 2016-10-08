@@ -14,14 +14,14 @@ from func.spawn_vm import SpawnVM
 from func.driver import Driver
 
 
-def get_files_in_test_list(suit_name, case_type='all'):
-    benchmark_list = json.load(file('test_list/{0}'.format(suit_name)))
+def get_files_in_test_list(suite_name, case_type='all'):
+    benchmark_list = json.load(file('test_list/{0}'.format(suite_name)))
     return reduce(add, benchmark_list.values()) \
         if case_type == 'all' else benchmark_list[case_type]
 
 
-def get_files_in_test_case(lab, suit_name, case_type='all'):
-    test_case_all = os.listdir('./test_cases/{0}/{1}'.format(lab, suit_name))
+def get_files_in_test_case(lab, suite_name, case_type='all'):
+    test_case_all = os.listdir('./test_cases/{0}/{1}'.format(lab, suite_name))
     return test_case_all if case_type == 'all' else \
         filter(lambda x: case_type in x, test_case_all)
 
@@ -30,8 +30,8 @@ def get_benchmark_path(lab, suit, benchmark):
     return './test_cases/{0}/{1}/{2}'.format(lab, suit, benchmark)
 
 
-def check_suit_in_test_list(suit_name):
-    return True if os.path.isfile('test_list/' + suit_name) else False
+def check_suite_in_test_list(suite_name):
+    return True if os.path.isfile('test_list/' + suite_name) else False
 
 
 def check_lab_name(lab_name):

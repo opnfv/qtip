@@ -43,13 +43,12 @@ class TestClass:
          [('172.10.0.154', '')]),
     ])
     @mock.patch('func.spawn_vm.Env_setup')
-    @mock.patch('func.spawn_vm.FetchImg')
     @mock.patch('func.spawn_vm.create_zones')
     @mock.patch('func.spawn_vm.client', autospec=True)
     @mock.patch('func.spawn_vm.keystoneclient.v2_0', autospec=True)
     @mock.patch('func.spawn_vm.heatclient.client', autospec=True)
     def test_create_zones_success(self, mock_heat, mock_keystone,
-                                  mock_nova_client, mock_zone, mock_fetch,
+                                  mock_nova_client, mock_zone,
                                   mock_setup, test_input, expected):
         mock_nova_client.Client.return_value = Mock()
         mock_heat.Client.return_value = Mock(stacks=HeatMock())

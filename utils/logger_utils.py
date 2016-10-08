@@ -27,7 +27,7 @@ import os
 
 
 class Logger(object):
-    file_path = '/var/log'
+    file_path = '~/opnfv'
     formatter = logging.Formatter('%(asctime)s - %(name)s - '
                                   '%(levelname)s - %(message)s')
 
@@ -59,7 +59,7 @@ class Logger(object):
 
 
 class QtipLogger(Logger):
-    file_path = '/var/log/qtip'
+    file_path = '~/opnfv/qtip/logs'
 
     def __init__(self, logger_name):
         super(QtipLogger, self).__init__(logger_name)

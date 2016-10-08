@@ -44,7 +44,7 @@ RUN apt-get install ansible --force-yes -y
 
 RUN mkdir -p ${REPOS_DIR}
 RUN mkdir -p /root/.ssh
-RUN mkdir -p /var/log/qtip
+RUN mkdir -p /home/opnfv/qtip/logs
 RUN chmod 700 /root/.ssh
 
 #Config ansible

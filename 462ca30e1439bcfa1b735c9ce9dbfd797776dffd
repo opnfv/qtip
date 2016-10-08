@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dad5f5cf_a5bdb604",
+        "filename": "func/create_zones.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-08T15:24:45Z",
+      "side": 1,
+      "message": "IMO, this is a bad naming. We should give a more meaningful name for the transformed azone list to help reviewer to understand what it is created for.",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 20
+      },
+      "revId": "462ca30e1439bcfa1b735c9ce9dbfd797776dffd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad5f5cf_6537ceb1",
+        "filename": "func/create_zones.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-08T15:24:45Z",
+      "side": 1,
+      "message": "Better to name it `computer_nodes`. `samples` is too general a name for reviewers to understand.",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 15
+      },
+      "revId": "462ca30e1439bcfa1b735c9ce9dbfd797776dffd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad5f5cf_c5ba3a0a",
+        "filename": "func/create_zones.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-08T15:24:45Z",
+      "side": 1,
+      "message": "`azone_list` or `azone_list_1`?",
+      "range": {
+        "startLine": 80,
+        "startChar": 51,
+        "endLine": 80,
+        "endChar": 61
+      },
+      "revId": "462ca30e1439bcfa1b735c9ce9dbfd797776dffd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

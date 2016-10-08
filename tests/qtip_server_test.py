@@ -47,7 +47,8 @@ class TestClass:
           'pod_name': 'zte-pod1',
           'max_minutes': 20,
           'suite_name': 'compute',
-          'type': 'VM'},
+          'type': 'VM',
+          'benchmark_name': 'dhrystone_vm.yaml'},
          {'job_id': '',
           'installer_type': 'fuel',
           'installer_ip': '10.20.0.2',
@@ -56,11 +57,7 @@ class TestClass:
           'max_minutes': 20,
           'type': 'VM',
           'state': 'finished',
-          'state_detail': [{u'state': u'finished', u'benchmark': u'dhrystone_vm.yaml'},
-                           {u'state': u'finished', u'benchmark': u'whetstone_vm.yaml'},
-                           {u'state': u'finished', u'benchmark': u'ramspeed_vm.yaml'},
-                           {u'state': u'finished', u'benchmark': u'dpi_vm.yaml'},
-                           {u'state': u'finished', u'benchmark': u'ssl_vm.yaml'}],
+          'state_detail': [{u'state': u'finished', u'benchmark': u'dhrystone_vm.yaml'}],
           'result': 0})
     ])
     @mock.patch('restful_server.qtip_server.args_handler.prepare_and_run_benchmark')

@@ -27,9 +27,10 @@ class JobModel:
         'max_minutes': fields.Integer,
         'pod_name': fields.String,
         'suite_name': fields.String,
-        'type': fields.String
+        'type': fields.String,
+        'benchmark_name': fields.String
     }
-    required = ['installer_type', 'install_ip']
+    required = ['installer_type', 'installer_ip']
 
 
 @swagger.model
@@ -99,6 +100,8 @@ for any single test iteration, default is '60',
 "suite_name": If specified, Test suite name, for example 'compute', 'network', 'storage',
 default is 'compute'
 "type": BM or VM,default is 'BM'
+"benchmark_name": If specified, benchmark name in suite, for example 'dhrystone_bm.yaml',
+default is all benchmarks in suite with specified type
                 """,
                 "required": True,
                 "type": "JobModel",
@@ -129,6 +132,7 @@ default is 'compute'
         parser.add_argument('pod_name', type=str, required=False, default='default', help='pod_name should be string')
         parser.add_argument('suite_name', type=str, required=False, default='compute', help='suite_name should be string')
         parser.add_argument('type', type=str, required=False, default='BM', help='type should be BM, VM and ALL')
+        parser.add_argument('benchmark_name', type=str, required=False, default='all', help='benchmark_name should be string')
         args = parser.parse_args()
         if not args_handler.check_suite_in_test_list(args["suite_name"]):
             return abort(404, 'message:Test suite {0} does not exist in test_list'.format(args["suite_name"]))
@@ -146,6 +150,11 @@ default is 'compute'
                                                          args["suite_name"],
                                                          args["type"].lower())
         benchmarks_list = filter(lambda x: x in test_cases, benchmarks)
+        if args["benchmark_name"] in benchmarks_list:
+            benchmarks_list = [args["benchmark_name"]]
+        if (args["benchmark_name"] is not 'all') and args["benchmark_name"] not in benchmarks_list:
+            return abort(404, 'message: Benchmark name {0} does not exist in suit {1}'.format(args["benchmark_name"],
+                                                                                              args["suite_name"]))
         state_detail = map(lambda x: {'benchmark': x, 'state': 'idle'}, benchmarks_list)
         db.update_job_state_detail(job_id, copy(state_detail))
         thread_stop = threading.Event()

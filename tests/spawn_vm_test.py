@@ -43,7 +43,7 @@ class TestClass:
          [('172.10.0.154', '')]),
     ])
     @mock.patch('func.spawn_vm.Env_setup')
-    @mock.patch('func.spawn_vm.create_zones')
+    @mock.patch('func.spawn_vm.AvailabilityZone')
     @mock.patch('func.spawn_vm.client', autospec=True)
     @mock.patch('func.spawn_vm.keystoneclient.v2_0', autospec=True)
     @mock.patch('func.spawn_vm.heatclient.client', autospec=True)

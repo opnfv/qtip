@@ -16,7 +16,7 @@ import heatclient.client
 import keystoneclient
 from novaclient import client
 import time
-from func.create_zones import create_zones
+from func.create_zones import AvailabilityZone
 
 
 class SpawnVM(Env_setup):
@@ -25,6 +25,7 @@ class SpawnVM(Env_setup):
 
     def __init__(self, vm_info):
         print 'SpawnVM Class initiated'
+        print 'vm_info: %s' % vm_info
         vm_role_ip_dict = vm_info.copy()
         print 'Generating Heat Template\n'
         self._keystone_client = None
@@ -32,8 +33,10 @@ class SpawnVM(Env_setup):
         self._glance_client = None
         self._nova_client = None
         self. _get_nova_client()
-        azoneobj = create_zones()
-        azoneobj.create_agg(vm_info['availability_zone'])
+        self.azone = AvailabilityZone()
+        # TODO: it should clean up aggregates and stack after test case finished.
+        self.azone.clean_all_aggregates()
+        self.azone.create_agg(vm_info['availability_zone'])
         installer = self.get_installer_type()
         self.Heat_template1 = self.heat_template_vm(vm_info, installer)
         self.create_stack(vm_role_ip_dict, self.Heat_template1)

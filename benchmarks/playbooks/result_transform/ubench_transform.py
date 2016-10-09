@@ -19,11 +19,11 @@ index_2 = os.popen(
     "cat $HOME/tempT/UnixBench/results/* | grep 'Index Score (Partial Only)  ' | awk '{print $7;}' | awk 'NR==2'").read().rstrip()
 
 
-result = {"n_cpu": total_cpu,
-          "single": {"n_para_test": cpu_1,
-                     "score": index_1},
-          "multi": {"n_para_test": cpu_2,
-                    "score": index_2}
+result = {"n_cpu": int(total_cpu),
+          "single": {"n_para_test": float(cpu_1),
+                     "score": float(index_1)},
+          "multi": {"n_para_test": float(cpu_2),
+                    "score": float(index_2)}
           }
 
 with open('result_temp', 'w+') as result_file:

@@ -27,7 +27,7 @@ This folder is used to store all the config files which are used to setup the
  which run QTIP. Inside each pod there are folders which contain the config
  files segmented based on test cases. Namely, these include, `Compute`,
  `Network` and `Storage`. The default folder is there for the end user who
- is interested in testing their infrastructure which is installed by fuel 
+ is interested in testing their infrastructure which is installed by fuel
 or compass but aren't part of a opnfv pod,and for opnfv CI.
 
 The structure of the directory for the user appears as follows
@@ -338,7 +338,7 @@ Running QTIP on the using 'default' as the pod name and for the 'compute' suite 
 ::
 
   curl  --trace-ascii debug.txt -X POST -d '{ "installer_ip": "10.20.6.2","installer_type":"fuel", "suite_name":"compute", "type": "BM"}' -H "Content-Type: application/json"  http://qtip_server_ip:5000/api/v1.0/jobs
-  
+
 
 Running QTIP on the using 'default' as the pod name and for the 'compute' suite 'vm' type by restful api
 ::

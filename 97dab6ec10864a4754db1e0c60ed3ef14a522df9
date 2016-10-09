@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dad5f5cf_80798095",
+        "filename": "benchmarks/playbooks/result_transform/ubench_transform.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-09T15:10:34Z",
+      "side": 1,
+      "message": "Why `float`?\n\nIsn\u0027t `total_cpu` an integer?",
+      "range": {
+        "startLine": 22,
+        "startChar": 19,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "97dab6ec10864a4754db1e0c60ed3ef14a522df9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad5f5cf_006590e0",
+        "filename": "docs/userguide/visualizations.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-09T15:10:34Z",
+      "side": 1,
+      "message": "Trailing spaces should be removed",
+      "range": {
+        "startLine": 39,
+        "startChar": 71,
+        "endLine": 39,
+        "endChar": 72
+      },
+      "revId": "97dab6ec10864a4754db1e0c60ed3ef14a522df9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

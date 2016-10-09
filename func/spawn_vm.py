@@ -36,7 +36,7 @@ class SpawnVM(Env_setup):
         self.azone = AvailabilityZone()
         # TODO: it should clean up aggregates and stack after test case finished.
         self.azone.clean_all_aggregates()
-        self.azone.create_agg(vm_info['availability_zone'])
+        self.azone.create_aggs(vm_info['availability_zone'])
         installer = self.get_installer_type()
         self.Heat_template1 = self.heat_template_vm(vm_info, installer)
         self.create_stack(vm_role_ip_dict, self.Heat_template1)

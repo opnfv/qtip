@@ -46,6 +46,29 @@
       "revId": "6ceb4798efd95a8a8e2d731d20446d4482e2cd38",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad5f5cf_25d1c6cd",
+        "filename": "utils/logger_utils.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-10-09T06:44:38Z",
+      "side": 1,
+      "message": "I do not know if it is possible to create /home/opnfv in unit test vm?",
+      "range": {
+        "startLine": 30,
+        "startChar": 17,
+        "endLine": 30,
+        "endChar": 28
+      },
+      "revId": "6ceb4798efd95a8a8e2d731d20446d4482e2cd38",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

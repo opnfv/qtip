@@ -13,7 +13,7 @@ import func.args_handler
 
 class TestClass:
     @pytest.mark.parametrize("test_input, expected", [
-        (['fuel', '/home', './test_cases/zte-pod1/network/iperf_bm.yaml'],
+        (['fuel', '/home', './tests/test_case/iperf_bm.yaml'],
          ['fuel', '/home', "iperf",
           [('1-server', ['10.20.0.23']), ('2-host', ['10.20.0.24'])],
           "iperf_bm.yaml",

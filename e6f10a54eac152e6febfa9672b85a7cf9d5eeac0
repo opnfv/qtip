@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dad5f5cf_6bc79d13",
+        "filename": "docker/Dockerfile",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-11T05:50:59Z",
+      "side": 1,
+      "message": "what about this?\nIf it is run under `root`, should it be /root/qtip/logs?",
+      "revId": "e6f10a54eac152e6febfa9672b85a7cf9d5eeac0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

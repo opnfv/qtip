@@ -59,7 +59,7 @@ class Logger(object):
 
 
 class QtipLogger(Logger):
-    file_path = '/var/log/qtip'
+    file_path = '~/qtip/logs'
 
     def __init__(self, logger_name):
         super(QtipLogger, self).__init__(logger_name)

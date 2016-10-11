@@ -13,7 +13,7 @@ import args_handler
 import argparse
 
 
-class cli:
+class Cli:
 
     @staticmethod
     def _parse_args(args):

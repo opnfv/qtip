@@ -64,7 +64,7 @@ class TestClass:
         test_class.fetch_compute_ips = mock_ips
         test_class.parse("tests/test_case/bm_without_proxy.yaml")
         test_class.update_ansible()
-        result = filecmp.cmp('tests/output/hosts', 'data/hosts')
+        result = filecmp.cmp('tests/output/hosts', 'config/hosts')
         assert result
 
     def test_ping(self, capfd):

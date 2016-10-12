@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+
 from distutils.core import setup
 
 
@@ -7,4 +8,6 @@ setup(name='qtip',
       py_modules=['qtip'],
       version='1.0',
       author='opnfv',
-      packages=['func', 'data.ref_results', 'data.report'])
+      packages=['func', 'data.ref_results', 'data.report'],
+      install_requires=['Click'],
+      entry_points={'console_scripts': ['qtip=func.cli:Cli']})

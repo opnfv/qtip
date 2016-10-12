@@ -14,6 +14,6 @@ class TestClass:
         ansible_api = AnsibleApi()
         ret = ansible_api.execute_playbook('tests/data/hosts',
                                            'tests/data/test.yml',
-                                           'data/QtipKey',
+                                           'config/QtipKey',
                                            {'keys': 'test'})
         assert ret == 3

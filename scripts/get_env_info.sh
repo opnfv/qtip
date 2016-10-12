@@ -34,4 +34,4 @@ if [ $INSTALLER_TYPE == "apex" ]
 fi
 
 
-./data/fetch_os_creds.sh -d ./opnfv-creds.sh
+./scripts/fetch_os_creds.sh -d ./opnfv-creds.sh

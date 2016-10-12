@@ -13,6 +13,7 @@ LABEL version="0.1" description="OPNFV QTIP Docker container"
 ENV REPOS_DIR /home/opnfv/repos
 ENV QTIP_DIR /home/opnfv/repos/qtip
 ENV PYTHONPATH /home/opnfv/repos/qtip
+ENV HOME /home/opnfv
 WORKDIR /home/opnfv
 
 
@@ -44,7 +45,7 @@ RUN apt-get install ansible --force-yes -y
 
 RUN mkdir -p ${REPOS_DIR}
 RUN mkdir -p /root/.ssh
-RUN mkdir -p /home/opnfv/qtip/logs
+RUN mkdir -p $HOME/qtip/logs
 RUN chmod 700 /root/.ssh
 
 #Config ansible
@@ -58,4 +59,4 @@ RUN git clone https://gerrit.opnfv.org/gerrit/releng $REPOS_DIR/releng
 
 RUN pip install -r $REPOS_DIR/qtip/requirements.txt
 
-CMD cd $REPOS_DIR/qtip && python restful_server/qtip_server.py>/var/log/qtip/run.log
+CMD cd $REPOS_DIR/qtip && python restful_server/qtip_server.py>$HOME/qtip/logs/run.log

@@ -65,15 +65,15 @@ class SpawnVM(Env_setup):
     def heat_template_vm(self, vm_params, installer):
         Heat_Dic = {}
         try:
-            with open('./heat/SampleHeat.yaml', 'r+') as H_temp:
+            with open('./config/SampleHeat.yaml', 'r+') as H_temp:
                 Heat_Dic = yaml.safe_load(H_temp)
         except yaml.YAMLError as exc:
             if hasattr(exc, 'problem_mark'):
                 mark = exc.problem_mark
-                print 'Error in qtip/heat/SampleHeat.yaml at: (%s,%s)' % (mark.line + 1, mark.column + 1)
+                print 'Error in qtip/config/SampleHeat.yaml at: (%s,%s)' % (mark.line + 1, mark.column + 1)
                 print 'EXITING PROGRAM. Correct File and restart'
                 sys.exit(1)
-        fopen = open('./data/QtipKey.pub', 'r')
+        fopen = open('./config/QtipKey.pub', 'r')
         fopenstr = fopen.read()
         fopenstr = fopenstr.rstrip()
         scriptcmd = '#!/bin/bash \n echo {0} >>  foo.txt \n echo {1} >> /root/.ssh/authorized_keys'.format(
@@ -243,7 +243,7 @@ class SpawnVM(Env_setup):
                 if i['output_key'] == 'KeyPair_PublicKey':
                     sshkey = str(i['output_value'])
 
-        with open('./data/my_key.pem', 'w') as fopen:
+        with open('./config/my_key.pem', 'w') as fopen:
             fopen.write(sshkey)
         fopen.close()
         print Env_setup.ip_pw_list

@@ -64,9 +64,9 @@ class Driver:
     def run_ansible_playbook(self, benchmark, extra_vars):
         logger.info(extra_vars)
         ansible_api = AnsibleApi()
-        ansible_api.execute_playbook('./data/hosts',
+        ansible_api.execute_playbook('./config/hosts',
                                      './benchmarks/playbooks/{0}.yaml'.format(benchmark),
-                                     './data/QtipKey', extra_vars)
+                                     './config/QtipKey', extra_vars)
         return self.get_ansible_result(extra_vars['role'], ansible_api.get_detail_playbook_stats())
 
     def drive_bench(self, installer_type, pwd, benchmark, roles, benchmark_fname,

@@ -1,0 +1,11 @@
+---
+- name: nginx is installed
+  become: true
+  package: name=nginx state=present
+- name: qtip server configuration is generated
+  become: true
+  template: src={{ item }}.conf.j2 dest=/etc/nginx/sites-enabled/{{ item }}.conf
+  with_items:
+    - elk
+  notify:
+    - restart nginx

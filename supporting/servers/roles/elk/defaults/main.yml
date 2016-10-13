@@ -1,0 +1,4 @@
+---
+services:
+  - { name: kibana, upstream: 'http://127.0.0.1:5601' }
+  - { name: elastic, upstream: 'http://127.0.0.1:9200' }

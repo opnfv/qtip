@@ -1,0 +1,14 @@
+# {{ ansible_managed }}
+
+# servers
+#
+{% for service in services %}
+server {
+  listen 80;
+  listen 443 ssl;
+  server_name {{ service.name }}.qtip.openzero.net;
+  location / {
+    proxy_pass {{ service.upstream }};
+  }
+}
+{% endfor %}

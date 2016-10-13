@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dad5f5cf_1dadf631",
+        "filename": "cli/cli_entry.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-10-13T09:34:41Z",
+      "side": 1,
+      "message": "ok, I change it to qtip.0.1",
+      "parentUuid": "dad5f5cf_fdc9125b",
+      "range": {
+        "startLine": 18,
+        "startChar": 31,
+        "endLine": 18,
+        "endChar": 47
+      },
+      "revId": "38758c577e7f7e93358f23eb9a3b8aaf3b75431a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dad5f5cf_9de246d4",
         "filename": "cli/install.sh",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "dad5f5cf_1dd896ee",
+        "filename": "cli/install.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-10-13T09:34:41Z",
+      "side": 1,
+      "message": "Please ignore this file, it will be deleted eventually, I will only be used during the development period, I don\u0027t want to create it every time I start to work on the CLI.:)",
+      "parentUuid": "dad5f5cf_9de246d4",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 4
+      },
+      "revId": "38758c577e7f7e93358f23eb9a3b8aaf3b75431a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dad5f5cf_3de79ae6",
         "filename": "cli/setup.py",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-13T08:11:56Z",
       "side": 1,
       "message": "This is a duplication of version string to L18 in `cli_entry.py`\n\nWill the consistency be guaranteed? How?",
+      "range": {
+        "startLine": 14,
+        "startChar": 13,
+        "endLine": 14,
+        "endChar": 23
+      },
+      "revId": "38758c577e7f7e93358f23eb9a3b8aaf3b75431a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad5f5cf_3d9f9a05",
+        "filename": "cli/setup.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-10-13T09:34:41Z",
+      "side": 1,
+      "message": "here is just a default value, the real version will be determined by  cli_entry.py.",
+      "parentUuid": "dad5f5cf_3de79ae6",
       "range": {
         "startLine": 14,
         "startChar": 13,

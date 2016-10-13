@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dad5f5cf_5d5cde25",
+        "filename": "setup.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-10-13T01:38:56Z",
+      "side": 1,
+      "message": "You should also put the Click in the requirements.txt",
+      "range": {
+        "startLine": 12,
+        "startChar": 25,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "d4d44e34a80b33df3e00ee6cb934b237c1045ef1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dad5f5cf_bd1f0ab7",
+        "filename": "supporting/servers/elk.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-13T08:42:44Z",
+      "side": 1,
+      "message": "Please follow the current structure of playbook. Put tasks under `/roles/elk/tasks/`. Some guidelines could be found in http://docs.ansible.com/ansible/playbooks_roles.html",
+      "revId": "2522ff5febe8bb5e67528d14ff0844e8aa643dc4",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

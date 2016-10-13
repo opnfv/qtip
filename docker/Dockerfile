@@ -34,6 +34,7 @@ libjpeg62 \
 libjpeg62-dev \
 zlib1g-dev \
 python-tk \
+curl \
 --no-install-recommends
 
 RUN apt-add-repository ppa:ansible/ansible -y

@@ -46,6 +46,30 @@
       "revId": "0f60725ef10b7732a6460762a7747d34fcc34de5",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad5f5cf_9da006f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-13T01:58:55Z",
+      "side": 1,
+      "message": "Do you have an overall preview of the proposed structure?",
+      "parentUuid": "dad5f5cf_7d74429c",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 59
+      },
+      "revId": "0f60725ef10b7732a6460762a7747d34fcc34de5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

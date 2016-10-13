@@ -13,6 +13,7 @@ import threading
 from copy import copy
 import db
 import func.args_handler as args_handler
+import restful_server.result_handler as result_handler
 
 
 app = Flask(__name__)
@@ -174,11 +175,14 @@ default is all benchmarks in suite with specified type,
                                                                       args["pod_name"],
                                                                       args["suite_name"],
                                                                       job_id,
+                                                                      args["testdb_url"],
+                                                                      args["node_name"],
                                                                       thread_stop))
         db.start_thread(job_id, post_thread, thread_stop)
         return {'job_id': str(job_id)}
 
-    def thread_post(self, installer_type, benchmarks_list, pod_name, suite_name, job_id, stop_event):
+    def thread_post(self, installer_type, benchmarks_list, pod_name, suite_name,
+                    job_id, testdb_url, node_name, stop_event):
         for benchmark in benchmarks_list:
             if db.is_job_timeout(job_id) or stop_event.is_set():
                 break
@@ -190,6 +194,8 @@ default is all benchmarks in suite with specified type,
                                                                                             benchmark))
             db.update_job_result_detail(job_id, benchmark, copy(result))
             db.update_benchmark_state(job_id, benchmark, 'finished')
+        if (result_handler.dump_suite_result(suite_name) and testdb_url):
+            result_handler.push_suite_result_to_db(suite_name, testdb_url, installer_type, node_name)
         db.finish_job(job_id)
 
 

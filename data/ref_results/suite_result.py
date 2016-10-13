@@ -15,7 +15,8 @@ logger = logger_utils.QtipLogger('suite_result').get
 
 
 def get_benchmark_result(benchmark_name, suite_name):
-    benchmark_indices = importlib.import_module('{0}_benchmarks_indices'.format(suite_name))
+    benchmark_indices = importlib.import_module('data.ref_results'
+                                                '.{0}_benchmarks_indices'.format(suite_name))
     methodToCall = getattr(benchmark_indices, '{0}_index'.format(benchmark_name))
     return methodToCall()
 

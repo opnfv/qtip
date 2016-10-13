@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dad5f5cf_bdacea8d",
+        "filename": "func/env_setup.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-13T08:02:46Z",
+      "side": 1,
+      "message": "Error message should be in channels like `logger.error`",
+      "range": {
+        "startLine": 80,
+        "startChar": 27,
+        "endLine": 80,
+        "endChar": 32
+      },
+      "revId": "a02aceecc4446cb9fe0e59e427f2d05b566a2dfd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad5f5cf_dda9ae7c",
+        "filename": "func/env_setup.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-13T08:02:46Z",
+      "side": 1,
+      "message": "The same as L80",
+      "range": {
+        "startLine": 83,
+        "startChar": 31,
+        "endLine": 83,
+        "endChar": 36
+      },
+      "revId": "a02aceecc4446cb9fe0e59e427f2d05b566a2dfd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

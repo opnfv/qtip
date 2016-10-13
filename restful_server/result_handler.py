@@ -7,7 +7,7 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 import json
-import data.ref_results.suite_result as suite_result
+import scripts.ref_results.suite_result as suite_result
 import dashboard.pushtoDB as push_to_db
 
 

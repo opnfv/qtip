@@ -11,7 +11,7 @@ class TestClass:
           '-f',
           'compute'], "You have specified a lab that is not present in test_cases"),
         (['-l',
-          'zte-pod1',
+          'default',
           '-f',
           'test'], "Test File Does not exist in test_list")
     ])
@@ -26,10 +26,10 @@ class TestClass:
 
     @pytest.mark.parametrize("test_input, expected", [
         (['-l',
-          'zte-pod1',
+          'default',
           '-f',
-          'storage'], [('fuel', '/home', './test_cases/zte-pod1/storage/fio_bm.yaml'),
-                       ('fuel', '/home', './test_cases/zte-pod1/storage/fio_vm.yaml')])
+          'storage'], [('fuel', '/home', './test_cases/default/storage/fio_bm.yaml'),
+                       ('fuel', '/home', './test_cases/default/storage/fio_vm.yaml')])
     ])
     @mock.patch('func.cli.args_handler.prepare_and_run_benchmark')
     def test_cli_successful(self, mock_args_handler, test_input, expected):

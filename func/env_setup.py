@@ -58,12 +58,12 @@ class Env_setup:
     @staticmethod
     def ssh_test(hosts):
         for ip, pw in hosts:
-            print '\nBeginning SSH Test: %s \n' % ip
-            os.system('ssh-keyscan %s >> ~/.ssh/known_hosts' % ip)
+            logger.info('Beginning SSH Test: %s \n' % ip)
+            os.system('ssh-keyscan %s >> /root/.ssh/known_hosts' % ip)
             time.sleep(2)
 
             ssh_cmd = './data/qtip_creds.sh %s' % ip
-            print "run command: %s " % ssh_cmd
+            logger.info("run command: %s " % ssh_cmd)
             os.system(ssh_cmd)
 
             ssh = paramiko.SSHClient()
@@ -74,13 +74,13 @@ class Env_setup:
                 try:
                     stdin, stdout, stderr = ssh.exec_command('uname')
                     if not stderr.readlines():
-                        print('SSH successful')
+                        logger.info('SSH successful')
                         break
                 except socket.error:
-                    print 'SSH is still unavailable, retry!'
+                    logger.error('SSH is still unavailable, retry!')
                     time.sleep(2)
                     if attempts == 99:
-                        print "Try 99 times, SSH failed: %s" % ip
+                        logger.error("Try 99 times, SSH failed: %s" % ip)
 
     @staticmethod
     def ping_test(lister, attempts=30):

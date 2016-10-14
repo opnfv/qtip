@@ -1,4 +1,57 @@
 ---
+- name: Adding Keys
+  become: true
+  apt_key: keyserver=hkp://p80.pool.sks-keyservers.net id=0X58118E89F3A912897C070ADBF76221572C52609D
+
+- name: Adding Entry for ubuntu
+  become: true
+  apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-xenial main' state=present filename='docker'
+  when: ansible_distribution== "Ubuntu" and ansible_distribution_version == "16.04"
+
+- name: Installing from Docker Repo
+  shell: sudo apt-cache policy docker-engine
+  when: ansible_distribution== "Ubuntu" and ansible_distribution_version== "16.04"
+
+- name: Adding Entry for ubuntu
+  become: true
+  apt_repository: repo="deb https://apt.dockerproject.org/repo ubuntu-trusty main" filename="docker"
+  when: ansible_distribution== "Ubuntu" and ansible_distribution_version == "14.04"
+
+- name: Updating
+  become: true
+  apt: update_cache=yes
+
+- name: Installing Docker Engine
+  become: true
+  apt: name=docker-engine
+
+- name: Pulling ElasticSearch
+  become: true
+  docker_image:
+    state: present
+    name: elasticsearch
+
+- name: Setting Up ElasticSearch
+  become: true
+  docker_container:
+    name: esearch
+    image: elasticsearch
+    published_ports: 9200:9200
+
+- name: Pulling Kibana
+  become: true
+  docker_image:
+    state: present
+    name: kibana
+
+- name: Setting Up Kibana
+  become: true
+  docker_container:
+    name: kibana
+    image: kibana
+    published_ports: 5601:5601
+    links: esearch:elasticsearch
+
 - name: nginx is installed
   become: true
   package: name=nginx state=present

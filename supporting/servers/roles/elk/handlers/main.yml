@@ -1,4 +1,8 @@
 ---
+- name: Starting Docker Service
+  become: true
+  service: name=docker state=started
+
 - name: restart nginx
   become: true
   service: name=nginx state=restarted

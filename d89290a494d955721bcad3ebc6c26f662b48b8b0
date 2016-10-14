@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dad5f5cf_306d8105",
+        "filename": "supporting/servers/roles/elk/handlers/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-14T03:26:29Z",
+      "side": 1,
+      "message": "Please follow the existing style, i.e. all lower case",
+      "revId": "d89290a494d955721bcad3ebc6c26f662b48b8b0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad5f5cf_f07619d8",
+        "filename": "supporting/servers/roles/elk/tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-14T03:26:29Z",
+      "side": 1,
+      "message": "Align the style with existing playbook i.e. all lower case",
+      "revId": "d89290a494d955721bcad3ebc6c26f662b48b8b0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad5f5cf_b080918c",
+        "filename": "supporting/servers/roles/elk/tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-14T03:26:29Z",
+      "side": 1,
+      "message": "Please keep consistent style, add space around operator",
+      "range": {
+        "startLine": 9,
+        "startChar": 28,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "d89290a494d955721bcad3ebc6c26f662b48b8b0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad5f5cf_904f8d92",
+        "filename": "supporting/servers/roles/elk/tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-14T03:26:29Z",
+      "side": 1,
+      "message": "use `become`",
+      "range": {
+        "startLine": 12,
+        "startChar": 9,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "d89290a494d955721bcad3ebc6c26f662b48b8b0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad5f5cf_5049258a",
+        "filename": "supporting/servers/roles/elk/tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-14T03:26:29Z",
+      "side": 1,
+      "message": "Consider merge to L6 using `with_items`",
+      "revId": "d89290a494d955721bcad3ebc6c26f662b48b8b0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad5f5cf_3044a173",
+        "filename": "supporting/servers/roles/elk/tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-14T03:26:29Z",
+      "side": 1,
+      "message": "This could be merged with L28 using `with_items`",
+      "revId": "d89290a494d955721bcad3ebc6c26f662b48b8b0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

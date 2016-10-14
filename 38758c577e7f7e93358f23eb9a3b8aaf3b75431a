@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "dad5f5cf_505fe572",
+        "filename": "cli/install.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-14T00:32:11Z",
+      "side": 1,
+      "message": "You can leave such thing in local copy. Submitting to repo might not be a good idea.",
+      "parentUuid": "dad5f5cf_1dd896ee",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 4
+      },
+      "revId": "38758c577e7f7e93358f23eb9a3b8aaf3b75431a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dad5f5cf_3de79ae6",
         "filename": "cli/setup.py",
         "patchSetId": 1

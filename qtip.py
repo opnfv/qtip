@@ -11,7 +11,7 @@ import os
 
 
 def main():
-    os.system('./data/file_permission.sh')
+    os.system('./scripts/file_permission.sh')
     Cli()
 
 

@@ -13,7 +13,7 @@ def compute_index(total_measured, ref_result, count):
 
 def get_reference(*args):
 
-    with open('data/ref_results/reference.json') as reference_file:
+    with open('scripts/ref_results/reference.json') as reference_file:
         reference_djson = json.load(reference_file)
         for arg in args:
             ref_n = reference_djson.get(str(arg))

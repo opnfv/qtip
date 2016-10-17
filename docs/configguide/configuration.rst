@@ -94,7 +94,7 @@ QTIP  default key pair
 """"""""""""""""""""""
 
 QTIP uses a SSH key pair to connect to the guest image. This key pair can
-be found in the ``data/`` directory.
+be found in the ``config/`` directory.
 
 
 Hardware configuration

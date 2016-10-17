@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "9adffdf1_6fcc9136",
+        "filename": "cli/install.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-10-17T07:35:59Z",
+      "side": 1,
+      "message": "done, deleted",
+      "parentUuid": "dad5f5cf_505fe572",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 4
+      },
+      "revId": "38758c577e7f7e93358f23eb9a3b8aaf3b75431a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dad5f5cf_3de79ae6",
         "filename": "cli/setup.py",
         "patchSetId": 1

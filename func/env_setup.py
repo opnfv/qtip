@@ -46,7 +46,7 @@ class Env_setup:
 
     @staticmethod
     def write_to_file(role):
-        f_name_2 = open('./data/hosts', 'w')
+        f_name_2 = open('./config/hosts', 'w')
         print role.items()
         for k in role:
             f_name_2.write('[' + k + ']\n')
@@ -62,13 +62,13 @@ class Env_setup:
             os.system('ssh-keyscan %s >> /root/.ssh/known_hosts' % ip)
             time.sleep(2)
 
-            ssh_cmd = './data/qtip_creds.sh %s' % ip
+            ssh_cmd = './scripts/qtip_creds.sh %s' % ip
             logger.info("run command: %s " % ssh_cmd)
             os.system(ssh_cmd)
 
             ssh = paramiko.SSHClient()
             ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            ssh.connect(ip, key_filename='./data/QtipKey')
+            ssh.connect(ip, key_filename='./config/QtipKey')
 
             for attempts in range(100):
                 try:
@@ -109,7 +109,7 @@ class Env_setup:
         if not installer_ip:
             raise RuntimeError("undefine environment variable INSTALLER_IP")
 
-        cmd = "bash ./data/fetch_compute_ips.sh -i %s -a %s" % \
+        cmd = "bash ./scripts/fetch_compute_ips.sh -i %s -a %s" % \
             (installer_type, installer_ip)
         logger.info(cmd)
         os.system(cmd)

@@ -26,6 +26,18 @@
   become: true
   apt: name=docker-engine
 
+- name: install pip
+  apt:
+    pkg: pip
+    state: installed
+  with_items:
+    - python-dev
+    - python-pip
+
+- name: install docker-py
+  pip:
+    name: docker-py
+
 - name: pulling elasticsearch and kibana
   become: true
   docker_image: name={{ item }} state=present

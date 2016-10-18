@@ -4,8 +4,8 @@
 .. (c) 2016 ZTE Corp.
 
 
-Network test cases
-==================
+Network Suite
+=============
 
 QTIP uses IPerf3 as the main tool for testing the network throughput.
 There are three tests that are run through the QTIP framework.

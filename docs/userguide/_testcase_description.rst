@@ -4,9 +4,8 @@
    Upload the .rst for the test case in /docs/ directory.
    Review in Gerrit.
 
-*************************************
-QTIP Test Case Description TCXXX
-*************************************
+Test Case Description
+=====================
 
 +-----------------------------------------------------------------------------+
 |test case slogan e.g. Network throughput                                     |

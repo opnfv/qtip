@@ -3,10 +3,9 @@
 .. (c) 2015 Dell Inc.
 .. (c) 2016 ZTE Corp.
 
-
-********
+========
 Overview
-********
+========
 
 .. _QTIP: https://wiki.opnfv.org/platform_performance_benchmarking
 

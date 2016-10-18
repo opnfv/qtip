@@ -4,9 +4,8 @@
 .. (c) 2016 ZTE Corp.
 
 
-Compute test cases
-==================
-
+Compute Suite
+=============
 
 Introduction
 ------------

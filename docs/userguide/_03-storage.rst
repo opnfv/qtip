@@ -4,8 +4,8 @@
 .. (c) 2016 ZTE Corp.
 
 
-Storage test cases
-==================
+Storage Suite
+=============
 
 The QTIP benchmark suite aims to evaluate storage components within an OPNFV platform.
 For Brahamaputra release, FIO would evaluate File System performance for the host machine.

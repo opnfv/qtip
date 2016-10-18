@@ -3,9 +3,9 @@
 .. (c) 2015 Dell Inc.
 .. (c) 2016 ZTE Corp.
 
-
-Qtip configuration
-==================
+*************
+Configuration
+*************
 
 QTIP currently supports by using a Docker image or by pulling the repo from
 the upstream repository found at https://git.opnfv.org/qtip. Detailed steps

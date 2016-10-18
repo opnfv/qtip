@@ -4,9 +4,9 @@
 .. (c) 2016 ZTE Corp.
 
 
-*****************
-Qtip Introduction
-*****************
+************
+Introduction
+************
 
 This guide will serve as a first step to familiarize the user with how to
 run QTIP the first time when the user clones QTIP on to their host machine.

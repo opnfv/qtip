@@ -4,18 +4,13 @@
 .. (c) 2016 ZTE Corp.
 
 
-**************
-QTIP Userguide
-**************
-
-Colorado 1.0
-------------
+===============
+QTIP User Guide
+===============
 
 .. toctree::
    :maxdepth: 2
 
-   ./overview.rst
    ./introduction.rst
-   ./01-compute.rst
-   ./02-network.rst
-   ./03-storage.rst
+   ./benchmark-suites.rst
+   ./annex.rst

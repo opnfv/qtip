@@ -7,11 +7,10 @@
 Annex
 *****
 
-Templates
-=========
+.. toctree::
+   :maxdepth: 2
 
-.. include:: _testcase_description.rst
-
+   _testcase_description.rst
 
 Downloads
 =========

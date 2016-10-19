@@ -65,22 +65,22 @@ These files list the benchmarks are to be run by the QTIP framework. Sample
 compute test file is shown below
 ::
 
-{
+  {
     "bm": [
-        "dhrystone_bm.yaml",
-        "whetstone_bm.yaml",
-        "ramspeed_bm.yaml",
-        "dpi_bm.yaml",
-        "ssl_bm.yaml"
+      "dhrystone_bm.yaml",
+      "whetstone_bm.yaml",
+      "ramspeed_bm.yaml",
+      "dpi_bm.yaml",
+      "ssl_bm.yaml"
     ],
     "vm": [
-        "dhrystone_vm.yaml",
-        "whetstone_vm.yaml",
-        "ramspeed_vm.yaml",
-        "dpi_vm.yaml",
-        "ssl_vm.yaml"
+      "dhrystone_vm.yaml",
+      "whetstone_vm.yaml",
+      "ramspeed_vm.yaml",
+      "dpi_vm.yaml",
+      "ssl_vm.yaml"
     ]
-}
+  }
 
 The compute file will now run all the benchmarks listed above one after
 another on the environment.

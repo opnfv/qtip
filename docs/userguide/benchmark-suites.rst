@@ -7,6 +7,9 @@
 Benchmark Suites
 ****************
 
-.. include:: _01-compute.rst
-.. include:: _02-network.rst
-.. include:: _03-storage.rst
+.. toctree::
+   :maxdepth: 2
+
+   _01-compute.rst
+   _02-network.rst
+   _03-storage.rst

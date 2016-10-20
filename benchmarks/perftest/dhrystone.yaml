@@ -1,0 +1,112 @@
+ - hosts: localhost
+   connection: local
+   gather_facts: no
+
+   tasks:
+    - name: making dhrystone directory
+      file: path={{workingdir}}/{{Dest_dir}}/dhrystone state=directory
+
+    - name: making temporary dhrystone directory
+      file: path={{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp state=directory
+
+ - hosts:  "{{role}}"
+   become: yes
+   remote_user: "{{username}}"
+
+   tasks:
+    - name: checking home directory
+      shell: echo $HOME
+      register: home_dir
+
+    - name: cleaning tempT
+      shell: sudo rm -rf $HOME/tempT
+
+    - name: cleaning qtip_result
+      shell: sudo rm -rf $HOME/qtip_result
+
+    - name: make directory
+      shell: sudo mkdir $HOME/qtip_result
+
+    - include: ../common/sys_proxy_pbook.yaml
+
+    - include: ../common/sys_info_pbook.yaml
+      vars:
+          network: false
+
+    - name: Installing UnixBench dependencies if CentOS
+      shell: sudo yum install git gcc  patch perl-Time-HiRes -y
+      when: ansible_os_family == "RedHat"
+
+    - name: Installing UnixBench dependencies if Ubuntu
+      shell: sudo apt-get install git gcc  patch perl -y
+      when: ansible_os_family == "Debian"
+
+    - include: ../common/git_proxy_pbook.yaml
+
+    - name: Clone unixbench
+      git: repo=https://github.com/kdlucas/byte-unixbench.git
+           dest=$HOME/tempT
+
+    - name: make
+      shell: sudo make --directory $HOME/tempT/UnixBench/
+
+    - name: Run dhrystone
+      shell: cd $HOME/tempT/UnixBench/&& sudo ./Run -v dhrystone
+
+    - name: collecting and transforming result script copy
+      copy: src={{workingdir}}/utils/transform/ubench_transform.py  dest={{home_dir.stdout}}/qtip_result/
+
+    - name: transforming result
+      shell: cd $HOME/qtip_result/ &&  sudo python ubench_transform.py
+
+    - name: copying consolidated report script
+      copy: src={{workingdir}}/utils/transform/final_report.py  dest={{home_dir.stdout}}/qtip_result/
+
+    - name: making consolidated report
+      shell: cd $HOME/qtip_result && sudo python final_report.py Dhrystone {{fname}}
+
+    - name: making directory
+      file: path={{home_dir.stdout}}/qtip_result/log state=directory
+
+    - name: copying result to temp directory
+      shell: sudo cp -r $HOME/tempT/UnixBench/results/* $HOME/qtip_result/log/
+
+    - name: registering files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
+      register: files_to_copy
+
+    - name: copy results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp
+      with_items: "{{files_to_copy.stdout_lines}}"
+
+    - name: registering log files
+      shell: (cd $HOME/qtip_result/log/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
+      register: copy_log_results
+
+    - name: copying log results
+      fetch:  src={{home_dir.stdout}}/qtip_result/log/{{item}} dest={{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp
+      with_items: "{{copy_log_results.stdout_lines}}"
+
+    - name: cleaning tempT
+      shell: sudo rm -rf $HOME/tempT
+
+    - name: cleaning_qtip_result
+      shell: sudo rm -rf $HOME/qtip_result
+
+
+ - hosts: localhost
+   connection: local
+   gather_facts: no
+
+   tasks:
+    - name: extracting_json
+      shell: ( find  {{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/dhrystone/)
+
+    - name: making_logs_folder
+      shell: mkdir -p {{workingdir}}/{{Dest_dir}}/dhrystone/logs
+
+    - name: extracting_log
+      shell: ( find {{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/dhrystone/logs)
+
+    - name: removing dhrystone_temp
+      shell: rm -rf {{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp

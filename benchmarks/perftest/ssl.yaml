@@ -1,0 +1,113 @@
+ - hosts: localhost
+   connection: local
+   gather_facts: no
+
+   tasks:
+    - name: making ssl directory
+      file: path={{workingdir}}/{{Dest_dir}}/ssl state=directory
+
+    - name: making temporary ssl directory
+      file: path={{workingdir}}/{{Dest_dir}}/ssl/ssl_temp state=directory
+
+ - hosts: "{{role}}"
+   become: yes
+   remote_user: "{{username}}"
+
+   tasks:
+    - name: checking home directory
+      shell: sudo echo $HOME
+      register: home_dir
+
+    - name: cleaning
+      shell: sudo rm -rf $HOME/Open_SSL
+
+    - name: cleaning previous results
+      shell: sudo rm -rf $HOME/qtip_result
+
+    - name: making OpenSSL temporary directory
+      shell: sudo mkdir $HOME/Open_SSL
+
+    - name: making  results temporary directory
+      shell: sudo mkdir $HOME/qtip_result
+
+    - include: ../common/sys_proxy_pbook.yaml
+
+    - include: ../common/sys_info_pbook.yaml
+      vars:
+          network: false
+
+    - name: Installing OpenSSL dependencies when CentOS
+      shell: sudo yum install git wget gcc patch perl-Time-HiRes autofconf automake libpcap-devel libtool -y
+      when: ansible_os_family == "RedHat"
+
+    - name: Installing OpenSSL dependencies when Ubuntu
+      shell: sudo apt-get install git gcc wget  perl autoconf automake libpcap-dev libtool -y
+      when: ansible_os_family == "Debian"
+
+    - name: Fetching OpenSSL
+      shell: cd $HOME/Open_SSL/ && sudo wget http://artifacts.opnfv.org/qtip/utilities/openssl-1.0.2f.tar.gz
+
+    - name: Untar OpenSSL
+      shell: cd $HOME/Open_SSL/ && sudo tar -zxvf openssl-1.0.2f.tar.gz
+    - name: configure
+      shell: cd $HOME/Open_SSL/openssl-1.0.2f  && sudo ./config
+
+    - name: make
+      shell: cd  $HOME/Open_SSL/openssl-1.0.2f && sudo make
+
+    - name: make install
+      shell: cd  $HOME/Open_SSL/openssl-1.0.2f  && sudo make install
+
+    - name: Benchmarking RSA signatures
+      shell: cd $HOME/Open_SSL/openssl-1.0.2f/apps  &&  sudo ./openssl speed rsa >> $HOME/qtip_result/RSA_dump
+
+    - name: Benchmaring AES-128-cbc cipher encryption  throughput
+      shell: cd $HOME/Open_SSL/openssl-1.0.2f/apps  &&  sudo ./openssl speed -evp aes-128-cbc >> $HOME/qtip_result/AES-128-CBC_dump
+
+    - name: Fetching result transformation script
+      copy: src={{workingdir}}/utils/transform/ssl_transform.py dest={{home_dir.stdout}}/qtip_result
+
+    - name: Transforming result
+      shell: cd $HOME/qtip_result  &&  python ssl_transform.py
+
+    - name: copy report formation script
+      copy: src={{workingdir}}/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+
+    - name: consolidating report
+      shell: cd $HOME/qtip_result &&  python final_report.py SSL {{fname}}
+
+    - name: registering files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
+      register: files_to_copy
+
+    - name: copy results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/ssl/ssl_temp
+      with_items: "{{files_to_copy.stdout_lines}}"
+
+    - name: registering log files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
+      register: copy_log_results
+
+    - name: copying log results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/ssl/ssl_temp
+      with_items: "{{copy_log_results.stdout_lines}}"
+
+ - hosts: localhost
+   connection: local
+   gather_facts: no
+
+   tasks:
+    - name: echo
+      shell: echo $PWD
+
+    - name: extracting_json
+      shell: ( find {{workingdir}}/{{Dest_dir}}/ssl/ssl_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/ssl/)
+
+    - name: making_logs_folder
+      shell: mkdir -p {{workingdir}}/{{Dest_dir}}/ssl/logs
+
+    - name: extracting_log
+      shell: ( find {{workingdir}}/{{Dest_dir}}/ssl/ssl_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/ssl/logs)
+
+    - name: removing ssl_temp
+      shell: rm -rf {{workingdir}}/{{Dest_dir}}/ssl/ssl_temp

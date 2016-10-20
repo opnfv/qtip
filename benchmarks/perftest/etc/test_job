@@ -1,0 +1,13 @@
+[global]
+
+runtime= 600
+ioengine=libaio
+iodepth=2
+direct=1
+bs=4k
+rw=randrw
+
+[job1]
+size=5G
+
+

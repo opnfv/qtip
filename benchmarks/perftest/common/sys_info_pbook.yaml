@@ -1,0 +1,42 @@
+   - name: Epel Release  install when CentOS
+     shell: sudo yum install epel-release -y
+     when: ansible_os_family == "RedHat"
+
+   - name: Inxi  install when CentOS
+     shell: sudo yum install inxi -y
+     when: ansible_os_family == "RedHat"
+
+   - name: Software Properties Common
+     shell: sudo apt-get install software-properties-common -y
+     when: ansible_os_family  == "Debian"
+
+   - name: adding trusty-backport main repo
+     shell: sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu/ trusty-backports  main restricted universe multiverse"
+     when: ansible_os_family  == "Debian"
+
+   - name: adding trusty main repo
+     shell: sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse"
+     when: ansible_os_family  == "Debian"
+
+   - name: system info collection tool install when Ubuntu
+     shell: sudo apt-get update && apt-get install inxi -y
+     when: ansible_os_family  == "Debian"
+
+   - name: Install ansible copy dependencies if remote host has selinux enabled
+     shell: sudo yum  install libselinux-python -y
+     when: ansible_os_family == "RedHat"
+
+   - name: Install ansiblle copy dependencies if remote host has selinux enaled
+     shell: sudo apt-get install python-selinux -y
+     when: ansible_os_family == "Debian"
+
+   - name: system_info script copy
+     copy: src=../etc/info_collect.py dest={{home_dir.stdout}}/qtip_result/
+
+   - name: collecting system informaton for non-network test cases
+     shell: cd $HOME/qtip_result &&  sudo python info_collect.py c
+     when: not network
+
+   - name: collecting system information for network test  cases
+     shell: cd $HOME/qtip_result && sudo python info_collect.py n
+     when: network

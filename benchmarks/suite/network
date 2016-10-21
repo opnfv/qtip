@@ -1,0 +1,9 @@
+{
+    "bm": [
+        "iperf_bm.yaml"
+    ],
+    "vm": [
+        "iperf_vm.yaml",
+        "iperf_vm_2.yaml"
+    ]
+}

@@ -7,37 +7,12 @@
 Configuration
 *************
 
-QTIP currently supports by using a Docker image or by pulling the repo from
-the upstream repository found at https://git.opnfv.org/qtip. Detailed steps
-about setting up QTIP using both of these options can be found below.
+QTIP currently supports by using a Docker image. Detailed steps
+about setting up QTIP can be found below.
 
 To use QTIP you should have access to an OpenStack environment, with at least
 Nova, Neutron, Glance, Keystone and Heat installed. Add a brief introduction
 to configure OPNFV with this specific installer
-
-
-Pre-configuration activities
-----------------------------
-
-
-Setting QTIP framework on Ubuntu 14.04
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Install dependencies:
-::
-
-  sudo apt-get install python-dev
-  sudo apt-get install python-pip
-  sudo apt-get install build-essential
-  sudo apt-get install git wget
-  sudo pip install python-heatclient python-glanceclient python-neutronclient
-
-
-Download source code and install python dependencies:
-::
-
-  git clone https://git.opnfv.org/qtip
-  cd qtip
 
 
 Installing QTIP using Docker
@@ -47,18 +22,25 @@ QTIP has a Docker images on the docker hub. Pulling opnfv/qtip docker image
 from docker hub:
 ::
 
-  sudo docker pull opnfv/qtip
+  docker pull opnfv/qtip
 
 Verify that opnfv/qtip has been downloaded. It should be listed as an image by
 running the following command.
 ::
 
-  sudo docker images
+  docker images
 
-Run the Docker instance:
+Make dir to store the QTIP image which will be used to create vm in cloud.
 ::
 
-  docker run -it opnfv/qtip /bin/bash
+  mkdir $HOME/imgstore
+
+Run and enter the Docker instance:
+::
+  envs="INSTALLER_TYPE={INSTALLER_TYPE} -e INSTALLER_IP={INSTALLER_IP}
+-e NODE_NAME={NODE_NAME}"
+  docker run --name qtip -id -e $envs -v "$HOME/imgstore:/home/opnfv/imgstore" opnfv/qtip
+  docker exec -i -t qtip /bin/bash
 
 Now you are in the container and QTIP can be found in the  /repos/qtip and can
 be navigated to using the following command.
@@ -79,22 +61,22 @@ from the OpenStack *openrc* file. This can be done by running the following
 command.
 ::
 
-  source get_env_info.sh -n {INSTALLER_TYPE} -i {INSTALLER_IP}
+  source scripts/get_env_info.sh -n {INSTALLER_TYPE} -i {INSTALLER_IP}
   source opnfv-creds.sh
 
 This provides a ``opnfv-creds.sh`` file which can be sources to get the
-environment variables. For running QTIP manually, it is also necessary to
-export the installer type.
-::
-
-  export INSTALLER_TYPE="{installer-type}"
+environment variables.
 
 
 QTIP  default key pair
 """"""""""""""""""""""
 
-QTIP uses a SSH key pair to connect to the guest image. This key pair can
-be found in the ``config/`` directory.
+QTIP uses a SSH key pair to connect to the guest image. You should generate key pair
+before running QTIP test. And put key pair in the ``config/`` directory.
+::
+
+  ssh-keygen -t rsa -N "" -f config/QtipKey -q
+
 
 
 Hardware configuration

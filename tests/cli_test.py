@@ -13,7 +13,7 @@ class TestClass:
         (['-l',
           'default',
           '-f',
-          'test'], "Test File Does not exist in test_list")
+          'test'], "This suite file doesn't exist under benchmarks/suite/")
     ])
     def test_cli_error(self, capfd, test_input, expected):
         k = mock.patch.dict(os.environ, {'INSTALLER_TYPE': 'fuel', 'PWD': '/home'})

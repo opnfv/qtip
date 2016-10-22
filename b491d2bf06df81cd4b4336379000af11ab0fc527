@@ -22,6 +22,30 @@
       "revId": "b491d2bf06df81cd4b4336379000af11ab0fc527",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_f8c36088",
+        "filename": "docker/run_qtip.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-10-22T09:16:51Z",
+      "side": 1,
+      "message": "agree!",
+      "parentUuid": "9adffdf1_38a56804",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "b491d2bf06df81cd4b4336379000af11ab0fc527",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

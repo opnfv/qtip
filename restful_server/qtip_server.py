@@ -146,8 +146,8 @@ default is all benchmarks in suite with specified type,
                             help='testdb_url should be test db http url,for example http://testresults.opnfv.org/test/api/v1')
         parser.add_argument('node_name', type=str, required=False, default=None, help='node_name should be string')
         args = parser.parse_args()
-        if not args_handler.check_suite_in_test_list(args["suite_name"]):
-            return abort(404, 'message:Test suite {0} does not exist in test_list'.format(args["suite_name"]))
+        if not args_handler.check_suite(args["suite_name"]):
+            return abort(404, 'message:Test suite {0} does not exist under benchmarks/suite'.format(args["suite_name"]))
         if not args_handler.check_lab_name(args["pod_name"]):
             return abort(404, 'message: You have specified a lab {0}\
                                that is not present in test_cases'.format(args['pod_name']))
@@ -156,8 +156,8 @@ default is all benchmarks in suite with specified type,
         if not job_id:
             return abort(409, 'message:It already has one job running now!')
 
-        benchmarks = args_handler.get_files_in_test_list(args["suite_name"],
-                                                         args["type"].lower())
+        benchmarks = args_handler.get_files_in_suite(args["suite_name"],
+                                                     args["type"].lower())
         test_cases = args_handler.get_files_in_test_case(args["pod_name"],
                                                          args["suite_name"],
                                                          args["type"].lower())

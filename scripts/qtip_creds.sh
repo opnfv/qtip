@@ -1,4 +1,4 @@
-! /bin/bash
+#! /bin/bash
 
 DEST_IP=$1
 echo $INSTALLER_TYPE

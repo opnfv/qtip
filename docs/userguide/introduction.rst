@@ -9,9 +9,9 @@ Introduction
 ************
 
 This guide will serve as a first step to familiarize the user with how to
-run QTIP the first time when the user clones QTIP on to their host machine.
-In order to clone QTIP please follow the instructions in the
-installation.rst located in docs/userguide/installation.rst.
+run QTIP the first time when the user pull QTIP image on to their host machine.
+In order to install and config QTIP please follow the instructions in the
+configuration.rst located in docs/configguide/configuration.rst.
 
 QTIP Directory structure:
 -------------------------
@@ -132,11 +132,13 @@ The `Context` tag helps the user list the number of compute nodes they want
  to run dhrystone on. The user can list all the compute nodes under the
  `Host_Machines` tag. All the machines under test must be listed under the
  `Host_Machines` and naming it incrementally higher. The `ip:` tag is used
- to specify the IP of the particular compute node. The `pw:` tag can be left
- blank because QTIP uses its own key for ssh. In order to run dhrystone on
- one compute node at a time the user needs to edit the `role:` tag. `role:
- host` for machine_1 and `role: server` for machine_2 will allow for
- dhrystone to be run on machine_1 and then run on machine_2.
+ to specify the IP of the particular compute node.The `ip:` tag can be left
+ blank when installer type is 'fuel' or 'compass' because QTIP will get ip
+ from installer. The `pw:` tag can be left blank because QTIP uses its own
+ key for ssh. In order to run dhrystone on one compute node at a time the user
+ needs to edit the `role:` tag. `role: host` for machine_1 and `role: server`
+ for machine_2 will allow for dhrystone to be run on machine_1 and then run
+ on machine_2.
 
 ::
 
@@ -312,22 +314,29 @@ Sample dhrystone_vm.yaml file:
 Commands to run the Framework:
 ------------------------------
 
-In order to start QTIP on the default lab please use the following commands (asssuming you have prepared the config files in the test_cases/default/ directory and listed the intended suite in the test_list/<RELEVANT-SUITE-FILE>):
+In order to start QTIP on the default lab please use the following commands (asssuming your installer
+is 'fuel' or 'compass', you use the config files in the test_cases/default/ directory and listed the
+intended suite in the test_list/<RELEVANT-SUITE-FILE>):
 
 First step is to export the necessary information to the environment.
 ::
 
-  source get_env_info.sh -n <INSTALLER_TYPE> -i <INSTALLER_IP>
+  source scripts/get_env_info.sh -n <INSTALLER_TYPE> -i <INSTALLER_IP>
 
 for running qtip on an openstack deployed using FUEL with the Installer IP 10.20.0.2
 ::
 
-   source get_env_info.sh -n fuel -i 10.20.0.2
+   source scripts/get_env_info.sh -n fuel -i 10.20.0.2
 
 This will generate the `opnfv-creds.sh` file needed to use the python clients for keystone, glance, nova, and neutron.
 ::
 
   source opnfv-creds.sh
+
+Download the QTIP image and upload it to the Cloud.QTIP will use this image to create VM when test VM performance.
+::
+
+  source docker/prepare_qtip_image.sh
 
 Running QTIP on the using `default` as the pod name and for the `compute` suite by cli
 ::

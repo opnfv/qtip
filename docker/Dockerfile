@@ -35,6 +35,7 @@ libjpeg62-dev \
 zlib1g-dev \
 python-tk \
 curl \
+supervisor \
 --no-install-recommends
 
 RUN apt-add-repository ppa:ansible/ansible -y
@@ -60,4 +61,11 @@ RUN git clone https://gerrit.opnfv.org/gerrit/releng $REPOS_DIR/releng
 
 RUN pip install -r $REPOS_DIR/qtip/requirements.txt
 
-CMD cd $REPOS_DIR/qtip && python restful_server/qtip_server.py>$HOME/qtip/logs/run.log
+#Config supervisor
+
+RUN mkdir -p /var/log/supervisor
+RUN locale-gen en_US en_US.UTF-8
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+
+CMD ["/usr/bin/supervisord"]

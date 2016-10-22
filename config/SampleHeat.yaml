@@ -1,36 +1,66 @@
-heat_template_version: 2014-10-16
+heat_template_version: 2015-04-30
+
+description: >
+  Used to run VMs for Qtip
+
 parameters:
+  image:
+    type: string
+    description: Name of the image
+    default: QTIP_CentOS
 
-  private_net_name:
+  external_net_name:
     type: string
-    default: 'private_network'
-    
-  availability_zone:
-    type: string
-    description: The AvailZone.
-    default: compute1
-  
+    description: Name of the external network which management network will connect to
+    default: admin_floating_net
+
 resources:
+  flavor:
+    type: OS::Nova::Flavor
+    properties:
+      ram: 8192
+      vcpus: 8
+      disk: 80
 
-  private_network:
-     type: OS::Neutron::Net
-  private_subnet:
+  network:
+    type: OS::Neutron::Net
+    properties:
+      name: qtip_net
+
+  subnet:
     type: OS::Neutron::Subnet
     properties:
-      network_id:  { get_resource: private_network }
-      cidr: '10.10.17.0/24'
-      dns_nameservers: [ '8.8.8.8' ]
-      gateway_ip: '10.10.17.1'
-      allocation_pools: [ {"start":'10.10.17.2', "end": '10.10.17.200'} ]
-  router_1:
+      name: qtip_subnet
+      ip_version: 4
+      cidr: 192.168.0.0/24
+      network: { get_resource: network }
+      dns_nameservers: [8.8.8.8]
+
+  management_router:
     type: OS::Neutron::Router
     properties:
+      name: qtip_router
       external_gateway_info:
-        network: { get_param: public_network  }
-  router_interface:
+        network: { get_param: external_net_name }
+
+  management_router_interface:
     type: OS::Neutron::RouterInterface
     properties:
-      router_id: { get_resource: router_1 } 
-      subnet: { get_resource: private_subnet }
+      router: { get_resource: management_router }
+      subnet: { get_resource: subnet }
+
+  security_group:
+    type: OS::Neutron::SecurityGroup
+    properties:
+      name: qtip_security_group
+      rules:
+          - port_range_min: 22
+            port_range_max: 5201
+            protocol: tcp
+          - port_range_min: 22
+            port_range_max: 5201
+            protocol: udp
+          - protocol: icmp
+
 outputs:
   description: 'none'

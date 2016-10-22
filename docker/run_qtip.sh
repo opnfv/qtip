@@ -1,4 +1,5 @@
 #! /bin/bash
+
 run_test_suite()
 {
     if [ "$TEST_CASE" == "compute" ]; then
@@ -21,8 +22,16 @@ run_test_suite()
     fi
 }
 
+rm -f ${QTIP_DIR}/config/QtipKey*
+
+echo "Generating ssh keypair"
+ssh-keygen -t rsa -N "" -f ${QTIP_DIR}/config/QtipKey -q
+
 source ${QTIP_DIR}/docker/prepare_qtip_image.sh
 
 run_test_suite
 
 source ${QTIP_DIR}/docker/cleanup_qtip_image.sh
+
+echo "Remove ssh keypair"
+rm -f ${QTIP_DIR}/config/QtipKey*

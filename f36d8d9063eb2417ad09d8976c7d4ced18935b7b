@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9adffdf1_1848a42c",
+        "filename": "docker/run_qtip.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-22T12:11:29Z",
+      "side": 1,
+      "message": "^ Generating",
+      "range": {
+        "startLine": 27,
+        "startChar": 6,
+        "endLine": 27,
+        "endChar": 15
+      },
+      "revId": "f36d8d9063eb2417ad09d8976c7d4ced18935b7b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_b854f8ca",
+        "filename": "scripts/cleanup_creds.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-22T12:11:29Z",
+      "side": 1,
+      "message": "Is this command emptying the authorized_keys?",
+      "revId": "f36d8d9063eb2417ad09d8976c7d4ced18935b7b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

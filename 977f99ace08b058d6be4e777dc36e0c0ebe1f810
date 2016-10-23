@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9adffdf1_f8f7e08a",
+        "filename": "docs/userguide/introduction.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-23T09:47:14Z",
+      "side": 1,
+      "message": "Is compass supported?",
+      "range": {
+        "startLine": 318,
+        "startChar": 14,
+        "endLine": 318,
+        "endChar": 21
+      },
+      "revId": "977f99ace08b058d6be4e777dc36e0c0ebe1f810",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

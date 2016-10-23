@@ -9,8 +9,8 @@
 
 import click
 
-from cli.commands.cli_perftest import CliPerftest
-from cli.commands.cli_suite import CliSuite
+from cli.commands.perftest import CliPerftest
+from cli.commands.suite import CliSuite
 
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])

@@ -9,7 +9,9 @@
 
 import click
 
-from cli.commands.cli_ansible import CliAnsible
+from cli.commands.cli_perftest import CliPerftest
+from cli.commands.cli_suite import CliSuite
+
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
@@ -19,26 +21,40 @@ CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 def cli():
     pass
 
-_ansible = CliAnsible()
+
+@cli.group()
+@click.pass_context
+def suite(ctx):
+    pass
+
+_suite = CliSuite()
+
+
+@suite.command('list', help="Lists the different suites. ")
+def list_suite():
+    _suite.list()
+
+
+@suite.command('run', help='Executes one complete suite from the list. '
+               'Use list to view the differet suites.')
+def run_suite():
+    _suite.run()
 
 
 @cli.group()
 @click.pass_context
-def ansible(ctx):
+def perftest(ctx):
     pass
 
-
-@ansible.command('prepare', help="Prepares the ansible environment. "
-                                 "This step is needed run benchmarks.")
-def ansible_prepare():
-    _ansible.prepare()
+_perftest = CliPerftest()
 
 
-@ansible.command('show', help="Shows the current ansible configuration.")
-def ansible_show():
-    _ansible.show()
+@perftest.command('list', help="Lists the different suites. ")
+def list_perftest():
+    _perftest.list()
 
 
-@ansible.command('status', help="Checks if ansible still connects to hosts.")
-def ansible_status():
-    _ansible.status()
+@perftest.command('run', help='Executes one benchmark. Use list to view '
+                  'complete set of benchmarks.')
+def run_perftest():
+    _perftest.run()

@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "9adffdf1_38448873",
+        "filename": "docs/configguide/configuration.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-10-24T01:57:38Z",
+      "side": 1,
+      "message": "It would be better -it. -d means container is run in background.",
+      "range": {
+        "startLine": 42,
+        "startChar": 25,
+        "endLine": 42,
+        "endChar": 28
+      },
+      "revId": "977f99ace08b058d6be4e777dc36e0c0ebe1f810",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_58494c8a",
+        "filename": "docs/configguide/configuration.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-10-24T01:57:38Z",
+      "side": 1,
+      "message": "space before \"And\"",
+      "range": {
+        "startLine": 75,
+        "startChar": 25,
+        "endLine": 75,
+        "endChar": 28
+      },
+      "revId": "977f99ace08b058d6be4e777dc36e0c0ebe1f810",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_f85da049",
+        "filename": "docs/userguide/introduction.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-10-24T01:57:38Z",
+      "side": 1,
+      "message": "test_list/ is removed. Please change test_list to benchmarks/suite/.",
+      "range": {
+        "startLine": 21,
+        "startChar": 37,
+        "endLine": 21,
+        "endChar": 46
+      },
+      "revId": "977f99ace08b058d6be4e777dc36e0c0ebe1f810",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9adffdf1_f8f7e08a",
         "filename": "docs/userguide/introduction.rst",
         "patchSetId": 4
@@ -13,6 +82,30 @@
       "writtenOn": "2016-10-23T09:47:14Z",
       "side": 1,
       "message": "Is compass supported?",
+      "range": {
+        "startLine": 318,
+        "startChar": 14,
+        "endLine": 318,
+        "endChar": 21
+      },
+      "revId": "977f99ace08b058d6be4e777dc36e0c0ebe1f810",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_d8545c23",
+        "filename": "docs/userguide/introduction.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-10-24T01:57:38Z",
+      "side": 1,
+      "message": "It needs test.",
+      "parentUuid": "9adffdf1_f8f7e08a",
       "range": {
         "startLine": 318,
         "startChar": 14,

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9adffdf1_9ba00ef6",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-25T04:12:11Z",
+      "side": 1,
+      "message": "It seems this path value will require use to run the command in root folder. Perhaps using a relative path to __file__ will be better.",
+      "revId": "1143a66711f8d81e560ea24b7d7af8986c9ee6d1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

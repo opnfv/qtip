@@ -27,9 +27,9 @@
     - name: make directory
       shell: sudo mkdir $HOME/qtip_result
 
-    - include: ../common/sys_proxy_pbook.yaml
+    - include: ./common/sys_proxy_pbook.yaml
 
-    - include: ../common/sys_info_pbook.yaml
+    - include: ./common/sys_info_pbook.yaml
       vars:
           network: false
 
@@ -41,7 +41,7 @@
       shell: sudo apt-get install git gcc  patch perl -y
       when: ansible_os_family == "Debian"
 
-    - include: ./git_proxy_pbook.yaml
+    - include: ./common/git_proxy_pbook.yaml
 
     - name: Clone unixbench
       git: repo=https://github.com/kdlucas/byte-unixbench.git

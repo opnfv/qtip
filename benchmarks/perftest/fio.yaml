@@ -31,9 +31,9 @@
     - name: making  results temporary directory
       shell: sudo mkdir $HOME/qtip_result
 
-    - include: ../common/sys_proxy_pbook.yaml
+    - include: ./common/sys_proxy_pbook.yaml
 
-    - include: ../common/sys_info_pbook.yaml
+    - include: ./common/sys_info_pbook.yaml
       vars:
           network: false
 
@@ -53,7 +53,7 @@
       shell: cd $HOME/fio/fio-2.1.10  && sudo ./configure && sudo make
 
     - name: Fetching fio job
-      copy: src=../etc/fio_test_job  dest={{home_dir.stdout}}/fio/fio-2.1.10/
+      copy: src=./etc/fio_test_job  dest={{home_dir.stdout}}/fio/fio-2.1.10/
 
     - name: Benchmarking block storage through fio
       shell: cd $HOME/fio/fio-2.1.10  &&  sudo ./fio --output-format=json --output=$HOME/qtip_result/fio_result.json fio_test_job
@@ -85,6 +85,12 @@
     - name: copying log results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/fio/fio_temp
       with_items: "{{copy_log_results.stdout_lines}}"
+
+    - name: cleaning fio
+      shell: sudo rm -rf $HOME/fio
+
+    - name: cleaning_qtip_result
+      shell: sudo rm -rf $HOME/qtip_result
 
  - hosts: localhost
    connection: local

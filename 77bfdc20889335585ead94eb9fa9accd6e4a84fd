@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9adffdf1_6ec7aa13",
+        "filename": "benchmarks/perftest/ssl.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-25T07:48:44Z",
+      "side": 1,
+      "message": "Using ansible module is preferred.  `become` and `file`",
+      "revId": "77bfdc20889335585ead94eb9fa9accd6e4a84fd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_8ecc4e37",
+        "filename": "benchmarks/perftest/ssl.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-25T07:48:44Z",
+      "side": 1,
+      "message": "The same as L96",
+      "revId": "77bfdc20889335585ead94eb9fa9accd6e4a84fd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

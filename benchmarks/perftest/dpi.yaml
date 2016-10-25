@@ -30,9 +30,9 @@
     - name: make qtip_result
       shell: sudo mkdir $HOME/qtip_result
 
-    - include: ../common/sys_proxy_pbook.yaml
+    - include: ./common/sys_proxy_pbook.yaml
 
-    - include: ../common/sys_info_pbook.yaml
+    - include: ./common/sys_info_pbook.yaml
       vars:
           network: false
 
@@ -47,7 +47,7 @@
     - name: making  nDPI temporary directory
       shell: sudo mkdir $HOME/tempD
 
-    - include: ../common/git_proxy_pbook.yaml
+    - include: ./common/git_proxy_pbook.yaml
 
     - name: Clone nDPI
       git: repo=https://github.com/ntop/nDPI.git
@@ -66,7 +66,7 @@
       shell: cd $HOME/tempD/nDPI/example  &&  wget http://build.opnfv.org/artifacts.opnfv.org/qtip/utilities/test.pcap
 
     - name: fetch Averaging script
-      copy: src=../etc/dpi_average.sh dest={{home_dir.stdout}}/tempD/nDPI/example mode=777
+      copy: src=./etc/dpi_average.sh dest={{home_dir.stdout}}/tempD/nDPI/example mode=777
 
     - name: Run nDPI benchmark
       shell: cd $HOME/tempD/nDPI/example && sudo ./dpi_average.sh
@@ -101,6 +101,12 @@
     - name: copying log results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/dpi/dpi_temp
       with_items: "{{copy_log_results.stdout_lines}}"
+
+    - name: cleaning tempD
+      shell: sudo rm -rf $HOME/tempD
+
+    - name: cleaning_qtip_result
+      shell: sudo rm -rf $HOME/qtip_result
 
  - hosts: localhost
    connection: local

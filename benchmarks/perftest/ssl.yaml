@@ -30,9 +30,9 @@
     - name: making  results temporary directory
       shell: sudo mkdir $HOME/qtip_result
 
-    - include: ../common/sys_proxy_pbook.yaml
+    - include: ./common/sys_proxy_pbook.yaml
 
-    - include: ../common/sys_info_pbook.yaml
+    - include: ./common/sys_info_pbook.yaml
       vars:
           network: false
 
@@ -91,6 +91,12 @@
     - name: copying log results
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/ssl/ssl_temp
       with_items: "{{copy_log_results.stdout_lines}}"
+
+    - name: cleaning Open_SSL
+      shell: sudo rm -rf $HOME/Open_SSL
+
+    - name: cleaning_qtip_result
+      shell: sudo rm -rf $HOME/qtip_result
 
  - hosts: localhost
    connection: local

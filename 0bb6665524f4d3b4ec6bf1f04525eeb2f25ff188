@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9adffdf1_2e58c2f9",
+        "filename": "scripts/cleanup_creds.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-10-25T00:53:10Z",
+      "side": 1,
+      "message": "please check the hostname then delete the related key",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "0bb6665524f4d3b4ec6bf1f04525eeb2f25ff188",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9adffdf1_eee63a16",
+        "filename": "docs/configguide/configuration.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-10-25T03:08:12Z",
+      "side": 1,
+      "message": "If we use -it,we have to add CMD /bin/bash at the end. Then the CMD in the Dockerfile will not be called.",
+      "parentUuid": "9adffdf1_38448873",
+      "range": {
+        "startLine": 42,
+        "startChar": 25,
+        "endLine": 42,
+        "endChar": 28
+      },
+      "revId": "977f99ace08b058d6be4e777dc36e0c0ebe1f810",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9adffdf1_58494c8a",
         "filename": "docs/configguide/configuration.rst",
         "patchSetId": 4
@@ -106,6 +130,30 @@
       "side": 1,
       "message": "It needs test.",
       "parentUuid": "9adffdf1_f8f7e08a",
+      "range": {
+        "startLine": 318,
+        "startChar": 14,
+        "endLine": 318,
+        "endChar": 21
+      },
+      "revId": "977f99ace08b058d6be4e777dc36e0c0ebe1f810",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_ee715a78",
+        "filename": "docs/userguide/introduction.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-10-25T03:08:12Z",
+      "side": 1,
+      "message": "OK remove compass",
+      "parentUuid": "9adffdf1_d8545c23",
       "range": {
         "startLine": 318,
         "startChar": 14,

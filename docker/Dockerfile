@@ -4,7 +4,7 @@
 
 
 FROM ubuntu:14.04
-MAINTAINER Nauman Ahad <Nauman_Ahad@dell.com>
+MAINTAINER Yujun Zhang <zhang.yujunz@zte.com.cn>
 LABEL version="0.1" description="OPNFV QTIP Docker container"
 
 

@@ -7,17 +7,13 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from setuptools import setup
+import click
+from commands import perftest
+from commands import suite
 
-setup(
-    name='qtip',
-    py_modules=['cli_entry'],
-    include_package_data=True,
-    install_requires=[
-        'click', 'prettytable',
-    ],
-    entry_points='''
-        [console_scripts]
-        qtip=cli_entry:cli
-    ''',
-)
+CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
+
+cli = click.CommandCollection(sources=[perftest.perf, suite.package])
+
+if __name__ == '__main__':
+    cli()

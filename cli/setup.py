@@ -11,13 +11,13 @@ from setuptools import setup
 
 setup(
     name='qtip',
-    py_modules=['cli_entry'],
+    py_modules=['entry'],
     include_package_data=True,
     install_requires=[
-        'click',
+        'click', 'prettytable',
     ],
     entry_points='''
         [console_scripts]
-        qtip=cli_entry:cli
+        qtip=entry:cli
     ''',
 )

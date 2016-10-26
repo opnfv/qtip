@@ -59,10 +59,12 @@ def prepare_ansible_env(benchmark_test_case):
 def run_benchmark(installer_type, pwd, benchmark, benchmark_details,
                   proxy_info, env_setup, benchmark_test_case):
     driver = Driver()
-    return driver.drive_bench(installer_type, pwd, benchmark,
-                              env_setup.roles_dict.items(),
-                              _get_f_name(benchmark_test_case),
-                              benchmark_details, env_setup.ip_pw_dict.items(), proxy_info)
+    result = driver.drive_bench(installer_type, pwd, benchmark,
+                                env_setup.roles_dict.items(),
+                                _get_f_name(benchmark_test_case),
+                                benchmark_details, env_setup.ip_pw_dict.items(), proxy_info)
+    env_setup.cleanup_authorized_keys()
+    return result
 
 
 def prepare_and_run_benchmark(installer_type, pwd, benchmark_test_case):

@@ -7,11 +7,9 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 from func.cli import Cli
-import os
 
 
 def main():
-    os.system('./scripts/file_permission.sh')
     Cli()
 
 

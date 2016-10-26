@@ -19,21 +19,21 @@
       shell: echo $HOME
       register: home_dir
 
-    - name: cleaning
-      shell: sudo rm -rf $HOME/fio
+    - name: cleaning fio directory
+      file: path=$HOME/fio state=absent
 
     - name: cleaning previous results
-      shell: sudo rm -rf $HOME/qtip_result
+      file: path=$HOME/qtip_result state=absent
 
     - name: making fio temporary directory
-      shell: sudo mkdir $HOME/fio
+      file: path=$HOME/fio state=directory
 
     - name: making  results temporary directory
-      shell: sudo mkdir $HOME/qtip_result
+      file: path=$HOME/qtip_result state=directory
 
-    - include: ../common/sys_proxy_pbook.yaml
+    - include: ./common/sys_proxy_pbook.yaml
 
-    - include: ../common/sys_info_pbook.yaml
+    - include: ./common/sys_info_pbook.yaml
       vars:
           network: false
 
@@ -47,13 +47,15 @@
 
     - name: Fetching fio
       shell: cd $HOME/fio/ && wget http://freecode.com/urls/3aa21b8c106cab742bf1f20d60629e3f -O fio.tar.gz
+
     - name: Untar fio
       shell: cd $HOME/fio/ && sudo tar -zxvf fio.tar.gz
+
     - name: configure
       shell: cd $HOME/fio/fio-2.1.10  && sudo ./configure && sudo make
 
     - name: Fetching fio job
-      copy: src=../etc/fio_test_job  dest={{home_dir.stdout}}/fio/fio-2.1.10/
+      copy: src=./etc/fio_test_job  dest={{home_dir.stdout}}/fio/fio-2.1.10/
 
     - name: Benchmarking block storage through fio
       shell: cd $HOME/fio/fio-2.1.10  &&  sudo ./fio --output-format=json --output=$HOME/qtip_result/fio_result.json fio_test_job
@@ -86,6 +88,12 @@
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/fio/fio_temp
       with_items: "{{copy_log_results.stdout_lines}}"
 
+    - name: cleaning fio
+      file: path=$HOME/fio state=absent
+
+    - name: cleaning_qtip_result
+      file: path=$HOME/qtip_result
+
  - hosts: localhost
    connection: local
    gather_facts: no
@@ -95,11 +103,10 @@
       shell: ( find  {{workingdir}}/{{Dest_dir}}/fio/fio_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/fio/)
 
     - name: making_logs_folder
-      shell: mkdir -p {{workingdir}}/{{Dest_dir}}/fio/logs
+      file: path={{workingdir}}/{{Dest_dir}}/fio/logs state=directory
 
     - name: extracting_log
       shell: ( find {{workingdir}}/{{Dest_dir}}/fio/fio_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/fio/logs)
 
     - name: removing fio_log
-      shell: rm -rf {{workingdir}}/{{Dest_dir}}/fio/fio_temp
-
+      file: {{workingdir}}/{{Dest_dir}}/fio/fio_temp state=absent

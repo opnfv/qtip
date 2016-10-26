@@ -18,18 +18,18 @@
       shell: echo $HOME
       register: home_dir
 
-    - name: cleaning tempT
-      shell: sudo rm -rf $HOME/tempT
+    - name: cleaning tempT directory
+      file: path=$HOME/tempT state=absent
 
-    - name: cleaning_qtip_result
-      shell: sudo rm -rf $HOME/qtip_result
+    - name: cleaning qtip result directory
+      file: path=$HOME/qtip_result state=absent
 
-    - name: make directory
-      shell: sudo mkdir $HOME/qtip_result
+    - name: making qtip_result directory
+      file: path=$HOME/qtip_result state=directory
 
-    - include: ../common/sys_proxy_pbook.yaml
+    - include: ./common/sys_proxy_pbook.yaml
 
-    - include: ../common/sys_info_pbook.yaml
+    - include: ./common/sys_info_pbook.yaml
       vars:
           network: false
 
@@ -41,7 +41,7 @@
       shell: sudo apt-get install git gcc  patch perl -y
       when: ansible_os_family == "Debian"
 
-    - include: ./git_proxy_pbook.yaml
+    - include: ./common/git_proxy_pbook.yaml
 
     - name: Clone unixbench
       git: repo=https://github.com/kdlucas/byte-unixbench.git
@@ -87,11 +87,11 @@
       fetch:  src={{home_dir.stdout}}/qtip_result/log/{{item}} dest={{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp
       with_items: "{{copy_log_results.stdout_lines}}"
 
-    - name: cleaning tempT
-      shell: sudo rm -rf $HOME/tempT
+    - name: cleaning tempT directory
+      file: path=$HOME/tempT state=absent
 
-    - name: cleaning_qtip_result
-      shell: sudo rm -rf $HOME/qtip_result
+    - name: cleaning qtip result directory
+      file: path=$HOME/qtip_result state=absent
 
  - hosts: localhost
    connection: local
@@ -102,10 +102,10 @@
       shell: ( find  {{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/whetstone/)
 
     - name: making_logs_folder
-      shell: mkdir -p {{workingdir}}/{{Dest_dir}}/whetstone/logs
+      file: path={{workingdir}}/{{Dest_dir}}/whetstone/logs state=directory
 
     - name: extracting_log
       shell: ( find {{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/whetstone/logs)
 
     - name: removing whetstone_temp
-      shell: rm -rf {{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp
+      file: {{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp state=absent

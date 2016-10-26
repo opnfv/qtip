@@ -19,29 +19,29 @@
       register: home_dir
 
     - name: cleaning tempT
-      shell: sudo rm -rf $HOME/tempT
+      file: path=$HOME/tempT state=absent
 
     - name: cleaning qtip_result
-      shell: sudo rm -rf $HOME/qtip_result
+      file: path=$HOME/qtip_result state=absent
 
     - name: make directory
-      shell: sudo mkdir $HOME/qtip_result
+      file: path=$HOME/qtip_result state=directory
 
-    - include: ../common/sys_proxy_pbook.yaml
+    - include: ./common/sys_proxy_pbook.yaml
 
-    - include: ../common/sys_info_pbook.yaml
+    - include: ./common/sys_info_pbook.yaml
       vars:
           network: false
 
     - name: Installing UnixBench dependencies if CentOS
-      shell: sudo yum install git gcc  patch perl-Time-HiRes -y
+      shell: yum install git gcc  patch perl-Time-HiRes -y
       when: ansible_os_family == "RedHat"
 
     - name: Installing UnixBench dependencies if Ubuntu
-      shell: sudo apt-get install git gcc  patch perl -y
+      shell: apt-get install git gcc  patch perl -y
       when: ansible_os_family == "Debian"
 
-    - include: ../common/git_proxy_pbook.yaml
+    - include: ./common/git_proxy_pbook.yaml
 
     - name: Clone unixbench
       git: repo=https://github.com/kdlucas/byte-unixbench.git
@@ -88,11 +88,10 @@
       with_items: "{{copy_log_results.stdout_lines}}"
 
     - name: cleaning tempT
-      shell: sudo rm -rf $HOME/tempT
+      file: path=$HOME/tempT state=absent
 
     - name: cleaning_qtip_result
-      shell: sudo rm -rf $HOME/qtip_result
-
+      file: path=$HOME/qtip_result state=absent
 
  - hosts: localhost
    connection: local
@@ -103,10 +102,10 @@
       shell: ( find  {{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/dhrystone/)
 
     - name: making_logs_folder
-      shell: mkdir -p {{workingdir}}/{{Dest_dir}}/dhrystone/logs
+      file: path={{workingdir}}/{{Dest_dir}}/dhrystone/logs state=directory
 
     - name: extracting_log
       shell: ( find {{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/dhrystone/logs)
 
     - name: removing dhrystone_temp
-      shell: rm -rf {{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp
+      file: path={{workingdir}}/{{Dest_dir}}/dhrystone/dhrystone_temp state=directory

@@ -39,21 +39,21 @@
       shell: echo $HOME
       register: home_dir
 
-    - name: cleaning
-      shell: sudo rm -rf $HOME/iperf
+    - name: cleaning iperf directory
+      file: path=$HOME/iperf state=absent
 
     - name: cleaning previous results
-      shell: sudo rm -rf $HOME/qtip_result
+      file: path=$HOME/qtip_result state=absent
 
     - name: making Iperf temporary directory
-      shell: sudo mkdir $HOME/iperf
+      file: path=$HOME/iperf state=directory
 
     - name: making results temporary directory
-      shell: sudo mkdir $HOME/qtip_result
+      file: path=$HOME/qtip_result state=directory
 
-    - include: ../common/sys_proxy_pbook.yaml
+    - include: ./common/sys_proxy_pbook.yaml
 
-    - include: ../common/sys_info_pbook.yaml
+    - include: ./common/sys_info_pbook.yaml
       vars:
         network: true
 
@@ -131,6 +131,11 @@
       with_items: "{{copy_log_results.stdout_lines}}"
       when: rolename =="2-host" and "{{ip2}}" == ''
 
+    - name: cleaning iperf directory
+      file: path=$HOME/iperf state=absent
+
+    - name: cleaning previous results
+      file: path=$HOME/qtip_result state=absent
 
  - hosts: localhost
    connection: local
@@ -147,15 +152,15 @@
       when: rolename == "2-host"
 
     - name: making_logs_folder
-      shell: mkdir -p {{workingdir}}/{{Dest_dir}}/iperf/logs
+      file: path={{workingdir}}/{{Dest_dir}}/iperf/logs state=directory
 
     - name: extracting_log
       shell: ( find {{workingdir}}/{{Dest_dir}}/iperf/iperf_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/iperf/logs)
       when: rolename == "2-host"
 
     - name: removing iperf_raw file
-      shell: rm -rf {{workingdir}}/{{Dest_dir}}/iperf/iperf_raw.json
+      file: path={{workingdir}}/{{Dest_dir}}/iperf/iperf_raw.json state=absent
       when: rolename == "2-host"
 
     - name: removing iperf_temp
-      shell: rm -rf {{workingdir}}/{{Dest_dir}}/iperf/iperf_temp
+      file: path={{workingdir}}/{{Dest_dir}}/iperf/iperf_temp state=absent

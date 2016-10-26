@@ -19,19 +19,19 @@
       shell: echo $HOME
       register: home_dir
 
-    - name: cleaning
-      shell: sudo rm -rf $HOME/ramspeed
+    - name: cleaning ramspeed directory
+      file: path=$HOME/ramspeed state=absent
 
     - name: cleaning previous results
-      shell: sudo rm -rf $HOME/qtip_result
+      file: path=$HOME/qtip_result state=absent
 
     - name: making ramspeed temporary directory
-      shell: sudo mkdir $HOME/ramspeed
+      file: path=$HOME/ramspeed state=directory
 
     - name: making  results temporary directory
-      shell: sudo mkdir $HOME/qtip_result
+      file: path=$HOME/qtip_result state=directory
 
-    - include: ../common/sys_proxy_pbook.yaml
+    - include: ./common/sys_proxy_pbook.yaml
 
     - include: ./common/sys_info_pbook.yaml
       vars:
@@ -67,7 +67,7 @@
       copy: src={{workdingdir}}/utils/transform/ramspeed_transform.py dest={{home_dir.stdout}}/qtip_result
 
     - name: Transforming result
-      shell: cd $HOME/qtip_result  &&  sudo python ramspd_transform.py
+      shell: cd $HOME/qtip_result  &&  sudo python ramspeed_transform.py
 
     - name: copy report formation script
       copy: src={{workingdir}}/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
@@ -91,6 +91,12 @@
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp
       with_items: "{{copy_log_results.stdout_lines}}"
 
+    - name: cleaning ramspeed directory
+      file: path=$HOME/ramspeed state=absent
+
+    - name: cleaning previous results
+      file: path=$HOME/qtip_result state=absent
+
  - hosts: localhost
    connection: local
    gather_facts: no
@@ -100,10 +106,10 @@
       shell: ( find  {{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/ramspeed/)
 
     - name: making_logs_folder
-      shell: mkdir -p {{workingdir}}/{{Dest_dir}}/ramspeed/logs
+      file: path={{workingdir}}/{{Dest_dir}}/ramspeed/logs state=directory
 
     - name: extracting_log
       shell: ( find {{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/ramspeed/logs)
 
     - name: removing ramspeed_log
-      shell: rm -rf {{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp
+      file: path={{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp state=absent

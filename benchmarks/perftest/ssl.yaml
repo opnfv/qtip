@@ -18,21 +18,21 @@
       shell: sudo echo $HOME
       register: home_dir
 
-    - name: cleaning
-      shell: sudo rm -rf $HOME/Open_SSL
+    - name: cleaning Open_SSL directory
+      file: path=$HOME/Open_SSL state=absent
 
-    - name: cleaning previous results
-      shell: sudo rm -rf $HOME/qtip_result
+    - name: cleaning_qtip_result
+      file: path=$HOME/qtip_result state=absent
 
     - name: making OpenSSL temporary directory
-      shell: sudo mkdir $HOME/Open_SSL
+      file: path=$HOME/Open_SSL state=directory
 
     - name: making  results temporary directory
-      shell: sudo mkdir $HOME/qtip_result
+      file: path=$HOME/qtip_result state=directory
 
-    - include: ../common/sys_proxy_pbook.yaml
+    - include: ./common/sys_proxy_pbook.yaml
 
-    - include: ../common/sys_info_pbook.yaml
+    - include: ./common/sys_info_pbook.yaml
       vars:
           network: false
 
@@ -53,10 +53,10 @@
       shell: cd $HOME/Open_SSL/openssl-1.0.2f  && sudo ./config
 
     - name: make
-      shell: cd  $HOME/Open_SSL/openssl-1.0.2f && sudo make
+      shell: cd $HOME/Open_SSL/openssl-1.0.2f && sudo make
 
     - name: make install
-      shell: cd  $HOME/Open_SSL/openssl-1.0.2f  && sudo make install
+      shell: cd $HOME/Open_SSL/openssl-1.0.2f  && sudo make install
 
     - name: Benchmarking RSA signatures
       shell: cd $HOME/Open_SSL/openssl-1.0.2f/apps  &&  sudo ./openssl speed rsa >> $HOME/qtip_result/RSA_dump
@@ -92,6 +92,12 @@
       fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/ssl/ssl_temp
       with_items: "{{copy_log_results.stdout_lines}}"
 
+    - name: cleaning Open_SSL directory
+      file: path=$HOME/Open_SSL state=absent
+
+    - name: cleaning_qtip_result
+      file: path=$HOME/qtip_result state=absent
+
  - hosts: localhost
    connection: local
    gather_facts: no
@@ -104,10 +110,10 @@
       shell: ( find {{workingdir}}/{{Dest_dir}}/ssl/ssl_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/ssl/)
 
     - name: making_logs_folder
-      shell: mkdir -p {{workingdir}}/{{Dest_dir}}/ssl/logs
+      file: path={{workingdir}}/{{Dest_dir}}/ssl/logs state=directory
 
     - name: extracting_log
       shell: ( find {{workingdir}}/{{Dest_dir}}/ssl/ssl_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/ssl/logs)
 
     - name: removing ssl_temp
-      shell: rm -rf {{workingdir}}/{{Dest_dir}}/ssl/ssl_temp
+      file: path={{workingdir}}/{{Dest_dir}}/ssl/ssl_temp state=absent

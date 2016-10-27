@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_5004d27d",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2016-10-27T19:45:20Z",
+      "side": 1,
+      "message": "As you had pointed in the previous patch. The use of relative path to the directory using __file__",
+      "parentUuid": "5ac10518_70bb0ec5",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 19
+      },
+      "revId": "c94d8cef4c7ee7f7b5d844597de7a0339e315f45",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_30b586cd",
         "filename": "cli/commands/perftest.py",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2016-10-27T05:04:15Z",
       "side": 1,
       "message": "`suite` or `perftest`?",
+      "range": {
+        "startLine": 20,
+        "startChar": 59,
+        "endLine": 20,
+        "endChar": 64
+      },
+      "revId": "c94d8cef4c7ee7f7b5d844597de7a0339e315f45",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_7009ce94",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2016-10-27T19:45:20Z",
+      "side": 1,
+      "message": "\u0027suite\u0027, for listing purposes, this folder contains all the suite types (compute, network, storage). os.listdir() can be used for suite.list.\n\nIn addition, these files contain their respective benchmarks, hence reading these files can lists the perftest benchmarks.",
+      "parentUuid": "5ac10518_30b586cd",
       "range": {
         "startLine": 20,
         "startChar": 59,
@@ -105,6 +153,24 @@
       "writtenOn": "2016-10-27T05:04:15Z",
       "side": 1,
       "message": "Could this be decorated directly by @click.group() ? Why @perf is required in the middle?",
+      "revId": "c94d8cef4c7ee7f7b5d844597de7a0339e315f45",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_10fe4a6c",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2016-10-27T19:45:20Z",
+      "side": 1,
+      "message": "Let me look into it. Was facing some issues without it.",
+      "parentUuid": "5ac10518_10e72ae6",
       "revId": "c94d8cef4c7ee7f7b5d844597de7a0339e315f45",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

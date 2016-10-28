@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_7309d894",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-28T08:30:08Z",
+      "side": 1,
+      "message": "IIRC, PWD is sensitive to the working directory. We should allow user to run qtip command under any position.",
+      "range": {
+        "startLine": 19,
+        "startChar": 45,
+        "endLine": 19,
+        "endChar": 48
+      },
+      "revId": "1fc8a2bf33a4b3ef673715b94c0ef7c34b3c07a2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_13fe546c",
+        "filename": "cli/commands/suite.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-28T08:30:08Z",
+      "side": 1,
+      "message": "\"available\" could describe the purpose of this command better.",
+      "range": {
+        "startLine": 45,
+        "startChar": 45,
+        "endLine": 45,
+        "endChar": 54
+      },
+      "revId": "1fc8a2bf33a4b3ef673715b94c0ef7c34b3c07a2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_d3f76c8b",
+        "filename": "cli/commands/suite.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-28T08:30:08Z",
+      "side": 1,
+      "message": "`enlist` seems to be a different verb comparing to list. It is closer to enroll or register.",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 10
+      },
+      "revId": "1fc8a2bf33a4b3ef673715b94c0ef7c34b3c07a2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_b3ee60b3",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-28T08:31:19Z",
+      "side": 1,
+      "message": "\u003e IIRC, PWD is sensitive to the working directory. We should allow\n \u003e user to run qtip command under any position.\n\n^ IIUC",
+      "parentUuid": "5ac10518_7309d894",
+      "range": {
+        "startLine": 19,
+        "startChar": 45,
+        "endLine": 19,
+        "endChar": 48
+      },
+      "revId": "1fc8a2bf33a4b3ef673715b94c0ef7c34b3c07a2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_13fe546c",
         "filename": "cli/commands/suite.py",
         "patchSetId": 2

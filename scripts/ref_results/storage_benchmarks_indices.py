@@ -6,17 +6,17 @@ from result_accum import result_concat as concat
 def fio_index():
     fio_dict = concat('results/fio/')
     fio_r_bm_ref = get_reference('storage', 'fio_bm', 'read', 'IOPS')
-    fio_r_bm_index = get_index(fio_dict, 'fio_bm', fio_r_bm_ref, 'details', 'job_0', 'read', 'io_ps')
+    fio_r_bm_index = get_index(fio_dict, 'fio_bm.yaml', fio_r_bm_ref, 'details', 'job_0', 'read', 'io_ps')
     fio_w_bm_ref = get_reference('storage', 'fio_bm', 'write', 'IOPS')
-    fio_w_bm_index = get_index(fio_dict, 'fio_bm', fio_w_bm_ref, 'details', 'job_0', 'write', 'io_ps')
+    fio_w_bm_index = get_index(fio_dict, 'fio_bm.yaml', fio_w_bm_ref, 'details', 'job_0', 'write', 'io_ps')
 
     fio_bm_index = (fio_r_bm_index + fio_w_bm_index) / 2
 
     fio_r_vm_ref = get_reference('storage', 'fio_vm', 'read', 'IOPS')
-    fio_r_vm_index = get_index(fio_dict, 'fio_vm', fio_r_vm_ref, 'details', 'job_0', 'read', 'io_ps')
+    fio_r_vm_index = get_index(fio_dict, 'fio_vm.yaml', fio_r_vm_ref, 'details', 'job_0', 'read', 'io_ps')
 
     fio_w_vm_ref = get_reference('storage', 'fio_vm', 'write', 'IOPS')
-    fio_w_vm_index = get_index(fio_dict, 'fio_vm', fio_w_vm_ref, 'details', 'job_0', 'write', 'io_ps')
+    fio_w_vm_index = get_index(fio_dict, 'fio_vm.yaml', fio_w_vm_ref, 'details', 'job_0', 'write', 'io_ps')
 
     fio_vm_index = (fio_r_vm_index + fio_w_vm_index) / 2
 

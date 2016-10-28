@@ -10,7 +10,6 @@ def dpi_index():
 
     dpi_vm_ref = get_reference('compute', 'dpi_vm')
     dpi_vm_index = get_index(dpi_dict, 'dpi_vm', dpi_vm_ref, 'details', 'bps')
-
     dpi_index = (dpi_bm_index + dpi_vm_index) / 2
     dpi_dict_i = {}
     dpi_dict_i['index'] = dpi_index
@@ -118,11 +117,11 @@ def ssl_index():
     ssl_RSA4096b_bm_index = get_index(ssl_dict, "ssl_bm", ssl_RSA4096b_bm_ref, 'details', 'rsa_sig', '4096_bits')
     ssl_RSA_bm_index = (ssl_RSA512b_bm_index + ssl_RSA1024b_bm_index + ssl_RSA2048b_bm_index + ssl_RSA4096b_bm_index) / 4
 
-    ssl_AES16B_bm_index = get_index(ssl_dict, "ssl_bm", ssl_AES16B_bm_ref, 'details', 'aes_128_cbc', '16_block')
-    ssl_AES64B_bm_index = get_index(ssl_dict, "ssl_bm", ssl_AES64B_bm_ref, 'details', 'aes_128_cbc', '64_block')
-    ssl_AES256B_bm_index = get_index(ssl_dict, "ssl_bm", ssl_AES256B_bm_ref, 'details', 'aes_128_cbc', '256_block')
-    ssl_AES1024B_bm_index = get_index(ssl_dict, "ssl_bm", ssl_AES1024B_bm_ref, 'details', 'aes_128_cbc', '1024_block')
-    ssl_AES8192B_bm_index = get_index(ssl_dict, "ssl_bm", ssl_AES8192B_bm_ref, 'details', 'aes_128_cbc', '8192_block')
+    ssl_AES16B_bm_index = get_index(ssl_dict, "ssl_bm", ssl_AES16B_bm_ref, 'details', 'aes_128_cbc', '16B_block')
+    ssl_AES64B_bm_index = get_index(ssl_dict, "ssl_bm", ssl_AES64B_bm_ref, 'details', 'aes_128_cbc', '64B_block')
+    ssl_AES256B_bm_index = get_index(ssl_dict, "ssl_bm", ssl_AES256B_bm_ref, 'details', 'aes_128_cbc', '256B_block')
+    ssl_AES1024B_bm_index = get_index(ssl_dict, "ssl_bm", ssl_AES1024B_bm_ref, 'details', 'aes_128_cbc', '1024B_block')
+    ssl_AES8192B_bm_index = get_index(ssl_dict, "ssl_bm", ssl_AES8192B_bm_ref, 'details', 'aes_128_cbc', '8192B_block')
     ssl_AES_bm_index = (ssl_AES16B_bm_index + ssl_AES64B_bm_index + ssl_AES256B_bm_index + ssl_AES1024B_bm_index + ssl_AES8192B_bm_index) / 5
 
     ssl_bm_index = (ssl_RSA_bm_index + ssl_AES_bm_index) / 2
@@ -144,11 +143,11 @@ def ssl_index():
     ssl_RSA4096b_vm_index = get_index(ssl_dict, "ssl_vm", ssl_RSA4096b_vm_ref, 'details', 'rsa_sig', '4096_bits')
     ssl_RSA_vm_index = (ssl_RSA512b_vm_index + ssl_RSA1024b_vm_index + ssl_RSA2048b_vm_index + ssl_RSA4096b_vm_index) / 4
 
-    ssl_AES16B_vm_index = get_index(ssl_dict, "ssl_vm", ssl_AES16B_vm_ref, 'details', 'aes_128_cbc', '16_block')
-    ssl_AES64B_vm_index = get_index(ssl_dict, "ssl_vm", ssl_AES64B_vm_ref, 'details', 'aes_128_cbc', '64_block')
-    ssl_AES256B_vm_index = get_index(ssl_dict, "ssl_vm", ssl_AES256B_vm_ref, 'details', 'aes_128_cbc', '256_block')
-    ssl_AES1024B_vm_index = get_index(ssl_dict, "ssl_vm", ssl_AES1024B_vm_ref, 'details', 'aes_128_cbc', '1024_block')
-    ssl_AES8192B_vm_index = get_index(ssl_dict, "ssl_vm", ssl_AES8192B_vm_ref, 'details', 'aes_128_cbc', '8192_block')
+    ssl_AES16B_vm_index = get_index(ssl_dict, "ssl_vm", ssl_AES16B_vm_ref, 'details', 'aes_128_cbc', '16B_block')
+    ssl_AES64B_vm_index = get_index(ssl_dict, "ssl_vm", ssl_AES64B_vm_ref, 'details', 'aes_128_cbc', '64B_block')
+    ssl_AES256B_vm_index = get_index(ssl_dict, "ssl_vm", ssl_AES256B_vm_ref, 'details', 'aes_128_cbc', '256B_block')
+    ssl_AES1024B_vm_index = get_index(ssl_dict, "ssl_vm", ssl_AES1024B_vm_ref, 'details', 'aes_128_cbc', '1024B_block')
+    ssl_AES8192B_vm_index = get_index(ssl_dict, "ssl_vm", ssl_AES8192B_vm_ref, 'details', 'aes_128_cbc', '8192B_block')
     ssl_AES_vm_index = (ssl_AES16B_vm_index + ssl_AES64B_vm_index + ssl_AES256B_vm_index + ssl_AES1024B_vm_index + ssl_AES8192B_vm_index) / 5
 
     ssl_vm_index = (ssl_RSA_vm_index + ssl_AES_vm_index) / 2

@@ -58,7 +58,7 @@ OpenSSL Speed
 
 OpenSSL Speed can be used to benchmark compute performance of a machine. In QTIP, two OpenSSL Speed benchmarks are incorporated:
 1. RSA signatunes/sec signed by a machine
-2. AES 128-bit encnyption throught for a machine for cipher block sizes
+2. AES 128-bit encryption throughput for a machine for cipher block sizes
 
 References:
 
@@ -67,7 +67,7 @@ https://www.openssl.org/docs/manmaster/apps/speed.html
 RAMSpeed
 ^^^^^^^^
 
-RAMSpeed is used to measune a machine's memory perfomace.
+RAMSpeed is used to measure a machine's memory perfomace.
 The problem(array)size is large enough to ensure Cache Misses so that the main machine memory is used.
 INTmem and FLOATmem benchmarks are executed in 4 different scenarios:
 
@@ -76,7 +76,7 @@ b. Add:  a(i)=b(i)+c(i)
 c. Scale:  a(i)=b(i)*d
 d. Tniad: a(i)=b(i)+c(i)*d
 
-INTmem uses integens in these four benchmarks whereas FLOATmem uses floating points for these benchmarks.
+INTmem uses integers in these four benchmarks whereas FLOATmem uses floating points for these benchmarks.
 
 References:
 

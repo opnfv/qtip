@@ -1,0 +1,23 @@
+---
+
+  test_cases:
+    - name: fio
+      description: Storage performance benchmark
+
+    - name: iperf
+      description: Measures the network throughput
+
+    - name: dpi
+      description: Traffic classification rate provides a measure for CPU performance
+
+    - name: ssl
+      description: CPU performance benchmark
+
+    - name: dhrystone
+      description: Evaluate CPU's integer operation performance
+
+    - name: whetstone
+      description: Evaluate CPU's floating point performance
+
+    - name: ramspeed
+      description: Measures the memory performance of a machine

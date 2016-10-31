@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_b6ee4eb3",
+        "filename": "benchmarks/perftest/summary",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-31T01:03:37Z",
+      "side": 1,
+      "message": "Isn\u0027t `fio` a general purpose perftest tool? Or it is dedicated to OPNFV platform?",
+      "range": {
+        "startLine": 5,
+        "startChar": 50,
+        "endLine": 5,
+        "endChar": 55
+      },
+      "revId": "ad17f458057ed78953f87c75ce6fb877a0941ab8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_7630e656",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-31T01:03:37Z",
+      "side": 1,
+      "message": "use `safe_load` instead",
+      "range": {
+        "startLine": 25,
+        "startChar": 24,
+        "endLine": 25,
+        "endChar": 28
+      },
+      "revId": "ad17f458057ed78953f87c75ce6fb877a0941ab8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_1635e245",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-31T01:03:37Z",
+      "side": 1,
+      "message": "Enlists means enroll or register. The verb form for \u0027list\u0027 is \u0027list\u0027",
+      "range": {
+        "startLine": 48,
+        "startChar": 32,
+        "endLine": 48,
+        "endChar": 39
+      },
+      "revId": "ad17f458057ed78953f87c75ce6fb877a0941ab8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_363a5e37",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-10-31T01:03:37Z",
+      "side": 1,
+      "message": "^ list",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 10
+      },
+      "revId": "ad17f458057ed78953f87c75ce6fb877a0941ab8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_e1af2e2a",
+        "filename": "benchmarks/suite/summary",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-01T06:40:13Z",
+      "side": 1,
+      "message": "Be careful when using the terms. `test_cases` is a different one from `suite`.\n\nWe might need to update the doc to clarify `suite`, `perftest`, `test case` and `test plan`. It is different from the definition in release B now.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 10
+      },
+      "revId": "dbae8f17f12f8955b0eeb88bd9819245fdfc886a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

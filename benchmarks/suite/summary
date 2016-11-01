@@ -1,0 +1,11 @@
+---
+
+suite_cases:
+  - name: Compute
+    description: Evaluate hypervisor overhead to computational operations
+
+  - name: Network
+    description: Analyze hypervisor's contribution to network latency or congestion
+
+  - name: Storage
+    description: Storage component performance assessment

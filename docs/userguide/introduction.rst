@@ -13,8 +13,8 @@ run QTIP the first time when the user pull QTIP image on to their host machine.
 In order to install and config QTIP please follow the instructions in the
 configuration.rst located in docs/configguide/configuration.rst.
 
-QTIP Directory structure:
--------------------------
+QTIP Directory structure
+========================
 
 The QTIP directory has been sectioned off into multiple folders to facilitate
  segmenting information into relevant categories. The folders that concern

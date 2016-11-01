@@ -9,6 +9,3 @@ case "$INSTALLER_TYPE" in
         ssh $sshoptions -i ./config/QtipKey root@$DEST_IP "sed -i '/root@$HOSTNAME/d' /root/.ssh/authorized_keys"
         ;;
 esac
-
-
-

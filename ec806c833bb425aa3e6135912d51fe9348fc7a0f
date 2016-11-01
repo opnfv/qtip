@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_1c0f41e3",
+        "filename": "docs/developerguide/dashboard.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2016-11-01T09:32:38Z",
+      "side": 1,
+      "message": "on",
+      "range": {
+        "startLine": 44,
+        "startChar": 45,
+        "endLine": 44,
+        "endChar": 46
+      },
+      "revId": "ec806c833bb425aa3e6135912d51fe9348fc7a0f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_dcf8d9c6",
+        "filename": "docs/developerguide/dashboard.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2016-11-01T09:32:38Z",
+      "side": 1,
+      "message": "you mean that conditions which do not affect **may** be ignored ?",
+      "range": {
+        "startLine": 44,
+        "startChar": 66,
+        "endLine": 44,
+        "endChar": 69
+      },
+      "revId": "ec806c833bb425aa3e6135912d51fe9348fc7a0f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_5c04e97d",
+        "filename": "cli/commands/suite.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-01T11:57:07Z",
+      "side": 1,
+      "message": "Use `__file__` to make it independent from PWD.",
+      "revId": "8fd812eccb09b642c442652f1d9f1feda25e261a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

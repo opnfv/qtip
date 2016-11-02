@@ -56,6 +56,22 @@ Specially, it is recommended to link each patch set with a JIRA issue. Put
 
 in commit message to create an automatic link.
 
+*************
+Documentation
+*************
+
+The documents are built automatically by sphinx from reStructuredText (reST).
+Please read `reStructuredText Primer`_ if you are not familiar with it.
+
+A cheat sheet for headings are as following
+
+* # with overline, for parts
+* * with overline, for chapters
+* =, for sections
+* -, for subsections
+* ^, for subsubsections
+* ", for paragraphs
+
 ************************
 Frequent Asked Questions
 ************************
@@ -77,3 +93,4 @@ to submit. The current members are listed in `INFO`_.
 .. _Issue Types: https://jira.opnfv.org/secure/ShowConstantsHelp.jspa?decorator=popup#IssueTypes
 .. _OpenStack Style Guidelines: http://docs.openstack.org/developer/hacking/
 .. _INFO: https://git.opnfv.org/cgit/qtip/tree/INFO
+.. _reStructuredText Primer: http://www.sphinx-doc.org/en/stable/rest.html

@@ -16,7 +16,7 @@ to configure OPNFV with this specific installer
 
 
 Installing QTIP using Docker
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+============================
 
 QTIP has a Docker images on the docker hub. Pulling opnfv/qtip docker image
 from docker hub:
@@ -50,11 +50,11 @@ be navigated to using the following command.
 
 
 OpenStack parameters and credentials
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+====================================
 
 
 Environment variables
-"""""""""""""""""""""
+---------------------
 
 Before running QTIP it is necessary to export OpenStack environment variables
 from the OpenStack *openrc* file. This can be done by running the following
@@ -69,7 +69,7 @@ environment variables.
 
 
 QTIP  default key pair
-""""""""""""""""""""""
+----------------------
 
 QTIP uses a SSH key pair to connect to the guest image. You should generate key pair
 before running QTIP test. And put key pair in the ``config/`` directory.

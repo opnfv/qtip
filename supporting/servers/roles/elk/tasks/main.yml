@@ -27,16 +27,17 @@
   apt: name=docker-engine
 
 - name: install pip
-  apt:
-    pkg:{{ item }} state=installed
-    state: installed
+  become: true
+  apt: name={{item}} state=installed
   with_items:
     - python-dev
     - python-pip
 
 - name: install docker-py
+  become: true
   pip:
     name: docker-py
+    version: 1.7.0
 
 - name: pulling elasticsearch and kibana
   become: true

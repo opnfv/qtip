@@ -1,4 +1,5 @@
 ---
 - hosts: elk-servers
   roles:
+    - docker
     - elk

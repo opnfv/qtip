@@ -1,0 +1,9 @@
+Verified+1: jenkins-ci <jenkins-opnfv-ci@opnfv.org>
+Code-Review+2: Yujun Zhang <zhang.yujunz@zte.com.cn>
+Code-Review+1: Taseer Ahmed <taseer94@gmail.com>
+Code-Review+2: zhifeng jiang <jiang.zhifeng@zte.com.cn>
+Submitted-by: zhifeng jiang <jiang.zhifeng@zte.com.cn>
+Submitted-at: Thu, 03 Nov 2016 08:05:45 +0000
+Reviewed-on: https://gerrit.opnfv.org/gerrit/23911
+Project: qtip
+Branch: refs/heads/master

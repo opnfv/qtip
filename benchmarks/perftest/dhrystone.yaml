@@ -19,13 +19,13 @@
       register: home_dir
 
     - name: cleaning tempT
-      file: path=$HOME/tempT state=absent
+      file: path={{home_dir.stdout}}/tempT state=absent
 
     - name: cleaning qtip_result
-      file: path=$HOME/qtip_result state=absent
+      file: path={{home_dir.stdout}}/qtip_result state=absent
 
     - name: make directory
-      file: path=$HOME/qtip_result state=directory
+      file: path={{home_dir.stdout}}/qtip_result state=directory
 
     - include: ./common/sys_proxy_pbook.yaml
 
@@ -88,10 +88,10 @@
       with_items: "{{copy_log_results.stdout_lines}}"
 
     - name: cleaning tempT
-      file: path=$HOME/tempT state=absent
+      file: path={{home_dir.stdout}}/tempT state=absent
 
     - name: cleaning_qtip_result
-      file: path=$HOME/qtip_result state=absent
+      file: path={{home_dir.stdout}}/qtip_result state=absent
 
  - hosts: localhost
    connection: local

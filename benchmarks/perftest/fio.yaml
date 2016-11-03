@@ -20,16 +20,16 @@
       register: home_dir
 
     - name: cleaning fio directory
-      file: path=$HOME/fio state=absent
+      file: path={{home_dir.stdout}}/fio state=absent
 
     - name: cleaning previous results
-      file: path=$HOME/qtip_result state=absent
+      file: path={{home_dir.stdout}}/qtip_result state=absent
 
     - name: making fio temporary directory
-      file: path=$HOME/fio state=directory
+      file: path={{home_dir.stdout}}/fio state=directory
 
     - name: making  results temporary directory
-      file: path=$HOME/qtip_result state=directory
+      file: path={{home_dir.stdout}}/qtip_result state=directory
 
     - include: ./common/sys_proxy_pbook.yaml
 
@@ -61,7 +61,7 @@
       shell: cd $HOME/fio/fio-2.1.10  &&  sudo ./fio --output-format=json --output=$HOME/qtip_result/fio_result.json fio_test_job
 
     - name: Fetching result transformation script
-      copy: src={{workingdir}}/utils/fio_transform.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/utils/transform/fio_transform.py dest={{home_dir.stdout}}/qtip_result
 
     - name: Transforming result
       shell: cd $HOME/qtip_result  &&  sudo python fio_transform.py
@@ -89,10 +89,10 @@
       with_items: "{{copy_log_results.stdout_lines}}"
 
     - name: cleaning fio
-      file: path=$HOME/fio state=absent
+      file: path={{home_dir.stdout}}/fio state=absent
 
     - name: cleaning_qtip_result
-      file: path=$HOME/qtip_result
+      file: path={{home_dir.stdout}}/qtip_result state=absent
 
  - hosts: localhost
    connection: local
@@ -109,4 +109,4 @@
       shell: ( find {{workingdir}}/{{Dest_dir}}/fio/fio_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/fio/logs)
 
     - name: removing fio_log
-      file: {{workingdir}}/{{Dest_dir}}/fio/fio_temp state=absent
+      file: path={{workingdir}}/{{Dest_dir}}/fio/fio_temp state=absent

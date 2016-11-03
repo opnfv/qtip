@@ -19,16 +19,16 @@
       register: home_dir
 
     - name: cleaning Open_SSL directory
-      file: path=$HOME/Open_SSL state=absent
+      file: path={{home_dir.stdout}}/Open_SSL state=absent
 
     - name: cleaning_qtip_result
-      file: path=$HOME/qtip_result state=absent
+      file: path={{home_dir.stdout}}/qtip_result state=absent
 
     - name: making OpenSSL temporary directory
-      file: path=$HOME/Open_SSL state=directory
+      file: path={{home_dir.stdout}}/Open_SSL state=directory
 
     - name: making  results temporary directory
-      file: path=$HOME/qtip_result state=directory
+      file: path={{home_dir.stdout}}/qtip_result state=directory
 
     - include: ./common/sys_proxy_pbook.yaml
 
@@ -93,10 +93,10 @@
       with_items: "{{copy_log_results.stdout_lines}}"
 
     - name: cleaning Open_SSL directory
-      file: path=$HOME/Open_SSL state=absent
+      file: path={{home_dir.stdout}}/Open_SSL state=absent
 
     - name: cleaning_qtip_result
-      file: path=$HOME/qtip_result state=absent
+      file: path={{home_dir.stdout}}/qtip_result state=absent
 
  - hosts: localhost
    connection: local

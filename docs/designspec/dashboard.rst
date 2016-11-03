@@ -57,11 +57,32 @@ The condition of a benchmark result includes
 Conditions that do NOT have an obvious affect on the test result may be ignored,
 e.g. temperature, power supply.
 
-Deviation
----------
+Stats
+-----
 
-Performance tests are usually repeated many times to reduce random disturbance.
-This view shall show an overview of deviation among different runs.
+Performance tests are actually measurement of specific metrics. All measurement
+comes with uncertainty. The final result is normally one or a group of metrics
+calculated from many repeats.
+
+For each metric, the stats board shall consist of a diagram of all measured
+values and a box of stats::
+
+  ^                                                  +------------+
+  |                                                  |  count: ?  |
+  |                                                  |average: ?  |
+  |                                                  |    min: ?  |
+  |                   X                              |    max: ?  |
+  | XXXX          XXXX X              XXXXX          |            |
+  |X    XX      XX      XX XXX     XXX     XX        |            |
+  |       XXXXXX          X   XXXXX          XX      |            |
+  |                                                  |            |
+  |                                                  |            |
+  |                                                  |            |
+  |                                                  |            |
+  |                                                  |            |
+  +--------------------------------------------->    +------------+
+
+The type of diagram and selection of stats shall depend on what metric to show.
 
 Comparison
 ----------

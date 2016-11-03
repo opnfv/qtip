@@ -20,16 +20,16 @@
       register: home_dir
 
     - name: cleaning ramspeed directory
-      file: path=$HOME/ramspeed state=absent
+      file: path={{home_dir.stdout}}/ramspeed state=absent
 
     - name: cleaning previous results
-      file: path=$HOME/qtip_result state=absent
+      file: path={{home_dir.stdout}}/qtip_result state=absent
 
     - name: making ramspeed temporary directory
-      file: path=$HOME/ramspeed state=directory
+      file: path={{home_dir.stdout}}/ramspeed state=directory
 
     - name: making  results temporary directory
-      file: path=$HOME/qtip_result state=directory
+      file: path={{home_dir.stdout}}/qtip_result state=directory
 
     - include: ./common/sys_proxy_pbook.yaml
 
@@ -64,7 +64,7 @@
       shell: cd $HOME/ramspeed/ramsmp-3.5.0  &&  ./ramsmp -b 6 -l 5 -p 1 >> $HOME/qtip_result/Floatmem
 
     - name: Fetching result transformation script
-      copy: src={{workdingdir}}/utils/transform/ramspeed_transform.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/utils/transform/ramspeed_transform.py dest={{home_dir.stdout}}/qtip_result
 
     - name: Transforming result
       shell: cd $HOME/qtip_result  &&  sudo python ramspeed_transform.py
@@ -92,10 +92,10 @@
       with_items: "{{copy_log_results.stdout_lines}}"
 
     - name: cleaning ramspeed directory
-      file: path=$HOME/ramspeed state=absent
+      file: path={{home_dir.stdout}}/ramspeed state=absent
 
     - name: cleaning previous results
-      file: path=$HOME/qtip_result state=absent
+      file: path={{home_dir.stdout}}/qtip_result state=absent
 
  - hosts: localhost
    connection: local

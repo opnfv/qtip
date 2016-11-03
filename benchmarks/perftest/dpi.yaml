@@ -22,13 +22,13 @@
       register: home_dir
 
     - name: cleaning
-      file: path=$HOME/tempD state=absent
+      file: path={{home_dir.stdout}}/tempD state=absent
 
     - name: cleaning previous results
-      file: path=$HOME/qtip_result state=absent
+      file: path={{home_dir.stdout}}/qtip_result state=absent
 
     - name: make qtip_result
-      file: path=$HOME/qtip_result state=directory
+      file: path={{home_dir.stdout}}/qtip_result state=directory
 
     - include: ./common/sys_proxy_pbook.yaml
 
@@ -75,13 +75,13 @@
       shell: sudo cp $HOME/tempD/nDPI/example/dpi_dump.txt $HOME/qtip_result
 
     - name: fetch dpi result transform script
-      copy: src={{workdingdir}}/utils/transform/dpi_transform.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/utils/transform/dpi_transform.py dest={{home_dir.stdout}}/qtip_result
 
     - name: Transforming results
       shell: cd $HOME/qtip_result && sudo python dpi_transform.py
 
     - name: copy report formation script
-      copy: src={{workdingdir}}/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
 
     - name: consolidating report
       shell: cd $HOME/qtip_result && sudo python final_report.py DPI {{fname}}
@@ -103,10 +103,10 @@
       with_items: "{{copy_log_results.stdout_lines}}"
 
     - name: cleaning tempD
-      file: path=$HOME/tempD state=absent
+      file: path={{home_dir.stdout}}/tempD state=absent
 
     - name: cleaning_qtip_result
-      file: path=$HOME/qtip_result state=absent
+      file: path={{home_dir.stdout}}/qtip_result state=absent
 
  - hosts: localhost
    connection: local

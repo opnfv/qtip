@@ -19,13 +19,13 @@
       register: home_dir
 
     - name: cleaning tempT directory
-      file: path=$HOME/tempT state=absent
+      file: path={{home_dir.stdout}}/tempT state=absent
 
     - name: cleaning qtip result directory
-      file: path=$HOME/qtip_result state=absent
+      file: path={{home_dir.stdout}}/qtip_result state=absent
 
     - name: making qtip_result directory
-      file: path=$HOME/qtip_result state=directory
+      file: path={{home_dir.stdout}}/qtip_result state=directory
 
     - include: ./common/sys_proxy_pbook.yaml
 
@@ -88,10 +88,10 @@
       with_items: "{{copy_log_results.stdout_lines}}"
 
     - name: cleaning tempT directory
-      file: path=$HOME/tempT state=absent
+      file: path={{home_dir.stdout}}/tempT state=absent
 
     - name: cleaning qtip result directory
-      file: path=$HOME/qtip_result state=absent
+      file: path={{home_dir.stdout}}/qtip_result state=absent
 
  - hosts: localhost
    connection: local
@@ -108,4 +108,4 @@
       shell: ( find {{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/whetstone/logs)
 
     - name: removing whetstone_temp
-      file: {{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp state=absent
+      file: path={{workingdir}}/{{Dest_dir}}/whetstone/whetstone_temp state=absent

@@ -10,12 +10,13 @@
 from prettytable import PrettyTable
 import yaml
 import click
+import os
 
 
 class PerfTest:
 
     def __init__(self):
-        self.path = 'benchmarks/perftest/summary'
+        self.path = os.path.join(os.path.dirname(__file__), '..', '..', 'benchmarks/perftest/summary')
 
     def list(self):
         table = PrettyTable(["Name", "Description"])

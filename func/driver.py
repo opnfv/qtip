@@ -65,7 +65,7 @@ class Driver:
         logger.info(extra_vars)
         ansible_api = AnsibleApi()
         ansible_api.execute_playbook('./config/hosts',
-                                     './benchmarks/playbooks/{0}.yaml'.format(benchmark),
+                                     './benchmarks/perftest/{0}.yaml'.format(benchmark),
                                      './config/QtipKey', extra_vars)
         return self.get_ansible_result(extra_vars['role'], ansible_api.get_detail_playbook_stats())
 

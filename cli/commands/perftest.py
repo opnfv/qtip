@@ -10,12 +10,14 @@
 from prettytable import PrettyTable
 import yaml
 import click
+import os
+from cli import helper
 
 
 class PerfTest:
 
     def __init__(self):
-        self.path = 'benchmarks/perftest/summary'
+        self.path = os.path.join(helper.fetch_root(), 'perftest/summary')
 
     def list(self):
         table = PrettyTable(["Name", "Description"])

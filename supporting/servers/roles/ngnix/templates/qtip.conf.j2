@@ -1,0 +1,17 @@
+# {{ ansible_managed }}
+
+# servers
+#
+{% for service in qtip_services %}
+server {
+  listen 80;
+  listen 443 ssl;
+  server_name {{ service.name }}.qtip.openzero.net;
+  location / {
+    proxy_pass {{ service.upstream }};
+    sub_filter {{ service.upstream }}  'http://{{ service.name }}.qtip.openzero.net';
+    sub_filter_once off;
+    sub_filter_types text/html application/json;
+  }
+}
+{% endfor %}

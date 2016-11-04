@@ -133,3 +133,19 @@ A draft design is as following::
                                              | HIDE COMMON|
                                              +------------+
 
+Time line
+---------
+
+Time line diagram for analysis of time critical performance test::
+
+  +-----------------+-----------+-------------+-------------+-----+
+  |                 |           |             |             |     |
+  +----------------->           |             |             |     |
+  |                 +----------->             |             |     |
+  |                 ? ms        +------------->             |     |
+  |                             ? ms          +------------>+     |
+  |                                           ? ms          ? ms  |
+  |                                                               |
+  +---------------------------------------------------------------+
+
+The time cost between checkpoints shall be displayed in the diagram.

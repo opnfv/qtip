@@ -22,6 +22,29 @@
       "revId": "73db8d6e9cd2dfdf34ce72189f94e19134d0f4b9",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_f94a8226",
+        "filename": "docs/designspec/dashboard.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2016-11-04T07:33:51Z",
+      "side": 1,
+      "message": "I think it should simply be:\n\n\"A typical stats board shall consist of ..... \"",
+      "range": {
+        "startLine": 67,
+        "startChar": 28,
+        "endLine": 67,
+        "endChar": 30
+      },
+      "revId": "73db8d6e9cd2dfdf34ce72189f94e19134d0f4b9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

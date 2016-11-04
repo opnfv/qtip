@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_f624d1c7",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-04T01:14:30Z",
+      "side": 1,
+      "message": "The root path is common for `suite` and `perftest`. Please consider put them in a common module.\n\nAnd it would be nice to make it configurable to allow user to switch to an alternative collection, private or local.",
+      "range": {
+        "startLine": 19,
+        "startChar": 33,
+        "endLine": 19,
+        "endChar": 83
+      },
+      "revId": "2e7e121135eb142326910011719005c3a7fd8bef",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_993c9e95",
+        "filename": "docs/designspec/dashboard.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-11-04T07:29:45Z",
+      "side": 1,
+      "message": "The final result is qtip index or the result of one qtip test case. If it is the result of qtip test case, it could be not one value.",
+      "range": {
+        "startLine": 64,
+        "startChar": 53,
+        "endLine": 64,
+        "endChar": 72
+      },
+      "revId": "73db8d6e9cd2dfdf34ce72189f94e19134d0f4b9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

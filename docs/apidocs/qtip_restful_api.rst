@@ -7,4 +7,4 @@
 Qtip restful api
 ****************
 
-You can get all the Qtip restful api by http://qtip_server_ip:5000/api/spec.html.
+You can get all the Qtip restful api by http://restful_api.qtip.openzero.net/api/spec.html.

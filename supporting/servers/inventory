@@ -5,3 +5,6 @@ qtip-dev
 
 [ngnix-servers]
 qtip-dev
+
+[qtip-servers]
+qtip-dev

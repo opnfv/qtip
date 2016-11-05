@@ -1,6 +1,9 @@
 import pytest
 import mock
 from func.driver import Driver
+from os.path import expanduser
+
+HOME_DIR = expanduser('~')
 
 
 class TestClass:
@@ -15,7 +18,7 @@ class TestClass:
           {'http_proxy': 'http://10.20.0.1:8118',
            'https_proxy': 'http://10.20.0.1:8118',
            'no_proxy': 'localhost,127.0.0.1,10.20.*,192.168.*'}],
-         [{'Dest_dir': 'results',
+         [{'Dest_dir': HOME_DIR + '/qtip/results',
            'ip1': '',
            'ip2': '',
            'installer': 'fuel',
@@ -37,7 +40,7 @@ class TestClass:
           [('duration', 20), ('protocol', 'tcp'), ('bandwidthGbps', 0)],
           [('1-server', '10.10.17.4'), ('2-host', '10.10.17.5')],
           {}],
-         [{'Dest_dir': 'results',
+         [{'Dest_dir': HOME_DIR + '/qtip/results',
            'ip1': '10.20.0.13',
            'ip2': '',
            'installer': 'joid',
@@ -49,7 +52,7 @@ class TestClass:
            'protocol': 'tcp',
            'bandwidthGbps': 0,
            "role": "1-server"},
-          {'Dest_dir': 'results',
+          {'Dest_dir': HOME_DIR + '/qtip/results',
            'ip1': '10.20.0.13',
            'ip2': '',
            'installer': 'joid',

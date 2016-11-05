@@ -9,6 +9,7 @@
 from utils import logger_utils
 from operator import add
 from ansible_api import AnsibleApi
+from os.path import expanduser
 
 
 logger = logger_utils.QtipLogger('driver').get
@@ -35,7 +36,7 @@ class Driver:
 
     def get_common_var_json(self, installer_type, pwd, benchmark_fname,
                             benchmark_detail, pip_dict, proxy_info):
-        common_json = {'Dest_dir': 'results',
+        common_json = {'Dest_dir': expanduser('~') + '/qtip/results',
                        'ip1': '',
                        'ip2': '',
                        'installer': str(installer_type),

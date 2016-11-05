@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_ecf71e8b",
+        "filename": "docs/designspec/dashboard.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2016-11-05T08:06:54Z",
+      "side": 1,
+      "message": "Time line is used to display benmark testcase running time or to display bemark result value which with time unit?",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 9
+      },
+      "revId": "256898f50ce6ae729f90312985245b8a4ae6079e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

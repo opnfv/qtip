@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_0cce2a5b",
+        "filename": "supporting/servers/roles/qtip/tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-05T04:29:24Z",
+      "side": 1,
+      "message": "put a TODO comment to mark future work",
+      "revId": "73a2bd7f8e16673cad1b1d8d5d1ef7ddba5bc8c0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

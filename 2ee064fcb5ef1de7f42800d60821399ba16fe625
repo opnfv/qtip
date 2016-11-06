@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_4c72f2e6",
+        "filename": "cli/helper.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-06T00:03:25Z",
+      "side": 1,
+      "message": "Missing license header.",
+      "revId": "2ee064fcb5ef1de7f42800d60821399ba16fe625",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

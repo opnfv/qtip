@@ -89,3 +89,47 @@ Comparison
 
 Comparison can be done between different PODs or different configuration on the
 same PODs.
+
+In a comparison view, the metrics are displayed in the same diagram. And the
+parameters are listed side by side.
+
+Both common parameters and different parameters are listed. Common values are
+merged to the same cell. And user may configure the view to hide common rows.
+
+A draft design is as following::
+
+    ^
+    |
+    |
+    |
+    |           XXXXXXXX
+    |         XXX      XX+-+ XXXXXXXXXX
+    |      XXX          +XXXX         XXXXX
+    +-+XX X         +--+    ++            XXXXXX     +-+
+    | X+-+X   +----+          +-+              +----+X
+    |X    +--+                   +---+         XXXXXX X
+    |                                 +-------+        X
+    |
+    |
+    +----------------------------------------------------->
+
+    +--------------------+----------------+---------------+
+    | different param 1  |                |               |
+    |                    |                |               |
+    +-----------------------------------------------------+
+    | different param 2  |                |               |
+    |                    |                |               |
+    +-------------------------------------+---------------+
+    | common param 1     |                                |
+    |                    |                                |
+    +-------------------------------------+---------------+
+    | different param 3  |                |               |
+    |                    |                |               |
+    +-------------------------------------+---------------+
+    | common param 2     |                                |
+    |                    |                                |
+    +--------------------+--------------------------------+
+                                             +------------+
+                                             | HIDE COMMON|
+                                             +------------+
+

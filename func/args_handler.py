@@ -14,6 +14,10 @@ from func.spawn_vm import SpawnVM
 from func.driver import Driver
 
 
+def fetch_root():
+    return os.path.join(os.path.dirname(__file__), os.pardir, 'benchmarks/')
+
+
 def get_files_in_suite(suite_name, case_type='all'):
     benchmark_list = json.load(file('benchmarks/suite/{0}'.format(suite_name)))
     return reduce(add, benchmark_list.values()) \

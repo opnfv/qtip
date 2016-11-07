@@ -378,4 +378,4 @@ Stop running QTIP job by restful api.The job will finish the current benchmark t
 
 Results:
 --------
-QTIP generates results in the `results/` directory are listed down under the particularly benchmark name. So all the results for dhrystone would be listed and time stamped.
+In QTIP container, QTIP generates results in the `/home/opnfv/qtip/results/` directory are listed down under the particularly benchmark name. So all the results for dhrystone would be listed and time stamped.

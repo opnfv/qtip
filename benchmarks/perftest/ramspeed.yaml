@@ -4,10 +4,10 @@
 
    tasks:
     - name: making ramspeed  directory
-      file: path={{workingdir}}/{{Dest_dir}}/ramspeed state=directory
+      file: path={{Dest_dir}}/ramspeed state=directory
 
     - name: making temporary ramspeed directory
-      file: path={{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp state=directory
+      file: path={{Dest_dir}}/ramspeed/ramspeed_temp state=directory
 
 
  - hosts:  "{{role}}"
@@ -80,7 +80,7 @@
       register: files_to_copy
 
     - name: copy results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/ramspeed/ramspeed_temp
       with_items: "{{files_to_copy.stdout_lines}}"
 
     - name: registering log files
@@ -88,7 +88,7 @@
       register: copy_log_results
 
     - name: copying log results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/ramspeed/ramspeed_temp
       with_items: "{{copy_log_results.stdout_lines}}"
 
     - name: cleaning ramspeed directory
@@ -103,13 +103,13 @@
 
    tasks:
     - name: extracting_json
-      shell: ( find  {{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/ramspeed/)
+      shell: (find /{{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.json" | xargs cp -t {{Dest_dir}}/ramspeed/)
 
     - name: making_logs_folder
-      file: path={{workingdir}}/{{Dest_dir}}/ramspeed/logs state=directory
+      file: path={{Dest_dir}}/ramspeed/logs state=directory
 
     - name: extracting_log
-      shell: ( find {{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/ramspeed/logs)
+      shell: ( find {{Dest_dir}}/ramspeed/ramspeed_temp/ -name "*.log" | xargs cp -t {{Dest_dir}}/ramspeed/logs)
 
     - name: removing ramspeed_log
-      file: path={{workingdir}}/{{Dest_dir}}/ramspeed/ramspeed_temp state=absent
+      file: path={{Dest_dir}}/ramspeed/ramspeed_temp state=absent

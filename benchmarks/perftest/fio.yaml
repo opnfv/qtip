@@ -4,10 +4,10 @@
 
    tasks:
     - name: making fio  directory
-      file: path={{workingdir}}/{{Dest_dir}}/fio state=directory
+      file: path={{Dest_dir}}/fio state=directory
 
     - name: making temporary fio directory
-      file: path={{workingdir}}/{{Dest_dir}}/fio/fio_temp state=directory
+      file: path={{Dest_dir}}/fio/fio_temp state=directory
 
 
  - hosts: "{{role}}"
@@ -77,7 +77,7 @@
       register: files_to_copy
 
     - name: copy results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/fio/fio_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/fio/fio_temp
       with_items: "{{files_to_copy.stdout_lines}}"
 
     - name: registering log files
@@ -85,7 +85,7 @@
       register: copy_log_results
 
     - name: copying log results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/fio/fio_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/fio/fio_temp
       with_items: "{{copy_log_results.stdout_lines}}"
 
     - name: cleaning fio
@@ -100,13 +100,13 @@
 
    tasks:
     - name: extracting_json
-      shell: ( find  {{workingdir}}/{{Dest_dir}}/fio/fio_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/fio/)
+      shell: (find {{Dest_dir}}/fio/fio_temp/ -name "*.json" | xargs cp -t {{Dest_dir}}/fio/)
 
     - name: making_logs_folder
-      file: path={{workingdir}}/{{Dest_dir}}/fio/logs state=directory
+      file: path={{Dest_dir}}/fio/logs state=directory
 
     - name: extracting_log
-      shell: ( find {{workingdir}}/{{Dest_dir}}/fio/fio_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/fio/logs)
+      shell: (find {{Dest_dir}}/fio/fio_temp/ -name "*.log" | xargs cp -t {{Dest_dir}}/fio/logs)
 
     - name: removing fio_log
-      file: path={{workingdir}}/{{Dest_dir}}/fio/fio_temp state=absent
+      file: path={{Dest_dir}}/fio/fio_temp state=absent

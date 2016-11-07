@@ -10,6 +10,7 @@ import json
 import importlib
 import sys
 from utils import logger_utils
+from os.path import expanduser
 
 logger = logger_utils.QtipLogger('suite_result').get
 
@@ -43,7 +44,8 @@ def get_suite_result(suite_name):
         suite_index = temp / l
         suite_dict_f = {'index': suite_index,
                         'suite_results': suite_dict}
-        with open('results/{0}_result.json'.format(suite_name), 'w+') as result_json:
+        result_path = expanduser('~') + '/qtip/results'
+        with open('{0}/{1}_result.json'.format(result_path, suite_name), 'w+') as result_json:
             json.dump(suite_dict_f, result_json, indent=4, sort_keys=True)
         return True
 

@@ -3,15 +3,11 @@
    gather_facts: no
 
    tasks:
-    - name: getting directory
-      shell: sudo echo $PWD
-      register: qtip_dir
-
     - name: making Iperf directory
-      file: path={{workingdir}}/{{Dest_dir}}/iperf state=directory
+      file: path={{Dest_dir}}/iperf state=directory
 
     - name: making temporary iperf directory
-      file: path={{workingdir}}/{{Dest_dir}}/iperf/iperf_temp state=directory
+      file: path={{Dest_dir}}/iperf/iperf_temp state=directory
 
 
  - hosts: "{{role}}"
@@ -117,7 +113,7 @@
       when: rolename =="2-host" and "{{ip2}}" == ''
     
     - name: copy results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/iperf/iperf_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/iperf/iperf_temp
       with_items: "{{files_to_copy.stdout_lines}}"
       when: rolename =="2-host" and "{{ip2}}" == ''
 
@@ -127,7 +123,7 @@
       when: rolename =="2-host" and "{{ip2}}" == ''
 
     - name: copying log results
-      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{workingdir}}/{{Dest_dir}}/iperf/iperf_temp
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/iperf/iperf_temp
       with_items: "{{copy_log_results.stdout_lines}}"
       when: rolename =="2-host" and "{{ip2}}" == ''
 
@@ -148,19 +144,19 @@
         when: role is defined
 
     - name: extracting_json
-      shell: ( find  {{workingdir}}/{{Dest_dir}}/iperf/iperf_temp/ -name "*.json" | xargs cp -t {{workingdir}}/{{Dest_dir}}/iperf/)
+      shell: (find {{Dest_dir}}/iperf/iperf_temp/ -name "*.json" | xargs cp -t {{Dest_dir}}/iperf/)
       when: rolename == "2-host"
 
     - name: making_logs_folder
-      file: path={{workingdir}}/{{Dest_dir}}/iperf/logs state=directory
+      file: path={{Dest_dir}}/iperf/logs state=directory
 
     - name: extracting_log
-      shell: ( find {{workingdir}}/{{Dest_dir}}/iperf/iperf_temp/ -name "*.log"  | xargs cp -t {{workingdir}}/{{Dest_dir}}/iperf/logs)
+      shell: ( find {{Dest_dir}}/iperf/iperf_temp/ -name "*.log" | xargs cp -t {{Dest_dir}}/iperf/logs)
       when: rolename == "2-host"
 
     - name: removing iperf_raw file
-      file: path={{workingdir}}/{{Dest_dir}}/iperf/iperf_raw.json state=absent
+      file: path={{Dest_dir}}/iperf/iperf_raw.json state=absent
       when: rolename == "2-host"
 
     - name: removing iperf_temp
-      file: path={{workingdir}}/{{Dest_dir}}/iperf/iperf_temp state=absent
+      file: path={{Dest_dir}}/iperf/iperf_temp state=absent

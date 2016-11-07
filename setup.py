@@ -9,7 +9,7 @@ setup(
     description='Platform Performance Benchmarking for OPNFV',
     author='OPNFV',
     author_email='zhang.yujunz@zte.com.cn',
-    install_requires=['click'],
+    install_requires=['click', 'pyyaml', 'prettytable'],
     packages=['cli'],
     entry_points={
         'console_scripts': ['qtip=cli.entry:cli']

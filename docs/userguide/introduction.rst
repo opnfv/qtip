@@ -18,9 +18,9 @@ QTIP Directory structure
 
 The QTIP directory has been sectioned off into multiple folders to facilitate
  segmenting information into relevant categories. The folders that concern
- the end user are `test_cases/` and `benchmarks/suite/`.
+ the end user are `test_plan/` and `benchmarks/suite/`.
 
-**test_cases/:**
+**test_plan/:**
 
 This folder is used to store all the config files which are used to setup the
 environment prior to a test. This folder is further divided into opnfv pods
@@ -33,9 +33,9 @@ part of a opnfv pod,and for opnfv CI.
 The structure of the directory for the user appears as follows
 ::
 
-  test_cases/default/compute
-  test_cases/default/network
-  test_cases/default/storage
+  test_plan/default/compute
+  test_plan/default/network
+  test_plan/default/storage
 
 The benchmarks that are part of the QTIP framework are listed under these
 folders. An example of the compute folder is shown below.
@@ -315,7 +315,7 @@ Commands to run the Framework:
 ------------------------------
 
 In order to start QTIP on the default lab please use the following commands (asssuming your installer
-is 'fuel' or 'compass', you use the config files in the test_cases/default/ directory and listed the
+is 'fuel' or 'compass', you use the config files in the test_plan/default/ directory and listed the
 intended suite in the benchmarks/suite/<RELEVANT-SUITE-FILE>):
 
 First step is to export the necessary information to the environment and generate QTIP key pair.

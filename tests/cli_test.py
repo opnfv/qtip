@@ -9,7 +9,7 @@ class TestClass:
         (['-l',
           'zte',
           '-f',
-          'compute'], "You have specified a lab that is not present in test_cases"),
+          'compute'], "You have specified a lab that is not present in test_plan"),
         (['-l',
           'default',
           '-f',
@@ -28,8 +28,8 @@ class TestClass:
         (['-l',
           'default',
           '-f',
-          'storage'], [('fuel', '/home', './test_cases/default/storage/fio_bm.yaml'),
-                       ('fuel', '/home', './test_cases/default/storage/fio_vm.yaml')])
+          'storage'], [('fuel', '/home', './test_plan/default/storage/fio_bm.yaml'),
+                       ('fuel', '/home', './test_plan/default/storage/fio_vm.yaml')])
     ])
     @mock.patch('func.cli.args_handler.prepare_and_run_benchmark')
     def test_cli_successful(self, mock_args_handler, test_input, expected):

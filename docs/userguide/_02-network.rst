@@ -25,7 +25,7 @@ One of the compute nodes is used as a server and the other as a client.
 The client pushes traffic to the server for a duration specified by the user in the configuration file for Iperf3.
 
 
-These files can be found in the "test_cases/{POD}/network/" directory.
+These files can be found in the "test_plan/{POD}/network/" directory.
 The bandwidth is limited by the physical link layer speed connecting the two compute nodes.
 The result file includes the b/s bandwidth and the CPU usage for both the client and server.
 

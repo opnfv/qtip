@@ -23,7 +23,7 @@ class Cli:
         parser = argparse.ArgumentParser()
         parser.add_argument('-l ', '--lab', required=True, help='Name of Lab '
                             'on which being tested, These can'
-                            'be found in the test_cases/ directory. Please '
+                            'be found in the test_plan/ directory. Please '
                             'ensure that you have edited the respective files '
                             'before using them. For testing other than through Jenkins'
                             ' The user should list default after -l . all the fields in'
@@ -49,12 +49,12 @@ class Cli:
             sys.exit(1)
 
         if not args_handler.check_lab_name(args.lab):
-            logger.error("You have specified a lab that is not present under test_cases/.\
+            logger.error("You have specified a lab that is not present under test_plan/.\
                 Please enter correct file. If unsure how to proceed, use -l default.")
             sys.exit(1)
         suite = args.file
         benchmarks = args_handler.get_files_in_suite(suite)
-        test_cases = args_handler.get_files_in_test_case(args.lab, suite)
+        test_cases = args_handler.get_files_in_test_plan(args.lab, suite)
         benchmarks_list = filter(lambda x: x in test_cases, benchmarks)
 
         if args.benchmark:

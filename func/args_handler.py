@@ -20,14 +20,14 @@ def get_files_in_suite(suite_name, case_type='all'):
         if case_type == 'all' else benchmark_list[case_type]
 
 
-def get_files_in_test_case(lab, suite_name, case_type='all'):
-    test_case_all = os.listdir('./test_cases/{0}/{1}'.format(lab, suite_name))
+def get_files_in_test_plan(lab, suite_name, case_type='all'):
+    test_case_all = os.listdir('./test_plan/{0}/{1}'.format(lab, suite_name))
     return test_case_all if case_type == 'all' else \
         filter(lambda x: case_type in x, test_case_all)
 
 
 def get_benchmark_path(lab, suit, benchmark):
-    return './test_cases/{0}/{1}/{2}'.format(lab, suit, benchmark)
+    return './test_plan/{0}/{1}/{2}'.format(lab, suit, benchmark)
 
 
 def check_suite(suite_name):
@@ -35,11 +35,11 @@ def check_suite(suite_name):
 
 
 def check_lab_name(lab_name):
-    return True if os.path.isdir('test_cases/' + lab_name) else False
+    return True if os.path.isdir('test_plan/' + lab_name) else False
 
 
 def check_benchmark_name(lab, file, benchmark):
-    return os.path.isfile('test_cases/' + lab + '/' + file + '/' + benchmark)
+    return os.path.isfile('test_plan/' + lab + '/' + file + '/' + benchmark)
 
 
 def _get_f_name(test_case_path):

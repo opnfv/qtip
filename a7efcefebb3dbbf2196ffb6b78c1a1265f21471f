@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_ec0b9e29",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-07T00:39:56Z",
+      "side": 1,
+      "message": "I though we have separate the `perftest` from `suite`. Do we still need the context of `suite` for running a `perftest`?",
+      "range": {
+        "startLine": 34,
+        "startChar": 18,
+        "endLine": 34,
+        "endChar": 28
+      },
+      "revId": "a7efcefebb3dbbf2196ffb6b78c1a1265f21471f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_4c175252",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-07T00:39:56Z",
+      "side": 1,
+      "message": "Should it be `perftest` according to our new folder structure?",
+      "range": {
+        "startLine": 34,
+        "startChar": 30,
+        "endLine": 34,
+        "endChar": 39
+      },
+      "revId": "a7efcefebb3dbbf2196ffb6b78c1a1265f21471f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_2c120663",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-07T00:39:56Z",
+      "side": 1,
+      "message": "^ a",
+      "range": {
+        "startLine": 40,
+        "startChar": 64,
+        "endLine": 40,
+        "endChar": 67
+      },
+      "revId": "a7efcefebb3dbbf2196ffb6b78c1a1265f21471f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_8c1d3a76",
+        "filename": "cli/commands/perftest.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-07T00:39:56Z",
+      "side": 1,
+      "message": "^ benchmark",
+      "range": {
+        "startLine": 40,
+        "startChar": 34,
+        "endLine": 40,
+        "endChar": 42
+      },
+      "revId": "a7efcefebb3dbbf2196ffb6b78c1a1265f21471f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

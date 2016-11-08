@@ -8,37 +8,13 @@
 ##############################################################################
 
 import click
-
-from cli.commands.cli_ansible import CliAnsible
+from cli.commands import perftest
+from cli.commands import suite
+from cli.commands import install
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
+cli = click.CommandCollection(sources=[perftest.cli, suite.cli, install.cli])
 
-@click.group(context_settings=CONTEXT_SETTINGS)
-@click.version_option(version='0.1.dev0')
-def cli():
-    pass
-
-_ansible = CliAnsible()
-
-
-@cli.group()
-@click.pass_context
-def ansible(ctx):
-    pass
-
-
-@ansible.command('prepare', help="Prepares the ansible environment. "
-                                 "This step is needed run benchmarks.")
-def ansible_prepare():
-    _ansible.prepare()
-
-
-@ansible.command('show', help="Shows the current ansible configuration.")
-def ansible_show():
-    _ansible.show()
-
-
-@ansible.command('status', help="Checks if ansible still connects to hosts.")
-def ansible_status():
-    _ansible.status()
+if __name__ == '__main__':
+    cli()

@@ -1,0 +1,5 @@
+---
+# TODO:change the script to docker_container.
+- name: setting up qtip
+  become: true
+  script: ../files/run_qtip_server.sh

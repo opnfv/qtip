@@ -1,0 +1,4 @@
+---
+- hosts: qtip-servers
+  roles:
+    - qtip

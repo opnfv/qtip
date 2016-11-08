@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_2a3746e5",
+        "filename": "cli/commands/suite.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-08T00:52:32Z",
+      "side": 1,
+      "message": "Lab will be renamed to \"test_plan\". And what is \"suite_case\"? I think we should use consistent terms in project folder, documentation and code.",
+      "range": {
+        "startLine": 29,
+        "startChar": 18,
+        "endLine": 29,
+        "endChar": 21
+      },
+      "revId": "788b5731fa4f11dc3854ac26d5ca46fd029dbea3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

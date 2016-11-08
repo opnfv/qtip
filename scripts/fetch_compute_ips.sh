@@ -110,7 +110,7 @@ if [ -z "$IPS" ]; then
 else
    echo "-------- all compute node ips: --------"
    touch $HOME/ips.log
-   echo "$IPS" > $HOME/ips.log
+   echo "$IPS" > $HOME/qtip/ips.log
    echo $IPS
 fi
 

@@ -113,8 +113,7 @@ class Env_setup:
             (installer_type, installer_ip)
         logger.info(cmd)
         os.system(cmd)
-        home = expanduser("~")
-        with open(home + "/ips.log", "r") as file:
+        with open(expanduser('~') + "/qtip/ips.log", "r") as file:
             data = file.read()
         if data:
             ips.extend(data.rstrip('\n').split('\n'))

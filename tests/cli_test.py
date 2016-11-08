@@ -2,6 +2,7 @@ import pytest
 import mock
 import os
 from func.cli import Cli
+from os.path import expanduser
 
 
 class TestClass:
@@ -9,11 +10,11 @@ class TestClass:
         (['-l',
           'zte',
           '-f',
-          'compute'], "You have specified a lab that is not present in test_plan"),
+          'compute'], "You have specified a lab that is not present under test_plan"),
         (['-l',
           'default',
           '-f',
-          'test'], "This suite file doesn't exist under benchmarks/suite/")
+          'test'], "This suite file test doesn't exist under benchmarks/suite/")
     ])
     def test_cli_error(self, capfd, test_input, expected):
         k = mock.patch.dict(os.environ, {'INSTALLER_TYPE': 'fuel', 'PWD': '/home'})
@@ -21,8 +22,9 @@ class TestClass:
             k.start()
             Cli(test_input)
             k.stop()
-        resout, reserr = capfd.readouterr()
-        assert expected in resout
+	with open(expanduser('~') + "/qtip/logs/cli.log", "r") as file:
+            data = file.read()
+        assert expected in data
 
     @pytest.mark.parametrize("test_input, expected", [
         (['-l',

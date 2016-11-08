@@ -44,7 +44,7 @@ class Cli:
 
         args = self._parse_args(args)
         if not args_handler.check_suite(args.file):
-            logger.error("ERROR: This suite file doesn't exist under benchmarks/suite/.\
+            logger.error("ERROR: This suite file %s doesn't exist under benchmarks/suite/.\
                 Please enter correct file." % str(args.file))
             sys.exit(1)
 

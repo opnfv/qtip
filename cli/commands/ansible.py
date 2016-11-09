@@ -14,7 +14,7 @@ import click
 ANSIBLE_CONF = '{}/conf/ansible.cfg'.format(os.environ['HOME'])
 
 
-class CliAnsible:
+class Ansible:
 
     def __init__(self):
         pass

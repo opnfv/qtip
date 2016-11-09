@@ -9,7 +9,7 @@
 
 import click
 
-from cli.commands.cli_ansible import CliAnsible
+from cli.commands.ansible import Ansible
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
@@ -19,7 +19,7 @@ CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 def cli():
     pass
 
-_ansible = CliAnsible()
+_ansible = Ansible()
 
 
 @cli.group()

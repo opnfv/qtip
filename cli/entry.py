@@ -9,7 +9,7 @@
 
 import click
 
-from cli.commands.ansible import Ansible
+from cli.commands import ansible
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
@@ -19,26 +19,7 @@ CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 def cli():
     pass
 
-_ansible = Ansible()
+cli = click.CommandCollection(sources=[ansible.cli])
 
-
-@cli.group()
-@click.pass_context
-def ansible(ctx):
-    pass
-
-
-@ansible.command('prepare', help="Prepares the ansible environment. "
-                                 "This step is needed run benchmarks.")
-def ansible_prepare():
-    _ansible.prepare()
-
-
-@ansible.command('show', help="Shows the current ansible configuration.")
-def ansible_show():
-    _ansible.show()
-
-
-@ansible.command('status', help="Checks if ansible still connects to hosts.")
-def ansible_status():
-    _ansible.status()
+if __name__ == '__main__':
+    cli()

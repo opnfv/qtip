@@ -12,9 +12,9 @@ import yaml
 import heatclient.client
 import keystoneclient
 import time
-from func.env_setup import Env_setup
-from func.create_zones import AvailabilityZone
-from utils import logger_utils
+from env_setup import Env_setup
+from create_zones import AvailabilityZone
+import logger_utils
 
 logger = logger_utils.QtipLogger('spawn_vm').get
 

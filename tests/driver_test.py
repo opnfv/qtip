@@ -1,6 +1,6 @@
 import pytest
 import mock
-from func.driver import Driver
+from utils.driver import Driver
 from os.path import expanduser
 
 HOME_DIR = expanduser('~')
@@ -65,8 +65,8 @@ class TestClass:
            'bandwidthGbps': 0,
            "role": "2-host"}])
     ])
-    @mock.patch('func.driver.AnsibleApi.execute_playbook')
-    @mock.patch('func.driver.AnsibleApi.get_detail_playbook_stats')
+    @mock.patch('utils.driver.AnsibleApi.execute_playbook')
+    @mock.patch('utils.driver.AnsibleApi.get_detail_playbook_stats')
     def test_driver_success(self, mock_stats, mock_ansible, test_input, expected):
         mock_ansible.return_value = True
         mock_stats.return_value = [(u'10.20.6.14', {'unreachable': 0,

@@ -8,13 +8,11 @@
 ##############################################################################
 import os
 from collections import namedtuple
-
 from ansible.executor.playbook_executor import PlaybookExecutor
 from ansible.inventory import Inventory
 from ansible.parsing.dataloader import DataLoader
 from ansible.vars import VariableManager
-
-from utils import logger_utils
+import logger_utils
 
 logger = logger_utils.QtipLogger('ansible_api').get
 

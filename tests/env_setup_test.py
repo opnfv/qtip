@@ -9,7 +9,7 @@
 
 import pytest
 import filecmp
-from func.env_setup import Env_setup
+from utils.env_setup import Env_setup
 import mock
 
 
@@ -38,8 +38,6 @@ class TestClass:
                                       'no_proxy': 'localhost,127.0.0.1,10.20.*,192.168.*'}])
     ])
     def test_parse_success(self, test_input, expected):
-        print (test_input)
-        print (expected)
         test_class = Env_setup()
         mock_ips = mock.Mock(return_value=["10.20.0.28", "10.20.0.29"])
         test_class.fetch_compute_ips = mock_ips

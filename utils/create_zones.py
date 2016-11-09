@@ -11,7 +11,7 @@ from keystoneclient import session
 from novaclient import client
 import os
 import random
-from utils import logger_utils
+import logger_utils
 
 logger = logger_utils.QtipLogger('create_zones').get
 

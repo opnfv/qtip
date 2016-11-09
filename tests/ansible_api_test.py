@@ -6,7 +6,7 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-from func.ansible_api import AnsibleApi
+from utils.ansible_api import AnsibleApi
 
 
 class TestClass:

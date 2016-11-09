@@ -9,9 +9,9 @@
 import os
 from operator import add
 import simplejson as json
-from func.env_setup import Env_setup
-from func.spawn_vm import SpawnVM
-from func.driver import Driver
+from env_setup import Env_setup
+from spawn_vm import SpawnVM
+from driver import Driver
 
 
 def get_files_in_suite(suite_name, case_type='all'):

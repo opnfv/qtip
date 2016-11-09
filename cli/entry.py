@@ -9,7 +9,8 @@
 
 import click
 
-from cli.commands.cli_ansible import CliAnsible
+from cli.commands.ansible import Ansible
+from cli.commands.perftest import PerfTest
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
@@ -19,7 +20,7 @@ CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 def cli():
     pass
 
-_ansible = CliAnsible()
+_ansible = Ansible()
 
 
 @cli.group()
@@ -42,3 +43,21 @@ def ansible_show():
 @ansible.command('status', help="Checks if ansible still connects to hosts.")
 def ansible_status():
     _ansible.status()
+
+
+@cli.group()
+@click.pass_context
+def perftest(ctx):
+    pass
+
+_perftest = PerfTest()
+
+
+@perftest.command("list", help="Lists all perftest benchmarks.")
+def list():
+    _perftest.list()
+
+
+@perftest.command("run", help="Executes a single perftest benchmark.")
+def execute():
+    _perftest.run()

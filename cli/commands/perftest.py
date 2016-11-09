@@ -32,26 +32,3 @@ class PerfTest:
 
     def run(self):
         click.echo("Run a perftest")
-
-
-@click.group()
-def cli():
-    pass
-
-
-@cli.group()
-@click.pass_context
-def perftest(ctx):
-    pass
-
-_perftest = PerfTest()
-
-
-@perftest.command("list", help="Lists all perftest benchmarks.")
-def list():
-    _perftest.list()
-
-
-@perftest.command("run", help="Executes a single perftest benchmark.")
-def execute():
-    _perftest.run()

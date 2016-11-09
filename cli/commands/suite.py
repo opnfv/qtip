@@ -27,26 +27,3 @@ class Suite:
 
     def run(self):
         print("Run a suite")
-
-
-@click.group()
-def cli():
-    pass
-
-
-@cli.group()
-@click.pass_context
-def suite(ctx):
-    pass
-
-_suite = Suite()
-
-
-@suite.command("list", help="Lists all the available suites")
-def list():
-    _suite.list()
-
-
-@suite.command("run", help="Execute one complete suite")
-def execute():
-    _suite.run()

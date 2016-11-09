@@ -10,6 +10,7 @@
 import click
 
 from cli.commands.cli_ansible import CliAnsible
+from cli.commands.suite import Suite
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
@@ -42,3 +43,21 @@ def ansible_show():
 @ansible.command('status', help="Checks if ansible still connects to hosts.")
 def ansible_status():
     _ansible.status()
+
+
+@cli.group()
+@click.pass_context
+def suite(ctx):
+    pass
+
+_suite = Suite()
+
+
+@suite.command("list", help="Lists all the available suites")
+def list():
+    _suite.list()
+
+
+@suite.command("run", help="Execute one complete suite")
+def execute():
+    _suite.run()

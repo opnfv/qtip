@@ -10,12 +10,13 @@
 from prettytable import PrettyTable
 import os
 import click
+from cli import helper
 
 
 class Suite:
 
     def __init__(self):
-        self.path = os.path.join(os.path.dirname(__file__), '..', '..', 'benchmarks/suite')
+        self.path = os.path.join(helper.fetch_root(), 'benchmarks/suite')
 
     def list(self):
         table = PrettyTable(["Name"])

@@ -2,7 +2,7 @@ import pytest
 import mock
 from mock import Mock, MagicMock
 import os
-from func.create_zones import AvailabilityZone
+from utils.create_zones import AvailabilityZone
 
 return_list = []
 
@@ -61,9 +61,9 @@ class TestClass:
          ['create:compute1:compute1',
           'add_host:compute1:10.20.0.4']),
     ])
-    @mock.patch('func.create_zones.client', autospec=True)
-    @mock.patch('func.create_zones.v2', autospec=True)
-    @mock.patch('func.create_zones.session')
+    @mock.patch('utils.create_zones.client', autospec=True)
+    @mock.patch('utils.create_zones.v2', autospec=True)
+    @mock.patch('utils.create_zones.session')
     def test_create_zones_success(self, mock_keystone_session, mock_keystone_v2, mock_nova_client, test_input, expected, capfd):
         nova_obj = NovaMock()
         mock_nova_client.Client.return_value = nova_obj()
@@ -73,7 +73,7 @@ class TestClass:
                                          'OS_TENANT_NAME': 'admin'})
         k.start()
         azone = AvailabilityZone()
-        azone.create_agg(test_input)
+        azone.create_aggs(test_input)
         k.stop()
         resout, reserr = capfd.readouterr()
         for x in expected:
@@ -88,9 +88,9 @@ class TestClass:
         ([],
          []),
     ])
-    @mock.patch('func.create_zones.client', autospec=True)
-    @mock.patch('func.create_zones.v2', autospec=True)
-    @mock.patch('func.create_zones.session')
+    @mock.patch('utils.create_zones.client', autospec=True)
+    @mock.patch('utils.create_zones.v2', autospec=True)
+    @mock.patch('utils.create_zones.session')
     def test_clean_all_aggregates(self, mock_keystone_session, mock_keystone_v2, mock_nova_client, test_input, expected, capfd):
         global return_list
         return_list = test_input

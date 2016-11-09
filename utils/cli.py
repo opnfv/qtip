@@ -11,7 +11,7 @@ import sys
 import os
 import args_handler
 import argparse
-from utils import logger_utils
+import logger_utils
 
 logger = logger_utils.QtipLogger('cli').get
 

@@ -6,11 +6,10 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-from utils import logger_utils
+import logger_utils
 from operator import add
 from ansible_api import AnsibleApi
 from os.path import expanduser
-
 
 logger = logger_utils.QtipLogger('driver').get
 

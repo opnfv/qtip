@@ -6,7 +6,6 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-
 import os
 import random
 import socket
@@ -16,7 +15,7 @@ from collections import defaultdict
 from os.path import expanduser
 import paramiko
 import yaml
-from utils import logger_utils
+import logger_utils
 
 logger = logger_utils.QtipLogger('env_setup').get
 

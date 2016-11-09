@@ -2,7 +2,7 @@ import pytest
 import mock
 from mock import Mock, MagicMock
 import os
-from func.spawn_vm import SpawnVM
+from utils.spawn_vm import SpawnVM
 
 
 class KeystoneMock(MagicMock):
@@ -40,10 +40,10 @@ class TestClass:
           'role': ['1-server', '2-host']},
          [('172.10.0.154', '')]),
     ])
-    @mock.patch('func.spawn_vm.Env_setup')
-    @mock.patch('func.spawn_vm.AvailabilityZone')
-    @mock.patch('func.spawn_vm.keystoneclient.v2_0', autospec=True)
-    @mock.patch('func.spawn_vm.heatclient.client', autospec=True)
+    @mock.patch('utils.spawn_vm.Env_setup')
+    @mock.patch('utils.spawn_vm.AvailabilityZone')
+    @mock.patch('utils.spawn_vm.keystoneclient.v2_0', autospec=True)
+    @mock.patch('utils.spawn_vm.heatclient.client', autospec=True)
     def test_create_zones_success(self, mock_heat, mock_keystone,
                                   mock_zone, mock_setup, test_input, expected):
         open('./config/QtipKey.pub', 'a').close()

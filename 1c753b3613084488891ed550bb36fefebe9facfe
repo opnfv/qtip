@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_3b3799e5",
+        "filename": "cli/commands/cmd_install.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-10T07:53:05Z",
+      "side": 1,
+      "message": "I think it should be \"QTIP release version\".\n\nThe underlying is docker image version but what is interested to user is QTIP version. And it is possible we integrate also the supporting service in the installer.",
+      "range": {
+        "startLine": 19,
+        "startChar": 43,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "1c753b3613084488891ed550bb36fefebe9facfe",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_db33f5f4",
+        "filename": "cli/commands/cmd_install.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-10T07:53:05Z",
+      "side": 1,
+      "message": "This could be an option instead of command. Refer to https://github.com/yyuu/pyenv/blob/master/COMMANDS.md#pyenv-install",
+      "range": {
+        "startLine": 44,
+        "startChar": 9,
+        "endLine": 44,
+        "endChar": 16
+      },
+      "revId": "1c753b3613084488891ed550bb36fefebe9facfe",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_3e922758",
+        "filename": "cli/commands/cmd_install.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2016-11-10T19:01:47Z",
+      "side": 1,
+      "message": "This would be replaced by the actual function. Moved the correction to the help of the command itself.",
+      "parentUuid": "5ac10518_3b3799e5",
+      "range": {
+        "startLine": 19,
+        "startChar": 43,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "1c753b3613084488891ed550bb36fefebe9facfe",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_db33f5f4",
         "filename": "cli/commands/cmd_install.py",
         "patchSetId": 1

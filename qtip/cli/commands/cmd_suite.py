@@ -10,6 +10,7 @@
 from prettytable import PrettyTable
 import os
 import click
+from cli import helper
 
 
 class Suite:

@@ -8,25 +8,30 @@
 ##############################################################################
 
 from prettytable import PrettyTable
-import os
+import yaml
 import click
+import os
+from qtip.cli import helper
 
 
-class Suite:
+class PerfTest:
 
     def __init__(self):
-        self.path = os.path.join(os.path.dirname(__file__), '..', '..', 'benchmarks/suite')
+        self.path = os.path.join(helper.fetch_root(), 'perftest/summary')
 
     def list(self):
-        table = PrettyTable(["Name"])
+        table = PrettyTable(["Name", "Description"])
         table.align = 'l'
-        suites = os.listdir(self.path)
-        for suite in suites:
-            table.add_row([suite])
+        with open(self.path) as tests:
+            line = tests.read()
+            data = yaml.safe_load(line)['test_cases']
+            for i in range(0, len(data)):
+                points = data[i]
+                table.add_row([points['name'], points['description']])
         click.echo(table)
 
     def run(self):
-        print("Run a suite")
+        click.echo("Run a perftest")
 
 
 @click.group()
@@ -36,17 +41,17 @@ def cli():
 
 @cli.group()
 @click.pass_context
-def suite(ctx):
+def perftest(ctx):
     pass
 
-_suite = Suite()
+_perftest = PerfTest()
 
 
-@suite.command("list", help="Lists all the available suites")
+@perftest.command("list", help="Lists all perftest benchmarks.")
 def list():
-    _suite.list()
+    _perftest.list()
 
 
-@suite.command("run", help="Execute one complete suite")
+@perftest.command("run", help="Executes a single perftest benchmark.")
 def execute():
-    _suite.run()
+    _perftest.run()

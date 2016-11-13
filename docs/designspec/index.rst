@@ -11,3 +11,4 @@ QTIP Design Specifications
    :maxdepth: 2
 
    dashboard.rst
+   compute_QPI.rst

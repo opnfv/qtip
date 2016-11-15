@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_efc4e760",
+        "filename": "docs/designspec/compute_QPI.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-15T00:19:19Z",
+      "side": 1,
+      "message": "Wrap long lines so it will be easier to review in gerrit.",
+      "revId": "7aa2eb52a8e3e081a15ec55db6fb1289752c2ef2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

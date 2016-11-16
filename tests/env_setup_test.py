@@ -9,7 +9,7 @@
 
 import pytest
 import filecmp
-from utils.env_setup import Env_setup
+from qtip.utils.env_setup import Env_setup
 import mock
 
 

@@ -8,7 +8,7 @@
 ##############################################################################
 import pytest
 import mock
-import utils.args_handler
+import qtip.utils.args_handler
 
 
 class TestClass:
@@ -20,16 +20,16 @@ class TestClass:
           [('duration', 20), ('protocol', 'tcp'), ('bandwidthGbps', 10)],
           [("10.20.0.24", [None]), ("10.20.0.23", [None])], {}])
     ])
-    @mock.patch('utils.args_handler.Env_setup.call_ping_test')
-    @mock.patch('utils.args_handler.Env_setup.call_ssh_test')
-    @mock.patch('utils.args_handler.Env_setup.update_ansible')
-    @mock.patch('utils.args_handler.SpawnVM')
-    @mock.patch('utils.args_handler.Driver.drive_bench')
+    @mock.patch('qtip.utils.args_handler.Env_setup.call_ping_test')
+    @mock.patch('qtip.utils.args_handler.Env_setup.call_ssh_test')
+    @mock.patch('qtip.utils.args_handler.Env_setup.update_ansible')
+    @mock.patch('qtip.utils.args_handler.SpawnVM')
+    @mock.patch('qtip.utils.args_handler.Driver.drive_bench')
     def test_prepare_and_run_benchmark_successful(self, mock_driver, mock_sqawn_vm, mock_env_setup_ping,
                                                   mock_env_setup_ssh, mock_update_ansible, test_input, expected):
         mock_ips = mock.Mock(return_value=["10.20.0.23", "10.20.0.24"])
-        utils.args_handler.Env_setup.fetch_compute_ips = mock_ips
-        utils.args_handler.prepare_and_run_benchmark(test_input[0], test_input[1], test_input[2])
+        qtip.utils.args_handler.Env_setup.fetch_compute_ips = mock_ips
+        qtip.utils.args_handler.prepare_and_run_benchmark(test_input[0], test_input[1], test_input[2])
         call = mock_driver.call_args
         call_args, call_kwargs = call
         assert sorted(map(sorted, call_args)) == sorted(map(sorted, expected))

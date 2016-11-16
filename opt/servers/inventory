@@ -1,4 +1,4 @@
-qtip-dev        ansible_host=qtip.openzero.net
+qtip-dev        ansible_host=dev.qtip.io
 
 [elk-servers]
 qtip-dev

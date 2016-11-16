@@ -9,7 +9,7 @@
 import json
 import importlib
 import sys
-from utils import logger_utils
+from qtip.utils import logger_utils
 from os.path import expanduser
 
 logger = logger_utils.QtipLogger('suite_result').get

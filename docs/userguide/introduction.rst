@@ -18,7 +18,7 @@ QTIP Directory structure
 
 The QTIP directory has been sectioned off into multiple folders to facilitate
  segmenting information into relevant categories. The folders that concern
- the end user are `test_plan/` and `benchmarks/suite/`.
+ the end user are `benchmarks/test_plan/` and `benchmarks/suite/`.
 
 **test_plan/:**
 
@@ -315,7 +315,7 @@ Commands to run the Framework:
 ------------------------------
 
 In order to start QTIP on the default lab please use the following commands (asssuming your installer
-is 'fuel' or 'compass', you use the config files in the test_plan/default/ directory and listed the
+is 'fuel' or 'compass', you use the config files in the benchmarks/test_plan/default/ directory and listed the
 intended suite in the benchmarks/suite/<RELEVANT-SUITE-FILE>):
 
 First step is to export the necessary information to the environment and generate QTIP key pair.

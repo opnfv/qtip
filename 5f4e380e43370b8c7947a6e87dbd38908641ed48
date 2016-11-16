@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_b5795295",
+        "filename": "qtip/cli/commands/cmd_version.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-16T05:39:20Z",
+      "side": 1,
+      "message": "`show` is different from `list`",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 8
+      },
+      "revId": "5f4e380e43370b8c7947a6e87dbd38908641ed48",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_7573eab1",
+        "filename": "qtip/cli/commands/cmd_version.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-16T05:39:20Z",
+      "side": 1,
+      "message": "version is normally a string, not number, alias like \u0027latest\u0027 also valid version string.\n\nBut I couldn\u0027t figure out a good name at the moment.",
+      "range": {
+        "startLine": 46,
+        "startChar": 17,
+        "endLine": 46,
+        "endChar": 23
+      },
+      "revId": "5f4e380e43370b8c7947a6e87dbd38908641ed48",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_556eeeca",
+        "filename": "qtip/cli/commands/cmd_version.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-16T05:39:20Z",
+      "side": 1,
+      "message": "why a different name from `install`?",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 12
+      },
+      "revId": "5f4e380e43370b8c7947a6e87dbd38908641ed48",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_156866b9",
+        "filename": "qtip/cli/commands/cmd_version.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-16T05:39:20Z",
+      "side": 1,
+      "message": "why a different name?",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 10
+      },
+      "revId": "5f4e380e43370b8c7947a6e87dbd38908641ed48",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -8,7 +8,7 @@
 ##############################################################################
 import json
 import scripts.ref_results.suite_result as suite_result
-import dashboard.pushtoDB as push_to_db
+import qtip.utils.dashboard.pushtoDB as push_to_db
 
 
 def dump_suite_result(suite_name):

@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_90ba24e0",
+        "filename": "docs/designspec/compute_QPI.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-17T01:25:07Z",
+      "side": 1,
+      "message": "If possible, provide a link to the product page",
+      "range": {
+        "startLine": 15,
+        "startChar": 33,
+        "endLine": 15,
+        "endChar": 42
+      },
+      "revId": "3953216af6577954f116bc993618a17aae1f6a29",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_70e21805",
+        "filename": "docs/designspec/compute_QPI.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-17T01:25:07Z",
+      "side": 1,
+      "message": "Invalid format",
+      "revId": "3953216af6577954f116bc993618a17aae1f6a29",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_b0bf20d0",
+        "filename": "docs/designspec/compute_QPI.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-17T01:25:07Z",
+      "side": 1,
+      "message": "It seems these content have similar structure, using a table might be more intuitive.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 73
+      },
+      "revId": "3953216af6577954f116bc993618a17aae1f6a29",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_50b4bcf1",
+        "filename": "docs/designspec/compute_QPI.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-17T01:25:07Z",
+      "side": 1,
+      "message": "Put a reference link on why we are using weighted arithmetic. And the formula for weighted arithmetic.",
+      "range": {
+        "startLine": 62,
+        "startChar": 29,
+        "endLine": 62,
+        "endChar": 48
+      },
+      "revId": "3953216af6577954f116bc993618a17aae1f6a29",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

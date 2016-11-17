@@ -10,9 +10,9 @@ setup(
     author='OPNFV',
     author_email='zhang.yujunz@zte.com.cn',
     install_requires=['click', 'pyyaml', 'prettytable'],
-    packages=['cli'],
+    packages=['qtip.cli'],
     entry_points={
-        'console_scripts': ['qtip=cli.entry:cli']
+        'console_scripts': ['qtip=qtip.cli.entry:cli']
     },
     license='Apache-2.0',
     keywords="performance benchmark opnfv",

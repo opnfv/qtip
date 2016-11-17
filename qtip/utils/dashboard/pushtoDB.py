@@ -3,7 +3,7 @@ import json
 import datetime
 import os
 import sys
-from utils import logger_utils
+from qtip.utils import logger_utils
 
 logger = logger_utils.QtipLogger('push_db').get
 

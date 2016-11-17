@@ -12,8 +12,8 @@ from flask_restful_swagger import swagger
 import threading
 from copy import copy
 import db
-import utils.args_handler as args_handler
-import restful_server.result_handler as result_handler
+import qtip.utils.args_handler as args_handler
+import qtip.api.result_handler as result_handler
 
 
 app = Flask(__name__)

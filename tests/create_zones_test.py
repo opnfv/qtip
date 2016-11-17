@@ -2,7 +2,7 @@ import pytest
 import mock
 from mock import Mock, MagicMock
 import os
-from utils.create_zones import AvailabilityZone
+from qtip.utils.create_zones import AvailabilityZone
 
 return_list = []
 
@@ -57,13 +57,13 @@ class TestClass:
           'add_host:compute1:10.20.0.4',
           'create:compute2:compute2',
           'add_host:compute2:10.20.0.5']),
-        (['compute1', 'compute1'],
+        (['compute1'],
          ['create:compute1:compute1',
           'add_host:compute1:10.20.0.4']),
     ])
-    @mock.patch('utils.create_zones.client', autospec=True)
-    @mock.patch('utils.create_zones.v2', autospec=True)
-    @mock.patch('utils.create_zones.session')
+    @mock.patch('qtip.utils.create_zones.client', autospec=True)
+    @mock.patch('qtip.utils.create_zones.v2', autospec=True)
+    @mock.patch('qtip.utils.create_zones.session')
     def test_create_zones_success(self, mock_keystone_session, mock_keystone_v2, mock_nova_client, test_input, expected, capfd):
         nova_obj = NovaMock()
         mock_nova_client.Client.return_value = nova_obj()
@@ -88,9 +88,9 @@ class TestClass:
         ([],
          []),
     ])
-    @mock.patch('utils.create_zones.client', autospec=True)
-    @mock.patch('utils.create_zones.v2', autospec=True)
-    @mock.patch('utils.create_zones.session')
+    @mock.patch('qtip.utils.create_zones.client', autospec=True)
+    @mock.patch('qtip.utils.create_zones.v2', autospec=True)
+    @mock.patch('qtip.utils.create_zones.session')
     def test_clean_all_aggregates(self, mock_keystone_session, mock_keystone_v2, mock_nova_client, test_input, expected, capfd):
         global return_list
         return_list = test_input

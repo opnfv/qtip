@@ -1,0 +1,10 @@
+---
+- name: pulling mongo
+  become: true
+  docker_image: name=mongo:3.2.1 state=present
+
+- name: setting up mongo
+  become: true
+  docker_container:
+    name: mongo
+    image: mongo:3.2.1

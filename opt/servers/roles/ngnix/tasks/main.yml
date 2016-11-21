@@ -8,5 +8,6 @@
   with_items:
     - elk
     - qtip
+    - testapi
   notify:
     - restart nginx

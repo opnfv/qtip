@@ -1,4 +1,4 @@
-qtip-dev        ansible_host=dev.qtip.io
+qtip-dev        ansible_host=54.209.126.178
 
 [elk-servers]
 qtip-dev
@@ -7,4 +7,7 @@ qtip-dev
 qtip-dev
 
 [qtip-servers]
+qtip-dev
+
+[testapi-servers]
 qtip-dev

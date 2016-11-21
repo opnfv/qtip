@@ -1,0 +1,4 @@
+---
+- name: setting up testapi
+  become: true
+  script: ../files/run_testapi.sh

@@ -28,6 +28,14 @@ def push_results_to_db(db_url, case_name, payload, installer, pod_name):
     logger.info('pod_name:{0},installer:{1},creation_data:{2}'.format(pod_name,
                                                                       installer,
                                                                       creation_date))
+    # temporary code, will be deleted after Bigergia dashboard is ready
+    try:
+        qtip_testapi_url = "http://testapi.qtip.openzero.net/results"
+        qtip_testapi_r = requests.post(qtip_testapi_url, data=json.dumps(params), headers=headers)
+        logger.info('Pushing Results to qtip_testapi: %s'.format(qtip_testapi_r))
+    except:
+        logger.info("Pushing Results to qtip_testapi Error:{0}".format(sys.exc_info()[0]))
+
     try:
         r = requests.post(url, data=json.dumps(params), headers=headers)
         logger.info(r)

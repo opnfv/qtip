@@ -11,7 +11,7 @@ from prettytable import PrettyTable
 import yaml
 import click
 import os
-from cli import helper
+from qtip.cli import helper
 
 
 class PerfTest:

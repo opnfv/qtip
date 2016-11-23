@@ -15,6 +15,8 @@ Peer review is the most important communication channel between developers.
 Every subtle change to the code or document **MUST** be reviewed before
 submission.
 
+Add group ``qtip-reviewers`` in `gerrit`_ when you consider a patch set is ready.
+
 Please make sure there is at least one ``+1`` or ``+2`` from others before
 submitting[#f1] a patch set.
 
@@ -88,6 +90,7 @@ to submit. The current members are listed in `INFO`_.
 .. rubric:: Reference
 
 .. _Developer Getting Started: https://wiki.opnfv.org/display/DEV/Developer+Getting+Started
+.. _gerrit: https://gerrit.opnfv.org/gerrit/#/q/project:+qtip
 .. _JIRA: https://jira.opnfv.org/browse/QTIP
 .. _OPNFV Releases: https://wiki.opnfv.org/display/SWREL
 .. _Issue Types: https://jira.opnfv.org/secure/ShowConstantsHelp.jspa?decorator=popup#IssueTypes

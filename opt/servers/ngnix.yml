@@ -1,4 +1,0 @@
----
-- hosts: ngnix-servers
-  roles:
-    - ngnix

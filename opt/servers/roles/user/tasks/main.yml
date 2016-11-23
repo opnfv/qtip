@@ -1,6 +1,12 @@
 - name: add group qtip
   become: true
   group: name=qtip state=present
+- name: add qtip to sudoers without password
+  become: true
+  file:
+    src: sudoers.d-qtip
+    dest: /etc/sudoers.d/50-qtip
+    mode: 0440
 - name: add users for ssh access
   become: true
   user:

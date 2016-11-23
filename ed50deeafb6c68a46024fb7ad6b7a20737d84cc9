@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_8eb99ceb",
+        "filename": "docs/designspec/compute_QPI.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-11-23T03:12:31Z",
+      "side": 1,
+      "message": "IMO, performance can be omitted since it is quite clear we are talking about performance from the context.",
+      "range": {
+        "startLine": 43,
+        "startChar": 10,
+        "endLine": 43,
+        "endChar": 21
+      },
+      "revId": "ed50deeafb6c68a46024fb7ad6b7a20737d84cc9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

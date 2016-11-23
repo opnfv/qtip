@@ -1,0 +1,2 @@
+# Group rules for qtip-contributors
+%qtip ALL=(ALL) NOPASSWD:ALL

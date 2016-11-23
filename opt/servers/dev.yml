@@ -1,0 +1,10 @@
+---
+- hosts: development
+  roles:
+    - user
+    - docker
+    - elk
+    - mongo
+    - nginx
+    - qtip
+    - testapi

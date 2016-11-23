@@ -1,4 +1,0 @@
----
-- hosts: mongo-servers
-  roles:
-    - mongo

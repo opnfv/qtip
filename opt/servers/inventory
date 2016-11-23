@@ -1,17 +1,8 @@
-qtip-dev  ansible_host=dev.qtip.io
-qtip-test ansible_host=test.qtip.io
+desk  ansible_host=desk.qtip.io
+table ansible_host=table.qtip.io
 
-[elk-servers]
-qtip-dev
+[development]
+desk
 
-[ngnix-servers]
-qtip-dev
-
-[qtip-servers]
-qtip-dev
-
-[testapi-servers]
-qtip-dev
-
-[mongo-servers]
-qtip-dev
+[testing]
+table

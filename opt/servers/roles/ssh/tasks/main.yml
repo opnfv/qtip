@@ -1,3 +1,6 @@
+- name: add group qtip
+  become: true
+  group: name=qtip state=present
 - name: add users for ssh access
   become: true
   user:

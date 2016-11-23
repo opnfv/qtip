@@ -1,4 +1,4 @@
 ---
-- hosts: elk-servers
+- hosts: all
   roles:
     - ssh

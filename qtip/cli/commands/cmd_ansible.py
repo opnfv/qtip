@@ -36,6 +36,7 @@ class Ansible:
 def cli():
     pass
 
+
 _ansible = Ansible()
 
 

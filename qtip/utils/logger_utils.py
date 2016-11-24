@@ -62,4 +62,7 @@ class QtipLogger(Logger):
     file_path = '{}/qtip/logs'.format(os.environ['HOME'])
 
     def __init__(self, logger_name):
+        if not os.path.exists(self.file_path):
+            os.makedirs(self.file_path)
+
         super(QtipLogger, self).__init__(logger_name)

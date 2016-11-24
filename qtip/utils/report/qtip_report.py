@@ -23,6 +23,7 @@ def dump_result(Stor, directory, testcase):
     except OSError:
         print "Results for {0} not found".format(testcase)
 
+
 doc = SimpleDocTemplate("../../results/QTIP_results.pdf", pagesize=letter,
                         rightMargin=72, leftMargin=72,
                         topMargin=72, bottomMargin=18)

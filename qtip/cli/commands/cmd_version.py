@@ -34,6 +34,7 @@ def cli():
 def version():
     pass
 
+
 _version = Version()
 
 

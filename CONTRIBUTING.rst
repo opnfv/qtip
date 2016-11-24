@@ -15,8 +15,25 @@ Peer review is the most important communication channel between developers.
 Every subtle change to the code or document **MUST** be reviewed before
 submission.
 
+Add group ``qtip-reviewers`` in `gerrit`_ when you consider a patch set is ready.
+
 Please make sure there is at least one ``+1`` or ``+2`` from others before
 submitting[#f1] a patch set.
+
+Active Reviewers
+================
+
+Current list of active reviewers in gerrit group ``qtip-reviewers``
+
+* Serena Feng <feng.xiaowei@zte.com.cn>
+* Taseer Ahmed <taseer94@gmail.com>
+* Yujun Zhang <zhang.yujunz@zte.com.cn>
+* Zhifeng Jiang <jiang.zhifeng@zte.com.cn>
+* Zhihui Wu <wu.zhihui1@zte.com.cn>
+
+By becoming an active reviewer, you agree to allow others to invite you as
+reviewers in QTIP project freely. Any one in OPNFV community can apply to join
+QTIP reviewers group or leave by submitting a patch on this document.
 
 ****************
 Tasks and Issues
@@ -88,6 +105,7 @@ to submit. The current members are listed in `INFO`_.
 .. rubric:: Reference
 
 .. _Developer Getting Started: https://wiki.opnfv.org/display/DEV/Developer+Getting+Started
+.. _gerrit: https://gerrit.opnfv.org/gerrit/#/q/project:+qtip
 .. _JIRA: https://jira.opnfv.org/browse/QTIP
 .. _OPNFV Releases: https://wiki.opnfv.org/display/SWREL
 .. _Issue Types: https://jira.opnfv.org/secure/ShowConstantsHelp.jspa?decorator=popup#IssueTypes

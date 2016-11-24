@@ -10,7 +10,7 @@ class TestClass:
         (['-l',
           'zte',
           '-f',
-          'compute'], "You have specified a lab that is not present under benchmarks/test_plan"),
+          'compute'], "You have specified a lab that is not present under benchmarks/testplan"),
         (['-l',
           'default',
           '-f',
@@ -30,8 +30,8 @@ class TestClass:
         (['-l',
           'default',
           '-f',
-          'storage'], [('fuel', '/home', 'benchmarks/test_plan/default/storage/fio_bm.yaml'),
-                       ('fuel', '/home', 'benchmarks/test_plan/default/storage/fio_vm.yaml')])
+          'storage'], [('fuel', '/home', 'benchmarks/testplan/default/storage/fio_bm.yaml'),
+                       ('fuel', '/home', 'benchmarks/testplan/default/storage/fio_vm.yaml')])
     ])
     @mock.patch('qtip.utils.cli.args_handler.prepare_and_run_benchmark')
     def test_cli_successful(self, mock_args_handler, test_input, expected):

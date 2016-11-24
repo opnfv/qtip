@@ -44,6 +44,7 @@ def cli():
 def perftest(ctx):
     pass
 
+
 _perftest = PerfTest()
 
 

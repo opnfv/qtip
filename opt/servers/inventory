@@ -1,17 +1,8 @@
-qtip-dev  ansible_host=dev.qtip.io
-qtip-test ansible_host=test.qtip.io
+desk  ansible_host=desk.qtip.io   # 2vCPU/4GiB/16GiB (AWS us-east-1a)
+table ansible_host=table.qtip.io  # 1vCPU/1024MB/100Mbps/40GB (Aliyun Hongkong B)
 
-[elk-servers]
-qtip-dev
+[development]
+desk
 
-[ngnix-servers]
-qtip-dev
-
-[qtip-servers]
-qtip-dev
-
-[testapi-servers]
-qtip-dev
-
-[mongo-servers]
-qtip-dev
+[testing]
+table

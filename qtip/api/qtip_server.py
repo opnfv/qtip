@@ -158,7 +158,7 @@ default is all benchmarks in suite with specified type,
 
         benchmarks = args_handler.get_files_in_suite(args["suite_name"],
                                                      args["type"].lower())
-        test_cases = args_handler.get_files_in_test_case(args["pod_name"],
+        test_cases = args_handler.get_files_in_test_plan(args["pod_name"],
                                                          args["suite_name"],
                                                          args["type"].lower())
         benchmarks_list = filter(lambda x: x in test_cases, benchmarks)

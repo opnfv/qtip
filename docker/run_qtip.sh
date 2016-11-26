@@ -1,6 +1,6 @@
 #! /bin/bash
 
-QTIP=scripts/qtip.py
+QTIP=qtip/qtip.py
 
 run_test_suite()
 {

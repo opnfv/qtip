@@ -51,7 +51,6 @@ class NovaMock(MagicMock):
 
 
 class TestClass:
-    @pytest.mark.skip(reason="(yujunz) to be fixed")
     @pytest.mark.parametrize("test_input, expected", [
         (['compute1', 'compute2'],
          ['create:compute1:compute1',

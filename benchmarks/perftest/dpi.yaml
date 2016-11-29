@@ -75,13 +75,13 @@
       shell: sudo cp $HOME/tempD/nDPI/example/dpi_dump.txt $HOME/qtip_result
 
     - name: fetch dpi result transform script
-      copy: src={{workingdir}}/utils/transform/dpi_transform.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/qtip/utils/transform/dpi_transform.py dest={{home_dir.stdout}}/qtip_result
 
     - name: Transforming results
       shell: cd $HOME/qtip_result && sudo python dpi_transform.py
 
     - name: copy report formation script
-      copy: src={{workingdir}}/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/qtip/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
 
     - name: consolidating report
       shell: cd $HOME/qtip_result && sudo python final_report.py DPI {{fname}}

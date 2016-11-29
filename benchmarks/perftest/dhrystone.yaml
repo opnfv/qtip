@@ -54,7 +54,7 @@
       shell: cd $HOME/tempT/UnixBench/&& sudo ./Run -v dhrystone
 
     - name: collecting and transforming result script copy
-      copy: src={{workingdir}}/utils/transform/ubench_transform.py  dest={{home_dir.stdout}}/qtip_result/
+      copy: src={{workingdir}}/qtip/utils/transform/ubench_transform.py  dest={{home_dir.stdout}}/qtip_result/
 
     - name: transforming result
       shell: cd $HOME/qtip_result/ &&  sudo python ubench_transform.py

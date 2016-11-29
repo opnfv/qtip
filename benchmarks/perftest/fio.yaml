@@ -61,13 +61,13 @@
       shell: cd $HOME/fio/fio-2.1.10  &&  sudo ./fio --output-format=json --output=$HOME/qtip_result/fio_result.json fio_test_job
 
     - name: Fetching result transformation script
-      copy: src={{workingdir}}/utils/transform/fio_transform.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/qtip/utils/transform/fio_transform.py dest={{home_dir.stdout}}/qtip_result
 
     - name: Transforming result
       shell: cd $HOME/qtip_result  &&  sudo python fio_transform.py
 
     - name: copy report formation script
-      copy: src={{workingdir}}/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/qtip/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
 
     - name: consolidating report
       shell: cd $HOME/qtip_result &&  sudo python final_report.py FIO {{fname}}

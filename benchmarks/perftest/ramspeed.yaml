@@ -64,13 +64,13 @@
       shell: cd $HOME/ramspeed/ramsmp-3.5.0  &&  ./ramsmp -b 6 -l 5 -p 1 >> $HOME/qtip_result/Floatmem
 
     - name: Fetching result transformation script
-      copy: src={{workingdir}}/utils/transform/ramspeed_transform.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/qtip/utils/transform/ramspeed_transform.py dest={{home_dir.stdout}}/qtip_result
 
     - name: Transforming result
       shell: cd $HOME/qtip_result  &&  sudo python ramspeed_transform.py
 
     - name: copy report formation script
-      copy: src={{workingdir}}/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/qtip/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
 
     - name: consolidating report
       shell: cd $HOME/qtip_result &&  sudo python final_report.py RamSpeed {{fname}}

@@ -54,13 +54,13 @@
       shell: cd $HOME/tempT/UnixBench/&&./Run -v whetstone
 
     - name: collecting and transforming result script copy
-      copy: src={{workingdir}}/utils/transform/ubench_transform.py dest={{home_dir.stdout}}/qtip_result/
+      copy: src={{workingdir}}/qtip/utils/transform/ubench_transform.py dest={{home_dir.stdout}}/qtip_result/
 
     - name: transforming result
       shell: cd $HOME/qtip_result &&  sudo python ubench_transform.py
 
     - name: copying consolidated report script
-      copy: src={{workingdir}}/utils/transform/final_report.py  dest={{home_dir.stdout}}/qtip_result/
+      copy: src={{workingdir}}/qtip/utils/transform/final_report.py  dest={{home_dir.stdout}}/qtip_result/
 
     - name: making consolidated report
       shell: cd $HOME/qtip_result && sudo python final_report.py Whetstone {{fname}}

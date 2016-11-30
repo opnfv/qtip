@@ -32,7 +32,6 @@ class HeatMock(MagicMock):
 
 
 class TestClass:
-    @pytest.mark.skip(reason="(yujunz) to be fixed")
     @pytest.mark.parametrize("test_input, expected", [
         ({'availability_zone': ['compute1', 'compute1'],
           'OS_image': ['QTIP_CentOS', 'QTIP_CentOS'],

@@ -12,7 +12,7 @@ import qtip.utils.args_handler
 
 
 class TestClass:
-    @pytest.mark.skip(reason="(yujunz) to be fixed")
+    @pytest.mark.skip("(yujunz) test fails")
     @pytest.mark.parametrize("test_input, expected", [
         (['fuel', '/home', 'benchmarks/testplan/default/network/iperf_bm.yaml'],
          ['fuel', '/home', "iperf",

@@ -78,7 +78,7 @@ class TestClass:
         result = filecmp.cmp(get_output("hosts"), "config/hosts")
         assert result
 
-    @pytest.mark.skip(reason="(yujunz) test halt, to be fixed")
+    @pytest.mark.skip("(yujunz) to be fixed")
     def test_ping(self, capfd):
         test_class = Env_setup()
         mock_ips = mock.Mock(return_value=["127.0.0.1", "10.20.0.29"])

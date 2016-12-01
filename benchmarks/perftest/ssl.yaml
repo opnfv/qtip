@@ -65,13 +65,13 @@
       shell: cd $HOME/Open_SSL/openssl-1.0.2f/apps  &&  sudo ./openssl speed -evp aes-128-cbc >> $HOME/qtip_result/AES-128-CBC_dump
 
     - name: Fetching result transformation script
-      copy: src={{workingdir}}/utils/transform/ssl_transform.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/qtip/utils/transform/ssl_transform.py dest={{home_dir.stdout}}/qtip_result
 
     - name: Transforming result
       shell: cd $HOME/qtip_result  &&  python ssl_transform.py
 
     - name: copy report formation script
-      copy: src={{workingdir}}/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/qtip/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
 
     - name: consolidating report
       shell: cd $HOME/qtip_result &&  python final_report.py SSL {{fname}}

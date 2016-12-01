@@ -93,14 +93,14 @@
       when: rolename == "2-host" and "{{privateip1}}" != "NONE"
 
     - name: Fetching result transformation script
-      copy: src={{workingdir}}/utils/transform/iperf_transform.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/qtip/utils/transform/iperf_transform.py dest={{home_dir.stdout}}/qtip_result
     - name: Transforming result
 
       shell: cd $HOME/qtip_result  &&  sudo python iperf_transform.py
       when: rolename =="2-host" and "{{ip2}}" == ''
 
     - name: copy report formation script
-      copy: src={{workingdir}}/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+      copy: src={{workingdir}}/qtip/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
       when: rolename =="2-host" and "{{ip2}}" == ''
 
     - name: consolidating report

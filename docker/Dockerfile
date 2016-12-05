@@ -7,8 +7,7 @@ FROM ubuntu:14.04
 MAINTAINER Yujun Zhang <zhang.yujunz@zte.com.cn>
 LABEL version="0.1" description="OPNFV QTIP Docker container"
 
-
-
+ARG BRANCH=master
 
 ENV REPOS_DIR /home/opnfv/repos
 ENV QTIP_DIR /home/opnfv/repos/qtip
@@ -16,10 +15,7 @@ ENV PYTHONPATH /home/opnfv/repos/qtip
 ENV HOME /home/opnfv
 WORKDIR /home/opnfv
 
-
-#Packaged Dependencies
-
-
+# Packaged Dependencies
 RUN apt-get update && apt-get install -y \
 software-properties-common \
 wget \
@@ -38,11 +34,11 @@ curl \
 supervisor \
 --no-install-recommends
 
+
 RUN apt-add-repository ppa:ansible/ansible -y
 RUN apt-key update -y
 RUN apt-get update -y
 RUN apt-get install ansible --force-yes -y
-
 
 
 RUN mkdir -p ${REPOS_DIR}
@@ -58,7 +54,7 @@ COPY ansible.cfg.default /root/.ansible.cfg
 #Cloning Repos
 
 RUN git config --global http.sslVerify false
-RUN git clone https://gerrit.opnfv.org/gerrit/qtip $REPOS_DIR/qtip
+RUN git clone -b $BRANCH https://gerrit.opnfv.org/gerrit/qtip $REPOS_DIR/qtip
 RUN git clone https://gerrit.opnfv.org/gerrit/releng $REPOS_DIR/releng
 
 RUN pip install -r $REPOS_DIR/qtip/requirements.txt
@@ -68,6 +64,5 @@ RUN pip install -r $REPOS_DIR/qtip/requirements.txt
 RUN mkdir -p /var/log/supervisor
 RUN locale-gen en_US en_US.UTF-8
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 
 CMD ["/usr/bin/supervisord"]

@@ -7,7 +7,29 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from os import path
+import pytest
+
+from qtip.runner.suite import Suite
+
+
+class TestSuiteClass:
+    def test_attr(self):
+        assert len(Suite._paths) is 1
+
 
 class TestSuite:
+    Suite._paths = [path.join(path.dirname(__file__), path.pardir, path.pardir,
+                              'data', 'suite')]
+
+    def test_init(self):
+        suite = Suite('suite-1')
+        assert suite.name == 'suite-1'
+
+        with pytest.raises(TypeError) as excinfo:
+            Suite()
+        assert '__init__() takes exactly 2 arguments (1 given)' \
+               in str(excinfo.value)
+
     def test_list(self):
-        assert True
+        assert len(list(Suite.list_all())) is 3

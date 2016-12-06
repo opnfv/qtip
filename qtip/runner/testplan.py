@@ -7,22 +7,13 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from os import path
 
-class TestPlan:
-    """A test plan is consist of test configuration and selected test suites"""
+from benchmark import Benchmark
 
-    def __init__(self):
-        pass
 
-    @staticmethod
-    def list_all():
-        """list all available test plans"""
-        pass
+class TestPlan(Benchmark):
+    """A suite is consist of one or several perf tests and produces one QPI"""
 
-    def desc(self):
-        """description of the test plan"""
-        pass
-
-    def run(self):
-        """run included suites"""
-        pass
+    # paths to search for suites
+    _paths = [path.join(p, 'testplan') for p in Benchmark._paths]

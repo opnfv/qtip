@@ -7,21 +7,13 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from os import path
 
-class PerfTest:
-    """A perf test collects raw performance metrics by running test tools"""
+from benchmark import Benchmark
 
-    def __init__(self):
-        pass
 
-    @staticmethod
-    def list_all():
-        """list all available perf tests"""
-        pass
+class PerfTest(Benchmark):
+    """PerfTest is the driver of external performance test tools"""
 
-    def desc(self):
-        """description of the perf test"""
-        pass
-
-    def run(self):
-        pass
+    # paths to search for perftest
+    _paths = [path.join(p, 'perftest') for p in Benchmark._paths]

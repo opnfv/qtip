@@ -18,7 +18,7 @@ class Property:
     ABSPATH = 'abspath'
 
 
-class Benchmark:
+class Benchmark(object):
     """Abstract class of QTIP benchmarks"""
 
     _paths = [path.join(path.dirname(__file__), path.pardir, path.pardir,
@@ -40,7 +40,7 @@ class Benchmark:
     def list_all(cls):
         """list all available benchmarks"""
         names = chain.from_iterable([listdir(p) for p in cls._paths])
-        return [Benchmark(name).describe() for name in names]
+        return [cls(name).describe() for name in names]
 
     def describe(self):
         """description of benchmark"""

@@ -10,32 +10,32 @@
 from os import path
 import pytest
 
-from qtip.runner.suite import Suite
+from qtip.runner.testplan import TestPlan
 from qtip.runner.benchmark import Property
 
 
-class TestSuiteClass:
+class TestTestPlanClass:
     def test_attr(self):
-        assert len(Suite._paths) is 1
+        assert len(TestPlan._paths) is 1
 
 
-class TestSuite:
-    Suite._paths = [path.join(path.dirname(__file__), path.pardir, path.pardir,
-                              'data', 'suite')]
+class TestTestPlan:
+    TestPlan._paths = [path.join(path.dirname(__file__), path.pardir,
+                                 path.pardir, 'data', 'testplan')]
 
     def test_init(self):
-        suite = Suite('suite-1')
-        assert suite.name == 'suite-1'
+        plan = TestPlan('plan-a')
+        assert plan.name == 'plan-a'
 
         with pytest.raises(TypeError) as excinfo:
-            Suite()
+            TestPlan()
         assert '__init__() takes exactly 2 arguments (1 given)' \
                in str(excinfo.value)
 
     def test_list(self):
-        suite_list = Suite.list_all()
-        assert len(list(suite_list)) is 3
-        for suite_desc in suite_list:
-            assert Property.NAME in suite_desc
-            assert Property.DESCRIPTION in suite_desc
-            assert Property.ABSPATH in suite_desc
+        plan_list = TestPlan.list_all()
+        assert len(list(plan_list)) is 5
+        for desc in plan_list:
+            assert Property.NAME in desc
+            assert Property.DESCRIPTION in desc
+            assert Property.ABSPATH in desc

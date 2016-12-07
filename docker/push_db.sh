@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cd ${QTIP_DIR} && python dashboard/pushtoDB.py
+cd ${QTIP_DIR} && python qtip/utils/dashboard/pushtoDB.py

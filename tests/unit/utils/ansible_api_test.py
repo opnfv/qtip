@@ -6,14 +6,17 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
+
+from tests import BaseTest
 from qtip.utils.ansible_api import AnsibleApi
 
 
-class TestClass:
+class TestClass(BaseTest):
+
     def test_call_ansible_api_success(self):
         ansible_api = AnsibleApi()
-        ret = ansible_api.execute_playbook('tests/data/hosts',
-                                           'tests/data/test.yml',
-                                           'config/QtipKey',
+        ret = ansible_api.execute_playbook(self.abspath('hosts'),
+                                           self.abspath('test.yml'),
+                                           self.abspath('QtipKey'),
                                            {'keys': 'test'})
         assert ret == 3

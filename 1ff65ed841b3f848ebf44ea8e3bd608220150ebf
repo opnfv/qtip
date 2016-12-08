@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_eb8276ff",
+        "filename": "tests/unit/runner/perftest_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-08T01:18:00Z",
+      "side": 1,
+      "message": "why is \u0027assert Property.ABSPATH is not None\u0027 need, as soon as desc doesn\u0027t contain None element, \u0027assert Property.ABSPATH in desc\u0027 will definitely fail",
+      "revId": "1ff65ed841b3f848ebf44ea8e3bd608220150ebf",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

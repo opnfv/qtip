@@ -39,3 +39,4 @@ class TestTestPlan:
             assert Property.NAME in desc
             assert Property.DESCRIPTION in desc
             assert Property.ABSPATH in desc
+            assert Property.ABSPATH is not None

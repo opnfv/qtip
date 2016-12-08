@@ -39,3 +39,4 @@ class TestSuite:
             assert Property.NAME in suite_desc
             assert Property.DESCRIPTION in suite_desc
             assert Property.ABSPATH in suite_desc
+            assert Property.ABSPATH is not None

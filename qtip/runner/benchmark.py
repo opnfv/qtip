@@ -21,13 +21,10 @@ class Property:
 class Benchmark:
     """Abstract class of QTIP benchmarks"""
 
-    # paths to search for suites
     _paths = [path.join(path.dirname(__file__), path.pardir, path.pardir,
                         'benchmarks')]
 
     def __init__(self, name):
-        """:param name: suite name"""
-        # TODO(yujunz) check existence and expand to full path
         self.name = name
         self._abspath = self._find(name)
 
@@ -47,8 +44,7 @@ class Benchmark:
 
     def describe(self):
         """description of benchmark"""
-        # TODO(yujunz)
-        # - read description from benchmark content
+        # TODO(yujunz) read description from benchmark content
         return {
             Property.NAME: self.name,
             Property.DESCRIPTION: 'QTIP benchmark',

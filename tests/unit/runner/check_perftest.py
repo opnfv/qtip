@@ -1,4 +1,4 @@
-##############################################################################
+###############################################################
 # Copyright (c) 2016 ZTE Corp and others.
 #
 # All rights reserved. This program and the accompanying materials
@@ -10,32 +10,32 @@
 from os import path
 import pytest
 
-from qtip.runner.testplan import TestPlan
+from qtip.runner.perftest import PerfTest
 from qtip.runner.benchmark import Property
 
 
-class TestTestPlanClass:
+class CheckPerfTestClass:
     def test_attr(self):
-        assert len(TestPlan._paths) is 1
+        assert len(PerfTest._paths) is 1
 
 
-class TestTestPlan:
-    TestPlan._paths = [path.join(path.dirname(__file__), path.pardir,
-                                 path.pardir, 'data', 'testplan')]
+class CheckPerfTest:
+    PerfTest._paths = [path.join(path.dirname(__file__), path.pardir,
+                                 path.pardir, 'data', 'perftest')]
 
     def test_init(self):
-        plan = TestPlan('plan-a')
-        assert plan.name == 'plan-a'
+        perftest = PerfTest('test-a')
+        assert perftest.name == 'test-a'
 
         with pytest.raises(TypeError) as excinfo:
-            TestPlan()
+            PerfTest()
         assert '__init__() takes exactly 2 arguments (1 given)' \
                in str(excinfo.value)
 
     def test_list(self):
-        plan_list = TestPlan.list_all()
-        assert len(list(plan_list)) is 5
-        for desc in plan_list:
+        perftest_list = PerfTest.list_all()
+        assert len(list(perftest_list)) is 1
+        for desc in perftest_list:
             assert Property.NAME in desc
             assert Property.DESCRIPTION in desc
             assert Property.ABSPATH in desc

@@ -14,12 +14,12 @@ from qtip.runner.suite import Suite
 from qtip.runner.benchmark import Property
 
 
-class TestSuiteClass:
+class CheckSuiteClass:
     def test_attr(self):
         assert len(Suite._paths) is 1
 
 
-class TestSuite:
+class CheckSuite:
     Suite._paths = [path.join(path.dirname(__file__), path.pardir, path.pardir,
                               'data', 'suite')]
 

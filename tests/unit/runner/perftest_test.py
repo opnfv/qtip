@@ -14,12 +14,12 @@ from qtip.runner.perftest import PerfTest
 from qtip.runner.benchmark import Property
 
 
-class TestPerfTestClass:
+class CheckPerfTestClass:
     def test_attr(self):
         assert len(PerfTest._paths) is 1
 
 
-class TestPerfTest:
+class CheckPerfTest:
     PerfTest._paths = [path.join(path.dirname(__file__), path.pardir,
                                  path.pardir, 'data', 'perftest')]
 

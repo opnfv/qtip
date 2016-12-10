@@ -14,12 +14,12 @@ from qtip.runner.testplan import TestPlan
 from qtip.runner.benchmark import Property
 
 
-class TestTestPlanClass:
+class CheckTestPlanClass:
     def test_attr(self):
         assert len(TestPlan._paths) is 1
 
 
-class TestTestPlan:
+class CheckTestPlan:
     TestPlan._paths = [path.join(path.dirname(__file__), path.pardir,
                                  path.pardir, 'data', 'testplan')]
 

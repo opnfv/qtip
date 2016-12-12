@@ -1,0 +1,8 @@
+{
+    "bm": [
+        "fio_bm.yaml"
+    ],
+    "vm": [
+        "fio_vm.yaml"
+    ]
+}

@@ -1,46 +1,13 @@
-##############################################################################
-# Copyright (c) 2016 ZTE Corp and others.
-#
-# All rights reserved. This program and the accompanying materials
-# are made available under the terms of the Apache License, Version 2.0
-# which accompanies this distribution, and is available at
-# http://www.apache.org/licenses/LICENSE-2.0
-##############################################################################
-from flask import Flask, abort
-from flask_restful import Api, Resource, fields, reqparse
-from flask_restful_swagger import swagger
 import threading
 from copy import copy
-import db
-import qtip.utils.args_handler as args_handler
-import qtip.api.result_handler as result_handler
 
+from flask.ext.restful import Resource, reqparse
+from flask.ext.restful_swagger import swagger
+from werkzeug.exceptions import abort
 
-app = Flask(__name__)
-api = swagger.docs(Api(app), apiVersion='0.1')
-
-
-@swagger.model
-class JobModel:
-    resource_fields = {
-        'installer_type': fields.String,
-        'installer_ip': fields.String,
-        'max_minutes': fields.Integer,
-        'pod_name': fields.String,
-        'suite_name': fields.String,
-        'type': fields.String,
-        'benchmark_name': fields.String,
-        'testdb_url': fields.String,
-        'node_name': fields.String
-    }
-    required = ['installer_type', 'installer_ip']
-
-
-@swagger.model
-class JobResponseModel:
-    resource_fields = {
-        'job_id': fields.String
-    }
+from qtip.api.handler import db, result_handler
+from qtip.api.model.job_model import JobResponseModel
+from qtip.utils import args_handler as args_handler
 
 
 class Job(Resource):
@@ -197,10 +164,3 @@ default is all benchmarks in suite with specified type,
         if (result_handler.dump_suite_result(suite_name) and testdb_url):
             result_handler.push_suite_result_to_db(suite_name, testdb_url, installer_type, node_name)
         db.finish_job(job_id)
-
-
-api.add_resource(JobList, '/api/v1.0/jobs')
-api.add_resource(Job, '/api/v1.0/jobs/<string:id>')
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0')

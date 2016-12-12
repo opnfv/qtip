@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_32054f11",
+        "filename": "tox.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-12T00:30:36Z",
+      "side": 1,
+      "message": "You can configure your editors to remove trailing spaces automatically. BTW, we have PyCharm professional licenses for QTIP developers, you can apply if you want to have a try.",
+      "range": {
+        "startLine": 29,
+        "startChar": 16,
+        "endLine": 29,
+        "endChar": 17
+      },
+      "revId": "b3a5cb2a27e08b859fc2e5dd4e9c84b3e9e99e16",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_12005300",
+        "filename": "tox.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-12T00:30:36Z",
+      "side": 1,
+      "message": "mixture of tab and space is not good",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "b3a5cb2a27e08b859fc2e5dd4e9c84b3e9e99e16",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

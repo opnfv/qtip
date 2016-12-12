@@ -1,8 +1,14 @@
-import qtip.api.qtip_server as server
-import pytest
 import json
-import mock
 import time
+
+import mock
+import pytest
+
+import qtip.api.cmd.server as server
+
+
+def setup_module():
+    server.add_routers()
 
 
 @pytest.fixture
@@ -66,7 +72,7 @@ class TestClass:
           'state_detail': [{u'state': u'finished', u'benchmark': u'dhrystone_vm.yaml'}],
           'result': 0})
     ])
-    @mock.patch('qtip.api.qtip_server.args_handler.prepare_and_run_benchmark')
+    @mock.patch('qtip.utils.args_handler.prepare_and_run_benchmark')
     def test_post_get_delete_job_successful(self, mock_args_handler, app_client, body, expected):
         mock_args_handler.return_value = {'result': 0,
                                           'detail': {'host': [(u'10.20.6.14', {'unreachable': 0,
@@ -107,7 +113,7 @@ class TestClass:
          ['job_id',
           'It already has one job running now!'])
     ])
-    @mock.patch('qtip.api.qtip_server.args_handler.prepare_and_run_benchmark',
+    @mock.patch('qtip.utils.args_handler.prepare_and_run_benchmark',
                 side_effect=[side_effect_sleep(0.5), side_effect_pass])
     def test_post_two_jobs_unsuccessful(self, mock_args_hanler, app_client, body, expected):
         reply_1 = app_client.post("/api/v1.0/jobs", data=body[0])

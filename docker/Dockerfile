@@ -32,8 +32,10 @@ zlib1g-dev \
 python-tk \
 curl \
 supervisor \
+python-setuptools \
 --no-install-recommends
 
+RUN easy_install -U setuptools
 
 RUN apt-add-repository ppa:ansible/ansible -y
 RUN apt-key update -y

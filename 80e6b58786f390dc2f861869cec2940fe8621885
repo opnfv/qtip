@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_2d0baed7",
+        "filename": "qtip/api/cmd/server.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-12T13:34:24Z",
+      "side": 1,
+      "message": "It seems a CLI command to launch api server. Could it be merged to /qtip/cli ?",
+      "revId": "80e6b58786f390dc2f861869cec2940fe8621885",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

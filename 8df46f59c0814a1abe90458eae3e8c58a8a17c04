@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_a5bed6d2",
+        "filename": "qtip/cli/commands/cmd_testplan.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-13T07:31:51Z",
+      "side": 1,
+      "message": "Don\u0027t see why create an instance from `compute`. The default constructor should work, i.e. \n\n_testplan \u003d TestPlan()",
+      "revId": "8df46f59c0814a1abe90458eae3e8c58a8a17c04",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_45b5b2ec",
+        "filename": "qtip/cli/commands/cmd_testplan.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-13T07:31:51Z",
+      "side": 1,
+      "message": "^ testplan",
+      "range": {
+        "startLine": 28,
+        "startChar": 51,
+        "endLine": 28,
+        "endChar": 59
+      },
+      "revId": "8df46f59c0814a1abe90458eae3e8c58a8a17c04",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_05cfaa80",
+        "filename": "qtip/cli/commands/cmd_testplan.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-13T07:31:51Z",
+      "side": 1,
+      "message": "You should read the output from _testplan.list_all() and print it in a pretty table as you did in suite before.",
+      "revId": "8df46f59c0814a1abe90458eae3e8c58a8a17c04",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_25cae66e",
+        "filename": "qtip/cli/commands/cmd_testplan.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-13T07:31:51Z",
+      "side": 1,
+      "message": "`name` would be clear enough, since this is an argument of `testplan` command",
+      "range": {
+        "startLine": 34,
+        "startChar": 17,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "8df46f59c0814a1abe90458eae3e8c58a8a17c04",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_a5a576b6",
+        "filename": "qtip/cli/commands/cmd_testplan.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-13T07:31:51Z",
+      "side": 1,
+      "message": "Read the output from _testplan.describe() and print it in a pretty table, similar to L30",
+      "revId": "8df46f59c0814a1abe90458eae3e8c58a8a17c04",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

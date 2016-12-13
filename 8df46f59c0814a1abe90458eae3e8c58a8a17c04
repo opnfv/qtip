@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_485947fd",
+        "filename": "qtip/cli/commands/cmd_testplan.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-13T11:56:33Z",
+      "side": 1,
+      "message": "\u003e qtip.runner.testplan defines Testplan as follows:\n \u003e \n \u003e class TestPlan(Benchmark):\n \u003e \"\"\"A suite is consist of one or several perf tests and produces one\n \u003e QPI\"\"\"\n \u003e \n \u003e # paths to search for suites\n \u003e _paths \u003d [path.join(p, \u0027testplan\u0027) for p in Benchmark._paths]\n\nYes, it inherits the __init__() method from Benchmark class.",
+      "parentUuid": "5ac10518_68f763f6",
+      "revId": "8df46f59c0814a1abe90458eae3e8c58a8a17c04",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_45b5b2ec",
         "filename": "qtip/cli/commands/cmd_testplan.py",
         "patchSetId": 3

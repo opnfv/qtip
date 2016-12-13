@@ -34,6 +34,24 @@
       "revId": "80e6b58786f390dc2f861869cec2940fe8621885",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_4d939afa",
+        "filename": "qtip/api/cmd/server.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-13T02:08:50Z",
+      "side": 1,
+      "message": "\u003e no, there\u0027s no need to be merged to cli, qtip-server cli mode must\n \u003e be able to work without cli, I have made it installable and using\n \u003e qtip-server cli to start it, but need to submit after this patch is\n \u003e merged\n\nCLI under single mode runs on the same host/container as api server. Why we need another server CLI to launch it ?\n\n+2 for the patch but I think we need further clarification on it.",
+      "parentUuid": "5ac10518_6df9b64c",
+      "revId": "80e6b58786f390dc2f861869cec2940fe8621885",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

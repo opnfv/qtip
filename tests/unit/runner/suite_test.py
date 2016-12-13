@@ -40,3 +40,9 @@ class TestSuite:
             assert Property.DESCRIPTION in suite_desc
             assert Property.ABSPATH in suite_desc
             assert Property.ABSPATH is not None
+
+    def test_describe(self):
+        desc = Suite('suite-a').describe()
+        assert Property.NAME in desc
+        assert Property.DESCRIPTION in desc
+        assert Property.ABSPATH in desc

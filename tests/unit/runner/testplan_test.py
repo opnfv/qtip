@@ -40,3 +40,9 @@ class TestTestPlan:
             assert Property.DESCRIPTION in desc
             assert Property.ABSPATH in desc
             assert Property.ABSPATH is not None
+
+    def test_describe(self):
+        desc = TestPlan('plan-a').describe()
+        assert Property.NAME in desc
+        assert Property.DESCRIPTION in desc
+        assert Property.ABSPATH in desc

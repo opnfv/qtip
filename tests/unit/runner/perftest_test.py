@@ -39,4 +39,9 @@ class TestPerfTest:
             assert Property.NAME in desc
             assert Property.DESCRIPTION in desc
             assert Property.ABSPATH in desc
-            assert Property.ABSPATH is not None
+
+    def test_describe(self):
+        desc = PerfTest('test-a').describe()
+        assert Property.NAME in desc
+        assert Property.DESCRIPTION in desc
+        assert Property.ABSPATH in desc

@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_cb4bf157",
+        "filename": "qtip/cli/commands/cmd_testplan.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2016-12-13T14:59:21Z",
+      "side": 1,
+      "message": "Yes, it would, but you have defined it as  __init__(self, name).",
+      "parentUuid": "5ac10518_485947fd",
+      "revId": "8df46f59c0814a1abe90458eae3e8c58a8a17c04",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_45b5b2ec",
         "filename": "qtip/cli/commands/cmd_testplan.py",
         "patchSetId": 3

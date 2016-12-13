@@ -13,7 +13,10 @@ from benchmark import Benchmark
 
 
 class Suite(Benchmark):
-    """A suite is consist of one or several perf tests and produces one QPI"""
+    """WIP(yujunz):
+    a suite is consist of one or several perf tests and produces one QPI.
+    It must be executed as part of testplan
+    """
 
     # paths to search for suites
     _paths = [path.join(p, 'suite') for p in Benchmark._paths]

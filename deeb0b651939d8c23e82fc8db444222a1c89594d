@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_2e3643e8",
+        "filename": "qtip/cli/commands/cmd_result.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T01:43:21Z",
+      "side": 1,
+      "message": "This should not be in CLI. \n\nIt is OK for prototyping but, at least put a comments like:\n\n# TODO(taseer): move it to qtip core",
+      "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_ce345fe0",
+        "filename": "qtip/cli/commands/cmd_result.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T01:43:21Z",
+      "side": 1,
+      "message": "Would you mind give a brief description of this method? What to be listed?",
+      "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_ee2fdb86",
+        "filename": "qtip/cli/commands/cmd_result.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T01:43:21Z",
+      "side": 1,
+      "message": "The same as L18",
+      "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_8e4e576e",
+        "filename": "qtip/cli/commands/cmd_result.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T01:43:21Z",
+      "side": 1,
+      "message": "What `name` is required here? There is no context here, hard to guess.",
+      "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_ae51d30f",
+        "filename": "qtip/cli/commands/cmd_result.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T01:43:21Z",
+      "side": 1,
+      "message": "`result` should be general purpose, not limiting to compute nodes.",
+      "range": {
+        "startLine": 46,
+        "startChar": 43,
+        "endLine": 46,
+        "endChar": 50
+      },
+      "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

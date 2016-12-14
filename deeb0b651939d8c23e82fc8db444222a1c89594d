@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_cee77f3f",
+        "filename": "qtip/cli/commands/cmd_result.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2016-12-14T03:47:51Z",
+      "side": 1,
+      "message": "It is to list all the perftests actually performed by the user. If he has only performed dhrystone, or iperf, only these should be listed.",
+      "parentUuid": "5ac10518_ce345fe0",
+      "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_ee2fdb86",
         "filename": "qtip/cli/commands/cmd_result.py",
         "patchSetId": 2
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_6ece8bb6",
+        "filename": "qtip/cli/commands/cmd_result.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2016-12-14T03:47:51Z",
+      "side": 1,
+      "message": "A single cluster may have many compute nodes in cluster. Node-X-domain.....\n\nIt would list all the names in the cluster.",
+      "parentUuid": "5ac10518_ee2fdb86",
+      "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_8e4e576e",
         "filename": "qtip/cli/commands/cmd_result.py",
         "patchSetId": 2
@@ -64,6 +100,24 @@
       "writtenOn": "2016-12-14T01:43:21Z",
       "side": 1,
       "message": "What `name` is required here? There is no context here, hard to guess.",
+      "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_0ec5878d",
+        "filename": "qtip/cli/commands/cmd_result.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2016-12-14T03:47:51Z",
+      "side": 1,
+      "message": "As above, a user may want to view the result on any ONE of the node.\n\nName here implies, the Perftest, dhrystone etc..\nNode implies node-x-domain...",
+      "parentUuid": "5ac10518_8e4e576e",
       "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

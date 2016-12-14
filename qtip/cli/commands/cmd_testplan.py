@@ -8,7 +8,9 @@
 ##############################################################################
 
 import click
+import sys
 from prettytable import PrettyTable
+
 from qtip.runner.testplan import TestPlan
 
 
@@ -37,7 +39,11 @@ def list():
 def show(name):
     plan = TestPlan(name)
     results = plan.describe()
-    table = PrettyTable(["Name", "Description"])
-    table.align = 'l'
-    table.add_row([results['name'], results['description']])
-    click.echo(table)
+    if results['abspath'] is None:
+        click.echo("Wrong TestPlan specified")
+        sys.exit(1)
+    else:
+        table = PrettyTable(["Name", "Description"])
+        table.align = 'l'
+        table.add_row([results['name'], results['description']])
+        click.echo(table)

@@ -1,0 +1,41 @@
+Compute_QPI:
+  description: suite file for compute qpi
+
+algorithm: weighted-average
+
+section:
+- name: Integer
+  weight: 0.2
+  perfests:
+    - name: dhrystone
+      workload:
+        - signel_cpu
+        - multi_cpu
+- name: Floating
+  weight: 0.2
+  perfests:
+    - name: whetstone
+      workload:
+        - signel_cpu
+        - multi_cpu
+- name: Memory
+  weight: 0.2
+  perfests:
+    - name: ramspeed
+      workload:
+          - int: [add, average, copy, scale, triad]
+          - float: [add, average, copy, scale, triad]
+- name: DPI
+  weight: 0.2
+  perfests:
+    - name: dpi
+      workload:
+        - bps
+        - pps
+- name: SSL
+  weight: 0.2
+    perfests:
+    - name: ssl
+      workload:
+        - aes_128_cbc: [512, 1024, 2048, 4096]
+        - rsa_sig: [16, 64, 256, 1024, 8192]

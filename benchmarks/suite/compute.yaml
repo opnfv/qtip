@@ -1,0 +1,46 @@
+QPI: compute
+description: Based with workloads scores and section scores, use an algorithm to calculate a compute scores
+
+algorithm: weighted-average
+
+section:
+- name: Integer
+  weight: 0.2
+  algorithm: geometry-average
+  perftests:
+    - name: dhrystone
+      workloads:
+        - single_cpu
+        - multi_cpu
+- name: Floating
+  weight: 0.2
+  algorithm: geometry-average
+  perftests:
+    - name: whetstone
+      workloads:
+        - single_cpu
+        - multi_cpu
+- name: Memory
+  weight: 0.2
+  algorithm: geometry-average
+  perftests:
+    - name: ramspeed
+      workloads:
+          - int: [add, average, copy, scale, triad]
+          - float: [add, average, copy, scale, triad]
+- name: DPI
+  weight: 0.2
+  algorithm: geometry-average
+  perftests:
+    - name: dpi
+      workloads:
+        - bps
+        - pps
+- name: SSL
+  weight: 0.2
+  algorithm: geometry-average
+  perftests:
+    - name: ssl
+      workloads:
+        - aes_128_cbc: [512, 1024, 2048, 4096]
+        - rsa_sig: [16, 64, 256, 1024, 8192]

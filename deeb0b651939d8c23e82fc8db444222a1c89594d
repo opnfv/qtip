@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_994b0387",
+        "filename": "qtip/cli/commands/cmd_result.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T14:43:26Z",
+      "side": 1,
+      "message": "\u003e Do we still need to move it to qtip core ?\n\nIf I understand it correctly, `Result` is the class for fetching results. So rationally it should be in qtip core since the api server will also require this interface.\n\nBe aware that CLI and API server are two consumers of data.",
+      "parentUuid": "5ac10518_992c6304",
+      "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_ce345fe0",
         "filename": "qtip/cli/commands/cmd_result.py",
         "patchSetId": 2

@@ -246,6 +246,30 @@
       "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_3973efe8",
+        "filename": "qtip/cli/commands/cmd_result.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T14:38:33Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t understand why it needs to be an argument.\n \u003e Can you please explain a little more ?\n\nAre you intending to use `qtip result node` to list all nodes? Normally the command should be a verb, and argument is noun.\n\nIn this case, would `qtip result list [--perftest|--node]` looks better?\n\nCould you give an example in docstring to show the expected command and output before unittest is in place? I may have misunderstood you design without it.",
+      "parentUuid": "5ac10518_f94487b8",
+      "range": {
+        "startLine": 46,
+        "startChar": 43,
+        "endLine": 46,
+        "endChar": 50
+      },
+      "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

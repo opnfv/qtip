@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_19d2b300",
+        "filename": "qtip/api/handler/result_handler.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T13:04:03Z",
+      "side": 1,
+      "message": "Is it aligned to current result? We will remove such hardcoding configuration in future. Please at least put a comment like\n\n# TODO(serena): read configuration instead of hardcoding",
+      "revId": "f18a9a8f3d3b3908348604930f543953e4c5f341",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_39cd2f5e",
+        "filename": "qtip/api/handler/result_handler.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T13:04:03Z",
+      "side": 1,
+      "message": "`bench` is not a common abbreviation for `benchmark`. Consider using full word or `bm`",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 20
+      },
+      "revId": "f18a9a8f3d3b3908348604930f543953e4c5f341",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_59ffdb67",
+        "filename": "setup.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T13:04:03Z",
+      "side": 1,
+      "message": "Normally we shall use a verb as subcommand name.",
+      "range": {
+        "startLine": 17,
+        "startChar": 9,
+        "endLine": 17,
+        "endChar": 15
+      },
+      "revId": "f18a9a8f3d3b3908348604930f543953e4c5f341",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

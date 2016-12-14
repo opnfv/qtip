@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_19b1538f",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T14:27:19Z",
+      "side": 1,
+      "message": "This seems to be more suitable for a value instead of key. My original proposal was\n\nQPI: compute\n\ndescription should also be top level, i.e.\n\nQPI: compute\ndescription: blahblah",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_39ac4f35",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T14:27:19Z",
+      "side": 1,
+      "message": "This should be an one line introduction of what is compute QPI.",
+      "range": {
+        "startLine": 2,
+        "startChar": 15,
+        "endLine": 2,
+        "endChar": 41
+      },
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_d9aaeb18",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T14:27:19Z",
+      "side": 1,
+      "message": "Shall we use all uppercase for section name?",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_f9a56747",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T14:27:19Z",
+      "side": 1,
+      "message": "^ single_cpu",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 20
+      },
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_99646323",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T14:27:19Z",
+      "side": 1,
+      "message": "^ single_cpu",
+      "range": {
+        "startLine": 19,
+        "startChar": 10,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

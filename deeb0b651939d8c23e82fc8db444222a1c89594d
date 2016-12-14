@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_6e452b16",
+        "filename": "qtip/cli/commands/cmd_result.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T04:00:48Z",
+      "side": 1,
+      "message": "\u003e It is to list all the perftests actually performed by the user. If\n \u003e he has only performed dhrystone, or iperf, only these should be\n \u003e listed.\n\nI see. Better to put it in docstring of this method.",
+      "parentUuid": "5ac10518_cee77f3f",
+      "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_ee2fdb86",
         "filename": "qtip/cli/commands/cmd_result.py",
         "patchSetId": 2
@@ -124,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_ce553fc7",
+        "filename": "qtip/cli/commands/cmd_result.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T04:00:48Z",
+      "side": 1,
+      "message": "\u003e As above, a user may want to view the result on any ONE of the\n \u003e node.\n \u003e \n \u003e Name here implies, the Perftest, dhrystone etc..\n \u003e Node implies node-x-domain...\n\nSo, name it as `perftest_name` or `perftest`",
+      "parentUuid": "5ac10518_0ec5878d",
+      "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_ae51d30f",
         "filename": "qtip/cli/commands/cmd_result.py",
         "patchSetId": 2
@@ -135,6 +171,30 @@
       "writtenOn": "2016-12-14T01:43:21Z",
       "side": 1,
       "message": "`result` should be general purpose, not limiting to compute nodes.",
+      "range": {
+        "startLine": 46,
+        "startChar": 43,
+        "endLine": 46,
+        "endChar": 50
+      },
+      "revId": "deeb0b651939d8c23e82fc8db444222a1c89594d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_8e5f37e5",
+        "filename": "qtip/cli/commands/cmd_result.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T04:00:48Z",
+      "side": 1,
+      "message": "Should it be an argument instead of command?",
+      "parentUuid": "5ac10518_ae51d30f",
       "range": {
         "startLine": 46,
         "startChar": 43,

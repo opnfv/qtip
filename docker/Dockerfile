@@ -35,7 +35,7 @@ supervisor \
 python-setuptools \
 --no-install-recommends
 
-RUN easy_install -U setuptools
+RUN pip install 'setuptools>=17.1'
 
 RUN apt-add-repository ppa:ansible/ansible -y
 RUN apt-key update -y

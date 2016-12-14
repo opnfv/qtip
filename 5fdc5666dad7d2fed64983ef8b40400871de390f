@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_8e75f799",
+        "filename": "qtip/cli/commands/cmd_testplan.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-14T01:48:44Z",
+      "side": 1,
+      "message": "You need to handle the exception that user gives an invalid testplan name which does not exist.",
+      "revId": "5fdc5666dad7d2fed64983ef8b40400871de390f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

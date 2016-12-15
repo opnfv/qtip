@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_5f21fb9d",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-12-15T06:45:52Z",
+      "side": 1,
+      "message": "ok.",
+      "parentUuid": "5ac10518_19b1538f",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_39ac4f35",
         "filename": "benchmarks/suite/compute.yaml",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-14T14:27:19Z",
       "side": 1,
       "message": "This should be an one line introduction of what is compute QPI.",
+      "range": {
+        "startLine": 2,
+        "startChar": 15,
+        "endLine": 2,
+        "endChar": 41
+      },
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_bf2a5f7c",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-12-15T06:45:52Z",
+      "side": 1,
+      "message": "How about \"calculate compute performance\"",
+      "parentUuid": "5ac10518_39ac4f35",
       "range": {
         "startLine": 2,
         "startChar": 15,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_ff18e776",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-12-15T06:45:52Z",
+      "side": 1,
+      "message": "I prefer to capitalization of the first letter.  Abbreviations can be all capitalized.",
+      "parentUuid": "5ac10518_d9aaeb18",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_54b1e2df",
         "filename": "benchmarks/suite/compute.yaml",
         "patchSetId": 1
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_7f24f7ae",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-12-15T06:45:52Z",
+      "side": 1,
+      "message": "ok. I will add it.",
+      "parentUuid": "5ac10518_54b1e2df",
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_94b74ad8",
         "filename": "benchmarks/suite/compute.yaml",
         "patchSetId": 1
@@ -99,6 +189,30 @@
       "writtenOn": "2016-12-15T02:01:44Z",
       "side": 1,
       "message": "^ perftest",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 10
+      },
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_1f3b73d2",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-12-15T06:45:52Z",
+      "side": 1,
+      "message": "I will fix all typos.",
+      "parentUuid": "5ac10518_94b74ad8",
       "range": {
         "startLine": 9,
         "startChar": 2,

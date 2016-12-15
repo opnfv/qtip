@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_9f0683cd",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-15T08:58:14Z",
+      "side": 1,
+      "message": "A bit long for console display. Better to limited in screen width. What about \"sample performance index of computing\"?",
+      "revId": "8adc449cb1d871f44196a95494f98343b6d5a16f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -71,6 +71,46 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_54b1e2df",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-15T02:01:44Z",
+      "side": 1,
+      "message": "+ algorithm: geometry-average",
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_94b74ad8",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-15T02:01:44Z",
+      "side": 1,
+      "message": "^ perftest",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 10
+      },
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_f9a56747",
         "filename": "benchmarks/suite/compute.yaml",
         "patchSetId": 1
@@ -94,6 +134,29 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_b4ba86be",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-15T02:01:44Z",
+      "side": 1,
+      "message": "^ perftest",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 10
+      },
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_99646323",
         "filename": "benchmarks/suite/compute.yaml",
         "patchSetId": 1
@@ -110,6 +173,52 @@
         "startChar": 10,
         "endLine": 19,
         "endChar": 20
+      },
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_947aeaef",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-15T02:01:44Z",
+      "side": 1,
+      "message": "^ perftest",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 10
+      },
+      "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_b47da6e9",
+        "filename": "benchmarks/suite/compute.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-15T02:01:44Z",
+      "side": 1,
+      "message": "^ perftest",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 12
       },
       "revId": "b26d03060b8e35c9a63f54642d21c7c82664f291",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",

@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_34c6964a",
+        "filename": "qtip/api/handler/result_handler.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-15T01:05:02Z",
+      "side": 1,
+      "message": "I just copy the content from suite_result.py, since I don\u0027t know the logic, so I didn\u0027t do any change to it, It will be refactored after I start to look into it.",
+      "parentUuid": "5ac10518_19d2b300",
+      "revId": "f18a9a8f3d3b3908348604930f543953e4c5f341",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_39cd2f5e",
         "filename": "qtip/api/handler/result_handler.py",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-12-14T13:04:03Z",
       "side": 1,
       "message": "`bench` is not a common abbreviation for `benchmark`. Consider using full word or `bm`",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 20
+      },
+      "revId": "f18a9a8f3d3b3908348604930f543953e4c5f341",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_d4c4f241",
+        "filename": "qtip/api/handler/result_handler.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-15T01:05:02Z",
+      "side": 1,
+      "message": "same to above",
+      "parentUuid": "5ac10518_39cd2f5e",
       "range": {
         "startLine": 28,
         "startChar": 4,

@@ -16,6 +16,7 @@ class Property:
     NAME = 'name'
     DESCRIPTION = 'description'
     ABSPATH = 'abspath'
+    CONTENT = 'content'
 
 
 class Benchmark(object):

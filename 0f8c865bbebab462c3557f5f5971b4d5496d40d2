@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_bae10dd2",
+        "filename": "tests/unit/cli/ansible_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-16T00:58:04Z",
+      "side": 1,
+      "message": "I think the expected output can be imported from external data file. Then we will be able to generate examples automatically and it will also be easier to make further modification.",
+      "revId": "0f8c865bbebab462c3557f5f5971b4d5496d40d2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -34,6 +34,24 @@
       "revId": "0f8c865bbebab462c3557f5f5971b4d5496d40d2",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_0e682286",
+        "filename": "tests/unit/cli/ansible_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-16T09:18:11Z",
+      "side": 1,
+      "message": "A fixture more exactly. e.g you can define the command and result in a yaml file.\n\n```\n- command: [ansible, prepare]\n  output: \u0027prepare ansible env\u0027\n- command: [ansible, show]\n  output: \u0027show ansible configuration\u0027\n...\n```\n\nThen you can merge these three test case into one loop",
+      "parentUuid": "5ac10518_1a038143",
+      "revId": "0f8c865bbebab462c3557f5f5971b4d5496d40d2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

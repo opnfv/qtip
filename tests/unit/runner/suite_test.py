@@ -24,8 +24,8 @@ class TestSuite:
                               'data', 'suite')]
 
     def test_init(self):
-        suite = Suite('suite-1')
-        assert suite.name == 'suite-1'
+        suite = Suite('suite-1.yaml')
+        assert suite.name == 'suite-1.yaml'
 
         with pytest.raises(TypeError) as excinfo:
             Suite()
@@ -41,8 +41,25 @@ class TestSuite:
             assert Property.ABSPATH in suite_desc
             assert Property.ABSPATH is not None
 
-    def test_describe(self):
-        desc = Suite('suite-a').describe()
-        assert Property.NAME in desc
-        assert Property.DESCRIPTION in desc
-        assert Property.ABSPATH in desc
+    @pytest.mark.parametrize("test_input, expected", [
+        ('suite-1.yaml',
+         {
+            'name': 'suite-1.yaml',
+            'abspath': str(Suite._paths[0]) + '/suite-1.yaml',
+            'description': 'sample performance index of computing',
+            'content': {'QPI': 'compute',
+                        'description': 'sample performance index of computing'}
+         }),
+        ('suite-2.yaml',
+         {
+             'name': 'suite-2.yaml',
+             'abspath': str(Suite._paths[0]) + '/suite-2.yaml',
+             'description': None,
+             'content': None
+         })
+    ])
+    def test_describe(self, test_input, expected):
+        suite = Suite(test_input)
+        info = suite.describe()
+        assert info == expected
+

@@ -7,11 +7,14 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from datetime import datetime
 from os import path
+
 import pytest
 
+from qtip.base.benchmark import Property
+from qtip.runner.testplan import Info
 from qtip.runner.testplan import TestPlan
-from qtip.runner.benchmark import Property
 
 
 class TestTestPlanClass:
@@ -29,7 +32,7 @@ class TestTestPlan:
 
         with pytest.raises(TypeError) as excinfo:
             TestPlan()
-        assert '__init__() takes exactly 2 arguments (1 given)' \
+        assert '__init__() takes at least 2 arguments (1 given)' \
                in str(excinfo.value)
 
     def test_list(self):
@@ -46,3 +49,11 @@ class TestTestPlan:
         assert Property.NAME in desc
         assert Property.DESCRIPTION in desc
         assert Property.ABSPATH in desc
+
+
+class InfoTest:
+    def test_init(self):
+        info = Info()
+        assert isinstance(info.datetime, datetime)
+        assert isinstance(info.engineer, str)
+        assert isinstance(info.facility, str)

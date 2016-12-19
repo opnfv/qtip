@@ -7,16 +7,13 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from os import path
+from qtip.loader.suite import Condition
+from qtip.loader.suite import Suite
 
-from benchmark import Benchmark
 
-
-class Suite(Benchmark):
-    """WIP(yujunz):
-    a suite is consist of one or several perf tests and produces one QPI.
-    It must be executed as part of testplan
-    """
-
-    # paths to search for suites
-    _paths = [path.join(p, 'suite') for p in Benchmark._paths]
+class Task(object):
+    """Benchmark task to execute a specific suite"""
+    def __init__(self, suite_name, condition=None):
+        super(Task, self).__init__()
+        self.condition = condition if condition is not None else Condition()
+        self.suite = Suite(suite_name)

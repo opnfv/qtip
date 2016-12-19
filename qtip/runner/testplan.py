@@ -7,9 +7,10 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from datetime import datetime
 from os import path
 
-from benchmark import Benchmark
+from qtip.base.benchmark import Benchmark
 
 
 class TestPlan(Benchmark):
@@ -19,3 +20,18 @@ class TestPlan(Benchmark):
 
     # paths to search for suites
     _paths = [path.join(p, 'testplan') for p in Benchmark._paths]
+
+    def __init__(self, name, info=None):
+        super(TestPlan, self).__init__(name)
+
+        # TODO(yujunz) load information from file
+        self.info = info if info is not None else Info()
+        self.tasks = []
+
+
+class Info(object):
+    """Basic benchmark plan information"""
+    def __init__(self, facility="Demo Lab", engineer="Demo User"):
+        self.facility = facility
+        self.engineer = engineer
+        self.datetime = datetime.now()

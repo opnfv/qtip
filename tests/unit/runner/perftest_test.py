@@ -29,7 +29,7 @@ class TestPerfTest:
 
         with pytest.raises(TypeError) as excinfo:
             PerfTest()
-        assert '__init__() takes exactly 2 arguments (1 given)' \
+        assert '__init__() takes at least 2 arguments (1 given)' \
                in str(excinfo.value)
 
     def test_list(self):

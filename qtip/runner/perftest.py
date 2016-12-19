@@ -19,3 +19,14 @@ class PerfTest(Benchmark):
 
     # paths to search for perftest
     _paths = [path.join(p, 'perftest') for p in Benchmark._paths]
+
+    def __init__(self, name, version=None):
+        super(PerfTest, self).__init__(name)
+        self.version = version
+
+
+class Configuration():
+    """performance test configuration"""
+
+    def __init__(self):
+        pass

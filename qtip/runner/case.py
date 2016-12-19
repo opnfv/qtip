@@ -7,22 +7,11 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from os import path
-
-from benchmark import Benchmark
+from perftest import Configuration
 from perftest import PerfTest
 
 
-class Suite(Benchmark):
-    """WIP(yujunz):
-    a suite is consist of one or several perf tests and produces one QPI.
-    It must be executed as part of testplan
-    """
-
-    # paths to search for suites
-    _paths = [path.join(p, 'suite') for p in Benchmark._paths]
-
-
-class Condition(object):
-    """Suite execution condition"""
-    pass
+class Case(object):
+    def __init__(self, name, conf=None):
+        self.tool = PerfTest(name)
+        self.conf = conf if conf is not None else Configuration()

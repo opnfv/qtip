@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_c7d43d49",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-19T06:39:54Z",
+      "side": 1,
+      "message": "Do you mean \"override\"?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "721f31578ca571124f7b86efa0b9b355739181b2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_27fae1bd",
+        "filename": "qtip/runner/suite.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-19T06:39:54Z",
+      "side": 1,
+      "message": "Would `super(Suite, self).__init__(name)` be better?\n\nWhat will happen if you the constructor is called by a subclass of Suite? `self.__class__` will then not be `Suite` as expected.",
+      "revId": "721f31578ca571124f7b86efa0b9b355739181b2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_47f5adc9",
+        "filename": "qtip/runner/suite.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-19T06:39:54Z",
+      "side": 1,
+      "message": "The same as L30",
+      "revId": "721f31578ca571124f7b86efa0b9b355739181b2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_e70379b6",
+        "filename": "qtip/runner/suite.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-19T06:39:54Z",
+      "side": 1,
+      "message": "use `desc` ? `info` is used as test plan info as in https://wiki.opnfv.org/display/qtip/Design",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 12
+      },
+      "revId": "721f31578ca571124f7b86efa0b9b355739181b2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_07ffa5ab",
+        "filename": "qtip/runner/suite.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-19T06:39:54Z",
+      "side": 1,
+      "message": "Use constant `Property.DESCRIPTION` instead?",
+      "range": {
+        "startLine": 47,
+        "startChar": 48,
+        "endLine": 47,
+        "endChar": 59
+      },
+      "revId": "721f31578ca571124f7b86efa0b9b355739181b2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_a72d7148",
+        "filename": "tests/unit/runner/suite_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-19T06:39:54Z",
+      "side": 1,
+      "message": "We may want to move the expected content into `tests/data` for readability and maintainability.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 11
+      },
+      "revId": "721f31578ca571124f7b86efa0b9b355739181b2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+---
+
+  tests:
+  - command: [ansible, prepare]
+    output: "prepare ansible env\n"
+
+  - command: [ansible, show]
+    output: "show ansible configuration\n"
+
+  - command: [ansible, status]
+    output: "check connectivity\n"
+

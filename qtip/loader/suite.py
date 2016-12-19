@@ -9,7 +9,7 @@
 
 from os import path
 
-from benchmark import Benchmark
+from qtip.base.benchmark import Benchmark
 
 
 class Suite(Benchmark):
@@ -20,3 +20,16 @@ class Suite(Benchmark):
 
     # paths to search for suites
     _paths = [path.join(p, 'suite') for p in Benchmark._paths]
+
+    def __init__(self, name):
+        super(Suite, self).__init__(name)
+
+    def create_cases(self, cond=None):
+        """generate cases according to given condition"""
+        # TODO(yujunz) load suite definition and parse condition
+        return []
+
+
+class Condition(object):
+    """Suite execution condition"""
+    pass

@@ -8,10 +8,11 @@
 ##############################################################################
 
 from os import path
+
 import pytest
 
-from qtip.runner.suite import Suite
-from qtip.runner.benchmark import Property
+from qtip.base.benchmark import Property
+from qtip.loader.suite import Suite
 
 
 class TestSuiteClass:

@@ -1,0 +1,5 @@
+---
+
+  tests:
+    - command: ['perftest', 'run']
+      output: "Run a perftest\n"

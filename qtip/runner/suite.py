@@ -20,3 +20,8 @@ class Suite(Benchmark):
 
     # paths to search for suites
     _paths = [path.join(p, 'suite') for p in Benchmark._paths]
+
+
+class Condition(object):
+    """Suite execution condition"""
+    pass

@@ -1,0 +1,6 @@
+---
+
+  tests:
+    - command: ['suite', 'run']
+      output: "Run a suite\n"
+

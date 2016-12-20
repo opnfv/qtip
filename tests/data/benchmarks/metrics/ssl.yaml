@@ -1,0 +1,5 @@
+name: ssl
+description: a Secure Sockets Layer performance benchmarking
+workloads:
+  - aes_128_cbc: [512, 1024, 2048, 4096]
+  - rsa_sig: [16, 64, 256, 1024, 8192]

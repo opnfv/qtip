@@ -7,21 +7,20 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-import pytest
-
+from qtip.base.benchmark import Benchmark, Property
 from qtip.runner.suite import Suite
-from qtip.runner.case import Case
-from qtip.spec.qpi import QPISpec
 
 
-def init_test(suite):
-    assert isinstance(suite.qpi, QPISpec)
-    assert isinstance(suite.condition, dict)
-    assert isinstance(suite.cases, list)
-    for case in suite.cases:
-        assert isinstance(case, Case)
+class Plan(Benchmark):
+    """
+    a benchmark plan is consist of basic information and  several suites"""
 
-    with pytest.raises(TypeError) as excinfo:
-        Suite()
-    assert '__init__() takes exactly 2 arguments (1 given)' \
-           in str(excinfo.value)
+    DEFAULT_DIR = 'plans'
+
+    def __init__(self, name, paths=None):
+        super(Plan, self).__init__(name, paths=paths)
+        content = self.content()
+
+        self.info = content[Property.INFO].copy()
+        self.suites = [Suite(suite, paths=paths)
+                       for suite in content[Property.SUITES]]

@@ -7,16 +7,24 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+import pytest
+
 from qtip.base.benchmark import Property
-from qtip.spec.qpi import QPISpec
 from qtip.runner.case import Case
+from qtip.runner.plan import Plan
+from qtip.runner.suite import Suite
 
 
-class Suite(object):
-    """a suite of benchmark cases under specified condition"""
-    def __init__(self, spec, paths=None):
-        self._paths = paths
-        self.qpi_spec = QPISpec(spec[Property.QPI_SPEC], paths=paths)
-        self.condition = spec.get(Property.CONDITION, {})
-        self.cases = [Case(case_spec, paths)
-                      for case_spec in spec.get(Property.CASES, [])]
+@pytest.fixture(scope='module')
+def plan(benchmarks_root):
+    return Plan('verification.yaml', paths=[benchmarks_root])
+
+
+@pytest.fixture(scope='module')
+def suite(plan):
+    return Suite(plan[Property.SUITES][0])
+
+
+@pytest.fixture(scope='module')
+def case(suite):
+    return Case(suite[Property.CASES][0])

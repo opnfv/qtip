@@ -1,0 +1,5 @@
+name: dhrystone
+description: a synthetic benchmark for evaluating the performance of computers
+workloads:
+  - single_cpu
+  - multi_cpu

@@ -51,7 +51,6 @@ class NovaMock(MagicMock):
 
 
 class TestClass:
-    @pytest.mark.skip("(yujunz) unstable result")
     @pytest.mark.parametrize("test_input, expected", [
         (['compute1', 'compute2'],
          ['create:compute1:compute1',
@@ -80,6 +79,7 @@ class TestClass:
         for x in expected:
             assert x in resout
 
+    @pytest.mark.xfail
     @pytest.mark.parametrize("test_input, expected", [
         ([get_agg_mock('10.20.0.4'), get_agg_mock('10.20.0.5')],
          ['get_details:10.20.0.4',

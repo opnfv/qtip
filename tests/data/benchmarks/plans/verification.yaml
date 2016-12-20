@@ -1,0 +1,19 @@
+title: verification
+description: benchmark plan_cmd for QTIP verification
+info:
+  facility: opnfv-ci
+  engineer: opnfv-bot
+suites:
+  - QPI_spec: compute.yaml
+    condition: {}
+    cases:
+      - metric_spec: dhrystone.yaml
+        config: {}
+      - metric_spec: whetstone.yaml
+        config: {}
+      - metric_spec: ramspeed.yaml
+        config: {}
+      - metric_spec: dpi.yaml
+        config: {}
+      - metric_spec: ssl.yaml
+        config: {}

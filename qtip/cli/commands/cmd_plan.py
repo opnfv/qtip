@@ -8,10 +8,8 @@
 ##############################################################################
 
 import click
-import sys
 from prettytable import PrettyTable
-
-from qtip.runner.testplan import TestPlan
+from qtip.runner.plan import Plan
 
 
 @click.group()
@@ -20,30 +18,26 @@ def cli():
 
 
 @cli.group()
-def testplan():
+def plan_cmd():
     pass
 
 
-@testplan.command('list', help='List the different TestPlans.')
-def list():
-    testplans = TestPlan.list_all()
+@plan_cmd.command('list', help='List the different TestPlans.')
+def list_all():
+    plans = Plan.list_all()
     table = PrettyTable(["Testplans"])
     table.align = 'l'
-    for testplan in testplans:
-        table.add_row([testplan['name']])
+    for plan in plans:
+        table.add_row([plan['name']])
     click.echo(table)
 
 
-@testplan.command('show', help='Show details of specified TestPlan.')
+@plan_cmd.command('show', help='Show details of specified TestPlan.')
 @click.argument('name')
 def show(name):
-    plan = TestPlan(name)
-    desc = plan.describe()
-    if desc['abspath'] is None:
-        click.echo("Wrong TestPlan specified")
-        sys.exit(1)
-    else:
-        table = PrettyTable(["Name", "Description"])
-        table.align = 'l'
-        table.add_row([desc['name'], desc['description']])
-        click.echo(table)
+    plan = Plan(name)
+    results = plan.content()
+    table = PrettyTable(["Name", "Description"])
+    table.align = 'l'
+    table.add_row([results['name'], results['description']])
+    click.echo(table)

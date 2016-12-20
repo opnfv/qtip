@@ -1,0 +1,5 @@
+name: dpi
+description: deep packet inspection
+workloads:
+  - bps
+  - pps

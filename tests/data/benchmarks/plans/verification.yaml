@@ -1,0 +1,21 @@
+title: verification
+description: benchmark plan_cmd for QTIP verification
+info:
+  facility: opnfv-ci
+  engineer: opnfv-bot
+suites:
+  - QPI_spec: compute.yaml
+# Uncomment next line to setup suite running condition
+#    condition: {}
+# Uncomment the following lines setup case running configuration
+#    cases:
+#      - metric_spec: dhrystone.yaml
+#        config: {}
+#      - metric_spec: whetstone.yaml
+#        config: {}
+#      - metric_spec: ramspeed.yaml
+#        config: {}
+#      - metric_spec: dpi.yaml
+#        config: {}
+#      - metric_spec: ssl.yaml
+#        config: {}

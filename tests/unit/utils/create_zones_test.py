@@ -50,8 +50,8 @@ class NovaMock(MagicMock):
     aggregates = AggMock()
 
 
+@pytest.mark.xfail(reason="unstable result")
 class TestClass:
-    @pytest.mark.skip("(yujunz) unstable result")
     @pytest.mark.parametrize("test_input, expected", [
         (['compute1', 'compute2'],
          ['create:compute1:compute1',

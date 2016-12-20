@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_a271dfe1",
+        "filename": "tests/unit/cli/helper/ansible.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-20T01:00:02Z",
+      "side": 1,
+      "message": "Here you have omit the single quote. It is fine, but it needs to be consistent with other helper yaml.",
+      "range": {
+        "startLine": 4,
+        "startChar": 14,
+        "endLine": 4,
+        "endChar": 21
+      },
+      "revId": "d0296941fb341af6847acaa8a251124b21e1c00f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -9,7 +9,7 @@
 
 import click
 from prettytable import PrettyTable
-from qtip.runner.testplan import TestPlan
+from qtip.runner.plan import TestPlan
 
 
 @click.group()
@@ -36,7 +36,7 @@ def list():
 @click.argument('name')
 def show(name):
     plan = TestPlan(name)
-    results = plan.describe()
+    results = plan.content()
     table = PrettyTable(["Name", "Description"])
     table.align = 'l'
     table.add_row([results['name'], results['description']])

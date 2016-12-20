@@ -31,6 +31,7 @@ class HeatMock(MagicMock):
         pass
 
 
+@pytest.mark.xfail
 class TestClass:
     @pytest.mark.parametrize("test_input, expected", [
         ({'availability_zone': ['compute1', 'compute1'],

@@ -10,9 +10,8 @@ import pytest
 import mock
 import qtip.utils.args_handler
 
-
+@pytest.mark.xfail
 class TestClass:
-    @pytest.mark.skip("(yujunz) test fails")
     @pytest.mark.parametrize("test_input, expected", [
         (['fuel', '/home', 'benchmarks/testplan/default/network/iperf_bm.yaml'],
          ['fuel', '/home', "iperf",

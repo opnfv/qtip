@@ -1,0 +1,5 @@
+name: ramspeed
+description: a memory performance benchmarking
+workloads:
+    - int: [add, average, copy, scale, triad]
+    - float: [add, average, copy, scale, triad]

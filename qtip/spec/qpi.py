@@ -7,15 +7,12 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from os import path
-
-from benchmark import Benchmark
+from qtip.base.benchmark import Benchmark
 
 
-class TestPlan(Benchmark):
-    """WIP(yujunz):
-    a test plan is consist of test condition and several suites which can be
-    executed by user"""
-
-    # paths to search for suites
-    _paths = [path.join(p, 'testplan') for p in Benchmark._paths]
+class QPISpec(Benchmark):
+    """
+    a QPI specification defines how to calculate a performance index from
+     collected metrics.
+    """
+    DEFAULT_DIR = 'QPI'

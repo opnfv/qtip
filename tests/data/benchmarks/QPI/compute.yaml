@@ -1,0 +1,44 @@
+title: compute
+description: sample performance index of computing
+algorithm: weighted arithmetic mean
+sections:
+- name: Integer
+  weight: 0.3
+  algorithm: geometric mean
+  metrics:
+    - tool: dhrystone
+      workloads:
+        - single_cpu
+        - multi_cpu
+- name: Float
+  weight: 0.3
+  algorithm: geometric mean
+  metrics:
+    - tool: whetstone
+      workloads:
+        - single_cpu
+        - multi_cpu
+- name: Memory
+  weight: 0.2
+  algorithm: geometric mean
+  metrics:
+    - tool: ramspeed
+      workloads:
+          - int: [add, average, copy, scale, triad]
+          - float: [add, average, copy, scale, triad]
+- name: DPI
+  weight: 0.1
+  algorithm: geometric mean
+  metrics:
+    - tool: dpi
+      workloads:
+        - bps
+        - pps
+- name: SSL
+  weight: 0.1
+  algorithm: geometric mean
+  metrics:
+    - tool: ssl
+      workloads:
+        - aes_128_cbc: [512, 1024, 2048, 4096]
+        - rsa_sig: [16, 64, 256, 1024, 8192]

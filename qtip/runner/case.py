@@ -7,15 +7,11 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from os import path
+from qtip.base.benchmark import Property
+from qtip.spec.metric import MetricSpec
 
-from benchmark import Benchmark
 
-
-class PerfTest(Benchmark):
-    """WIP(yujunz):
-    a perftest is the driver of external performance test tools
-    It is usually referred in a suite to collect performance metric"""
-
-    # paths to search for perftest
-    _paths = [path.join(p, 'perftest') for p in Benchmark._paths]
+class Case(object):
+    def __init__(self, spec, paths=None):
+        self.metric_spec = MetricSpec(spec[Property.METRIC], paths=paths)
+        self.config = spec[Property.CONFIG]

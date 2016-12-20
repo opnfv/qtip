@@ -8,14 +8,14 @@
 ##############################################################################
 
 from os import path
+import pytest
 
-from benchmark import Benchmark
+
+@pytest.fixture(scope='session')
+def data_root():
+    return path.join(path.dirname(__file__), 'data')
 
 
-class TestPlan(Benchmark):
-    """WIP(yujunz):
-    a test plan is consist of test condition and several suites which can be
-    executed by user"""
-
-    # paths to search for suites
-    _paths = [path.join(p, 'testplan') for p in Benchmark._paths]
+@pytest.fixture(scope='session')
+def benchmarks_root(data_root):
+    return path.join(data_root, 'benchmarks')

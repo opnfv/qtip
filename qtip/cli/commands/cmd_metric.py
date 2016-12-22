@@ -11,7 +11,7 @@ import click
 from prettytable import PrettyTable
 import sys
 
-from qtip.runner.perftest import PerfTest
+from qtip.runner.metric import Metric
 
 
 @click.group()
@@ -20,26 +20,26 @@ def cli():
 
 
 @cli.group()
-def perftest():
+def metric():
     pass
 
 
-@perftest.command('list', help='List all the PerfTests')
+@metric.command('list', help='List all the Metrics')
 def list():
-    perftests = PerfTest.list_all()
-    table = PrettyTable(["PerfTest"])
+    metrics = Metric.list_all()
+    table = PrettyTable(["Metric"])
     table.align = 'l'
-    for perftest in perftests:
-        if perftest['name'].endswith('.yaml'):
-            table.add_row([perftest['name']])
+    for metric in metrics:
+        if metric['name'].endswith('.yaml'):
+            table.add_row([metric['name']])
     click.echo(table)
 
 
-@perftest.command('describe', help='Description of PerfTest')
+@metric.command('describe', help='Description of Metric')
 @click.argument('name')
 def describe(name):
-    perftest = PerfTest(name)
-    desc = perftest.describe()
+    metric = Metric(name)
+    desc = metric.describe()
     if desc['abspath'] is None:
         click.echo("Wrong PerfTest specified")
         sys.exit(1)

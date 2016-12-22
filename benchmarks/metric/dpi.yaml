@@ -1,0 +1,126 @@
+ - hosts: localhost
+   connection: local
+   gather_facts: no
+
+   tasks:
+    - name: making dpi directory
+      file: path={{Dest_dir}}/dpi state=directory
+
+    - name: making temporary whetstone directory
+      file: path={{Dest_dir}}/dpi/dpi_temp state=directory
+
+ - hosts: "{{role}}"
+   become: yes
+   remote_user: "{{username}}"
+
+   tasks:
+    - name: echo
+      shell: echo $USER
+
+    - name: checking home directory
+      shell: echo $HOME
+      register: home_dir
+
+    - name: cleaning
+      file: path={{home_dir.stdout}}/tempD state=absent
+
+    - name: cleaning previous results
+      file: path={{home_dir.stdout}}/qtip_result state=absent
+
+    - name: make qtip_result
+      file: path={{home_dir.stdout}}/qtip_result state=directory
+
+    - include: ./common/sys_proxy_pbook.yaml
+
+    - include: ./common/sys_info_pbook.yaml
+      vars:
+          network: false
+
+    - name: Installing nDPI dependencies if CentOS
+      shell: sudo yum install git gcc patch  perl-Time-HiRes autofconf automake libpcap-devel libtool -y
+      when: ansible_os_family == "RedHat"
+
+    - name: Installing nDPI dependcies if Ubuntu
+      shell: sudo apt-get install git gcc patch  autoconf automake libpcap-dev libtool -y
+      when: ansible_os_family == "Debian"
+
+    - name: making  nDPI temporary directory
+      file: path=$HOME/tempD state=directory
+
+    - include: ./common/git_proxy_pbook.yaml
+
+    - name: Clone nDPI
+      git: repo=https://github.com/ntop/nDPI.git
+           dest=$HOME/tempD/nDPI
+
+    - name: autogen
+      shell: cd $HOME/tempD/nDPI && sudo ./autogen.sh
+
+    - name: configure
+      shell: cd $HOME/tempD/nDPI && sudo ./configure
+
+    - name: make
+      shell: cd $HOME/tempD/nDPI && sudo make
+
+    - name: Fetching Test_pcap file
+      shell: cd $HOME/tempD/nDPI/example  &&  wget http://build.opnfv.org/artifacts.opnfv.org/qtip/utilities/test.pcap
+
+    - name: fetch Averaging script
+      copy: src=./etc/dpi_average.sh dest={{home_dir.stdout}}/tempD/nDPI/example mode=777
+
+    - name: Run nDPI benchmark
+      shell: cd $HOME/tempD/nDPI/example && sudo ./dpi_average.sh
+
+    - name: copy result to temp_direc
+      shell: sudo cp $HOME/tempD/nDPI/example/dpi_dump.txt $HOME/qtip_result
+
+    - name: fetch dpi result transform script
+      copy: src={{workingdir}}/qtip/utils/transform/dpi_transform.py dest={{home_dir.stdout}}/qtip_result
+
+    - name: Transforming results
+      shell: cd $HOME/qtip_result && sudo python dpi_transform.py
+
+    - name: copy report formation script
+      copy: src={{workingdir}}/qtip/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+
+    - name: consolidating report
+      shell: cd $HOME/qtip_result && sudo python final_report.py DPI {{fname}}
+
+    - name: registering files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
+      register: files_to_copy
+
+    - name: copy results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/dpi/dpi_temp
+      with_items: "{{files_to_copy.stdout_lines}}"
+
+    - name: registering log files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
+      register: copy_log_results
+
+    - name: copying log results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/dpi/dpi_temp
+      with_items: "{{copy_log_results.stdout_lines}}"
+
+    - name: cleaning tempD
+      file: path={{home_dir.stdout}}/tempD state=absent
+
+    - name: cleaning_qtip_result
+      file: path={{home_dir.stdout}}/qtip_result state=absent
+
+ - hosts: localhost
+   connection: local
+   gather_facts: no
+
+   tasks:
+    - name: extracting_json
+      shell: (find {{Dest_dir}}/dpi/dpi_temp/ -name "*.json" | xargs cp -t {{Dest_dir}}/dpi/)
+
+    - name: making_logs_folder
+      file: path={{Dest_dir}}/dpi/logs state=directory
+
+    - name: extracting_log
+      shell: (find {{Dest_dir}}/dpi/dpi_temp/ -name "*.log" | xargs cp -t {{Dest_dir}}/dpi/logs)
+
+    - name: removing dpi_temp
+      file: path={{Dest_dir}}/dpi/dpi_temp state=absent

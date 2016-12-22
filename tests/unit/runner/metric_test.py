@@ -10,32 +10,32 @@
 from os import path
 import pytest
 
-from qtip.runner.perftest import PerfTest
+from qtip.runner.metric import Metric
 from qtip.runner.benchmark import Property
 
 
-class TestPerfTestClass:
+class TestMetricTestClass:
     def test_attr(self):
-        assert len(PerfTest._paths) is 1
+        assert len(Metric._paths) is 1
 
 
-class TestPerfTest:
-    PerfTest._paths = [path.join(path.dirname(__file__), path.pardir,
-                                 path.pardir, 'data', 'perftest')]
+class TestMetricTest:
+    Metric._paths = [path.join(path.dirname(__file__), path.pardir,
+                               path.pardir, 'data', 'perftest')]
 
     def test_init(self):
-        perftest = PerfTest('test-a')
-        assert perftest.name == 'test-a'
+        metric = Metric('test-a')
+        assert metric.name == 'test-a'
 
         with pytest.raises(TypeError) as excinfo:
-            PerfTest()
+            Metric()
         assert '__init__() takes exactly 2 arguments (1 given)' \
                in str(excinfo.value)
 
     def test_list(self):
-        perftest_list = PerfTest.list_all()
-        assert len(list(perftest_list)) is 1
-        for desc in perftest_list:
+        metric_list = Metric.list_all()
+        assert len(list(metric_list)) is 1
+        for desc in metric_list:
             assert Property.NAME in desc
             assert Property.DESCRIPTION in desc
             assert Property.ABSPATH in desc

@@ -1,0 +1,12 @@
+---
+
+  tests:
+    - command: ['version', 'list']
+      output: "Lists all the different versions\n"
+
+    - command: ['version', 'install', 'Colorado']
+      output: "Install: Colorado\n"
+
+    - command: ['version', 'uninstall', 'Arno']
+      output: "Uninstall: Arno\n"
+

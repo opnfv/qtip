@@ -7,31 +7,11 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from prettytable import PrettyTable
-import yaml
 import click
-import os
-from qtip.cli import helper
+from prettytable import PrettyTable
+import sys
 
-
-class PerfTest:
-
-    def __init__(self):
-        self.path = os.path.join(helper.fetch_root(), 'perftest/summary')
-
-    def list(self):
-        table = PrettyTable(["Name", "Description"])
-        table.align = 'l'
-        with open(self.path) as tests:
-            line = tests.read()
-            data = yaml.safe_load(line)['test_cases']
-            for i in range(0, len(data)):
-                points = data[i]
-                table.add_row([points['name'], points['description']])
-        click.echo(table)
-
-    def run(self):
-        click.echo("Run a perftest")
+from qtip.runner.perftest import PerfTest
 
 
 @click.group()
@@ -40,19 +20,31 @@ def cli():
 
 
 @cli.group()
-@click.pass_context
-def perftest(ctx):
+def perftest():
     pass
 
 
-_perftest = PerfTest()
-
-
-@perftest.command("list", help="Lists all perftest benchmarks.")
+@perftest.command('list', help='List all the PerfTests')
 def list():
-    _perftest.list()
+    perftests = PerfTest.list_all()
+    table = PrettyTable(["PerfTest"])
+    table.align = 'l'
+    for perftest in perftests:
+        if perftest['name'].endswith('.yaml'):
+            table.add_row([perftest['name']])
+    click.echo(table)
 
 
-@perftest.command("run", help="Executes a single perftest benchmark.")
-def execute():
-    _perftest.run()
+@perftest.command('describe', help='Description of PerfTest')
+@click.argument('name')
+def describe(name):
+    perftest = PerfTest(name)
+    desc = perftest.describe()
+    if desc['abspath'] is None:
+        click.echo("Wrong PerfTest specified")
+        sys.exit(1)
+    else:
+        table = PrettyTable(["Name", "Description"])
+        table.align = 'l'
+        table.add_row([desc['name'], desc['description']])
+        click.echo(table)

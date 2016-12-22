@@ -12,10 +12,8 @@ from os import path
 from benchmark import Benchmark
 
 
-class PerfTest(Benchmark):
-    """WIP(yujunz):
-    a perftest is the driver of external performance test tools
-    It is usually referred in a suite to collect performance metric"""
+class Metric(Benchmark):
+    """PerfTest is the driver of external performance test tools"""
 
     # paths to search for perftest
-    _paths = [path.join(p, 'perftest') for p in Benchmark._paths]
+    _paths = [path.join(p, 'metric') for p in Benchmark._paths]

@@ -16,6 +16,24 @@
       "revId": "b45bd5efe9c87795e03f7ca9fa2c04540358ed2e",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_6751c00d",
+        "filename": "qtip/runner/plan.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-23T07:11:16Z",
+      "side": 1,
+      "message": "I\u0027m thinking about removing copy and use direct reference since info is not shared with other object and we are unlikely to write it back to disk.",
+      "parentUuid": "5ac10518_dc0c0b45",
+      "revId": "b45bd5efe9c87795e03f7ca9fa2c04540358ed2e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

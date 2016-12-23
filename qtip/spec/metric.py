@@ -7,12 +7,10 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-import click
-from qtip.cli.commands import cmd_metric
+from qtip.base.benchmark import Benchmark
 
-CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
-cli = click.CommandCollection(sources=[cmd_metric.cli])
-
-if __name__ == '__main__':
-    cli()
+class MetricSpec(Benchmark):
+    """metrics in QTIP are categorized by performance test tools, such as
+    dhrystone, whetstone and etc"""
+    DEFAULT_DIR = 'metrics'

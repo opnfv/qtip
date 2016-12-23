@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_dc0c0b45",
+        "filename": "qtip/runner/plan.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2016-12-23T06:58:37Z",
+      "side": 1,
+      "message": "I suggest to use module copy for deepcopy.\nhttps://docs.python.org/2/library/copy.html",
+      "revId": "b45bd5efe9c87795e03f7ca9fa2c04540358ed2e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

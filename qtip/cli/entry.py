@@ -8,13 +8,11 @@
 ##############################################################################
 
 import click
-from qtip.cli.commands import cmd_perftest
-from qtip.cli.commands import cmd_suite
-from qtip.cli.commands import cmd_ansible
+from qtip.cli.commands import cmd_metric
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
-cli = click.CommandCollection(sources=[cmd_perftest.cli, cmd_suite.cli, cmd_ansible.cli])
+cli = click.CommandCollection(sources=[cmd_metric.cli])
 
 if __name__ == '__main__':
     cli()

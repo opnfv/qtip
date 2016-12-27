@@ -7,10 +7,17 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from qtip.base.benchmark import Benchmark
+
+class QtipError(Exception):
+    pass
 
 
-class MetricSpec(Benchmark):
-    """metrics in QTIP are categorized by performance test tools, such as
-    dhrystone, whetstone and etc"""
-    DEFAULT_DIR = 'metrics'
+class InvalidFormat(QtipError):
+    def __init__(self, filename):
+        self.filename = filename
+
+
+class NotFound(QtipError):
+    def __init__(self, module, package='qtip'):
+        self.package = package
+        self.module = module

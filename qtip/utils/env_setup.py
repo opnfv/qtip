@@ -210,5 +210,5 @@ class Env_setup:
     def cleanup_authorized_keys(self):
         for ip, pw in self.ip_pw_list:
             cmd = './scripts/cleanup_creds.sh %s' % ip
-            logger.info("cleanup authorized_keys: %s " % cmd)
+            logger.info("post_run authorized_keys: %s " % cmd)
             os.system(cmd)

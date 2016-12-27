@@ -8,6 +8,7 @@
 ##############################################################################
 
 
-class Reporter(object):
-    """generate test report and push test data to database"""
-    pass
+class BaseReporter(object):
+    """benchmark result reporter"""
+    def __init__(self, collector=None):
+        self.collector = collector

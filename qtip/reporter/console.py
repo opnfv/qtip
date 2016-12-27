@@ -7,7 +7,8 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from base import BaseReporter
 
-class Collector(object):
-    """collect test result and test condition"""
-    pass
+
+class ConsoleReporter(BaseReporter):
+    """report result to console"""

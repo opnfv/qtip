@@ -7,14 +7,8 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from base import BaseCollector
 
-class BaseDriver(object):
-    """performance testing tool driver"""
-    def pre_run(self):
-        pass
 
-    def run(self):
-        pass
-
-    def post_run(self):
-        pass
+class StdoutCollector(BaseCollector):
+    """collect performance metrics from stdout"""

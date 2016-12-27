@@ -13,4 +13,4 @@ from qtip.base.benchmark import Benchmark
 class MetricSpec(Benchmark):
     """metrics in QTIP are categorized by performance test tools, such as
     dhrystone, whetstone and etc"""
-    DEFAULT_DIR = 'metrics'
+    DEFAULT_DIR = 'metric'

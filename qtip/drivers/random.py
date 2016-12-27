@@ -8,13 +8,8 @@
 ##############################################################################
 
 
-class BaseDriver(object):
-    """performance testing tool driver"""
-    def pre_run(self):
-        pass
+from base import BaseDriver
 
-    def run(self):
-        pass
 
-    def post_run(self):
-        pass
+class RandomDriver(BaseDriver):
+    pass

@@ -8,6 +8,5 @@
 ##############################################################################
 
 
-class Reporter(object):
-    """generate test report and push test data to database"""
-    pass
+class BaseCollector(object):
+    """performance metrics collector"""

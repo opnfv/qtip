@@ -10,6 +10,7 @@
 from os import path
 import pytest
 
+from qtip.runner.plan import Plan
 
 @pytest.fixture(scope='session')
 def data_root():
@@ -19,3 +20,8 @@ def data_root():
 @pytest.fixture(scope='session')
 def benchmarks_root(data_root):
     return path.join(data_root, 'benchmarks')
+
+
+@pytest.fixture(scope='session')
+def plan(benchmarks_root):
+    return Plan('fake-plan.yaml', [benchmarks_root])

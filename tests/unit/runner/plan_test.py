@@ -9,12 +9,12 @@
 
 import pytest
 
-from qtip.base.benchmark import Property
+from qtip.base.constant import PropName
 from qtip.runner.plan import Plan
 
 
 def test_init(plan):
-    assert plan.name == 'verification'
+    assert plan.name == 'fake plan'
 
     with pytest.raises(TypeError) as excinfo:
         Plan()
@@ -26,13 +26,13 @@ def test_list_all(benchmarks_root):
     plan_list = Plan.list_all(paths=[benchmarks_root])
     assert len(list(plan_list)) is 1
     for desc in plan_list:
-        assert Property.NAME in desc
-        assert Property.CONTENT in desc
-        assert Property.ABSPATH in desc
-        assert Property.ABSPATH is not None
+        assert PropName.NAME in desc
+        assert PropName.CONTENT in desc
+        assert PropName.ABSPATH in desc
+        assert PropName.ABSPATH is not None
 
 
 def test_content(plan):
-    content = plan.content()
-    assert Property.TITLE in content
-    assert Property.DESCRIPTION in content
+    content = plan.content
+    assert PropName.NAME in content
+    assert PropName.DESCRIPTION in content

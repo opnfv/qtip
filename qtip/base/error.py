@@ -7,11 +7,17 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from qtip.base.benchmark import Property
-from qtip.spec.metric import MetricSpec
+
+class QtipError(Exception):
+    pass
 
 
-class Case(object):
-    def __init__(self, spec, paths=None):
-        self.metric_spec = MetricSpec(spec[Property.METRIC_SPEC], paths=paths)
-        self.config = spec[Property.CONFIG]
+class InvalidFormat(QtipError):
+    def __init__(self, filename):
+        self.filename = filename
+
+
+class NotFound(QtipError):
+    def __init__(self, module, package='qtip'):
+        self.package = package
+        self.module = module

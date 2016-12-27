@@ -8,13 +8,14 @@ from qtip.cli.entry import cli
 
 
 class TestClass(object):
+    '''TODO(taseer) Remove hardcoded behaviour '''
 
     @pytest.fixture()
     def runner(self):
         return CliRunner()
 
     def test(self, runner):
-        unit = 'ansible'
+        unit = 'perftest'
         test_file = 'data/helper/' + unit + '.yaml'
         path = os.path.join(os.path.dirname(__file__), os.pardir, os.pardir, test_file)
 

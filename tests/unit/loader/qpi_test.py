@@ -9,8 +9,8 @@
 
 import pytest
 
-from qtip.base.benchmark import Algorithm, Property
-from qtip.spec.qpi import QPISpec
+from qtip.base.constant import AlgoName, PropName
+from qtip.loader.qpi import QPISpec
 
 QPI_SPEC = 'compute.yaml'
 
@@ -31,22 +31,22 @@ def test_init(qpi_spec):
 
 def test_list_all(benchmarks_root):
     qpi_spec_list = QPISpec.list_all(paths=[benchmarks_root])
-    assert len(list(qpi_spec_list)) is 1
+    assert len(list(qpi_spec_list)) is 2
     for item in qpi_spec_list:
-        assert Property.NAME in item
-        assert Property.CONTENT in item
-        assert Property.ABSPATH in item
-        assert Property.ABSPATH is not None
+        assert PropName.NAME in item
+        assert PropName.CONTENT in item
+        assert PropName.ABSPATH in item
+        assert PropName.ABSPATH is not None
 
 
 def test_content(qpi_spec):
-    content = qpi_spec.content()
-    assert Property.DESCRIPTION in content
-    assert Property.ALGORITHM in content
-    assert Property.SECTIONS in content
+    content = qpi_spec.content
+    assert PropName.DESCRIPTION in content
+    assert PropName.ALGORITHM in content
+    assert PropName.SECTIONS in content
 
-    assert content[Property.ALGORITHM] in Algorithm.__dict__.values()
-    sections = content[Property.SECTIONS]
+    assert content[PropName.ALGORITHM] in AlgoName.__dict__.values()
+    sections = content[PropName.SECTIONS]
     assert isinstance(sections, list)
     for section in sections:
-        assert Property.NAME in section
+        assert PropName.NAME in section

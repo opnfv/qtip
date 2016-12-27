@@ -1,4 +1,4 @@
-###############################################################
+##############################################################################
 # Copyright (c) 2016 ZTE Corp and others.
 #
 # All rights reserved. This program and the accompanying materials
@@ -7,9 +7,14 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from qtip.spec.metric import MetricSpec
 
+class BaseDriver(object):
+    """performance testing tool driver"""
+    def pre_run(self):
+        pass
 
-def init_test(case):
-    assert isinstance(case.metric_spec, MetricSpec)
-    assert isinstance(case.config, dict)
+    def run(self):
+        pass
+
+    def post_run(self):
+        pass

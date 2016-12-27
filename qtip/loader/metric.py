@@ -7,11 +7,10 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from qtip.base.benchmark import Property
-from qtip.spec.metric import MetricSpec
+from base import BaseLoader
 
 
-class Case(object):
-    def __init__(self, spec, paths=None):
-        self.metric_spec = MetricSpec(spec[Property.METRIC_SPEC], paths=paths)
-        self.config = spec[Property.CONFIG]
+class MetricSpec(BaseLoader):
+    """metrics in QTIP are categorized by performance test tools, such as
+    dhrystone, whetstone and etc"""
+    DEFAULT_DIR = 'metric'

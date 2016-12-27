@@ -7,6 +7,8 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from base import BaseReporter
 
-class BaseDriver(object):
-    """performance testing tool driver"""
+
+class ConsoleReporter(BaseReporter):
+    """report result to console"""

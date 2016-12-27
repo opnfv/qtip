@@ -14,7 +14,7 @@ class TestClass(object):
         return CliRunner()
 
     def test(self, runner):
-        unit = 'ansible'
+        unit = 'perftest'
         test_file = 'data/helper/' + unit + '.yaml'
         path = os.path.join(os.path.dirname(__file__), os.pardir, os.pardir, test_file)
 

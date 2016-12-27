@@ -8,6 +8,13 @@
 ##############################################################################
 
 
-class Reporter(object):
-    """generate test report and push test data to database"""
-    pass
+class BaseDriver(object):
+    """performance testing tool driver"""
+    def pre_run(self):
+        pass
+
+    def run(self):
+        pass
+
+    def post_run(self):
+        pass

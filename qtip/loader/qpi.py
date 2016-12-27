@@ -7,7 +7,12 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from base import BaseLoader
 
-class Collector(object):
-    """collect test result and test condition"""
-    pass
+
+class QPISpec(BaseLoader):
+    """
+    a QPI specification defines how to calculate a performance index from
+     collected metrics.
+    """
+    DEFAULT_DIR = 'QPI'

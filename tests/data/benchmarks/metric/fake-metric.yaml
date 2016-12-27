@@ -1,0 +1,7 @@
+name: fake compute
+description: >
+  a fake compute performance index which generate random result
+workloads:  # all supported workloads
+  - fake_workload_1
+  - fake_workload_2
+  - fake_workload_3

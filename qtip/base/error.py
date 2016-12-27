@@ -7,22 +7,17 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from os import path
-import pytest
 
-from qtip.runner.plan import Plan
-
-
-@pytest.fixture(scope='session')
-def data_root():
-    return path.join(path.dirname(__file__), 'data')
+class QtipError(Exception):
+    pass
 
 
-@pytest.fixture(scope='session')
-def benchmarks_root(data_root):
-    return path.join(data_root, 'benchmarks')
+class InvalidFormat(QtipError):
+    def __init__(self, filename):
+        self.filename = filename
 
 
-@pytest.fixture(scope='session')
-def plan(benchmarks_root):
-    return Plan('fake-plan.yaml', [benchmarks_root])
+class NotFound(QtipError):
+    def __init__(self, module, package='qtip'):
+        self.package = package
+        self.module = module

@@ -8,15 +8,10 @@
 ##############################################################################
 
 from qtip.base.benchmark import Property
-from qtip.spec.qpi import QPISpec
-from qtip.runner.case import Case
+from qtip.spec.metric import MetricSpec
 
 
-class Suite(object):
-    """a suite of benchmark cases under specified condition"""
+class Case(object):
     def __init__(self, spec, paths=None):
-        self._paths = paths
-        self.qpi_spec = QPISpec(spec[Property.QPI_SPEC], paths=paths)
-        self.condition = spec.get(Property.CONDITION, {})
-        self.cases = [Case(case_spec, paths)
-                      for case_spec in spec.get(Property.CASES, [])]
+        self.metric_spec = MetricSpec(spec[Property.METRIC_SPEC], paths=paths)
+        self.config = spec[Property.CONFIG]

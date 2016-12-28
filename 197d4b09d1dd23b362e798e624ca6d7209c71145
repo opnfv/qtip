@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_6808ad91",
+        "filename": "tests/unit/cli/test_module.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-28T01:54:40Z",
+      "side": 1,
+      "message": "this should not be hardcoded. Put a TODO mark to indicate further work, e.g.\n\n# TODO(taseer): parametrize this test instead of hard coding",
+      "range": {
+        "startLine": 17,
+        "startChar": 16,
+        "endLine": 17,
+        "endChar": 24
+      },
+      "revId": "197d4b09d1dd23b362e798e624ca6d7209c71145",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

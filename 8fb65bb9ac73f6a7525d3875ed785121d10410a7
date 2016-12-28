@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_bcf25a98",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-28T12:16:17Z",
+      "side": 1,
+      "message": "\u003d\u003e Problem description",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_3ce8aab3",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-28T12:16:17Z",
+      "side": 1,
+      "message": "collect",
+      "range": {
+        "startLine": 13,
+        "startChar": 71,
+        "endLine": 13,
+        "endChar": 77
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_9ce19ed2",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-28T12:16:17Z",
+      "side": 1,
+      "message": "QPI \u003d QTIP performance index.\n\nReference to the terms required for external audience.",
+      "range": {
+        "startLine": 13,
+        "startChar": 19,
+        "endLine": 13,
+        "endChar": 22
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_5ceb36b0",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-28T12:16:17Z",
+      "side": 1,
+      "message": "\u003d\u003e calculates",
+      "range": {
+        "startLine": 14,
+        "startChar": 52,
+        "endLine": 14,
+        "endChar": 61
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_fcd1c2fb",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-28T12:16:17Z",
+      "side": 1,
+      "message": "Insert a new section header \"Proposed change\"\n\n\u003d\u003e It is recommended to use `agent mode`_, in which Yardstick will act as an external runner ...",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_1ccdae5d",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-28T12:16:17Z",
+      "side": 1,
+      "message": "Add \"on the completion of test.\"",
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_bcdb3a1a",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-28T12:16:17Z",
+      "side": 1,
+      "message": "\u003d\u003e Working Items",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 12
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_7c05d278",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-28T12:16:17Z",
+      "side": 1,
+      "message": "remove \"How to\"",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 10
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_9c08be92",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-28T12:16:17Z",
+      "side": 1,
+      "message": "Remove \"How to\"",
+      "range": {
+        "startLine": 28,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 10
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_5c025670",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-28T12:16:17Z",
+      "side": 1,
+      "message": "remove \"How to\"",
+      "range": {
+        "startLine": 35,
+        "startChar": 3,
+        "endLine": 35,
+        "endChar": 10
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_fcf8e27d",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-28T12:16:17Z",
+      "side": 1,
+      "message": "remove \"How to\"",
+      "range": {
+        "startLine": 57,
+        "startChar": 3,
+        "endLine": 57,
+        "endChar": 9
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

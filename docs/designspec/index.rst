@@ -12,3 +12,4 @@ QTIP Design Specifications
 
    dashboard.rst
    compute_QPI.rst
+   integration_with_yardstick.rst

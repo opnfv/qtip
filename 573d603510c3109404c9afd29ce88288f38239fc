@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_5cd576b7",
+        "filename": "qtip/base/error.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2016-12-29T00:48:18Z",
+      "side": 1,
+      "message": "Should we name it `BaseError`?",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 11
+      },
+      "revId": "573d603510c3109404c9afd29ce88288f38239fc",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -94,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_df46384f",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "how about remove data, I think test result already indicate that.",
+      "range": {
+        "startLine": 14,
+        "startChar": 12,
+        "endLine": 14,
+        "endChar": 16
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_fcd1c2fb",
         "filename": "docs/designspec/integration_with_yardstick.rst",
         "patchSetId": 1
@@ -180,6 +203,144 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_7f75c496",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "suites -\u003e suite?",
+      "range": {
+        "startLine": 22,
+        "startChar": 30,
+        "endLine": 22,
+        "endChar": 36
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_9f78b090",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "suite files -\u003e suites? suite file is the way to implement it.",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 24,
+        "endChar": 48
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_5f7248ae",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "suite file -\u003e suite?",
+      "range": {
+        "startLine": 24,
+        "startChar": 77,
+        "endLine": 24,
+        "endChar": 87
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_3f6f3cc7",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "customized -\u003e customizing?",
+      "range": {
+        "startLine": 24,
+        "startChar": 66,
+        "endLine": 24,
+        "endChar": 76
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_ff68d4bb",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "repos -\u003e repo?",
+      "range": {
+        "startLine": 25,
+        "startChar": 61,
+        "endLine": 25,
+        "endChar": 66
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_df5dd816",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "remove \u0027mode\u0027?",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_9c08be92",
         "filename": "docs/designspec/integration_with_yardstick.rst",
         "patchSetId": 1
@@ -197,6 +358,138 @@
         "endLine": 28,
         "endChar": 10
       },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_bfb9ec2f",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "ambiguous sentence. how about: Whether to launch Qtip will be determined by Yardstick by checking the existence of \u0027QTIP\u0027 environment variable. If it exists, Qtip will be launched, or else won\u0027t.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 91
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_dfb4f836",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "yardstick -\u003e Yardstick. same error appears many times, please check and correct all of them.",
+      "range": {
+        "startLine": 31,
+        "startChar": 75,
+        "endLine": 31,
+        "endChar": 84
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_3f7dfc6e",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "finish -\u003e finishes",
+      "range": {
+        "startLine": 31,
+        "startChar": 85,
+        "endLine": 31,
+        "endChar": 91
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_5f800846",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "test execution -\u003e the execution of all the test cases",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 14
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_ff969493",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "test result data -\u003e the test results",
+      "range": {
+        "startLine": 32,
+        "startChar": 54,
+        "endLine": 32,
+        "endChar": 70
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_bf900c96",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "To trigger Qtip agent in Yardstick, we need to add a function........",
       "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -226,6 +519,121 @@
     },
     {
       "key": {
+        "uuid": "5ac10518_df8b9866",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "How to parse -\u003e Parsing, same process to all the other \u0027how to\u0027 ?",
+      "range": {
+        "startLine": 35,
+        "startChar": 3,
+        "endLine": 35,
+        "endChar": 15
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_dfb95816",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "basically -\u003e Basically",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 9
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_9fed1028",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "need -\u003e need to",
+      "range": {
+        "startLine": 54,
+        "startChar": 74,
+        "endLine": 54,
+        "endChar": 78
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_7feaa410",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "\u0027can not be configured\u0027 or \u0027is not configurable\u0027",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 27
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_5ff7a8f5",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "is concerned with -\u003e concerns ?",
+      "range": {
+        "startLine": 55,
+        "startChar": 44,
+        "endLine": 55,
+        "endChar": 61
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_fcf8e27d",
         "filename": "docs/designspec/integration_with_yardstick.rst",
         "patchSetId": 1
@@ -242,6 +650,121 @@
         "startChar": 3,
         "endLine": 57,
         "endChar": 9
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_9f3bd09b",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "how about \u0027Qtip should tell the user what kind of hardware that metrics is based on and what kind of software it is measured by.\u0027",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 12
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_ffc45493",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "possible-\u003e necessary or required?",
+      "range": {
+        "startLine": 60,
+        "startChar": 74,
+        "endLine": 60,
+        "endChar": 82
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_5fcec8b5",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "Yardstick doesn\u0027t collect those information.",
+      "range": {
+        "startLine": 60,
+        "startChar": 22,
+        "endLine": 60,
+        "endChar": 67
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_1fc0407b",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "have -\u003e implement a ?",
+      "range": {
+        "startLine": 60,
+        "startChar": 86,
+        "endLine": 60,
+        "endChar": 90
+      },
+      "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_bfbeccfd",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2016-12-29T07:12:45Z",
+      "side": 1,
+      "message": "how about changing to \u0027them\u0027 directly",
+      "range": {
+        "startLine": 61,
+        "startChar": 40,
+        "endLine": 61,
+        "endChar": 82
       },
       "revId": "8fb65bb9ac73f6a7525d3875ed785121d10410a7",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",

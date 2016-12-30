@@ -1,7 +1,9 @@
 name: dhrystone
 description: >
-  a synthetic computing benchmark program intended to be representative of
-  system (integer) programming
+  A synthetic computing benchmark program intended to be representative of
+  system (integer) programming.
+links:
+  - https://en.wikipedia.org/wiki/Dhrystone
 workloads:
   - single_cpu
   - multi_cpu

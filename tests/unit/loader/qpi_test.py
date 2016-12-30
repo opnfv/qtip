@@ -9,7 +9,7 @@
 
 import pytest
 
-from qtip.base.constant import AlgoName, PropName
+from qtip.base.constant import FormulaName, PropName
 from qtip.loader.qpi import QPISpec
 
 QPI_SPEC = 'compute.yaml'
@@ -42,10 +42,10 @@ def test_list_all(benchmarks_root):
 def test_content(qpi_spec):
     content = qpi_spec.content
     assert PropName.DESCRIPTION in content
-    assert PropName.ALGORITHM in content
+    assert PropName.FORMULA in content
     assert PropName.SECTIONS in content
 
-    assert content[PropName.ALGORITHM] in AlgoName.__dict__.values()
+    assert content[PropName.FORMULA] in FormulaName.__dict__.values()
     sections = content[PropName.SECTIONS]
     assert isinstance(sections, list)
     for section in sections:

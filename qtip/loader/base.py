@@ -20,13 +20,13 @@ ROOT_DIR = 'benchmarks'
 
 class BaseLoader(object):
     """Abstract class of QTIP benchmark loader"""
-    DEFAULT_DIR = '.'
+    RELATIVE_PATH = '.'
     _paths = [path.join(path.dirname(__file__), path.pardir, path.pardir,
                         ROOT_DIR)]
 
     def __init__(self, name, paths=None):
         self._file = name
-        self._abspath = self._find(name, paths)
+        self._abspath = self._find(name, paths=paths)
 
         try:
             content = yaml.safe_load(file(self._abspath))
@@ -38,12 +38,11 @@ class BaseLoader(object):
             else path.splitext(name)[0]
         self.content = content
 
-    def _find(self, name, paths):
+    def _find(self, name, paths=None):
         """find a benchmark in searching paths"""
         paths = self._paths if paths is None else paths
-        name = path.join(self.DEFAULT_DIR, name)
         for p in paths:
-            abspath = path.join(p, name)
+            abspath = path.join(p, self.RELATIVE_PATH, name)
             if path.exists(abspath):
                 return abspath
         raise NotFound(name, paths)
@@ -52,7 +51,7 @@ class BaseLoader(object):
     def list_all(cls, paths=None):
         """list all available benchmarks"""
         paths = cls._paths if paths is None else paths
-        names = chain.from_iterable([listdir(path.join(p, cls.DEFAULT_DIR))
+        names = chain.from_iterable([listdir(path.join(p, cls.RELATIVE_PATH))
                                      for p in paths])
         for name in names:
             item = cls(name, paths=paths)

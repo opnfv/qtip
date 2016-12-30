@@ -13,4 +13,4 @@ from base import BaseLoader
 class MetricSpec(BaseLoader):
     """metrics in QTIP are categorized by performance test tools, such as
     dhrystone, whetstone and etc"""
-    DEFAULT_DIR = 'metric'
+    RELATIVE_PATH = 'metric'

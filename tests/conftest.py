@@ -8,9 +8,10 @@
 ##############################################################################
 
 from os import path
+
 import pytest
 
-from qtip.runner.plan import Plan
+from qtip.loader.plan import Plan
 
 
 @pytest.fixture(scope='session')

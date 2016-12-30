@@ -7,19 +7,21 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+
 from qtip.base.constant import PropName
-from qtip.runner.base import BaseRunner
+from qtip.loader.base import BaseLoader
 from qtip.loader.qpi import QPISpec
 
 
-class Plan(BaseRunner):
+class Plan(BaseLoader):
     """
     a benchmark plan is consist of configuration and a QPI list
     """
 
-    DEFAULT_DIR = 'plan'
+    RELATIVE_PATH = 'plan'
 
     def __init__(self, name, paths=None):
         super(Plan, self).__init__(name, paths)
+
         self.qpis = [QPISpec(qpi, paths=paths)
                      for qpi in self.content[PropName.QPIS]]

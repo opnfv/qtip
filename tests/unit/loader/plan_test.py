@@ -10,11 +10,14 @@
 import pytest
 
 from qtip.base.constant import PropName
-from qtip.runner.plan import Plan
+from qtip.loader.plan import Plan, QPISpec
 
 
 def test_init(plan):
     assert plan.name == 'fake plan'
+    assert isinstance(plan.content, dict)
+    for qpi in plan.qpis:
+        assert isinstance(qpi, QPISpec)
 
     with pytest.raises(TypeError) as excinfo:
         Plan()
@@ -36,3 +39,5 @@ def test_content(plan):
     content = plan.content
     assert PropName.NAME in content
     assert PropName.DESCRIPTION in content
+    assert PropName.CONFIG in content
+    assert PropName.QPIS in content

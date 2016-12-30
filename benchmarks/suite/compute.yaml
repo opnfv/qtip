@@ -1,12 +1,12 @@
 QPI: compute
 description: sample performance index of computing
 
-algorithm: weighted arithmetic mean
+formula: weighted arithmetic mean
 
 section:
 - name: Integer
   weight: 0.3
-  algorithm: geometric mean
+  formula: geometric mean
   perftests:
     - name: dhrystone
       workloads:
@@ -14,7 +14,7 @@ section:
         - multi_cpu
 - name: Floating
   weight: 0.3
-  algorithm: geometric mean
+  formula: geometric mean
   perftests:
     - name: whetstone
       workloads:
@@ -22,7 +22,7 @@ section:
         - multi_cpu
 - name: Memory
   weight: 0.2
-  algorithm: geometric mean
+  formula: geometric mean
   perftests:
     - name: ramspeed
       workloads:
@@ -30,7 +30,7 @@ section:
           - float: [add, average, copy, scale, triad]
 - name: DPI
   weight: 0.1
-  algorithm: geometric mean
+  formula: geometric mean
   perftests:
     - name: dpi
       workloads:
@@ -38,7 +38,7 @@ section:
         - pps
 - name: SSL
   weight: 0.1
-  algorithm: geometric mean
+  formula: geometric mean
   perftests:
     - name: ssl
       workloads:

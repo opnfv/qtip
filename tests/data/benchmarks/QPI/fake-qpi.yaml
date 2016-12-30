@@ -1,9 +1,9 @@
 name: Fake QPI
 description: a fake QPI producing random result
-algorithm: weighted arithmetic mean
+formula: weighted arithmetic mean
 sections:
 - name: Fake Section
   weight: 0.5
-  algorithm: geometric mean
+  formula: geometric mean
   metrics:
-    - fake_metric.yaml
+    - fake-metric.yaml

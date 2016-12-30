@@ -8,8 +8,8 @@
 ##############################################################################
 
 
-class AlgoName(object):
-    """algorithm names"""
+class FormulaName(object):
+    """formula names"""
     ARITHMETIC_MEAN = 'arithmetic mean'
     WEIGHTED_ARITHMETIC_MEAN = 'weighted arithmetic mean'
     GEOMETRIC_MEAN = 'geometric mean'
@@ -37,7 +37,7 @@ class PropName(object):
     # spec
     SECTIONS = 'sections'
     WEIGHT = 'weight'
-    ALGORITHM = 'algorithm'
+    FORMULA = 'formula'
     METRICS = 'metrics'
     WORKLOADS = 'workloads'
     # plan

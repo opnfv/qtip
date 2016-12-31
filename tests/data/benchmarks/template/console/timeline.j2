@@ -1,0 +1,7 @@
+{% for group in groups %}
+{{ group.name }}{{ TIME }}
+{% for stage in group.stages %}
+{{ stage.name }}{{ stage.time|progress_bar}}{{ stage.time}}
+{% endfor %}
+{% endfor %}
+{{ "Total"}}{{ total }}

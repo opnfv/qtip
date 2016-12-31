@@ -1,0 +1,8 @@
+{% title %}
+{% for phase in phases %}
+{{ phase.name|upper }}{{ "TIME" }}
+{% for cp in phase.checkpoints %}
+{{ cp.name }}{{ cp.timestamp}}
+{% endfor %}
+{% endfor %}
+Total: {{ total }}

@@ -15,14 +15,15 @@ import yaml
 from qtip.base.error import InvalidFormat, NotFound
 from qtip.base.constant import PropName
 
-ROOT_DIR = 'benchmarks'
+
+ROOT_DIR = path.join(path.dirname(__file__), path.pardir, path.pardir,
+                     'benchmarks')
 
 
 class BaseLoader(object):
     """Abstract class of QTIP benchmark loader"""
     RELATIVE_PATH = '.'
-    _paths = [path.join(path.dirname(__file__), path.pardir, path.pardir,
-                        ROOT_DIR)]
+    _paths = [ROOT_DIR]
 
     def __init__(self, name, paths=None):
         self._file = name

@@ -7,9 +7,15 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from jinja2 import Environment, FileSystemLoader
 
-from base import BaseReporter
+from base import BaseLoader
 
 
-class ConsoleReporter(BaseReporter):
-    """report result to console"""
+class Template(BaseLoader):
+    RELATIVE_PATH = 'template'
+
+    def __init__(self, name, paths=None):
+        super(Template, self).__init__(name, paths=paths)
+        self._env = Environment(loader=FileSystemLoader(self._abspath))
+        self.get_template = self._env.get_template

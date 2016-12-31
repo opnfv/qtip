@@ -8,8 +8,5 @@
 ##############################################################################
 
 
-from base import BaseReporter
-
-
-class ConsoleReporter(BaseReporter):
-    """report result to console"""
+class BaseTransformer(object):
+    """Transform collected performance metrics into required format"""

@@ -1,0 +1,8 @@
+{% title %}
+{% for phase in phases %}
+{{ phase.name|upper }}{{ "TIME" }}
+{% for step in phase.steps %}
+{{ step.name }}{{ step.time}}
+{% endfor %}
+{% endfor %}
+{{ "Total"}}{{ total }}

@@ -70,3 +70,6 @@ target/
 # setup.py cache
 AUTHORS
 ChangeLog
+
+# unignore sample logfiles
+!/opt/plugin/doctor/sample/*/*

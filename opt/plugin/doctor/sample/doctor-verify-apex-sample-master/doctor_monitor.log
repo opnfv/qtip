@@ -1,0 +1,3 @@
+2016-12-28 03:15:00,890 monitor.py 65 DEBUG  start ping to host overcloud-novacompute-1.ool-virtual1 (ip=192.0.2.5)
+2016-12-28 03:16:05,292 monitor.py 74 INFO   doctor monitor detected at 1482894965.29
+2016-12-28 03:16:05,960 monitor.py 76 INFO   ping timeout, quit monitoring...

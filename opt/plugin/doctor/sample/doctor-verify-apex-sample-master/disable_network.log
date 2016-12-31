@@ -1,0 +1,11 @@
+++ sudo ip a
+++ awk '/ 192.0.2.5\//{print $7}'
++ dev=eth0
++ sleep 1
+++ date +%s.%N
++ echo 'doctor set host down at' 1482894965.164096803
+doctor set host down at 1482894965.164096803
++ sudo ip link set eth0 down
++ sleep 180
++ sudo ip link set eth0 up
++ sleep 1

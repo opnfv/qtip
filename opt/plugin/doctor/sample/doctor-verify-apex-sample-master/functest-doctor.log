@@ -1,0 +1,421 @@
++ IMAGE_URL=https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-disk.img
++ IMAGE_NAME=cirros
++ IMAGE_FILE=cirros.img
++ IMAGE_FORMAT=qcow2
++ VM_NAME=doctor_vm1
++ VM_FLAVOR=m1.tiny
++ ALARM_NAME=doctor_alarm1
++ INSPECTOR_PORT=12345
++ CONSUMER_PORT=12346
++ DOCTOR_USER=doctor
++ DOCTOR_PW=doctor
++ DOCTOR_PROJECT=doctor
++ DOCTOR_ROLE=admin
++++ dirname ./run.sh
+++ cd .
+++ pwd
++ TOP_DIR=/home/opnfv/repos/doctor/tests
++ ssh_opts='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
++ as_doctor_user='--os-username doctor --os-password doctor
+                --os-tenant-name doctor'
++ echo 'Note: doctor/tests/run.sh has been executed.'
+Note: doctor/tests/run.sh has been executed.
++ trap cleanup EXIT
++ source /home/opnfv/repos/doctor/tests/functions-common
++ source /home/opnfv/repos/doctor/tests/lib/installer
+++ INSTALLER_TYPE=apex
+++ INSTALLER_IP=192.168.122.70
+++ ssh_opts_cpu='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
++ source /home/opnfv/repos/doctor/tests/lib/inspector
+++ INSPECTOR_TYPE=sample
++ setup_installer
++ is_installer_supported apex
++ local installer=apex
++ [[ -f /home/opnfv/repos/doctor/tests/lib/installers/apex ]]
++ source /home/opnfv/repos/doctor/tests/lib/installers/apex
++ is_set INSTALLER_IP
++ local 'var=$INSTALLER_IP'
++ eval '[ -n "$INSTALLER_IP" ]'
+++ '[' -n 192.168.122.70 ']'
++ installer_get_ssh_keys
++ sudo scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@192.168.122.70:/home/stack/.ssh/id_rsa instack_key
+Warning: Permanently added '192.168.122.70' (ECDSA) to the list of known hosts.
+++ whoami
+++ whoami
++ sudo chown root:root instack_key
++ chmod 400 instack_key
++ ssh_opts_cpu+=' -i instack_key'
++ installer_apply_patches
++ return
++ echo 'preparing VM image...'
+preparing VM image...
++ download_image
++ use_existing_image=false
++ openstack image list
++ grep -q ' cirros '
++ use_existing_image=true
++ [[ true == false ]]
++ register_image
++ openstack image list
++ grep -q ' cirros '
++ return 0
++ echo 'creating test user...'
+creating test user...
++ create_test_user
++ openstack project list
++ grep -q ' doctor '
++ openstack project create doctor
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | None                             |
+| enabled     | True                             |
+| id          | dffffadad42d41d5a618570f52e3305f |
+| name        | doctor                           |
++-------------+----------------------------------+
++ openstack user list
++ grep -q ' doctor '
++ openstack user create doctor --password doctor --project doctor
++------------+----------------------------------+
+| Field      | Value                            |
++------------+----------------------------------+
+| email      | None                             |
+| enabled    | True                             |
+| id         | c844f5397a924d908f1246515e4843e6 |
+| name       | doctor                           |
+| project_id | dffffadad42d41d5a618570f52e3305f |
+| username   | doctor                           |
++------------+----------------------------------+
++ openstack user role list doctor --project doctor
++ grep -q ' admin '
++ openstack role add admin --user doctor --project doctor
++-----------+----------------------------------+
+| Field     | Value                            |
++-----------+----------------------------------+
+| domain_id | None                             |
+| id        | 4b0d10e07705433c865958471d7c4ff5 |
+| name      | admin                            |
++-----------+----------------------------------+
++ echo 'creating VM...'
+creating VM...
++ boot_vm
++ openstack --os-username doctor --os-password doctor --os-tenant-name doctor server list
++ grep -q ' doctor_vm1 '
++ openstack --os-username doctor --os-password doctor --os-tenant-name doctor server create --flavor m1.tiny --image cirros doctor_vm1
++--------------------------------------+------------------------------------------------+
+| Field                                | Value                                          |
++--------------------------------------+------------------------------------------------+
+| OS-DCF:diskConfig                    | MANUAL                                         |
+| OS-EXT-AZ:availability_zone          |                                                |
+| OS-EXT-SRV-ATTR:host                 | None                                           |
+| OS-EXT-SRV-ATTR:hypervisor_hostname  | None                                           |
+| OS-EXT-SRV-ATTR:instance_name        |                                                |
+| OS-EXT-STS:power_state               | 0                                              |
+| OS-EXT-STS:task_state                | scheduling                                     |
+| OS-EXT-STS:vm_state                  | building                                       |
+| OS-SRV-USG:launched_at               | None                                           |
+| OS-SRV-USG:terminated_at             | None                                           |
+| accessIPv4                           |                                                |
+| accessIPv6                           |                                                |
+| addresses                            |                                                |
+| adminPass                            | jL7t3S3DUrCX                                   |
+| config_drive                         |                                                |
+| created                              | 2016-12-28T03:14:37Z                           |
+| flavor                               | m1.tiny (7f924f9f-2fa0-40d4-95fb-53079307ec66) |
+| hostId                               |                                                |
+| id                                   | 51c0739a-0b87-4dd7-8d22-ff7fd8af04bb           |
+| image                                | cirros (3071d9bf-7be5-4cb1-a706-428daa446ec3)  |
+| key_name                             | None                                           |
+| name                                 | doctor_vm1                                     |
+| os-extended-volumes:volumes_attached | []                                             |
+| progress                             | 0                                              |
+| project_id                           | dffffadad42d41d5a618570f52e3305f               |
+| properties                           |                                                |
+| security_groups                      | [{u'name': u'default'}]                        |
+| status                               | BUILD                                          |
+| updated                              | 2016-12-28T03:14:37Z                           |
+| user_id                              | c844f5397a924d908f1246515e4843e6               |
++--------------------------------------+------------------------------------------------+
++ sleep 1
++ wait_for_vm_launch
++ echo 'waiting for vm launch...'
+waiting for vm launch...
++ count=0
++ [[ 0 -lt 60 ]]
+++ openstack --os-username doctor --os-password doctor --os-tenant-name doctor server list
+++ grep ' doctor_vm1 '
+++ awk '{print $6}'
++ state=BUILD
++ [[ BUILD == \A\C\T\I\V\E ]]
++ [[ BUILD == \E\R\R\O\R ]]
++ count=1
++ sleep 1
++ [[ 1 -lt 60 ]]
+++ openstack --os-username doctor --os-password doctor --os-tenant-name doctor server list
+++ grep ' doctor_vm1 '
+++ awk '{print $6}'
++ state=ACTIVE
++ [[ ACTIVE == \A\C\T\I\V\E ]]
++ sleep 5
++ return 0
++ echo 'get computer host info...'
+get computer host info...
++ get_compute_host_info
+++ openstack --os-username doctor --os-password doctor --os-tenant-name doctor server show doctor_vm1
+++ grep OS-EXT-SRV-ATTR:host
+++ awk '{ print $4 }'
++ COMPUTE_HOST=overcloud-novacompute-1.ool-virtual1
++ compute_host_in_undercloud=overcloud-novacompute-1
++ die_if_not_set 45 COMPUTE_HOST 'Failed to get compute hostname'
++ local exitcode=0
++ local xtrace
+++ set +o
+++ grep xtrace
++ xtrace='set -o xtrace'
++ set +o xtrace
++ is_installer apex
++ local installer=apex
++ [[ apex == apex ]]
++ COMPUTE_USER=heat-admin
+++ sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 192.168.122.70 'source stackrc;              nova show overcloud-novacompute-1              | awk '\''/ ctlplane network /{print $5}'\'''
+Warning: Permanently added '192.168.122.70' (ECDSA) to the list of known hosts.
++ COMPUTE_IP=192.0.2.5
++ die_if_not_set 63 COMPUTE_IP 'Could not resolve overcloud-novacompute-1.ool-virtual1. Either manually set COMPUTE_IP or enable DNS resolution.'
++ local exitcode=0
++ local xtrace
+++ set +o
+++ grep xtrace
++ xtrace='set -o xtrace'
++ set +o xtrace
++ echo COMPUTE_HOST=overcloud-novacompute-1.ool-virtual1
+COMPUTE_HOST=overcloud-novacompute-1.ool-virtual1
++ echo COMPUTE_IP=192.0.2.5
+COMPUTE_IP=192.0.2.5
++ ping -c 1 192.0.2.5
+PING 192.0.2.5 (192.0.2.5) 56(84) bytes of data.
+64 bytes from 192.0.2.5: icmp_seq=1 ttl=63 time=0.275 ms
+
+--- 192.0.2.5 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.275/0.275/0.275/0.000 ms
++ [[ 0 -ne 0 ]]
++ ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.5 exit
+Warning: Permanently added '192.0.2.5' (ECDSA) to the list of known hosts.
++ [[ 0 -ne 0 ]]
++ echo 'creating alarm...'
+creating alarm...
++ create_alarm
++ ceilometer --os-username doctor --os-password doctor --os-tenant-name doctor alarm-list
++ grep -q ' doctor_alarm1 '
+++ openstack --os-username doctor --os-password doctor --os-tenant-name doctor server list
+++ grep ' doctor_vm1 '
+++ awk '{print $2}'
++ vm_id=51c0739a-0b87-4dd7-8d22-ff7fd8af04bb
++ ceilometer --os-username doctor --os-password doctor --os-tenant-name doctor alarm-event-create --name doctor_alarm1 --alarm-action http://localhost:12346/failure --description 'VM failure' --enabled True --repeat-actions False --severity moderate --event-type compute.instance.update -q 'traits.state=string::error; traits.instance_id=string::51c0739a-0b87-4dd7-8d22-ff7fd8af04bb'
++---------------------------+----------------------------------------------------------------------+
+| Property                  | Value                                                                |
++---------------------------+----------------------------------------------------------------------+
+| alarm_actions             | ["http://localhost:12346/failure"]                                   |
+| alarm_id                  | d90f1c1e-e4cb-4d35-a35a-9ced6bbfee97                                 |
+| description               | VM failure                                                           |
+| enabled                   | True                                                                 |
+| event_type                | compute.instance.update                                              |
+| insufficient_data_actions | []                                                                   |
+| name                      | doctor_alarm1                                                        |
+| ok_actions                | []                                                                   |
+| project_id                | dffffadad42d41d5a618570f52e3305f                                     |
+| query                     | [{"field": "traits.state", "type": "string", "value": "error", "op": |
+|                           | "eq"}, {"field": "traits.instance_id", "type": "string", "value":    |
+|                           | "51c0739a-0b87-4dd7-8d22-ff7fd8af04bb", "op": "eq"}]                 |
+| repeat_actions            | False                                                                |
+| severity                  | moderate                                                             |
+| state                     | insufficient data                                                    |
+| type                      | event                                                                |
+| user_id                   | c844f5397a924d908f1246515e4843e6                                     |
++---------------------------+----------------------------------------------------------------------+
++ echo 'starting doctor sample components...'
+starting doctor sample components...
++ start_inspector
++ is_inspector_supported sample
++ local inspector=sample
++ [[ -f /home/opnfv/repos/doctor/tests/lib/inspectors/sample ]]
++ source /home/opnfv/repos/doctor/tests/lib/inspectors/sample
++ start_inspector_sample
++ pgrep -f 'python inspector.py'
++ start_monitor
++ pgrep -f 'python monitor.py'
++ python inspector.py 12345
++ start_consumer
++ sudo -E python monitor.py overcloud-novacompute-1.ool-virtual1 192.0.2.5 sample http://127.0.0.1:12345/events
++ pgrep -f 'python consumer.py'
++ is_installer local
++ local installer=local
++ python consumer.py 12346
++ [[ local == apex ]]
++ is_installer apex
++ local installer=apex
++ [[ apex == apex ]]
+++ sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 192.168.122.70 'source stackrc;                              nova list | grep '\'' overcloud-controller-[0-9] '\''                              | sed -e '\''s/^.*ctlplane=//'\'' -e '\''s/ *|$//'\'''
+Warning: Permanently added '192.168.122.70' (ECDSA) to the list of known hosts.
++ CONTROLLER_IPS='192.0.2.6
+192.0.2.8
+192.0.2.9'
++ die_if_not_set 185 CONTROLLER_IPS 'Could not get CONTROLLER_IPS.'
++ local exitcode=0
++ local xtrace
+++ set +o
+++ grep xtrace
++ xtrace='set -o xtrace'
++ set +o xtrace
++ for ip in '$CONTROLLER_IPS'
++ forward_rule='-R 12346:localhost:12346'
++ tunnel_command='sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.6 -R 12346:localhost:12346 sleep 600'
++ for ip in '$CONTROLLER_IPS'
++ forward_rule='-R 12346:localhost:12346'
++ tunnel_command='sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.8 -R 12346:localhost:12346 sleep 600'
++ sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.6 -R 12346:localhost:12346 sleep 600
++ for ip in '$CONTROLLER_IPS'
++ forward_rule='-R 12346:localhost:12346'
++ tunnel_command='sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.9 -R 12346:localhost:12346 sleep 600'
++ sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.8 -R 12346:localhost:12346 sleep 600
++ sleep 60
++ sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.9 -R 12346:localhost:12346 sleep 600
++ echo 'injecting host failure...'
+injecting host failure...
++ inject_failure
++ echo 'disabling network of compute host [overcloud-novacompute-1.ool-virtual1] for 3 mins...'
+disabling network of compute host [overcloud-novacompute-1.ool-virtual1] for 3 mins...
++ cat
++ sed -i -e s/@COMPUTE_IP@/192.0.2.5/ disable_network.sh
++ chmod +x disable_network.sh
++ scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key disable_network.sh heat-admin@192.0.2.5:
+Warning: Permanently added '192.0.2.5' (ECDSA) to the list of known hosts.
++ ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.5 'nohup ./disable_network.sh > disable_network.log 2>&1 &'
+Warning: Permanently added '192.0.2.5' (ECDSA) to the list of known hosts.
++ sleep 60
++ check_host_status '(DOWN|UNKNOWN)'
++ expected_state='(DOWN|UNKNOWN)'
+++ openstack --os-username doctor --os-password doctor --os-tenant-name doctor --os-compute-api-version 2.16 server show doctor_vm1
+++ grep host_status
++ host_status_line='| host_status                          | DOWN                                                     |'
+++ echo '|' host_status '|' DOWN '|'
+++ awk '{print $4}'
++ host_status=DOWN
++ die_if_not_set 283 host_status 'host_status not reported by: nova show doctor_vm1'
++ local exitcode=0
++ local xtrace
+++ set +o
+++ grep xtrace
++ xtrace='set -o xtrace'
++ set +o xtrace
++ [[ (DOWN|UNKNOWN) =~ DOWN ]]
++ echo 'doctor_vm1 showing host_status: DOWN'
+doctor_vm1 showing host_status: DOWN
++ calculate_notification_time
+++ grep 'doctor monitor detected at' monitor.log
+++ awk '{print $10}'
++ detected=1482894965.29
+++ grep 'doctor consumer notified at' consumer.log
+++ awk '{print $10}'
++ notified=1482894965.63
++ grep -q 'doctor consumer notified at' consumer.log
++ [[ PROFILER == \p\o\c ]]
++ echo '1482894965.63 1482894965.29'
++ awk '{
+            d = $1 - $2;
+            if (d < 1 && d > 0) { print d " OK"; exit 0 }
+            else { print d " NG"; exit 1 }
+        }'
+0.34 OK
++ echo done
+done
++ cleanup
++ set +e
++ echo cleanup...
+cleanup...
++ stop_monitor
++ pgrep -f 'python monitor.py'
++ return 0
++ stop_inspector
++ stop_inspector_sample
++ pgrep -f 'python inspector.py'
+377
+++ pgrep -f 'python inspector.py'
++ kill 377
++ stop_consumer
++ pgrep -f 'python consumer.py'
+381
+++ pgrep -f 'python consumer.py'
++ kill 381
++ is_installer local
++ local installer=local
++ [[ local == apex ]]
++ for ip in '$CONTROLLER_IPS'
++ forward_rule='-R 12346:localhost:12346'
++ tunnel_command='sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.6 -R 12346:localhost:12346 sleep 600'
+++ pgrep -f 'sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.6 -R 12346:localhost:12346 sleep 600'
++ kill 398
++ for ip in '$CONTROLLER_IPS'
++ forward_rule='-R 12346:localhost:12346'
++ tunnel_command='sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.8 -R 12346:localhost:12346 sleep 600'
+./run.sh: line 206:   377 Terminated              python inspector.py "$INSPECTOR_PORT" > inspector.log 2>&1
+./run.sh: line 206:   381 Terminated              python consumer.py "$CONSUMER_PORT" > consumer.log 2>&1
+++ pgrep -f 'sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.8 -R 12346:localhost:12346 sleep 600'
++ kill 399
++ for ip in '$CONTROLLER_IPS'
++ forward_rule='-R 12346:localhost:12346'
++ tunnel_command='sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.9 -R 12346:localhost:12346 sleep 600'
+++ pgrep -f 'sudo ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.9 -R 12346:localhost:12346 sleep 600'
++ kill 400
++ echo 'waiting disabled compute host back to be enabled...'
+waiting disabled compute host back to be enabled...
++ python ./nova_force_down.py overcloud-novacompute-1.ool-virtual1 --unset
+<Response [200]>
++ sleep 240
++ check_host_status UP
++ expected_state=UP
+++ openstack --os-username doctor --os-password doctor --os-tenant-name doctor --os-compute-api-version 2.16 server show doctor_vm1
+++ grep host_status
++ host_status_line='| host_status                          | UP                                                       |'
+++ echo '|' host_status '|' UP '|'
+++ awk '{print $4}'
++ host_status=UP
++ die_if_not_set 283 host_status 'host_status not reported by: nova show doctor_vm1'
++ local exitcode=0
++ local xtrace
+++ set +o
+++ grep xtrace
++ xtrace='set -o xtrace'
++ set +o xtrace
++ [[ UP =~ UP ]]
++ echo 'doctor_vm1 showing host_status: UP'
+doctor_vm1 showing host_status: UP
++ scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i instack_key heat-admin@192.0.2.5:disable_network.log .
+Warning: Permanently added '192.0.2.5' (ECDSA) to the list of known hosts.
++ openstack --os-username doctor --os-password doctor --os-tenant-name doctor server list
++ grep -q ' doctor_vm1 '
++ openstack --os-username doctor --os-password doctor --os-tenant-name doctor server delete doctor_vm1
++ sleep 1
+++ ceilometer --os-username doctor --os-password doctor --os-tenant-name doctor alarm-list
+++ grep ' doctor_alarm1 '
+++ awk '{print $2}'
++ alarm_id=d90f1c1e-e4cb-4d35-a35a-9ced6bbfee97
++ sleep 1
++ '[' -n d90f1c1e-e4cb-4d35-a35a-9ced6bbfee97 ']'
++ ceilometer --os-username doctor --os-password doctor --os-tenant-name doctor alarm-delete d90f1c1e-e4cb-4d35-a35a-9ced6bbfee97
++ sleep 1
+++ openstack image list
+++ grep ' cirros '
+++ awk '{print $2}'
++ image_id=3071d9bf-7be5-4cb1-a706-428daa446ec3
++ sleep 1
++ [[ true == false ]]
++ openstack role remove admin --user doctor --project doctor
++ openstack project delete doctor
++ openstack user delete doctor
++ cleanup_installer
++ cleanup_installer_apex
++ return
++ cleanup_inspector
++ cleanup_inspector_sample
++ return

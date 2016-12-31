@@ -7,7 +7,8 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from base import BaseReporter
+
+from qtip.reporter.base import BaseReporter
 
 
 class ConsoleReporter(BaseReporter):

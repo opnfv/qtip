@@ -66,3 +66,6 @@ target/
 /docs_build/
 /docs_output/
 .idea
+
+# unignore sample logfiles
+!/opt/plugin/doctor/sample/*/*

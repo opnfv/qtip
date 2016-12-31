@@ -1,0 +1,9 @@
+2016-12-28 03:15:01,868 inspector.py 50 DEBUG  get hostname=overcloud-novacompute-1.ool-virtual1 from server=<Server: doctor_vm1>
+ * Running on http://127.0.0.1:12345/ (Press CTRL+C to quit)
+2016-12-28 03:16:05,299 inspector.py 76 INFO   event posted at 1482894965.3
+2016-12-28 03:16:05,299 inspector.py 77 INFO   inspector = <__main__.DoctorInspectorSample object at 0x7fcce167aa90>
+2016-12-28 03:16:05,299 inspector.py 78 INFO   received data = {"hostname": "overcloud-novacompute-1.ool-virtual1", "type": "compute.host.down"}
+2016-12-28 03:16:05,299 inspector.py 56 INFO   doctor mark vm(<Server: doctor_vm1>) error at 1482894965.3
+2016-12-28 03:16:05,506 inspector.py 66 INFO   doctor mark host(overcloud-novacompute-1.ool-virtual1) down at 1482894965.51
+<Response [200]>
+127.0.0.1 - - [28/Dec/2016 03:16:05] "POST /events HTTP/1.1" 200 -

@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_b5902d96",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-03T02:47:29Z",
+      "side": 1,
+      "message": "Do we need to repeat \"QTIP\" here?",
+      "range": {
+        "startLine": 18,
+        "startChar": 20,
+        "endLine": 18,
+        "endChar": 24
+      },
+      "revId": "4105b069e97a05d930fa6ebc318847fbfc9fac75",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_d58b7966",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-03T02:47:29Z",
+      "side": 1,
+      "message": "+ to work with existing test runners.",
+      "range": {
+        "startLine": 19,
+        "startChar": 39,
+        "endLine": 19,
+        "endChar": 40
+      },
+      "revId": "4105b069e97a05d930fa6ebc318847fbfc9fac75",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_75eac510",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-03T02:47:29Z",
+      "side": 1,
+      "message": "\u003d\u003e environment",
+      "range": {
+        "startLine": 44,
+        "startChar": 74,
+        "endLine": 44,
+        "endChar": 81
+      },
+      "revId": "4105b069e97a05d930fa6ebc318847fbfc9fac75",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_f596b593",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-03T02:47:29Z",
+      "side": 1,
+      "message": "Should this be a footnote? See http://www.sphinx-doc.org/en/1.5.1/rest.html#footnotes",
+      "revId": "4105b069e97a05d930fa6ebc318847fbfc9fac75",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_1592619f",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-03T02:47:29Z",
+      "side": 1,
+      "message": "The same as L94",
+      "revId": "4105b069e97a05d930fa6ebc318847fbfc9fac75",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

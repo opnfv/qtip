@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5ac10518_75d16556",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-01-03T03:46:56Z",
+      "side": 1,
+      "message": "how about removing \u0027data\u0027?",
+      "range": {
+        "startLine": 14,
+        "startChar": 45,
+        "endLine": 14,
+        "endChar": 50
+      },
+      "revId": "4105b069e97a05d930fa6ebc318847fbfc9fac75",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac10518_b5902d96",
         "filename": "docs/designspec/integration_with_yardstick.rst",
         "patchSetId": 2
@@ -82,6 +105,29 @@
       "writtenOn": "2017-01-03T02:47:29Z",
       "side": 1,
       "message": "Should this be a footnote? See http://www.sphinx-doc.org/en/1.5.1/rest.html#footnotes",
+      "revId": "4105b069e97a05d930fa6ebc318847fbfc9fac75",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_d5e2992e",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-01-03T03:46:56Z",
+      "side": 1,
+      "message": "\u0027inde\u0027 means what?",
+      "range": {
+        "startLine": 94,
+        "startChar": 24,
+        "endLine": 94,
+        "endChar": 28
+      },
       "revId": "4105b069e97a05d930fa6ebc318847fbfc9fac75",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

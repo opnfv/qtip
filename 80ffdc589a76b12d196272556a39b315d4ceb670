@@ -22,6 +22,30 @@
       "revId": "80ffdc589a76b12d196272556a39b315d4ceb670",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_5071d7de",
+        "filename": "opt/plugins/doctor/sample/README",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-04T07:22:23Z",
+      "side": 1,
+      "message": "We may consider this option when more content is filled in.",
+      "parentUuid": "5ac10518_305beb88",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 32
+      },
+      "revId": "80ffdc589a76b12d196272556a39b315d4ceb670",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

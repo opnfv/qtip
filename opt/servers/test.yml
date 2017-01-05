@@ -2,3 +2,9 @@
 - hosts: testing
   roles:
     - user
+    - docker
+    - elk
+    - mongo
+    - nginx
+    - qtip
+    - testapi

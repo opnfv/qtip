@@ -8,36 +8,34 @@
 ##############################################################################
 
 import click
-from prettytable import PrettyTable
-from qtip.runner.plan import Plan
+
+from qtip.cli.entry import pass_context
+
+# TODO(Taseer) implementation
 
 
 @click.group()
-def cli():
+@pass_context
+def cli(ctx):
+    ''' Bechmarking Plan '''
+    # ctx.verbose('Verbose mode on')
+
+
+@cli.command('list', help='List the Plans')
+@pass_context
+def list(ctx):
     pass
 
 
-@cli.group()
-def plan_cmd():
-    pass
-
-
-@plan_cmd.command('list', help='List the different TestPlans.')
-def list_all():
-    plans = Plan.list_all()
-    table = PrettyTable(["Testplans"])
-    table.align = 'l'
-    for plan in plans:
-        table.add_row([plan['name']])
-    click.echo(table)
-
-
-@plan_cmd.command('show', help='Show details of specified TestPlan.')
+@cli.command('run', help='Execute a Plan')
 @click.argument('name')
-def show(name):
-    plan = Plan(name)
-    results = plan.content()
-    table = PrettyTable(["Name", "Description"])
-    table.align = 'l'
-    table.add_row([results['name'], results['description']])
-    click.echo(table)
+@pass_context
+def run(name, ctx):
+    pass
+
+
+@cli.command('show', help='View details of Plan')
+@click.argument('name')
+@pass_context
+def show(name, ctx):
+    pass

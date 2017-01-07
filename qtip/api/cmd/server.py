@@ -13,7 +13,7 @@ from flask_restful_swagger import swagger
 import qtip.api.router.mapper as mapper
 
 app = Flask(__name__)
-api = swagger.docs(Api(app), apiVersion='0.1')
+api = swagger.docs(Api(app), apiVersion='0.1', description='QTIP API specs')
 
 
 def add_routers():

@@ -1,8 +1,8 @@
 import threading
 from copy import copy
 
-from flask.ext.restful import Resource, reqparse
-from flask.ext.restful_swagger import swagger
+from flask_restful import Resource, reqparse
+from flask_restful_swagger import swagger
 from werkzeug.exceptions import abort
 
 from qtip.api.handler import db, result_handler

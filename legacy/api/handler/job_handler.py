@@ -3,11 +3,11 @@ from copy import copy
 
 from flask_restful import Resource, reqparse
 from flask_restful_swagger import swagger
-from werkzeug.exceptions import abort
-
-from qtip.api.handler import db, result_handler
 from qtip.api.model.job_model import JobResponseModel
 from qtip.utils import args_handler as args_handler
+from werkzeug.exceptions import abort
+
+from legacy.api.handler import db, result_handler
 
 
 class Job(Resource):

@@ -10,7 +10,8 @@
 from flask import Flask
 from flask_restful import Api
 from flask_restful_swagger import swagger
-import qtip.api.router.mapper as mapper
+
+import legacy.api.router.mapper as mapper
 
 app = Flask(__name__)
 api = swagger.docs(Api(app), apiVersion='0.1', description='QTIP API specs')

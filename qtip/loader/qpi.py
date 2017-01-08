@@ -11,7 +11,7 @@ from base import BaseLoader
 from metric import MetricSpec
 
 from qtip.base.constant import PropName
-from qtip.utils.formula import Formula
+from qtip.util.formula import Formula
 
 
 class QPISpec(BaseLoader):

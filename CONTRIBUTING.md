@@ -31,6 +31,7 @@ Current list of active reviewers in gerrit group `qtip-reviewers`
 * Yujun Zhang <zhang.yujunz@zte.com.cn>
 * Zhifeng Jiang <jiang.zhifeng@zte.com.cn>
 * Zhihui Wu <wu.zhihui1@zte.com.cn>
+* Akhil Batra <akhil.batra@research.iiit.ac.in>
 
 By becoming an active reviewer, you agree to allow others to invite you as
 reviewers in QTIP project freely. Any one in OPNFV community can apply to join

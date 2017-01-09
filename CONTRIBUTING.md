@@ -26,6 +26,7 @@ Active Reviewers
 
 Current list of active reviewers in gerrit group `qtip-reviewers`
 
+* Akhil Batra <akhil.batra@research.iiit.ac.in>
 * Serena Feng <feng.xiaowei@zte.com.cn>
 * Taseer Ahmed <taseer94@gmail.com>
 * Yujun Zhang <zhang.yujunz@zte.com.cn>

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_0ce25303",
+        "filename": ".gitignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-01-09T01:26:35Z",
+      "side": 1,
+      "message": "If we add AUTHORS and ChangeLog, should we also ignore egg package as well?",
+      "revId": "f56cb23a3b48ed65a8554b0047f7bff99cc3a786",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

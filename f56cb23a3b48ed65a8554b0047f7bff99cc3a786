@@ -16,6 +16,24 @@
       "revId": "f56cb23a3b48ed65a8554b0047f7bff99cc3a786",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_ece827b6",
+        "filename": ".gitignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-09T02:47:49Z",
+      "side": 1,
+      "message": "Already ignored in L16, L17",
+      "parentUuid": "5ac10518_0ce25303",
+      "revId": "f56cb23a3b48ed65a8554b0047f7bff99cc3a786",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

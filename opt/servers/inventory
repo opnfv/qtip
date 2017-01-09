@@ -1,8 +1,4 @@
-desk  ansible_host=desk.qtip.io   # 2vCPU/4GiB/16GiB (AWS us-east-1a)
 table ansible_host=table.qtip.io  # 1vCPU/1024MB/100Mbps/40GB (Aliyun Hongkong B)
-
-[development]
-desk
 
 [testing]
 table

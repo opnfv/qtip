@@ -13,13 +13,24 @@ Peer review is the most important communication channel between developers.
 Every subtle change to the code or document **MUST** be reviewed before
 submission.
 
-Add group `qtip-reviewers` in [gerrit][gr] when you consider a patch set is ready.
+Add group `qtip-reviewers` in [gerrit][gr] when you consider a patch set is
+ready.
 
-Please make sure there is at least one `+1` or `+2` from others before
-submitting a patch set.
 
-Note: only members in `ldap/opnfv-gerrit-qtip-submitters` have permission
-to submit. The current members are listed in [INFO][if].
+Rule for Submit
+---------------
+
+Only members in `ldap/opnfv-gerrit-qtip-submitters`, i.e. committers have
+permission to submit. The current committers are listed in [INFO][if].
+
+Before submitting a patch set, please make sure one of the following criteria is
+met:
+
+* **Normal**: at least one `+2` from others
+* **Fast Track**: no objection from other committers for one or more working day
+
+NOTE: we introduce **fast track** because currently there are not enough active
+committers reviewing the patch sets.
 
 Active Reviewers
 ----------------

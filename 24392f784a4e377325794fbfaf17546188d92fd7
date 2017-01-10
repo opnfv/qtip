@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_92d73eed",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-10T13:47:06Z",
+      "side": 1,
+      "message": "First step would be provide an API for yardstick to POST test result and environment.",
+      "revId": "24392f784a4e377325794fbfaf17546188d92fd7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_52e236d6",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-10T13:47:06Z",
+      "side": 1,
+      "message": "\u003d\u003e extract",
+      "range": {
+        "startLine": 48,
+        "startChar": 62,
+        "endLine": 48,
+        "endChar": 67
+      },
+      "revId": "24392f784a4e377325794fbfaf17546188d92fd7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_f2e802b6",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-10T13:47:06Z",
+      "side": 1,
+      "message": "+ and environment",
+      "range": {
+        "startLine": 48,
+        "startChar": 33,
+        "endLine": 48,
+        "endChar": 44
+      },
+      "revId": "24392f784a4e377325794fbfaf17546188d92fd7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_72dc1213",
+        "filename": "docs/designspec/integration_with_yardstick.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-10T13:47:06Z",
+      "side": 1,
+      "message": "Reporting QPI will is not part of the solution proposed by yardstick. The requested feature from QTIP is an interface for querying the QPI.\n\nBut this is worth discussion since the calculation is a synchronous procedure which could be returned directly to the POST yardstick result request.",
+      "revId": "24392f784a4e377325794fbfaf17546188d92fd7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -9,7 +9,8 @@
 
 import click
 from prettytable import PrettyTable
-from qtip.runner.plan import Plan
+
+from qtip.loader.plan import Plan
 
 
 @click.group()

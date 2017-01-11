@@ -1,5 +1,10 @@
-name: dhrystone
-description: a synthetic benchmark for evaluating the performance of computers
+name: whetstone
+description: >
+  A synthetic benchmark for evaluating the performance of computers.
+  The Whetstone benchmark primarily measures the floating-point arithmetic
+  performance.
+links:
+  - https://en.wikipedia.org/wiki/Whetstone_(benchmark)
 workloads:
   - single_cpu
   - multi_cpu

@@ -66,3 +66,7 @@ target/
 /docs_build/
 /docs_output/
 .idea
+
+# setup.py cache
+AUTHORS
+ChangeLog

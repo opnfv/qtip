@@ -7,12 +7,9 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from qtip.base.benchmark import Benchmark
+
+from base import BaseDriver
 
 
-class QPISpec(Benchmark):
-    """
-    a QPI specification defines how to calculate a performance index from
-     collected metrics.
-    """
-    DEFAULT_DIR = 'QPI'
+class SampleDriver(BaseDriver):
+    """sample driver that generates random data for testing"""

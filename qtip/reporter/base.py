@@ -7,10 +7,8 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from qtip.base.benchmark import Benchmark
 
-
-class MetricSpec(Benchmark):
-    """metrics in QTIP are categorized by performance test tools, such as
-    dhrystone, whetstone and etc"""
-    DEFAULT_DIR = 'metrics'
+class BaseReporter(object):
+    """benchmark result reporter"""
+    def __init__(self, collector=None):
+        self.collector = collector

@@ -7,20 +7,19 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from qtip.base.benchmark import Benchmark, Property
-from qtip.runner.suite import Suite
+from qtip.base.constant import PropName
+from qtip.runner.base import BaseRunner
+from qtip.loader.qpi import QPISpec
 
 
-class Plan(Benchmark):
+class Plan(BaseRunner):
     """
-    a benchmark plan is consist of basic information and  several suites"""
+    a benchmark plan is consist of configuration and a QPI list
+    """
 
-    DEFAULT_DIR = 'plans'
+    DEFAULT_DIR = 'plan'
 
     def __init__(self, name, paths=None):
-        super(Plan, self).__init__(name, paths=paths)
-        content = self.content()
-
-        self.info = content[Property.INFO]
-        self.suites = [Suite(suite, paths=paths)
-                       for suite in content[Property.SUITES]]
+        super(Plan, self).__init__(name, paths)
+        self.qpis = [QPISpec(qpi, paths=paths)
+                     for qpi in self.content[PropName.QPIS]]

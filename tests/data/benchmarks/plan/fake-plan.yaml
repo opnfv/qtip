@@ -1,0 +1,10 @@
+name: fake plan
+description: fake benchmark plan for demonstration and testing
+config:
+  facility: local
+  engineer: local
+  driver: sample
+  collector: logfile
+  reporter: console
+QPIs:
+  - fake-qpi.yaml

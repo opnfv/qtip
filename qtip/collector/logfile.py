@@ -1,4 +1,4 @@
-###############################################################
+##############################################################################
 # Copyright (c) 2016 ZTE Corp and others.
 #
 # All rights reserved. This program and the accompanying materials
@@ -7,9 +7,8 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from qtip.spec.metric import MetricSpec
+from base import BaseCollector
 
 
-def init_test(case):
-    assert isinstance(case.metric_spec, MetricSpec)
-    assert isinstance(case.config, dict)
+class LogfileCollector(BaseCollector):
+    """collect performance metrics from log files"""

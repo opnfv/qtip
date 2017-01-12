@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_b86ed92d",
+        "filename": "qtip/cli/commands/cmd_metric.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-12T00:38:12Z",
+      "side": 1,
+      "message": "This is not quite precisely.\n\nIn fact, we run tests according to specs to collect performance metrics.",
+      "range": {
+        "startLine": 28,
+        "startChar": 47,
+        "endLine": 28,
+        "endChar": 71
+      },
+      "revId": "edeb75231c5a8b74adc201bf39d5b7cd3660a5dc",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

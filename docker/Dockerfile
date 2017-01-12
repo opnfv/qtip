@@ -3,7 +3,7 @@
 ##########################################
 
 
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Yujun Zhang <zhang.yujunz@zte.com.cn>
 LABEL version="0.1" description="OPNFV QTIP Docker container"
 
@@ -35,12 +35,13 @@ supervisor \
 python-setuptools \
 --no-install-recommends
 
+RUN pip install -U pip
 RUN pip install 'setuptools>=17.1'
 
 RUN apt-add-repository ppa:ansible/ansible -y
 RUN apt-key update -y
 RUN apt-get update -y
-RUN apt-get install ansible --force-yes -y
+RUN apt-get install ansible -y
 
 
 RUN mkdir -p ${REPOS_DIR}

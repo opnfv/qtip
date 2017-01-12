@@ -2,8 +2,7 @@
 #####Docker container for QTIP############
 ##########################################
 
-
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Yujun Zhang <zhang.yujunz@zte.com.cn>
 LABEL version="0.1" description="OPNFV QTIP Docker container"
 
@@ -17,31 +16,31 @@ WORKDIR /home/opnfv
 
 # Packaged Dependencies
 RUN apt-get update && apt-get install -y \
-software-properties-common \
-wget \
-git \
-gcc \
-ssh \
-expect \
-python-matplotlib \
-python-dev \
-python-pip \
-libjpeg62 \
-libjpeg62-dev \
-zlib1g-dev \
-python-tk \
-curl \
-supervisor \
-python-setuptools \
---no-install-recommends
+    software-properties-common \
+    wget \
+    git \
+    gcc \
+    ssh \
+    expect \
+    python-matplotlib \
+    python-dev \
+    python-pip \
+    libjpeg62 \
+    libjpeg62-dev \
+    zlib1g-dev \
+    python-tk \
+    curl \
+    supervisor \
+    python-setuptools \
+    --no-install-recommends \
+&& rm -rf /var/lib/apt/lists/*
 
+RUN pip install -U pip
 RUN pip install 'setuptools>=17.1'
 
 RUN apt-add-repository ppa:ansible/ansible -y
 RUN apt-key update -y
-RUN apt-get update -y
-RUN apt-get install ansible --force-yes -y
-
+RUN apt-get update && apt-get install ansible -y
 
 RUN mkdir -p ${REPOS_DIR}
 RUN mkdir -p /root/.ssh
@@ -54,7 +53,6 @@ RUN chmod 700 /root/.ssh
 COPY ansible.cfg.default /root/.ansible.cfg
 
 #Cloning Repos
-
 RUN git config --global http.sslVerify false
 RUN git clone -b $BRANCH https://gerrit.opnfv.org/gerrit/qtip $REPOS_DIR/qtip
 RUN git clone https://gerrit.opnfv.org/gerrit/releng $REPOS_DIR/releng
@@ -62,7 +60,6 @@ RUN git clone https://gerrit.opnfv.org/gerrit/releng $REPOS_DIR/releng
 RUN pip install -r $REPOS_DIR/qtip/requirements.txt
 
 #Config supervisor
-
 RUN mkdir -p /var/log/supervisor
 RUN locale-gen en_US en_US.UTF-8
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf

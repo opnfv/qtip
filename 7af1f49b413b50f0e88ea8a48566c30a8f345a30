@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_72ff2dab",
+        "filename": "qtip/cli/commands/cmd_metric.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-01-13T08:03:31Z",
+      "side": 1,
+      "message": "I think we already reached an agreement to follow OS style, please reference the import rule -- import module not object",
+      "revId": "7af1f49b413b50f0e88ea8a48566c30a8f345a30",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

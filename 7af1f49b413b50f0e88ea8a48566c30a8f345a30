@@ -16,6 +16,24 @@
       "revId": "7af1f49b413b50f0e88ea8a48566c30a8f345a30",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_b278352c",
+        "filename": "qtip/cli/commands/cmd_metric.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-01-13T10:45:32Z",
+      "side": 1,
+      "message": "Which would be correct ?\n\n1) from qtip.cli.entry import Context\n2) import qtip.cli.entry",
+      "parentUuid": "5ac10518_72ff2dab",
+      "revId": "7af1f49b413b50f0e88ea8a48566c30a8f345a30",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

@@ -34,6 +34,24 @@
       "revId": "7af1f49b413b50f0e88ea8a48566c30a8f345a30",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_75bab70b",
+        "filename": "qtip/cli/commands/cmd_metric.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-14T00:50:25Z",
+      "side": 1,
+      "message": "\u003e I think we already reached an agreement to follow OS style, please\n \u003e reference the import rule -- import module not object\n\nIt\u0027s recommended but not enforced until we write it in Contributing guide and add additional check rules such as OpenStack hacking check[1]\n\nThe OpenStack style looks good and consistent, but I have some reservation on the overheads especially the importing part.\n\n[1]: https://docs.openstack.org/developer/hacking/",
+      "parentUuid": "5ac10518_72ff2dab",
+      "revId": "7af1f49b413b50f0e88ea8a48566c30a8f345a30",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

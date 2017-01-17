@@ -25,8 +25,8 @@ def test_init(plan):
            in str(excinfo.value)
 
 
-def test_list_all(benchmarks_root):
-    plan_list = Plan.list_all(paths=[benchmarks_root])
+def test_list_all(opt_root):
+    plan_list = Plan.list_all(paths=[opt_root])
     assert len(list(plan_list)) is 1
     for desc in plan_list:
         assert PropName.NAME in desc

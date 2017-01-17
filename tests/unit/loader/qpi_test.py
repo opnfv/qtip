@@ -16,8 +16,8 @@ QPI_SPEC = 'compute.yaml'
 
 
 @pytest.fixture()
-def qpi_spec(benchmarks_root):
-    return QPISpec('compute.yaml', paths=[benchmarks_root])
+def qpi_spec(opt_root):
+    return QPISpec('compute.yaml', paths=[opt_root])
 
 
 def test_init(qpi_spec):
@@ -29,8 +29,8 @@ def test_init(qpi_spec):
         in str(excinfo.value)
 
 
-def test_list_all(benchmarks_root):
-    qpi_spec_list = QPISpec.list_all(paths=[benchmarks_root])
+def test_list_all(opt_root):
+    qpi_spec_list = QPISpec.list_all(paths=[opt_root])
     assert len(list(qpi_spec_list)) is 2
     for item in qpi_spec_list:
         assert PropName.NAME in item

@@ -14,8 +14,8 @@ from qtip.loader.metric import MetricSpec
 
 
 @pytest.fixture(scope='module')
-def metric_spec(benchmarks_root):
-    return MetricSpec('dhrystone.yaml', paths=[benchmarks_root])
+def metric_spec(opt_root):
+    return MetricSpec('dhrystone.yaml', paths=[opt_root])
 
 
 def init_test(metric_spec):

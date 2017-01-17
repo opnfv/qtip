@@ -20,10 +20,10 @@ def data_root():
 
 
 @pytest.fixture(scope='session')
-def benchmarks_root(data_root):
-    return path.join(data_root, 'benchmarks')
+def opt_root(data_root):
+    return path.join(data_root, 'opt')
 
 
 @pytest.fixture(scope='session')
-def plan(benchmarks_root):
-    return Plan('fake-plan.yaml', [benchmarks_root])
+def plan(opt_root):
+    return Plan('fake-plan.yaml', [opt_root])

@@ -71,5 +71,5 @@ target/
 AUTHORS
 ChangeLog
 
-# unignore sample logfiles
-!/opt/plugin/doctor/sample/*/*
+# unignore external data
+!/tests/data/**/*

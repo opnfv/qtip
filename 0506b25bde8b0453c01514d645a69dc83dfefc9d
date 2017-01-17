@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_0173f1b1",
+        "filename": "tests/unit/cli/test_metric.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-17T13:31:17Z",
+      "side": 1,
+      "message": "It seems `self` is never referred. Maybe you don\u0027t need a test class to encapsulate these test cases.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 24
+      },
+      "revId": "0506b25bde8b0453c01514d645a69dc83dfefc9d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_a169bdbf",
+        "filename": "tests/unit/cli/test_metric.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-17T13:31:17Z",
+      "side": 1,
+      "message": "Should it be `\u003d\u003d` ?",
+      "range": {
+        "startLine": 24,
+        "startChar": 18,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "0506b25bde8b0453c01514d645a69dc83dfefc9d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_c16409e7",
+        "filename": "tests/unit/cli/test_metric.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-17T13:31:17Z",
+      "side": 1,
+      "message": "The same as L28",
+      "revId": "0506b25bde8b0453c01514d645a69dc83dfefc9d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -27,7 +27,7 @@ def test_init(plan):
 
 def test_list_all(opt_root):
     plan_list = Plan.list_all(paths=[opt_root])
-    assert len(list(plan_list)) is 1
+    assert len(list(plan_list)) is 2
     for desc in plan_list:
         assert PropName.NAME in desc
         assert PropName.CONTENT in desc

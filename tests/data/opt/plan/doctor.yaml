@@ -1,0 +1,36 @@
+name: fake plan
+description: fake benchmark plan for demonstration and testing
+config:
+  facility: local
+  engineer: local
+  driver: sample
+  collector:
+    - name: logfile
+      logs:
+        - filename: doctor_consumer.log
+          # 2016-12-28 03:16:05,630 consumer.py 26 INFO   doctor consumer notified at 1482894965.63
+          patterns:
+            - match: 'doctor consumer notified at \d+(\.\d+)?$'
+              value: notified consumer
+        - filename: doctor_inspector.log
+          # 2016-12-28 03:16:05,299 inspector.py 76 INFO   event posted at 1482894965.3
+          # 2016-12-28 03:16:05,299 inspector.py 56 INFO   doctor mark vm(<Server: doctor_vm1>) error at 1482894965.3
+          # 2016-12-28 03:16:05,506 inspector.py 66 INFO   doctor mark host(overcloud-novacompute-1.ool-virtual1) down at 1482894965.51
+          patterns:
+            - match: 'event posted at \d+(\.\d+)?$'
+              value: posted event
+            - match: 'doctor mark vm\(.*\) error at \d+(\.\d+)?$'
+              value: marked VM error
+            - match: 'doctor mark host\(.*\) down at \d+(\.\d+)?$'
+              value: marked host down
+        - filename: disable_network.log
+          # doctor set host down at 1482894965.164096803
+          patterns:
+            - match: 'doctor set host down at \d+(\.\d+)?$'
+              value: set host down
+  reporter:
+    name: console
+    # transform collected data into timeline
+    transformer: timeline
+QPIs:
+  - fake-qpi.yaml

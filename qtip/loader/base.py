@@ -21,7 +21,7 @@ ROOT_DIR = path.join(path.dirname(__file__), path.pardir, path.pardir,
 
 
 class BaseLoader(object):
-    """Abstract class of QTIP benchmark loader"""
+    """Abstract class of QTIP specification loader"""
     RELATIVE_PATH = '.'
     _paths = [ROOT_DIR]
 
@@ -40,7 +40,7 @@ class BaseLoader(object):
         self.content = content
 
     def _find(self, name, paths=None):
-        """find a benchmark in searching paths"""
+        """find a specification in searching paths"""
         paths = self._paths if paths is None else paths
         for p in paths:
             abspath = path.join(p, self.RELATIVE_PATH, name)
@@ -50,7 +50,7 @@ class BaseLoader(object):
 
     @classmethod
     def list_all(cls, paths=None):
-        """list all available benchmarks"""
+        """list all available specification"""
         paths = cls._paths if paths is None else paths
         names = chain.from_iterable([listdir(path.join(p, cls.RELATIVE_PATH))
                                      for p in paths])

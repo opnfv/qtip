@@ -1,5 +1,6 @@
-name: fake plan
-description: fake benchmark plan for demonstration and testing
+name: Fake Plan
+description: >
+  fake benchmark plan for testing
 config:
   facility: local
   engineer: local

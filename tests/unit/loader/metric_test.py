@@ -12,14 +12,16 @@ import pytest
 from qtip.base.constant import PropName
 from qtip.loader.metric import MetricSpec
 
+METRIC_SPEC = 'fake-metric.yaml'
+
 
 @pytest.fixture(scope='module')
-def metric_spec(benchmarks_root):
-    return MetricSpec('dhrystone.yaml', paths=[benchmarks_root])
+def metric_spec(opt_root):
+    return MetricSpec(METRIC_SPEC, paths=[opt_root])
 
 
 def init_test(metric_spec):
-    assert metric_spec.name == 'dhrystone'
+    assert metric_spec.name == 'Fake Metric'
 
     with pytest.raises(TypeError) as excinfo:
         MetricSpec()

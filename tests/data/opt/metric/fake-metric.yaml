@@ -1,6 +1,6 @@
-name: fake compute
+name: Fake Metric
 description: >
-  a fake compute performance index which generate random result
+  fake performance metric for testing
 workloads:  # all supported workloads
   - fake_workload_1
   - fake_workload_2

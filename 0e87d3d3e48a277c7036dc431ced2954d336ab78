@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_008a061b",
+        "filename": "qtip/cli/commands/cmd_qpi.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-19T16:27:01Z",
+      "side": 1,
+      "message": "\u003d\u003e QPI specification",
+      "range": {
+        "startLine": 24,
+        "startChar": 40,
+        "endLine": 24,
+        "endChar": 43
+      },
+      "revId": "0e87d3d3e48a277c7036dc431ced2954d336ab78",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_208dc231",
+        "filename": "qtip/cli/commands/cmd_qpi.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-19T16:27:01Z",
+      "side": 1,
+      "message": "\u003d\u003e Run performance tests for the specified QPI",
+      "range": {
+        "startLine": 30,
+        "startChar": 26,
+        "endLine": 30,
+        "endChar": 39
+      },
+      "revId": "0e87d3d3e48a277c7036dc431ced2954d336ab78",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_c0839e02",
+        "filename": "tests/unit/cli/test_qpi.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-19T16:27:01Z",
+      "side": 1,
+      "message": "Isn\u0027t QPI name a mandatory argument?",
+      "revId": "0e87d3d3e48a277c7036dc431ced2954d336ab78",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

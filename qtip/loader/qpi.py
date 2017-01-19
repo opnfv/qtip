@@ -7,14 +7,14 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from base import BaseLoader
+from yaml_file import YamlFileLoader
 from metric import MetricSpec
 
 from qtip.base.constant import SpecProp
 from qtip.util.formula import Formula
 
 
-class QPISpec(BaseLoader):
+class QPISpec(YamlFileLoader):
     """
     a QPI specification defines how to calculate a performance index from
      collected metrics.

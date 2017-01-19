@@ -64,8 +64,8 @@ class PlanProp(BaseProp):
 class CollectorProp(BaseProp):
     LOGS = 'logs'
     FILENAME = 'filename'
-    PATTERNS = 'patterns'
-    MATCH = 'match'
+    GREP = 'grep'
+    REGEX = 'regex'
     CAPTURE = 'capture'
 
 

@@ -6,6 +6,8 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
+from os import path
+from os.path import expanduser
 
 
 class FormulaName(object):
@@ -48,3 +50,14 @@ class PropName(object):
     COLLECTOR = 'collector'
     REPORTER = 'reporter'
     QPIS = 'QPIs'
+
+
+class FileName(object):
+    SCRIPT_DIR = path.join(path.dirname(__file__), path.pardir, path.pardir,
+                           'scripts')
+    CONFIG_DIR = path.join(path.dirname(__file__), path.pardir, path.pardir,
+                           'config')
+    PRIVATE_KEY = CONFIG_DIR + '/QtipKey'
+    PUBLIC_KEY = CONFIG_DIR + '/QtipKey.pub'
+    IPS_FILE = expanduser('~') + "/qtip/ips.log"
+    HOST_FILE = CONFIG_DIR + "/host"

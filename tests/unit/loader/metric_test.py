@@ -9,7 +9,7 @@
 
 import pytest
 
-from qtip.base.constant import PropName
+from qtip.base.constant import BaseProp
 from qtip.loader.metric import MetricSpec
 
 
@@ -31,15 +31,15 @@ def list_all_test():
     metric_list = MetricSpec.list_all()
     assert len(list(metric_list)) is 6
     for desc in metric_list:
-        assert PropName.NAME in desc
-        assert PropName.DESCRIPTION in desc
-        assert PropName.ABSPATH in desc
-        assert PropName.ABSPATH is not None
+        assert BaseProp.NAME in desc
+        assert BaseProp.DESCRIPTION in desc
+        assert BaseProp.ABSPATH in desc
+        assert BaseProp.ABSPATH is not None
 
 
 def content_test(metric):
     content = metric.content
-    assert PropName.NAME in content
-    assert PropName.DESCRIPTION in content
-    assert PropName.WORKLOADS in content
-    assert isinstance(content[PropName.WORKLOADS], list)
+    assert BaseProp.NAME in content
+    assert BaseProp.DESCRIPTION in content
+    assert BaseProp.WORKLOADS in content
+    assert isinstance(content[BaseProp.WORKLOADS], list)

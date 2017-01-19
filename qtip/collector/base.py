@@ -10,3 +10,5 @@
 
 class BaseCollector(object):
     """performance metrics collector"""
+    def __init__(self, config):
+        self._config = config

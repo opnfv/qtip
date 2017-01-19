@@ -9,11 +9,12 @@
 
 
 from qtip.base.constant import PlanProp
-from qtip.loader.base import BaseLoader
+from qtip.collector.logfile import LogfileCollector
+from qtip.loader.yaml_file import YamlFileLoader
 from qtip.loader.qpi import QPISpec
 
 
-class Plan(BaseLoader):
+class Plan(YamlFileLoader):
     """
     a benchmark plan is consist of configuration and a QPI list
     """
@@ -26,3 +27,7 @@ class Plan(BaseLoader):
         self.qpis = [QPISpec(qpi, paths=paths)
                      for qpi in self.content[PlanProp.QPIS]]
         self.info = self.content[PlanProp.INFO]
+        _config = self.content[PlanProp.CONFIG]
+
+        # TODO(yujunz) create collector by name
+        self.collector = LogfileCollector(_config[PlanProp.COLLECTOR], paths)

@@ -7,10 +7,10 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from base import BaseLoader
+from yaml_file import YamlFileLoader
 
 
-class MetricSpec(BaseLoader):
+class MetricSpec(YamlFileLoader):
     """metrics in QTIP are categorized by performance test tools, such as
     dhrystone, whetstone and etc"""
     RELATIVE_PATH = 'metric'

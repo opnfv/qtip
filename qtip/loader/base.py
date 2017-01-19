@@ -7,13 +7,14 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from collections import defaultdict
 from itertools import chain
 from os import listdir
 from os import path
 import yaml
 
 from qtip.base.error import InvalidFormat, NotFound
-from qtip.base.constant import PropName
+from qtip.base.constant import BaseProp
 
 
 ROOT_DIR = path.join(path.dirname(__file__), path.pardir, path.pardir,
@@ -28,15 +29,15 @@ class BaseLoader(object):
     def __init__(self, name, paths=None):
         self._file = name
         self._abspath = self._find(name, paths=paths)
+        content = defaultdict(lambda: None)
 
         try:
-            content = yaml.safe_load(file(self._abspath))
+            content.update(yaml.safe_load(file(self._abspath)))
         except yaml.YAMLError:
             # TODO(yujunz) log yaml error
             raise InvalidFormat(self._abspath)
 
-        self.name = content[PropName.NAME] if PropName.NAME in content \
-            else path.splitext(name)[0]
+        self.name = content[BaseProp.NAME] or path.splitext(name)[0]
         self.content = content
 
     def _find(self, name, paths=None):
@@ -57,6 +58,6 @@ class BaseLoader(object):
         for name in names:
             item = cls(name, paths=paths)
             yield {
-                PropName.NAME: name,
-                PropName.ABSPATH: item._abspath,
-                PropName.CONTENT: item.content}
+                BaseProp.NAME: name,
+                BaseProp.ABSPATH: item._abspath,
+                BaseProp.CONTENT: item.content}

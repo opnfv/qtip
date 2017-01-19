@@ -9,7 +9,7 @@
 
 import pytest
 
-from qtip.base.constant import FormulaName, PropName
+from qtip.base.constant import FormulaName, SpecProp
 from qtip.loader.qpi import QPISpec
 
 QPI_SPEC = 'compute.yaml'
@@ -33,20 +33,20 @@ def test_list_all(benchmarks_root):
     qpi_spec_list = QPISpec.list_all(paths=[benchmarks_root])
     assert len(list(qpi_spec_list)) is 2
     for item in qpi_spec_list:
-        assert PropName.NAME in item
-        assert PropName.CONTENT in item
-        assert PropName.ABSPATH in item
-        assert PropName.ABSPATH is not None
+        assert SpecProp.NAME in item
+        assert SpecProp.CONTENT in item
+        assert SpecProp.ABSPATH in item
+        assert SpecProp.ABSPATH is not None
 
 
 def test_content(qpi_spec):
     content = qpi_spec.content
-    assert PropName.DESCRIPTION in content
-    assert PropName.FORMULA in content
-    assert PropName.SECTIONS in content
+    assert SpecProp.DESCRIPTION in content
+    assert SpecProp.FORMULA in content
+    assert SpecProp.SECTIONS in content
 
-    assert content[PropName.FORMULA] in FormulaName.__dict__.values()
-    sections = content[PropName.SECTIONS]
+    assert content[SpecProp.FORMULA] in FormulaName.__dict__.values()
+    sections = content[SpecProp.SECTIONS]
     assert isinstance(sections, list)
     for section in sections:
-        assert PropName.NAME in section
+        assert SpecProp.NAME in section

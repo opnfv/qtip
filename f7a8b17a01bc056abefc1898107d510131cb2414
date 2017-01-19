@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_a01c5214",
+        "filename": "qtip/scripts/fetch_compute_ips.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-19T15:19:43Z",
+      "side": 1,
+      "message": "Do we really need -f ? Just a bit worried on deleting something by accident.",
+      "revId": "f7a8b17a01bc056abefc1898107d510131cb2414",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_5dff99aa",
+        "filename": "qtip/base/constant.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-19T09:27:50Z",
+      "side": 1,
+      "message": "These are actually not constants, please consider rebase to #27235 and use FileLoader to get the files",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 36
+      },
+      "revId": "ae39e38c21dece7d1d2437b1052a073129e6cc21",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

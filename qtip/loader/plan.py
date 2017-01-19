@@ -8,7 +8,7 @@
 ##############################################################################
 
 
-from qtip.base.constant import PropName
+from qtip.base.constant import PlanProp
 from qtip.loader.base import BaseLoader
 from qtip.loader.qpi import QPISpec
 
@@ -24,4 +24,5 @@ class Plan(BaseLoader):
         super(Plan, self).__init__(name, paths)
 
         self.qpis = [QPISpec(qpi, paths=paths)
-                     for qpi in self.content[PropName.QPIS]]
+                     for qpi in self.content[PlanProp.QPIS]]
+        self.info = self.content[PlanProp.INFO]

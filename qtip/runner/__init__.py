@@ -7,7 +7,7 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from qtip.base.constant import PkgName, PropName
+from qtip.base.constant import PkgName, BaseProp
 from qtip.base.error import NotFound
 from qtip.collector.stdout import StdoutCollector
 from qtip.driver.random import RandomDriver
@@ -17,11 +17,11 @@ from qtip.reporter.console import ConsoleReporter
 class Runner(object):
     def __init__(self, spec, config=None):
         if config is None:
-            config = spec[PropName.CONFIG]
+            config = spec[BaseProp.CONFIG]
 
-        driver_name = config[PropName.DRIVER]
-        collector_name = config[PropName.COLLECTOR]
-        reporter_name = config[PropName.REPORTER]
+        driver_name = config[BaseProp.DRIVER]
+        collector_name = config[BaseProp.COLLECTOR]
+        reporter_name = config[BaseProp.REPORTER]
 
         # TODO(yujunz) dynamically load modules by name
 

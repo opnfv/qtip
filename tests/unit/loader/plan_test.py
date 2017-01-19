@@ -9,7 +9,7 @@
 
 import pytest
 
-from qtip.base.constant import PropName
+from qtip.base.constant import PlanProp
 from qtip.loader.plan import Plan, QPISpec
 
 
@@ -29,15 +29,15 @@ def test_list_all(opt_root):
     plan_list = Plan.list_all(paths=[opt_root])
     assert len(list(plan_list)) is 2
     for desc in plan_list:
-        assert PropName.NAME in desc
-        assert PropName.CONTENT in desc
-        assert PropName.ABSPATH in desc
-        assert PropName.ABSPATH is not None
+        assert PlanProp.NAME in desc
+        assert PlanProp.CONTENT in desc
+        assert PlanProp.ABSPATH in desc
+        assert PlanProp.ABSPATH is not None
 
 
 def test_content(plan):
     content = plan.content
-    assert PropName.NAME in content
-    assert PropName.DESCRIPTION in content
-    assert PropName.CONFIG in content
-    assert PropName.QPIS in content
+    assert PlanProp.NAME in content
+    assert PlanProp.DESCRIPTION in content
+    assert PlanProp.CONFIG in content
+    assert PlanProp.QPIS in content

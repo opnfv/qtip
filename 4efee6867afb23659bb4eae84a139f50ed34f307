@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_86c04e7d",
+        "filename": "tests/unit/cli/test_qpi.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-20T15:03:17Z",
+      "side": 1,
+      "message": "- dhrystone seems to be a name for metric, not QPI. Please use \u0027fake-qpi\u0027 or something similar.\n- Should we expect a warning message when it is invoked without qpi name?",
+      "revId": "4efee6867afb23659bb4eae84a139f50ed34f307",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

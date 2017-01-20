@@ -12,16 +12,16 @@ import pytest
 from qtip.base.constant import FormulaName, SpecProp
 from qtip.loader.qpi import QPISpec
 
-QPI_SPEC = 'compute.yaml'
+QPI_SPEC = 'fake-qpi.yaml'
 
 
 @pytest.fixture()
 def qpi_spec(opt_root):
-    return QPISpec('compute.yaml', paths=[opt_root])
+    return QPISpec(QPI_SPEC, paths=[opt_root])
 
 
 def test_init(qpi_spec):
-    assert qpi_spec.name == 'compute'
+    assert qpi_spec.name == 'Fake QPI'
 
     with pytest.raises(TypeError) as excinfo:
         QPISpec()
@@ -31,7 +31,7 @@ def test_init(qpi_spec):
 
 def test_list_all(opt_root):
     qpi_spec_list = QPISpec.list_all(paths=[opt_root])
-    assert len(list(qpi_spec_list)) is 2
+    assert len(list(qpi_spec_list)) is 1
     for item in qpi_spec_list:
         assert SpecProp.NAME in item
         assert SpecProp.CONTENT in item

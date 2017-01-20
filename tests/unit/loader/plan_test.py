@@ -14,7 +14,7 @@ from qtip.loader.plan import Plan, QPISpec
 
 
 def test_init(plan):
-    assert plan.name == 'fake plan'
+    assert plan.name == 'Fake Plan'
     assert isinstance(plan.content, dict)
     for qpi in plan.qpis:
         assert isinstance(qpi, QPISpec)
@@ -27,7 +27,7 @@ def test_init(plan):
 
 def test_list_all(opt_root):
     plan_list = Plan.list_all(paths=[opt_root])
-    assert len(list(plan_list)) is 2
+    assert len(list(plan_list)) is 1
     for desc in plan_list:
         assert PlanProp.NAME in desc
         assert PlanProp.CONTENT in desc

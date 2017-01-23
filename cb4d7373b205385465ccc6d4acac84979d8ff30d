@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_c013990b",
+        "filename": "qtip/cli/entry.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-01-23T14:38:42Z",
+      "side": 1,
+      "message": "I think we shall use the auto version generated from pbr for all components. You may leave it as `dev` for now and study how to get version from pbr later.",
+      "revId": "cb4d7373b205385465ccc6d4acac84979d8ff30d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

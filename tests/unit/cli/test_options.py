@@ -25,7 +25,7 @@ class TestClass(object):
 
     def test_version(self, runner):
         result = runner.invoke(cli, ['--version'])
-        assert '' in result.output
+        assert 'dev' in result.output
 
     def test_debug(self, runner):
         result = runner.invoke(cli, ['-d'])

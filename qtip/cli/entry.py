@@ -22,7 +22,6 @@ class Context(object):
     def __init__(self):
         self.verbose = False
         self.debug = False
-        self.version = 'qtip-1.0.0'
 
     def log(self, msg, *args):
         ''' Log message to stderr '''
@@ -30,10 +29,6 @@ class Context(object):
 
     def verbose(self, msg, *args):
         ''' Log message to stderr when verbose '''
-        pass
-
-    def version(self):
-        ''' Display programs version '''
         pass
 
     def debug(self, msg, *args):
@@ -72,7 +67,7 @@ class QtipCli(click.MultiCommand):
                invoke_without_command=True)
 @click.option('-v', '--verbose', is_flag=True, help='Enable verbose mode.')
 @click.option('-d', '--debug', is_flag=True, help='Enable debug mode.')
-@click.option('--version', is_flag=True, help='Shows program current version.')
+@click.version_option('0.0.1')
 @pass_context
-def cli(ctx, verbose, version, debug):
+def cli(ctx, verbose, debug):
     pass

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac10518_43ffb3aa",
+        "filename": "qtip/loader/yaml_file.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-01-24T03:29:42Z",
+      "side": 1,
+      "message": "I remember this directory name is abandoned.",
+      "revId": "02b52f1f1391fa71dac97ecba8c4d2958e7bbfbf",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

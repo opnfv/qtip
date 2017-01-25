@@ -2,7 +2,6 @@
 ##############################################################################
 #Copyright (c) 2016 Ericsson AB, ZTE and others.
 #jose.lausuch@ericsson.com
-#wu.zhihui1@zte.com.cn
 #All rights reserved. This program and the accompanying materials
 #are made available under the terms of the Apache License, Version 2.0
 #which accompanies this distribution, and is available at
@@ -109,6 +108,7 @@ if [ -z "$IPS" ]; then
    error "The compute node $IPS are not up. Please check that the POD is correctly deployed."
 else
    echo "-------- all compute node ips: --------"
+   rm $HOME/ips.log
    touch $HOME/ips.log
    echo "$IPS" > $HOME/qtip/ips.log
    echo $IPS

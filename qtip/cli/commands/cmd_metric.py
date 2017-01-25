@@ -28,6 +28,7 @@ def cmd_list(ctx):
 
 
 @cli.command('run', help='Run tests to collect Performance Metrics')
+@click.argument('name')
 @pass_context
-def cmd_run(ctx):
+def cmd_run(ctx, name):
     pass

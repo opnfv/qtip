@@ -10,7 +10,7 @@
 import pytest
 from click.testing import CliRunner
 
-from qtip.cli.commands.cmd_metric import cli
+from qtip.cli.entry import cli
 
 
 @pytest.fixture()
@@ -19,10 +19,13 @@ def runner():
 
 
 def test_list(runner):
-    result = runner.invoke(cli, ['list'])
+    result = runner.invoke(cli, ['metric', 'list'])
     assert result.output == ''
 
 
 def test_run(runner):
-    result = runner.invoke(cli, ['run'])
+    result = runner.invoke(cli, ['metric', 'run', 'fake-metric'])
     assert result.output == ''
+
+    result = runner.invoke(cli, ['metric', 'run'])
+    assert 'Missing argument "name".' in result.output

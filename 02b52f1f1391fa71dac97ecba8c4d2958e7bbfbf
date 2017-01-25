@@ -16,6 +16,23 @@
       "revId": "02b52f1f1391fa71dac97ecba8c4d2958e7bbfbf",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac10518_99842cd5",
+        "filename": "tests/data/opt/plan/doctor.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-01-25T06:13:22Z",
+      "side": 1,
+      "message": "Sometimes we need to use more than one tools to capture the info. how to describe it. e.g. grep *** | awk ***",
+      "revId": "02b52f1f1391fa71dac97ecba8c4d2958e7bbfbf",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

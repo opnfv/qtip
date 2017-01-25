@@ -25,26 +25,49 @@ class PkgName(object):
     SPEC = 'spec'
 
 
-class PropName(object):
+class BaseProp(object):
     """property names"""
     # list
     NAME = 'name'
     CONTENT = 'content'
     ABSPATH = 'abspath'
+
     # content
-    name = 'name'
     DESCRIPTION = 'description'
+
+
+class SpecProp(BaseProp):
     # spec
     SECTIONS = 'sections'
     WEIGHT = 'weight'
     FORMULA = 'formula'
     METRICS = 'metrics'
     WORKLOADS = 'workloads'
+
+
+class PlanProp(BaseProp):
     # plan
-    CONFIG = 'config'
+    INFO = 'info'
+
     FACILITY = 'facility'
     ENGINEER = 'engineer'
+
+    CONFIG = 'config'
+
     DRIVER = 'driver'
     COLLECTOR = 'collector'
     REPORTER = 'reporter'
+
     QPIS = 'QPIs'
+
+
+class CollectorProp(BaseProp):
+    LOGS = 'logs'
+    FILENAME = 'filename'
+    PATTERNS = 'patterns'
+    MATCH = 'match'
+    CAPTURE = 'capture'
+
+
+class ReporterBaseProp(BaseProp):
+    TRANSFORMER = 'transformer'

@@ -5,3 +5,4 @@
 pytest
 pykwalify
 mock
+pip_check_reqs

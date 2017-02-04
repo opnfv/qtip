@@ -1,0 +1,4 @@
+- name: Collect cpu usage
+  shell: top -bn1 > top.log
+  args:
+    chdir: $HOME/qtip_result/

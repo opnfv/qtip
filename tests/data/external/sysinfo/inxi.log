@@ -1,0 +1,20 @@
+System:    Host: node-6.zte.com.cn Kernel: 3.13.0-103-generic x86_64 (64 bit) Console: tty 6 Distro: Ubuntu 14.04 trusty
+Machine:   System: ZTE product: EC600G3 version: 1.00 serial: 123456789
+           Mobo: ZTE model: XH20G2 serial: 702471300014 Bios: ZTE version: UBF03.09.59_SVN64446 date: 07/21/2016
+CPU(s):    2 Deca core Intel Xeon CPU E5-2650 v3s (-HT-MCP-SMP-) clocked at 2301.00 MHz
+Graphics:  Card: Matrox Systems MGA G200e [Pilot] ServerEngines (SEP1)
+           X-Vendor: N/A driver: N/A tty size: 143x43 Advanced Data: N/A for root out of X
+Network:   Card-1: Intel 82599 10 Gigabit Dual Port Backplane Connection driver: ixgbe
+           IF: ens2f0 state: up speed: 10000 Mbps duplex: full mac: 74:4a:a4:01:8b:8b
+           Card-2: Intel 82599 10 Gigabit Dual Port Backplane Connection driver: ixgbe
+           IF: ens2f1 state: up speed: 10000 Mbps duplex: full mac: 74:4a:a4:01:8b:8c
+           Card-3: Intel 82599 10 Gigabit Dual Port Backplane Connection driver: ixgbe
+           IF: ens1f0 state: down mac: 74:4a:a4:01:8b:87
+           Card-4: Intel 82599 10 Gigabit Dual Port Backplane Connection driver: ixgbe
+           IF: ens1f1 state: up speed: 10000 Mbps duplex: full mac: 74:4a:a4:01:8b:88
+           Card-5: Intel I350 Gigabit Backplane Connection driver: igb
+           IF: ens4f0 state: up speed: 1000 Mbps duplex: full mac: 74:4a:a4:00:dc:de
+           Card-6: Intel I350 Gigabit Backplane Connection driver: igb
+           IF: ens4f1 state: up speed: 1000 Mbps duplex: full mac: 74:4a:a4:00:dc:df
+Drives:    HDD Total Size: 1200.3GB (0.3% used)
+Info:      Processes: 446 Uptime: 12 days Memory: 1836.1/128527.0MB Runlevel: 2 Client: Shell (bash) inxi: 1.9.17

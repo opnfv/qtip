@@ -1,0 +1,70 @@
+   - name: Epel Release install when CentOS
+     yum:
+       name: epel-release
+       state: present
+     when: ansible_os_family == "RedHat"
+
+   - name: Software Properties Common
+     apt:
+       name: software-properties-common
+       state: present
+     when: ansible_os_family == "Debian"
+
+   - name: adding ubuntu backport main repo
+     apt_repository:
+       repo: deb http://archive.ubuntu.com/ubuntu/ {{ansible_distribution_release}}-backports  main restricted universe multiverse
+       state: present
+     when: ansible_os_family == "Debian"
+
+   - name: adding ubuntu main repo
+     apt_repository:
+       repo: deb http://archive.ubuntu.com/ubuntu/ {{ansible_distribution_release}} main restricted universe multiverse
+     when: ansible_os_family == "Debian"
+
+   - name: install Inxi when CentOS
+     yum:
+       name: inxi
+       state: present
+     when: ansible_os_family == "RedHat"
+
+   - name: install Inxi when Ubuntu
+     apt:
+       name: inxi
+       state: present
+       update_cache: yes
+      when: ansible_os_family == "Debian"
+
+   - name:  install bwm-ng when CentOS
+     yum:
+       name: bwm-ng
+       state: present
+     when: ansible_os_family == "RedHat"
+
+   - name: install bwm-ng when Ubuntu
+     apt:
+       name: bwm-ng
+       state: present
+       update_cache: yes
+      when: ansible_os_family == "Debian"
+
+   - name: Install ansible copy dependencies if remote host has selinux enabled
+     yum:
+       name: libselinux-python
+       state: present
+     when: ansible_os_family == "RedHat"
+
+   - name: Install ansiblle copy dependencies if remote host has selinux enaled
+     apt:
+       name: python-selinux
+       state: present
+     when: ansible_os_family == "Debian"
+
+   - name: Run inxi
+     shell: inxi -b -c0 -n > inxi.log
+     args:
+       chdir: $HOME/qtip_result/
+
+   - name: collect cpu usage
+     shell: top -bn1 > top.log
+     args:
+       chdir: $HOME/qtip_result/

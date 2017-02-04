@@ -1,0 +1,22 @@
+- filename: top.log
+  shell:
+    - cmd: grep "Cpu(s)" | awk '{print $8}'
+      capture: cpu_idle
+- filename: inxi.log
+  shell:
+    - cmd: grep -o -P '(?<=Host:).*(?=Kernel)'
+      capture: hostname
+    - cmd: grep -o -P '(?<=Memory:).*(?=MB)'
+      capture: memory
+    - cmd: grep -o -P '(?<=CPU\(s\):).*(?=Graphics)'
+      capture: cpu
+    - cmd: grep -o -P '(?<=Distro:).*(?=Machine:)'
+      capture: os
+    - cmd: grep -o -P '(?<=Kernel:).*(?=Console:)'
+      capture: kernel
+    - cmd: grep -o -P '(?<=HDD Total Size:).*(?=Info:)'
+      capture: disk
+    - cmd: grep -o -P '(?<=product:).*(?=Mobo:)'
+      capture: product
+    - cmd: grep -o -P '(?<=Network:).*(?=Drives:)'
+      capture: network

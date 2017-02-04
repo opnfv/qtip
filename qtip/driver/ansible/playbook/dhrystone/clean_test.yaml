@@ -1,0 +1,18 @@
+- hosts:  "{{role}}"
+  become: yes
+  remote_user: "{{username}}"
+
+  tasks:
+    - name: Checking home directory
+      shell: echo $HOME
+      register: home_dir
+
+    - name: Cleaning tempT
+      file:
+        path: {{home_dir.stdout}}/tempT
+        state: absent
+
+    - name: Cleaning qtip_result
+      file:
+        path: {{home_dir.stdout}}/qtip_result
+        state: absent

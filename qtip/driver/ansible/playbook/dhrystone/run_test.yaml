@@ -1,0 +1,39 @@
+- hosts:  "{{role}}"
+  become: yes
+  remote_user: "{{username}}"
+
+  tasks:
+    - name: Checking home directory
+      shell: echo $HOME
+      register: home_dir
+
+    - name: Fetch hostname
+      shell: hostname
+      register: host_name
+
+    - name: Make UnixBench
+      shell: sudo make --directory $HOME/tempT/UnixBench/
+
+    - include: ../inxi.yaml
+
+    - include: ../top.yaml
+
+    - name: Run dhrystone
+      shell: sudo ./Run -v dhrystone
+      args:
+        chdir: {{home_dir.stdout}}/tempT/UnixBench/
+
+    - name: Copying result to qtip result directory
+      shell: cp -r $HOME/tempT/UnixBench/results/* $HOME/qtip_result/{{home_name.stdout}}/
+
+    - name: Copy top log to qtip result directory
+      shell: cp $HOME/qtip_result/top.log $HOME/qtip_result/{{home_name.stdout}}/
+
+    - name: Copy inxi log to qtip result directory
+      shell: cp $HOME/qtip_result/inxi.log $HOME/qtip_result/{{home_name.stdout}}/
+
+    - name: Fetch result files to local manchine
+      synchronize:
+        mode: pull
+        src: {{home_dir.stdout}}/qtip_result/
+        dest: {{result_dir}}/dhrystone/result/

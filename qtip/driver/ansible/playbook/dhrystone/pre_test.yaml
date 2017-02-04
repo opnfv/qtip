@@ -1,0 +1,72 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Making dhrystone directory
+      file:
+        path: {{result_dir}}/dhrystone
+        state: directory
+
+    - name: Making dhrystone results directory
+      file:
+        path: {{result_dir}}/dhrystone/results
+        state: directory
+
+- hosts:  "{{role}}"
+  become: yes
+  remote_user: "{{username}}"
+
+  tasks:
+    - name: Checking home directory
+      shell: echo $HOME
+      register: home_dir
+
+    - name: Fetch hostname
+      shell: hostname
+      register: host_name
+
+    - name: Cleaning tempT directory
+      file:
+        path: {{home_dir.stdout}}/tempT
+        state: absent
+
+    - name: Cleaning qtip_result directory
+      file:
+        path: {{home_dir.stdout}}/qtip_result
+        state: absent
+
+    - name: Make qtip_result directory
+      file:
+        path: {{home_dir.stdout}}/qtip_result/{{host_name.stdout}}
+        state: directory
+
+    - include: ../prepare_env.yaml
+
+    - name: Installing UnixBench dependencies if CentOS
+      yum:
+        name: {{item}}
+        state: present
+      with_items:
+        - git
+        - gcc
+        - patch
+        - perl-Time-HiRes
+      when: ansible_os_family == "RedHat"
+
+    - name: Installing UnixBench dependencies if Ubuntu
+      apt:
+        name: {{item}
+        state: present
+      with_items:
+        - git
+        - gcc
+        - patch
+        - perl
+      when: ansible_os_family == "Debian"
+
+    - name: Clone unixbench
+      git:
+        repoh: https://github.com/kdlucas/byte-unixbench.git
+        dest: $HOME/tempT
+

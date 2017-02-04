@@ -1,0 +1,17 @@
+- name: Install Inxi when CentOS
+  yum:
+    name: inxi
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Install Inxi when Ubuntu
+  apt:
+    name: inxi
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
+- name: Run inxi
+  shell: inxi -b -c0 -n > inxi.log
+  args:
+    chdir: $HOME/qtip_result/

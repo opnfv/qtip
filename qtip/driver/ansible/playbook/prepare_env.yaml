@@ -1,0 +1,34 @@
+- name: Epel Release install when CentOS
+  yum:
+    name: epel-release
+    state: present
+   when: ansible_os_family == "RedHat"
+
+- name: Software Properties Common
+  apt:
+    name: software-properties-common
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Adding ubuntu backport main repo
+  apt_repository:
+    repo: deb http://archive.ubuntu.com/ubuntu/ {{ansible_distribution_release}}-backports  main restricted universe multiverse
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Adding ubuntu main repo
+  apt_repository:
+    repo: deb http://archive.ubuntu.com/ubuntu/ {{ansible_distribution_release}} main restricted universe multiverse
+  when: ansible_os_family == "Debian"
+
+- name: Install ansible copy dependencies if remote host has selinux enabled
+  yum:
+    name: libselinux-python
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Install ansiblle copy dependencies if remote host has selinux enaled
+  apt:
+    name: python-selinux
+    state: present
+  when: ansible_os_family == "Debian"

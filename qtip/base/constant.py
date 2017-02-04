@@ -67,6 +67,8 @@ class CollectorProp(BaseProp):
     GREP = 'grep'
     REGEX = 'regex'
     CAPTURE = 'capture'
+    SHELL = 'shell'
+    PATHS = 'paths'
 
 
 class ReporterBaseProp(BaseProp):

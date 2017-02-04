@@ -7,7 +7,7 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from base import BaseDriver
+from qtip.driver.base import BaseDriver
 
 
 class AnsibleDriver(BaseDriver):

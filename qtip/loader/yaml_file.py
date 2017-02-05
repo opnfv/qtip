@@ -20,9 +20,11 @@ class YamlFileLoader(FileLoader):
 
     def __init__(self, name, paths=None):
         super(YamlFileLoader, self).__init__(name, paths)
-        with open(self._abspath, 'r') as stream:
+        abspath = self.abspath
+
+        with open(abspath, 'r') as stream:
             content = yaml.safe_load(stream)
             if not isinstance(content, dict):
-                raise InvalidContent(self._abspath)
+                raise InvalidContent(abspath)
             self.content = content
             self.name = content.get(BaseProp.NAME, path.splitext(name)[0])

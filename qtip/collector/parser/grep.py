@@ -8,18 +8,26 @@
 ##############################################################################
 
 
+import re
+
+
 from qtip.base.constant import BaseProp
-from qtip.collector.parser.grep import GrepParser
+from qtip.base import BaseActor
 
 
-class CollectorProp(BaseProp):
-    TYPE = 'type'
-    PARSERS = 'parsers'
-    PATHS = 'paths'
+class GrepProp(BaseProp):
+    FILENAME = 'filename'
+    REGEX = 'regex'
 
 
-def load_parser(type_name):
-    if type_name == GrepParser.TYPE:
-        return GrepParser
-    else:
-        raise Exception("Invalid parser type: {}".format(type_name))
+class GrepParser(BaseActor):
+    TYPE = 'grep'
+
+    def run(self):
+        filename = self._parent.get_config(GrepProp.FILENAME)
+        return grep_in_file(self._parent.find(filename), self._config[GrepProp.REGEX])
+
+
+def grep_in_file(filename, regex):
+    with open(filename, 'r') as f:
+        return filter(lambda x: x is not None, [re.search(regex, line) for line in f])

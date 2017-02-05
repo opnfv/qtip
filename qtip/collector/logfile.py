@@ -7,36 +7,49 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from base import BaseCollector
+from itertools import chain
+from six.moves import reduce
+import os
 
-from qtip.collector.base import CollectorProp as CProp
+from qtip.base import BaseActor
+from qtip.collector import load_parser
+from qtip.collector import CollectorProp as CProp
 from qtip.loader.file import FileLoader
 
 
-class LogfileCollector(BaseCollector):
-    """collect performance metrics from log files"""
+class LogItem(BaseActor):
+    def find(self, filename, paths=None):
+        return self._parent.find(filename, paths)
 
+
+class LogfileCollector(BaseActor):
+    """run performance metrics from log files"""
     TYPE = 'logfile'
+    LOGS = 'logs'
+    PATHS = 'paths'
 
     def __init__(self, config, parent=None):
         super(LogfileCollector, self).__init__(config)
-        paths = [config[CProp.PATHS]] if CProp.PATHS in config else ['.']
-        self.loader = FileLoader('.', paths)
-        self._parent = parent
+        self._parent = parent  # plan
+        # TODO(yujunz) handle exception of invalid parent
+        dirname = os.path.dirname(self._parent.abspath)
+        paths = [os.path.join(dirname, p) for p in config.get(self.PATHS, [])]
+        self._loader = FileLoader('.', paths)
 
-    def collect(self):
-        captured = {}
-        for item in self._config[CProp.LOGS]:
-            captured.update(self._parse_log(item))
-        return captured
+    def run(self):
+        collected = []
+        for log_item_config in self._config[self.LOGS]:
+            log_item = LogItem(log_item_config, self)
+            matches = [load_parser(c[CProp.TYPE])(c, log_item).run()
+                       for c in log_item.get_config(CProp.PARSERS)]
+            collected = chain(collected, reduce(chain, matches))
+        return reduce(merge_matchobj_to_dict, collected, {'groups': (), 'groupdict': {}})
 
-    def _parse_log(self, log_item):
-        captured = {}
-        # TODO(yujunz) select parser by name
-        if CProp.GREP in log_item:
-            for rule in log_item[CProp.GREP]:
-                captured.update(self._grep(log_item[CProp.FILENAME], rule))
-        return captured
+    def find(self, filename, paths=None):
+        return self._loader.find(filename, paths)
 
-    def _grep(self, filename, rule):
-        return {}
+
+def merge_matchobj_to_dict(d, m):
+    d['groups'] = chain(d['groups'], m.groups())
+    d['groupdict'].update(m.groupdict())
+    return d

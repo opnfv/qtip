@@ -27,8 +27,8 @@ def init_test(metric_spec):
            in str(excinfo.value)
 
 
-def list_all_test():
-    metric_list = MetricSpec.list_all()
+def list_all_test(benchmarks_root):
+    metric_list = MetricSpec.list_all(paths=[benchmarks_root])
     assert len(list(metric_list)) is 6
     for desc in metric_list:
         assert BaseProp.NAME in desc
@@ -37,8 +37,8 @@ def list_all_test():
         assert BaseProp.ABSPATH is not None
 
 
-def content_test(metric):
-    content = metric.content
+def content_test(metric_spec):
+    content = metric_spec.content
     assert BaseProp.NAME in content
     assert BaseProp.DESCRIPTION in content
     assert BaseProp.WORKLOADS in content

@@ -34,6 +34,7 @@ class BaseProp(object):
 
     # content
     DESCRIPTION = 'description'
+    WORKLOADS = 'workloads'
 
 
 class SpecProp(BaseProp):

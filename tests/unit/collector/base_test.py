@@ -8,21 +8,11 @@
 ##############################################################################
 
 
-from qtip.base.constant import BaseProp
+from qtip.loader.module import load_collector
+from qtip.collector.base import CollectorProp as CProp
 
 
-class BaseCollector(object):
-    """performance metrics collector"""
-    def __init__(self, config, parent=None):
-        self._config = config
-        self._parent = parent
-
-
-class CollectorProp(BaseProp):
-    TYPE = 'type'
-    LOGS = 'logs'
-    FILENAME = 'filename'
-    PARSERS = 'parsers'
-    REGEX = 'regex'
-    GROUP = 'group'
-    PATHS = 'paths'
+def init_test(collectors_config):
+    for c in collectors_config:
+        collector = load_collector(c[CProp.TYPE])
+        assert collector.TYPE == c[CProp.TYPE]

@@ -10,12 +10,12 @@
 from base import BaseCollector
 
 from qtip.collector.base import CollectorProp as CProp
+from qtip.collector.parser import Parser
 from qtip.loader.file import FileLoader
 
 
 class LogfileCollector(BaseCollector):
     """collect performance metrics from log files"""
-
     TYPE = 'logfile'
 
     def __init__(self, config, parent=None):
@@ -30,13 +30,19 @@ class LogfileCollector(BaseCollector):
             captured.update(self._parse_log(item))
         return captured
 
-    def _parse_log(self, log_item):
-        captured = {}
+    @staticmethod
+    def _parse_log(log_item):
+        group = {}
         # TODO(yujunz) select parser by name
-        if CProp.GREP in log_item:
+        for parse_rule in log_item[CProp.PARSERS]:
+            """
+            filename: doctor_consumer.log
+            parsers:
+              - name: grep
+                regex: 'doctor consumer notified at \d+(\.\d+)?$'
+                group: notified consumer
+            """
+            parse = Parser.__dict__[parse_rule[CProp.NAME]]
             for rule in log_item[CProp.GREP]:
-                captured.update(self._grep(log_item[CProp.FILENAME], rule))
-        return captured
-
-    def _grep(self, filename, rule):
-        return {}
+                group.update(parse(log_item[CProp.FILENAME], **rule))
+        return group

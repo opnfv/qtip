@@ -7,22 +7,26 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+import os
+import pytest
 
-from qtip.base.constant import BaseProp
-
-
-class BaseCollector(object):
-    """performance metrics collector"""
-    def __init__(self, config, parent=None):
-        self._config = config
-        self._parent = parent
+from qtip.collector.parser import Parser
 
 
-class CollectorProp(BaseProp):
-    TYPE = 'type'
-    LOGS = 'logs'
-    FILENAME = 'filename'
-    PARSERS = 'parsers'
-    REGEX = 'regex'
-    GROUP = 'group'
-    PATHS = 'paths'
+@pytest.fixture
+def logfile(data_root):
+    return os.path.join(data_root, 'fake.log')
+
+
+@pytest.fixture
+def grep():
+    return Parser.grep
+
+
+@pytest.mark.parametrize("regex,expected", [
+    ('not exist', None),
+    ('Lorem (\S+)', {'group': 'ipsum'})
+])
+def grep_test(grep, logfile, regex, expected):
+    group = grep(logfile, regex)
+    assert group == expected

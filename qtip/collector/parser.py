@@ -8,21 +8,19 @@
 ##############################################################################
 
 
-from qtip.base.constant import BaseProp
+import re
 
 
-class BaseCollector(object):
-    """performance metrics collector"""
-    def __init__(self, config, parent=None):
-        self._config = config
-        self._parent = parent
+class Parser(object):
+    @staticmethod
+    def grep(filename, regex=None, group='group'):
+        # TODO(yujunz) extend to multiple groups
+        with open(filename) as f:
+            for line in f:
+                match = re.search(regex, line)
+                if match:
+                    return {group: match.group(1)}
 
 
-class CollectorProp(BaseProp):
-    TYPE = 'type'
-    LOGS = 'logs'
-    FILENAME = 'filename'
-    PARSERS = 'parsers'
-    REGEX = 'regex'
-    GROUP = 'group'
-    PATHS = 'paths'
+class ParserType(object):
+    GREP = 'grep'

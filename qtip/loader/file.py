@@ -25,12 +25,12 @@ class FileLoader(BaseLoader):
     _paths = [ROOT_DIR]
 
     def __init__(self, name, paths=None):
-        self._file = name
-        self._abspath = self._find(name, paths=paths)
+        self._filename = name
+        self.abspath = self.find(name, paths=paths)
 
-    def _find(self, name, paths=None):
+    def find(self, name, paths=None):
         """find a specification in searching paths"""
-        paths = self._paths if paths is None else paths
+        paths = [self.abspath] if paths is None else paths
         for p in paths:
             abspath = path.join(p, self.RELATIVE_PATH, name)
             if path.exists(abspath):
@@ -47,4 +47,4 @@ class FileLoader(BaseLoader):
             item = cls(name, paths=paths)
             yield {
                 BaseProp.NAME: name,
-                BaseProp.ABSPATH: item._abspath}
+                BaseProp.ABSPATH: item.abspath}

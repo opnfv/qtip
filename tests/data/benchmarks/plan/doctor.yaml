@@ -12,23 +12,23 @@ config:
           # 2016-12-28 03:16:05,630 consumer.py 26 INFO   doctor consumer notified at 1482894965.63
           grep:
             - regex: 'doctor consumer notified at \d+(\.\d+)?$'
-              capture: notified consumer
+              group: notified consumer
         - filename: doctor_inspector.log
           # 2016-12-28 03:16:05,299 inspector.py 76 INFO   event posted at 1482894965.3
           # 2016-12-28 03:16:05,299 inspector.py 56 INFO   doctor mark vm(<Server: doctor_vm1>) error at 1482894965.3
           # 2016-12-28 03:16:05,506 inspector.py 66 INFO   doctor mark host(overcloud-novacompute-1.ool-virtual1) down at 1482894965.51
           grep:
             - regex: 'event posted at \d+(\.\d+)?$'
-              capture: posted event
+              group: posted event
             - regex: 'doctor mark vm\(.*\) error at \d+(\.\d+)?$'
-              capture: marked VM error
+              group: marked VM error
             - regex: 'doctor mark host\(.*\) down at \d+(\.\d+)?$'
-              capture: marked host down
+              group: marked host down
         - filename: disable_network.log
           # doctor set host down at 1482894965.164096803
           grep:
             - regex: 'doctor set host down at \d+(\.\d+)?$'
-              capture: set host down
+              group: set host down
   reporter:
     name: console
     # transform collected data into timeline

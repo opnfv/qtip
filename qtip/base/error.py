@@ -18,9 +18,12 @@ class InvalidFormat(QtipError):
 
 
 class NotFound(QtipError):
-    def __init__(self, module, package='qtip'):
-        self.package = package
-        self.module = module
+    def __init__(self, needle, heystack='qtip'):
+        self.heystack = heystack
+        self.needle = needle
+
+    def __str__(self):
+        return self.__dict__
 
 
 class ToBeDoneError(QtipError):

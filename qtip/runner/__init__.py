@@ -28,16 +28,16 @@ class Runner(object):
         if driver_name == 'random':
             self.driver = RandomDriver()
         else:
-            raise NotFound(driver_name, package=PkgName.DRIVER)
+            raise NotFound(driver_name, heystack=PkgName.DRIVER)
 
         if collector_name == 'stdout':
             self.collector = StdoutCollector()
         else:
             raise NotFound(collector_name,
-                           package=PkgName.COLLECTOR)
+                           heystack=PkgName.COLLECTOR)
 
         if reporter_name == 'console':
             self.reporter = ConsoleReporter()
         else:
             raise NotFound(reporter_name,
-                           package=PkgName.REPORTER)
+                           heystack=PkgName.REPORTER)

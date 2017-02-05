@@ -2,10 +2,11 @@
 # of appearance. Changing the order has an impact on the overall integration
 # process, which may cause wedges in the gate later.
 
+tox
 pytest
+pytext-mock
+pytest-cov
+coverage
 pykwalify
 mock
 pip_check_reqs
-coverage
-pytest-cov
-tox

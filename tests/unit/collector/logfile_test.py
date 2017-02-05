@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2016 ZTE Corp and others.
+# Copyright (c) 2017 ZTE Corp and others.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
@@ -7,21 +7,18 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+import pytest
 
-from qtip.base.constant import BaseProp
-
-
-class BaseCollector(object):
-    """performance metrics collector"""
-    def __init__(self, config):
-        self._config = config
+from qtip.collector.logfile import LogfileCollector
 
 
-class CollectorProp(BaseProp):
-    TYPE = 'type'
-    LOGS = 'logs'
-    FILENAME = 'filename'
-    GREP = 'grep'
-    REGEX = 'regex'
-    CAPTURE = 'capture'
-    PATHS = 'path'
+@pytest.fixture
+def logfile_collector(logfile_config, plan):
+    return LogfileCollector(logfile_config, plan)
+
+
+# TODO(yujunz) fix me
+@pytest.xfail
+def test_run(logfile_collector):
+    collected = logfile_collector.run()
+    assert list(collected) == []

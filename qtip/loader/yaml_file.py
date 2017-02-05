@@ -24,10 +24,10 @@ class YamlFileLoader(FileLoader):
         content = defaultdict(lambda: None)
 
         try:
-            content.update(yaml.safe_load(file(self._abspath)))
+            content.update(yaml.safe_load(open(self.abspath)))
         except yaml.YAMLError:
             # TODO(yujunz) log yaml error
-            raise InvalidFormat(self._abspath)
+            raise InvalidFormat(self.abspath)
 
         self.name = content[BaseProp.NAME] or path.splitext(name)[0]
         self.content = content

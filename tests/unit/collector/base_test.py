@@ -8,12 +8,11 @@
 ##############################################################################
 
 
-from qtip.collector.logfile import LogfileCollector
+from qtip.loader.plan import load_collector
+from qtip.collector.base import CollectorProp as CProp
 
 
-# TODO(yujunz) more elegant way to load module dynamically
-def load_collector(type_name):
-    if type_name == LogfileCollector.TYPE:
-        return LogfileCollector
-    else:
-        raise Exception("Invalid collector type: {}".format(type_name))
+def init_test(collectors_config):
+    for c in collectors_config:
+        collector = load_collector(c[CProp.TYPE])
+        assert collector.TYPE == c[CProp.TYPE]

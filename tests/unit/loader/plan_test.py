@@ -9,13 +9,15 @@
 
 import pytest
 
+from qtip.collector.logfile import LogfileCollector
+from qtip.loader.plan import load_collector
 from qtip.loader.plan import Plan
 from qtip.loader.plan import PlanProp
 from qtip.loader.plan import QPISpec
 
 
 def test_init(plan):
-    assert plan.name == 'fake plan'
+    assert plan.name == 'doctor performance profiling'
     assert isinstance(plan.content, dict)
     for qpi in plan.qpis:
         assert isinstance(qpi, QPISpec)
@@ -28,7 +30,7 @@ def test_init(plan):
 
 def test_list_all(benchmarks_root):
     plan_list = Plan.list_all(paths=[benchmarks_root])
-    assert len(list(plan_list)) is 2
+    assert len(list(plan_list)) is 1
     for desc in plan_list:
         assert PlanProp.NAME in desc
         assert PlanProp.CONTENT in desc
@@ -42,3 +44,7 @@ def test_content(plan):
     assert PlanProp.DESCRIPTION in content
     assert PlanProp.CONFIG in content
     assert PlanProp.QPIS in content
+
+
+def test_load_collector():
+    assert load_collector(LogfileCollector.TYPE) is LogfileCollector

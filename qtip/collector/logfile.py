@@ -7,36 +7,40 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-from base import BaseCollector
-
+from qtip.collector.base import load_parser
+from qtip.collector.base import BaseCollector
 from qtip.collector.base import CollectorProp as CProp
-from qtip.loader.file import FileLoader
 
 
 class LogfileCollector(BaseCollector):
     """collect performance metrics from log files"""
-
     TYPE = 'logfile'
+    LOGS = 'logs'
+    PATHS = 'paths'
 
     def __init__(self, config, parent=None):
         super(LogfileCollector, self).__init__(config)
-        paths = [config[CProp.PATHS]] if CProp.PATHS in config else ['.']
-        self.loader = FileLoader('.', paths)
         self._parent = parent
 
     def collect(self):
         captured = {}
-        for item in self._config[CProp.LOGS]:
+        for item in self._config[self.LOGS]:
+            # TODO(yujunz) resolve key conflict
             captured.update(self._parse_log(item))
         return captured
 
-    def _parse_log(self, log_item):
-        captured = {}
-        # TODO(yujunz) select parser by name
-        if CProp.GREP in log_item:
-            for rule in log_item[CProp.GREP]:
-                captured.update(self._grep(log_item[CProp.FILENAME], rule))
-        return captured
+    @staticmethod
+    def _parse_log(log_item):
+        group = {}
+        for parser_config in log_item[CProp.PARSERS]:
+            """
+            filename: doctor_consumer.log
+            parsers:
+              - type: grep
+                regex: 'doctor consumer notified at \d+(\.\d+)?$'
+                group: notified consumer
+            """
+            parser = load_parser(parser_config[LogfileCollector.TYPE])(parser_config)
+            group.update(parser.run())
 
-    def _grep(self, filename, rule):
-        return {}
+        return group

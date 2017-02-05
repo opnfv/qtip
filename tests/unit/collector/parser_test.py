@@ -7,26 +7,21 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+import os
+import pytest
 
-from qtip.base.constant import BaseProp
 from qtip.collector.parser.grep import GrepParser
 
 
-class BaseCollector(object):
-    """performance metrics collector"""
-    def __init__(self, config, parent=None):
-        self._config = config
-        self._parent = parent
+@pytest.fixture
+def logfile(data_root):
+    return os.path.join(data_root, 'fake.log')
 
 
-class CollectorProp(BaseProp):
-    TYPE = 'type'
-    PARSERS = 'parsers'
-    PATHS = 'paths'
-
-
-def load_parser(type_name):
-    if type_name == GrepParser.TYPE:
-        return GrepParser
-    else:
-        raise Exception("Invalid parser type: {}".format(type_name))
+@pytest.mark.parametrize("regex,expected", [
+    ('not exist', None),
+    ('Lorem (\S+)', {'group': 'ipsum'})
+])
+def grep_test(logfile, regex, expected):
+    group = GrepParser.search(logfile, regex)
+    assert group == expected

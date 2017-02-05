@@ -10,9 +10,17 @@
 
 from qtip.base.constant import BaseProp
 from qtip.collector.base import CollectorProp as CProp
-from qtip.loader.module import load_collector
+from qtip.collector.logfile import LogfileCollector
 from qtip.loader.yaml_file import YamlFileLoader
 from qtip.loader.qpi import QPISpec
+
+
+# TODO(yujunz) more elegant way to load module dynamically
+def load_collector(type_name):
+    if type_name == LogfileCollector.TYPE:
+        return LogfileCollector
+    else:
+        raise Exception("Invalid collector type: {}".format(type_name))
 
 
 class Plan(YamlFileLoader):

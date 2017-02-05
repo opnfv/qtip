@@ -45,6 +45,40 @@
       "revId": "4ace1e2a527307b9be598f8d375c6952b3ae38f3",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1acb0d3e_aa6b3a84",
+        "filename": "qtip/ansible/sys_info_pbook.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 847
+      },
+      "writtenOn": "2017-02-05T16:44:15Z",
+      "side": 1,
+      "message": "Verify line limits? Not sure if this is OK?",
+      "revId": "4ace1e2a527307b9be598f8d375c6952b3ae38f3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1acb0d3e_ca68068a",
+        "filename": "qtip/ansible/sys_info_pbook.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 847
+      },
+      "writtenOn": "2017-02-05T16:44:15Z",
+      "side": 1,
+      "message": "Verify line limits? Not sure if this is OK?",
+      "revId": "4ace1e2a527307b9be598f8d375c6952b3ae38f3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

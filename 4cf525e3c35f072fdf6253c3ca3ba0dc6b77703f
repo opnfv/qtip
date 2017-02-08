@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1acb0d3e_e0a95e25",
+        "filename": "qtip/collector/logfile.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-08T12:33:07Z",
+      "side": 1,
+      "message": "refer the constant please",
+      "range": {
+        "startLine": 23,
+        "startChar": 12,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "4cf525e3c35f072fdf6253c3ca3ba0dc6b77703f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1acb0d3e_00a7ca50",
+        "filename": "qtip/collector/logfile.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-08T12:33:07Z",
+      "side": 1,
+      "message": "It can be shorten in oneline, i.e. self.paths \u003d xxx if yyy else zzz which is easy to understand",
+      "revId": "4cf525e3c35f072fdf6253c3ca3ba0dc6b77703f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1acb0d3e_c068e2f7",
+        "filename": "qtip/collector/logfile.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-08T12:33:07Z",
+      "side": 1,
+      "message": "It seems possible to describe the specific requirement of this class in configuration and use a generic logfile collector to collect data instead, can we?",
+      "revId": "4cf525e3c35f072fdf6253c3ca3ba0dc6b77703f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1acb0d3e_606d6e04",
+        "filename": "tests/unit/collector/logfile_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-08T12:33:07Z",
+      "side": 1,
+      "message": "A collector is not supposed to be constructed directly from yaml file. It is usually a child element in plan. So this test is not reflecting the actual use case.",
+      "revId": "4cf525e3c35f072fdf6253c3ca3ba0dc6b77703f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

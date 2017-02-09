@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1acb0d3e_9126aab9",
+        "filename": "qtip/loader/plan.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-09T08:11:33Z",
+      "side": 1,
+      "message": "You can try to use built-in function eval().\neval(c[CProp.Type].capitalize() + \"Collector\")(c, self).\n\nSee https://docs.python.org/2/library/functions.html#eval",
+      "range": {
+        "startLine": 30,
+        "startChar": 27,
+        "endLine": 30,
+        "endChar": 65
+      },
+      "revId": "827f12179559f713df7048db9754a786abaed1b6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

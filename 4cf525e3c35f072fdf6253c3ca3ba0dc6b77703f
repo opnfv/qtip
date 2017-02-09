@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1acb0d3e_0673624e",
+        "filename": "qtip/collector/logfile.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-09T03:21:55Z",
+      "side": 1,
+      "message": "oh, I forgot. Thanks.",
+      "parentUuid": "1acb0d3e_e0a95e25",
+      "range": {
+        "startLine": 23,
+        "startChar": 12,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "4cf525e3c35f072fdf6253c3ca3ba0dc6b77703f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1acb0d3e_00a7ca50",
         "filename": "qtip/collector/logfile.py",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2017-02-08T12:33:07Z",
       "side": 1,
       "message": "It can be shorten in oneline, i.e. self.paths \u003d xxx if yyy else zzz which is easy to understand",
+      "revId": "4cf525e3c35f072fdf6253c3ca3ba0dc6b77703f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1acb0d3e_4692ca58",
+        "filename": "qtip/collector/logfile.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-09T03:21:55Z",
+      "side": 1,
+      "message": "If wirtten to one lien, it is longer than maximum line length.",
+      "parentUuid": "1acb0d3e_00a7ca50",
       "revId": "4cf525e3c35f072fdf6253c3ca3ba0dc6b77703f",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "1acb0d3e_660ca695",
+        "filename": "qtip/collector/logfile.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-09T03:21:55Z",
+      "side": 1,
+      "message": "Use a configuration or use a child class, I think both of them is ok. I choose the child class, because I only need to judge by name once in entry and override the parent class function. When using a configuration, it need to judge this configuration value in most functions of class LogfileCollector.",
+      "parentUuid": "1acb0d3e_c068e2f7",
+      "revId": "4cf525e3c35f072fdf6253c3ca3ba0dc6b77703f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1acb0d3e_606d6e04",
         "filename": "tests/unit/collector/logfile_test.py",
         "patchSetId": 3
@@ -70,6 +130,24 @@
       "writtenOn": "2017-02-08T12:33:07Z",
       "side": 1,
       "message": "A collector is not supposed to be constructed directly from yaml file. It is usually a child element in plan. So this test is not reflecting the actual use case.",
+      "revId": "4cf525e3c35f072fdf6253c3ca3ba0dc6b77703f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1acb0d3e_c68d5a33",
+        "filename": "tests/unit/collector/logfile_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-09T03:21:55Z",
+      "side": 1,
+      "message": "This type collector is not invoke in class Plan currently. So I use a temporary way to test my code.",
+      "parentUuid": "1acb0d3e_606d6e04",
       "revId": "4cf525e3c35f072fdf6253c3ca3ba0dc6b77703f",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

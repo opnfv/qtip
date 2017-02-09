@@ -119,6 +119,24 @@
     },
     {
       "key": {
+        "uuid": "1acb0d3e_11db9aee",
+        "filename": "qtip/collector/logfile.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-09T14:58:38Z",
+      "side": 1,
+      "message": "Hardcoding will make it difficult to extend. The format of log file is tend to change and it varies for different application. We can not afford implement a module for each of them.\n\nAs far as I see, SysLogfileCollector can be implemented with a generic logfile with specific configuration.",
+      "parentUuid": "1acb0d3e_660ca695",
+      "revId": "4cf525e3c35f072fdf6253c3ca3ba0dc6b77703f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1acb0d3e_606d6e04",
         "filename": "tests/unit/collector/logfile_test.py",
         "patchSetId": 3
@@ -148,6 +166,24 @@
       "side": 1,
       "message": "This type collector is not invoke in class Plan currently. So I use a temporary way to test my code.",
       "parentUuid": "1acb0d3e_606d6e04",
+      "revId": "4cf525e3c35f072fdf6253c3ca3ba0dc6b77703f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1acb0d3e_31d816ef",
+        "filename": "tests/unit/collector/logfile_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-09T14:58:38Z",
+      "side": 1,
+      "message": "Fixed in https://gerrit.opnfv.org/gerrit/#/c/28051/",
+      "parentUuid": "1acb0d3e_c68d5a33",
       "revId": "4cf525e3c35f072fdf6253c3ca3ba0dc6b77703f",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2016 ZTE Corp and others.
+# Copyright (c) 2017 ZTE Corp and others.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
@@ -8,20 +8,12 @@
 ##############################################################################
 
 
-from qtip.base.constant import BaseProp
+from qtip.collector.logfile import LogfileCollector
 
 
-class BaseCollector(object):
-    """performance metrics collector"""
-    def __init__(self, config):
-        self._config = config
-
-
-class CollectorProp(BaseProp):
-    TYPE = 'type'
-    LOGS = 'logs'
-    FILENAME = 'filename'
-    GREP = 'grep'
-    REGEX = 'regex'
-    CAPTURE = 'capture'
-    PATHS = 'path'
+# TODO(yujunz) more elegant way to load module dynamically
+def load_collector(type_name):
+    if type_name == LogfileCollector.TYPE:
+        return LogfileCollector
+    else:
+        raise Exception("Invalid collector type: {}".format(type_name))

@@ -46,29 +46,5 @@ class SpecProp(BaseProp):
     WORKLOADS = 'workloads'
 
 
-class PlanProp(BaseProp):
-    # plan
-    INFO = 'info'
-
-    FACILITY = 'facility'
-    ENGINEER = 'engineer'
-
-    CONFIG = 'config'
-
-    DRIVER = 'driver'
-    COLLECTOR = 'collector'
-    REPORTER = 'reporter'
-
-    QPIS = 'QPIs'
-
-
-class CollectorProp(BaseProp):
-    LOGS = 'logs'
-    FILENAME = 'filename'
-    GREP = 'grep'
-    REGEX = 'regex'
-    CAPTURE = 'capture'
-
-
 class ReporterBaseProp(BaseProp):
     TRANSFORMER = 'transformer'

@@ -4,7 +4,7 @@ config:
   facility: local
   engineer: local
   driver: sample
-  collector: logfile
+  collectors: []
   reporter: console
 QPIs:
   - fake-qpi.yaml

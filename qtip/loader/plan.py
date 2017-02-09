@@ -8,8 +8,9 @@
 ##############################################################################
 
 
-from qtip.base.constant import PlanProp
-from qtip.collector.logfile import LogfileCollector
+from qtip.base.constant import BaseProp
+from qtip.collector.base import CollectorProp as CProp
+from qtip.loader.module import load_collector
 from qtip.loader.yaml_file import YamlFileLoader
 from qtip.loader.qpi import QPISpec
 
@@ -24,9 +25,26 @@ class Plan(YamlFileLoader):
     def __init__(self, name, paths=None):
         super(Plan, self).__init__(name, paths)
 
-        self.qpis = [QPISpec(qpi, paths=paths)
-                     for qpi in self.content[PlanProp.QPIS]]
         _config = self.content[PlanProp.CONFIG]
 
-        # TODO(yujunz) create collector by name
-        self.collector = LogfileCollector(_config[PlanProp.COLLECTOR], paths)
+        self.collectors = [load_collector(c[CProp.TYPE])(c, self)
+                           for c in _config[PlanProp.COLLECTORS]]
+
+        self.qpis = [QPISpec(qpi, paths=paths)
+                     for qpi in self.content[PlanProp.QPIS]]
+
+
+class PlanProp(BaseProp):
+    # plan
+    INFO = 'info'
+
+    FACILITY = 'facility'
+    ENGINEER = 'engineer'
+
+    CONFIG = 'config'
+
+    DRIVER = 'driver'
+    COLLECTORS = 'collectors'
+    REPORTER = 'reporter'
+
+    QPIS = 'QPIs'

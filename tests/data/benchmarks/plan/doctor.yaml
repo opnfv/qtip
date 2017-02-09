@@ -5,8 +5,8 @@ info:
   engineer: local
 config:
   driver: sample
-  collector:
-    - name: logfile
+  collectors:
+    - type: logfile
       logs:
         - filename: doctor_consumer.log
           # 2016-12-28 03:16:05,630 consumer.py 26 INFO   doctor consumer notified at 1482894965.63

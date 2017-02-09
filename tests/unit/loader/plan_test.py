@@ -9,8 +9,9 @@
 
 import pytest
 
-from qtip.base.constant import PlanProp
-from qtip.loader.plan import Plan, QPISpec
+from qtip.loader.plan import Plan
+from qtip.loader.plan import PlanProp
+from qtip.loader.plan import QPISpec
 
 
 def test_init(plan):

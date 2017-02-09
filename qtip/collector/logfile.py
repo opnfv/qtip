@@ -9,16 +9,20 @@
 
 from base import BaseCollector
 
-from qtip.base.constant import CollectorProp as CProp
+from qtip.collector.base import CollectorProp as CProp
 from qtip.loader.file import FileLoader
 
 
 class LogfileCollector(BaseCollector):
     """collect performance metrics from log files"""
 
-    def __init__(self, config, paths=None):
+    TYPE = 'logfile'
+
+    def __init__(self, config, parent=None):
         super(LogfileCollector, self).__init__(config)
+        paths = [config[CProp.PATHS]] if CProp.PATHS in config else ['.']
         self.loader = FileLoader('.', paths)
+        self._parent = parent
 
     def collect(self):
         captured = {}

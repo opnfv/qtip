@@ -42,6 +42,23 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_e9695526",
+        "filename": "qtip/collector/parser/grep.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-13T08:41:16Z",
+      "side": 1,
+      "message": "Open file but not close it.",
+      "revId": "fac03afc765c968da7fc65c1525861a7cb2b8f20",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_a98cbd80",
         "filename": "tests/data/benchmarks/plan/doctor.yaml",
         "patchSetId": 8

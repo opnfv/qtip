@@ -83,6 +83,15 @@ Specially, it is recommended to link each patch set with a JIRA issue. Put
 
 in commit message to create an automatic link.
 
+Test Coverage
+-------------
+
+The implementation, including new features and bug fix, **must** be covered by
+unit test. The criteria for test coverage in QTIP project are as following:
+
+* >=80% coverage for each file
+* >=90% overall coverage for whole project
+
 Documentation
 -------------
 

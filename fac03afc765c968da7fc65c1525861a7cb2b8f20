@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_b8c40560",
+        "filename": "qtip/collector/logfile.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-14T23:03:45Z",
+      "side": 1,
+      "message": "Yes, that is an expected exception. We require logfile to be initialized with a valid parent. It does not have to be a plan, but should act like a plan, e.g. with `abspath` and other required properties. A duck type of plan.",
+      "parentUuid": "dabed58f_c9c33189",
+      "revId": "fac03afc765c968da7fc65c1525861a7cb2b8f20",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_69d56542",
         "filename": "qtip/collector/logfile.py",
         "patchSetId": 8
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_78a68dc3",
+        "filename": "qtip/collector/logfile.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-14T23:03:45Z",
+      "side": 1,
+      "message": "No, os.path.join will handle absolute path properly. See https://docs.python.org/2/library/os.path.html#os.path.join",
+      "parentUuid": "dabed58f_69d56542",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 78
+      },
+      "revId": "fac03afc765c968da7fc65c1525861a7cb2b8f20",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_e9695526",
         "filename": "qtip/collector/parser/grep.py",
         "patchSetId": 8
@@ -53,6 +95,24 @@
       "writtenOn": "2017-02-13T08:41:16Z",
       "side": 1,
       "message": "Open file but not close it.",
+      "revId": "fac03afc765c968da7fc65c1525861a7cb2b8f20",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_18b431f1",
+        "filename": "qtip/collector/parser/grep.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-14T23:03:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dabed58f_e9695526",
       "revId": "fac03afc765c968da7fc65c1525861a7cb2b8f20",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

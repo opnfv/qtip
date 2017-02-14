@@ -8,22 +8,22 @@
 ##############################################################################
 
 
-class QtipError(Exception):
+class BaseError(Exception):
     pass
 
 
-class InvalidFormat(QtipError):
+class InvalidFormat(BaseError):
     def __init__(self, filename):
         self.filename = filename
 
 
-class NotFound(QtipError):
+class NotFound(BaseError):
     def __init__(self, module, package='qtip'):
         self.package = package
         self.module = module
 
 
-class ToBeDoneError(QtipError):
+class ToBeDoneError(BaseError):
     """something still to be done"""
     def __init__(self, method, module):
         self.method = method

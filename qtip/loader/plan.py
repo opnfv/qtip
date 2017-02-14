@@ -26,7 +26,6 @@ class Plan(YamlFileLoader):
 
         self.qpis = [QPISpec(qpi, paths=paths)
                      for qpi in self.content[PlanProp.QPIS]]
-        self.info = self.content[PlanProp.INFO]
         _config = self.content[PlanProp.CONFIG]
 
         # TODO(yujunz) create collector by name

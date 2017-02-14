@@ -12,9 +12,10 @@ class BaseError(Exception):
     pass
 
 
-class InvalidFormat(BaseError):
-    def __init__(self, filename):
+class InvalidContent(BaseError):
+    def __init__(self, filename, excinfo=None):
         self.filename = filename
+        self.excinfo = excinfo
 
 
 class NotFound(BaseError):

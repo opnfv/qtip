@@ -16,6 +16,24 @@
       "revId": "0f3ad6f2db26fb91190e47c89f77fb59b7601b84",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_3e5c7d25",
+        "filename": "tests/data/benchmarks/plan/doctor.yaml",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-15T12:31:25Z",
+      "side": 0,
+      "message": "\u003e I think plan defines which pods the tests will be executed, no?\n \u003e and I think the file is kind of metric?\n \u003e Sorry I am totally confused with the current framework, it feels\n \u003e like very different from what we discussed before\n\nYes, you are right. If we need pod information, it will be included in plan.\n\nThe doctor plan is still work in progress. The log files are copied manually from the pods to local directory. Next step would be retrieve the log files automatically. We shall need to include pod information in this plan then.\n\nOne metric for doctor is notification time. The spec is not created yet. A fake-api.yaml is used here as a placeholder. It will be replaced with doctor-notification.yaml and other metrics later on.",
+      "parentUuid": "dabed58f_c3b54a32",
+      "revId": "0f3ad6f2db26fb91190e47c89f77fb59b7601b84",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_c3b54a32",
+        "filename": "tests/data/benchmarks/plan/doctor.yaml",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-02-15T07:37:43Z",
+      "side": 0,
+      "message": "I think plan defines which pods the tests will be executed, no?\nand I think the file is kind of metric?\nSorry I am totally confused with the current framework, it feels like very different from what we discussed before",
+      "revId": "0f3ad6f2db26fb91190e47c89f77fb59b7601b84",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

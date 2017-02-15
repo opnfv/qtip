@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_4325daa9",
+        "filename": "tests/unit/loader/yaml_file_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-02-15T06:56:11Z",
+      "side": 1,
+      "message": "will \"name: \u0027\u0027\" or \"name: None\" pass?",
+      "revId": "6add7fcac82f9b807e71fe84d16c673682d82327",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -16,6 +16,24 @@
       "revId": "cdb8e1be12b724e9f68c7e46c9a653ec37c502cb",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_ebdce076",
+        "filename": "qtip/collector/parser/grep.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-16T12:10:20Z",
+      "side": 1,
+      "message": "No, it doesn\u0027t. Since you need it, I think you should be the right person to extend it :-)",
+      "parentUuid": "dabed58f_7574539c",
+      "revId": "cdb8e1be12b724e9f68c7e46c9a653ec37c502cb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

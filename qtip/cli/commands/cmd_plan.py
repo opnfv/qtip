@@ -24,11 +24,8 @@ def cli(ctx):
 
 
 @cli.command('init', help='Initialize Environment')
-@click.option('--inst_type', prompt='Installer Type')
-@click.option('--inst_ip', prompt='Installer IP')
-@click.option('--ext_net', prompt='Openstack External Network')
 @pass_context
-def init(ctx, inst_type, inst_ip, ext_net):
+def init(ctx):
     pass
 
 

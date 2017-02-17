@@ -30,11 +30,10 @@ def test_init(qpi_spec):
 
 
 def test_list_all(benchmarks_root):
-    qpi_spec_list = QPISpec.list_all(paths=[benchmarks_root])
-    assert len(list(qpi_spec_list)) is 2
+    qpi_spec_list = list(QPISpec.list_all(paths=[benchmarks_root]))
+    assert len(qpi_spec_list) is 2
     for item in qpi_spec_list:
         assert SpecProp.NAME in item
-        assert SpecProp.CONTENT in item
         assert SpecProp.ABSPATH in item
         assert SpecProp.ABSPATH is not None
 

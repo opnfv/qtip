@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_3d9319a5",
+        "filename": "setup.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-18T12:31:58Z",
+      "side": 1,
+      "message": "I would prefer to exclude legacy code in setup.cfg. That was the reason we moved it out of qtip folder.\n\nYou may put a placeholder to mark it as to be done. Since it is not used much in current modes, it would be OK.",
+      "revId": "c345ed0857c318b55d314988f91e6f53ed2b4eca",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

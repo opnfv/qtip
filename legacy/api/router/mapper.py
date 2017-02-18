@@ -1,4 +1,4 @@
-from legacy.api.handler import Job, JobList
+from legacy.api.handler.job_handler import Job, JobList
 
 
 mappers = [

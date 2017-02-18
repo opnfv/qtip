@@ -10,7 +10,7 @@
 from os import path
 import yaml
 
-from qtip.base.error import InvalidContent
+from qtip.base.error import InvalidContentError
 from qtip.base.constant import BaseProp
 from qtip.loader.file import FileLoader
 
@@ -25,6 +25,6 @@ class YamlFileLoader(FileLoader):
         with open(abspath, 'r') as stream:
             content = yaml.safe_load(stream)
             if not isinstance(content, dict):
-                raise InvalidContent(abspath)
+                raise InvalidContentError(abspath)
             self.content = content
             self.name = content.get(BaseProp.NAME, path.splitext(name)[0])

@@ -34,6 +34,24 @@
       "revId": "45abd32be31e5a40c7121a896d6cc39c4a799979",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_9a180b86",
+        "filename": "qtip/base/error.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 6435
+      },
+      "writtenOn": "2017-02-18T08:57:16Z",
+      "side": 1,
+      "message": "I mean one can simply raise the exception `ToBeDone` when needed.",
+      "parentUuid": "dabed58f_fa54a722",
+      "revId": "45abd32be31e5a40c7121a896d6cc39c4a799979",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

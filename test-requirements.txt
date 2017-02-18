@@ -9,3 +9,7 @@ coverage
 pykwalify
 mock
 pip_check_reqs
+coverage
+pytest-cov
+pytest-faker
+tox

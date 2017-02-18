@@ -23,7 +23,7 @@ class NotFound(QtipError):
         self.module = module
 
 
-class ToBeDoneError(QtipError):
+class ToBeDone(QtipError):
     """something still to be done"""
     def __init__(self, method, module):
         self.method = method
@@ -32,5 +32,5 @@ class ToBeDoneError(QtipError):
 
 def make_tbd(method, module='qtip'):
     def tbd():
-        raise ToBeDoneError(method, module)
+        raise ToBeDone(method, module)
     return tbd

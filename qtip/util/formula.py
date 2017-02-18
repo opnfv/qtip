@@ -9,7 +9,7 @@
 
 import numpy
 
-from qtip.base.error import make_tbd
+from qtip.util.dev import create_to_be_done
 from qtip.base.constant import FormulaName
 
 
@@ -17,10 +17,10 @@ MAPPING = {
     FormulaName.ARITHMETIC_MEAN: numpy.mean,
     FormulaName.WEIGHTED_ARITHMETIC_MEAN: numpy.average,
     # TODO(yujunz) find or implement the method
-    FormulaName.GEOMETRIC_MEAN: make_tbd(FormulaName.GEOMETRIC_MEAN, __name__),
+    FormulaName.GEOMETRIC_MEAN: create_to_be_done(FormulaName.GEOMETRIC_MEAN, __name__),
     # TODO(yujunz) find or implement the method
     FormulaName.WEIGHTED_GEOMETRIC_MEAN:
-        make_tbd(FormulaName.GEOMETRIC_MEAN, __name__)}
+        create_to_be_done(FormulaName.GEOMETRIC_MEAN, __name__)}
 
 
 class Formula:

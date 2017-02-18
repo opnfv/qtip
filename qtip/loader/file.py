@@ -12,7 +12,7 @@ from os import listdir
 from os import path
 
 from qtip.base.constant import BaseProp
-from qtip.base.error import NotFound
+from qtip.base.error import NotFoundError
 from qtip.loader.base import BaseLoader
 
 
@@ -35,7 +35,7 @@ class FileLoader(BaseLoader):
             abspath = path.join(p, self.RELATIVE_PATH, name)
             if path.exists(abspath):
                 return abspath
-        raise NotFound(name, paths)
+        raise NotFoundError(name, paths)
 
     @classmethod
     def list_all(cls, paths=None):

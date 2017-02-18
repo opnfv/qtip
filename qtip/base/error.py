@@ -12,16 +12,16 @@ class BaseError(Exception):
     pass
 
 
-class InvalidContent(BaseError):
+class InvalidContentError(BaseError):
     def __init__(self, filename, excinfo=None):
         self.filename = filename
         self.excinfo = excinfo
 
 
-class NotFound(BaseError):
-    def __init__(self, module, package='qtip'):
-        self.package = package
-        self.module = module
+class NotFoundError(BaseError):
+    def __init__(self, needle, heystack='qtip'):
+        self.needle = needle
+        self.heystack = heystack
 
 
 class ToBeDoneError(BaseError):
@@ -29,9 +29,3 @@ class ToBeDoneError(BaseError):
     def __init__(self, method, module):
         self.method = method
         self.module = module
-
-
-def make_tbd(method, module='qtip'):
-    def tbd():
-        raise ToBeDoneError(method, module)
-    return tbd

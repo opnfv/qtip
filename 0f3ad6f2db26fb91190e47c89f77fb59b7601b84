@@ -1,0 +1,8 @@
+Verified+1: jenkins-ci <jenkins-opnfv-ci@opnfv.org>
+Code-Review+1: Serena Feng <feng.xiaowei@zte.com.cn>
+Code-Review+2: Yujun Zhang <zhang.yujunz@zte.com.cn>
+Submitted-by: Yujun Zhang <zhang.yujunz@zte.com.cn>
+Submitted-at: Sat, 18 Feb 2017 16:13:15 +0000
+Reviewed-on: https://gerrit.opnfv.org/gerrit/28325
+Project: qtip
+Branch: refs/heads/master

@@ -1,8 +1,6 @@
 click
 pyyaml
 paramiko
-Flask
-Flask-RESTful
-flask-restful-swagger
+connexion
 numpy
 pbr

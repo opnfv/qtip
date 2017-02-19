@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_1d6df532",
+        "filename": "setup.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-19T02:56:08Z",
+      "side": 1,
+      "message": "Please create comment for to do in the following format:\n\n# TODO(akhil) add qtip-api\n\nSo that we know who leave this ticket and PyCharm can create index of TODO list automatically.\n\nAnother recommended way to track to do is create JIRA ticket",
+      "revId": "f7afd0891dee9547333a509f81f61128fac1a048",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

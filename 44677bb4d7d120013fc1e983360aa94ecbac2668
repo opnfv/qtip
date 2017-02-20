@@ -16,6 +16,24 @@
       "revId": "44677bb4d7d120013fc1e983360aa94ecbac2668",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_403702e4",
+        "filename": ".coveragerc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-20T02:40:05Z",
+      "side": 1,
+      "message": "Yes, we need to ensure all test code are executed as well.\n\nIn https://gerrit.opnfv.org/gerrit/#/c/28955/ , I was not aware that the loop is never touched before PyCharm warns me about the coverage of `tests` folder.",
+      "parentUuid": "dabed58f_1d25f5c1",
+      "revId": "44677bb4d7d120013fc1e983360aa94ecbac2668",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_4065c2df",
+        "filename": "qtip/base/error.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-02-20T03:15:19Z",
+      "side": 1,
+      "message": "how about naming it NotImplemented?",
+      "revId": "3f46ddb4905cd755f733f889bda9af9a50b1bb96",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

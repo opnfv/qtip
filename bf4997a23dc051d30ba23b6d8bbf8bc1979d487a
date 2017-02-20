@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "dabed58f_2b866fba",
+        "filename": "qtip/collector/parser/grep.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-20T15:16:52Z",
+      "side": 1,
+      "message": "All other strings use single quote. I think we should keep it consistent.",
+      "range": {
+        "startLine": 32,
+        "startChar": 24,
+        "endLine": 32,
+        "endChar": 27
+      },
+      "revId": "bf4997a23dc051d30ba23b6d8bbf8bc1979d487a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_8bbc3b6e",
+        "filename": "qtip/collector/parser/grep.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-20T15:16:52Z",
+      "side": 1,
+      "message": "Why it is named `outfile`? Isn\u0027t it an input for grep? I would prefer to keep `f` which is neutral.",
+      "range": {
+        "startLine": 32,
+        "startChar": 32,
+        "endLine": 32,
+        "endChar": 39
+      },
+      "revId": "bf4997a23dc051d30ba23b6d8bbf8bc1979d487a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_eb47f749",
         "filename": "qtip/collector/parser/grep.py",
         "patchSetId": 1

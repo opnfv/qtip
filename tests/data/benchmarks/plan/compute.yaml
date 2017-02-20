@@ -1,0 +1,45 @@
+name: compute QPI
+description: compute QPI profile
+info:
+  facility: local
+  engineer: local
+config:
+  driver: ansible
+  collectors:
+    - type: logfile
+      paths:
+        - '../../external/sysinfo'
+      logs:
+        - filename: top.log
+          parsers:
+            - type: grep
+              regex: 'Cpu\(s\):.+?(?P<cpu_idle>\d+\.\d)\sid'
+        - filename: inxi.log
+          parsers:
+            - type: grep
+              regex: '.+Host:\s+(?P<hostname>.+)\sKernel'
+            - type: grep
+              regex: '.+Memory:\s+(?P<memory>.+MB)\s'
+            - type: grep
+              regex: '.*CPU\(s\):\s+(?P<cpu>.+)'
+            - type: grep
+              regex: '.+Distro:\s+(?P<os>.+)'
+            - type: grep
+              regex: '.+Kernel:\s+(?P<kernel>.+)\sConsole'
+            - type: grep
+              regex: '.+HDD Total Size:\s+(?P<disk>.+)\s'
+            - type: grep
+              regex: '.+product:\s+(?P<product>.+)\sversion'
+#            - type: grep
+#              regex: '.+Card-\w+:\s(?P<card>.+)\sdriver:\s.+\n\s*IF:\s(?P<interface_name>\w+)\s(?P<info>.+:\s.+)+\n'
+#        - filename: bwm-dump.log
+#          parsers:
+#            - type: grep
+#              regex: '\s+(?P<interface_name>\w+):\s+(?P<rx>\d+\.\d+\sKB\/s)\s+(?P<tx>\d+\.\d+\sKB\/s)\s+(?P<total>\d+\.\d+\sKB\/s)'
+
+  reporter:
+    name: console
+    # transform collected data into timeline
+    transformer: timeline
+QPIs:
+  - compute.yaml

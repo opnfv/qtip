@@ -34,6 +34,24 @@
       "revId": "44677bb4d7d120013fc1e983360aa94ecbac2668",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_00482a5a",
+        "filename": ".coveragerc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-02-20T03:08:07Z",
+      "side": 1,
+      "message": "I don\u0027t think I will vote for this, what if we want exclude some certain testcases at some particular period?",
+      "parentUuid": "dabed58f_403702e4",
+      "revId": "44677bb4d7d120013fc1e983360aa94ecbac2668",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

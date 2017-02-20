@@ -29,5 +29,6 @@ class GrepParser(BaseActor):
 
 
 def grep_in_file(filename, regex):
-    with open(filename, 'r') as f:
-        return filter(lambda x: x is not None, [re.search(regex, line) for line in f])
+    with open(filename, "r") as f:
+        return filter(lambda x: x is not None,
+                      re.finditer(regex, f.read(), re.MULTILINE))

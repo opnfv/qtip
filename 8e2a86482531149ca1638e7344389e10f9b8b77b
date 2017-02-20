@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_2bc74f47",
+        "filename": "tests/data/benchmarks/plan/compute.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-20T12:04:48Z",
+      "side": 1,
+      "message": "I know the syntax. Just asking why match ANY character here?\n\nI suppose the char before Host is a whitespace delimiter. Maybe we should be more specific on it, e.g. \\s+ Sometimes you are using .*, would it cause issues for partial match, e.g. .*CPU will match vCPU which may not be expected.",
+      "parentUuid": "dabed58f_0bafebe4",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 24
+      },
+      "revId": "8e2a86482531149ca1638e7344389e10f9b8b77b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_4b6e43cb",
         "filename": "tests/data/benchmarks/plan/compute.yaml",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "I explain in commit message.",
       "parentUuid": "dabed58f_4b6e43cb",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 132
+      },
+      "revId": "8e2a86482531149ca1638e7344389e10f9b8b77b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_cbc31337",
+        "filename": "tests/data/benchmarks/plan/compute.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-20T12:04:48Z",
+      "side": 1,
+      "message": "Commit message won\u0027t be visible when a new contributor pull the latest code from repo.",
+      "parentUuid": "dabed58f_aba01ff5",
       "range": {
         "startLine": 41,
         "startChar": 0,

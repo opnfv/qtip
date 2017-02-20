@@ -1,0 +1,46 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+name: compute QPI
+description: compute QPI profile
+info:
+  facility: local
+  engineer: local
+config:
+  driver: ansible
+  collectors:
+    - type: logfile
+      paths:
+        - '../../external/sysinfo'
+      logs:
+        - filename: top.log
+          parsers:
+            - type: grep
+              regex: 'Cpu\(s\):.+?(?P<cpu_idle>\d+\.\d)\sid'
+        - filename: inxi.log
+          parsers:
+            - type: grep
+              regex: '.+Host:\s+(?P<hostname>.+)\sKernel'
+            - type: grep
+              regex: '.+Memory:\s+(?P<memory>.+MB)\s'
+            - type: grep
+              regex: '.*CPU\(s\):\s+(?P<cpu>.+)'
+            - type: grep
+              regex: '.+Distro:\s+(?P<os>.+)'
+            - type: grep
+              regex: '.+Kernel:\s+(?P<kernel>.+)\sConsole'
+            - type: grep
+              regex: '.+HDD Total Size:\s+(?P<disk>.+)\s'
+            - type: grep
+              regex: '.+product:\s+(?P<product>.+)\sversion'
+  reporter:
+    name: console
+    # transform collected data into timeline
+    transformer: timeline
+QPIs:
+  - compute.yaml

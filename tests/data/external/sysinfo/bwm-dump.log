@@ -1,0 +1,24 @@
+bwm-ng v0.6 (delay 0.500s); input: /proc/net/dev
+          iface                    Rx                   Tx               Total
+==============================================================================
+     ens2f0.211:           0.09 KB/s            0.09 KB/s            0.09 KB/s
+         ens2f1:           2.11 KB/s            2.11 KB/s            2.11 KB/s
+             lo:           0.00 KB/s            0.00 KB/s            0.00 KB/s
+     ens4f0.210:           0.00 KB/s            0.00 KB/s            0.00 KB/s
+     br-storage:           1.86 KB/s            1.86 KB/s            1.86 KB/s
+   p_e52381cd-0:           0.00 KB/s            0.00 KB/s            0.00 KB/s
+         ens4f0:           0.00 KB/s            0.00 KB/s            0.00 KB/s
+     ens2f1.212:           1.86 KB/s            1.86 KB/s            1.86 KB/s
+         br-prv:           0.00 KB/s            0.00 KB/s            0.00 KB/s
+        br-mgmt:           0.09 KB/s            0.09 KB/s            0.09 KB/s
+         ens4f1:           0.00 KB/s            0.00 KB/s            0.00 KB/s
+    br-fw-admin:           0.00 KB/s            0.00 KB/s            0.00 KB/s
+         ens2f0:         166.42 KB/s          166.42 KB/s          166.42 KB/s
+   p_ff798dba-0:           0.00 KB/s            0.00 KB/s            0.00 KB/s
+         ens1f1:           0.00 KB/s            0.00 KB/s            0.00 KB/s
+          br-ex:           0.00 KB/s            0.00 KB/s            0.00 KB/s
+    br-floating:           0.00 KB/s            0.00 KB/s            0.00 KB/s
+         br-aux:           0.00 KB/s            0.00 KB/s            0.00 KB/s
+     ens4f1.213:           0.00 KB/s            0.00 KB/s            0.00 KB/s
+------------------------------------------------------------------------------
+          total:         172.44 KB/s          172.44 KB/s          172.44 KB/s

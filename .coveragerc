@@ -4,6 +4,7 @@
 branch = True
 source =
     qtip
+    tests
 
 [report]
 # Regexes for lines to exclude from consideration

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_1d25f5c1",
+        "filename": ".coveragerc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-02-20T01:01:56Z",
+      "side": 1,
+      "message": "will tests be counted for coverage?",
+      "revId": "44677bb4d7d120013fc1e983360aa94ecbac2668",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -21,7 +21,9 @@ def logfile(data_root):
 @pytest.mark.parametrize("regex,expected", [
     ('not exist', []),
     ('Lorem (\S+)', [{'groups': ('ipsum',), 'groupdict': {}}]),
-    ('nisi ut (?P<name>\S+)', [{'groups': ('aliquip',), 'groupdict': {'name': 'aliquip'}}])
+    ('nisi ut (?P<name>\S+)', [{'groups': ('aliquip',), 'groupdict': {'name': 'aliquip'}}]),
+    ('Lorem\s(\w+)\s.+\nconsectetur\s(\w+)\s.+\n',
+     [{'groups': ('ipsum', 'adipiscing',), 'groupdict': {}}])
 ])
 def test_grep_in_file(logfile, regex, expected):
     matches = grep_in_file(logfile, regex)

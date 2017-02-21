@@ -1,0 +1,9 @@
+Verified+1: jenkins-ci <jenkins-opnfv-ci@opnfv.org>
+Code-Review+1: Serena Feng <feng.xiaowei@zte.com.cn>
+Code-Review+1: Akhil Batra <akhil.batra@research.iiit.ac.in>
+Code-Review+2: zhihui wu <wu.zhihui1@zte.com.cn>
+Submitted-by: Yujun Zhang <zhang.yujunz@zte.com.cn>
+Submitted-at: Tue, 21 Feb 2017 06:33:43 +0000
+Reviewed-on: https://gerrit.opnfv.org/gerrit/28955
+Project: qtip
+Branch: refs/heads/master

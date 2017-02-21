@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:openzero-zte/License.git
+	branch = master
+	commit = 9f8b29cd0f0837dee92f5add3475bfec9641ef12
+	parent = 3e443dff14a2be02b914e66f27b549d0ed4cc600
+	cmdver = 0.3.0

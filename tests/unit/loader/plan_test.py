@@ -30,7 +30,7 @@ def test_init(plan):
 
 def test_list_all(benchmarks_root):
     plan_list = list(Plan.list_all(paths=[benchmarks_root]))
-    assert len(plan_list) is 1
+    assert len(plan_list) is 2
     for desc in plan_list:
         assert PlanProp.NAME in desc
         assert PlanProp.ABSPATH in desc

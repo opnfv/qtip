@@ -22,6 +22,30 @@
       "revId": "8e488550edafc72de18315a8d472177521544439",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_b1097297",
+        "filename": "tests/data/benchmarks/plan/compute.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-21T08:00:15Z",
+      "side": 1,
+      "message": "This regex do solve the issues of partial match.\nAll roads lead to Rome. If you insist on \u0027\\b\u0027, you can submit a new patch.:)",
+      "parentUuid": "dabed58f_11e71e14",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 24
+      },
+      "revId": "8e488550edafc72de18315a8d472177521544439",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

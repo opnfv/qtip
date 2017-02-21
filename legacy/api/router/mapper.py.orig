@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+from legacy.api.handler.job_handler import Job, JobList
+=======
 ##############################################################################
 # Copyright (c) 2017 ZTE Corporation and others.
 #
@@ -6,4 +9,11 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-name: name in content
+from legacy.api.handler import Job, JobList
+>>>>>>> 615b529... Add licence header according to OPNFV contribution guidelines[1] by script[2]
+
+
+mappers = [
+    (JobList, '/api/v1.0/jobs'),
+    (Job, '/api/v1.0/jobs/<string:id>'),
+]

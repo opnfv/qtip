@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_6649fe8a",
+        "filename": "tests/data/benchmarks/plan/compute.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-21T01:57:36Z",
+      "side": 1,
+      "message": "What I want to emphasis is to express the **intention** of the code clearly. I think you expect a **boundary** here instead of **any** character right?\n\n/me begging to take my advice",
+      "parentUuid": "dabed58f_46e87a7c",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 24
+      },
+      "revId": "8e2a86482531149ca1638e7344389e10f9b8b77b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_4b6e43cb",
         "filename": "tests/data/benchmarks/plan/compute.yaml",
         "patchSetId": 3

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_11e71e14",
+        "filename": "tests/data/benchmarks/plan/compute.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-21T06:20:51Z",
+      "side": 1,
+      "message": "Is this necessary?\n\nMy suggestion is to use `\\bHost:....` since \\b means boundary of word. See https://docs.python.org/2/library/re.html",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 24
+      },
+      "revId": "8e488550edafc72de18315a8d472177521544439",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

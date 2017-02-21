@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_46e87a7c",
+        "filename": "tests/data/benchmarks/plan/compute.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-21T01:04:35Z",
+      "side": 1,
+      "message": "Since there is not a \"vCPU\" or a \"bHost\" in inxi.log, I think .+ is ok for the pattern. And I tested these regexs and the result is expected.",
+      "parentUuid": "dabed58f_2bc74f47",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 24
+      },
+      "revId": "8e2a86482531149ca1638e7344389e10f9b8b77b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_4b6e43cb",
         "filename": "tests/data/benchmarks/plan/compute.yaml",
         "patchSetId": 3
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Commit message won\u0027t be visible when a new contributor pull the latest code from repo.",
       "parentUuid": "dabed58f_aba01ff5",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 132
+      },
+      "revId": "8e2a86482531149ca1638e7344389e10f9b8b77b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_66ed7e8b",
+        "filename": "tests/data/benchmarks/plan/compute.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-21T01:04:35Z",
+      "side": 1,
+      "message": "Ok, I will remove these sentences.",
+      "parentUuid": "dabed58f_cbc31337",
       "range": {
         "startLine": 41,
         "startChar": 0,

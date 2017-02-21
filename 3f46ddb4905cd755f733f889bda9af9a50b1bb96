@@ -16,6 +16,24 @@
       "revId": "3f46ddb4905cd755f733f889bda9af9a50b1bb96",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_91a1ceab",
+        "filename": "qtip/base/error.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-21T06:45:23Z",
+      "side": 1,
+      "message": "I have considered the same naming at the beginning. \n\nBut it is already used as a builtin error which has a dedicated use case for binary special methods. See https://docs.python.org/3/library/constants.html#NotImplemented\n\nSee also a totally different exception NotImplementedError \n\nhttps://docs.python.org/2/library/exceptions.html#exceptions.NotImplementedError",
+      "parentUuid": "dabed58f_4065c2df",
+      "revId": "3f46ddb4905cd755f733f889bda9af9a50b1bb96",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

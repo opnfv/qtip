@@ -35,6 +35,13 @@ def list(ctx):
     pass
 
 
+@cli.command('show', help='View details of a Plan')
+@click.argument('show')
+@pass_context
+def show(ctx, name):
+    pass
+
+
 @cli.command('run', help='Execute a Plan')
 @click.argument('name')
 @pass_context

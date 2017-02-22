@@ -10,7 +10,7 @@
 import os
 import pytest
 
-from qtip.base.error import InvalidContent
+from qtip.base.error import InvalidContentError
 from qtip.loader.yaml_file import YamlFileLoader
 
 
@@ -28,6 +28,6 @@ def test_init(yaml_root, filename, expected):
 
 
 def test_invalid_content(yaml_root):
-    with pytest.raises(InvalidContent) as excinfo:
+    with pytest.raises(InvalidContentError) as excinfo:
         YamlFileLoader('invalid.yaml', [yaml_root])
     assert 'invalid.yaml' in excinfo.value.filename

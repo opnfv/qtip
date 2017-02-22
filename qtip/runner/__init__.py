@@ -8,7 +8,7 @@
 ##############################################################################
 
 from qtip.base.constant import PkgName, BaseProp
-from qtip.base.error import NotFound
+from qtip.base.error import NotFoundError
 from qtip.collector.stdout import StdoutCollector
 from qtip.driver.random import RandomDriver
 from qtip.reporter.console import ConsoleReporter
@@ -28,16 +28,16 @@ class Runner(object):
         if driver_name == 'random':
             self.driver = RandomDriver()
         else:
-            raise NotFound(driver_name, heystack=PkgName.DRIVER)
+            raise NotFoundError(driver_name, heystack=PkgName.DRIVER)
 
         if collector_name == 'stdout':
             self.collector = StdoutCollector()
         else:
-            raise NotFound(collector_name,
-                           heystack=PkgName.COLLECTOR)
+            raise NotFoundError(collector_name,
+                                heystack=PkgName.COLLECTOR)
 
         if reporter_name == 'console':
             self.reporter = ConsoleReporter()
         else:
-            raise NotFound(reporter_name,
-                           heystack=PkgName.REPORTER)
+            raise NotFoundError(reporter_name,
+                                heystack=PkgName.REPORTER)

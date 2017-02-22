@@ -8,7 +8,8 @@
 ##############################################################################
 
 
-class BaseReporter(object):
-    """benchmark result reporter"""
-    def __init__(self, collector=None):
-        self.collector = collector
+from qtip.reporter.console import BaseReporter
+
+
+class ConsoleReporter(BaseReporter):
+    """report result to console"""

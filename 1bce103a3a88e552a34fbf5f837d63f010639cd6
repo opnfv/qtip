@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_76120b64",
+        "filename": "tests/unit/util/logger_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-22T12:35:12Z",
+      "side": 1,
+      "message": "Are these string constants? If yes, we may prefer UPPERCASE",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "1bce103a3a88e552a34fbf5f837d63f010639cd6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_d61df774",
+        "filename": "tests/unit/util/logger_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-22T12:35:12Z",
+      "side": 1,
+      "message": "Is this env variable ever used?\n\nIn my understanding, it expires when the fixture is returned to the caller.",
+      "range": {
+        "startLine": 12,
+        "startChar": 24,
+        "endLine": 12,
+        "endChar": 28
+      },
+      "revId": "1bce103a3a88e552a34fbf5f837d63f010639cd6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

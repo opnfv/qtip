@@ -28,6 +28,24 @@ $ pip install tox
 $ tox
 ```
 
+Undering macOS system, it will happen to a **fatal error** when installing package `cryptograph`:
+
+```
+'openssl/opensslv.h' file not found
+#incude <openssl/opensslv.h>
+    ^
+1 error generated.
+```
+
+It is for macOS uses TLS instead of OpenSSL and no header files supported. The solutions is:
+``` code=bash
+# brew install openssl
+
+# #add these lines in to your shell profiles, such as .bash_profile, .zshrc
+# export CPPFLAGS='-I $openssl_install_path/include'
+# export LDFLAGS='-L $openssl_install_path/lib'
+```
+
 ## Architecture
 
 **TODO**: move to design spec

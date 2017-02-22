@@ -13,7 +13,7 @@ from click.testing import CliRunner
 from qtip.cli.entry import cli
 
 
-@pytest.fixture()
+@pytest.fixture(scope="module")
 def runner():
     return CliRunner()
 
@@ -28,4 +28,12 @@ def test_run(runner):
     assert result.output == ''
 
     result = runner.invoke(cli, ['plan', 'run'])
+    assert 'Missing argument "name".' in result.output
+
+
+def test_show(runner):
+    result = runner.invoke(cli, ['plan', 'show', 'fake-plan'])
+    assert result.output == ''
+
+    result = runner.invoke(cli, ['plan', 'show'])
     assert 'Missing argument "name".' in result.output

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_16170fef",
+        "filename": "tox.ini",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-22T07:27:40Z",
+      "side": 1,
+      "message": "Can we put them in .coveragerc? So that we can run `pytest`.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 22
+      },
+      "revId": "b129f4d9076831741fd8c98c01120f93412c09b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

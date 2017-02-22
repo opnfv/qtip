@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_23ef73b2",
+        "filename": "qtip/api/__main__.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-22T00:52:14Z",
+      "side": 1,
+      "message": "Is this folder to be created? Maybe you should create an empty dir as placeholder to keep consistency.",
+      "range": {
+        "startLine": 5,
+        "startChar": 53,
+        "endLine": 5,
+        "endChar": 63
+      },
+      "revId": "516deb61262b0ffa444295a21d3771e2e9217120",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

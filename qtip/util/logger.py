@@ -27,11 +27,11 @@ import os
 
 
 class Logger(object):
-    file_path = '/var/log'
     formatter = logging.Formatter('%(asctime)s - %(name)s - '
                                   '%(levelname)s - %(message)s')
 
-    def __init__(self, logger_name):
+    def __init__(self, logger_name, file_path=None):
+        self.file_path = '/var/log' if not file_path else file_path
 
         IF_DEBUG = os.getenv('IF_DEBUG')
 
@@ -59,10 +59,9 @@ class Logger(object):
 
 
 class QtipLogger(Logger):
-    file_path = '{}/qtip/logs'.format(os.environ['HOME'])
-
     def __init__(self, logger_name):
+        self.file_path = '{}/qtip/logs'.format(os.environ['HOME'])
         if not os.path.exists(self.file_path):
             os.makedirs(self.file_path)
 
-        super(QtipLogger, self).__init__(logger_name)
+        super(QtipLogger, self).__init__(logger_name, self.file_path)

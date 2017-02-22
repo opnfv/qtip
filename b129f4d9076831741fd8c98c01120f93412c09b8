@@ -22,6 +22,30 @@
       "revId": "b129f4d9076831741fd8c98c01120f93412c09b8",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_b9d07454",
+        "filename": "tox.ini",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-02-22T14:56:29Z",
+      "side": 1,
+      "message": "no\n\n.coveragerc does not support to choose what output which just to configure the format of the output and run.\n\nwhitoutt any parameters with --cov-report, it will output in the terminal, when xml is added, it won\u0027t output to the terminal anymore without specified clearly.",
+      "parentUuid": "dabed58f_16170fef",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 22
+      },
+      "revId": "b129f4d9076831741fd8c98c01120f93412c09b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

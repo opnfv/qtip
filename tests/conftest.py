@@ -13,6 +13,7 @@ import pytest
 
 from qtip.loader.plan import Plan
 from qtip.loader.plan import PlanProp
+from qtip.util import logger
 
 
 @pytest.fixture(scope='session')
@@ -43,3 +44,5 @@ def collectors_config(plan_config):
 @pytest.fixture(scope='session')
 def logfile_config(collectors_config):
     return collectors_config[0]
+
+

@@ -30,7 +30,7 @@ class FileLoader(BaseLoader):
 
     def find(self, name, paths=None):
         """find a specification in searching paths"""
-        paths = [self.abspath] if paths is None else paths
+        paths = self._paths if paths is None else paths
         for p in paths:
             abspath = path.join(p, self.RELATIVE_PATH, name)
             if path.exists(abspath):

@@ -28,11 +28,12 @@ class FileLoader(BaseLoader):
         self._filename = name
         self.abspath = self.find(name, paths=paths)
 
-    def find(self, name, paths=None):
+    @classmethod
+    def find(cls, name, paths=None):
         """find a specification in searching paths"""
-        paths = [self.abspath] if paths is None else paths
+        paths = cls._paths if paths is None else paths
         for p in paths:
-            abspath = path.join(p, self.RELATIVE_PATH, name)
+            abspath = path.join(p, cls.RELATIVE_PATH, name)
             if path.exists(abspath):
                 return abspath
         raise NotFoundError(name, paths)

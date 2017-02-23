@@ -93,6 +93,30 @@
       "revId": "1bce103a3a88e552a34fbf5f837d63f010639cd6",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_b44ddb74",
+        "filename": "tests/unit/util/logger_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-23T01:25:28Z",
+      "side": 1,
+      "message": "But I think it may not be effective outside this method, since you apply it with monkeypatch.",
+      "parentUuid": "dabed58f_992570ad",
+      "range": {
+        "startLine": 12,
+        "startChar": 24,
+        "endLine": 12,
+        "endChar": 28
+      },
+      "revId": "1bce103a3a88e552a34fbf5f837d63f010639cd6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

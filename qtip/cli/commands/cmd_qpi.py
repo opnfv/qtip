@@ -28,6 +28,13 @@ def cmd_list(ctx):
     pass
 
 
+@cli.command('show', help='View details of a QPI')
+@click.argument('name')
+@pass_context
+def show(ctx, name):
+    pass
+
+
 @cli.command('run', help='Run performance tests for the specified QPI')
 @click.argument('name')
 @pass_context

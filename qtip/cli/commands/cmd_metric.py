@@ -27,6 +27,13 @@ def cmd_list(ctx):
     pass
 
 
+@cli.command('show', help='View details of a Metric')
+@click.argument('name')
+@pass_context
+def show(ctx, name):
+    pass
+
+
 @cli.command('run', help='Run tests to run Performance Metrics')
 @click.argument('name')
 @pass_context

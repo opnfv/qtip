@@ -14,6 +14,8 @@ import pytest
 from qtip.loader.plan import Plan
 from qtip.loader.plan import PlanProp
 
+BENCHMARKS_ROOT = path.join(path.dirname(__file__), 'data', 'benchmarks')
+
 
 @pytest.fixture(scope='session')
 def data_root():
@@ -25,9 +27,10 @@ def benchmarks_root(data_root):
     return path.join(data_root, 'benchmarks')
 
 
-@pytest.fixture(scope='session')
-def plan(benchmarks_root):
-    return Plan('doctor.yaml', [benchmarks_root])
+@pytest.fixture(params=[[BENCHMARKS_ROOT], None],
+                scope='session')
+def plan(request):
+    return Plan('doctor.yaml', request.param)
 
 
 @pytest.fixture(scope='session')

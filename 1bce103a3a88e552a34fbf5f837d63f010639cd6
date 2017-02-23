@@ -117,6 +117,30 @@
       "revId": "1bce103a3a88e552a34fbf5f837d63f010639cd6",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_d4096f96",
+        "filename": "tests/unit/util/logger_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-02-23T05:58:41Z",
+      "side": 1,
+      "message": "no, it will be active in the method which is passed in env_home(or logger_file which contains env_home).",
+      "parentUuid": "dabed58f_b44ddb74",
+      "range": {
+        "startLine": 12,
+        "startChar": 24,
+        "endLine": 12,
+        "endChar": 28
+      },
+      "revId": "1bce103a3a88e552a34fbf5f837d63f010639cd6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

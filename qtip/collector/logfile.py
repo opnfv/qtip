@@ -18,8 +18,8 @@ from qtip.loader.file import FileLoader
 
 
 class LogItem(BaseActor):
-    def find(self, filename, paths=None):
-        return self._parent.find(filename, paths)
+    def find(self, filename):
+        return self._parent.find(filename)
 
 
 class LogfileCollector(BaseActor):
@@ -33,8 +33,7 @@ class LogfileCollector(BaseActor):
         self._parent = parent  # plan
         # TODO(yujunz) handle exception of invalid parent
         dirname = os.path.dirname(self._parent.abspath)
-        paths = [os.path.join(dirname, p) for p in config.get(self.PATHS, [])]
-        self._loader = FileLoader('.', paths)
+        self.paths = [os.path.join(dirname, p) for p in config.get(self.PATHS, [])]
 
     def run(self):
         collected = []
@@ -45,8 +44,8 @@ class LogfileCollector(BaseActor):
             collected = chain(collected, reduce(chain, matches))
         return reduce(merge_matchobj_to_dict, collected, {'groups': (), 'groupdict': {}})
 
-    def find(self, filename, paths=None):
-        return self._loader.find(filename, paths)
+    def find(self, filename):
+        return FileLoader.find(filename, self.paths)
 
 
 def merge_matchobj_to_dict(d, m):

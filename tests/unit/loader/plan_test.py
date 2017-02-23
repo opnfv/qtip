@@ -13,14 +13,11 @@ from qtip.collector.logfile import LogfileCollector
 from qtip.loader.plan import load_collector
 from qtip.loader.plan import Plan
 from qtip.loader.plan import PlanProp
-from qtip.loader.plan import QPISpec
 
 
-def test_init(plan):
-    assert plan.name == 'doctor performance profiling'
-    assert isinstance(plan.content, dict)
-    for qpi in plan.qpis:
-        assert isinstance(qpi, QPISpec)
+def test_construct():
+    sample = Plan('sample.yaml')
+    assert isinstance(sample, Plan)
 
     with pytest.raises(TypeError) as excinfo:
         Plan()

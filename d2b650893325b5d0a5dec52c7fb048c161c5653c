@@ -16,6 +16,24 @@
       "revId": "d2b650893325b5d0a5dec52c7fb048c161c5653c",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_0a003ca9",
+        "filename": "tests/unit/loader/plan_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-24T03:23:44Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "dabed58f_aae9f01b",
+      "revId": "d2b650893325b5d0a5dec52c7fb048c161c5653c",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

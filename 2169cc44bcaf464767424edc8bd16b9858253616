@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_cb5c6528",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-27T14:12:04Z",
+      "side": 1,
+      "message": "\u003d\u003e all_files_exist\n\nSo it will read like `if all_files_exist(foo, bar): ...`",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_4b3155eb",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-27T14:12:04Z",
+      "side": 1,
+      "message": "`\u0026` is bitwise operator. I think you are expecting a boolean `and` operator here.\n\nhttps://docs.python.org/2/library/stdtypes.html#boolean-operations-and-or-not",
+      "range": {
+        "startLine": 26,
+        "startChar": 13,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_0b7a7d88",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-27T14:12:04Z",
+      "side": 1,
+      "message": "So returning True means all files removed successfully?\n\nThis is a c-style return value. In Python, we normally use exception for error handling.",
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

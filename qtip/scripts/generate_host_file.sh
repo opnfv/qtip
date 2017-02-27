@@ -10,17 +10,17 @@
 
 
 usage(){
-   echo "usage: $0 [-v] -i <installer_type> -a <installer_ip>" >&2
+   echo "usage: $0 [-v] -i <installer_type> -a <installer_ip> -d <host_file>" >&2
    echo "[-v] Virtualized deployment" >&2
 }
 
 info()  {
-   logger -s -t "fetch_compute_info.info" "$*"
+   logger -s -t "generate_host_file.info" "$*"
 }
 
 
 error() {
-   logger -s -t "fetch_compute_info.error" "$*"
+   logger -s -t "generate_host_file.error" "$*"
    exit 1
 }
 
@@ -44,6 +44,7 @@ while getopts ":i:a:h:v" optchar; do
    case "${optchar}" in
        i) installer_type=${OPTARG} ;;
        a) installer_ip=${OPTARG} ;;
+       d) host_file=${OPTARG} ;;
        v) DEPLOY_TYPE="virt" ;;
        *) echo "Non-option argument: '-${OPTARG}'" >&2
           usage
@@ -108,10 +109,11 @@ if [ -z "$IPS" ]; then
    error "The compute node $IPS are not up. Please check that the POD is correctly deployed."
 else
    echo "-------- all compute node ips: --------"
-   rm $HOME/ips.log
-   touch $HOME/ips.log
-   echo "$IPS" > $HOME/qtip/ips.log
-   echo $IPS
+   rm host_file
+   touch host_file
+   echo "[hosts]" > host_file
+   echo "$IPS" > host_file
+   cat host_file
 fi
 
 exit 0

@@ -7,9 +7,17 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from qtip.base import BaseActor
 
-from qtip.reporter.base import BaseReporter
 
+class ConsoleReporter(BaseActor):
+    """
+    report benchmark result to console
+    """
+    def __init__(self, config, parent=None):
+        super(ConsoleReporter, self).__init__(config, parent=parent)
+        # TODO(yujunz) remove PoC code
+        self._fmt = "{title}: {description}"
 
-class ConsoleReporter(BaseReporter):
-    """report result to console"""
+    def render(self, var_dict):
+        return self._fmt.format(**var_dict)

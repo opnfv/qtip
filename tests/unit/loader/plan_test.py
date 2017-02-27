@@ -13,15 +13,18 @@ from qtip.collector.logfile import LogfileCollector
 from qtip.loader.plan import load_collector
 from qtip.loader.plan import Plan
 from qtip.loader.plan import PlanProp
-from qtip.loader.plan import QPISpec
 
 
-def test_init(plan):
-    assert plan.name == 'doctor performance profiling'
-    assert isinstance(plan.content, dict)
-    for qpi in plan.qpis:
-        assert isinstance(qpi, QPISpec)
+def test_construct(benchmarks_root):
+    sample = Plan('sample.yaml')
+    assert isinstance(sample, Plan)
 
+    # fixture can not be used in pytest.mark.parametrized
+    sample = Plan('sample.yaml', [benchmarks_root])
+    assert isinstance(sample, Plan)
+
+
+def test_invalid_construct():
     with pytest.raises(TypeError) as excinfo:
         Plan()
     assert '__init__() takes at least 2 arguments (1 given)' \
@@ -30,7 +33,7 @@ def test_init(plan):
 
 def test_list_all(benchmarks_root):
     plan_list = list(Plan.list_all(paths=[benchmarks_root]))
-    assert len(plan_list) is 2
+    assert len(plan_list) is 3
     for desc in plan_list:
         assert PlanProp.NAME in desc
         assert PlanProp.ABSPATH in desc

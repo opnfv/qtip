@@ -224,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_2b2f41a3",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-28T02:40:27Z",
+      "side": 1,
+      "message": "it seems and is different from \u0026\u003d. when i use \"and\", unit test is failed.",
+      "parentUuid": "dabed58f_0b503d31",
+      "range": {
+        "startLine": 26,
+        "startChar": 13,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_0b7a7d88",
         "filename": "qtip/util/env.py",
         "patchSetId": 2

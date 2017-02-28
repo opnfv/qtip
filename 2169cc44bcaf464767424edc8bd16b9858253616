@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_cb49c58c",
+        "filename": "qtip/scripts/generate_host_file.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-28T01:50:17Z",
+      "side": 1,
+      "message": "It is my mistake. I will correct them.",
+      "parentUuid": "dabed58f_0bf4bd59",
+      "range": {
+        "startLine": 112,
+        "startChar": 3,
+        "endLine": 112,
+        "endChar": 15
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_cbed458d",
         "filename": "qtip/scripts/qtip_creds.sh",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2017-02-28T00:58:20Z",
       "side": 1,
       "message": "not valuable for this refactoring",
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_6b7779d5",
+        "filename": "qtip/scripts/qtip_creds.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-28T01:50:17Z",
+      "side": 1,
+      "message": "can you tell me why not valuable for refactoring. ./config/QtipKey is a hard code.",
+      "parentUuid": "dabed58f_cbed458d",
       "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -111,6 +153,30 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_ab449174",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-28T01:50:17Z",
+      "side": 1,
+      "message": "ok.",
+      "parentUuid": "dabed58f_cb5c6528",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_4b3155eb",
         "filename": "qtip/util/env.py",
         "patchSetId": 2
@@ -122,6 +188,30 @@
       "writtenOn": "2017-02-27T14:12:04Z",
       "side": 1,
       "message": "`\u0026` is bitwise operator. I think you are expecting a boolean `and` operator here.\n\nhttps://docs.python.org/2/library/stdtypes.html#boolean-operations-and-or-not",
+      "range": {
+        "startLine": 26,
+        "startChar": 13,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_0b503d31",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-28T01:50:17Z",
+      "side": 1,
+      "message": "Ok. I will modify it.",
+      "parentUuid": "dabed58f_4b3155eb",
       "range": {
         "startLine": 26,
         "startChar": 13,
@@ -151,6 +241,24 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_eb4a8982",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-28T01:50:17Z",
+      "side": 1,
+      "message": "Use the exception in function clean(). can you tell me how to avoid c-style return value? can you give your code to handle it?",
+      "parentUuid": "dabed58f_0b7a7d88",
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_6b021940",
         "filename": "qtip/util/env.py",
         "patchSetId": 2
@@ -162,6 +270,30 @@
       "writtenOn": "2017-02-28T00:58:20Z",
       "side": 1,
       "message": "it\u0027s better if \u0027-b\u0027 parameter is used\n\n     -b bits\n             Specifies the number of bits in the key to create.  For RSA keys, the minimum size is 1024 bits\n             and the default is 2048 bits.  Generally, 2048 bits is considered sufficient.  DSA keys must be\n             exactly 1024 bits as specified by FIPS 186-2.  For ECDSA keys, the -b flag determines the key\n             length by selecting from one of three elliptic curve sizes: 256, 384 or 521 bits.  Attempting to\n             use bit lengths other than these three values for ECDSA keys will fail.  Ed25519 keys have a\n             fixed length and the -b flag will be ignored.",
+      "range": {
+        "startLine": 69,
+        "startChar": 11,
+        "endLine": 69,
+        "endChar": 44
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_4b7e35b0",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-28T01:50:17Z",
+      "side": 1,
+      "message": "Ok, I will add it",
+      "parentUuid": "dabed58f_6b021940",
       "range": {
         "startLine": 69,
         "startChar": 11,
@@ -197,6 +329,30 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_2b81818f",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-28T01:50:17Z",
+      "side": 1,
+      "message": "I don\u0027t get your point.",
+      "parentUuid": "dabed58f_4bf9554c",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 56
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_2bfc213e",
         "filename": "qtip/util/env.py",
         "patchSetId": 2
@@ -208,6 +364,30 @@
       "writtenOn": "2017-02-28T00:58:20Z",
       "side": 1,
       "message": "if $cmd is also a parameter, it will be more useful\n\nthe name ssh_test is not easy to understand, it maybe mis-recognized as a test func\n\nsuch as, verify_ssh",
+      "range": {
+        "startLine": 89,
+        "startChar": 40,
+        "endLine": 89,
+        "endChar": 61
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_8b742dd0",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-02-28T01:50:17Z",
+      "side": 1,
+      "message": "just use command \"uname\" to verify ssh login successful. so no need to set \"uname\" as a parameter.",
+      "parentUuid": "dabed58f_2bfc213e",
       "range": {
         "startLine": 89,
         "startChar": 40,

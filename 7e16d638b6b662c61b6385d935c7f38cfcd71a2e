@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_8ea0bb91",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-28T07:58:09Z",
+      "side": 1,
+      "message": "If it returns True/False, then better to name it `ssh_connect_is_ok()`. If you keep the name `verify_xxx`, raise exception on failure instead of returning boolean flag.",
+      "range": {
+        "startLine": 84,
+        "startChar": 4,
+        "endLine": 84,
+        "endChar": 27
+      },
+      "revId": "7e16d638b6b662c61b6385d935c7f38cfcd71a2e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

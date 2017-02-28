@@ -2,6 +2,92 @@
   "comments": [
     {
       "key": {
+        "uuid": "dabed58f_0bf4bd59",
+        "filename": "qtip/scripts/generate_host_file.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-02-28T00:58:20Z",
+      "side": 1,
+      "message": "several issues:\n1, $host_file\n2, this may fail when host_file is not defined/passed as a parameter\n\nplease use:\n[[ -f $host_file ]] \u0026\u0026 rm -f $host_file",
+      "range": {
+        "startLine": 112,
+        "startChar": 3,
+        "endLine": 112,
+        "endChar": 15
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_cbed458d",
+        "filename": "qtip/scripts/qtip_creds.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-02-28T00:58:20Z",
+      "side": 1,
+      "message": "not valuable for this refactoring",
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_abe8117d",
+        "filename": "qtip/scripts/qtip_creds.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-02-28T00:58:20Z",
+      "side": 1,
+      "message": "using parameters are better",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 10
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_2b6c219c",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-02-28T00:58:20Z",
+      "side": 1,
+      "message": "the original is better directly using path",
+      "range": {
+        "startLine": 14,
+        "startChar": 13,
+        "endLine": 14,
+        "endChar": 79
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_cb5c6528",
         "filename": "qtip/util/env.py",
         "patchSetId": 2
@@ -59,6 +145,75 @@
       "writtenOn": "2017-02-27T14:12:04Z",
       "side": 1,
       "message": "So returning True means all files removed successfully?\n\nThis is a c-style return value. In Python, we normally use exception for error handling.",
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_6b021940",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-02-28T00:58:20Z",
+      "side": 1,
+      "message": "it\u0027s better if \u0027-b\u0027 parameter is used\n\n     -b bits\n             Specifies the number of bits in the key to create.  For RSA keys, the minimum size is 1024 bits\n             and the default is 2048 bits.  Generally, 2048 bits is considered sufficient.  DSA keys must be\n             exactly 1024 bits as specified by FIPS 186-2.  For ECDSA keys, the -b flag determines the key\n             length by selecting from one of three elliptic curve sizes: 256, 384 or 521 bits.  Attempting to\n             use bit lengths other than these three values for ECDSA keys will fail.  Ed25519 keys have a\n             fixed length and the -b flag will be ignored.",
+      "range": {
+        "startLine": 69,
+        "startChar": 11,
+        "endLine": 69,
+        "endChar": 44
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_4bf9554c",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-02-28T00:58:20Z",
+      "side": 1,
+      "message": "what about keep this",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 56
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_2bfc213e",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-02-28T00:58:20Z",
+      "side": 1,
+      "message": "if $cmd is also a parameter, it will be more useful\n\nthe name ssh_test is not easy to understand, it maybe mis-recognized as a test func\n\nsuch as, verify_ssh",
+      "range": {
+        "startLine": 89,
+        "startChar": 40,
+        "endLine": 89,
+        "endChar": 61
+      },
       "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

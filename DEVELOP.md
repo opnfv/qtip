@@ -94,7 +94,12 @@ TBD
 
 ### CLI
 
-TBD
+Click currently supports Bash completion. After installing your program, the following
+needs to be added to the .bashrc file:
+
+eval "$(_QTIP_COMPLETE=source qtip)"
+
+The above would activate command completion for the program.
 
 ### API
 

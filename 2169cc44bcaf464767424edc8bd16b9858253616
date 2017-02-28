@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_2e1d0f67",
+        "filename": "qtip/scripts/qtip_creds.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-02-28T03:07:36Z",
+      "side": 1,
+      "message": "got it\n\nmore tasks to achieve",
+      "parentUuid": "dabed58f_6b7779d5",
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_abe8117d",
         "filename": "qtip/scripts/qtip_creds.sh",
         "patchSetId": 2
@@ -377,6 +395,30 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_0e2ccb98",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-02-28T03:07:36Z",
+      "side": 1,
+      "message": "my mistack, input the msg in the next comment",
+      "parentUuid": "dabed58f_4bf9554c",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 56
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_2bfc213e",
         "filename": "qtip/util/env.py",
         "patchSetId": 2
@@ -412,6 +454,30 @@
       "side": 1,
       "message": "just use command \"uname\" to verify ssh login successful. so no need to set \"uname\" as a parameter.",
       "parentUuid": "dabed58f_2bfc213e",
+      "range": {
+        "startLine": 89,
+        "startChar": 40,
+        "endLine": 89,
+        "endChar": 61
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_ae201f9c",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-02-28T03:07:36Z",
+      "side": 1,
+      "message": "IMO, other cmds can also be executed, such as:\n\nping -c  ip_addr is also can be passed.",
+      "parentUuid": "dabed58f_8b742dd0",
       "range": {
         "startLine": 89,
         "startChar": 40,

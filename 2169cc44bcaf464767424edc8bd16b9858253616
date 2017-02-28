@@ -266,6 +266,30 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_6ea3079f",
+        "filename": "qtip/util/env.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-02-28T07:58:09Z",
+      "side": 1,
+      "message": "Then you need to fix your code or test :-)\n\nFlag is boolean, so we should use `and` instead of `\u0026`",
+      "parentUuid": "dabed58f_2b2f41a3",
+      "range": {
+        "startLine": 26,
+        "startChar": 13,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "2169cc44bcaf464767424edc8bd16b9858253616",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_0b7a7d88",
         "filename": "qtip/util/env.py",
         "patchSetId": 2

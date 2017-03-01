@@ -22,6 +22,9 @@ RUN apt-get update && apt-get install -y \
     gcc \
     ssh \
     expect \
+    build-essential\
+    libssl-dev\
+    libffi-dev\
     python-matplotlib \
     python-dev \
     python-pip \

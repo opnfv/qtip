@@ -22,6 +22,9 @@ RUN apt-get update && apt-get install -y \
     gcc \
     ssh \
     expect \
+    build-essential\
+    libssl-dev\
+    libffi-dev\
     python-matplotlib \
     python-dev \
     python-pip \
@@ -57,7 +60,7 @@ RUN git config --global http.sslVerify false
 RUN git clone -b $BRANCH https://gerrit.opnfv.org/gerrit/qtip $REPOS_DIR/qtip
 RUN git clone https://gerrit.opnfv.org/gerrit/releng $REPOS_DIR/releng
 
-RUN pip install -r $REPOS_DIR/qtip/requirements.txt
+RUN pip install -U -r $REPOS_DIR/qtip/requirements.txt
 
 #Config supervisor
 RUN mkdir -p /var/log/supervisor

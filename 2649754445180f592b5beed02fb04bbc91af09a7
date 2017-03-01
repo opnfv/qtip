@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_bf092b2e",
+        "filename": "DEVELOP.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-01T06:48:48Z",
+      "side": 1,
+      "message": "I would suggest using command line token convention and quote it as code block\n\n```\ncd \u003cproject root\u003e\npip install -e .\n```",
+      "range": {
+        "startLine": 101,
+        "startChar": 15,
+        "endLine": 101,
+        "endChar": 41
+      },
+      "revId": "2649754445180f592b5beed02fb04bbc91af09a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_df0e5f34",
+        "filename": "DEVELOP.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-01T06:48:48Z",
+      "side": 1,
+      "message": "Quote it as code, e.g. `.bashrc`",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 11
+      },
+      "revId": "2649754445180f592b5beed02fb04bbc91af09a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_7f13b35c",
+        "filename": "DEVELOP.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-01T06:48:48Z",
+      "side": 1,
+      "message": "quote it as code block\n\n```\neval \"$(_QTIP_COMPLETE\u003dsource qtip)\"\n```",
+      "revId": "2649754445180f592b5beed02fb04bbc91af09a7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

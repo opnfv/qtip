@@ -40,7 +40,7 @@ verify_connectivity(){
 :${DEPLOY_TYPE:=''}
 
 #Getoptions
-while getopts ":i:a:h:v" optchar; do
+while getopts ":i:a:d:h:v" optchar; do
    case "${optchar}" in
        i) installer_type=${OPTARG} ;;
        a) installer_ip=${OPTARG} ;;

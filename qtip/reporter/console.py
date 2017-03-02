@@ -7,6 +7,10 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+import os
+
+from jinja2 import Environment
+from jinja2 import FileSystemLoader
 from qtip.base import BaseActor
 
 
@@ -17,7 +21,12 @@ class ConsoleReporter(BaseActor):
     def __init__(self, config, parent=None):
         super(ConsoleReporter, self).__init__(config, parent=parent)
         # TODO(yujunz) remove PoC code
-        self._fmt = "{title}: {description}"
+
+        self.tempload = FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates'))
+        self.env = Environment(loader=self.tempload)
+        self.template = self.env.get_template('timeline.j2')
 
     def render(self, var_dict):
-        return self._fmt.format(**var_dict)
+        out = self.template.render(var_dict)
+        return out
+

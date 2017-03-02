@@ -10,14 +10,12 @@
 
 
 usage(){
-   echo "usage: $0 [-v] -i <installer_type> -a <installer_ip> -d <host_file>" >&2
-   echo "[-v] Virtualized deployment" >&2
+   echo "usage: $0 -t <installer_type> -i <installer_ipaddr> -d <dest_hostfile>" >&2
 }
 
 info()  {
    logger -s -t "generate_host_file.info" "$*"
 }
-
 
 error() {
    logger -s -t "generate_host_file.error" "$*"
@@ -40,12 +38,11 @@ verify_connectivity(){
 :${DEPLOY_TYPE:=''}
 
 #Getoptions
-while getopts ":i:a:h:v" optchar; do
+while getopts ":t:i:d:" optchar; do
    case "${optchar}" in
-       i) installer_type=${OPTARG} ;;
-       a) installer_ip=${OPTARG} ;;
-       d) host_file=${OPTARG} ;;
-       v) DEPLOY_TYPE="virt" ;;
+       t) installer_type=${OPTARG} ;;
+       i) installer_ipaddr=${OPTARG} ;;
+       d) dest_hostfile=${OPTARG} ;;
        *) echo "Non-option argument: '-${OPTARG}'" >&2
           usage
           exit 2
@@ -55,9 +52,9 @@ done
 
 #set vars from env if not provided by user as options
 installer_type=${installer_type:-$INSTALLER_TYPE}
-installer_ip=${installer_ip:-$INSTALLER_IP}
+installer_ipaddr=${installer_ipaddr:-$INSTALLER_IP}
 
-if [ -z $installer_type ] || [ -z $installer_ip ]; then
+if [ -z $installer_type ] || [ -z $installer_ipaddr ]; then
    usage
    exit 2
 fi
@@ -66,9 +63,9 @@ ssh_options="-oUserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 #Start fetching compute ip
 if [ "$installer_type" == "fuel" ]; then
-   verify_connectivity $installer_ip
+   verify_connectivity $installer_ipaddr
 
-   env=$(sshpass -p r00tme ssh 2>/dev/null $ssh_options root@${installer_ip} \
+   env=$(sshpass -p r00tme ssh 2>/dev/null $ssh_options root@${installer_ipaddr} \
        'fuel env'|grep operational|head -1|awk '{print $1}') &> /dev/null
    if [ -z $env ]; then
        error "No operational environment detected in Fuel"
@@ -76,7 +73,7 @@ if [ "$installer_type" == "fuel" ]; then
    env_id="${FUEL_ENV:-$env}"
 
    # Check if compute is alive (online='True')
-   IPS=$(sshpass -p r00tme ssh 2>/dev/null $ssh_options root@${installer_ip} \
+   IPS=$(sshpass -p r00tme ssh 2>/dev/null $ssh_options root@${installer_ipaddr} \
        "fuel node --env ${env_id} | grep compute | grep 'True\|  1' | awk -F\| '{print \$5}' " | \
        sed 's/ //g') &> /dev/null
 
@@ -87,8 +84,8 @@ elif [ "$installer_type" == "apex" ]; then
 
 elif [ "$installer_type" == "compass" ]; then
    # need test
-   verify_connectivity $installer_ip
-   IPS=$(sshpass -p'root' ssh 2>/dev/null $ssh_options root@${installer_ip} \
+   verify_connectivity $installer_ipaddr
+   IPS=$(sshpass -p'root' ssh 2>/dev/null $ssh_options root@${installer_ipaddr} \
        'mysql -ucompass -pcompass -Dcompass -e"select *  from cluster;"' \
        | awk -F"," '{for(i=1;i<NF;i++)if($i~/\"host[4-5]\"/) {print $(i+1);}}'  \
        | grep -oP "\d+.\d+.\d+.\d+")
@@ -109,11 +106,11 @@ if [ -z "$IPS" ]; then
    error "The compute node $IPS are not up. Please check that the POD is correctly deployed."
 else
    echo "-------- all compute node ips: --------"
-   rm $host_file
-   touch $host_file
-   echo "[hosts]" >> $host_file
-   echo "$IPS" >> $host_file
-   cat $host_file
+   rm $dest_hostfile
+   touch $dest_hostfile
+   echo "[hosts]" >> $dest_hostfile
+   echo "$IPS" >> $dest_hostfile
+   cat $dest_hostfile
 fi
 
 exit 0

@@ -21,9 +21,12 @@ def test_constructor(console_reporter):
 
 
 def test_render(console_reporter):
-    var_dict = {
-        'title': 'fake title',
-        'description': 'fake description'
-    }
-    output = console_reporter.render(var_dict=var_dict)
-    assert output == 'fake title: fake description'
+    var_dict = {'title': 'Timeline', 'total': '312ms', 'phases': [{'name': 'Monitor ',
+                'checkpoints': [{'name': 'T00 ', 'timestamp': '1'}]},
+               {'name': 'Inspector ', 'checkpoints': [{'name': 'T01 ', 'timestamp': '2'},
+                {'name': 'T02 ', 'timestamp': '5'}, {'name': 'T03 ', 'timestamp': '8'}]},
+               {'name': 'Controller ', 'checkpoints': [{'name': 'T04 ', 'timestamp': '11'}]},
+               {'name': 'Notifier ', 'checkpoints': [{'name': 'T05 ', 'timestamp': '16'}]},
+               {'name': 'Evaluator ', 'checkpoints': [{'name': 'T06 ', 'timestamp': '40'}]}]}
+    result = console_reporter.render(var_dict=var_dict)
+    assert 'Timeline' and '312ms' in result

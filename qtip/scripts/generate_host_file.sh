@@ -40,12 +40,11 @@ verify_connectivity(){
 :${DEPLOY_TYPE:=''}
 
 #Getoptions
-while getopts ":i:a:h:v" optchar; do
+while getopts ":i:a:d" optchar; do
    case "${optchar}" in
        i) installer_type=${OPTARG} ;;
        a) installer_ip=${OPTARG} ;;
        d) host_file=${OPTARG} ;;
-       v) DEPLOY_TYPE="virt" ;;
        *) echo "Non-option argument: '-${OPTARG}'" >&2
           usage
           exit 2

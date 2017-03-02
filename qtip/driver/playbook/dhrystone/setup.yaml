@@ -1,0 +1,66 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Making dhrystone directory
+      file:
+        path: '{{ result_dir }}/dhrystone/logs/'
+        state: directory
+
+- hosts: hosts
+  become: yes
+  remote_user: root
+
+  tasks:
+    - name: Checking home directory
+      shell: echo $HOME
+      register: home_dir
+
+    - name: Cleaning tempT directory
+      file:
+        path: '{{ home_dir.stdout }}/tempT'
+        state: absent
+
+    - name: Cleaning qtip_result directory
+      file:
+        path: '{{ home_dir.stdout }}/qtip_result'
+        state: absent
+
+    - include: ../prepare_env.yaml
+
+    - name: Installing UnixBench dependencies if CentOS
+      yum:
+        name: '{{ item }}'
+        state: present
+      when: ansible_os_family == "RedHat"
+      with_items:
+        - git
+        - gcc
+        - patch
+        - perl-Time-HiRes
+
+    - name: Installing UnixBench dependencies if Ubuntu
+      apt:
+        name: '{{ item }}'
+        state: present
+      when: ansible_os_family == "Debian"
+      with_items:
+        - git
+        - gcc
+        - patch
+        - perl
+
+    - name: Clone unixbench
+      git:
+        repo: https://github.com/kdlucas/byte-unixbench.git
+        dest: '{{ home_dir.stdout }}/tempT'

@@ -10,7 +10,7 @@
   yum:
     name: epel-release
     state: present
-   when: ansible_os_family == "RedHat"
+  when: ansible_os_family == "RedHat"
 
 - name: Software Properties Common
   apt:
@@ -38,5 +38,17 @@
 - name: Install ansiblle copy dependencies if remote host has selinux enaled
   apt:
     name: python-selinux
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Install rsync when CentOS
+  yum:
+    name: rsync
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Install rsync when Ubuntu
+  apt:
+    name: rsync
     state: present
   when: ansible_os_family == "Debian"

@@ -22,6 +22,29 @@
       "revId": "4e5d536e02fb2710d028be4f4ca6d4503e94da14",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_e77e35e4",
+        "filename": "qtip/scripts/generate_host_file.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-03T05:28:34Z",
+      "side": 1,
+      "message": "I think this is a typo of `h` which is short for host_file",
+      "range": {
+        "startLine": 47,
+        "startChar": 7,
+        "endLine": 47,
+        "endChar": 8
+      },
+      "revId": "4e5d536e02fb2710d028be4f4ca6d4503e94da14",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

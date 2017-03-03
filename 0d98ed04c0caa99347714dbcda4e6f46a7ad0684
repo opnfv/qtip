@@ -16,6 +16,24 @@
       "revId": "0d98ed04c0caa99347714dbcda4e6f46a7ad0684",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_5d4b522b",
+        "filename": "tests/data/reporter/timeline.pickle",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-03-03T15:21:48Z",
+      "side": 1,
+      "message": "Pickle supports many formats, one of them is binary. The above is I think printable ASCII.\n\nhttps://docs.python.org/2/library/pickle.html",
+      "parentUuid": "dabed58f_9dca2aa0",
+      "revId": "0d98ed04c0caa99347714dbcda4e6f46a7ad0684",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

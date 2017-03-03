@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_676fa593",
+        "filename": "qtip/reporter/console.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-03T00:13:31Z",
+      "side": 1,
+      "message": "Remove the comment since you have removed the PoC code",
+      "revId": "a7ab229dcad184afcb01178b27fa2d114d2d3bef",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_076ca99b",
+        "filename": "qtip/reporter/console.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-03T00:13:31Z",
+      "side": 1,
+      "message": "1. Is it used somewhere else or just in env?\n2. It seems the template path is hardcoded, put a TODO to remind ourselves to load it from config later.",
+      "range": {
+        "startLine": 25,
+        "startChar": 13,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "a7ab229dcad184afcb01178b27fa2d114d2d3bef",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_2769ad8b",
+        "filename": "qtip/reporter/console.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-03T00:13:31Z",
+      "side": 1,
+      "message": "Do we need to expose `env`?",
+      "range": {
+        "startLine": 26,
+        "startChar": 13,
+        "endLine": 26,
+        "endChar": 16
+      },
+      "revId": "a7ab229dcad184afcb01178b27fa2d114d2d3bef",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_e70ab5d1",
+        "filename": "tests/unit/reporter/console_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-03T00:13:31Z",
+      "side": 1,
+      "message": "I think you may dump the result as a reference and compare to it during test.",
+      "revId": "a7ab229dcad184afcb01178b27fa2d114d2d3bef",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

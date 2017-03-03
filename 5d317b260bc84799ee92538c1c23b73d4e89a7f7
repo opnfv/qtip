@@ -34,6 +34,24 @@
       "revId": "5d317b260bc84799ee92538c1c23b73d4e89a7f7",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_67e4850d",
+        "filename": "qtip/driver/playbook/dhrystone/clean.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-03T00:54:27Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "dabed58f_c72c514d",
+      "revId": "5d317b260bc84799ee92538c1c23b73d4e89a7f7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

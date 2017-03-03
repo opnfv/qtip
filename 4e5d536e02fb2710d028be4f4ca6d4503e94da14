@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_87997970",
+        "filename": "qtip/scripts/generate_host_file.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-03T03:07:20Z",
+      "side": 1,
+      "message": "no \"h\" is supported in the bellow, please add h for help.\n\nuse:\ngetops \"I:a:d:v\"",
+      "range": {
+        "startLine": 43,
+        "startChar": 15,
+        "endLine": 43,
+        "endChar": 25
+      },
+      "revId": "4e5d536e02fb2710d028be4f4ca6d4503e94da14",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

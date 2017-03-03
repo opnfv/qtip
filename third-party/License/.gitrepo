@@ -5,7 +5,7 @@
 ;
 [subrepo]
 	remote = git@github.com:openzero-zte/License.git
-	branch = master
-	commit = 61489dae4453b66887d0d90a2244610a30f7e53c
-	parent = 3e443dff14a2be02b914e66f27b549d0ed4cc600
+	branch = develop
+	commit = 88b1440008b6acac8ad65afc93606cddef63cea9
+	parent = 473deae9a10162f000c49ca49b4e31b28c4bf0d8
 	cmdver = 0.3.0

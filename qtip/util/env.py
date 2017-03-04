@@ -1,15 +1,18 @@
 ##############################################################################
-# Copyright (c) 2016 Dell Inc, ZTE and others.
+# Copyright (c) 2017 ZTE and others.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
+from collections import defaultdict
 import os
-import socket
-import time
 from os import path
+import re
+import socket
+import sys
+import time
 
 import paramiko
 
@@ -51,50 +54,139 @@ def clean_file(*files):
     return len(results) == len(files) and False not in results
 
 
-def generate_host_file(hostfile=HOST_FILE):
-    installer_type = str(os.environ['INSTALLER_TYPE'].lower())
-    installer_ip = str(os.environ['INSTALLER_IP'])
+class AnsibleEnvSetup(object):
+    def __init__(self):
+        self.keypair = defaultdict(str)
+        self.hostfile = None
+        self.host_ip_list = []
 
-    if installer_type not in ["fuel"]:
-        raise ValueError("%s is not supported" % installer_type)
-    if not installer_ip:
-        raise ValueError("The value of environment variable INSTALLER_IP is empty")
-
-    cmd = "bash %s/generate_host_file.sh -i %s -a %s -d %s" % \
-        (SCRIPT_DIR, installer_type, installer_ip, hostfile)
-    os.system(cmd)
-    return all_files_exist(hostfile)
-
-
-def generate_keypair(keyname='QtipKey'):
-    """Generating ssh keypair"""
-    cmd = "ssh-keygen -t rsa -N "" -f {0} -q -b 2048".format(keyname)
-    os.system(cmd)
-    return all_files_exist(PRIVATE_KEY, PUBLIC_KEY)
-
-
-def pass_keypair(ip, private_key=PRIVATE_KEY):
-    os.system('ssh-keyscan %s >> /root/.ssh/known_hosts' % ip)
-    time.sleep(2)
-
-    ssh_cmd = '%s/qtip_creds.sh %s %s' % (SCRIPT_DIR, ip, private_key)
-    os.system(ssh_cmd)
-
-
-def ssh_is_ok(ip, private_key=PRIVATE_KEY, attempts=100):
-    ssh = paramiko.SSHClient()
-    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect(ip, key_filename=private_key)
-
-    for attempt in range(attempts):
+    def setup(self, config={}):
         try:
-            stdin, stdout, stderr = ssh.exec_command('uname')
-            if not stderr.readlines():
-                print("{0}: SSH test successful".format(ip))
-                return True
-        except socket.error:
-            if attempt == (attempts - 1):
-                return False
-            print("%s times ssh test......failed" % attempt)
+            if 'hostfile' in config:
+                self.check_hostfile(config['hostfile'])
+            else:
+                self.generate_default_hostfile()
+            self.fetch_host_ip_from_hostfile()
+            if 'keypair' in config:
+                self.check_keypair(config['keypair'])
+            else:
+                self.generate_default_keypair()
+            self.pass_keypair_to_remote()
+            self.check_hosts_ssh_connectivity()
+        except Exception as error:
+            print(error)
+            sys.exit(1)
+
+    def check_keypair(self, keypair):
+        self.keypair = defaultdict(str)
+        if all_files_exist(keypair, '{0}.pub'.format(keypair)):
+            self.keypair['private'] = keypair
+            self.keypair['public'] = '{0}.pub'.format(keypair)
+        else:
+            raise RuntimeError("The keypairs you in the configuration file"
+                               " is invalid or not existed.")
+
+    def generate_default_keypair(self):
+        if not all_files_exist(PRIVATE_KEY, PUBLIC_KEY):
+            print("Generate default keypair {0} under "
+                  "{1}".format(KEYNAME, os.environ['HOME']))
+            cmd = '''ssh-keygen -t rsa -N "" -f {0} -q -b 2048'''.format(
+                PRIVATE_KEY)
+            os.system(cmd)
+        self.keypair['private'] = PRIVATE_KEY
+        self.keypair['public'] = PUBLIC_KEY
+
+    def pass_keypair_to_remote(self):
+        results = map(lambda ip: self._pass_keypair(ip, self.keypair['private']),
+                      self.host_ip_list)
+
+        if not (len(results) == len(self.host_ip_list) and False not in results):
+            raise RuntimeError("Failed on passing keypair to remote.")
+
+    @staticmethod
+    def _pass_keypair(ip, private_key):
+        try:
+            os.system('ssh-keyscan %s >> /root/.ssh/known_hosts' % ip)
             time.sleep(2)
-    return False
+            ssh_cmd = '%s/qtip_creds.sh %s %s' % (SCRIPT_DIR, ip, private_key)
+            os.system(ssh_cmd)
+            print('Pass keypair to remote hosts {0} successfully'.format(ip))
+            return True
+        except Exception as error:
+            print(error)
+            return False
+
+    def check_hostfile(self, hostfile):
+        if all_files_exist(hostfile):
+            self.hostfile = hostfile
+        else:
+            raise RuntimeError(
+                "The hostfile {0} is invalid or not existed.".format(hostfile))
+
+    def generate_default_hostfile(self):
+        try:
+            # check whether the file is already existed
+            self.check_hostfile(HOST_FILE)
+        except Exception:
+            print("Generate default hostfile {0} under "
+                  "{1}".format(HOST_FILE, os.environ['HOME']))
+            self._generate_hostfile_via_installer()
+
+    def _generate_hostfile_via_installer(self):
+        self.hostfile = None
+
+        installer_type = str(os.environ['INSTALLER_TYPE'].lower())
+        installer_ip = str(os.environ['INSTALLER_IP'])
+
+        if installer_type not in ["fuel"]:
+            raise ValueError("{0} is not supported".format(installer_type))
+        if not installer_ip:
+            raise ValueError(
+                "The value of environment variable INSTALLER_IP is empty.")
+
+        cmd = "bash %s/generate_host_file.sh -i %s -a %s -d %s" % \
+              (SCRIPT_DIR, installer_type, installer_ip, HOST_FILE)
+        os.system(cmd)
+
+        self.hostfile = HOST_FILE
+
+    def fetch_host_ip_from_hostfile(self):
+        self.host_ip_list = []
+        print('Fetch host ips from hostfile...')
+        with open(self.hostfile, 'r') as f:
+            self.host_ip_list = re.findall('\d+.\d+.\d+.\d+', f.read())
+        if self.host_ip_list:
+            print("The remote compute nodes: {0}".format(self.host_ip_list))
+        else:
+            raise ValueError("The hostfile doesn't include host ip addresses.")
+
+    def check_hosts_ssh_connectivity(self):
+        results = map(lambda ip: self._ssh_is_ok(ip, self.keypair['private']),
+                      self.host_ip_list)
+        if not (len(results) == len(self.host_ip_list) and False not in results):
+            raise RuntimeError("Failed on checking hosts ssh connectivity.")
+
+    @staticmethod
+    def _ssh_is_ok(ip, private_key, attempts=100):
+        print('Check hosts {0} ssh connectivity...'.format(ip))
+        ssh = paramiko.SSHClient()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        ssh.connect(ip, key_filename=private_key)
+
+        for attempt in range(attempts):
+            try:
+                stdin, stdout, stderr = ssh.exec_command('uname')
+                if not stderr.readlines():
+                    print("{0}: SSH test successful.".format(ip))
+                    return True
+            except socket.error:
+                print("%s times ssh test......failed." % str(attempt + 1))
+                if attempt == (attempts - 1):
+                    return False
+                time.sleep(2)
+        return False
+
+
+if __name__ == "__main__":
+    AnsibleEnvSetup().setup({'keypairs': '/home/opnfv/qtip/QtipKey',
+                             'hostfile': '/home/opnfv/qtip/hosts'})

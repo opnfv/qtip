@@ -5,6 +5,7 @@
 tox
 pytest
 pytest-cov
+pytest-mock
 coverage
 pykwalify
 mock

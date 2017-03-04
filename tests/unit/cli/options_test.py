@@ -1,5 +1,5 @@
 ###############################################################
-# Copyright (c) 2016 ZTE Corp and others.
+# Copyright (c) 2017 taseer94@gmail.com and others.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
@@ -8,8 +8,9 @@
 ##############################################################################
 
 import pytest
-from click.testing import CliRunner
+import sys
 
+from click.testing import CliRunner
 from qtip.cli.entry import cli
 
 
@@ -29,4 +30,4 @@ class TestClass(object):
 
     def test_debug(self, runner):
         result = runner.invoke(cli, ['-d'])
-        assert '' in result.output
+        assert sys.tracebacklimit == 8

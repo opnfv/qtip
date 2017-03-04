@@ -34,6 +34,24 @@
       "revId": "0d98ed04c0caa99347714dbcda4e6f46a7ad0684",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_d882f051",
+        "filename": "tests/data/reporter/timeline.pickle",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-04T01:03:39Z",
+      "side": 1,
+      "message": "Sounds good.\n\nCould you put a comment in source code how you generate this pickle and remind user always use ascii format?",
+      "parentUuid": "dabed58f_5d4b522b",
+      "revId": "0d98ed04c0caa99347714dbcda4e6f46a7ad0684",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

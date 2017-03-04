@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2016 ZTE Corp and others.
+# Copyright (c) 2017 taseer94@gmail.com and others.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
@@ -7,33 +7,19 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+import click
 import os
 import sys
-import click
 
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
+# TODO (taseer) define user friendly error messages
+sys.tracebacklimit = 0
+
 
 class Context(object):
-
-    ''' TODO(taseer) implementation'''
-
-    def __init__(self):
-        self.verbose = False
-        self.debug = False
-
-    def log(self, msg, *args):
-        ''' Log message to stderr '''
-        pass
-
-    def verbose(self, msg, *args):
-        ''' Log message to stderr when verbose '''
-        pass
-
-    def debug(self, msg, *args):
-        ''' Log message to debug '''
-        pass
+    """ Load configuration and pass to subcommands """
 
 
 pass_context = click.make_pass_decorator(Context, ensure=True)
@@ -70,4 +56,5 @@ class QtipCli(click.MultiCommand):
 @click.version_option('dev')
 @pass_context
 def cli(ctx, verbose, debug):
-    pass
+    if debug:
+        sys.tracebacklimit = 8

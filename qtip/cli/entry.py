@@ -7,33 +7,25 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+import click
+import ConfigParser
 import os
 import sys
-import click
 
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
 
 class Context(object):
+    """ Load configuration """
 
-    ''' TODO(taseer) implementation'''
-
-    def __init__(self):
-        self.verbose = False
-        self.debug = False
-
-    def log(self, msg, *args):
-        ''' Log message to stderr '''
-        pass
-
-    def verbose(self, msg, *args):
-        ''' Log message to stderr when verbose '''
-        pass
-
-    def debug(self, msg, *args):
-        ''' Log message to debug '''
-        pass
+    def paths(self):
+        config = ConfigParser.ConfigParser()
+        config.read(path.join(path.dirname(__file__), os.pardir, os.pardir, '.qtip.cfg'))
+        try:
+            return  config.get('default', 'path')
+        except ConfigParser.NoOptionError:
+            pass
 
 
 pass_context = click.make_pass_decorator(Context, ensure=True)

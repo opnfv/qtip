@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_162618b8",
+        "filename": "qtip/driver/ansible_api.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-06T13:35:15Z",
+      "side": 1,
+      "message": "Prefer to use full name for class attributes. `playbook_executor` is not longer than `variable_manager`.",
+      "range": {
+        "startLine": 23,
+        "startChar": 13,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "7003e293591841167b6cd6b6231bbcb013899aa9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -6,7 +6,7 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-name: ssl
+name: openssl
 description: a Secure Sockets Layer performance benchmarking
 workloads:
   - aes_128_cbc: [512, 1024, 2048, 4096]

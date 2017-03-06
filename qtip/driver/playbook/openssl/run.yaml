@@ -1,0 +1,75 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+- hosts: hosts
+  become: yes
+  remote_user: root
+
+  tasks:
+    - name: Get current timestamp
+      set_fact:
+        timestamp: "{{ lookup('pipe', 'date +%Y-%m-%d-%H-%M') }}"
+
+    - name: Checking home directory
+      shell: echo $HOME
+      register: home_dir
+
+    - name: Fetch hostname
+      shell: hostname
+      register: host_name
+
+    - name: Make some directories needed
+      file:
+        path: '{{ home_dir.stdout }}/qtip_result/{{ timestamp }}/{{ host_name.stdout }}'
+        state: directory
+
+    - name: Untar OpenSSL
+      unarchive:
+        src: http://artifacts.opnfv.org/qtip/utilities/openssl-1.0.2f.tar.gz
+        dest: '{{ home_dir.stdout }}/Open_SSL/'
+        remote_src: True
+
+    - name: Configure && Make && Install OpenSSL
+      command: "{{ item }}"
+      with_items:
+        - ./config
+        - make
+        - make install
+      args:
+        chdir: '{{ home_dir.stdout }}/Open_SSL/openssl-1.0.2f'
+
+    - include: ../inxi.yaml
+
+    - include: ../top.yaml
+
+    - name: Benchmarking RSA signatures
+      shell: ./openssl speed rsa >> RSA_dump
+      args:
+        chdir: '{{ home_dir.stdout }}/Open_SSL/openssl-1.0.2f/apps'
+
+    - name: Benchmaring AES-128-cbc cipher encryption throughput
+      shell: ./openssl speed -evp aes-128-cbc >> AES-128-CBC_dump
+      args:
+        chdir: '{{ home_dir.stdout }}/Open_SSL/openssl-1.0.2f/apps'
+
+    - name: Copying result to qtip result directory
+      command: "{{ item }}"
+      with_items:
+        - cp $HOME/Open_SSL/openssl-1.0.2f/apps/RSA_dump ./
+        - cp $HOME/Open_SSL/openssl-1.0.2f/apps/AES-128-CBC_dump ./
+        - mv $HOME/qtip_result/top.log ./
+        - mv $HOME/qtip_result/inxi.log ./
+      args:
+        chdir: '{{ home_dir.stdout }}/qtip_result/{{ timestamp }}/{{ host_name.stdout }}/'
+
+    - name: Fetch result files to local manchine
+      synchronize:
+        mode: pull
+        src: '{{ home_dir.stdout }}/qtip_result/'
+        dest: '{{ result_dir }}/openssl/logs/'

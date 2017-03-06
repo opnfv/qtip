@@ -8,16 +8,16 @@
 ##############################################################################
 
 import connexion
-import os
-
-swagger_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'swagger/'))
+import httplib
 
 
-def main():
-    app = connexion.App(__name__, specification_dir=swagger_dir)
-    app.add_api('swagger.yaml', base_path='/v1.0')
-    app.run(host='0.0.0.0', port='5000')
+def list_qpis():
+    return connexion.problem(httplib.NOT_IMPLEMENTED,
+                             'List QPIs',
+                             'QPIs listing not implemented')
 
 
-if __name__ == '__main__':
-    main()
+def get_qpi(name):
+    return connexion.problem(httplib.NOT_IMPLEMENTED,
+                             'Get a QPI',
+                             'QPI retrieval not implemented')

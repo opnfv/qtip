@@ -8,17 +8,21 @@
 ##############################################################################
 
 import connexion
-import os
 
 
-swagger_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'swagger/'))
+def list_jobs():
+    return connexion.problem(501,
+                             'List jobs',
+                             'jobs listing not implemented')
 
 
-def main():
-    app = connexion.App(__name__, specification_dir=swagger_dir)
-    app.add_api('swagger.yaml', base_path='/v1.0')
-    app.run(host='0.0.0.0', port='5000')
+def get_job(job_id):
+    return connexion.problem(501,
+                             'Get a job',
+                             'Job retrieval not implemented')
 
 
-if __name__ == '__main__':
-    main()
+def job():
+    return connexion.problem(501,
+                             'start a Job',
+                             'Job launch not implemented')

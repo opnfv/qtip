@@ -52,6 +52,24 @@
       "revId": "ff9258581a7981e830009785d69efb0d70261f4d",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_d3c17281",
+        "filename": "tests/unit/util/env_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-03-06T08:40:37Z",
+      "side": 1,
+      "message": "when I used pytest-mock with side-effect, it can\u0027t work as expected. So I have to use mock. It is my first to use pytest-mock.",
+      "parentUuid": "dabed58f_73b9a62d",
+      "revId": "ff9258581a7981e830009785d69efb0d70261f4d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

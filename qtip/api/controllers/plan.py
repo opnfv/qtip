@@ -8,16 +8,21 @@
 ##############################################################################
 
 import connexion
-import os
-
-swagger_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'swagger/'))
 
 
-def main():
-    app = connexion.App(__name__, specification_dir=swagger_dir)
-    app.add_api('swagger.yaml', base_path='/v1.0')
-    app.run(host='0.0.0.0', port='5000')
+def list_plans():
+    return connexion.problem(501,
+                             'List plans',
+                             'Plans listing not implemented')
 
 
-if __name__ == '__main__':
-    main()
+def get_plan(name):
+    return connexion.problem(501,
+                             'Get a plan',
+                             'Plan retrieval not implemented')
+
+
+def run_plan(name, action="run"):
+    return connexion.problem(501,
+                             'Run a plan',
+                             'Plan runner not implemented')

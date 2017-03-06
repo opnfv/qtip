@@ -10,9 +10,289 @@
 swagger: '2.0'
 info:
   title: QTIP-API
+  version: "1.0"
 consumes:
   - application/json
 produces:
   - application/json
 paths:
-  #TODO (akhil) add paths
+  /plans:
+    get:
+      summary: List all plans
+      operationId: qtip.api.controllers.plan.list_plans
+      tags:
+        - Plan
+        - standalone
+      responses:
+        200:
+          description: A list of plans
+          #TODO (akhil) add item with properties and parameters
+        204:
+          description: Empty array
+        501:
+          description: Resource not implemented
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /plans/{plan_name}:
+    get:
+      summary: Get a plan by plan name
+      operationId: qtip.api.controllers.plan.get_plan
+      tags:
+        - Plan
+        - standalone
+      parameters:
+        - name: plan_name
+          in: path
+          description: Plan name
+          required: true
+          type: string
+      responses:
+        200:
+          description: Plan information
+          #TODO (akhil) define schema
+        404:
+          description: Plan not found
+          schema:
+            $ref: '#/definitions/Error'
+        501:
+          description: Resource not implemented
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Run a plan and return results
+      operationId: qtip.api.controllers.plan.run_plan
+      tags:
+        - Plan
+        - Standalone
+      parameters:
+        - name: plan_name
+          in: path
+          description: Plan name
+          required: true
+          type: string
+        - name: action
+          in: query
+          description: action for a plan
+          required: true
+          type: string
+      responses:
+        200:
+          description: Result of the run of the plan
+          #TODO (akhil) define schema
+        404:
+          description: Plan not found
+          schema:
+            $ref: '#/definitions/Error'
+        400:
+          description: Invalid parameters
+          schema:
+            $ref: '#/definitions/Error'
+        501:
+          description: Resource not implemented
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /qpis:
+    get:
+      summary: List all QPIs
+      operationId: qtip.api.controllers.qpi.list_qpis
+      tags:
+        - QPI
+        - Standalone
+        - Agent
+      responses:
+        200:
+          description: A list of QPIs
+          #TODO (akhil) add item with properties and parameters
+        204:
+          description: Empty array
+        501:
+          description: Resource not implemented
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /qpis/{qpi_name}:
+    get:
+      summary: Get a QPI
+      operationId: qtip.api.controllers.qpi.get_qpi
+      tags:
+        - QPI
+        - Standalone
+        - Agent
+      parameters:
+        - name: qpi_name
+          in: path
+          description: QPI name
+          required: true
+          type: string
+      responses:
+        200:
+          description: QPI information
+          #TODO (akhil) define schema
+        404:
+          description: QPI not found
+          schema:
+            $ref: '#/definitions/Error'
+        501:
+          description: Resource not implemented
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /metrics:
+    get:
+      summary: List all metrics
+      operationId: qtip.api.controllers.metric.list_metrics
+      tags:
+        - Metric
+        - Standalone
+        - Agent
+      responses:
+        200:
+          description: A list of metrics
+          #TODO (akhil) add item with properties and parameters
+        204:
+          description: Empty array
+        501:
+          description: Resource not implemented
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /metrics/{metric_name}:
+    get:
+      summary: Get a metric
+      operationId: qtip.api.controllers.metric.get_metric
+      tags:
+        - Metric
+        - Standalone
+        - Agent
+      parameters:
+        - name: metric_name
+          in: path
+          description: Metric name
+          required: true
+          type: string
+      responses:
+        200:
+          description: Metric information
+          #TODO (akhil) define schema
+        404:
+          description: Metric not found
+          schema:
+            $ref: '#/definitions/Error'
+        501:
+          description: Resource not implemented
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /jobs:
+    get:
+      summary: List all jobs
+      operationId: qtip.api.controllers.job.list_jobs
+      tags:
+        - Job
+        - Agent
+        - Async
+      responses:
+        200:
+          description: A list of all jobs
+          #TODO (akhil) add item with properties and parameters
+        204:
+          description: Empty array
+        501:
+          description: Resource not implemented
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: start a job and return the status
+      operationId: qtip.api.controllers.job.job
+      tags:
+        - Job
+        - Agent
+        - Async
+      #TODO (akhil) define parameters
+      responses:
+        202:
+          description: confirmation of started job with job_id.
+          #TODO (akhil) define schema
+        400:
+          description: Invalid parameters
+          schema:
+            $ref: '#/definitions/Error'
+        501:
+          description: Resource not implemented
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /jobs/{job_id}:
+    get:
+      summary: Get a job by job id
+      operationId: qtip.api.controllers.job.get_job
+      tags:
+        - Job
+        - Standalone
+        - Agent
+      parameters:
+        - name: job_id
+          in: path
+          description: job id
+          required: true
+          type: string
+      responses:
+        200:
+          description: Job status and result if status done
+          #TODO (akhil) define schema
+        404:
+          description: Job not found
+          schema:
+            $ref: '#/definitions/Error'
+        501:
+          description: Resource not implemented
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Error:
+    type: object
+    properties:
+      status:
+        type: integer
+        format: int32
+      title:
+        type: string
+      detail:
+        type: string
+      type:
+        type: string

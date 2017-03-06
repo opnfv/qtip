@@ -49,3 +49,10 @@ class SpecProp(BaseProp):
 
 class ReporterBaseProp(BaseProp):
     TRANSFORMER = 'transformer'
+
+
+class ResponseCode(object):
+    SUCCESS = 200
+    NOT_FOUND = 404
+    NOT_IMPLEMENTED = 501
+    INVALID_PARAMS = 400

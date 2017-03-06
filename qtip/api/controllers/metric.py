@@ -8,16 +8,15 @@
 ##############################################################################
 
 import connexion
-import os
+from qtip.base.constant import ResponseCode
 
-swagger_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'swagger/'))
-
-
-def main():
-    app = connexion.App(__name__, specification_dir=swagger_dir)
-    app.add_api('swagger.yaml', base_path='/v1.0')
-    app.run(host='0.0.0.0', port='5000')
+def list_metrics():
+    return connexion.problem(ResponseCode.NOT_IMPLEMENTED,
+                             'List metrics',
+                             'Metrics listing not implemented')
 
 
-if __name__ == '__main__':
-    main()
+def get_metric(name):
+    return connexion.problem(ResponseCode.NOT_IMPLEMENTED,
+                             'Get a metric',
+                             'metric retrieval not implemented')

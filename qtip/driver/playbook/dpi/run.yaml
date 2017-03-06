@@ -1,0 +1,65 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+- hosts: hosts
+  become: yes
+  remote_user: root
+
+  tasks:
+    - name: Get host facts
+      set_fact:
+        timestamp: "{{ lookup('pipe', 'date +%Y-%m-%d-%H-%M') }}"
+
+    - name: Fetch hostname
+      shell: hostname
+      register: host_name
+
+    - name: Make some directories needed
+      file:
+        path: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}'
+        state: directory
+
+    - name: Run autogen && configure Dpi && make Dpi
+      command: '{{ item }}'
+      with_items:
+        - ./autogen.sh
+        - ./configure
+        - make
+      args:
+        chdir: '{{ ansible_env.HOME }}/tempD/nDPI/'
+
+    - name: Fetch Averaging script
+      copy:
+        src: ./dpi_average.sh
+        dest: '{{ ansible_env.HOME }}/tempD/nDPI/example'
+        mode: 777
+
+    - include: ../inxi.yaml
+
+    - include: ../top.yaml
+
+    - name: Run nDPI benchmark
+      shell: ./dpi_average.sh
+      args:
+        chdir: '{{ ansible_env.HOME }}/tempD/nDPI/example/'
+
+    - name: Copying result and system info to qtip result directory
+      command: '{{ item }}'
+      with_items:
+        - cp $HOME/tempD/nDPI/example/dpi_dump.txt ./
+        - mv $HOME/qtip_result/top.log ./
+        - mv $HOME/qtip_result/inxi.log ./
+      args:
+        chdir: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}'
+
+    - name: Fetch result files to local manchine
+      synchronize:
+        mode: pull
+        src: '{{ ansible_env.HOME }}/qtip_result/'
+        dest: '{{ result_dir }}/dpi/logs/'

@@ -1,0 +1,77 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Making Dpi directory
+      file:
+        path: '{{ result_dir }}/dpi/logs/'
+        state: directory
+
+- hosts: hosts
+  become: yes
+  remote_user: root
+
+  tasks:
+    - name: Checking home directory
+      shell: echo $HOME
+      register: home_dir
+
+    - name: Cleaning tempD directory
+      file:
+        path: '{{ home_dir.stdout }}/tempD'
+        state: absent
+
+    - name: Cleaning qtip_result directory
+      file:
+        path: '{{ home_dir.stdout }}/qtip_result'
+        state: absent
+
+    - include: ../prepare_env.yaml
+
+    - name: Installing nDPI dependencies if CentOS
+      yum:
+        name: '{{ item }}'
+        state: present
+      when: ansible_os_family == "RedHat"
+      with_items:
+        - git
+        - gcc
+        - patch
+        - perl-Time-HiRes
+        - autofconf
+        - automake
+        - libpcap-devel libtool
+
+    - name: Installing nDPI dependencies if Ubuntu
+      apt:
+        name: '{{ item }}'
+        state: present
+      when: ansible_os_family == "Debian"
+      with_items:
+        - git
+        - gcc
+        - patch
+        - autoconf
+        - automake
+        - libpcap-dev
+        - libtool
+
+    - name: Making nDPI temporary directory
+      file:
+        path: '{{ home_dir.stdout }}/tempD'
+        state: directory
+
+    - name: Clone nDPI
+      git:
+        repo: https://github.com/ntop/nDPI.git
+        dest: '{{ home_dir.stdout }}/tempD/nDPI'

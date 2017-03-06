@@ -34,4 +34,4 @@ sections:
   weight: 0.1
   formula: geometric mean
   metrics:
-    - ssl.yaml
+    - openssl.yaml

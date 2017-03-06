@@ -1,0 +1,59 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+- hosts: hosts
+  become: yes
+  remote_user: root
+
+  tasks:
+    - name: Get current timestamp
+      set_fact:
+        timestamp: "{{ lookup('pipe', 'date +%Y-%m-%d-%H-%M') }}"
+
+    - name: Make some directories needed
+      file:
+        path: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}'
+        state: directory
+
+    - name: Configure && Make && Install OpenSSL
+      command: "{{ item }}"
+      with_items:
+        - ./config
+        - make
+        - make install
+      args:
+        chdir: '{{ ansible_env.HOME }}/Open_SSL/openssl-1.0.2f'
+
+    - include: ../inxi.yaml
+
+    - include: ../top.yaml
+
+    - name: Benchmarking RSA signatures and AES-128-cbc cipher encryption throughput
+      shell: '{{ item }}'
+      with_items:
+        - ./openssl speed rsa >> RSA_dump
+        - ./openssl speed -evp aes-128-cbc >> AES-128-CBC_dump
+      args:
+        chdir: '{{ ansible_env.HOME }}/Open_SSL/openssl-1.0.2f/apps'
+
+    - name: Copying result to qtip result directory
+      command: '{{ item }}'
+      with_items:
+        - cp $HOME/Open_SSL/openssl-1.0.2f/apps/RSA_dump ./
+        - cp $HOME/Open_SSL/openssl-1.0.2f/apps/AES-128-CBC_dump ./
+        - mv $HOME/qtip_result/top.log ./
+        - mv $HOME/qtip_result/inxi.log ./
+      args:
+        chdir: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}/'
+
+    - name: Fetch result files to local manchine
+      synchronize:
+        mode: pull
+        src: '{{ ansible_env.HOME }}/qtip_result/'
+        dest: '{{ result_dir }}/openssl/logs/'

@@ -1,0 +1,87 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Making openssl directory
+      file:
+        path: '{{ result_dir }}/openssl/logs/'
+        state: directory
+
+- hosts: hosts
+  become: yes
+  remote_user: root
+
+  tasks:
+    - name: Cleaning Open_SSL directory
+      file:
+        path: '{{ ansible_env.HOME }}/Open_SSL'
+        state: absent
+
+    - name: Cleaning qtip_result directory
+      file:
+        path: '{{ ansible_env.HOME }}/qtip_result'
+        state: absent
+
+    - include: ../prepare_env.yaml
+
+    - name: Installing UnixBench dependencies if CentOS
+      yum:
+        name: '{{ item }}'
+        state: present
+      when: ansible_os_family == "RedHat"
+      with_items:
+        - git
+        - gcc
+        - patch
+        - perl-Time-HiRes
+        - wget
+        - autofconf
+        - automake
+        - libpcap-devel
+        - libtool
+
+    - name: Installing UnixBench dependencies if Ubuntu
+      apt:
+        name: '{{ item }}'
+        state: present
+      when: ansible_os_family == "Debian"
+      with_items:
+        - git
+        - gcc
+        - patch
+        - perl
+        - wget
+        - autoconf
+        - automake
+        - libpcap-dev
+        - libtool
+
+    - name: Make Open_SSL directory
+      file:
+        path: '{{ ansible_env.HOME }}/Open_SSL'
+        state: directory
+
+    - name: Untar OpenSSL
+      unarchive:
+        src: http://artifacts.opnfv.org/qtip/utilities/openssl-1.0.2f.tar.gz
+        dest: '{{ ansible_env.HOME }}/Open_SSL/'
+        remote_src: True
+
+    - name: Configure && Make && Install OpenSSL
+      shell: "{{ item }}"
+      with_items:
+        - ./config
+        - make
+        - make install
+      args:
+        chdir: '{{ ansible_env.HOME }}/Open_SSL/openssl-1.0.2f'

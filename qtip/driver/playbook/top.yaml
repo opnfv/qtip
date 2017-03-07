@@ -7,4 +7,6 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 - name: Collect cpu usage
-  shell: top -bn1 > $HOME/qtip_result/top.log
+  shell: top -bn1 > top.log
+  args:
+    chdir: '{{ dest_path }}/'

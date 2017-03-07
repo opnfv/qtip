@@ -20,4 +20,6 @@
   when: ansible_os_family == "Debian"
 
 - name: Run inxi
-  shell: inxi -b -c0 -n > $HOME/qtip_result/inxi.log
+  shell: inxi -b -c0 -n > inxi.log
+  args:
+    chdir: '{{ dest_path }}/'

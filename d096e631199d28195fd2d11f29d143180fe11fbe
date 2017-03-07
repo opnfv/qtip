@@ -22,6 +22,30 @@
       "revId": "d096e631199d28195fd2d11f29d143180fe11fbe",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_6758fc56",
+        "filename": "tests/data/benchmarks/metric/openssl.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-03-07T17:36:50Z",
+      "side": 1,
+      "message": "I change all ssl to openssl? Any problem?",
+      "parentUuid": "dabed58f_a7e7d411",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 13
+      },
+      "revId": "d096e631199d28195fd2d11f29d143180fe11fbe",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

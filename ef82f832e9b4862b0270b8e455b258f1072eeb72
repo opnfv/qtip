@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_1904097a",
+        "filename": "DEVELOP.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-07T02:39:44Z",
+      "side": 1,
+      "message": "any more detailed background information about this?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 20
+      },
+      "revId": "ef82f832e9b4862b0270b8e455b258f1072eeb72",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_a7e7d411",
+        "filename": "tests/data/benchmarks/metric/openssl.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-07T15:12:18Z",
+      "side": 1,
+      "message": "Why this name is changed?",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 13
+      },
+      "revId": "d096e631199d28195fd2d11f29d143180fe11fbe",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

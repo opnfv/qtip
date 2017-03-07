@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_d9519163",
+        "filename": "qtip/driver/playbook/dpi/dpi_average.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-07T03:34:57Z",
+      "side": 1,
+      "message": "I think this is to be done in a separate patch. We don\u0027t want to mix refactoring with bug fix or new features",
+      "parentUuid": "dabed58f_39b78dda",
+      "range": {
+        "startLine": 8,
+        "startChar": 1,
+        "endLine": 8,
+        "endChar": 53
+      },
+      "revId": "7c202cdf7ea8ff7dccc56d68bdf17d1ecb15dd24",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_199f2954",
         "filename": "qtip/driver/playbook/dpi/dpi_average.sh",
         "patchSetId": 1

@@ -1,6 +1,6 @@
 ##############################################################################
 # Copyright (c) 2017 ZTE Corporation and others.
-#
+# zhihui.wu1@zte.com.cn
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
 # which accompanies this distribution, and is available at
@@ -12,16 +12,14 @@
   remote_user: root
 
   tasks:
-    - name: Checking home directory
-      shell: echo $HOME
-      register: home_dir
-
     - name: Cleaning tempT
       file:
-        path: '{{ home_dir.stdout }}/tempT'
+        path: '{{ ansible_env.HOME }}/tempT'
         state: absent
 
     - name: Cleaning qtip_result
       file:
-        path: '{{ home_dir.stdout }}/qtip_result'
+        path: '{{ ansible_env.HOME }}/qtip_result'
         state: absent
+
+

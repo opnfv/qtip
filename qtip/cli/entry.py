@@ -8,8 +8,11 @@
 ##############################################################################
 
 import click
+import ConfigParser
 import os
 import sys
+
+from os import path
 
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
@@ -20,6 +23,19 @@ sys.tracebacklimit = 0
 
 class Context(object):
     """ Load configuration and pass to subcommands """
+
+    def __init__(self):
+        self.root_dir = path.join(path.dirname(__file__), os.pardir, os.pardir)
+        self.default_path = path.join(self.root_dir, 'benchmarks')
+
+    def paths(self):
+        config = ConfigParser.ConfigParser()
+        config.read(path.join(self.root_dir, '.qtip.cfg'))
+        try:
+            custom_path = config.get('default', 'path')
+            return path.join(self.root_dir, custom_path)
+        except ConfigParser.NoOptionError:
+            return self.default_path
 
 
 pass_context = click.make_pass_decorator(Context, ensure=True)

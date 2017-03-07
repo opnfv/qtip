@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_39b78dda",
+        "filename": "qtip/driver/playbook/dpi/dpi_average.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-07T02:31:54Z",
+      "side": 1,
+      "message": "after each test, please add some delay such as 5s, or it the cpu scheduler will run the test on the same cpu core/cache, etc at most possible .",
+      "range": {
+        "startLine": 8,
+        "startChar": 1,
+        "endLine": 8,
+        "endChar": 53
+      },
+      "revId": "7c202cdf7ea8ff7dccc56d68bdf17d1ecb15dd24",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_5995a131",
+        "filename": "qtip/driver/playbook/dpi/dpi_average.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-07T02:31:54Z",
+      "side": 1,
+      "message": "tabs",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 1
+      },
+      "revId": "7c202cdf7ea8ff7dccc56d68bdf17d1ecb15dd24",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_199f2954",
+        "filename": "qtip/driver/playbook/dpi/dpi_average.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-07T02:31:54Z",
+      "side": 1,
+      "message": "red trails",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 7
+      },
+      "revId": "7c202cdf7ea8ff7dccc56d68bdf17d1ecb15dd24",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_b9a37d9d",
+        "filename": "qtip/driver/playbook/dpi/dpi_average.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-07T02:31:54Z",
+      "side": 1,
+      "message": "red trails",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 1
+      },
+      "revId": "7c202cdf7ea8ff7dccc56d68bdf17d1ecb15dd24",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_99c1d930",
+        "filename": "qtip/driver/playbook/dpi/run.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-07T02:31:54Z",
+      "side": 1,
+      "message": "which can be get by \"{{lookup(\u0027ansible_env\u0027,\u0027HOME\u0027)}}\"\n\nor \n{{ ansible_env.HOME }} after ansible 1.4",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 24
+      },
+      "revId": "7c202cdf7ea8ff7dccc56d68bdf17d1ecb15dd24",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_39dead12",
+        "filename": "qtip/driver/playbook/dpi/run.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-07T02:31:54Z",
+      "side": 1,
+      "message": "the same",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "7c202cdf7ea8ff7dccc56d68bdf17d1ecb15dd24",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_59e361d9",
+        "filename": "qtip/driver/playbook/dpi/run.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-07T02:31:54Z",
+      "side": 1,
+      "message": "try about\n\nuse mktemp to create a temp by system instead of the fixed name",
+      "range": {
+        "startLine": 35,
+        "startChar": 38,
+        "endLine": 35,
+        "endChar": 43
+      },
+      "revId": "7c202cdf7ea8ff7dccc56d68bdf17d1ecb15dd24",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_b9d13dfd",
+        "filename": "qtip/driver/playbook/dpi/run.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-07T02:31:54Z",
+      "side": 1,
+      "message": "is there a way to change to {{ home_dir.stdout }}/tempD/nDPI/ and run the test instead of set it each time.",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 50
+      },
+      "revId": "7c202cdf7ea8ff7dccc56d68bdf17d1ecb15dd24",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_99d8f91e",
+        "filename": "qtip/driver/playbook/dpi/run.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-07T02:31:54Z",
+      "side": 1,
+      "message": "merge to one line if more efficient",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 89
+      },
+      "revId": "7c202cdf7ea8ff7dccc56d68bdf17d1ecb15dd24",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_39054d7a",
+        "filename": "qtip/driver/playbook/dpi/setup.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-07T02:31:54Z",
+      "side": 1,
+      "message": "use ansible install module and keep the dependancies into the config var.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 17
+      },
+      "revId": "7c202cdf7ea8ff7dccc56d68bdf17d1ecb15dd24",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

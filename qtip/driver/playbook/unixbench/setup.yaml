@@ -1,39 +1,46 @@
-##############################################################################
+#############################################################################
 # Copyright (c) 2017 ZTE Corporation and others.
-#
+# zhihui.wu1@zte.com.cn
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
-##############################################################################
+#############################################################################
 
 - hosts: localhost
   connection: local
   gather_facts: no
 
   tasks:
+    - set_fact:
+        is_dhrystone: "{{ dhrystone | default(False) }}"
+        is_whetstone: "{{ whetstone | default(False) }}"
+
     - name: Making dhrystone directory
       file:
         path: '{{ result_dir }}/dhrystone/logs/'
         state: directory
+      when: '{{ is_dhrystone }}'
+
+    - name: Making whetstone directory
+      file:
+        path: '{{ result_dir }}/whetstone/logs/'
+        state: directory
+      when: '{{ is_whetstone }}'
 
 - hosts: hosts
   become: yes
   remote_user: root
 
   tasks:
-    - name: Checking home directory
-      shell: echo $HOME
-      register: home_dir
-
     - name: Cleaning tempT directory
       file:
-        path: '{{ home_dir.stdout }}/tempT'
+        path: '{{ ansible_env.HOME }}/tempT'
         state: absent
 
     - name: Cleaning qtip_result directory
       file:
-        path: '{{ home_dir.stdout }}/qtip_result'
+        path: '{{ ansible_env.HOME }}/qtip_result'
         state: absent
 
     - include: ../prepare_env.yaml
@@ -60,7 +67,10 @@
         - patch
         - perl
 
-    - name: Clone unixbench
+    - name: Clone UnixBench
       git:
         repo: https://github.com/kdlucas/byte-unixbench.git
-        dest: '{{ home_dir.stdout }}/tempT'
+        dest: '{{ ansible_env.HOME }}/tempT/'
+
+    - name: Make UnixBench
+      shell: make --directory $HOME/tempT/UnixBench/

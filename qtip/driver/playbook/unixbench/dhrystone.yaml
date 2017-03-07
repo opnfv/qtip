@@ -1,0 +1,27 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+# zhihui.wu1@zte.com.cn
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+- name: Run dhrystone
+  shell: ./Run -v dhrystone
+  args:
+    chdir: '{{ ansible_env.HOME }}/tempT/UnixBench/'
+
+- name: Copying result and system info to qtip result directory
+  shell: '{{ item }}'
+  with_items:
+    - mv ~/tempT/UnixBench/results/* ./
+    - cp ~/qtip_result/inxi.log ~/qtip_result/top.log ./
+  args:
+    chdir: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}'
+
+- name: Fetch dhrystone result files to local manchine
+  synchronize:
+    mode: pull
+    src: '{{ ansible_env.HOME }}/qtip_result/'
+    dest: '{{ result_dir }}/dhrystone/logs/'

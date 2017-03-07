@@ -22,6 +22,30 @@
       "revId": "ef82f832e9b4862b0270b8e455b258f1072eeb72",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_591841d3",
+        "filename": "DEVELOP.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-07T03:27:39Z",
+      "side": 1,
+      "message": "We integrated a License checking tool to scan the source files and add missing headers. And we made some local changes to make it work for QTIP.",
+      "parentUuid": "dabed58f_1904097a",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 20
+      },
+      "revId": "ef82f832e9b4862b0270b8e455b258f1072eeb72",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

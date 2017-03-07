@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2016 ZTE Corp and others.
+# Copyright (c) 2016 taseer94@gmail.com and others.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
@@ -10,7 +10,9 @@
 
 import click
 
+from qtip.cli import utils
 from qtip.cli.entry import Context
+from qtip.loader.plan import Plan
 
 
 pass_context = click.make_pass_decorator(Context, ensure=False)
@@ -32,7 +34,9 @@ def init(ctx):
 @cli.command('list', help='List the Plans')
 @pass_context
 def list(ctx):
-    pass
+    plans = Plan.list_all(paths=[ctx.temp_path])
+    table = utils.table('Plans', plans)
+    click.echo(table)
 
 
 @cli.command('show', help='View details of a Plan')

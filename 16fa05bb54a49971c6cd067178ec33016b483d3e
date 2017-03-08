@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_dcb65a8a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-08T20:11:26Z",
+      "side": 1,
+      "message": "typo of average?",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "16fa05bb54a49971c6cd067178ec33016b483d3e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_3cc216ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-08T20:11:26Z",
+      "side": 1,
+      "message": "Why this is single quote?",
+      "range": {
+        "startLine": 22,
+        "startChar": 22,
+        "endLine": 22,
+        "endChar": 23
+      },
+      "revId": "16fa05bb54a49971c6cd067178ec33016b483d3e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_fcbb1e70",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-08T20:11:26Z",
+      "side": 1,
+      "message": "The same as L22",
+      "range": {
+        "startLine": 27,
+        "startChar": 5,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "16fa05bb54a49971c6cd067178ec33016b483d3e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_9cb0e28c",
+        "filename": "tests/data/benchmarks/plan/compute.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-08T20:11:26Z",
+      "side": 1,
+      "message": "typo of \"average\"?",
+      "range": {
+        "startLine": 42,
+        "startChar": 60,
+        "endLine": 42,
+        "endChar": 76
+      },
+      "revId": "16fa05bb54a49971c6cd067178ec33016b483d3e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_bcada633",
+        "filename": "tests/data/benchmarks/plan/compute.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-08T20:11:26Z",
+      "side": 1,
+      "message": "typo of \"average\"?",
+      "range": {
+        "startLine": 54,
+        "startChar": 61,
+        "endLine": 54,
+        "endChar": 75
+      },
+      "revId": "16fa05bb54a49971c6cd067178ec33016b483d3e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

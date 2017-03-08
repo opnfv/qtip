@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_0df91fe9",
+        "filename": ".qtip.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-08T07:14:23Z",
+      "side": 1,
+      "message": "If you need it for test, generate it in a fixture required by the test case and remove it after test. e.g.\n\n@pytest.fixture\ndef qtip_cfg()\n   cfg \u003d ... # create the file\n   yield cfg\n   # remove the file",
+      "parentUuid": "dabed58f_0d74bf97",
+      "revId": "6948cc58267120b843f13e5404b62b80f920e264",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_2232f210",
         "filename": "qtip/cli/entry.py",
         "patchSetId": 1

@@ -46,6 +46,30 @@
       "revId": "d096e631199d28195fd2d11f29d143180fe11fbe",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_421e0672",
+        "filename": "tests/data/benchmarks/metric/openssl.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-08T04:36:12Z",
+      "side": 1,
+      "message": "openssl is one implementation of ssl. If we are benchmarking the performance for ssl mechanism, we should name it ssl. If we are benchmarking for openssl library, name it openssl.\n\nDo you mean we will create metrics like libressl.yaml or other ssl library in future? This will surely make our benchmark more comprehensive.\n\nThen it is fine for me for the renaming. Just to ensure we have the same understanding.",
+      "parentUuid": "dabed58f_6758fc56",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 13
+      },
+      "revId": "d096e631199d28195fd2d11f29d143180fe11fbe",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

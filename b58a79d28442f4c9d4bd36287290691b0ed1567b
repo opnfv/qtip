@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_c2e4360f",
+        "filename": "qtip/driver/playbook/dpi/dpi_average.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-08T00:57:10Z",
+      "side": 1,
+      "message": "when use a fixed times of loop in bash, for is better. no requirement to deal with the counter",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 29
+      },
+      "revId": "b58a79d28442f4c9d4bd36287290691b0ed1567b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

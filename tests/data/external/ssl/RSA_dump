@@ -1,0 +1,9 @@
+OpenSSL 1.0.2f  28 Jan 2016
+built on: reproducible build, date unspecified
+options:bn(64,64) rc4(16x,int) des(idx,cisc,16,int) aes(partial) idea(int) blowfish(idx)
+compiler: gcc -I. -I.. -I../include  -DOPENSSL_THREADS -D_REENTRANT -DDSO_DLFCN -DHAVE_DLFCN_H -Wa,--noexecstack -m64 -DL_ENDIAN -O3 -Wall -DOPENSSL_IA32_SSE2 -DOPENSSL_BN_ASM_MONT -DOPENSSL_BN_ASM_MONT5 -DOPENSSL_BN_ASM_GF2m -DSHA1_ASM -DSHA256_ASM -DSHA512_ASM -DMD5_ASM -DAES_ASM -DVPAES_ASM -DBSAES_ASM -DWHIRLPOOL_ASM -DGHASH_ASM -DECP_NISTZ256_ASM
+                  sign    verify    sign/s verify/s
+rsa  512 bits 0.000056s 0.000004s  17828.4 222903.5
+rsa 1024 bits 0.000169s 0.000011s   5923.9  88397.9
+rsa 2048 bits 0.000793s 0.000037s   1261.4  26951.3
+rsa 4096 bits 0.008280s 0.000131s    120.8   7633.7

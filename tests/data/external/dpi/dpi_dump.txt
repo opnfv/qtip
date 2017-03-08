@@ -1,0 +1,809 @@
+-----------------------------------------------------------
+* NOTE: This is demo app to show *some* nDPI features.
+* In this demo we have implemented only some basic features
+* just to show you what you can do with the library. Feel
+* free to extend it and send us the patches for inclusion
+------------------------------------------------------------
+
+Using nDPI (1.8.0-dev-707-6a27b62) [1 thread(s)]
+Reading packets from pcap file test.pcap...
+Running thread 0...
+
+nDPI Memory statistics:
+	nDPI Memory (once):      110.55 KB
+	Flow Memory (per flow):  1.95 KB
+	Actual Memory:           3.46 MB
+	Peak Memory:             3.46 MB
+
+Traffic statistics:
+	Ethernet bytes:        75948198      (includes ethernet CRC/IFC/trailer)
+	Discarded bytes:       55256
+	IP packets:            60265         of 61155 packets total
+	IP bytes:              74501838      (avg pkt size 1218 bytes)
+	Unique flows:          545
+	TCP Packets:           21188
+	UDP Packets:           39042
+	VLAN Packets:          0
+	MPLS Packets:          0
+	PPPoE Packets:         0
+	Fragmented Packets:    4
+	Max Packet size:       64260
+	Packet Len < 64:       30624
+	Packet Len 64-128:     1158
+	Packet Len 128-256:    674
+	Packet Len 256-1024:   817
+	Packet Len 1024-1500:  21924
+	Packet Len > 1500:     5068
+	nDPI throughput:       1.56 M pps / 14.62 Gb/sec
+	Traffic throughput:    228.03 pps / 2.19 Mb/sec
+	Traffic duration:      264.290 sec
+	Guessed flow protos:   9
+
+
+Detected protocols:
+	Unknown              packets: 6126          bytes: 10913415      flows: 46
+	FTP_CONTROL          packets: 42            bytes: 4384          flows: 1
+	DNS                  packets: 66            bytes: 6520          flows: 23
+	IPP                  packets: 46            bytes: 12059         flows: 1
+	HTTP                 packets: 377           bytes: 113616        flows: 24
+	MDNS                 packets: 43            bytes: 11742         flows: 9
+	NetBIOS              packets: 48            bytes: 4754          flows: 12
+	SSDP                 packets: 101           bytes: 32533         flows: 21
+	DHCP                 packets: 21            bytes: 7346          flows: 2
+	BitTorrent           packets: 37639         bytes: 29656716      flows: 65
+	ICMP                 packets: 15            bytes: 4956          flows: 5
+	IGMP                 packets: 10            bytes: 600           flows: 9
+	SSL                  packets: 1199          bytes: 622508        flows: 24
+	ICMPV6               packets: 2             bytes: 172           flows: 2
+	DHCPV6               packets: 1             bytes: 144           flows: 1
+	Facebook             packets: 349           bytes: 206444        flows: 21
+	Twitter              packets: 137           bytes: 45679         flows: 8
+	Dropbox              packets: 155           bytes: 45358         flows: 12
+	GMail                packets: 35            bytes: 10470         flows: 3
+	YouTube              packets: 11721         bytes: 31050728      flows: 33
+	Skype                packets: 237           bytes: 35082         flows: 30
+	Google               packets: 558           bytes: 164639        flows: 52
+	WhatsApp             packets: 969           bytes: 1477350       flows: 17
+	Viber                packets: 60            bytes: 27602         flows: 1
+	LLMNR                packets: 71            bytes: 5297          flows: 36
+	Amazon               packets: 89            bytes: 23572         flows: 9
+	QUIC                 packets: 41            bytes: 3474          flows: 1
+	BJNP                 packets: 72            bytes: 4320          flows: 72
+	Microsoft            packets: 35            bytes: 10358         flows: 5
+
+
+Protocol statistics:
+	Safe                        632978 bytes
+	Acceptable                31693889 bytes
+	Fun                       31257172 bytes
+	Unsafe                        4384 bytes
+	Unrated                   10913415 bytes
+
+-----------------------------------------------------------
+* NOTE: This is demo app to show *some* nDPI features.
+* In this demo we have implemented only some basic features
+* just to show you what you can do with the library. Feel
+* free to extend it and send us the patches for inclusion
+------------------------------------------------------------
+
+Using nDPI (1.8.0-dev-707-6a27b62) [1 thread(s)]
+Reading packets from pcap file test.pcap...
+Running thread 0...
+
+nDPI Memory statistics:
+	nDPI Memory (once):      110.55 KB
+	Flow Memory (per flow):  1.95 KB
+	Actual Memory:           3.46 MB
+	Peak Memory:             3.46 MB
+
+Traffic statistics:
+	Ethernet bytes:        75948198      (includes ethernet CRC/IFC/trailer)
+	Discarded bytes:       55256
+	IP packets:            60265         of 61155 packets total
+	IP bytes:              74501838      (avg pkt size 1218 bytes)
+	Unique flows:          545
+	TCP Packets:           21188
+	UDP Packets:           39042
+	VLAN Packets:          0
+	MPLS Packets:          0
+	PPPoE Packets:         0
+	Fragmented Packets:    4
+	Max Packet size:       64260
+	Packet Len < 64:       30624
+	Packet Len 64-128:     1158
+	Packet Len 128-256:    674
+	Packet Len 256-1024:   817
+	Packet Len 1024-1500:  21924
+	Packet Len > 1500:     5068
+	nDPI throughput:       1.31 M pps / 12.31 Gb/sec
+	Traffic throughput:    228.03 pps / 2.19 Mb/sec
+	Traffic duration:      264.290 sec
+	Guessed flow protos:   9
+
+
+Detected protocols:
+	Unknown              packets: 6126          bytes: 10913415      flows: 46
+	FTP_CONTROL          packets: 42            bytes: 4384          flows: 1
+	DNS                  packets: 66            bytes: 6520          flows: 23
+	IPP                  packets: 46            bytes: 12059         flows: 1
+	HTTP                 packets: 377           bytes: 113616        flows: 24
+	MDNS                 packets: 43            bytes: 11742         flows: 9
+	NetBIOS              packets: 48            bytes: 4754          flows: 12
+	SSDP                 packets: 101           bytes: 32533         flows: 21
+	DHCP                 packets: 21            bytes: 7346          flows: 2
+	BitTorrent           packets: 37639         bytes: 29656716      flows: 65
+	ICMP                 packets: 15            bytes: 4956          flows: 5
+	IGMP                 packets: 10            bytes: 600           flows: 9
+	SSL                  packets: 1199          bytes: 622508        flows: 24
+	ICMPV6               packets: 2             bytes: 172           flows: 2
+	DHCPV6               packets: 1             bytes: 144           flows: 1
+	Facebook             packets: 349           bytes: 206444        flows: 21
+	Twitter              packets: 137           bytes: 45679         flows: 8
+	Dropbox              packets: 155           bytes: 45358         flows: 12
+	GMail                packets: 35            bytes: 10470         flows: 3
+	YouTube              packets: 11721         bytes: 31050728      flows: 33
+	Skype                packets: 237           bytes: 35082         flows: 30
+	Google               packets: 558           bytes: 164639        flows: 52
+	WhatsApp             packets: 969           bytes: 1477350       flows: 17
+	Viber                packets: 60            bytes: 27602         flows: 1
+	LLMNR                packets: 71            bytes: 5297          flows: 36
+	Amazon               packets: 89            bytes: 23572         flows: 9
+	QUIC                 packets: 41            bytes: 3474          flows: 1
+	BJNP                 packets: 72            bytes: 4320          flows: 72
+	Microsoft            packets: 35            bytes: 10358         flows: 5
+
+
+Protocol statistics:
+	Safe                        632978 bytes
+	Acceptable                31693889 bytes
+	Fun                       31257172 bytes
+	Unsafe                        4384 bytes
+	Unrated                   10913415 bytes
+
+-----------------------------------------------------------
+* NOTE: This is demo app to show *some* nDPI features.
+* In this demo we have implemented only some basic features
+* just to show you what you can do with the library. Feel
+* free to extend it and send us the patches for inclusion
+------------------------------------------------------------
+
+Using nDPI (1.8.0-dev-707-6a27b62) [1 thread(s)]
+Reading packets from pcap file test.pcap...
+Running thread 0...
+
+nDPI Memory statistics:
+	nDPI Memory (once):      110.55 KB
+	Flow Memory (per flow):  1.95 KB
+	Actual Memory:           3.46 MB
+	Peak Memory:             3.46 MB
+
+Traffic statistics:
+	Ethernet bytes:        75948198      (includes ethernet CRC/IFC/trailer)
+	Discarded bytes:       55256
+	IP packets:            60265         of 61155 packets total
+	IP bytes:              74501838      (avg pkt size 1218 bytes)
+	Unique flows:          545
+	TCP Packets:           21188
+	UDP Packets:           39042
+	VLAN Packets:          0
+	MPLS Packets:          0
+	PPPoE Packets:         0
+	Fragmented Packets:    4
+	Max Packet size:       64260
+	Packet Len < 64:       30624
+	Packet Len 64-128:     1158
+	Packet Len 128-256:    674
+	Packet Len 256-1024:   817
+	Packet Len 1024-1500:  21924
+	Packet Len > 1500:     5068
+	nDPI throughput:       1.54 M pps / 14.45 Gb/sec
+	Traffic throughput:    228.03 pps / 2.19 Mb/sec
+	Traffic duration:      264.290 sec
+	Guessed flow protos:   9
+
+
+Detected protocols:
+	Unknown              packets: 6126          bytes: 10913415      flows: 46
+	FTP_CONTROL          packets: 42            bytes: 4384          flows: 1
+	DNS                  packets: 66            bytes: 6520          flows: 23
+	IPP                  packets: 46            bytes: 12059         flows: 1
+	HTTP                 packets: 377           bytes: 113616        flows: 24
+	MDNS                 packets: 43            bytes: 11742         flows: 9
+	NetBIOS              packets: 48            bytes: 4754          flows: 12
+	SSDP                 packets: 101           bytes: 32533         flows: 21
+	DHCP                 packets: 21            bytes: 7346          flows: 2
+	BitTorrent           packets: 37639         bytes: 29656716      flows: 65
+	ICMP                 packets: 15            bytes: 4956          flows: 5
+	IGMP                 packets: 10            bytes: 600           flows: 9
+	SSL                  packets: 1199          bytes: 622508        flows: 24
+	ICMPV6               packets: 2             bytes: 172           flows: 2
+	DHCPV6               packets: 1             bytes: 144           flows: 1
+	Facebook             packets: 349           bytes: 206444        flows: 21
+	Twitter              packets: 137           bytes: 45679         flows: 8
+	Dropbox              packets: 155           bytes: 45358         flows: 12
+	GMail                packets: 35            bytes: 10470         flows: 3
+	YouTube              packets: 11721         bytes: 31050728      flows: 33
+	Skype                packets: 237           bytes: 35082         flows: 30
+	Google               packets: 558           bytes: 164639        flows: 52
+	WhatsApp             packets: 969           bytes: 1477350       flows: 17
+	Viber                packets: 60            bytes: 27602         flows: 1
+	LLMNR                packets: 71            bytes: 5297          flows: 36
+	Amazon               packets: 89            bytes: 23572         flows: 9
+	QUIC                 packets: 41            bytes: 3474          flows: 1
+	BJNP                 packets: 72            bytes: 4320          flows: 72
+	Microsoft            packets: 35            bytes: 10358         flows: 5
+
+
+Protocol statistics:
+	Safe                        632978 bytes
+	Acceptable                31693889 bytes
+	Fun                       31257172 bytes
+	Unsafe                        4384 bytes
+	Unrated                   10913415 bytes
+
+-----------------------------------------------------------
+* NOTE: This is demo app to show *some* nDPI features.
+* In this demo we have implemented only some basic features
+* just to show you what you can do with the library. Feel
+* free to extend it and send us the patches for inclusion
+------------------------------------------------------------
+
+Using nDPI (1.8.0-dev-707-6a27b62) [1 thread(s)]
+Reading packets from pcap file test.pcap...
+Running thread 0...
+
+nDPI Memory statistics:
+	nDPI Memory (once):      110.55 KB
+	Flow Memory (per flow):  1.95 KB
+	Actual Memory:           3.46 MB
+	Peak Memory:             3.46 MB
+
+Traffic statistics:
+	Ethernet bytes:        75948198      (includes ethernet CRC/IFC/trailer)
+	Discarded bytes:       55256
+	IP packets:            60265         of 61155 packets total
+	IP bytes:              74501838      (avg pkt size 1218 bytes)
+	Unique flows:          545
+	TCP Packets:           21188
+	UDP Packets:           39042
+	VLAN Packets:          0
+	MPLS Packets:          0
+	PPPoE Packets:         0
+	Fragmented Packets:    4
+	Max Packet size:       64260
+	Packet Len < 64:       30624
+	Packet Len 64-128:     1158
+	Packet Len 128-256:    674
+	Packet Len 256-1024:   817
+	Packet Len 1024-1500:  21924
+	Packet Len > 1500:     5068
+	nDPI throughput:       1.35 M pps / 12.71 Gb/sec
+	Traffic throughput:    228.03 pps / 2.19 Mb/sec
+	Traffic duration:      264.290 sec
+	Guessed flow protos:   9
+
+
+Detected protocols:
+	Unknown              packets: 6126          bytes: 10913415      flows: 46
+	FTP_CONTROL          packets: 42            bytes: 4384          flows: 1
+	DNS                  packets: 66            bytes: 6520          flows: 23
+	IPP                  packets: 46            bytes: 12059         flows: 1
+	HTTP                 packets: 377           bytes: 113616        flows: 24
+	MDNS                 packets: 43            bytes: 11742         flows: 9
+	NetBIOS              packets: 48            bytes: 4754          flows: 12
+	SSDP                 packets: 101           bytes: 32533         flows: 21
+	DHCP                 packets: 21            bytes: 7346          flows: 2
+	BitTorrent           packets: 37639         bytes: 29656716      flows: 65
+	ICMP                 packets: 15            bytes: 4956          flows: 5
+	IGMP                 packets: 10            bytes: 600           flows: 9
+	SSL                  packets: 1199          bytes: 622508        flows: 24
+	ICMPV6               packets: 2             bytes: 172           flows: 2
+	DHCPV6               packets: 1             bytes: 144           flows: 1
+	Facebook             packets: 349           bytes: 206444        flows: 21
+	Twitter              packets: 137           bytes: 45679         flows: 8
+	Dropbox              packets: 155           bytes: 45358         flows: 12
+	GMail                packets: 35            bytes: 10470         flows: 3
+	YouTube              packets: 11721         bytes: 31050728      flows: 33
+	Skype                packets: 237           bytes: 35082         flows: 30
+	Google               packets: 558           bytes: 164639        flows: 52
+	WhatsApp             packets: 969           bytes: 1477350       flows: 17
+	Viber                packets: 60            bytes: 27602         flows: 1
+	LLMNR                packets: 71            bytes: 5297          flows: 36
+	Amazon               packets: 89            bytes: 23572         flows: 9
+	QUIC                 packets: 41            bytes: 3474          flows: 1
+	BJNP                 packets: 72            bytes: 4320          flows: 72
+	Microsoft            packets: 35            bytes: 10358         flows: 5
+
+
+Protocol statistics:
+	Safe                        632978 bytes
+	Acceptable                31693889 bytes
+	Fun                       31257172 bytes
+	Unsafe                        4384 bytes
+	Unrated                   10913415 bytes
+
+-----------------------------------------------------------
+* NOTE: This is demo app to show *some* nDPI features.
+* In this demo we have implemented only some basic features
+* just to show you what you can do with the library. Feel
+* free to extend it and send us the patches for inclusion
+------------------------------------------------------------
+
+Using nDPI (1.8.0-dev-707-6a27b62) [1 thread(s)]
+Reading packets from pcap file test.pcap...
+Running thread 0...
+
+nDPI Memory statistics:
+	nDPI Memory (once):      110.55 KB
+	Flow Memory (per flow):  1.95 KB
+	Actual Memory:           3.46 MB
+	Peak Memory:             3.46 MB
+
+Traffic statistics:
+	Ethernet bytes:        75948198      (includes ethernet CRC/IFC/trailer)
+	Discarded bytes:       55256
+	IP packets:            60265         of 61155 packets total
+	IP bytes:              74501838      (avg pkt size 1218 bytes)
+	Unique flows:          545
+	TCP Packets:           21188
+	UDP Packets:           39042
+	VLAN Packets:          0
+	MPLS Packets:          0
+	PPPoE Packets:         0
+	Fragmented Packets:    4
+	Max Packet size:       64260
+	Packet Len < 64:       30624
+	Packet Len 64-128:     1158
+	Packet Len 128-256:    674
+	Packet Len 256-1024:   817
+	Packet Len 1024-1500:  21924
+	Packet Len > 1500:     5068
+	nDPI throughput:       1.55 M pps / 14.53 Gb/sec
+	Traffic throughput:    228.03 pps / 2.19 Mb/sec
+	Traffic duration:      264.290 sec
+	Guessed flow protos:   9
+
+
+Detected protocols:
+	Unknown              packets: 6126          bytes: 10913415      flows: 46
+	FTP_CONTROL          packets: 42            bytes: 4384          flows: 1
+	DNS                  packets: 66            bytes: 6520          flows: 23
+	IPP                  packets: 46            bytes: 12059         flows: 1
+	HTTP                 packets: 377           bytes: 113616        flows: 24
+	MDNS                 packets: 43            bytes: 11742         flows: 9
+	NetBIOS              packets: 48            bytes: 4754          flows: 12
+	SSDP                 packets: 101           bytes: 32533         flows: 21
+	DHCP                 packets: 21            bytes: 7346          flows: 2
+	BitTorrent           packets: 37639         bytes: 29656716      flows: 65
+	ICMP                 packets: 15            bytes: 4956          flows: 5
+	IGMP                 packets: 10            bytes: 600           flows: 9
+	SSL                  packets: 1199          bytes: 622508        flows: 24
+	ICMPV6               packets: 2             bytes: 172           flows: 2
+	DHCPV6               packets: 1             bytes: 144           flows: 1
+	Facebook             packets: 349           bytes: 206444        flows: 21
+	Twitter              packets: 137           bytes: 45679         flows: 8
+	Dropbox              packets: 155           bytes: 45358         flows: 12
+	GMail                packets: 35            bytes: 10470         flows: 3
+	YouTube              packets: 11721         bytes: 31050728      flows: 33
+	Skype                packets: 237           bytes: 35082         flows: 30
+	Google               packets: 558           bytes: 164639        flows: 52
+	WhatsApp             packets: 969           bytes: 1477350       flows: 17
+	Viber                packets: 60            bytes: 27602         flows: 1
+	LLMNR                packets: 71            bytes: 5297          flows: 36
+	Amazon               packets: 89            bytes: 23572         flows: 9
+	QUIC                 packets: 41            bytes: 3474          flows: 1
+	BJNP                 packets: 72            bytes: 4320          flows: 72
+	Microsoft            packets: 35            bytes: 10358         flows: 5
+
+
+Protocol statistics:
+	Safe                        632978 bytes
+	Acceptable                31693889 bytes
+	Fun                       31257172 bytes
+	Unsafe                        4384 bytes
+	Unrated                   10913415 bytes
+
+-----------------------------------------------------------
+* NOTE: This is demo app to show *some* nDPI features.
+* In this demo we have implemented only some basic features
+* just to show you what you can do with the library. Feel
+* free to extend it and send us the patches for inclusion
+------------------------------------------------------------
+
+Using nDPI (1.8.0-dev-707-6a27b62) [1 thread(s)]
+Reading packets from pcap file test.pcap...
+Running thread 0...
+
+nDPI Memory statistics:
+	nDPI Memory (once):      110.55 KB
+	Flow Memory (per flow):  1.95 KB
+	Actual Memory:           3.46 MB
+	Peak Memory:             3.46 MB
+
+Traffic statistics:
+	Ethernet bytes:        75948198      (includes ethernet CRC/IFC/trailer)
+	Discarded bytes:       55256
+	IP packets:            60265         of 61155 packets total
+	IP bytes:              74501838      (avg pkt size 1218 bytes)
+	Unique flows:          545
+	TCP Packets:           21188
+	UDP Packets:           39042
+	VLAN Packets:          0
+	MPLS Packets:          0
+	PPPoE Packets:         0
+	Fragmented Packets:    4
+	Max Packet size:       64260
+	Packet Len < 64:       30624
+	Packet Len 64-128:     1158
+	Packet Len 128-256:    674
+	Packet Len 256-1024:   817
+	Packet Len 1024-1500:  21924
+	Packet Len > 1500:     5068
+	nDPI throughput:       1.32 M pps / 12.42 Gb/sec
+	Traffic throughput:    228.03 pps / 2.19 Mb/sec
+	Traffic duration:      264.290 sec
+	Guessed flow protos:   9
+
+
+Detected protocols:
+	Unknown              packets: 6126          bytes: 10913415      flows: 46
+	FTP_CONTROL          packets: 42            bytes: 4384          flows: 1
+	DNS                  packets: 66            bytes: 6520          flows: 23
+	IPP                  packets: 46            bytes: 12059         flows: 1
+	HTTP                 packets: 377           bytes: 113616        flows: 24
+	MDNS                 packets: 43            bytes: 11742         flows: 9
+	NetBIOS              packets: 48            bytes: 4754          flows: 12
+	SSDP                 packets: 101           bytes: 32533         flows: 21
+	DHCP                 packets: 21            bytes: 7346          flows: 2
+	BitTorrent           packets: 37639         bytes: 29656716      flows: 65
+	ICMP                 packets: 15            bytes: 4956          flows: 5
+	IGMP                 packets: 10            bytes: 600           flows: 9
+	SSL                  packets: 1199          bytes: 622508        flows: 24
+	ICMPV6               packets: 2             bytes: 172           flows: 2
+	DHCPV6               packets: 1             bytes: 144           flows: 1
+	Facebook             packets: 349           bytes: 206444        flows: 21
+	Twitter              packets: 137           bytes: 45679         flows: 8
+	Dropbox              packets: 155           bytes: 45358         flows: 12
+	GMail                packets: 35            bytes: 10470         flows: 3
+	YouTube              packets: 11721         bytes: 31050728      flows: 33
+	Skype                packets: 237           bytes: 35082         flows: 30
+	Google               packets: 558           bytes: 164639        flows: 52
+	WhatsApp             packets: 969           bytes: 1477350       flows: 17
+	Viber                packets: 60            bytes: 27602         flows: 1
+	LLMNR                packets: 71            bytes: 5297          flows: 36
+	Amazon               packets: 89            bytes: 23572         flows: 9
+	QUIC                 packets: 41            bytes: 3474          flows: 1
+	BJNP                 packets: 72            bytes: 4320          flows: 72
+	Microsoft            packets: 35            bytes: 10358         flows: 5
+
+
+Protocol statistics:
+	Safe                        632978 bytes
+	Acceptable                31693889 bytes
+	Fun                       31257172 bytes
+	Unsafe                        4384 bytes
+	Unrated                   10913415 bytes
+
+-----------------------------------------------------------
+* NOTE: This is demo app to show *some* nDPI features.
+* In this demo we have implemented only some basic features
+* just to show you what you can do with the library. Feel
+* free to extend it and send us the patches for inclusion
+------------------------------------------------------------
+
+Using nDPI (1.8.0-dev-707-6a27b62) [1 thread(s)]
+Reading packets from pcap file test.pcap...
+Running thread 0...
+
+nDPI Memory statistics:
+	nDPI Memory (once):      110.55 KB
+	Flow Memory (per flow):  1.95 KB
+	Actual Memory:           3.46 MB
+	Peak Memory:             3.46 MB
+
+Traffic statistics:
+	Ethernet bytes:        75948198      (includes ethernet CRC/IFC/trailer)
+	Discarded bytes:       55256
+	IP packets:            60265         of 61155 packets total
+	IP bytes:              74501838      (avg pkt size 1218 bytes)
+	Unique flows:          545
+	TCP Packets:           21188
+	UDP Packets:           39042
+	VLAN Packets:          0
+	MPLS Packets:          0
+	PPPoE Packets:         0
+	Fragmented Packets:    4
+	Max Packet size:       64260
+	Packet Len < 64:       30624
+	Packet Len 64-128:     1158
+	Packet Len 128-256:    674
+	Packet Len 256-1024:   817
+	Packet Len 1024-1500:  21924
+	Packet Len > 1500:     5068
+	nDPI throughput:       1.54 M pps / 14.46 Gb/sec
+	Traffic throughput:    228.03 pps / 2.19 Mb/sec
+	Traffic duration:      264.290 sec
+	Guessed flow protos:   9
+
+
+Detected protocols:
+	Unknown              packets: 6126          bytes: 10913415      flows: 46
+	FTP_CONTROL          packets: 42            bytes: 4384          flows: 1
+	DNS                  packets: 66            bytes: 6520          flows: 23
+	IPP                  packets: 46            bytes: 12059         flows: 1
+	HTTP                 packets: 377           bytes: 113616        flows: 24
+	MDNS                 packets: 43            bytes: 11742         flows: 9
+	NetBIOS              packets: 48            bytes: 4754          flows: 12
+	SSDP                 packets: 101           bytes: 32533         flows: 21
+	DHCP                 packets: 21            bytes: 7346          flows: 2
+	BitTorrent           packets: 37639         bytes: 29656716      flows: 65
+	ICMP                 packets: 15            bytes: 4956          flows: 5
+	IGMP                 packets: 10            bytes: 600           flows: 9
+	SSL                  packets: 1199          bytes: 622508        flows: 24
+	ICMPV6               packets: 2             bytes: 172           flows: 2
+	DHCPV6               packets: 1             bytes: 144           flows: 1
+	Facebook             packets: 349           bytes: 206444        flows: 21
+	Twitter              packets: 137           bytes: 45679         flows: 8
+	Dropbox              packets: 155           bytes: 45358         flows: 12
+	GMail                packets: 35            bytes: 10470         flows: 3
+	YouTube              packets: 11721         bytes: 31050728      flows: 33
+	Skype                packets: 237           bytes: 35082         flows: 30
+	Google               packets: 558           bytes: 164639        flows: 52
+	WhatsApp             packets: 969           bytes: 1477350       flows: 17
+	Viber                packets: 60            bytes: 27602         flows: 1
+	LLMNR                packets: 71            bytes: 5297          flows: 36
+	Amazon               packets: 89            bytes: 23572         flows: 9
+	QUIC                 packets: 41            bytes: 3474          flows: 1
+	BJNP                 packets: 72            bytes: 4320          flows: 72
+	Microsoft            packets: 35            bytes: 10358         flows: 5
+
+
+Protocol statistics:
+	Safe                        632978 bytes
+	Acceptable                31693889 bytes
+	Fun                       31257172 bytes
+	Unsafe                        4384 bytes
+	Unrated                   10913415 bytes
+
+-----------------------------------------------------------
+* NOTE: This is demo app to show *some* nDPI features.
+* In this demo we have implemented only some basic features
+* just to show you what you can do with the library. Feel
+* free to extend it and send us the patches for inclusion
+------------------------------------------------------------
+
+Using nDPI (1.8.0-dev-707-6a27b62) [1 thread(s)]
+Reading packets from pcap file test.pcap...
+Running thread 0...
+
+nDPI Memory statistics:
+	nDPI Memory (once):      110.55 KB
+	Flow Memory (per flow):  1.95 KB
+	Actual Memory:           3.46 MB
+	Peak Memory:             3.46 MB
+
+Traffic statistics:
+	Ethernet bytes:        75948198      (includes ethernet CRC/IFC/trailer)
+	Discarded bytes:       55256
+	IP packets:            60265         of 61155 packets total
+	IP bytes:              74501838      (avg pkt size 1218 bytes)
+	Unique flows:          545
+	TCP Packets:           21188
+	UDP Packets:           39042
+	VLAN Packets:          0
+	MPLS Packets:          0
+	PPPoE Packets:         0
+	Fragmented Packets:    4
+	Max Packet size:       64260
+	Packet Len < 64:       30624
+	Packet Len 64-128:     1158
+	Packet Len 128-256:    674
+	Packet Len 256-1024:   817
+	Packet Len 1024-1500:  21924
+	Packet Len > 1500:     5068
+	nDPI throughput:       1.54 M pps / 14.49 Gb/sec
+	Traffic throughput:    228.03 pps / 2.19 Mb/sec
+	Traffic duration:      264.290 sec
+	Guessed flow protos:   9
+
+
+Detected protocols:
+	Unknown              packets: 6126          bytes: 10913415      flows: 46
+	FTP_CONTROL          packets: 42            bytes: 4384          flows: 1
+	DNS                  packets: 66            bytes: 6520          flows: 23
+	IPP                  packets: 46            bytes: 12059         flows: 1
+	HTTP                 packets: 377           bytes: 113616        flows: 24
+	MDNS                 packets: 43            bytes: 11742         flows: 9
+	NetBIOS              packets: 48            bytes: 4754          flows: 12
+	SSDP                 packets: 101           bytes: 32533         flows: 21
+	DHCP                 packets: 21            bytes: 7346          flows: 2
+	BitTorrent           packets: 37639         bytes: 29656716      flows: 65
+	ICMP                 packets: 15            bytes: 4956          flows: 5
+	IGMP                 packets: 10            bytes: 600           flows: 9
+	SSL                  packets: 1199          bytes: 622508        flows: 24
+	ICMPV6               packets: 2             bytes: 172           flows: 2
+	DHCPV6               packets: 1             bytes: 144           flows: 1
+	Facebook             packets: 349           bytes: 206444        flows: 21
+	Twitter              packets: 137           bytes: 45679         flows: 8
+	Dropbox              packets: 155           bytes: 45358         flows: 12
+	GMail                packets: 35            bytes: 10470         flows: 3
+	YouTube              packets: 11721         bytes: 31050728      flows: 33
+	Skype                packets: 237           bytes: 35082         flows: 30
+	Google               packets: 558           bytes: 164639        flows: 52
+	WhatsApp             packets: 969           bytes: 1477350       flows: 17
+	Viber                packets: 60            bytes: 27602         flows: 1
+	LLMNR                packets: 71            bytes: 5297          flows: 36
+	Amazon               packets: 89            bytes: 23572         flows: 9
+	QUIC                 packets: 41            bytes: 3474          flows: 1
+	BJNP                 packets: 72            bytes: 4320          flows: 72
+	Microsoft            packets: 35            bytes: 10358         flows: 5
+
+
+Protocol statistics:
+	Safe                        632978 bytes
+	Acceptable                31693889 bytes
+	Fun                       31257172 bytes
+	Unsafe                        4384 bytes
+	Unrated                   10913415 bytes
+
+-----------------------------------------------------------
+* NOTE: This is demo app to show *some* nDPI features.
+* In this demo we have implemented only some basic features
+* just to show you what you can do with the library. Feel
+* free to extend it and send us the patches for inclusion
+------------------------------------------------------------
+
+Using nDPI (1.8.0-dev-707-6a27b62) [1 thread(s)]
+Reading packets from pcap file test.pcap...
+Running thread 0...
+
+nDPI Memory statistics:
+	nDPI Memory (once):      110.55 KB
+	Flow Memory (per flow):  1.95 KB
+	Actual Memory:           3.46 MB
+	Peak Memory:             3.46 MB
+
+Traffic statistics:
+	Ethernet bytes:        75948198      (includes ethernet CRC/IFC/trailer)
+	Discarded bytes:       55256
+	IP packets:            60265         of 61155 packets total
+	IP bytes:              74501838      (avg pkt size 1218 bytes)
+	Unique flows:          545
+	TCP Packets:           21188
+	UDP Packets:           39042
+	VLAN Packets:          0
+	MPLS Packets:          0
+	PPPoE Packets:         0
+	Fragmented Packets:    4
+	Max Packet size:       64260
+	Packet Len < 64:       30624
+	Packet Len 64-128:     1158
+	Packet Len 128-256:    674
+	Packet Len 256-1024:   817
+	Packet Len 1024-1500:  21924
+	Packet Len > 1500:     5068
+	nDPI throughput:       1.37 M pps / 12.89 Gb/sec
+	Traffic throughput:    228.03 pps / 2.19 Mb/sec
+	Traffic duration:      264.290 sec
+	Guessed flow protos:   9
+
+
+Detected protocols:
+	Unknown              packets: 6126          bytes: 10913415      flows: 46
+	FTP_CONTROL          packets: 42            bytes: 4384          flows: 1
+	DNS                  packets: 66            bytes: 6520          flows: 23
+	IPP                  packets: 46            bytes: 12059         flows: 1
+	HTTP                 packets: 377           bytes: 113616        flows: 24
+	MDNS                 packets: 43            bytes: 11742         flows: 9
+	NetBIOS              packets: 48            bytes: 4754          flows: 12
+	SSDP                 packets: 101           bytes: 32533         flows: 21
+	DHCP                 packets: 21            bytes: 7346          flows: 2
+	BitTorrent           packets: 37639         bytes: 29656716      flows: 65
+	ICMP                 packets: 15            bytes: 4956          flows: 5
+	IGMP                 packets: 10            bytes: 600           flows: 9
+	SSL                  packets: 1199          bytes: 622508        flows: 24
+	ICMPV6               packets: 2             bytes: 172           flows: 2
+	DHCPV6               packets: 1             bytes: 144           flows: 1
+	Facebook             packets: 349           bytes: 206444        flows: 21
+	Twitter              packets: 137           bytes: 45679         flows: 8
+	Dropbox              packets: 155           bytes: 45358         flows: 12
+	GMail                packets: 35            bytes: 10470         flows: 3
+	YouTube              packets: 11721         bytes: 31050728      flows: 33
+	Skype                packets: 237           bytes: 35082         flows: 30
+	Google               packets: 558           bytes: 164639        flows: 52
+	WhatsApp             packets: 969           bytes: 1477350       flows: 17
+	Viber                packets: 60            bytes: 27602         flows: 1
+	LLMNR                packets: 71            bytes: 5297          flows: 36
+	Amazon               packets: 89            bytes: 23572         flows: 9
+	QUIC                 packets: 41            bytes: 3474          flows: 1
+	BJNP                 packets: 72            bytes: 4320          flows: 72
+	Microsoft            packets: 35            bytes: 10358         flows: 5
+
+
+Protocol statistics:
+	Safe                        632978 bytes
+	Acceptable                31693889 bytes
+	Fun                       31257172 bytes
+	Unsafe                        4384 bytes
+	Unrated                   10913415 bytes
+
+-----------------------------------------------------------
+* NOTE: This is demo app to show *some* nDPI features.
+* In this demo we have implemented only some basic features
+* just to show you what you can do with the library. Feel
+* free to extend it and send us the patches for inclusion
+------------------------------------------------------------
+
+Using nDPI (1.8.0-dev-707-6a27b62) [1 thread(s)]
+Reading packets from pcap file test.pcap...
+Running thread 0...
+
+nDPI Memory statistics:
+	nDPI Memory (once):      110.55 KB
+	Flow Memory (per flow):  1.95 KB
+	Actual Memory:           3.46 MB
+	Peak Memory:             3.46 MB
+
+Traffic statistics:
+	Ethernet bytes:        75948198      (includes ethernet CRC/IFC/trailer)
+	Discarded bytes:       55256
+	IP packets:            60265         of 61155 packets total
+	IP bytes:              74501838      (avg pkt size 1218 bytes)
+	Unique flows:          545
+	TCP Packets:           21188
+	UDP Packets:           39042
+	VLAN Packets:          0
+	MPLS Packets:          0
+	PPPoE Packets:         0
+	Fragmented Packets:    4
+	Max Packet size:       64260
+	Packet Len < 64:       30624
+	Packet Len 64-128:     1158
+	Packet Len 128-256:    674
+	Packet Len 256-1024:   817
+	Packet Len 1024-1500:  21924
+	Packet Len > 1500:     5068
+	nDPI throughput:       1.55 M pps / 14.57 Gb/sec
+	Traffic throughput:    228.03 pps / 2.19 Mb/sec
+	Traffic duration:      264.290 sec
+	Guessed flow protos:   9
+
+
+Detected protocols:
+	Unknown              packets: 6126          bytes: 10913415      flows: 46
+	FTP_CONTROL          packets: 42            bytes: 4384          flows: 1
+	DNS                  packets: 66            bytes: 6520          flows: 23
+	IPP                  packets: 46            bytes: 12059         flows: 1
+	HTTP                 packets: 377           bytes: 113616        flows: 24
+	MDNS                 packets: 43            bytes: 11742         flows: 9
+	NetBIOS              packets: 48            bytes: 4754          flows: 12
+	SSDP                 packets: 101           bytes: 32533         flows: 21
+	DHCP                 packets: 21            bytes: 7346          flows: 2
+	BitTorrent           packets: 37639         bytes: 29656716      flows: 65
+	ICMP                 packets: 15            bytes: 4956          flows: 5
+	IGMP                 packets: 10            bytes: 600           flows: 9
+	SSL                  packets: 1199          bytes: 622508        flows: 24
+	ICMPV6               packets: 2             bytes: 172           flows: 2
+	DHCPV6               packets: 1             bytes: 144           flows: 1
+	Facebook             packets: 349           bytes: 206444        flows: 21
+	Twitter              packets: 137           bytes: 45679         flows: 8
+	Dropbox              packets: 155           bytes: 45358         flows: 12
+	GMail                packets: 35            bytes: 10470         flows: 3
+	YouTube              packets: 11721         bytes: 31050728      flows: 33
+	Skype                packets: 237           bytes: 35082         flows: 30
+	Google               packets: 558           bytes: 164639        flows: 52
+	WhatsApp             packets: 969           bytes: 1477350       flows: 17
+	Viber                packets: 60            bytes: 27602         flows: 1
+	LLMNR                packets: 71            bytes: 5297          flows: 36
+	Amazon               packets: 89            bytes: 23572         flows: 9
+	QUIC                 packets: 41            bytes: 3474          flows: 1
+	BJNP                 packets: 72            bytes: 4320          flows: 72
+	Microsoft            packets: 35            bytes: 10358         flows: 5
+
+
+Protocol statistics:
+	Safe                        632978 bytes
+	Acceptable                31693889 bytes
+	Fun                       31257172 bytes
+	Unsafe                        4384 bytes
+	Unrated                   10913415 bytes

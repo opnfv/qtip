@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_621a2a19",
+        "filename": "qtip/driver/playbook/openssl/run.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-08T00:48:02Z",
+      "side": 1,
+      "message": "- cp $HOME/Open_SSL/openssl-1.0.2f/apps/*_dump ./",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 67
+      },
+      "revId": "77bac1c6784ecf47dc478151a87d9a4228486762",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_22d4321f",
+        "filename": "qtip/driver/playbook/openssl/run.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 483
+      },
+      "writtenOn": "2017-03-08T00:48:02Z",
+      "side": 1,
+      "message": "what about use all cp instead of mv\n\ncp can support like this:\n\ncp dir1/file1 dir2/file2 dir3/file3 ./",
+      "range": {
+        "startLine": 54,
+        "startChar": 8,
+        "endLine": 55,
+        "endChar": 42
+      },
+      "revId": "77bac1c6784ecf47dc478151a87d9a4228486762",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

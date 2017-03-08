@@ -20,4 +20,6 @@
   when: ansible_os_family == "Debian"
 
 - name: Run bwm-ng
-  shell: bwm-ng -o plain -c 1 > $HOME/qtip_result/bwm-dump.log
+  shell: bwm-ng -o plain -c 1 > bwm-dump.log
+  args:
+    chdir: '{{ dest_path }}/'

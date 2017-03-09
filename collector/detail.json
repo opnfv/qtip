@@ -1,0 +1,90 @@
+{
+    "index": 0.0,
+    "plan_name": "opnfv",
+    "start_time": "2017-02-24T14:48:44.543746",
+    "stop_time": "2017-02-24T15:48:44.543746",
+    "sut": [
+        {
+            "name": "node-1",
+            "type": "baremetal",
+            "index": 0.0,
+            "system_information": {
+                "cpu": "2 Deca core Intel Xeon CPU E5-2650 v3s (-HT-MCP-SMP-) clocked at 2301.00 MHz",
+                "cpu_usage": "3.0%",
+                "disk": "1200.3GB (0.3% used)",
+                "hostname": "node-6.zte.com.cn",
+                "kernel": "3.13.0-103-generic x86_64 (64 bit)",
+                "memory": "1836.1/128527.0MB",
+                "os": "Ubuntu 14.04 trusty",
+                "product": "EC600G3"
+            },
+            "qpis": [
+                {
+                    "name": "compute_qpi",
+                    "index": 95,
+                    "benchmarks": [
+                        {
+                            "name": "dpi",
+                            "index": 95,
+                            "metrics": [
+                                {
+                                    "name": "dpi",
+                                    "results": {
+                                        "bps": 14.284,
+                                        "pps": 1.521
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "memory",
+                            "index": 95,
+                            "metrics": [
+                                {
+                                    "name": "ramspeed",
+                                    "results": {
+                                        "float_add": "9967.13",
+                                        "float_copy": "7908.64",
+                                        "float_scale": "7870.16",
+                                        "float_triad": "10073.43",
+                                        "float_average": "8954.84",
+                                        "integer_add": "11649.55",
+                                        "integer_copy": "11562.63",
+                                        "integer_scale": "11563.77",
+                                        "integer_triad": "11671.22",
+                                        "integer_average": "11611.79"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "ssl",
+                            "index": 95,
+                            "metrics": [
+                                {
+                                    "name": "openssl",
+                                    "results": {
+                                        "aes_128_cbc_1024_bytes": "584568.83k",
+                                        "aes_128_cbc_16_bytes": "533103.05k",
+                                        "aes_128_cbc_256_bytes": "580021.25k",
+                                        "aes_128_cbc_64_bytes": "570042.22k",
+                                        "aes_128_cbc_8192_bytes": "599470.83k",
+                                        "rsa_sign_1024": "3.9",
+                                        "rsa_sign_2048": "1.4",
+                                        "rsa_sign_4096": "0.8",
+                                        "rsa_sign_512": "8.4",
+                                        "rsa_verify_1024": "88397.9",
+                                        "rsa_verify_2048": "26951.3",
+                                        "rsa_verify_4096": "7633.7",
+                                        "rsa_verify_512": "222903.5"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+

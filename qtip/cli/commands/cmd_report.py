@@ -8,8 +8,12 @@
 ##############################################################################
 
 import click
+import json
+import os
 
+from os import path
 from qtip.cli.entry import Context
+from qtip.reporter.console import ConsoleReporter
 
 pass_context = click.make_pass_decorator(Context, ensure=False)
 
@@ -24,4 +28,6 @@ def cli(ctx):
 @cli.command('show')
 @pass_context
 def show(ctx):
-    pass
+    reporter = ConsoleReporter({})
+    click.echo(reporter.render('detail.json'))
+    click.echo(reporter.render('timeline.json'))

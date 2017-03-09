@@ -1,0 +1,25 @@
+Plan Name: {{ plan_name }}
+Start Time: {{ start_time }}
+Stop Time: {{ stop_time }}
+{% for sys in sut %}
+{% for qpi in sys.qpis %}
+{% for bm in qpi.benchmarks %}
+{%- if bm.name == metric_name -%}
+{%- if metric_name == 'dhrystone' or metric_name == 'whetstone' -%}
+{% include 'unixbench.j2' %}
+{% else %}
+{% include '%s.j2' % metric_name %}
+{% endif %}
+
+System Information:
+  CPU Brand: {{ bm.sysinfo.cpu }}
+  Disk: {{ bm.sysinfo.disk }}
+  Host Name: {{ bm.sysinfo.hostname }}
+  Kernel: {{ bm.sysinfo.kernel }}
+  Memory: {{ bm.sysinfo.memory }}
+  Operating System: {{ bm.sysinfo.os }}
+  Product: {{ bm.sysinfo.product }}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+{%- endfor -%}

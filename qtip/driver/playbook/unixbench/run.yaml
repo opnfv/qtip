@@ -15,20 +15,6 @@
     - set_fact:
         is_dhrystone: "{{ dhrystone | default(False) }}"
         is_whetstone: "{{ whetstone | default(False) }}"
-        timestamp: "{{ lookup('pipe', 'date +%Y-%m-%d-%H-%M') }}"
-
-    - name: Make some directories needed
-      file:
-        path: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}'
-        state: directory
-
-    - include: ../inxi.yaml
-      vars:
-        dest_path: '{{ ansible_env.HOME }}/qtip_result/'
-
-    - include: ../top.yaml
-      vars:
-        dest_path: '{{ ansible_env.HOME }}/qtip_result/'
 
     - include: ./dhrystone.yaml
       when: "{{ is_dhrystone }}"

@@ -12,22 +12,18 @@
   remote_user: root
 
   tasks:
-    - name: Get current timestamp
-      set_fact:
-        timestamp: "{{ lookup('pipe', 'date +%Y-%m-%d-%H-%M') }}"
-
     - name: Make some directories needed
       file:
-        path: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}'
+        path: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/dpi/'
         state: directory
 
     - include: ../inxi.yaml
       vars:
-        dest_path: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}'
+        dest_path: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/dpi/'
 
     - include: ../top.yaml
       vars:
-        dest_path: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}'
+        dest_path: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/dpi/'
 
     - name: Run nDPI benchmark
       shell: ./dpi_average.sh
@@ -37,10 +33,10 @@
     - name: Copying result and system info to qtip result directory
       command: cp $HOME/tempD/nDPI/example/dpi_dump.txt ./
       args:
-        chdir: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}'
+        chdir: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/dpi/'
 
     - name: Fetch result files to local manchine
       synchronize:
         mode: pull
         src: '{{ ansible_env.HOME }}/qtip_result/'
-        dest: '{{ result_dir }}/dpi/logs/'
+        dest: '{{ result_dir }}/'

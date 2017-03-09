@@ -14,7 +14,7 @@
   tasks:
     - name: Making ssl directory
       file:
-        path: '{{ result_dir }}/ssl/logs/'
+        path: '{{ result_dir }}/'
         state: directory
 
 - hosts: hosts

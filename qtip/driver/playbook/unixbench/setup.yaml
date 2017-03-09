@@ -12,21 +12,10 @@
   gather_facts: no
 
   tasks:
-    - set_fact:
-        is_dhrystone: "{{ dhrystone | default(False) }}"
-        is_whetstone: "{{ whetstone | default(False) }}"
-
     - name: Making dhrystone directory
       file:
-        path: '{{ result_dir }}/dhrystone/logs/'
+        path: '{{ result_dir }}/'
         state: directory
-      when: '{{ is_dhrystone }}'
-
-    - name: Making whetstone directory
-      file:
-        path: '{{ result_dir }}/whetstone/logs/'
-        state: directory
-      when: '{{ is_whetstone }}'
 
 - hosts: hosts
   become: yes

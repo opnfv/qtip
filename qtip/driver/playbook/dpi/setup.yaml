@@ -14,7 +14,7 @@
   tasks:
     - name: Making Dpi directory
       file:
-        path: '{{ result_dir }}/dpi/logs/'
+        path: '{{ result_dir }}/'
         state: directory
 
 - hosts: hosts

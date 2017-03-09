@@ -1,0 +1,39 @@
+{
+	"phases": [{
+		"name": "Monitor",
+		"checkpoints": [{
+			"name": "T00",
+			"timestamp": "1"
+		}]
+	}, {
+		"name": "Inspector",
+		"checkpoints": [{
+			"name": "T01",
+			"timestamp": "2"
+		}, {
+			"name": "T02 ",
+			"timestamp": "5"
+		}, {
+			"name": "T03 ",
+			"timestamp": "8"
+		}]
+	}, {
+		"name": "Controller",
+		"checkpoints": [{
+			"name": "T04",
+			"timestamp": "11"
+		}]
+	}, {
+		"name": "Notifier",
+		"checkpoints": [{
+			"name": "T05 ",
+			"timestamp": "16"
+		}]
+	}, {
+		"name": "Evaluator",
+		"checkpoints": [{
+			"name": "T06 ",
+			"timestamp": "40"
+		}]
+	}]
+}

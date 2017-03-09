@@ -1,0 +1,26 @@
+{% extends "base.j2" %}
+{% block content %}
+{% for sys in sut %}
+{% for qpi in sys.qpis %}
+{%- for bm in qpi.benchmarks -%}
+{% if bm.name == 'dpi' %}
+Benchmark: {{ bm.name }}
+Results:
+  Bits per Second: {{ bm.results.bps }}
+  Packets per Second: {{ bm.results.pps }}
+
+System Information:
+  System information:
+  CPU Brand: {{ bm.sysinfo.cpu }}
+  CPU Usage: {{ bm.sysinfo.cpu_usage }}
+  Disk: {{ bm.sysinfo.disk }}
+  Host Name: {{ bm.sysinfo.hostname }}
+  Kernel: {{ bm.sysinfo.kernel }}
+  Memory: {{ bm.sysinfo.memory }}
+  Operating System: {{ bm.sysinfo.os }}
+  Product: {{ bm.sysinfo.product }}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+{%- endfor -%}
+{% endblock %}

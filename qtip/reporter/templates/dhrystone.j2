@@ -1,0 +1,31 @@
+{% extends "base.j2" %}
+{% block content %}
+
+{% for sys in sut %}
+{% for qpi in sys.qpis %}
+{%- for bm in qpi.benchmarks -%}
+{% if bm.name == 'dhrystone' %}
+Benchmark: {{ bm.name }}
+Results:
+  Multi CPU:
+    Number: {{ bm.results.multi_cpus.num }}
+    Score: {{ bm.results.multi_cpus.score }}
+  Single CPU:
+    Number: {{ bm.results.single_cpu.num }}
+    Score: {{ bm.results.single_cpu.num }}
+  Total CPUs: {{ bm.results.total_cpus }}
+
+System information:
+  CPU Brand: {{ bm.sysinfo.cpu }}
+  CPU Usage: {{ bm.sysinfo.cpu_usage }}
+  Disk: {{ bm.sysinfo.disk }}
+  Host Name: {{ bm.sysinfo.hostname }}
+  Kernel: {{ bm.sysinfo.kernel }}
+  Memory: {{ bm.sysinfo.memory }}
+  Operating System: {{ bm.sysinfo.os }}
+  Product: {{ bm.sysinfo.product }}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+{%- endfor -%}
+{% endblock %}

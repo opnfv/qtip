@@ -8,8 +8,12 @@
 ##############################################################################
 
 import click
+import json
+import os
 
+from os import path
 from qtip.cli.entry import Context
+from qtip.reporter.console import ConsoleReporter
 
 pass_context = click.make_pass_decorator(Context, ensure=False)
 
@@ -24,4 +28,13 @@ def cli(ctx):
 @cli.command('show')
 @pass_context
 def show(ctx):
-    pass
+    result = {}
+    types = ['detail', 'timeline']
+    reporter = ConsoleReporter({})
+    result_path = path.join(path.dirname(__file__), os.pardir, os.pardir, os.pardir,
+                            'tests/data/reporter/dicts/')
+    for kind in types:
+        with open('{}{}{}'.format(result_path, kind, '.json')) as sample:
+            result = json.load(sample)
+            out = reporter.render(result, kind)
+            click.echo(out)

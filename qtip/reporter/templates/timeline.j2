@@ -1,8 +1,8 @@
 {{ title }}
 {% for phase in phases %}
-{{ phase.name|upper }}{{ "TIME" }}
+{{ phase.name|upper }}{{ "TIME"}}
 {% for cp in phase.checkpoints %}
-{{ cp.name }}{{ cp.timestamp}}
+{{ cp.name }}{{ cp.timestamp| indent(15, True)}}
 {% endfor %}
 {% endfor %}
 Total: {{ total }}

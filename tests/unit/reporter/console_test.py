@@ -7,7 +7,7 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-import pickle
+import json
 import pytest
 import os
 
@@ -19,21 +19,28 @@ def console_reporter():
     return ConsoleReporter({})
 
 
+@pytest.fixture
+def paths():
+    return os.path.join(os.path.dirname(__file__), os.pardir, os.pardir,
+                        os.pardir, 'tests/data/reporter/')
+
+
 def test_constructor(console_reporter):
     assert isinstance(console_reporter, ConsoleReporter)
 
 
-def test_render(console_reporter):
-    var_dict = {'title': 'Timeline', 'total': '312ms', 'phases': [{'name': 'Monitor ',
-                'checkpoints': [{'name': 'T00 ', 'timestamp': '1'}]},
-               {'name': 'Inspector ', 'checkpoints': [{'name': 'T01 ', 'timestamp': '2'},
-                {'name': 'T02 ', 'timestamp': '5'}, {'name': 'T03 ', 'timestamp': '8'}]},
-               {'name': 'Controller ', 'checkpoints': [{'name': 'T04 ', 'timestamp': '11'}]},
-               {'name': 'Notifier ', 'checkpoints': [{'name': 'T05 ', 'timestamp': '16'}]},
-               {'name': 'Evaluator ', 'checkpoints': [{'name': 'T06 ', 'timestamp': '40'}]}]}
+def test_details(console_reporter, paths):
 
-    result = console_reporter.render(var_dict=var_dict)
-    path = os.path.join(os.path.dirname(__file__), os.pardir, os.pardir,
-                        os.pardir, 'tests/data/reporter/')
-    timeline = pickle.load(open(path + 'timeline.pickle', 'rb'))
-    assert result == timeline
+    types = ['detail.json', 'timeline.json']
+
+    for kind in types:
+        """ Load var_dict """
+        with open('{}{}{}'.format(paths, 'dicts/', kind)) as sample:
+            data = json.load(sample)
+        result = console_reporter.render(data, kind[0:-5])
+
+        """ Load expected output"""
+        with open('{}{}{}'.format(paths, 'output/', kind)) as output:
+            report = json.load(output)
+
+        assert result == report

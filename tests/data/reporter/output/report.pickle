@@ -1,0 +1,3 @@
+Vreport\u000a\u000aPlan: default\u000a\u000ainteger: 10\u000aSections:\u000a\u000a    floating: 11\u000a\u000a    Formula: geometric\u000a    Metrics:\u000a    \u000a        dhrystone: 17\u000a        Formula: arithmetic\u000a        Workloads:\u000a        \u000a            single_cpu: 12\u000a        \u000a            double: 13\u000a        \u000a    \u000a\u000a\u000a
+p0
+.

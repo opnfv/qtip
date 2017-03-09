@@ -24,16 +24,14 @@ def test_constructor(console_reporter):
 
 
 def test_render(console_reporter):
-    var_dict = {'title': 'Timeline', 'total': '312ms', 'phases': [{'name': 'Monitor ',
-                'checkpoints': [{'name': 'T00 ', 'timestamp': '1'}]},
-               {'name': 'Inspector ', 'checkpoints': [{'name': 'T01 ', 'timestamp': '2'},
-                {'name': 'T02 ', 'timestamp': '5'}, {'name': 'T03 ', 'timestamp': '8'}]},
-               {'name': 'Controller ', 'checkpoints': [{'name': 'T04 ', 'timestamp': '11'}]},
-               {'name': 'Notifier ', 'checkpoints': [{'name': 'T05 ', 'timestamp': '16'}]},
-               {'name': 'Evaluator ', 'checkpoints': [{'name': 'T06 ', 'timestamp': '40'}]}]}
-
-    result = console_reporter.render(var_dict=var_dict)
+    types = ['report', 'sys_info', 'timeline']
     path = os.path.join(os.path.dirname(__file__), os.pardir, os.pardir,
                         os.pardir, 'tests/data/reporter/')
-    timeline = pickle.load(open(path + 'timeline.pickle', 'rb'))
-    assert result == timeline
+
+    for i in range(0, len(types)):
+        var_dict = pickle.load(open('{}{}{}{}'.format(path, 'dicts/', types[i],
+                                    '.pickle'), 'rb'))
+        result = console_reporter.render(var_dict, types[i])
+        output = pickle.load(open('{}{}{}{}'.format(path, 'output/', types[i],
+                                  '.pickle'), 'rb'))
+        assert result == output

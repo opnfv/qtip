@@ -1,0 +1,34 @@
+(dp0
+S'kernel'
+p1
+S'3.13.0-95-generic x86_64 (64 bit)'
+p2
+sS'product'
+p3
+S'EC600G3 version: 1.00'
+p4
+sS'cpu_usage'
+p5
+S'3.9%'
+p6
+sS'host_name'
+p7
+S'node-4'
+p8
+sS'time'
+p9
+S'2016-09-24T15:46:35.622043'
+p10
+sS'os'
+p11
+S'Ubuntu 14.04 trusty'
+p12
+sS'cpu'
+p13
+S'Intel'
+p14
+sS'mem_usage'
+p15
+S'3852.0/128560.0MB'
+p16
+s.

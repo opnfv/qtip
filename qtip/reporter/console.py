@@ -9,6 +9,8 @@
 
 from jinja2 import Environment
 from jinja2 import FileSystemLoader
+import os
+
 from os import path
 from qtip.base import BaseActor
 
@@ -21,10 +23,11 @@ class ConsoleReporter(BaseActor):
         super(ConsoleReporter, self).__init__(config, parent=parent)
 
         # TODO (taseer) load template from config
-        tpl_loader = FileSystemLoader(path.join(path.dirname(__file__), 'templates'))
-        env = Environment(loader=tpl_loader)
-        self._template = env.get_template('timeline.j2')
+        tpl_path = path.join(path.dirname(__file__), 'templates')
+        tpl_loader = FileSystemLoader(tpl_path)
+        self._env = Environment(loader=tpl_loader)
 
-    def render(self, var_dict):
-        out = self._template.render(var_dict)
+    def render(self, var_dict, name):
+        template = self._env.get_template(name + '.j2')
+        out = template.render(var_dict)
         return out

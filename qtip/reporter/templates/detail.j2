@@ -1,0 +1,36 @@
+QTIP Result
+
+Index: {{ index }}
+Plan: {{ plan_name }}
+Start Time: {{ start_time }}
+Stop Time: {{ stop_time }}
+
+{% for node in sut %}
+ Name: {{ node.name }}
+ Type: {{ node.type }}
+ Index: {{ node.index }}
+
+ System Information:
+   CPU Brand: {{ node.system_information.cpu }}
+   CPU Usage: {{ node.system_information.cpu_usage }}
+   Host Name: {{ node.system_information.hostname }}
+   Kernel: {{ node.system_information.kernel }}
+   Memory: {{ node.system_information.memory }}
+   Operating System: {{ node.system_information.os }}
+   Product: {{ node.system_information.product }}
+
+ QPI Information:
+{% for qpi in node.qpis %}
+   Name: {{ qpi.name }}
+   Index: {{ qpi.index }}
+   Benchmarks:
+{% for benchmark in qpi.benchmarks %}
+   Name: {{ benchmark.name }}
+   Index: {{ benchmark.index }}
+   Metrics:
+{% for metric in benchmark.metrics%}
+     Name: {{ metric.name }}
+{% endfor %}
+{% endfor %}
+{% endfor %}
+{% endfor %}

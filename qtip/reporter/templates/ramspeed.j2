@@ -1,0 +1,36 @@
+{% extends "base.j2" %}
+{% block content %}
+
+{% for sys in sut %}
+{% for qpi in sys.qpis %}
+{%- for bm in qpi.benchmarks -%}
+{% if bm.name == 'ramspeed' %}
+Benchmarks: {{ bm.name }}
+Results:
+  Float Addition: {{ bm.results.float_add }}
+  Float Average: {{ bm.results.float_average }}
+  Float Copy: {{ bm.results.float_copy }}
+  Float Scale: {{ bm.results.float_scale }}
+  Float Triad: {{ bm.results.float_triad }}
+  Integer Addition: {{ bm.results.integer_add }}
+  Integer Average: {{ bm.results.integer_average }}
+  Integer Copy: {{ bm.results.integer_copy}}
+  Integer Scale: {{ bm.results.integer_scale }}
+  Integer Triad: {{ bm.results.integer_triad}}
+
+System Information:
+  System information:
+  CPU Brand: {{ bm.sysinfo.cpu }}
+  CPU Usage: {{ bm.sysinfo.cpu_usage }}
+  Disk: {{ bm.sysinfo.disk }}
+  Host Name: {{ bm.sysinfo.hostname }}
+  Kernel: {{ bm.sysinfo.kernel }}
+  Memory: {{ bm.sysinfo.memory }}
+  Operating System: {{ bm.sysinfo.os }}
+  Product: {{ bm.sysinfo.product }}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+{%- endfor -%}
+
+{% endblock %}

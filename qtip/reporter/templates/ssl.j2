@@ -1,0 +1,42 @@
+{% extends "base.j2" %}
+{% block content %}
+
+{% for sys in sut %}
+{% for qpi in sys.qpis %}
+{%- for bm in qpi.benchmarks -%}
+{% if bm.name == 'ssl' %}
+Benchmark: {{ bm.name }}
+Results:
+  AES 128 CBC (bytes):
+    16: {{ bm.results.aes_128_cbc_16_bytes }}
+    64: {{ bm.results.aes_128_cbc_64_bytes }}
+    256: {{ bm.results.aes_128_cbc_256_bytes }}
+    1024: {{ bm.results.aes_128_cbc_1024_bytes }}
+    8192: {{ bm.results.aes_128_cbc_8192_bytes }}
+
+  RSA SIGN:
+    512: {{ bm.results.rsa_sign_512 }}
+    1024: {{ bm.results.rsa_sign_1024 }}
+    2048: {{ bm.results.rsa_sign_2048 }}
+    4096: {{ bm.results.rsa_sign_4096 }}
+
+  RSA VERIFY:
+    512: {{ bm.results.rsa_verify_512 }}
+    1024: {{ bm.results.rsa_verify_1024 }}
+    2048: {{ bm.results.rsa_verify_2048 }}
+    4096: {{ bm.results.rsa_verify_4096 }}    
+
+System Information:
+  CPU Brand: {{ bm.sysinfo.cpu }}
+  CPU Usage: {{ bm.sysinfo.cpu_usage }}
+  Disk: {{ bm.sysinfo.disk }}
+  Host Name: {{ bm.sysinfo.hostname }}
+  Kernel: {{ bm.sysinfo.kernel }}
+  Memory: {{ bm.sysinfo.memory }}
+  Operating System: {{ bm.sysinfo.os }}
+  Product: {{ bm.sysinfo.product }}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+{%- endfor -%}
+{% endblock %}

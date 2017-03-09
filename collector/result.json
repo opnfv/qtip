@@ -1,0 +1,265 @@
+{
+    "plan_name": "compute_qpi",
+    "start_time": "2017-03-11-03-14",
+    "stop_time": "2017-03-11-03-32",
+    "sut": [
+        {
+            "name": "node-41",
+            "qpis": [
+                {
+                    "benchmarks": [
+                        {
+                            "name": "ssl",
+                            "cpu_usage": "3%",
+                            "results": {
+                                "aes_128_cbc_1024_bytes": "584709.80k",
+                                "aes_128_cbc_16_bytes": "531050.51k",
+                                "aes_128_cbc_256_bytes": "584951.30k",
+                                "aes_128_cbc_64_bytes": "571063.66k",
+                                "aes_128_cbc_8192_bytes": "584723.11k",
+                                "rsa_sign_1024": "2.6",
+                                "rsa_sign_2048": "9.9",
+                                "rsa_sign_4096": "1.7",
+                                "rsa_sign_512": "0.5",
+                                "rsa_verify_1024": "101616.4",
+                                "rsa_verify_2048": "31104.1",
+                                "rsa_verify_4096": "7688.5",
+                                "rsa_verify_512": "257411.2"
+                            },
+                            "sysinfo": {
+                                "cpu": "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-) speed/max: 1199/3000 MHz",
+                                "disk": "1200.3GB (1.0% used)",
+                                "hostname": "node-41.zte.com.cn",
+                                "kernel": "4.4.0-62-generic x86_64 (64 bit)",
+                                "memory": "4449.9/128524.1MB",
+                                "os": "Ubuntu 16.04 xenial",
+                                "product": "EC600G3"
+                            }
+                        },
+                        {
+                            "name": "ramspeed",
+                            "cpu_usage": "3%",
+                            "results": {
+                                "float_add": "10217.62",
+                                "float_average": "9176.88",
+                                "float_copy": "8127.13",
+                                "float_scale": "8085.40",
+                                "float_triad": "10277.38",
+                                "integer_add": "11471.63",
+                                "integer_average": "11396.35",
+                                "integer_copy": "11297.18",
+                                "integer_scale": "11316.86",
+                                "integer_triad": "11499.74"
+                            },
+                            "sysinfo": {
+                                "cpu": "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-) speed/max: 1200/3000 MHz",
+                                "disk": "1200.3GB (1.0% used)",
+                                "hostname": "node-41.zte.com.cn",
+                                "kernel": "4.4.0-62-generic x86_64 (64 bit)",
+                                "memory": "4388.3/128524.1MB",
+                                "os": "Ubuntu 16.04 xenial",
+                                "product": "EC600G3"
+                            }
+                        },
+                        {
+                            "name": "whetstone",
+                            "cpu_usage": "3%",
+                            "results": {
+                                "multi_cpus": {
+                                    "num": "40",
+                                    "score": "21198.3"
+                                },
+                                "single_cpu": {
+                                    "num": "1",
+                                    "score": "633.2"
+                                },
+                                "total_cpus": "40"
+                            },
+                            "sysinfo": {
+                                "cpu": "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-) speed/max: 1393/3000 MHz",
+                                "disk": "1200.3GB (1.0% used)",
+                                "hostname": "node-41.zte.com.cn",
+                                "kernel": "4.4.0-62-generic x86_64 (64 bit)",
+                                "memory": "4390.1/128524.1MB",
+                                "os": "Ubuntu 16.04 xenial",
+                                "product": "EC600G3"
+                            }
+                        },
+                        {
+                            "name": "dpi",
+                            "cpu_usage": "3%",
+                            "results": {
+                                "bps": 3.638,
+                                "pps": 1.45
+                            },
+                            "sysinfo": {
+                                "cpu": "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-) speed/max: 1199/3000 MHz",
+                                "disk": "1200.3GB (1.0% used)",
+                                "hostname": "node-41.zte.com.cn",
+                                "kernel": "4.4.0-62-generic x86_64 (64 bit)",
+                                "memory": "4409.8/128524.1MB",
+                                "os": "Ubuntu 16.04 xenial",
+                                "product": "EC600G3"
+                            }
+                        },
+                        {
+                            "name": "dhrystone",
+                            "cpu_usage": "3%",
+                            "results": {
+                                "multi_cpus": {
+                                    "num": "40",
+                                    "score": "63529.6"
+                                },
+                                "single_cpu": {
+                                    "num": "1",
+                                    "score": "2981.5"
+                                },
+                                "total_cpus": "40"
+                            },
+                            "sysinfo": {
+                                "cpu": "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-) speed/max: 1199/3000 MHz",
+                                "disk": "1200.3GB (1.0% used)",
+                                "hostname": "node-41.zte.com.cn",
+                                "kernel": "4.4.0-62-generic x86_64 (64 bit)",
+                                "memory": "4390.9/128524.1MB",
+                                "os": "Ubuntu 16.04 xenial",
+                                "product": "EC600G3"
+                            }
+                        }
+                    ],
+                    "name": "compute_qpi"
+                }
+            ],
+            "type": "baremetal"
+        },
+        {
+            "name": "node-38",
+            "qpis": [
+                {
+                    "benchmarks": [
+                        {
+                            "name": "ssl",
+                            "cpu_usage": "3%",
+                            "results": {
+                                "aes_128_cbc_1024_bytes": "654325.42k",
+                                "aes_128_cbc_16_bytes": "602261.15k",
+                                "aes_128_cbc_256_bytes": "663959.64k",
+                                "aes_128_cbc_64_bytes": "650967.68k",
+                                "aes_128_cbc_8192_bytes": "667303.94k",
+                                "rsa_sign_1024": "6.8",
+                                "rsa_sign_2048": "8.8",
+                                "rsa_sign_4096": "7.1",
+                                "rsa_sign_512": "8.5",
+                                "rsa_verify_1024": "100088.3",
+                                "rsa_verify_2048": "31316.4",
+                                "rsa_verify_4096": "8551.8",
+                                "rsa_verify_512": "252476.3"
+                            },
+                            "sysinfo": {
+                                "cpu": "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-) speed/max: 1199/3000 MHz",
+                                "disk": "1200.3GB (1.0% used)",
+                                "hostname": "node-38.zte.com.cn",
+                                "kernel": "4.4.0-62-generic x86_64 (64 bit)",
+                                "memory": "4403.7/128524.1MB",
+                                "os": "Ubuntu 16.04 xenial",
+                                "product": "EC600G3"
+                            }
+                        },
+                        {
+                            "name": "ramspeed",
+                            "cpu_usage": "3%",
+                            "results": {
+                                "float_add": "10522.33",
+                                "float_average": "9465.11",
+                                "float_copy": "8434.94",
+                                "float_scale": "8436.36",
+                                "float_triad": "10466.82",
+                                "integer_add": "11489.06",
+                                "integer_average": "11466.52",
+                                "integer_copy": "11398.52",
+                                "integer_scale": "11413.87",
+                                "integer_triad": "11564.61"
+                            },
+                            "sysinfo": {
+                                "cpu": "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-) speed/max: 1200/3000 MHz",
+                                "disk": "1200.3GB (1.0% used)",
+                                "hostname": "node-38.zte.com.cn",
+                                "kernel": "4.4.0-62-generic x86_64 (64 bit)",
+                                "memory": "4402.9/128524.1MB",
+                                "os": "Ubuntu 16.04 xenial",
+                                "product": "EC600G3"
+                            }
+                        },
+                        {
+                            "name": "whetstone",
+                            "cpu_usage": "3%",
+                            "results": {
+                                "multi_cpus": {
+                                    "num": "40",
+                                    "score": "21194.7"
+                                },
+                                "single_cpu": {
+                                    "num": "1",
+                                    "score": "676.6"
+                                },
+                                "total_cpus": "40"
+                            },
+                            "sysinfo": {
+                                "cpu": "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-) speed/max: 1200/3000 MHz",
+                                "disk": "1200.3GB (1.0% used)",
+                                "hostname": "node-38.zte.com.cn",
+                                "kernel": "4.4.0-62-generic x86_64 (64 bit)",
+                                "memory": "4405.5/128524.1MB",
+                                "os": "Ubuntu 16.04 xenial",
+                                "product": "EC600G3"
+                            }
+                        },
+                        {
+                            "name": "dpi",
+                            "cpu_usage": "3%",
+                            "results": {
+                                "bps": 3.69,
+                                "pps": 1.458
+                            },
+                            "sysinfo": {
+                                "cpu": "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-) speed/max: 1200/3000 MHz",
+                                "disk": "1200.3GB (1.0% used)",
+                                "hostname": "node-38.zte.com.cn",
+                                "kernel": "4.4.0-62-generic x86_64 (64 bit)",
+                                "memory": "4418.2/128524.1MB",
+                                "os": "Ubuntu 16.04 xenial",
+                                "product": "EC600G3"
+                            }
+                        },
+                        {
+                            "name": "dhrystone",
+                            "cpu_usage": "3%",
+                            "results": {
+                                "multi_cpus": {
+                                    "num": "40",
+                                    "score": "63834.1"
+                                },
+                                "single_cpu": {
+                                    "num": "1",
+                                    "score": "3026.2"
+                                },
+                                "total_cpus": "40"
+                            },
+                            "sysinfo": {
+                                "cpu": "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-) speed/max: 1200/3000 MHz",
+                                "disk": "1200.3GB (1.0% used)",
+                                "hostname": "node-38.zte.com.cn",
+                                "kernel": "4.4.0-62-generic x86_64 (64 bit)",
+                                "memory": "4404.9/128524.1MB",
+                                "os": "Ubuntu 16.04 xenial",
+                                "product": "EC600G3"
+                            }
+                        }
+                    ],
+                    "name": "compute_qpi"
+                }
+            ],
+            "type": "baremetal"
+        }
+    ]
+}

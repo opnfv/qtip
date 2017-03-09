@@ -1,0 +1,33 @@
+From: Cristina Pauna <cristina.pauna@enea.com>
+Date: Mon, 13 Mar 2017 11:56:59 +0200
+Subject: [PATCH] Modify Dockerfile to build an aarch64 image
+
+This patch adapts the Dockerfile so that the qtip image
+can be build on an aarch64 machine
+
+Signed-off-by: Cristina Pauna <cristina.pauna@enea.com>
+---
+ docker/Dockerfile | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
+
+diff --git a/docker/Dockerfile b/docker/Dockerfile
+index a4a7e47..5d4467b 100644
+--- a/docker/Dockerfile
++++ b/docker/Dockerfile
+@@ -1,10 +1,10 @@
+-##########################################
+-#####Docker container for QTIP############
+-##########################################
++###################################################
++##### AArch64 Docker container for QTIP############
++###################################################
+
+-FROM ubuntu:16.04
+-MAINTAINER Yujun Zhang <zhang.yujunz@zte.com.cn>
+-LABEL version="0.1" description="OPNFV QTIP Docker container"
++FROM aarch64/ubuntu:16.04
++MAINTAINER Armband team <armband@enea.com>
++LABEL version="0.1" description="OPNFV QTIP AArch64 Docker container"
+
+ ARG BRANCH=master
+

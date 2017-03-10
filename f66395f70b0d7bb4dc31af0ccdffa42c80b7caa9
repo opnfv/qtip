@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_ab3c7630",
+        "filename": "setup.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6435
+      },
+      "writtenOn": "2017-03-10T09:09:26Z",
+      "side": 1,
+      "message": "Does it require QPI/*.* and metric/*.* also now?",
+      "revId": "f66395f70b0d7bb4dc31af0ccdffa42c80b7caa9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

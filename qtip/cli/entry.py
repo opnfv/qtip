@@ -11,6 +11,8 @@ import click
 import os
 import sys
 
+from os import path
+
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
@@ -20,7 +22,6 @@ sys.tracebacklimit = 0
 
 class Context(object):
     """ Load configuration and pass to subcommands """
-
 
 pass_context = click.make_pass_decorator(Context, ensure=True)
 cmd_folder = os.path.abspath(os.path.join(os.path.dirname(__file__),

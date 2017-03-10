@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_b0adc733",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-10T03:28:05Z",
+      "side": 1,
+      "message": "This path needs match the output from collector right? Or currently it is just a workaround because you have hardcoded it.",
+      "revId": "5d32b4981cbab2b61c0ddb080cac46353f5d5447",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_50aa4b1a",
+        "filename": "qtip/reporter/templates/detail.j2",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-10T03:28:05Z",
+      "side": 1,
+      "message": "\u003d\u003e QPI: ...\n\nAppend a blank line to make it more significant.",
+      "revId": "5d32b4981cbab2b61c0ddb080cac46353f5d5447",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_70a74f50",
+        "filename": "tests/data/reporter/output/detail.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-10T03:28:05Z",
+      "side": 1,
+      "message": "This seems not a json file, is it?",
+      "revId": "5d32b4981cbab2b61c0ddb080cac46353f5d5447",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_1064d320",
+        "filename": "tests/data/reporter/output/timeline.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-10T03:28:05Z",
+      "side": 1,
+      "message": "This seems not a json file, is it?",
+      "revId": "5d32b4981cbab2b61c0ddb080cac46353f5d5447",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_d06ddb05",
+        "filename": "tests/unit/cli/cmd_report.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-10T03:28:05Z",
+      "side": 1,
+      "message": "Use `os.path.join` instead",
+      "range": {
+        "startLine": 36,
+        "startChar": 18,
+        "endLine": 36,
+        "endChar": 48
+      },
+      "revId": "5d32b4981cbab2b61c0ddb080cac46353f5d5447",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

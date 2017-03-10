@@ -25,8 +25,12 @@
   args:
     chdir: '{{ ansible_env.HOME }}/tempT/UnixBench/'
 
-- name: Copying result and system info to qtip result directory
-  shell: mv ~/tempT/UnixBench/results/* ./
+- name: Copying result to qtip result directory
+  shell: '{{ item }}'
+  with_items:
+    - mv ~/tempT/UnixBench/results/*.log ./
+    - mv ~/tempT/UnixBench/results/*.html ./
+    - mv ~/tempT/UnixBench/results/* ./whetstone
   args:
     chdir: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/whetstone/'
 

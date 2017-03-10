@@ -7,17 +7,26 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-import connexion
 import httplib
+
+import connexion
+
+from qtip.base import error
+from qtip.loader import metric
 
 
 def list_metrics():
-    return connexion.problem(httplib.NOT_IMPLEMENTED,
-                             'List metrics',
-                             'Metrics listing not implemented')
+    metric_list = list(metric.MetricSpec.list_all())
+    return metric_list, httplib.OK
 
 
 def get_metric(name):
-    return connexion.problem(httplib.NOT_IMPLEMENTED,
-                             'Get a metric',
-                             'metric retrieval not implemented')
+    try:
+        metric_spec = metric.MetricSpec(name)
+        return {'name': metric_spec.name,
+                'abspath': metric_spec.abspath,
+                'content': metric_spec.content}, httplib.OK
+    except error.NotFoundError:
+        return connexion.problem(httplib.NOT_FOUND,
+                                 'Metric Not Found',
+                                 'Requested metric `' + name + '` not found.')

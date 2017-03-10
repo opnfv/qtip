@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_f017bf4f",
+        "filename": "tests/data/reporter/output/detail.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-03-10T04:38:29Z",
+      "side": 1,
+      "message": "This is a json dumps file to test the output.",
+      "parentUuid": "dabed58f_70a74f50",
+      "revId": "5d32b4981cbab2b61c0ddb080cac46353f5d5447",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_1064d320",
         "filename": "tests/data/reporter/output/timeline.json",
         "patchSetId": 2
@@ -64,6 +82,24 @@
       "writtenOn": "2017-03-10T03:28:05Z",
       "side": 1,
       "message": "This seems not a json file, is it?",
+      "revId": "5d32b4981cbab2b61c0ddb080cac46353f5d5447",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_d012bb61",
+        "filename": "tests/data/reporter/output/timeline.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-03-10T04:38:29Z",
+      "side": 1,
+      "message": "It\u0027s actually a json dump file to test the output.",
+      "parentUuid": "dabed58f_1064d320",
       "revId": "5d32b4981cbab2b61c0ddb080cac46353f5d5447",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

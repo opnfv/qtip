@@ -9,7 +9,9 @@
 
 import click
 
+from qtip.cli import utils
 from qtip.cli.entry import Context
+from qtip.loader.metric import MetricSpec
 
 pass_context = click.make_pass_decorator(Context, ensure=False)
 
@@ -31,7 +33,10 @@ def cmd_list(ctx):
 @click.argument('name')
 @pass_context
 def show(ctx, name):
-    pass
+    metric = MetricSpec(name)
+    cnt = metric.content
+    output = utils.render('metric', cnt)
+    click.echo(output)
 
 
 @cli.command('run', help='Run tests to run Performance Metrics')

@@ -1,0 +1,120 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+name: compute QPI
+description: compute QPI profile
+info:
+  facility: local
+  engineer: local
+config:
+  driver: ansible
+  collectors:
+    - type: logfile
+      paths:
+        - '../../external/dpi/'
+      logs:
+        - filename: dpi_dump.txt
+          parsers:
+            - type: grep
+              regex: |-
+                ^\s+nDPI throughput:.+?(?P<pps>\d+.\d+)\sM\spps.+
+                ?(?P<bps>\d+.\d+)\sGb\/sec
+    - type: logfile
+      paths:
+        - '../../external/ramspeed/'
+      logs:
+        - filename: Intmem
+          parsers:
+            - type: grep
+              regex: '^INTEGER\s+BatchRun\s+Copy:\s+?(?P<integer_copy>\d+\.\d+)\sMB/s$'
+            - type: grep
+              regex: '^INTEGER\s+BatchRun\s+Scale:\s+?(?P<integer_scale>\d+\.\d+)\sMB/s$'
+            - type: grep
+              regex: '^INTEGER\s+BatchRun\s+Add:\s+?(?P<integer_add>\d+\.\d+)\sMB/s$'
+            - type: grep
+              regex: '^INTEGER\s+BatchRun\s+Triad:\s+?(?P<integer_triad>\d+\.\d+)\sMB/s$'
+            - type: grep
+              regex: '^INTEGER\s+BatchRun\s+AVERAGE:\s+?(?P<integer_average>\d+\.\d+)\sMB/s$'
+        - filename: Floatmem
+          parsers:
+            - type: grep
+              regex: '^FL-POINT\s+BatchRun\s+Copy:\s+?(?P<float_copy>\d+\.\d+)\sMB/s$'
+            - type: grep
+              regex: '^FL-POINT\s+BatchRun\s+Scale:\s+?(?P<float_scale>\d+\.\d+)\sMB/s$'
+            - type: grep
+              regex: '^FL-POINT\s+BatchRun\s+Add:\s+?(?P<float_add>\d+\.\d+)\sMB/s$'
+            - type: grep
+              regex: '^FL-POINT\s+BatchRun\s+Triad:\s+?(?P<float_triad>\d+\.\d+)\sMB/s$'
+            - type: grep
+              regex: '^FL-POINT\s+BatchRun\s+AVERAGE:\s+?(?P<float_average>\d+\.\d+)\sMB/s$'
+    - type: logfile
+      paths:
+        - '../../external/ssl/'
+      logs:
+        - filename: RSA_dump
+          parsers:
+            - type: grep
+              regex: |-
+                ^rsa\s+512\sbits\s.+
+                ?(?P<rsa_sign_512>\d+\.\d)\s+
+                ?(?P<rsa_verify_512>\d+\.\d)$
+            - type: grep
+              regex: |-
+                ^rsa\s+1024\sbits\s.+
+                ?(?P<rsa_sign_1024>\d+\.\d)\s+
+                ?(?P<rsa_verify_1024>\d+\.\d)$
+            - type: grep
+              regex: |-
+                ^rsa\s+2048\sbits\s.+
+                ?(?P<rsa_sign_2048>\d+\.\d)\s+
+                ?(?P<rsa_verify_2048>\d+\.\d)$
+            - type: grep
+              regex: |-
+                ^rsa\s+4096\sbits\s.+
+                ?(?P<rsa_sign_4096>\d+\.\d)\s+
+                ?(?P<rsa_verify_4096>\d+\.\d)$
+        - filename: AES-128-CBC_dump
+          parsers:
+            - type: grep
+              regex: |-
+                ^aes-128-cbc\s+
+                ?(?P<aes_128_cbc_16_bytes>\d+\.\w+)\s+
+                ?(?P<aes_128_cbc_64_bytes>\d+\.\w+)\s+
+                ?(?P<aes_128_cbc_256_bytes>\d+\.\w+)\s+
+                ?(?P<aes_128_cbc_1024_bytes>\d+\.\w+)\s+
+                ?(?P<aes_128_cbc_8192_bytes>\d+\.\w+)$
+    - type: logfile
+      paths:
+        - '../../external/sysinfo'
+      logs:
+        - filename: top.log
+          parsers:
+            - type: grep
+              regex: 'Cpu\(s\):.+?(?P<cpu_idle>\d+\.\d)\sid'
+        - filename: inxi.log
+          parsers:
+            - type: grep
+              regex: '.+\s+Host:\s+(?P<hostname>.+)\sKernel'
+            - type: grep
+              regex: '.+\sMemory:\s+(?P<memory>.+MB)\s'
+            - type: grep
+              regex: '^CPU\(s\):\s+(?P<cpu>.+)'
+            - type: grep
+              regex: '.+\sDistro:\s+(?P<os>.+)'
+            - type: grep
+              regex: '.+\sKernel:\s+(?P<kernel>.+)\sConsole'
+            - type: grep
+              regex: '.+\s+HDD Total Size:\s+(?P<disk>.+)\s'
+            - type: grep
+              regex: '.+\sproduct:\s+(?P<product>.+)\sversion'
+  reporter:
+    name: console
+    # transform collected data into timeline
+    transformer: timeline
+QPIs:
+  - compute.yaml

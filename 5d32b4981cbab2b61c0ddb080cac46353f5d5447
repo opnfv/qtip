@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_5006cb21",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-03-10T04:42:55Z",
+      "side": 1,
+      "message": "Yes it\u0027s hard coded for now. It where I am loading the dictionaries to render for output.",
+      "parentUuid": "dabed58f_b0adc733",
+      "revId": "5d32b4981cbab2b61c0ddb080cac46353f5d5447",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_50aa4b1a",
         "filename": "qtip/reporter/templates/detail.j2",
         "patchSetId": 2

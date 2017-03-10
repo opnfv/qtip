@@ -32,8 +32,9 @@ def test_run(runner):
 
 
 def test_show(runner):
-    result = runner.invoke(cli, ['plan', 'show', 'fake-plan'])
-    assert result.output == ''
+    result = runner.invoke(cli, ['plan', 'show', 'compute.yaml'])
+    assert 'Name: compute QPI' in result.output
+    assert 'Description: compute QPI profile'
 
     result = runner.invoke(cli, ['plan', 'show'])
     assert 'Missing argument "name".' in result.output

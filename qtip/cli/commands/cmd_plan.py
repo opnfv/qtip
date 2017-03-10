@@ -10,7 +10,9 @@
 
 import click
 
+from qtip.cli import utils
 from qtip.cli.entry import Context
+from qtip.loader.plan import Plan
 
 
 pass_context = click.make_pass_decorator(Context, ensure=False)
@@ -39,7 +41,10 @@ def list(ctx):
 @click.argument('name')
 @pass_context
 def show(ctx, name):
-    pass
+    plan = Plan(name)
+    cnt = plan.content
+    output = utils.render('plan', cnt)
+    click.echo(output)
 
 
 @cli.command('run', help='Execute a Plan')

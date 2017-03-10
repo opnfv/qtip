@@ -4,7 +4,7 @@
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
 # which accompanies this distribution, and is available at
-# http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE  -2.0
 ##############################################################################
 
 swagger: '2.0'
@@ -22,11 +22,14 @@ paths:
       operationId: qtip.api.controllers.plan.list_plans
       tags:
         - Plan
-        - standalone
+        - Standalone
       responses:
         200:
           description: A list of plans
-          #TODO (akhil) add item with properties and parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Plans'
         501:
           description: Resource not implemented
           schema:
@@ -41,7 +44,7 @@ paths:
       operationId: qtip.api.controllers.plan.get_plan
       tags:
         - Plan
-        - standalone
+        - Standalone
       parameters:
         - name: name
           in: path
@@ -51,7 +54,8 @@ paths:
       responses:
         200:
           description: Plan information
-          #TODO (akhil) define schema
+          schema:
+            $ref: '#/definitions/Plan'
         404:
           description: Plan not found
           schema:
@@ -112,7 +116,9 @@ paths:
       responses:
         200:
           description: A list of QPIs
-          #TODO (akhil) add item with properties and parameters
+          schema:
+            items:
+              $ref: '#/definitions/QPIs'
         501:
           description: Resource not implemented
           schema:
@@ -138,7 +144,8 @@ paths:
       responses:
         200:
           description: QPI information
-          #TODO (akhil) define schema
+          schema:
+            $ref: '#/definitions/QPI'
         404:
           description: QPI not found
           schema:
@@ -162,7 +169,9 @@ paths:
       responses:
         200:
           description: A list of metrics
-          #TODO (akhil) add item with properties and parameters
+          schema:
+            items:
+              $ref: '#/definitions/Metrics'
         501:
           description: Resource not implemented
           schema:
@@ -188,7 +197,8 @@ paths:
       responses:
         200:
           description: Metric information
-          #TODO (akhil) define schema
+          schema:
+            $ref: '#/definitions/Metric'
         404:
           description: Metric not found
           schema:
@@ -202,6 +212,110 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 definitions:
+  PlanContent:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      info:
+        type: object
+      config:
+        type: object
+      QPIs:
+        type: array
+        items:
+          type: object
+  Plans:
+    type: object
+    required:
+      - name
+      - abspath
+    properties:
+      name:
+        type: string
+      abspath:
+        type: string
+  Plan:
+    allOf:
+    - $ref: '#/definitions/Plans'
+    - type: object
+    - required:
+      - content
+      properties:
+        content:
+          $ref: '#/definitions/PlanContent'
+  MetricContent:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      links:
+        type: array
+        items:
+          type: string
+      workloads:
+        type: array
+        items:
+          type: string
+  Metrics:
+    type: object
+    required:
+      - name
+      - abspath
+    properties:
+      name:
+        type: string
+      abspath:
+        type: string
+  Metric:
+    allOf:
+    - $ref: '#/definitions/Metrics'
+    - required:
+      - content
+      properties:
+        content:
+          $ref: '#/definitions/MetricContent'
+  QPIContent:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      formula:
+        type: string
+      sections:
+        type: array
+        items:
+          type: object
+  QPIs:
+    type: object
+    required:
+      - name
+      - abspath
+    properties:
+      name:
+        type: string
+      abspath:
+        type: string
+  QPI:
+    allOf:
+      - $ref: '#/definitions/QPIs'
+      - required:
+        - content
+        properties:
+          content:
+            $ref: '#/definitions/QPIContent'
   Error:
     type: object
     properties:

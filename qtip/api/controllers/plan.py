@@ -7,20 +7,29 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-import connexion
 import httplib
+
+import connexion
+
+from qtip.base import error
+from qtip.loader import plan
 
 
 def list_plans():
-    return connexion.problem(httplib.NOT_IMPLEMENTED,
-                             'List plans',
-                             'Plans listing not implemented')
+    plan_list = list(plan.Plan.list_all())
+    return plan_list, httplib.OK
 
 
 def get_plan(name):
-    return connexion.problem(httplib.NOT_IMPLEMENTED,
-                             'Get a plan',
-                             'Plan retrieval not implemented')
+    try:
+        plan_spec = plan.Plan(name)
+        return {'name': plan_spec.name,
+                'abspath': plan_spec.abspath,
+                'content': plan_spec.content}, httplib.OK
+    except error.NotFoundError:
+        return connexion.problem(httplib.NOT_FOUND,
+                                 'Plan Not Found',
+                                 'requested plan `'+name+'` not found.')
 
 
 def run_plan(name, action="run"):

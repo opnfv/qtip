@@ -124,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_2b05e610",
+        "filename": "tests/data/reporter/output/timeline.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-10T04:48:03Z",
+      "side": 1,
+      "message": "Maybe `timeline.json.dump` or `timeline.json.expected` will look better?",
+      "parentUuid": "dabed58f_d012bb61",
+      "revId": "5d32b4981cbab2b61c0ddb080cac46353f5d5447",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_d06ddb05",
         "filename": "tests/unit/cli/cmd_report.py",
         "patchSetId": 2

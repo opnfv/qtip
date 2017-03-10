@@ -7,17 +7,26 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-import connexion
 import httplib
+
+import connexion
+
+from qtip.base import error
+from qtip.loader import qpi
 
 
 def list_qpis():
-    return connexion.problem(httplib.NOT_IMPLEMENTED,
-                             'List QPIs',
-                             'QPIs listing not implemented')
+    qpi_spec_list = list(qpi.QPISpec.list_all())
+    return qpi_spec_list, httplib.OK
 
 
 def get_qpi(name):
-    return connexion.problem(httplib.NOT_IMPLEMENTED,
-                             'Get a QPI',
-                             'QPI retrieval not implemented')
+    try:
+        qpi_spec = qpi.QPISpec(name)
+        return {'name': qpi_spec.name,
+                'abspath': qpi_spec.abspath,
+                'content': qpi_spec.content}, httplib.OK
+    except error.NotFoundError:
+        return connexion.problem(httplib.NOT_FOUND,
+                                 'QPI Not Found',
+                                 'Requested QPI Spec `' + name + '` not found.')

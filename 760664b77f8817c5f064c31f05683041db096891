@@ -45,6 +45,30 @@
       "revId": "760664b77f8817c5f064c31f05683041db096891",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_907763d4",
+        "filename": "qtip/cli/entry.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-10T03:29:22Z",
+      "side": 1,
+      "message": "See the TODO item above",
+      "parentUuid": "dabed58f_30bc77bb",
+      "range": {
+        "startLine": 28,
+        "startChar": 36,
+        "endLine": 28,
+        "endChar": 47
+      },
+      "revId": "760664b77f8817c5f064c31f05683041db096891",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

@@ -9,4 +9,4 @@
 - name: Collect cpu usage
   shell: top -bn1 > top.log
   args:
-    chdir: '{{ dest_path }}/'
+    chdir: '{{ dest_path }}'

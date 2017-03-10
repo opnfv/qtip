@@ -7,22 +7,31 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+- name: Make whetstone directories
+  file:
+    path: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/whetstone/'
+    state: directory
+
+- include: ../inxi.yaml
+  vars:
+    dest_path: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/whetstone/'
+
+- include: ../top.yaml
+  vars:
+    dest_path: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/whetstone/'
+
 - name: Run whetstone
   shell: ./Run -v whetstone
-  when: whetstone
   args:
     chdir: '{{ ansible_env.HOME }}/tempT/UnixBench/'
 
 - name: Copying result and system info to qtip result directory
-  shell: '{{ item }}'
-  with_items:
-    - mv ~/tempT/UnixBench/results/* ./
-    - cp ~/qtip_result/inxi.log ~/qtip_result/top.log ./
+  shell: mv ~/tempT/UnixBench/results/* ./
   args:
-    chdir: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}'
+    chdir: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/whetstone/'
 
 - name: Fetch whetstone result files to local manchine
   synchronize:
     mode: pull
     src: '{{ ansible_env.HOME }}/qtip_result/'
-    dest: '{{ result_dir }}/whetstone/logs/'
+    dest: '{{ result_dir }}/'

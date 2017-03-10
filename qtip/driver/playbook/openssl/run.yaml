@@ -12,22 +12,18 @@
   remote_user: root
 
   tasks:
-    - name: Get current timestamp
-      set_fact:
-        timestamp: "{{ lookup('pipe', 'date +%Y-%m-%d-%H-%M') }}"
-
     - name: Make some directories needed
       file:
-        path: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}'
+        path: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/ssl/'
         state: directory
 
     - include: ../inxi.yaml
       vars:
-        dest_path: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}/'
+        dest_path: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/ssl/'
 
     - include: ../top.yaml
       vars:
-        dest_path: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}/'
+        dest_path: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/ssl/'
 
     - name: Benchmarking RSA signatures and AES-128-cbc cipher encryption throughput
       shell: '{{ item }}'
@@ -40,10 +36,10 @@
     - name: Copying result to qtip result directory
       shell: cp ~/Open_SSL/openssl-1.0.2f/apps/*_dump ./
       args:
-        chdir: '{{ ansible_env.HOME }}/qtip_result/{{ timestamp }}/{{ ansible_hostname }}/'
+        chdir: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/ssl/'
 
     - name: Fetch result files to local manchine
       synchronize:
         mode: pull
         src: '{{ ansible_env.HOME }}/qtip_result/'
-        dest: '{{ result_dir }}/ssl/logs/'
+        dest: '{{ result_dir }}/'

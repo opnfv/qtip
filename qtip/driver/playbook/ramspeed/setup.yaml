@@ -14,7 +14,7 @@
   tasks:
     - name: Making ramspeed directory
       file:
-        path: '{{ result_dir }}/ramspeed/logs/'
+        path: '{{ result_dir }}/'
         state: directory
 
 - hosts: hosts

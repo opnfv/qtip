@@ -22,4 +22,4 @@
 - name: Run inxi
   shell: inxi -b -c0 -n > inxi.log
   args:
-    chdir: '{{ dest_path }}/'
+    chdir: '{{ dest_path }}'

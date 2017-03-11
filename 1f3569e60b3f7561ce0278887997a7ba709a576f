@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_e15fef70",
+        "filename": "collector/detail.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-03-11T02:47:33Z",
+      "side": 1,
+      "message": "There are some changes for this format. I will email you the new format. can you update it?",
+      "revId": "1f3569e60b3f7561ce0278887997a7ba709a576f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

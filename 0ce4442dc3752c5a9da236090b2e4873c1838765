@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_41e59ba6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-11T04:24:07Z",
+      "side": 1,
+      "message": "Good try!",
+      "revId": "0ce4442dc3752c5a9da236090b2e4873c1838765",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_e1d60fc5",
+        "filename": "qtip/collector/calculator.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-11T04:24:07Z",
+      "side": 1,
+      "message": "What is this conversion for? Then we shall have a different result for x \u003e 100 and not?",
+      "revId": "0ce4442dc3752c5a9da236090b2e4873c1838765",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_a1d817f0",
+        "filename": "qtip/collector/parser/grep.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-11T04:24:07Z",
+      "side": 1,
+      "message": "Grep is supposed to be a general purpose module.\n\nI think we need to add a TODO here to say it is currently hardcoded for the release.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "0ce4442dc3752c5a9da236090b2e4873c1838765",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_01efa388",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-11T04:27:25Z",
+      "side": 1,
+      "message": "Shall we rename it to \"result\" ? We will have another formatted report rendered from this result.",
+      "range": {
+        "startLine": 10,
+        "startChar": 30,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "5ddce0d6c9bdbedbf4e1ce29ffd79bfe88f872cd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

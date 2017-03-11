@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_e1edaf8c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-11T04:29:36Z",
+      "side": 1,
+      "message": "Good for now, although I would prefer to have a more explicit option to skip cleaning.",
+      "revId": "d37dad746e504e833abcf2ae058f2b81e2a9d365",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

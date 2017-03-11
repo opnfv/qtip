@@ -31,7 +31,7 @@
         - ~/ramspeed/ramsmp-3.5.0/ramsmp -b 3 -l 5 -p 1 >> Intmem
         - ~/ramspeed/ramsmp-3.5.0/ramsmp -b 6 -l 5 -p 1 >> Floatmem
       args:
-        chdir: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/whetstone/'
+        chdir: '{{ ansible_env.HOME }}/qtip_result/{{ ansible_hostname }}/ramspeed/'
 
     - name: Fetch result files to local manchine
       synchronize:

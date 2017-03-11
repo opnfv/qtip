@@ -36,7 +36,7 @@ RUN apt-get update && apt-get install -y \
     supervisor \
     python-setuptools \
     iputils-ping\
-    rsync
+    rsync \
     --no-install-recommends \
 && rm -rf /var/lib/apt/lists/*
 

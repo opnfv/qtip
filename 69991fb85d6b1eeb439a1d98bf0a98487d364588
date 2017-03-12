@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_51f48cf1",
+        "filename": "qtip/reporter/templates/ssl.j2",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-12T07:51:28Z",
+      "side": 1,
+      "message": "trailing space",
+      "range": {
+        "startLine": 27,
+        "startChar": 42,
+        "endLine": 27,
+        "endChar": 46
+      },
+      "revId": "69991fb85d6b1eeb439a1d98bf0a98487d364588",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

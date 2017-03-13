@@ -46,6 +46,9 @@ class AnsibleDriver(object):
             self.env_setup_flag = True
             logger.info("Setup test enviroment, Done!")
 
+    def cleanup(self):
+        self.env.cleanup()
+
     def run(self, metric_list, **kwargs):
         if 'args' in self.config:
             extra_vars = self.merge_two_dicts(kwargs, self.config['args'])

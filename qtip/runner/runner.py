@@ -36,7 +36,9 @@ def run_benchmark(result_dir, benchmarks):
         os.makedirs(result_dir)
     driver = AnsibleDriver({'args': {'result_dir': result_dir}})
     driver.pre_run()
-    return driver.run(benchmarks)
+    result = driver.run(benchmarks)
+    driver.cleanup()
+    return result
 
 
 def generate_report(result_dir, start_time, stop_time):

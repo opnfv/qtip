@@ -191,14 +191,20 @@ class AnsibleEnvSetup(object):
         return False
 
     def cleanup(self):
-        IF_DEBUG = os.getenv('IF_DEBUG')
+        CI_DEBUG = os.getenv('CI_DEBUG')
 
-        if IF_DEBUG:
+        if CI_DEBUG:
             logger.info("DEBUG Mode: please do cleanup by manual.")
         else:
-            logger.info("Cleanup hostfile and keypair.")
-            clean_file(self.hostfile, self.keypair, self.keypair + '.pub')
-
             for ip in self.host_ip_list:
                 logger.info("Cleanup authorized_keys from {0}...".format(ip))
-                os.system('bash %s/cleanup_creds.sh {0}'.format(ip))
+                cmd = 'bash {0}/cleanup_creds.sh {1}'.format(SCRIPT_DIR, ip,
+                                                             self.keypair['private'])
+                os.system(cmd)
+
+            logger.info("Cleanup hostfile and keypair.")
+            clean_file(self.hostfile,
+                       self.keypair['private'],
+                       self.keypair['public'])
+
+

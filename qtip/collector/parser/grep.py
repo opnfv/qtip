@@ -49,8 +49,6 @@ def _parse_logfile(config, paths):
             '{0}/{1}'.format(paths, regex_rules_by_file[GrepProp.FILENAME])
         for regex in regex_rules_by_file['grep']:
             matches = grep_in_file(filename, regex)
-            for item in matches:
-                print item.groupdict()
             if len(matches) > 1:
                 temp_dict = defaultdict(list)
                 for item in [match.groupdict() for match in matches]:

@@ -43,7 +43,10 @@ def list(ctx):
 @click.argument('name')
 @pass_context
 def show(ctx, name):
-    pass
+    plan = Plan('{}.yaml'.format(name))
+    cnt = plan.content
+    output = utils.render('plan', cnt)
+    click.echo(output)
 
 
 @cli.command('run', help='Execute a Plan')

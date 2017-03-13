@@ -36,7 +36,10 @@ def cmd_list(ctx):
 @click.argument('name')
 @pass_context
 def show(ctx, name):
-    pass
+    qpi = QPISpec(name)
+    cnt = qpi.content
+    output = utils.render('qpi', cnt)
+    click.echo(output)
 
 
 @cli.command('run', help='Run performance tests for the specified QPI')

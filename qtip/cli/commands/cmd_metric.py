@@ -35,7 +35,10 @@ def cmd_list(ctx):
 @click.argument('name')
 @pass_context
 def show(ctx, name):
-    pass
+    metric = MetricSpec(name)
+    cnt = metric.content
+    output = utils.render('metric', cnt)
+    click.echo(output)
 
 
 @cli.command('run', help='Run tests to run Performance Metrics')

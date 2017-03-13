@@ -1,5 +1,5 @@
 ###############################################################
-# Copyright (c) 2016 ZTE Corp and others.
+# Copyright (c) 2017 taseer94@gmail.com and others.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
@@ -8,9 +8,9 @@
 ##############################################################################
 
 import pytest
-from click.testing import CliRunner
 
 from qtip.cli.entry import cli
+from click.testing import CliRunner
 
 
 @pytest.fixture(scope="module")
@@ -20,7 +20,7 @@ def runner():
 
 def test_list(runner):
     result = runner.invoke(cli, ['qpi', 'list'])
-    assert result.output == ''
+    assert 'QPIs' and 'compute' in result.output
 
 
 def test_run(runner):

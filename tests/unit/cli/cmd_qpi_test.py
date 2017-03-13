@@ -32,8 +32,9 @@ def test_run(runner):
 
 
 def test_show(runner):
-    result = runner.invoke(cli, ['qpi', 'show', 'fake-qpi'])
-    assert result.output == ''
+    result = runner.invoke(cli, ['qpi', 'show', 'compute.yaml'])
+    assert 'Name: compute' in result.output
+    assert 'Description: sample performance index of computing' in result.output
 
     result = runner.invoke(cli, ['qpi', 'show'])
     assert 'Missing argument "name".' in result.output

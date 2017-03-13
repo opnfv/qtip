@@ -34,8 +34,10 @@ def test_run(runner):
 
 
 def test_show(runner):
-    result = runner.invoke(cli, ['metric', 'show', 'fake-metric'])
-    assert result.output == ''
+    result = runner.invoke(cli, ['metric', 'show', 'dhrystone.yaml'])
+    assert 'Name: dhrystone' in result.output
+    assert 'Description: A synthetic computing benchmark program intended to be representative of' \
+           'system (integer) programming.'
 
     result = runner.invoke(cli, ['metric', 'show'])
     assert 'Missing argument "name".' in result.output

@@ -18,7 +18,7 @@ import paramiko
 
 from qtip.util.logger import QtipLogger
 
-logger = QtipLogger('ansible_driver').get
+logger = QtipLogger('env').get
 
 SCRIPT_DIR = path.join(path.dirname(__file__), path.pardir, 'scripts')
 KEYNAME = 'QtipKey'
@@ -33,25 +33,25 @@ def all_files_exist(*files):
     flag = True
     for f_item in files:
         flag &= path.isfile(f_item)
-        print("Is {0} existed: {1}".format(f_item, flag))
+        logger.info("Is {0} existed: {1}".format(f_item, flag))
     return flag
 
 
 def clean_file(*files):
     if len(files) == 0:
-        print('Nothing to clean')
+        logger.info('Nothing to clean')
         return False
 
     def clean(f):
         try:
             if all_files_exist(f):
                 os.remove(f)
-                print("Removed: {0}".format(f))
+                logger.info("Removed: {0}".format(f))
             else:
-                print("Not exists: {0}".format(f))
+                logger.info("Not exists: {0}".format(f))
             return True
         except OSError as error:
-            print("Not able to Remove: {0}".format(f), error)
+            logger.error("Not able to Remove: {0}".format(f), error)
             return False
 
     results = map(clean, files)
@@ -78,7 +78,7 @@ class AnsibleEnvSetup(object):
             self.pass_keypair_to_remote()
             self.check_hosts_ssh_connectivity()
         except Exception as error:
-            print(error)
+            logger.info(error)
             sys.exit(1)
 
     def check_keypair(self, keypair):
@@ -92,7 +92,7 @@ class AnsibleEnvSetup(object):
 
     def generate_default_keypair(self):
         if not all_files_exist(PRIVATE_KEY, PUBLIC_KEY):
-            print("Generate default keypair {0} under "
+            logger.info("Generate default keypair {0} under "
                   "{1}".format(KEYNAME, os.environ['HOME']))
             cmd = '''ssh-keygen -t rsa -N "" -f {0} -q -b 2048'''.format(
                 PRIVATE_KEY)
@@ -114,10 +114,10 @@ class AnsibleEnvSetup(object):
             time.sleep(2)
             ssh_cmd = '%s/qtip_creds.sh %s %s' % (SCRIPT_DIR, ip, private_key)
             os.system(ssh_cmd)
-            print('Pass keypair to remote hosts {0} successfully'.format(ip))
+            logger.info('Pass keypair to remote hosts {0} successfully'.format(ip))
             return True
         except Exception as error:
-            print(error)
+            logger.error(error)
             return False
 
     def check_hostfile(self, hostfile):
@@ -132,7 +132,7 @@ class AnsibleEnvSetup(object):
             # check whether the file is already existed
             self.check_hostfile(HOST_FILE)
         except Exception:
-            print("Generate default hostfile {0} under "
+            logger.info("Generate default hostfile {0} under "
                   "{1}".format(HOST_FILE, os.environ['HOME']))
             self._generate_hostfile_via_installer()
 
@@ -156,11 +156,11 @@ class AnsibleEnvSetup(object):
 
     def fetch_host_ip_from_hostfile(self):
         self.host_ip_list = []
-        print('Fetch host ips from hostfile...')
+        logger.info('Fetch host ips from hostfile...')
         with open(self.hostfile, 'r') as f:
             self.host_ip_list = re.findall('\d+.\d+.\d+.\d+', f.read())
         if self.host_ip_list:
-            print("The remote compute nodes: {0}".format(self.host_ip_list))
+            logger.info("The remote compute nodes: {0}".format(self.host_ip_list))
         else:
             raise ValueError("The hostfile doesn't include host ip addresses.")
 
@@ -172,7 +172,7 @@ class AnsibleEnvSetup(object):
 
     @staticmethod
     def _ssh_is_ok(ip, private_key, attempts=100):
-        print('Check hosts {0} ssh connectivity...'.format(ip))
+        logger.info('Check hosts {0} ssh connectivity...'.format(ip))
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         ssh.connect(ip, key_filename=private_key)
@@ -181,10 +181,10 @@ class AnsibleEnvSetup(object):
             try:
                 stdin, stdout, stderr = ssh.exec_command('uname')
                 if not stderr.readlines():
-                    print("{0}: SSH test successful.".format(ip))
+                    logger.info("{0}: SSH test successful.".format(ip))
                     return True
             except socket.error:
-                print("%s times ssh test......failed." % str(attempt + 1))
+                logger.debug("%s times ssh test......failed." % str(attempt + 1))
                 if attempt == (attempts - 1):
                     return False
                 time.sleep(2)

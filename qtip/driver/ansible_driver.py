@@ -9,6 +9,7 @@
 
 from collections import defaultdict
 from os import path
+from operator import add
 
 from qtip.driver.ansible_api import AnsibleApi
 from qtip.util.env import AnsibleEnvSetup
@@ -43,7 +44,7 @@ class AnsibleDriver(object):
             logger.info("Starting to setup test environment...")
             self.env.setup(self.config)
             self.env_setup_flag = True
-            logger("Done!")
+            logger.info("Setup test enviroment, Done!")
 
     def run(self, metric_list, **kwargs):
         if 'args' in self.config:
@@ -52,10 +53,9 @@ class AnsibleDriver(object):
             extra_vars = kwargs
         logger.info("extra_var: {0}".format(extra_vars))
 
-        # TODO zhihui: will add a new property named "tool" for metrics, hardcode it now.
         tool_to_metrics = defaultdict(list)
         for metric in metric_list:
-            if metric in ['dhrystone', 'whetstone']:
+            if metric == 'dhrystone' or metric == 'whetstone':
                 tool_to_metrics['unixbench'].append(metric)
                 extra_vars[metric] = True
             elif metric == 'ssl':
@@ -63,23 +63,37 @@ class AnsibleDriver(object):
             else:
                 tool_to_metrics[metric].append(metric)
 
-        ansible_api = AnsibleApi()
-        map(lambda tool: self._run_metric(ansible_api, tool,
-                                          tool_to_metrics[tool], extra_vars),
-            tool_to_metrics)
+        result_list = map(lambda tool: self._run_metric(tool,
+                                                        tool_to_metrics[tool],
+                                                        extra_vars),
+                          tool_to_metrics)
+        return False not in result_list
 
-    def _run_metric(self, ansible_api, tool, metrics, extra_vars):
+    def _run_metric(self, tool, metrics, extra_vars):
         logger.info('Using {0} to measure metrics {1}'.format(tool, metrics))
 
-        for metric in metrics:
-            extra_vars[metric] = True
+        setup_pbook = "{0}/{1}/setup.yaml".format(PLAYBOOK_DIR, tool)
+        run_pbook = "{0}/{1}/run.yaml".format(PLAYBOOK_DIR, tool)
+        clean_pbook = "{0}/{1}/clean.yaml".format(PLAYBOOK_DIR, tool)
 
-        logger.debug("extra_vars: {0}".format(extra_vars))
+        if self._run_ansible_playbook(setup_pbook, extra_vars):
+            self._run_ansible_playbook(run_pbook, extra_vars)
+        else:
+            logger.error("{0} is failed.".format(setup_pbook))
 
-        for item in ['setup', 'run', 'clean']:
-            pbook = "{0}/{1}/{2}.yaml".format(PLAYBOOK_DIR, tool, item)
-            logger.debug("Start to run {0}".format(pbook))
-            ansible_api.execute_playbook(pbook, self.env.hostfile,
-                                         self.env.keypair['private'], extra_vars)
-            playbook_stat = ansible_api.get_detail_playbook_stats()
-            logger.debug("playbook_stat: {0}".format(playbook_stat))
+        return self._run_ansible_playbook(clean_pbook, extra_vars)
+
+    def _run_ansible_playbook(self, pbook, extra_vars):
+        ansible_api = AnsibleApi()
+        logger.debug("Run {0} with extra_vars: {1}".format(pbook, extra_vars))
+        ansible_api.execute_playbook(pbook, self.env.hostfile,
+                                     self.env.keypair['private'], extra_vars)
+        playbook_stats = ansible_api.get_detail_playbook_stats()
+        logger.debug("playbook_stat: {0}".format(playbook_stats))
+        return self.is_pass(playbook_stats)
+
+    @staticmethod
+    def is_pass(stats):
+        return 0 == reduce(add,
+                           map(lambda x: x[1]['failures'] + x[1]['unreachable'],
+                               stats))

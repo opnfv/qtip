@@ -16,6 +16,24 @@
       "revId": "57ec2e7a9757cbb1da8a1f73f0c55e8a5cb67bec",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_6d6811f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-03-14T08:21:17Z",
+      "side": 1,
+      "message": "I don\u0027t know the content can be empty. :)",
+      "parentUuid": "9ab8dda7_4dbc2d6d",
+      "revId": "57ec2e7a9757cbb1da8a1f73f0c55e8a5cb67bec",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

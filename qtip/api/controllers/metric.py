@@ -9,9 +9,7 @@
 
 import httplib
 
-import connexion
-
-from qtip.base import error
+import common
 from qtip.loader import metric
 
 
@@ -20,13 +18,9 @@ def list_metrics():
     return metric_list, httplib.OK
 
 
+@common.get_one_exceptions(resource='metric')
 def get_metric(name):
-    try:
         metric_spec = metric.MetricSpec(name)
         return {'name': metric_spec.name,
                 'abspath': metric_spec.abspath,
-                'content': metric_spec.content}, httplib.OK
-    except error.NotFoundError:
-        return connexion.problem(httplib.NOT_FOUND,
-                                 'Metric Not Found',
-                                 'Requested metric `' + name + '` not found.')
+                'content': metric_spec.content}

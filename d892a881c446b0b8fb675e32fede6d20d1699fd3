@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_3646e624",
+        "filename": "qtip/api/controllers/common.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-15T02:21:25Z",
+      "side": 1,
+      "message": "The content seems generic for 404 error, not limited to get_one methods. Should we rename the decorator?",
+      "range": {
+        "startLine": 8,
+        "startChar": 4,
+        "endLine": 8,
+        "endChar": 22
+      },
+      "revId": "d892a881c446b0b8fb675e32fede6d20d1699fd3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_5637dab0",
+        "filename": "qtip/api/controllers/metric.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-15T02:21:25Z",
+      "side": 1,
+      "message": "absolute import path required, i.e. `qtip.api.controller.common`",
+      "range": {
+        "startLine": 12,
+        "startChar": 7,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "d892a881c446b0b8fb675e32fede6d20d1699fd3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

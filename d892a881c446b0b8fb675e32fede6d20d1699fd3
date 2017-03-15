@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "9ab8dda7_81366e02",
+        "filename": "qtip/api/controllers/common.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-15T12:58:45Z",
+      "side": 1,
+      "message": "I think you can submit a new patch, to do it in your way :)",
+      "parentUuid": "9ab8dda7_c1e30632",
+      "range": {
+        "startLine": 8,
+        "startChar": 4,
+        "endLine": 8,
+        "endChar": 22
+      },
+      "revId": "d892a881c446b0b8fb675e32fede6d20d1699fd3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab8dda7_5637dab0",
         "filename": "qtip/api/controllers/metric.py",
         "patchSetId": 4

@@ -72,12 +72,10 @@ def test_init(ansible_envsetup):
     assert ansible_envsetup.host_ip_list == []
 
 
-def test_setup_exception(capsys, mocker, ansible_envsetup, hostfile):
+def test_setup_exception(mocker, ansible_envsetup, hostfile):
     with mock.patch.object(AnsibleEnvSetup, 'check_hostfile', side_effect=RuntimeError()):
         mock_os = mocker.patch('sys.exit')
         ansible_envsetup.setup({'hostfile': str(hostfile)})
-        out, error = capsys.readouterr()
-        assert out == '\n'
         assert mock_os.call_count == 1
 
 
@@ -178,21 +176,17 @@ def test_pass_keypair_to_remote_failed(mocker, ansible_envsetup):
     assert "Failed on passing keypair to remote." in str(excinfo.value)
 
 
-def test_pass_keypair(monkeypatch, capsys, mocker, ansible_envsetup):
+def test_pass_keypair(monkeypatch, mocker, ansible_envsetup):
     monkeypatch.setattr(time, 'sleep', lambda s: None)
     mock_os = mocker.patch('os.system')
     ansible_envsetup._pass_keypair('10.20.0.3', str(private_key))
     assert mock_os.call_count == 2
-    out, error = capsys.readouterr()
-    assert "Pass keypair to remote hosts 10.20.0.3 successfully" in out
 
 
-def test_pass_keypair_exception(capsys, ansible_envsetup):
+def test_pass_keypair_exception(ansible_envsetup):
     with mock.patch('os.system', side_effect=Exception()) as mock_os:
         result = ansible_envsetup._pass_keypair('10.20.0.3', str(private_key))
         assert result is False
-        out, error = capsys.readouterr()
-        assert out == '\n'
         assert mock_os.call_count == 1
 
 
@@ -304,20 +298,10 @@ def test_ssh_is_ok(mocker, ansible_envsetup, private_key, stderrinfo, expected):
     test_ssh_client.exec_command.assert_called_with('uname')
 
 
-@pytest.mark.parametrize("attempts, expected", [
-    (1,
-     'Check hosts 10.20.0.3 ssh connectivity...\n1 times ssh test......failed.\n'),
-    (2,
-     'Check hosts 10.20.0.3 ssh connectivity...\n'
-     '1 times ssh test......failed.\n'
-     '2 times ssh test......failed.\n')
-])
-def test_ssh_exception(capsys, monkeypatch, mocker, ansible_envsetup, attempts, expected):
+def test_ssh_exception(monkeypatch, mocker, ansible_envsetup):
     monkeypatch.setattr(time, 'sleep', lambda s: None)
     mock_sshclient = mocker.patch('paramiko.SSHClient')
     test_ssh_client = mock_sshclient.return_value
     test_ssh_client.exec_command.side_effect = socket.error()
-    result = ansible_envsetup._ssh_is_ok('10.20.0.3', str(private_key), attempts=attempts)
-    out, error = capsys.readouterr()
-    assert expected == out
+    result = ansible_envsetup._ssh_is_ok('10.20.0.3', str(private_key), attempts=1)
     assert result is False

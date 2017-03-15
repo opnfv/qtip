@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9ab8dda7_767e9ee6",
+        "filename": "qtip/api/controllers/common.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-15T07:23:52Z",
+      "side": 1,
+      "message": "for now there are only 404, maybe some others later, it is designed to get_one, if there are others, another wrap will be provided",
+      "parentUuid": "9ab8dda7_3646e624",
+      "range": {
+        "startLine": 8,
+        "startChar": 4,
+        "endLine": 8,
+        "endChar": 22
+      },
+      "revId": "d892a881c446b0b8fb675e32fede6d20d1699fd3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab8dda7_5637dab0",
         "filename": "qtip/api/controllers/metric.py",
         "patchSetId": 4

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_01935ea4",
+        "filename": "qtip/reporter/templates/base.j2",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-15T08:57:38Z",
+      "side": 1,
+      "message": "Good for now\n\nBut need a TODO to fix such hard coding in future.",
+      "revId": "3eb389001c92fe8e22f66970f98cff5ca8a8ca04",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

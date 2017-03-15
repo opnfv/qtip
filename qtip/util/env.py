@@ -16,6 +16,10 @@ import time
 
 import paramiko
 
+from qtip.util.logger import QtipLogger
+
+logger = QtipLogger('ansible_driver').get
+
 SCRIPT_DIR = path.join(path.dirname(__file__), path.pardir, 'scripts')
 KEYNAME = 'QtipKey'
 PRIVATE_KEY = '{0}/qtip/{1}'.format(os.environ['HOME'], KEYNAME)
@@ -185,3 +189,16 @@ class AnsibleEnvSetup(object):
                     return False
                 time.sleep(2)
         return False
+
+    def cleanup(self):
+        IF_DEBUG = os.getenv('IF_DEBUG')
+
+        if IF_DEBUG:
+            logger.info("DEBUG Mode: please do cleanup by manual.")
+        else:
+            logger.info("Cleanup hostfile and keypair.")
+            clean_file(self.hostfile, self.keypair, self.keypair + '.pub')
+
+            for ip in self.host_ip_list:
+                logger.info("Cleanup authorized_keys from {0}...".format(ip))
+                os.system('bash %s/cleanup_creds.sh {0}'.format(ip))

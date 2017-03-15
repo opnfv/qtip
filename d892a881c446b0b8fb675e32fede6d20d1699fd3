@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9ab8dda7_c1e30632",
+        "filename": "qtip/api/controllers/common.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-15T09:03:58Z",
+      "side": 1,
+      "message": "Or you can think in other side, apply it for all handler first and later on derive the specific decorator for `get_one`. Since decorator can be cascaded, I think the final layout may look like\n\n```\n@handle_get_one_error\n@handle_http_error\ndef request_handler(...)\n   ...\n```\n\nWhat do you think?",
+      "parentUuid": "9ab8dda7_767e9ee6",
+      "range": {
+        "startLine": 8,
+        "startChar": 4,
+        "endLine": 8,
+        "endChar": 22
+      },
+      "revId": "d892a881c446b0b8fb675e32fede6d20d1699fd3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab8dda7_5637dab0",
         "filename": "qtip/api/controllers/metric.py",
         "patchSetId": 4

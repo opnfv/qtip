@@ -192,7 +192,7 @@ class AnsibleEnvSetup(object):
     def cleanup(self):
         CI_DEBUG = os.getenv('CI_DEBUG')
 
-        if CI_DEBUG:
+        if CI_DEBUG is not None and CI_DEBUG.lower() == 'true':
             logger.info("DEBUG Mode: please do cleanup by manual.")
         else:
             for ip in self.host_ip_list:

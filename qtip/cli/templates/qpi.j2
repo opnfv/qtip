@@ -1,0 +1,12 @@
+Name: {{ title }}
+Description: {{ description }}
+{% for section in sections %}
+  Name: {{ section.name }}
+  Weight: {{ section.weight }}
+  Formula: {{ section.formula }}
+  Metrics:
+  {% for metric in section.metrics %}
+    {{ metric }}
+  {% endfor %}
+{% endfor %}
+

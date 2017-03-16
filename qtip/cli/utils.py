@@ -7,6 +7,9 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from jinja2 import Environment
+from jinja2 import FileSystemLoader
+from os import path
 from prettytable import PrettyTable
 
 
@@ -16,3 +19,13 @@ def table(name, components):
     table.align[name] = 'l'
     [table.add_row([component['name'][0:-5]]) for component in components]
     return table
+
+
+def render(name, var_dict):
+    """ Get the templates to render for specific component """
+    tmpl_path = path.join(path.dirname(__file__), 'templates')
+    tmpl_loader = FileSystemLoader(tmpl_path)
+    env = Environment(loader=tmpl_loader)
+    template = env.get_template('{}.j2'.format(name))
+    result = template.render(var_dict)
+    return result

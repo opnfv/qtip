@@ -6,6 +6,9 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
+
+# TODO(yujunz) refactor the runner to parse benchmark plan instead of hardcoding
+
 import argparse
 import json
 import os

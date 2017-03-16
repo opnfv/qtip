@@ -13,7 +13,6 @@ from qtip.util.logger import QtipLogger
 
 logger = QtipLogger('calculator').get
 
-
 def dpi_calculator(samples):
     try:
         float_pps = map(lambda x: float(x), samples['pps'])
@@ -24,6 +23,7 @@ def dpi_calculator(samples):
                              map(lambda x: x / 1000 if x > 100 else x, float_bps))
 
         return {'pps': round(sum_dpi_pps / 10, 3), 'bps': round(sum_dpi_bps / 10, 3)}
+    # TODO(yujunz) handle only specific exceptions
     except Exception as error:
         logger.error(error)
         return {'pps': None, 'bps': None}
@@ -33,6 +33,7 @@ def calculate_cpu_usage(cpu_idle):
     try:
         cpu_usage = round((100.0 - float(cpu_idle)), 3)
         return '{0}%'.format(str(cpu_usage))
+    # TODO(yujunz) handle only specific exceptions
     except Exception, error:
         logger.error(error)
         return None

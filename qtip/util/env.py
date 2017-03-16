@@ -192,6 +192,7 @@ class AnsibleEnvSetup(object):
     def cleanup(self):
         CI_DEBUG = os.getenv('CI_DEBUG')
 
+        # TODO(yujunz) use explicit option to skip cleanup
         if CI_DEBUG:
             logger.info("DEBUG Mode: please do cleanup by manual.")
         else:

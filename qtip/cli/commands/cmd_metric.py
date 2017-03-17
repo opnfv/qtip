@@ -12,6 +12,7 @@ import click
 from qtip.cli import utils
 from qtip.cli.entry import Context
 from qtip.loader.metric import MetricSpec
+from qtip.runner import runner
 
 pass_context = click.make_pass_decorator(Context, ensure=False)
 
@@ -19,7 +20,7 @@ pass_context = click.make_pass_decorator(Context, ensure=False)
 @click.group()
 @pass_context
 def cli(ctx):
-    ''' Performance Metrics Group '''
+    """ Performance Metrics Group """
     pass
 
 
@@ -42,7 +43,7 @@ def show(ctx, name):
 
 
 @cli.command('run', help='Run tests to run Performance Metrics')
-@click.argument('name')
+@click.argument('benchmark')
 @pass_context
-def cmd_run(ctx, name):
-    pass
+def cmd_run(ctx, benchmark):
+    runner.execute(benchmark)

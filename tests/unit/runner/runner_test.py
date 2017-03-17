@@ -9,8 +9,14 @@
 
 
 from qtip.runner.base import BaseRunner
+from qtip.runner import runner
 
 
 def test_constructor():
     runner = BaseRunner()
     assert isinstance(runner, BaseRunner)
+
+
+def test_execution():
+    result = runner.execute('dpi')
+    assert 'Attribute Error:' in result

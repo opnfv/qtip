@@ -26,8 +26,8 @@ def test_list(runner):
 
 
 def test_run(runner):
-    result = runner.invoke(cli, ['metric', 'run', 'fake-metric'])
-    assert result.output == ''
+    result = runner.invoke(cli, ['metric', 'run', 'dpi'])
+    assert 'Attribute Error' in result.output
 
     result = runner.invoke(cli, ['metric', 'run'])
     assert 'Missing argument "name".' in result.output

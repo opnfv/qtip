@@ -6,7 +6,7 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-import argparse
+
 import json
 import os
 from os import path
@@ -20,15 +20,6 @@ from qtip.util.logger import QtipLogger
 logger = QtipLogger('runner').get
 
 ALL_BENCHMARKS = ['dpi', 'ramspeed', 'ssl', 'dhrystone', 'whetstone']
-
-
-def parse_args(args):
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-d', '--dest', required=True,
-                        help='the destination where results will be stored.')
-    parser.add_argument('-b', '--benchmark', required=True, action='append',
-                        help='the benchmark you want to execute.')
-    return parser.parse_args(args)
 
 
 def run_benchmark(result_dir, benchmarks):
@@ -74,34 +65,33 @@ def parse_result(result_dir):
     return sut_template
 
 
-def main(args=sys.argv[1:]):
-    args = parse_args(args)
+def execute(benchmark):
 
-    if not path.isdir(str(args.dest)):
+    dest = path.join(path.dirname(__file__), path.pardir, path.pardir,
+                     'collector')
+
+    if not path.isdir(str(dest)):
         logger.error("The destination {0} you give doesn't exist. "
-                     "Please check!".format(args.dest))
+                     "Please check!".format(dest))
         sys.exit(1)
 
-    if args.benchmark == ['all']:
-        args.benchmark = ALL_BENCHMARKS
-    elif len(set(args.benchmark).difference(ALL_BENCHMARKS)) != 0:
+    if benchmark == 'all':
+        benchmark = ALL_BENCHMARKS
+    elif benchmark not in ALL_BENCHMARKS:
         logger.error("Please check benchmarks name. The supported benchmarks are"
                      "{0}".format(ALL_BENCHMARKS))
-    logger.info("Start to run benchmark test: {0}.".format(args.benchmark))
+    logger.info("Start to run benchmark test: {0}.".format(benchmark))
 
+    benchmark = [benchmark]
     start_time = time.strftime("%Y-%m-%d-%H-%M")
     logger.info("start_time: {0}".format(start_time))
-    if not args.dest.endswith('/'):
-        args.dest += '/'
-    result_dir = args.dest + start_time
-    ansible_result = run_benchmark(result_dir, args.benchmark)
+    if not dest.endswith('/'):
+        dest += '/'
+    result_dir = dest + start_time
+    ansible_result = run_benchmark(result_dir, benchmark)
     stop_time = time.strftime("%Y-%m-%d-%H-%M")
     logger.info("stop_time: {0}".format(stop_time))
     if not ansible_result:
         logger.error("Bechmarks run failed. Cann't generate any report.")
         sys.exit(1)
     generate_report(result_dir, start_time, stop_time)
-
-
-if __name__ == "__main__":
-    main()

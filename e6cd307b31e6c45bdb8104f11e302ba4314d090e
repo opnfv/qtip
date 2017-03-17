@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_5aaa94d5",
+        "filename": "qtip/reporter/console.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-03-17T13:20:24Z",
+      "side": 1,
+      "message": "Select all files of the format of qtip result, i.e 20*",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 66
+      },
+      "revId": "e6cd307b31e6c45bdb8104f11e302ba4314d090e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_1aac1ced",
+        "filename": "qtip/reporter/console.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-03-17T13:20:24Z",
+      "side": 1,
+      "message": "Show result from the latest run only.",
+      "range": {
+        "startLine": 35,
+        "startChar": 46,
+        "endLine": 35,
+        "endChar": 61
+      },
+      "revId": "e6cd307b31e6c45bdb8104f11e302ba4314d090e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

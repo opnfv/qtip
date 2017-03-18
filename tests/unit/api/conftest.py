@@ -7,19 +7,16 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-import httplib
+import pytest
 
-from qtip.api.controllers import common
-from qtip.loader import qpi
-
-
-def list_qpis():
-    qpi_specs = list(qpi.QPISpec.list_all())
-    qpis_by_name = map(lambda x: x['name'], qpi_specs)
-    return {'qpis': qpis_by_name}, httplib.OK
+from qtip.api import __main__
 
 
-@common.check_endpoint_for_error(resource='QPI')
-def get_qpi(name):
-    qpi_spec = qpi.QPISpec(name)
-    return qpi_spec.content
+@pytest.fixture(scope="session")
+def app():
+    return __main__.get_app().app
+
+
+@pytest.fixture(scope="session")
+def app_client(app):
+    return app.test_client()

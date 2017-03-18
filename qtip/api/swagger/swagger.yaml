@@ -212,7 +212,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 definitions:
-  PlanContent:
+  Plan:
     type: object
     required:
       - name
@@ -232,23 +232,13 @@ definitions:
   Plans:
     type: object
     required:
-      - name
-      - abspath
+      - plans
     properties:
-      name:
-        type: string
-      abspath:
-        type: string
-  Plan:
-    allOf:
-    - $ref: '#/definitions/Plans'
-    - type: object
-    - required:
-      - content
-      properties:
-        content:
-          $ref: '#/definitions/PlanContent'
-  MetricContent:
+      plans:
+        type: array
+        items:
+          type: string
+  Metric:
     type: object
     required:
       - name
@@ -268,22 +258,13 @@ definitions:
   Metrics:
     type: object
     required:
-      - name
-      - abspath
+      - metrics
     properties:
-      name:
-        type: string
-      abspath:
-        type: string
-  Metric:
-    allOf:
-    - $ref: '#/definitions/Metrics'
-    - required:
-      - content
-      properties:
-        content:
-          $ref: '#/definitions/MetricContent'
-  QPIContent:
+      metrics:
+        type: array
+        items:
+          type: string
+  QPI:
     type: object
     required:
       - name
@@ -301,21 +282,12 @@ definitions:
   QPIs:
     type: object
     required:
-      - name
-      - abspath
+      - qpis
     properties:
-      name:
-        type: string
-      abspath:
-        type: string
-  QPI:
-    allOf:
-      - $ref: '#/definitions/QPIs'
-      - required:
-        - content
-        properties:
-          content:
-            $ref: '#/definitions/QPIContent'
+      qpis:
+        type: array
+        items:
+          type: string
   Error:
     type: object
     properties:

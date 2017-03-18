@@ -9,30 +9,23 @@
 
 import httplib
 
-import connexion
-
+from qtip.api.controllers import common
 from qtip.base import error
 from qtip.loader import plan
 
 
 def list_plans():
-    plan_list = list(plan.Plan.list_all())
-    return plan_list, httplib.OK
+    plans = list(plan.Plan.list_all())
+    plans_by_name = [p['name'] for p in plans]
+    return {'plans': plans_by_name}, httplib.OK
 
 
+@common.check_endpoint_for_error(resource='Plan')
 def get_plan(name):
-    try:
-        plan_spec = plan.Plan(name)
-        return {'name': plan_spec.name,
-                'abspath': plan_spec.abspath,
-                'content': plan_spec.content}, httplib.OK
-    except error.NotFoundError:
-        return connexion.problem(httplib.NOT_FOUND,
-                                 'Plan Not Found',
-                                 'requested plan `' + name + '` not found.')
+    plan_spec = plan.Plan(name)
+    return plan_spec.content
 
 
+@common.check_endpoint_for_error(resource='Plan', operation='Run')
 def run_plan(name, action="run"):
-    return connexion.problem(httplib.NOT_IMPLEMENTED,
-                             'Run a plan',
-                             'Plan runner not implemented')
+    raise error.ToBeDoneError('run_plan', 'plan')

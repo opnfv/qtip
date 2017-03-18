@@ -9,24 +9,17 @@
 
 import httplib
 
-import connexion
-
-from qtip.base import error
+from qtip.api.controllers import common
 from qtip.loader import qpi
 
 
 def list_qpis():
-    qpi_spec_list = list(qpi.QPISpec.list_all())
-    return qpi_spec_list, httplib.OK
+    qpi_specs = list(qpi.QPISpec.list_all())
+    qpis_by_name = [q['name'] for q in qpi_specs]
+    return {'qpis': qpis_by_name}, httplib.OK
 
 
+@common.check_endpoint_for_error(resource='QPI')
 def get_qpi(name):
-    try:
-        qpi_spec = qpi.QPISpec(name)
-        return {'name': qpi_spec.name,
-                'abspath': qpi_spec.abspath,
-                'content': qpi_spec.content}, httplib.OK
-    except error.NotFoundError:
-        return connexion.problem(httplib.NOT_FOUND,
-                                 'QPI Not Found',
-                                 'Requested QPI Spec `' + name + '` not found.')
+    qpi_spec = qpi.QPISpec(name)
+    return qpi_spec.content

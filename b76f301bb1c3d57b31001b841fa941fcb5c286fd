@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9ab8dda7_d99e9163",
+        "filename": "tests/conftest.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 6435
+      },
+      "writtenOn": "2017-03-18T19:25:35Z",
+      "side": 1,
+      "message": "This is what I followed from previous implementation and other examples of flask. connexion does not separately support any test facility.",
+      "parentUuid": "9ab8dda7_19ce6984",
+      "revId": "b76f301bb1c3d57b31001b841fa941fcb5c286fd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab8dda7_39cb2d74",
         "filename": "tests/conftest.py",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2017-03-18T15:42:23Z",
       "side": 1,
       "message": "Consider putting these two fixture under `tests/unit/api/conftest.py` since they are used in api test only at the moment.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 28
+      },
+      "revId": "b76f301bb1c3d57b31001b841fa941fcb5c286fd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_39924d58",
+        "filename": "tests/conftest.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 6435
+      },
+      "writtenOn": "2017-03-18T19:25:35Z",
+      "side": 1,
+      "message": "agreed",
+      "parentUuid": "9ab8dda7_39cb2d74",
       "range": {
         "startLine": 49,
         "startChar": 0,
@@ -99,6 +141,24 @@
       "writtenOn": "2017-03-18T15:42:23Z",
       "side": 1,
       "message": "I would suggest filtering out abspath in the response of api, since it is only meaningful for cli.\n\nNo need to fix it in this patch. But it worth thinking about what to reply in api. It is similar to cli but not exactly the same.",
+      "revId": "b76f301bb1c3d57b31001b841fa941fcb5c286fd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_19950940",
+        "filename": "tests/unit/api/metric_controller_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6435
+      },
+      "writtenOn": "2017-03-18T19:25:35Z",
+      "side": 1,
+      "message": "ok will do that if needed",
+      "parentUuid": "9ab8dda7_99a1f9ab",
       "revId": "b76f301bb1c3d57b31001b841fa941fcb5c286fd",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

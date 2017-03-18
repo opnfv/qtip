@@ -7,23 +7,16 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-import connexion
-import os
+import pytest
+
+from qtip.api import __main__
 
 
-swagger_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'swagger/'))
+@pytest.fixture(scope="session")
+def app():
+    return __main__.get_app().app
 
 
-def get_app():
-    app = connexion.App(__name__, specification_dir=swagger_dir)
-    app.add_api('swagger.yaml', base_path='/v1.0')
-    return app
-
-
-def main():
-    app = get_app()
-    app.run(host="0.0.0.0", port=5000)
-
-
-if __name__ == '__main__':
-    main()
+@pytest.fixture(scope="session")
+def app_client(app):
+    return app.test_client()

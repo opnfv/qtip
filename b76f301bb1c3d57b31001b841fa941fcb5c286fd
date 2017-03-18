@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_19ce6984",
+        "filename": "tests/conftest.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-18T15:42:23Z",
+      "side": 1,
+      "message": "This chain looks a bit strange. Is it the only way to expose connexion app for testing?",
+      "revId": "b76f301bb1c3d57b31001b841fa941fcb5c286fd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_39cb2d74",
+        "filename": "tests/conftest.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-18T15:42:23Z",
+      "side": 1,
+      "message": "Consider putting these two fixture under `tests/unit/api/conftest.py` since they are used in api test only at the moment.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 28
+      },
+      "revId": "b76f301bb1c3d57b31001b841fa941fcb5c286fd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_f9c4b560",
+        "filename": "tests/unit/api/metric_controller_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-18T15:42:23Z",
+      "side": 1,
+      "message": "plan or metric?",
+      "range": {
+        "startLine": 21,
+        "startChar": 19,
+        "endLine": 21,
+        "endChar": 24
+      },
+      "revId": "b76f301bb1c3d57b31001b841fa941fcb5c286fd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_d9c77163",
+        "filename": "tests/unit/api/metric_controller_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-18T15:42:23Z",
+      "side": 1,
+      "message": "What is the difference between double underline and single underline?",
+      "range": {
+        "startLine": 21,
+        "startChar": 8,
+        "endLine": 21,
+        "endChar": 10
+      },
+      "revId": "b76f301bb1c3d57b31001b841fa941fcb5c286fd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_99a1f9ab",
+        "filename": "tests/unit/api/metric_controller_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-18T15:42:23Z",
+      "side": 1,
+      "message": "I would suggest filtering out abspath in the response of api, since it is only meaningful for cli.\n\nNo need to fix it in this patch. But it worth thinking about what to reply in api. It is similar to cli but not exactly the same.",
+      "revId": "b76f301bb1c3d57b31001b841fa941fcb5c286fd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

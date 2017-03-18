@@ -11,6 +11,7 @@ from os import path
 
 import pytest
 
+from qtip.api import __main__
 from qtip.loader.plan import Plan
 from qtip.loader.plan import PlanProp
 
@@ -43,3 +44,13 @@ def collectors_config(plan_config):
 @pytest.fixture(scope='session')
 def logfile_config(collectors_config):
     return collectors_config[0]
+
+
+@pytest.fixture(scope="session")
+def app():
+    return __main__.get_app().app
+
+
+@pytest.fixture(scope="session")
+def app_client(app):
+    return app.test_client()

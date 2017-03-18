@@ -15,12 +15,11 @@ from qtip.loader import metric
 
 def list_metrics():
     metric_list = list(metric.MetricSpec.list_all())
-    return metric_list, httplib.OK
+    metric_list = map(lambda x: x['name'], metric_list)
+    return {'metrics': metric_list}, httplib.OK
 
 
-@common.get_one_exceptions(resource='metric')
+@common.check_resource(resource='Metric')
 def get_metric(name):
-        metric_spec = metric.MetricSpec(name)
-        return {'name': metric_spec.name,
-                'abspath': metric_spec.abspath,
-                'content': metric_spec.content}
+    metric_spec = metric.MetricSpec(name)
+    return metric_spec.content

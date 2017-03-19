@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_39232d07",
+        "filename": "tests/unit/api/metric_controller_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-03-19T12:21:20Z",
+      "side": 1,
+      "message": "Kindly change this as well !",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 40
+      },
+      "revId": "df9ac3636601754f276296fc71e6982ef5f144d4",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

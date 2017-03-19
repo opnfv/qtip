@@ -18,9 +18,9 @@ QTIP Directory structure
 
 The QTIP directory has been sectioned off into multiple folders to facilitate
  segmenting information into relevant categories. The folders that concern
- the end user are `benchmarks/testplan/` and `benchmarks/suite/`.
+ the end user are `benchmarks/plan/`, `benchmarks/qpi/` and `benchmarks/metrics`.
 
-**testplan/:**
+**plan/:**
 
 This folder is used to store all the config files which are used to setup the
 environment prior to a test. This folder is further divided into opnfv pods
@@ -30,65 +30,52 @@ segmented based on test cases. Namely, these include, `Compute`, `Network` and
 testing their infrastructure which is installed by fuel or compass but aren't
 part of a opnfv pod,and for opnfv CI.
 
-The structure of the directory for the user appears as follows
+All the available plans can be listed
 ::
 
-  testplan/default/compute
-  testplan/default/network
-  testplan/default/storage
+  qtip plan list
 
-The benchmarks that are part of the QTIP framework are listed under these
-folders. An example of the compute folder is shown below.
-Their naming convention is <BENCHMARK>_<VM/BM>.yaml
+The details of a particular plan can also be viewed
 ::
 
-  dhrystone_bm.yaml
-  dhrystone_vm.yaml
-  whetstone_vm.yaml
-  whetstone_bm.yaml
-  ssl_vm.yaml
-  ssl_bm.yaml
-  ramspeed_vm.yaml
-  ramspeed_bm.yaml
-  dpi_vm.yaml
-  dpi_bm.yaml
-
-The above listed files are used to configure the environment. The VM/BM tag
-distinguishes between a test to be run on the Virtual Machine or the compute
-node itself, respectively.
-
+  qtip plan show *plan_name*
 
 **benchmarks/suite/:**
 
 This folder contains three files, namely `compute`, `network` and `storage`.
-These files list the benchmarks are to be run by the QTIP framework. Sample
-compute test file is shown below
-::
-
-  {
-    "bm": [
-      "dhrystone_bm.yaml",
-      "whetstone_bm.yaml",
-      "ramspeed_bm.yaml",
-      "dpi_bm.yaml",
-      "ssl_bm.yaml"
-    ],
-    "vm": [
-      "dhrystone_vm.yaml",
-      "whetstone_vm.yaml",
-      "ramspeed_vm.yaml",
-      "dpi_vm.yaml",
-      "ssl_vm.yaml"
-    ]
-  }
+These files list the benchmarks are to be run by the QTIP framework.
 
 The compute file will now run all the benchmarks listed above one after
 another on the environment.
 
+The different QPI's can be viewed
+::
+
+  qtip qpi list
+
+The details of a specified QPI are also avaiable
+::
+
+  qtip qpi show *qpi_name*
+
+**benchmarks/metric**
+These are the actual tools used to benchmark the NFV Infrastructure. These can be
+grouped under a particular QPI.
+
+The available metrics can be viewed by
+::
+
+  qtip metric list
+
+The summary of a metric is available
+::
+
+  qtip metric show *metric_name*
+
 Preparing a config file for test:
 ---------------------------------
 
-We will be using dhrystone as a example to list out the changes that the
+We w    ill be using dhrystone as a example to list out the changes that the
 user will need to do in order to run the benchmark.
 
 Dhrystone on Compute Nodes:
@@ -378,4 +365,8 @@ Stop running QTIP job by restful api.The job will finish the current benchmark t
 
 Results:
 --------
-In QTIP container, QTIP generates results in the `/home/opnfv/qtip/results/` directory are listed down under the particularly benchmark name. So all the results for dhrystone would be listed and time stamped.
+QTIP generates results in the `/home/opnfv/qtip/collector/`. The results of a specific benchmark can be viewed
+via the following command
+::
+
+  qtip report show *metric_name*

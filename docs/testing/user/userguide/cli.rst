@@ -1,0 +1,2 @@
+- How to use qtip-cli to list, show and run benchmarks.
+- Refer to auto generated help page if available, or give hint on how to get help.

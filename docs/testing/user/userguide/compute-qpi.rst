@@ -1,0 +1,2 @@
+- Command to run compute benchmark plan and basic interpretation of the result
+- May refer to compute-qpi design specification for detail interpretation

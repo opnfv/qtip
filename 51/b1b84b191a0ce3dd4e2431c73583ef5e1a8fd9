@@ -1,0 +1,7 @@
+Verified+1: jenkins-ci <jenkins-opnfv-ci@opnfv.org>
+Code-Review+2: Yujun Zhang <zhang.yujunz@zte.com.cn>
+Submitted-by: Yujun Zhang <zhang.yujunz@zte.com.cn>
+Submitted-at: Mon, 20 Mar 2017 12:27:34 +0000
+Reviewed-on: https://gerrit.opnfv.org/gerrit/30973
+Project: qtip
+Branch: refs/heads/stable/danube

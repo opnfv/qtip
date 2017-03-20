@@ -94,7 +94,8 @@ class AnsibleEnvSetup(object):
         if not all_files_exist(PRIVATE_KEY, PUBLIC_KEY):
             logger.info("Generate default keypair {0} under "
                         "{1}".format(KEYNAME, os.environ['HOME']))
-            cmd = '''ssh-keygen -t rsa -N "" -f {0} -q -b 2048'''.format(PRIVATE_KEY)
+            cmd = '''ssh-keygen -t rsa -N "" -f {0} -q -b 2048
+                  -C qtip@insecure'''.format(PRIVATE_KEY)
             os.system(cmd)
         self.keypair['private'] = PRIVATE_KEY
         self.keypair['public'] = PUBLIC_KEY
@@ -195,11 +196,16 @@ class AnsibleEnvSetup(object):
         if CI_DEBUG is not None and CI_DEBUG.lower() == 'true':
             logger.info("DEBUG Mode: please do cleanup by manual.")
         else:
-            for ip in self.host_ip_list:
-                logger.info("Cleanup authorized_keys from {0}...".format(ip))
-                cmd = 'bash {0}/cleanup_creds.sh {1} {2}'.format(
-                    SCRIPT_DIR, ip, self.keypair['private'])
-                os.system(cmd)
+            with open(self.keypair['public'], 'r') as f:
+                key = f.read().strip('\n').replace('/', '\/')
+            if key:
+                for ip in self.host_ip_list:
+                    logger.info("Cleanup authorized_keys from {0}...".format(ip))
+                    cmd = '''bash {0}/cleanup_creds.sh {1} {2} "{3}"'''.format(
+                        SCRIPT_DIR, ip, self.keypair['private'], key)
+                    os.system(cmd)
+            else:
+                logger.error("Nothing in public key file.")
 
             logger.info("Cleanup hostfile and keypair.")
             clean_file(self.hostfile,

@@ -29,7 +29,7 @@ Benchmarks
 The benchmarks include:
 
 Dhrystone 2.1
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^
 
 Dhrystone is a synthetic benchmark for measuring CPU performance. It uses integer calculations to evaluate CPU capabilities.
 Both Single CPU performance is measured along multi-cpu performance.
@@ -42,7 +42,7 @@ Additionally, dhrystone results could be modified by optimizing the compiler and
 References: http://www.eembc.org/techlit/datasheets/dhrystone_wp.pdf
 
 Whetstone
-^^^^^^^^^^^^
+^^^^^^^^^
 
 Whetstone is a synthetic benchmark to measure CPU floating point operation performance.
 Both Single CPU performance is measured along multi-cpu performance.
@@ -54,7 +54,7 @@ References:
 http://www.netlib.org/benchmark/whetstone.c
 
 OpenSSL Speed
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^
 
 OpenSSL Speed can be used to benchmark compute performance of a machine. In QTIP, two OpenSSL Speed benchmarks are incorporated:
 1. RSA signatunes/sec signed by a machine

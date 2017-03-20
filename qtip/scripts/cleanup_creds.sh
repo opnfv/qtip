@@ -10,11 +10,11 @@
 
 DEST_IP=$1
 PRIVATE_KEY=$2
-HOSTNAME=$(hostname)
+PUBLIC_KEY=$3
 sshoptions="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 
 case "$INSTALLER_TYPE" in
     fuel)
-        ssh $sshoptions -i $PRIVATE_KEY root@$DEST_IP "sed -i '/root@$HOSTNAME/d' /root/.ssh/authorized_keys"
+        ssh $sshoptions -i $PRIVATE_KEY root@$DEST_IP "sed -i '/$PUBLIC_KEY/d' /root/.ssh/authorized_keys"
         ;;
 esac

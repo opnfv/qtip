@@ -11,6 +11,5 @@ QTIP User Guide
 .. toctree::
    :maxdepth: 2
 
-   introduction.rst
-   benchmark-suites.rst
-   annex.rst
+   cli.rst
+   qpi-compute.rst

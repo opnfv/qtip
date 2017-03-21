@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9ab8dda7_28ce755b",
+        "filename": "qtip/api/controllers/common.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 6435
+      },
+      "writtenOn": "2017-03-21T09:59:29Z",
+      "side": 1,
+      "message": "By two method you mean _decorate and _execute?\n\nor check_resource and check_implemented",
+      "parentUuid": "9ab8dda7_0db0638a",
+      "revId": "ad59254f5b60f9555d2bb3e0a2968165deafda43",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab8dda7_2dad2732",
         "filename": "qtip/api/controllers/metric.py",
         "patchSetId": 10

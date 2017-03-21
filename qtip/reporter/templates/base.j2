@@ -10,8 +10,7 @@ Stop Time: {{ stop_time }}
 {% include 'unixbench.j2' %}
 {% else %}
 {% include '%s.j2' % metric_name %}
-{%- endif -%}
-
+{% endif %}
 System Information:
   CPU Brand: {{ bm.sysinfo.cpu }}
   Disk: {{ bm.sysinfo.disk }}

@@ -1,1 +1,0 @@
-How to install qtip from source.

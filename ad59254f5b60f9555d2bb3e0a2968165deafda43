@@ -1,0 +1,210 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_0db0638a",
+        "filename": "qtip/api/controllers/common.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-21T03:07:29Z",
+      "side": 1,
+      "message": "please merge those two methods",
+      "revId": "ad59254f5b60f9555d2bb3e0a2968165deafda43",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_2dad2732",
+        "filename": "qtip/api/controllers/metric.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-21T03:07:29Z",
+      "side": 1,
+      "message": "please don\u0027t use two same name, name it self-evidently",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 15
+      },
+      "revId": "ad59254f5b60f9555d2bb3e0a2968165deafda43",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_cda9eb25",
+        "filename": "qtip/api/controllers/plan.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-21T03:07:29Z",
+      "side": 1,
+      "message": "same to metric_list",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 13
+      },
+      "revId": "ad59254f5b60f9555d2bb3e0a2968165deafda43",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_eda62f53",
+        "filename": "qtip/api/controllers/qpi.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-21T03:07:29Z",
+      "side": 1,
+      "message": "same to metric_list",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "ad59254f5b60f9555d2bb3e0a2968165deafda43",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_8d63f319",
+        "filename": "tests/unit/api/metric_controller_test.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-21T03:07:29Z",
+      "side": 1,
+      "message": "why this one (with an suffix \u0027/\u0027) is not supported? I think it should return the same content as /v1.0/metrics",
+      "range": {
+        "startLine": 17,
+        "startChar": 45,
+        "endLine": 17,
+        "endChar": 59
+      },
+      "revId": "ad59254f5b60f9555d2bb3e0a2968165deafda43",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_ed7dcfb2",
+        "filename": "tests/unit/api/metric_controller_test.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-21T03:07:29Z",
+      "side": 1,
+      "message": "please separate test_get_metric to two different test cases. test_get_metric_success() and test_get_metric_not_found().",
+      "revId": "ad59254f5b60f9555d2bb3e0a2968165deafda43",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_ad6837f6",
+        "filename": "tests/unit/api/plan_controller_test.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-21T03:07:29Z",
+      "side": 1,
+      "message": "same to metric, I think it should be supported as /v1.0/plans",
+      "range": {
+        "startLine": 18,
+        "startChar": 45,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "ad59254f5b60f9555d2bb3e0a2968165deafda43",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_8d4a1382",
+        "filename": "tests/unit/api/plan_controller_test.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-21T03:07:29Z",
+      "side": 1,
+      "message": "please separate test_get_plan to two different test cases. test_get_plan_success() and test_get_plan_not_found().",
+      "revId": "ad59254f5b60f9555d2bb3e0a2968165deafda43",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_2d7447ce",
+        "filename": "tests/unit/api/qpi_controller_test.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-21T03:07:29Z",
+      "side": 1,
+      "message": "same to metrics",
+      "range": {
+        "startLine": 18,
+        "startChar": 45,
+        "endLine": 18,
+        "endChar": 56
+      },
+      "revId": "ad59254f5b60f9555d2bb3e0a2968165deafda43",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_ad4fd791",
+        "filename": "tests/unit/api/qpi_controller_test.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-21T03:07:29Z",
+      "side": 1,
+      "message": "please separate test_get_qpi to two different test cases. test_get_qpi_success() and test_get_qpi_not_found().",
+      "revId": "ad59254f5b60f9555d2bb3e0a2968165deafda43",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_53ca7aa2",
+        "filename": "qtip/api/swagger/swagger.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 6435
+      },
+      "writtenOn": "2017-03-21T10:44:11Z",
+      "side": 1,
+      "message": "Licence Header already existing.",
+      "revId": "f80cc628101790f56b0f57e536038f9cb8296a98",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

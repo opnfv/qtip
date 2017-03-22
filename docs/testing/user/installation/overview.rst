@@ -1,1 +1,0 @@
-What will be installed and how.

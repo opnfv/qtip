@@ -55,7 +55,7 @@ RUN mkdir -p $HOME/qtip/results
 RUN chmod 700 /root/.ssh
 
 #Config ansible
-COPY ansible.cfg.default /root/.ansible.cfg
+COPY ansible.cfg.default /home/opnfv/.ansible.cfg
 
 #Cloning Repos
 RUN git config --global http.sslVerify false

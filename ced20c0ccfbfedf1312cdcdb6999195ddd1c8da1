@@ -91,6 +91,98 @@
       "revId": "ced20c0ccfbfedf1312cdcdb6999195ddd1c8da1",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_3bdb18ef",
+        "filename": "docs/testing/user/userguide/cli.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-22T15:10:54Z",
+      "side": 1,
+      "message": "[-h|--help] is more common?",
+      "range": {
+        "startLine": 13,
+        "startChar": 7,
+        "endLine": 13,
+        "endChar": 16
+      },
+      "revId": "ced20c0ccfbfedf1312cdcdb6999195ddd1c8da1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_5bd84cef",
+        "filename": "docs/testing/user/userguide/cli.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-22T15:10:54Z",
+      "side": 1,
+      "message": "\u003cplan_name\u003e",
+      "range": {
+        "startLine": 24,
+        "startChar": 17,
+        "endLine": 24,
+        "endChar": 28
+      },
+      "revId": "ced20c0ccfbfedf1312cdcdb6999195ddd1c8da1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_fbe4a0ad",
+        "filename": "docs/testing/user/userguide/cli.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-22T15:10:54Z",
+      "side": 1,
+      "message": "\u003d\u003e \u003cplan_name\u003e",
+      "range": {
+        "startLine": 31,
+        "startChar": 16,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "ced20c0ccfbfedf1312cdcdb6999195ddd1c8da1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_1be2d49f",
+        "filename": "docs/testing/user/userguide/cli.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-22T15:10:54Z",
+      "side": 1,
+      "message": "[-d|--debug] plan run \u003cplan_name\u003e",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 17
+      },
+      "revId": "ced20c0ccfbfedf1312cdcdb6999195ddd1c8da1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

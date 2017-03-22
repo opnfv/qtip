@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "9ab8dda7_7b3bd0eb",
+        "filename": "docs/testing/developer/design/cli.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-03-22T17:02:53Z",
+      "side": 1,
+      "message": "It is `commands`",
+      "parentUuid": "9ab8dda7_7bd190cc",
+      "range": {
+        "startLine": 34,
+        "startChar": 12,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "ced20c0ccfbfedf1312cdcdb6999195ddd1c8da1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab8dda7_3bdb18ef",
         "filename": "docs/testing/user/userguide/cli.rst",
         "patchSetId": 2

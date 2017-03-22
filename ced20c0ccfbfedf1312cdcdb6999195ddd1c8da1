@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_9b8804e9",
+        "filename": "docs/testing/developer/design/cli.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-22T15:06:41Z",
+      "side": 1,
+      "message": "\u003d\u003e subsystem?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 10
+      },
+      "revId": "ced20c0ccfbfedf1312cdcdb6999195ddd1c8da1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_7b5af084",
+        "filename": "docs/testing/developer/design/cli.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-22T15:06:41Z",
+      "side": 1,
+      "message": "\u003d\u003e Python package `Click`_, the Command Line Interface Creation Kit\n\nAnd list all reference link in the end of this document. See example in http://www.sphinx-doc.org/en/stable/rest.html#external-links",
+      "range": {
+        "startLine": 16,
+        "startChar": 36,
+        "endLine": 16,
+        "endChar": 95
+      },
+      "revId": "ced20c0ccfbfedf1312cdcdb6999195ddd1c8da1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_dbcc3c38",
+        "filename": "docs/testing/developer/design/cli.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-22T15:06:41Z",
+      "side": 1,
+      "message": "`Click` is preferred according to the official site of this package.",
+      "range": {
+        "startLine": 27,
+        "startChar": 26,
+        "endLine": 27,
+        "endChar": 31
+      },
+      "revId": "ced20c0ccfbfedf1312cdcdb6999195ddd1c8da1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_7bd190cc",
+        "filename": "docs/testing/developer/design/cli.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-22T15:06:41Z",
+      "side": 1,
+      "message": "commands or command ?",
+      "range": {
+        "startLine": 34,
+        "startChar": 12,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "ced20c0ccfbfedf1312cdcdb6999195ddd1c8da1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

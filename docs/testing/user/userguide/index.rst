@@ -11,5 +11,6 @@ QTIP User Guide
 .. toctree::
    :maxdepth: 2
 
+   overview.rst
    cli.rst
    qpi-compute.rst

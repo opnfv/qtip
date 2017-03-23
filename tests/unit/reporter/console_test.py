@@ -8,6 +8,7 @@
 ##############################################################################
 
 import pytest
+from os import path
 
 from qtip.reporter.console import ConsoleReporter
 
@@ -17,14 +18,20 @@ def console_reporter():
     return ConsoleReporter({})
 
 
+@pytest.fixture
+def result_path():
+    result = path.join(path.dirname(__file__), path.pardir, path.pardir,
+                       'data/reporter')
+    return result
+
 def test_constructor(console_reporter):
     assert isinstance(console_reporter, ConsoleReporter)
 
 
-def test_dhrystone(console_reporter):
+def test_dhrystone(console_reporter, result_path):
     """ Test dhrystone report"""
 
-    result = console_reporter.render('dhrystone')
+    result = console_reporter.render('dhrystone', result_path)
     assert "Benchmark: dhrystone" in result
     assert "Number: 40" in result
     assert "Score: 63529.6" in result
@@ -32,10 +39,10 @@ def test_dhrystone(console_reporter):
     assert "Total CPUs: 40" in result
 
 
-def test_whetstone(console_reporter):
+def test_whetstone(console_reporter, result_path):
     """ Test whetstone output"""
 
-    result = console_reporter.render('whetstone')
+    result = console_reporter.render('whetstone', result_path)
     assert "Benchmark: whetstone" in result
     assert "Results:" in result
     assert "Multi CPU:" in result
@@ -44,10 +51,10 @@ def test_whetstone(console_reporter):
     assert "Single CPU:" in result
 
 
-def test_dpi(console_reporter):
+def test_dpi(console_reporter, result_path):
     """ Test dpi report"""
 
-    result = console_reporter.render('dpi')
+    result = console_reporter.render('dpi', result_path)
     assert "Benchmark: dpi" in result
     assert "Bits per Second: 3.638" in result
     assert "Packets per Second: 1.45" in result
@@ -55,10 +62,10 @@ def test_dpi(console_reporter):
     assert "Packets per Second: 1.458" in result
 
 
-def test_ramspeed(console_reporter):
+def test_ramspeed(console_reporter, result_path):
     """ Test ramspeed report """
 
-    result = console_reporter.render('ramspeed')
+    result = console_reporter.render('ramspeed', result_path)
     assert "Float Addition: 10217.62" in result
     assert "Float Average: 9176.88" in result
     assert "Float Copy: 8127.13" in result
@@ -68,10 +75,10 @@ def test_ramspeed(console_reporter):
     assert "Integer Average: 11396.35" in result
 
 
-def test_ssl(console_reporter):
+def test_ssl(console_reporter, result_path):
     """ Test ssl report"""
 
-    result = console_reporter.render('ssl')
+    result = console_reporter.render('ssl', result_path)
     assert "AES 128 CBC (bytes):" in result
     assert "256: 584951.30k" in result
     assert "RSA SIGN:" in result
@@ -80,10 +87,10 @@ def test_ssl(console_reporter):
     assert "4096: 7688.5" in result
 
 
-def test_sys(console_reporter):
+def test_sys(console_reporter, result_path):
     """ Test sys_info """
 
-    result = console_reporter.render('ssl')
+    result = console_reporter.render('ssl', result_path)
     assert "System Information:" in result
     assert "Host Name: node-38.zte.com.cn" in result
     assert "Memory: 4403.7/128524.1MB" in result

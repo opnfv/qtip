@@ -9,6 +9,8 @@
 
 
 import click
+import os
+from os import path
 
 from qtip.cli import utils
 from qtip.cli.entry import Context
@@ -44,6 +46,8 @@ def show(ctx, name):
 
 @cli.command('run', help='Run performance tests for the specified QPI')
 @click.argument('name')
+@click.option('-d', '--destination', help='Path to store results')
 @pass_context
-def run(ctx, name):
-    pass
+def run(ctx, name, destination):
+    runner_path = path.join(path.dirname(__file__), path.pardir, path.pardir, 'runner/runner.py')
+    os.system('python {0} -b all -d {1}'.format(runner_path, destination))

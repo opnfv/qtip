@@ -24,8 +24,9 @@ def cli(ctx):
 
 @cli.command('show')
 @click.argument('metric')
+@click.option('-p', '--path', help='Path to result directory')
 @pass_context
-def show(ctx, metric):
+def show(ctx, metric, path):
     reporter = ConsoleReporter({})
-    report = reporter.render(metric)
+    report = reporter.render(metric, path)
     click.echo(report)

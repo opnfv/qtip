@@ -93,7 +93,7 @@ def main(args=sys.argv[1:]):
     logger.info("start_time: {0}".format(start_time))
     if not args.dest.endswith('/'):
         args.dest += '/'
-    result_dir = args.dest + start_time
+    result_dir = args.dest + 'qtip-' + start_time
     ansible_result = run_benchmark(result_dir, args.benchmark)
     stop_time = time.strftime("%Y-%m-%d-%H-%M")
     logger.info("stop_time: {0}".format(stop_time))

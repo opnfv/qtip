@@ -8,6 +8,7 @@
 ##############################################################################
 
 import pytest
+from os import path
 
 from click.testing import CliRunner
 from qtip.cli.entry import cli
@@ -18,10 +19,17 @@ def runner():
     return CliRunner()
 
 
-def test_dhrystone(runner):
+@pytest.fixture(scope="module")
+def result_path():
+    result = path.join(path.dirname(__file__), path.pardir, path.pardir,
+                       'data/reporter')
+    return result
+
+
+def test_dhrystone(runner, result_path):
     """Test dhrystone report"""
 
-    result = runner.invoke(cli, ['report', 'show', 'dhrystone'])
+    result = runner.invoke(cli, ['report', 'show', 'dhrystone', '-p', result_path])
     assert "Benchmark: dhrystone" in result.output
     assert "CPU Usage: 3%" in result.output
     assert "Number: 40" in result.output
@@ -30,10 +38,10 @@ def test_dhrystone(runner):
     assert "Total CPUs: 40" in result.output
 
 
-def test_whetstone(runner):
+def test_whetstone(runner, result_path):
     """ Test whetstone output"""
 
-    result = runner.invoke(cli, ['report', 'show', 'whetstone'])
+    result = runner.invoke(cli, ['report', 'show', 'whetstone', '-p', result_path])
     assert "Benchmark: whetstone" in result.output
     assert "CPU Usage: 3%" in result.output
     assert "Results:" in result.output
@@ -43,9 +51,9 @@ def test_whetstone(runner):
     assert "Single CPU:" in result.output
 
 
-def test_dpi(runner):
+def test_dpi(runner, result_path):
     """ Test dpi report"""
-    result = runner.invoke(cli, ['report', 'show', 'dpi'])
+    result = runner.invoke(cli, ['report', 'show', 'dpi', '-p', result_path])
     assert "Benchmark: dpi" in result.output
     assert "CPU Usage: 3%" in result.output
     assert "Bits per Second: 3.638" in result.output
@@ -54,9 +62,9 @@ def test_dpi(runner):
     assert "Packets per Second: 1.458" in result.output
 
 
-def test_ramspeed(runner):
+def test_ramspeed(runner, result_path):
     """ Test ramspeed report """
-    result = runner.invoke(cli, ['report', 'show', 'ramspeed'])
+    result = runner.invoke(cli, ['report', 'show', 'ramspeed', '-p', result_path])
     assert "Benchmark: ramspeed" in result.output
     assert "CPU Usage: 3%" in result.output
     assert "Float Addition: 10217.62" in result.output
@@ -68,10 +76,10 @@ def test_ramspeed(runner):
     assert "Integer Average: 11396.35" in result.output
 
 
-def test_ssl(runner):
+def test_ssl(runner, result_path):
     """ Test ssl report"""
 
-    result = runner.invoke(cli, ['report', 'show', 'ssl'])
+    result = runner.invoke(cli, ['report', 'show', 'ssl', '-p', result_path])
     assert "Benchmark: ssl" in result.output
     assert "CPU Usage: 3%" in result.output
     assert "AES 128 CBC (bytes):" in result.output
@@ -82,10 +90,10 @@ def test_ssl(runner):
     assert "4096: 7688.5" in result.output
 
 
-def test_sys(runner):
+def test_sys(runner, result_path):
     """ Test sys_info """
 
-    result = runner.invoke(cli, ['report', 'show', 'ssl'])
+    result = runner.invoke(cli, ['report', 'show', 'ssl', '-p', result_path])
     assert "System Information:" in result.output
     assert "Host Name: node-38.zte.com.cn" in result.output
     assert "Memory: 4403.7/128524.1MB" in result.output

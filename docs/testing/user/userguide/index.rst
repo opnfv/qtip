@@ -4,12 +4,13 @@
 .. (c) 2016 ZTE Corp.
 
 
-###############
-QTIP User Guide
-###############
+###################################################
+Platform Performance Benchmarking User Guide (QTIP)
+###################################################
 
 .. toctree::
    :maxdepth: 2
 
-   cli.rst
+   introduction.rst
    qpi-compute.rst
+   cli.rst

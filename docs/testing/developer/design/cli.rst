@@ -1,0 +1,2 @@
+- Which framework has been used and why
+- How to extend to more commands

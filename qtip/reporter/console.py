@@ -28,19 +28,17 @@ class ConsoleReporter(BaseActor):
         tpl_path = path.join(path.dirname(__file__), 'templates')
         tpl_loader = FileSystemLoader(tpl_path)
         self._env = Environment(loader=tpl_loader)
-        self.result_path = path.join(ROOT_DIR, 'collector')
 
-    def load_result(self):
-        # TODO (taseer) change result directory format more suitable to filter out
-        result_dirs = glob.glob('{}/20*'.format(self.result_path))
+    def load_result(self, result_path):
+        result_dirs = glob.glob('{}/qtip-*'.format(result_path))
         # select the last (latest) directory for rendering report, result_dirs[-1]
-        with open(path.join(self.result_path, result_dirs[-1], 'result.json')) as sample:
+        with open(path.join(result_path, result_dirs[-1], 'result.json')) as sample:
             result = json.load(sample)
         return result
 
-    def render(self, metric):
+    def render(self, metric, result_path):
         template = self._env.get_template('base.j2')
-        var_dict = self.load_result()
+        var_dict = self.load_result(result_path)
         var_dict['metric_name'] = metric
         out = template.render(var_dict)
         return out

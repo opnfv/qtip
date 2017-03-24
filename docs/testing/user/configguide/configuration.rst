@@ -18,66 +18,52 @@ to configure OPNFV with this specific installer
 Installing QTIP using Docker
 ============================
 
+QTIP docker image
+-----------------
+
 QTIP has a Docker images on the docker hub. Pulling opnfv/qtip docker image
 from docker hub:
 ::
 
-  docker pull opnfv/qtip
+  docker pull opnfv/qtip:stable
 
-Verify that opnfv/qtip has been downloaded. It should be listed as an image by
+Verify that ``opnfv/qtip`` has been downloaded. It should be listed as an image by
 running the following command.
 ::
 
   docker images
 
-Make dir to store the QTIP image which will be used to create vm in cloud.
+
+Run and enter the docker instance
+---------------------------------
+
+1. If you want to run benchmarks:
 ::
 
-  mkdir $HOME/imgstore
-
-Run and enter the Docker instance:
-::
-  envs="INSTALLER_TYPE={INSTALLER_TYPE} -e INSTALLER_IP={INSTALLER_IP}
--e NODE_NAME={NODE_NAME}"
-  docker run --name qtip -id -e $envs -v "$HOME/imgstore:/home/opnfv/imgstore" opnfv/qtip
+  envs="INSTALLER_TYPE={INSTALLER_TYPE} -e INSTALLER_IP={INSTALLER_IP}"
+  docker run --name qtip -id -e $envs opnfv/qtip
   docker exec -i -t qtip /bin/bash
 
-Now you are in the container and QTIP can be found in the  /repos/qtip and can
+``INSTALLER_TYPE`` should be one of OPNFV installer, e.g. apex, compass, daisy, fuel
+and joid. Currenty, QTIP only supports installer fuel.
+
+``INSTALLER_IP`` is the ip address of the installer that can be accessed by QTIP.
+
+2. If you do not want to run any benchmarks:
+::
+
+  docker run --name qtip -id opnfv/qtip
+  docker exec -i -t qtip /bin/bash
+
+Now you are in the container and QTIP can be found in the ``/repos/qtip`` and can
 be navigated to using the following command.
 ::
 
   cd repos/qtip
 
 
-OpenStack parameters and credentials
-====================================
-
-
-Environment variables
----------------------
-
-Before running QTIP it is necessary to export OpenStack environment variables
-from the OpenStack *openrc* file. This can be done by running the following
-command.
-::
-
-  source scripts/get_env_info.sh -n {INSTALLER_TYPE} -i {INSTALLER_IP}
-  source opnfv-creds.sh
-
-This provides a ``opnfv-creds.sh`` file which can be sources to get the
-environment variables.
-
-
-QTIP  default key pair
-----------------------
-
-QTIP uses a SSH key pair to connect to the guest image. You should generate key pair
-before running QTIP test. And put key pair in the ``config/`` directory.
-::
-
-  ssh-keygen -t rsa -N "" -f config/QtipKey -q
-
-
+Environment configuration
+=========================
 
 Hardware configuration
 ----------------------
@@ -91,46 +77,14 @@ Jumphost configuration
 
 Installer Docker on Jumphost, which is used for running Qtip image.
 
-The first step is to install docker:
-::
+You can refer to these links:
 
-  sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80
-  --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+Ubuntu: https://docs.docker.com/engine/installation/linux/ubuntu/
 
-
-Add an entry for your Ubuntu operating system:
-::
-
-  Open the /etc/apt/sources.list.d/docker.list file in your favorite editor.
-
-If the file doesn’t exist, create it.
-
-Remove any existing entries.
-
-Add an entry for your Ubuntu operating system.
-
-On Ubuntu Trusty 14.04 (LTS)
-::
-
-  deb https://apt.dockerproject.org/repo ubuntu-trusty main
-
-Update the package manager
-::
-
-  sudo apt-get update
-
-Install Docker:
-::
-
-  sudo apt-get install docker-engine
-
-Starting Docker Daemon:
-::
-
-  sudo service docker start
+Centos: https://docs.docker.com/engine/installation/linux/centos/
 
 
 Platform components configuration
 ---------------------------------
 
-Describe the configuration of each component in the installer
+Describe the configuration of each component in the installer.

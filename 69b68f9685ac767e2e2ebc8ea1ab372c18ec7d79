@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_26e53ca8",
+        "filename": "docs/testing/user/userguide/qpi-compute.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-03-24T07:01:19Z",
+      "side": 1,
+      "message": "Kindly refer to this patch for usage:\n\nhttps://gerrit.opnfv.org/gerrit/#/c/31657/",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 53
+      },
+      "revId": "69b68f9685ac767e2e2ebc8ea1ab372c18ec7d79",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

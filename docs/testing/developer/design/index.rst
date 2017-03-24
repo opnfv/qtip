@@ -10,6 +10,7 @@ QTIP Design Specifications
 .. toctree::
    :maxdepth: 2
 
-   dashboard.rst
-   compute_QPI.rst
-   integration_with_yardstick.rst
+   arch.rst
+   cli.rst
+   api.rst
+   compute-qpi.rst

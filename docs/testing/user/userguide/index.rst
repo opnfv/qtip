@@ -13,4 +13,5 @@ QTIP User Guide
 
    overview.rst
    cli.rst
+   api.rst
    qpi-compute.rst

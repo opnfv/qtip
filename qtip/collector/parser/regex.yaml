@@ -25,8 +25,8 @@ dpi:
   - filename: dpi_dump.txt
     grep:
       - |-
-          ^\s+nDPI throughput:.+?(?P<pps>\d+.\d+)\sM\spps.+
-          ?(?P<bps>\d+.\d+)\sGb\/sec
+          ^\s+nDPI throughput:.+?(?P<pps>\d+.\d+)\s.+\spps.+
+          ?(?P<bps>\d+.\d+)\s.+\/sec
 ramspeed:
   - filename: Intmem
     grep:

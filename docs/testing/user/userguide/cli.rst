@@ -12,13 +12,13 @@ along with a short description.
 
   qtip [-h|--help]
 
-Typically a complete plan is executed at the
-target environment. QTIP defaults to a number of sample plans. One may be able to list them using
+Typically a complete plan is executed at the target environment. QTIP defaults to a number of sample plans.
+A list of all the available plans can be viewed
 ::
 
   qtip plan list
 
-One can also be able to view the details about a specific plan.
+In order to view the details about a specific plan.
 ::
 
   qtip plan show <plan_name>
@@ -28,9 +28,22 @@ where *plan_name* is one of those listed from the previous command.
 To execute a complete plan
 ::
 
-  qtip plan run <plan_name>
+  qtip plan run <plan_name> -p <path_to_result_directory>
+
+QTIP does not limit result storage at a specific directory. Instead a user may specify his own result storage
+as above. An important thing to remember is to provide absolute path of result directory.
+::
+
+  mkdir result
+  qtip plan run <plan_name> -p $PWD/result
 
 Similarly, the same commands can be used for the other two components making up the plans, i.e QPI's and metrics.
+
+QTIP also provides the utility to view benchmarking results on the console. One just need to provide to where
+the results are stored. Extending the example above
+::
+
+  qtip report show <metric_name> -p $PWD/result
 
 Debug option helps identify the error by providing a detailed traceback. It can be enabled as
 ::

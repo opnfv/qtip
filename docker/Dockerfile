@@ -62,7 +62,7 @@ RUN git config --global http.sslVerify false
 RUN git clone -b $BRANCH https://gerrit.opnfv.org/gerrit/qtip $REPOS_DIR/qtip
 RUN git clone https://gerrit.opnfv.org/gerrit/releng $REPOS_DIR/releng
 
-RUN pip install -U -r $REPOS_DIR/qtip/requirements.txt
+RUN cd $REPOS_DIR/qtip && pip install -U .
 
 #Config supervisor
 RUN mkdir -p /var/log/supervisor

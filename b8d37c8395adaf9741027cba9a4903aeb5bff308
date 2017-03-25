@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_57aa5871",
+        "filename": "docs/testing/user/userguide/qpi-compute.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-25T00:16:26Z",
+      "side": 1,
+      "message": "In rst, double backtick e.g. ``code quote`` is used for code quoting.",
+      "range": {
+        "startLine": 49,
+        "startChar": 54,
+        "endLine": 49,
+        "endChar": 55
+      },
+      "revId": "b8d37c8395adaf9741027cba9a4903aeb5bff308",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

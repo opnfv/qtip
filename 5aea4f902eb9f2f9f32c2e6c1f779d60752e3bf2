@@ -16,6 +16,24 @@
       "revId": "5aea4f902eb9f2f9f32c2e6c1f779d60752e3bf2",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_d2d656c5",
+        "filename": "docs/testing/user/userguide/index.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-26T04:29:10Z",
+      "side": 1,
+      "message": "For Danube, I think `cli` will be the primary interface. So\n\n- cli\n- api\n- qpi\n\nwill be preferred.",
+      "parentUuid": "9ab8dda7_92a0de91",
+      "revId": "5aea4f902eb9f2f9f32c2e6c1f779d60752e3bf2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

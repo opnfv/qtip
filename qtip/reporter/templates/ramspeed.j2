@@ -1,13 +1,12 @@
-Benchmark: {{ bm.name }}
-CPU Usage: {{ bm. cpu_usage }}
-Results:
-  Float Addition: {{ bm.results.float_add }}
-  Float Average: {{ bm.results.float_average }}
-  Float Copy: {{ bm.results.float_copy }}
-  Float Scale: {{ bm.results.float_scale }}
-  Float Triad: {{ bm.results.float_triad }}
-  Integer Addition: {{ bm.results.integer_add }}
-  Integer Average: {{ bm.results.integer_average }}
-  Integer Copy: {{ bm.results.integer_copy}}
-  Integer Scale: {{ bm.results.integer_scale }}
-  Integer Triad: {{ bm.results.integer_triad}}
+Benchmark {{ '.' * (50 - 'Benchmark'|length)}} {{ bm.name }}
+CPU Usage {{ '.' * (50 - 'CPU Usage'|length)}} {{ bm. cpu_usage }}
+Float Addition {{ '.' * (50 - 'Float Addition'|length)}} {{ bm.results.float_add }}
+Float Average {{ '.' * (50 - 'Float Average'|length)}}  {{ bm.results.float_average }}
+Float Copy {{ '.' * (50 - 'Float Copy'|length)}} {{ bm.results.float_copy }}
+Float Scale {{ '.' * (50 - 'Float Scale'|length)}} {{ bm.results.float_scale }}
+Float Triad {{ '.' * (50 - 'Float Triad'|length)}} {{ bm.results.float_triad }}
+Integer Addition {{ '.' * (50 - 'Integer Addition'|length)}} {{ bm.results.integer_add }}
+Integer Average {{ '.' * (50 - 'Integer Average'|length)}} {{ bm.results.integer_average }}
+Integer Copy {{ '.' * (50 - 'Integer Copy'|length)}} {{ bm.results.integer_copy}}
+Integer Scale {{ '.' * (50 - 'Integer Scale'|length)}} {{ bm.results.integer_scale }}
+Integer Triad {{ '.' * (50 - 'Integer Triad'|length)}} {{ bm.results.integer_triad}}

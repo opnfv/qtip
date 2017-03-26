@@ -1,21 +1,20 @@
-Benchmark: {{ bm.name }}
-CPU Usage: {{ bm.cpu_usage }}
-Results:
-  AES 128 CBC (bytes):
-    16: {{ bm.results.aes_128_cbc_16_bytes }}
-    64: {{ bm.results.aes_128_cbc_64_bytes }}
-    256: {{ bm.results.aes_128_cbc_256_bytes }}
-    1024: {{ bm.results.aes_128_cbc_1024_bytes }}
-    8192: {{ bm.results.aes_128_cbc_8192_bytes }}
+Benchmark {{ '.' * (50 - 'Benchmark'|length)}} {{ bm.name }}
+CPU Usage {{ '.' * (50 - 'CPU Usage'|length)}} {{ bm.cpu_usage }}
+AES 128 CBC (bytes)
+16 {{ '.' * (50 - '16'|length)}} {{ bm.results.aes_128_cbc_16_bytes }}
+64 {{ '.' * (50 - '64'|length)}} {{ bm.results.aes_128_cbc_64_bytes }}
+256 {{ '.' * (50 - '256'|length)}} {{ bm.results.aes_128_cbc_256_bytes }}
+1024 {{ '.' * (50 - '1024'|length)}} {{ bm.results.aes_128_cbc_1024_bytes }}
+8192 {{ '.' * (50 - '8192'|length)}} {{ bm.results.aes_128_cbc_8192_bytes }}
 
-  RSA SIGN:
-    512: {{ bm.results.rsa_sign_512 }}
-    1024: {{ bm.results.rsa_sign_1024 }}
-    2048: {{ bm.results.rsa_sign_2048 }}
-    4096: {{ bm.results.rsa_sign_4096 }}
+RSA SIGN
+512 {{ '.' * (50 - '512'|length)}} {{ bm.results.rsa_sign_512 }}
+1024 {{ '.' * (50 - '1024'|length)}} {{ bm.results.rsa_sign_1024 }}
+2048 {{ '.' * (50 - '2048'|length)}} {{ bm.results.rsa_sign_2048 }}
+4096 {{ '.' * (50 - '4096'|length)}} {{ bm.results.rsa_sign_4096 }}
 
-  RSA VERIFY:
-    512: {{ bm.results.rsa_verify_512 }}
-    1024: {{ bm.results.rsa_verify_1024 }}
-    2048: {{ bm.results.rsa_verify_2048 }}
-    4096: {{ bm.results.rsa_verify_4096 }}
+RSA VERIFY
+512 {{ '.' * (50 - '512'|length)}} {{ bm.results.rsa_verify_512 }}
+1024 {{ '.' * (50 - '1024'|length)}} {{ bm.results.rsa_verify_1024 }}
+2048 {{ '.' * (50 - '2048'|length)}} {{ bm.results.rsa_verify_2048 }}
+4096 {{ '.' * (50 - '4096'|length)}} {{ bm.results.rsa_verify_4096 }}

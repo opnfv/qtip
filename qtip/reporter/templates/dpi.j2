@@ -1,5 +1,4 @@
-Benchmark: {{ bm.name }}
-CPU Usage: {{ bm. cpu_usage }}
-Results:
-  Bits per Second: {{ bm.results.bps }}
-  Packets per Second: {{ bm.results.pps }}
+Benchmark {{ '.' * (50 - 'Benchmark'|length) }} {{ bm.name }}
+CPU Usage {{ '.' * (50 - 'CPU Usage'|length)}} {{ '3%' }}
+Bits per Second {{ '.' * (50 - 'Bits per second'|length) }} {{ bm.results.bps }}
+Packets per Second {{ '.' * (50 - 'Packets per second'|length)}} {{ bm.results.pps }}

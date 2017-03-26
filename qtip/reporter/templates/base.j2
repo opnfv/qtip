@@ -1,9 +1,11 @@
-Plan Name: {{ plan_name }}
-Start Time: {{ start_time }}
-Stop Time: {{ stop_time }}
-{%- for sys in sut -%}
+{{ '=' * 130}}
+Plan Name {{ '.' * (50 - 'Plan Name'|length) }} {{ plan_name }}
+Start Time {{ '.' * (50 - 'Start Time'|length) }} {{ start_time }}
+Stop Time {{ '.' * (50 - 'Stop Time'|length) }} {{ stop_time }}
+{% for sys in sut %}
+{{ '\033[92m' }} {{ sys.name }} {{ '\033[0m' }}
 {% for qpi in sys.qpis %}
-{% for bm in qpi.benchmarks %}
+{%- for bm in qpi.benchmarks -%}
 {%- if bm.name == metric_name -%}
 {%- if metric_name == 'dhrystone' or metric_name == 'whetstone' -%}
 {# TODO (taseer) remove hardcoded material #}
@@ -11,15 +13,17 @@ Stop Time: {{ stop_time }}
 {% else %}
 {% include '%s.j2' % metric_name %}
 {% endif %}
-System Information:
-  CPU Brand: {{ bm.sysinfo.cpu }}
-  Disk: {{ bm.sysinfo.disk }}
-  Host Name: {{ bm.sysinfo.hostname }}
-  Kernel: {{ bm.sysinfo.kernel }}
-  Memory: {{ bm.sysinfo.memory }}
-  Operating System: {{ bm.sysinfo.os }}
-  Product: {{ bm.sysinfo.product }}
+System Information
+CPU Brand {{ '.' * (50 - 'CPU Brand'|length) }} {{ bm.sysinfo.cpu }}
+Disk {{ '.' * (50 - 'Disk'|length) }} {{ bm.sysinfo.disk }}
+Host Name {{ '.' * (50 - 'Host Name'|length) }} {{ bm.sysinfo.hostname }}
+Kernel {{ '.' * (50 - 'Kernel'|length) }} {{ bm.sysinfo.kernel }}
+Memory {{ '.' * (50 - 'Memory'|length) }} {{ bm.sysinfo.memory }}
+Operating System {{ '.' * (50 - 'Operating System'|length) }} {{ bm.sysinfo.os }}
+Product {{ '.' * (50 - 'Product'|length) }} {{ bm.sysinfo.product }}
 {%- endif -%}
 {%- endfor -%}
-{%- endfor -%}
+{% endfor %}
+
+{{ '\033[93m' }} {{ '*' * 130}} {{ '\033[0m' }}
 {%- endfor -%}

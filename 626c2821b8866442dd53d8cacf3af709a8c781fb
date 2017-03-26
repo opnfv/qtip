@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_b212c260",
+        "filename": "qtip/reporter/templates/base.j2",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-26T13:58:34Z",
+      "side": 1,
+      "message": "I think it will look better if we align the end of the line, e.g.\n\n```\nfield........value\nfield...long value\n```",
+      "revId": "626c2821b8866442dd53d8cacf3af709a8c781fb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_121e2e71",
+        "filename": "qtip/reporter/templates/base.j2",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-26T13:58:34Z",
+      "side": 1,
+      "message": "It seems an ansi control char for colorizing.\n\nCan we use something easier to read?",
+      "range": {
+        "startLine": 6,
+        "startChar": 3,
+        "endLine": 6,
+        "endChar": 13
+      },
+      "revId": "626c2821b8866442dd53d8cacf3af709a8c781fb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

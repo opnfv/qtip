@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_0c0372b9",
+        "filename": "docs/testing/user/userguide/cli.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-27T10:02:35Z",
+      "side": 1,
+      "message": "No need to specify `run`?",
+      "revId": "9b1a15da9c910b96578bb0e96ec096cbf43589ef",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

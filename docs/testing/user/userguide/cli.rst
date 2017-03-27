@@ -38,6 +38,12 @@ as above. An important thing to remember is to provide absolute path of result d
   qtip plan run <plan_name> -p $PWD/result
 
 Similarly, the same commands can be used for the other two components making up the plans, i.e QPI's and metrics.
+For example, in order to run a single metric
+::
+
+  qtip metric <metric_name> -p $PWD/result
+
+The same can be applied for a QPI.
 
 QTIP also provides the utility to view benchmarking results on the console. One just need to provide to where
 the results are stored. Extending the example above

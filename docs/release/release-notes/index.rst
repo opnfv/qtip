@@ -13,4 +13,4 @@ QTIP Release Notes
 .. toctree::
    :maxdepth: 2
 
-   brahmaputra.rst
+   danube.rst

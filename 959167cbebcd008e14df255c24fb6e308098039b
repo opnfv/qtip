@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_4c13aa5c",
+        "filename": "docs/testing/user/configguide/configuration.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-27T08:47:17Z",
+      "side": 1,
+      "message": "I think INSTALLER_TYPE and INSTALLER_IP is only available on jumphost.\n\nFor user who just want to try out qtip without running compute-qpi, they are not mandatory, right?",
+      "revId": "959167cbebcd008e14df255c24fb6e308098039b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

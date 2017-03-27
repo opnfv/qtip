@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_dd03c771",
+        "filename": "docs/testing/user/userguide/api.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-27T02:22:58Z",
+      "side": 1,
+      "message": "I would suggest not listing \u0027post plans\u0027 now, since it is not implemented yet!",
+      "range": {
+        "startLine": 66,
+        "startChar": 1,
+        "endLine": 66,
+        "endChar": 11
+      },
+      "revId": "ce74cfc38b1787eaa72581155e23ce1ce132eaa4",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

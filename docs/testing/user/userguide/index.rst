@@ -12,4 +12,5 @@ QTIP User Guide
    :maxdepth: 2
 
    cli.rst
+   api.rst
    qpi-compute.rst

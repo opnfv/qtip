@@ -18,6 +18,12 @@ from qtip.base import BaseActor
 ROOT_DIR = path.join(path.dirname(__file__), path.pardir, path.pardir)
 
 
+def justify(pair, width=80):
+    """align the beginning along the left margin, ending along the right, padding with space"""
+    padding = width - len(pair[0])
+    return '{1}{2:>{0}}'.format(padding, pair[0], pair[1])
+
+
 class ConsoleReporter(BaseActor):
     """ report benchmark result to console """
 
@@ -42,3 +48,8 @@ class ConsoleReporter(BaseActor):
         var_dict['metric_name'] = metric
         out = template.render(var_dict)
         return out
+
+    def jinja2_filter_sample(self):
+        self._env.filters['justify'] = justify
+        template = self._env.from_string('{{ kvpair|justify(width=20) }}')
+        return template.render(kvpair=('key', 'value'))

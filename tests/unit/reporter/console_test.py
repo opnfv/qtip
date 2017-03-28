@@ -29,6 +29,10 @@ def test_constructor(console_reporter):
     assert isinstance(console_reporter, ConsoleReporter)
 
 
+def test_strfmt(console_reporter):
+    result = console_reporter.jinja2_filter_sample()
+    assert result == 'key            value'
+
 def test_dhrystone(console_reporter, result_path):
     """ Test dhrystone report"""
 

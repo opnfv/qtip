@@ -10,6 +10,7 @@ QTIP Design Specifications
 .. toctree::
    :maxdepth: 2
 
+   overview.rst
    arch.rst
    cli.rst
    api.rst

@@ -1,13 +1,12 @@
-Benchmark: {{ bm.name }}
-CPU Usage: {{ bm. cpu_usage }}
-Results:
-  Float Addition: {{ bm.results.float_add }}
-  Float Average: {{ bm.results.float_average }}
-  Float Copy: {{ bm.results.float_copy }}
-  Float Scale: {{ bm.results.float_scale }}
-  Float Triad: {{ bm.results.float_triad }}
-  Integer Addition: {{ bm.results.integer_add }}
-  Integer Average: {{ bm.results.integer_average }}
-  Integer Copy: {{ bm.results.integer_copy}}
-  Integer Scale: {{ bm.results.integer_scale }}
-  Integer Triad: {{ bm.results.integer_triad}}
+{{ ('Benchmark', bm.name)|padding }}
+{{ ('CPU Usage', bm. cpu_usage)|padding }}
+{{ ('Float Addition', bm.results.float_add)|padding }}
+{{ ('Float Average', bm.results.float_average)|padding }}
+{{ ('Float Copy', bm.results.float_copy)|padding }}
+{{ ('Float Scale', bm.results.float_scale)|padding }}
+{{ ('Float Triad', bm.results.float_triad)|padding }}
+{{ ('Integer Addition', bm.results.integer_add)|padding }}
+{{ ('Integer Average', bm.results.integer_average)|padding }}
+{{ ('Integer Copy', bm.results.integer_copy)|padding }}
+{{ ('Integer Scale', bm.results.integer_scale)|padding }}
+{{ ('Integer Triad', bm.results.integer_triad)|padding}}

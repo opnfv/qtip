@@ -3,10 +3,10 @@
 # process, which may cause wedges in the gate later.
 
 mock
-pip_check_reqs
 pykwalify
 pytest
 pytest-cov
 pytest-faker
 pytest-mock
-tox
+pip_check_reqs
+pipreqs

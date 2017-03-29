@@ -4,5 +4,6 @@ paramiko
 connexion
 numpy
 pbr
-ConfigParser
 prettytable
+jinja2
+six

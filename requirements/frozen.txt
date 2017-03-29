@@ -1,0 +1,10 @@
+ansible==2.1.2.0
+click==6.7
+connexion==1.1.5
+Jinja2==2.9.5
+numpy==1.12.1
+paramiko==2.1.2
+pbr==2.0.0
+prettytable==0.7.2
+six==1.10.0
+PyYAML==3.12

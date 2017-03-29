@@ -1,10 +1,11 @@
-Benchmark: {{ bm.name }}
-CPU Usage: {{ bm. cpu_usage }}
-Results:
-  Multi CPU:
-    Number: {{ bm.results.multi_cpus.num }}
-    Score: {{ bm.results.multi_cpus.score }}
-  Single CPU:
-    Number: {{ bm.results.single_cpu.num }}
-    Score: {{ bm.results.single_cpu.num }}
-  Total CPUs: {{ bm.results.total_cpus }}
+{{ ('Benchmark', bm.name)|justify }}
+{{ ('CPU Usage', bm. cpu_usage)|justify }}
+
+Multi CPU
+{{ ('Number', bm.results.multi_cpus.num)|justify }}
+{{ ('Score', bm.results.multi_cpus.score)|justify }}
+
+Single CPU
+{{ ('Number', bm.results.single_cpu.num)|justify }}
+{{ ('Score', bm.results.single_cpu.score)|justify }}
+{{ ('Total CPUs', bm.results.total_cpus)|justify }}

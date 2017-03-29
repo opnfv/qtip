@@ -1,5 +1,4 @@
-Benchmark: {{ bm.name }}
-CPU Usage: {{ bm. cpu_usage }}
-Results:
-  Bits per Second: {{ bm.results.bps }}
-  Packets per Second: {{ bm.results.pps }}
+{{ ('Benchmark', bm.name)|justify }}
+{{ ('CPU Usage', bm.cpu_usage)|justify }}
+{{ ('Bits per Second', bm.results.bps)|justify }}
+{{ ('Packets per Second', bm.results.pps)|justify }}

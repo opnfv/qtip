@@ -10,10 +10,11 @@
 import glob
 import json
 from os import path
-
 from jinja2 import Environment
 from jinja2 import FileSystemLoader
+
 from qtip.base import BaseActor
+from qtip.reporter import filters
 
 ROOT_DIR = path.join(path.dirname(__file__), path.pardir, path.pardir)
 
@@ -28,6 +29,7 @@ class ConsoleReporter(BaseActor):
         tpl_path = path.join(path.dirname(__file__), 'templates')
         tpl_loader = FileSystemLoader(tpl_path)
         self._env = Environment(loader=tpl_loader)
+        self._env.filters['justify'] = filters.justify
 
     def load_result(self, result_path):
         result_dirs = glob.glob('{}/qtip-*'.format(result_path))

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_bb49368d",
+        "filename": "qtip/reporter/console.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-03-29T02:28:02Z",
+      "side": 1,
+      "message": "Suggest to use `justify`\n\n`padding` is usually applied to single element while `justify` means align a collection of elements on both side.",
+      "range": {
+        "startLine": 32,
+        "startChar": 27,
+        "endLine": 32,
+        "endChar": 34
+      },
+      "revId": "456ab09cbbbd7b5cbea9b18fda4619651990dd89",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

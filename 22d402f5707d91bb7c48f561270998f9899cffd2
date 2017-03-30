@@ -1,0 +1,197 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_e9f36308",
+        "filename": "docs/release/release-notes/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 2409
+      },
+      "writtenOn": "2017-03-30T08:09:47Z",
+      "side": 1,
+      "message": "************",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 13
+      },
+      "revId": "22d402f5707d91bb7c48f561270998f9899cffd2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_696c539d",
+        "filename": "docs/release/release-notes/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2409
+      },
+      "writtenOn": "2017-03-30T08:09:47Z",
+      "side": 1,
+      "message": "QTIP Release Notes",
+      "revId": "22d402f5707d91bb7c48f561270998f9899cffd2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_09f917e9",
+        "filename": "docs/release/release-notes/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2409
+      },
+      "writtenOn": "2017-03-30T08:09:47Z",
+      "side": 1,
+      "message": "************",
+      "revId": "22d402f5707d91bb7c48f561270998f9899cffd2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_89e4273c",
+        "filename": "docs/testing/developer/devguide/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 2409
+      },
+      "writtenOn": "2017-03-30T08:09:47Z",
+      "side": 1,
+      "message": "*************",
+      "revId": "22d402f5707d91bb7c48f561270998f9899cffd2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_49d62f51",
+        "filename": "docs/testing/developer/devguide/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 2409
+      },
+      "writtenOn": "2017-03-30T08:09:47Z",
+      "side": 1,
+      "message": "**************",
+      "revId": "22d402f5707d91bb7c48f561270998f9899cffd2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_c9c1bf81",
+        "filename": "docs/testing/user/configguide/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2409
+      },
+      "writtenOn": "2017-03-30T08:09:47Z",
+      "side": 1,
+      "message": "*************************",
+      "revId": "22d402f5707d91bb7c48f561270998f9899cffd2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_0947d720",
+        "filename": "docs/testing/user/configguide/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 2409
+      },
+      "writtenOn": "2017-03-30T08:09:47Z",
+      "side": 1,
+      "message": "QTIP Installation and Configuration Guide",
+      "revId": "22d402f5707d91bb7c48f561270998f9899cffd2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_69be9301",
+        "filename": "docs/testing/user/configguide/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 2409
+      },
+      "writtenOn": "2017-03-30T08:09:47Z",
+      "side": 1,
+      "message": "*************************",
+      "revId": "22d402f5707d91bb7c48f561270998f9899cffd2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_89bbc70d",
+        "filename": "docs/testing/user/userguide/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2409
+      },
+      "writtenOn": "2017-03-30T08:09:47Z",
+      "side": 1,
+      "message": "*********",
+      "revId": "22d402f5707d91bb7c48f561270998f9899cffd2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_493dcf8e",
+        "filename": "docs/testing/user/userguide/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 2409
+      },
+      "writtenOn": "2017-03-30T08:09:47Z",
+      "side": 1,
+      "message": "QTIP User Guide",
+      "revId": "22d402f5707d91bb7c48f561270998f9899cffd2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_29389b9f",
+        "filename": "docs/testing/user/userguide/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 2409
+      },
+      "writtenOn": "2017-03-30T08:09:47Z",
+      "side": 1,
+      "message": "*********",
+      "revId": "22d402f5707d91bb7c48f561270998f9899cffd2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -4,9 +4,9 @@
 .. (c) 2016 ZTE Corp.
 
 
-###############
+***************
 QTIP User Guide
-###############
+***************
 
 .. toctree::
    :maxdepth: 2
@@ -14,4 +14,4 @@ QTIP User Guide
    overview.rst
    cli.rst
    api.rst
-   qpi-compute.rst
+   compute.rst

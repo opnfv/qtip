@@ -3,9 +3,9 @@
 .. (c) 2017 ZTE Corp.
 
 
-############
-Introduction
-############
+********
+Overview
+********
 
 `QTIP`_ is the project for **Platform Performance Benchmarking** in `OPNFV`_. It aims to provide user a simple indicator
 for performance, simple but supported by comprehensive testing data and transparent calculation formula.
@@ -18,9 +18,9 @@ performance. **TRUE** reflects the core value of QPI in four aspects
 - *Understandable*: QPI is broke down into section scores, and workload scores in report to help user to understand
 - *Extensible*: users may create their own QPI by composing the existed metrics in QTIP or extend new metrics
 
-##########
+
 Benchmarks
-##########
+==========
 
 The builtin benchmarks of QTIP are located in ``<package_root>/benchmarks`` folder
 

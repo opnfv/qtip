@@ -4,11 +4,9 @@
 .. (c) 2016 ZTE Corp.
 
 
-Compute QPI
-===========
-
-Introduction
-------------
+********************************
+Compute Performance Benchmarking
+********************************
 
 The compute QPI aims to benchmark the compute components of an OPNFV platform.
 Such components include, the CPU performance, the memory performance.
@@ -23,13 +21,14 @@ Note: The Compute benchmank constains relatively old benchmarks such as dhryston
 and whetstone. The suite would be updated for better benchmarks such as Linbench for
 the OPNFV E release.
 
-Getting start with compute QPI
-------------------------------
+
+Getting started
+===============
 
 Notice: All descriptions are based on QTIP container.
 
 Inventory File
-^^^^^^^^^^^^^^
+--------------
 
 QTIP uses Ansible to trigger benchmark test. Ansible uses an inventory file to
 determine what hosts to work against. QTIP can automatically generate a inventory
@@ -43,7 +42,7 @@ IP addresses. For example:
   10.20.0.12
 
 QTIP key Pair
-^^^^^^^^^^^^^
+-------------
 
 QTIP use a SSH key pair to connect to remote hosts. When users execute compute QPI,
 QTIP will generate a key pair named *QtipKey* under ``/home/opnfv/qtip/`` and pass
@@ -54,8 +53,8 @@ manual. If *CI_DEBUG* is not set or set to *false*, QTIP will delete the key fro
 remote hosts before the execution ends. Please make sure the key deleted from remote
 hosts or it can introduce a security flaw.
 
-Commands to run compute QPI
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Commands
+--------
 
 In a QTIP container, you can run compute QPI by using QTIP CLI:
 ::
@@ -68,8 +67,8 @@ timestamp name.
 
 you can get more details from *userguide/cli.rst*.
 
-Benchmarks
-----------
+Metrics
+-------
 
 The benchmarks include:
 

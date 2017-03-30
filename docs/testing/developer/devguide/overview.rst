@@ -3,9 +3,9 @@
 .. (c) 2017 ZTE Corporation
 
 
-########
+********
 Overview
-########
+********
 
 QTIP uses Python as primary programming language and build the framework from the following packages
 
@@ -19,9 +19,9 @@ docs     `sphinx`_ - a tool that makes it easy to create intelligent and beautif
 testing  `pytest`_ - a mature full-featured Python testing tool that helps you write better programs
 ======== ===============================================================================================================
 
-***********
+
 Source Code
-***********
+===========
 
  The structure of repository is based on the recommended sample in
 `The Hitchhiker's Guide to Python`_
@@ -40,9 +40,9 @@ Path                Content
 ``./third-party/``  third part included in QTIP project
 ==================  ========================================================================================================
 
-************
+
 Coding Style
-************
+============
 
 QTIP follows `OpenStack Style Guidelines`_ for source code and commit message.
 
@@ -52,9 +52,9 @@ Specially, it is recommended to link each patch set with a JIRA issue. Put::
 
 in commit message to create an automatic link.
 
-*******
+
 Testing
-*******
+=======
 
 All testing related code are stored in ``./tests/``
 

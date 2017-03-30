@@ -3,9 +3,9 @@
 .. (c) 2017 ZTE Corp.
 
 
-########################
-QTIP Architecture Design
-########################
+************
+Architecture
+************
 
 In Danube, QTIP releases its standalone mode, which is also know as ``solo``:
 

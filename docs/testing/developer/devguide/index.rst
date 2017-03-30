@@ -3,9 +3,9 @@
 .. (c) 2016 ZTE Corp.
 
 
-##########################
-QTIP Design Specifications
-##########################
+***************
+Developer Guide
+***************
 
 .. toctree::
    :maxdepth: 2

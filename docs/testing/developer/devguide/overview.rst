@@ -3,9 +3,9 @@
 .. (c) 2017 ZTE Corporation
 
 
-########
+********
 Overview
-########
+********
 
 QTIP uses Python as primary programming language and build the framework from the following packages
 
@@ -19,16 +19,15 @@ docs     `sphinx`_ - a tool that makes it easy to create intelligent and beautif
 testing  `pytest`_ - a mature full-featured Python testing tool that helps you write better programs
 ======== ===============================================================================================================
 
-***********
+
 Source Code
-***********
+===========
 
- The structure of repository is based on the recommended sample in
-`The Hitchhiker's Guide to Python`_
+The structure of repository is based on the recommended sample in `The Hitchhiker's Guide to Python`_
 
-==================  ========================================================================================================
+==================  ====================================================================================================
 Path                Content
-==================  ========================================================================================================
+==================  ====================================================================================================
 ``./benchmarks/``   builtin benchmark assets including plan, QPI and metrics
 ``./contrib/``      independent project/plugin/code contributed to QTIP
 ``./docker/``       configuration for building Docker image for QTIP deployment
@@ -38,11 +37,11 @@ Path                Content
 ``./qtip/``         the actual package
 ``./tests/``        package functional and unit tests
 ``./third-party/``  third part included in QTIP project
-==================  ========================================================================================================
+==================  ====================================================================================================
 
-************
+
 Coding Style
-************
+============
 
 QTIP follows `OpenStack Style Guidelines`_ for source code and commit message.
 
@@ -52,19 +51,19 @@ Specially, it is recommended to link each patch set with a JIRA issue. Put::
 
 in commit message to create an automatic link.
 
-*******
+
 Testing
-*******
+=======
 
 All testing related code are stored in ``./tests/``
 
-==================  ========================================================================================================
+==================  ====================================================================================================
 Path                Content
-==================  ========================================================================================================
+==================  ====================================================================================================
 ``./tests/data/``   data fixtures for testing
 ``./tests/unit/``   unit test for each module, follow the same layout as ./qtip/
 ``./conftest.py``   pytest configuration in project scope
-==================  ========================================================================================================
+==================  ====================================================================================================
 
 `tox`_ is used to automate the testing tasks
 

@@ -1,9 +1,10 @@
-***************************
-QTIP Command Line Interface
-***************************
+.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. http://creativecommons.org/licenses/by/4.0
 
-Abstract
-########
+
+****************************
+CLI - Command Line Interface
+****************************
 
 QTIP consists of different tools(metrics) to benchmark the NFVI. These metrics fall under different NFVI
 subsystems(QPI's) such as compute, storage and network. A plan consists of one or more QPI's, depending upon how

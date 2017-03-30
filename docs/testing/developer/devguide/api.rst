@@ -1,9 +1,10 @@
-**********************************************
-QTIP RESTful Application Programming Interface
-**********************************************
+.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. http://creativecommons.org/licenses/by/4.0
 
-Abstract
-########
+
+***************************************
+API - Application Programming Interface
+***************************************
 
 QTIP consists of different tools(metrics) to benchmark the NFVI. These metrics
 fall under different NFVI subsystems(QPI's) such as compute, storage and network.

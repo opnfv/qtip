@@ -1,6 +1,10 @@
-**************
-QTIP API Usage
-**************
+.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. http://creativecommons.org/licenses/by/4.0
+
+
+***************
+API User Manual
+***************
 
 QTIP consists of a number of benchmarking tools or metrics, grouped under QPI's. QPI's map to the different
 components of an NFVI ecosystem, such as compute, network and storage. Depending on the type of application,

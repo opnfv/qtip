@@ -1,22 +1,24 @@
 .. This work is licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
 
+******
+Danube
+******
 
-This document provides the release notes for <RELEASE> of <COMPONENT>.
+This document provides the release notes for Danube of QTIP.
 
 .. contents::
    :depth: 3
    :local:
 
-
 Version history
----------------
+===============
 
 +--------------------+--------------------+--------------------+--------------------+
 | **Date**           | **Ver.**           | **Author**         | **Comment**        |
 |                    |                    |                    |                    |
 +--------------------+--------------------+--------------------+--------------------+
-| 2017-03-14         | TODO(yujunz): tag  | Yujun Zhang        | First draft        |
+| 2017-03-30         | Danube 1.0         | Yujun Zhang        |                    |
 |                    |                    |                    |                    |
 +--------------------+--------------------+--------------------+--------------------+
 
@@ -32,9 +34,9 @@ Summary
 QTIP Danube release introduces **QPI**, a.k.a. QTIP Performance Index, which is calculated from metrics collected in
 performance tests.
 
-A PoC of compute qpi benchmark plan is provided as a sample use case.
+A PoC of compute performance benchmark plan is provided as a sample use case.
 
-Available benchmark plans can be listed, shown and executed from `qtip-cli`, the command line interpreter of QTIP.
+Available benchmark plans can be listed, shown and executed from command line or over API.
 
 Release Data
 ============
@@ -43,13 +45,13 @@ Release Data
 | **Project**                          | QTIP                                 |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Repo/commit-ID**                   | qtip/TBD                             |
+| **Repo/commit-ID**                   | qtip/danube.1.0                      |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Release designation**              | Danube 1.0                           |
+| **Release designation**              | Danube base release                  |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Release date**                     | TODO(yujunz): fill date              |
+| **Release date**                     | 2017-03-31                           |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
 | **Purpose of the delivery**          | OPNFV quality assurance              |
@@ -57,115 +59,98 @@ Release Data
 +--------------------------------------+--------------------------------------+
 
 Version change
-^^^^^^^^^^^^^^
+--------------
 
 Module version changes
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^
 
-N/A
+The following Python packages are used in this release::
 
-Document version changes
-~~~~~~~~~~~~~~~~~~~~~~~~
+   ansible==2.1.2.0
+   click==6.7
+   connexion==1.1.5
+   Jinja2==2.9.5
+   numpy==1.12.1
+   paramiko==2.1.2
+   pbr==2.0.0
+   prettytable==0.7.2
+   six==1.10.0
+   PyYAML==3.12
 
-N/A
+
+It is considered as a baseline for future releases.
 
 Reason for version
+------------------
+
+Features additions
 ^^^^^^^^^^^^^^^^^^
-Feature additions
-~~~~~~~~~~~~~~~~~
 
-**JIRA BACK-LOG:**
+* Compute QPI (QTIP Performance Index) specification and benchmarking plan
+* Command line interface
+* API server
 
-** TODO(yujunz) pull data from JIRA **
+Framework evolution
+^^^^^^^^^^^^^^^^^^^
 
-+--------------------------------------+--------------------------------------+
-| **JIRA REFERENCE**                   | **SLOGAN**                           |
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
+The following components are implemented and integrated
 
-Bug corrections
-~~~~~~~~~~~~~~~
+* Native runner
+* File loader
+* Ansible driver
+* Logfile collector
+* Grep parser
+* Console reporter
 
-**JIRA TICKETS:**
-
-** TODO(yujunz) pull data from JIRA **
-
-+--------------------------------------+--------------------------------------+
-| **JIRA REFERENCE**                   | **SLOGAN**                           |
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
+See JIRA for full `change log <https://jira.opnfv.org/jira/secure/ReleaseNote.jspa?projectId=10308&version=10555>`_
 
 Deliverables
 ------------
 
-Software deliverables
-^^^^^^^^^^^^^^^^^^^^^
+Software
+^^^^^^^^
 
-** TODO(yujunz) docker image, pip package **
+- `QTIP Docker image <https://hub.docker.com/r/opnfv/qtip>`_ (tag: danube.1.0)
 
-Documentation deliverables
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Documentation
+^^^^^^^^^^^^^
 
-** TODO(yujunz) links to qtip document publish **
+- `Installation & Configuration <http://docs.opnfv.org/en/stable-danube/qtip/docs/testing/user/configguide>`_
+- `User Guide <http://docs.opnfv.org/en/stable-danube/submodules/qtip/docs/testing/user/userguide>`_
+- `Developer Guide <http://docs.opnfv.org/en/stable-danube/submodules/qtip/docs/testing/developer/devguide>`_
 
 Known Limitations, Issues and Workarounds
 =========================================
 
-System Limitations
-^^^^^^^^^^^^^^^^^^
+Limitations
+-----------
 
-None
+- The compute benchmark plan is hard coded in native runner
+- Baseline for Compute QPI is not created yet, therefore scores are not available
 
 Known issues
-^^^^^^^^^^^^
+------------
 
-** TODO(yujunz) pull data from JIRA **
-
-**JIRA TICKETS:**
-
-+--------------------------------------+--------------------------------------+
-| **JIRA REFERENCE**                   | **SLOGAN**                           |
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
-
-Workarounds
-^^^^^^^^^^^
-
-N/A
+* QTIP-230 - logger warns about socket /dev/log when running in container
 
 Test Result
 ===========
 
 QTIP has undergone QA test runs with the following results:
 
-+--------------------------------------+--------------------------------------+
-| **TEST-SUITES**                      | **Results:**                         |
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
-| qtip-verify-danube                   | 72/72 passed                         |
-|                                      |                                      |
-|                                      | 73% lines of code covered            |
-+--------------------------------------+--------------------------------------+
-| qtip-daily-fuel-zte-pod3-danube      | Last 7 build fails                   |
-|                                      |                                      |
-|                                      | blocked by the failure of zte-pod3   |
-+--------------------------------------+--------------------------------------+
-
-References
-==========
-
-For more information on the OPNFV Danube release, please see:
-
-http://opnfv.org/danube
++---------------------------------------------------+--------------------------------------+
+| **TEST-SUITES**                                   | **Results:**                         |
+|                                                   |                                      |
++---------------------------------------------------+--------------------------------------+
+| qtip-verify-danube                                | 94/94 passed                         |
+|                                                   |                                      |
++---------------------------------------------------+--------------------------------------+
+| qtip-os-nosdn-kvm-ha-zte-pod3-daily-danube        | Successful                           |
+|                                                   |                                      |
++---------------------------------------------------+--------------------------------------+
+| qtip-os-nosdn-nofeature-ha-zte-pod3-daily-danube  | Successful                           |
+|                                                   |                                      |
++---------------------------------------------------+--------------------------------------+
+| qtip-os-odl_l2-nofeature-ha-zte-pod1-daily-danube | Successful                           |
+|                                                   |                                      |
++---------------------------------------------------+--------------------------------------+

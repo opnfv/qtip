@@ -3,16 +3,19 @@
 .. (c) 2016 ZTE Corp.
 
 
-############
-Introduction
-############
+########################################
+QTIP - Platform Performance Benchmarking
+########################################
 
 `QTIP`_ is the project for **Platform Performance Benchmarking** in `OPNFV`_. It aims to provide user a simple indicator
 for performance, simple but supported by comprehensive testing data and transparent calculation formula.
 
+.. _QTIP: https://wiki.opnfv.org/display/qtip
+.. _OPNFV: https://www.opnfv.org/
 
-Release Documentation
----------------------
+
+Release Notes
+=============
 
 .. toctree::
    :maxdepth: 2
@@ -21,7 +24,7 @@ Release Documentation
 
 
 User Guide
-----------
+==========
 
 .. toctree::
    :maxdepth: 2
@@ -30,14 +33,10 @@ User Guide
    testing/user/userguide/index
 
 
-Development Guide
------------------
+Developer Guide
+===============
 
 .. toctree::
    :maxdepth: 2
 
    testing/developer/devguide/index
-
-
-.. _QTIP: https://wiki.opnfv.org/display/qtip
-.. _OPNFV: https://www.opnfv.org/

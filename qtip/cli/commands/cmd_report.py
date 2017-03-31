@@ -18,7 +18,7 @@ pass_context = click.make_pass_decorator(Context, ensure=False)
 @click.group()
 @pass_context
 def cli(ctx):
-    """ View Qtip results"""
+    """ View QTIP results"""
     pass
 
 

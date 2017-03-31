@@ -68,14 +68,14 @@ Environment configuration
 Hardware configuration
 ----------------------
 
-Qtip does not have specific hardware requriements, and it can runs over any
+QTIP does not have specific hardware requriements, and it can runs over any
 OPNFV installer.
 
 
 Jumphost configuration
 ----------------------
 
-Installer Docker on Jumphost, which is used for running Qtip image.
+Installer Docker on Jumphost, which is used for running QTIP image.
 
 You can refer to these links:
 

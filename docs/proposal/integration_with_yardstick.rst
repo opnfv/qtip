@@ -11,13 +11,13 @@ Problem description
 ===================
 
 For each specified QPI [1]_, QTIP needs to select a suite of test cases and collect
-required test results. Based on these results, Qtip calculates the score.
+required test results. Based on these results, QTIP calculates the score.
 
 Proposed change
 ===============
-Qtip has a flexible architecture [2]_ to support different mode: standalone and agent.
+QTIP has a flexible architecture [2]_ to support different mode: standalone and agent.
 It is recommended to use **agent mode** to work with existing test runners. Yardstick will
-act as a runner to generate test result and trigger Qtip agent on the completion of test.
+act as a runner to generate test result and trigger QTIP agent on the completion of test.
 
 
 Work Items in Yardstick
@@ -25,41 +25,41 @@ Work Items in Yardstick
 
 1. Create a customized suite in Yardstick
 
-Yardstick not only has many existing suites but also support customized suites. Qtip could
-create a suite named **Qtip-PoC** in Yardstick repo to verify workflow of Qtip agent mode.
+Yardstick not only has many existing suites but also support customized suites. QTIP could
+create a suite named **QTIP-PoC** in Yardstick repo to verify workflow of QTIP agent mode.
 
-2. Launch Qtip in Yardstick
+2. Launch QTIP in Yardstick
 
-Whether to launch Qtip will be determined by checking the existence of OS environment
-variable *QTIP*. If it exists, Qtip will be launched by using Yardstick CLI
+Whether to launch QTIP will be determined by checking the existence of OS environment
+variable *QTIP*. If it exists, QTIP will be launched by using Yardstick CLI
 `yardstick plugin install` [3]_.
 
-3. Yardstick interacts with Qtip
+3. Yardstick interacts with QTIP
 
 See
-`Yardstick-Qtip+integration <https://wiki.opnfv.org/display/yardstick/Yardstick-Qtip+integration>`_
+`Yardstick-QTIP+integration <https://wiki.opnfv.org/display/yardstick/Yardstick-QTIP+integration>`_
 for details.
 
-Work Items in Qtip
+Work Items in QTIP
 ------------------
 
 1. Provide an API for Yardstick to post test result and environment info
 
 After completing test execution, Yardstick will post test result and enviroment info with
 JSON format via QTIP API. See
-`Yardstick-Qtip+integration <https://wiki.opnfv.org/display/yardstick/Yardstick-Qtip+integration>`_
+`Yardstick-QTIP+integration <https://wiki.opnfv.org/display/yardstick/Yardstick-QTIP+integration>`_
 for details.
 
 2. Parse yardstick test result
 
-When Qtip agent receive Yarstick test result and enviroment info, Qtip agent will extract
-metrics which is definded in metric spec configuration file. Based on these metrics, Qtip
+When QTIP agent receive Yarstick test result and enviroment info, QTIP agent will extract
+metrics which is definded in metric spec configuration file. Based on these metrics, QTIP
 agent will caculate QPI.
 
 3. Provide an API for querying QPI
 
-Qtip will provide an API for querying QPI. See
-`Yardstick-Qtip+integration <https://wiki.opnfv.org/display/yardstick/Yardstick-Qtip+integration>`_
+QTIP will provide an API for querying QPI. See
+`Yardstick-QTIP+integration <https://wiki.opnfv.org/display/yardstick/Yardstick-QTIP+integration>`_
 for details.
 
 Implementation

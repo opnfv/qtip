@@ -9,7 +9,7 @@
 heat_template_version: 2015-04-30
 
 description: >
-  Used to run VMs for Qtip
+  Used to run VMs for QTIP
 
 parameters:
   image:

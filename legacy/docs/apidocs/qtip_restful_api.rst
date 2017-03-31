@@ -4,7 +4,7 @@
 .. (c) 2016 ZTE Corp.
 
 ****************
-Qtip restful api
+QTIP restful api
 ****************
 
-You can get all the Qtip restful api by http://restful_api.qtip.openzero.net/api/spec.html.
+You can get all the QTIP restful api by http://restful_api.qtip.openzero.net/api/spec.html.

@@ -19,8 +19,7 @@ Running
 
 After installing QTIP. API server can be run using command ``qtip-api`` on the local machine.
 
-All the resources and their corresponding operation details can be seen at ``/v1.0/ui``,
-on hosting server(``0.0.0.0:5000`` for the local machine).
+All the resources and their corresponding operation details can be seen at ``/v1.0/ui``.
 
 The whole API specification in json format can be seen at ``/v1.0/swagger.json``.
 

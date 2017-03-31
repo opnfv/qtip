@@ -41,7 +41,7 @@ Run and enter the docker instance
 ::
 
   envs="INSTALLER_TYPE={INSTALLER_TYPE} -e INSTALLER_IP={INSTALLER_IP}"
-  docker run --name qtip -id -e $envs opnfv/qtip
+  docker run -p [HOST_IP:]<HOST_PORT>:5000 --name qtip -id -e $envs opnfv/qtip
   docker exec -i -t qtip /bin/bash
 
 ``INSTALLER_TYPE`` should be one of OPNFV installer, e.g. apex, compass, daisy, fuel

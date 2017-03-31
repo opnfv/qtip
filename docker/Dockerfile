@@ -64,6 +64,9 @@ RUN git clone https://gerrit.opnfv.org/gerrit/releng $REPOS_DIR/releng
 
 RUN cd $REPOS_DIR/qtip && pip install -U .
 
+# Exposing ports
+EXPOSE 5000
+
 #Config supervisor
 RUN mkdir -p /var/log/supervisor
 RUN locale-gen en_US en_US.UTF-8

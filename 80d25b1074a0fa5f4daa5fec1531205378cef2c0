@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_94f997ca",
+        "filename": "tests/unit/cli/cmd_report_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-03-31T03:59:42Z",
+      "side": 1,
+      "message": "I think this assert is too strict",
+      "revId": "80d25b1074a0fa5f4daa5fec1531205378cef2c0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -79,6 +79,18 @@ The test cases are written in `pytest`_. You may run it selectively with
 
     pytest tests/unit/reporter
 
+Branching
+=========
+
+Stable branches are created when features are frozen for next release. According to
+`OPNFV release milestone description`_, stable branch window is open on MS6 and closed on MS7.
+
+#. Contact gerrit admin <opnfv-helpdesk@rt.linuxfoundation.org> to create branch for project.
+#. Setup `validation jobs`_ in releng.
+#. Follow `instructions for stable branch`_.
+
+NOTE: we do **NOT** create branches for feature development as in the popular `GitHub Flow`_
+
 .. _Connexion: https://pypi.python.org/pypi/connexion/
 .. _Click: http://click.pocoo.org/
 .. _Jinja2: http://jinja.pocoo.org/
@@ -87,3 +99,7 @@ The test cases are written in `pytest`_. You may run it selectively with
 .. _sphinx: http://www.sphinx-doc.org/en/stable/
 .. _The Hitchhiker's Guide to Python: http://python-guide-pt-br.readthedocs.io/en/latest/writing/structure/
 .. _tox: https://tox.readthedocs.io/
+.. _OPNFV release milestone description: https://wiki.opnfv.org/display/SWREL/Release+Milestone+Description
+.. _validation jobs: https://git.opnfv.org/releng/tree/jjb/qtip/qtip-validate-jobs.yml
+.. _instructions for stable branch: https://wiki.opnfv.org/display/SWREL/Stablebranch
+.. _GitHub Flow: https://guides.github.com/introduction/flow/

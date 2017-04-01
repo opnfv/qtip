@@ -93,6 +93,34 @@ Stable branches are created when features are frozen for next release. According
 NOTE: we do **NOT** create branches for feature development as in the popular `GitHub Flow`_
 
 
+Releasing
+=========
+
+Tag Deliverable and write release note
+
+Git repository
+--------------
+
+Follow the example in `Git Tagging Instructions for Danube`_ to tag the source code::
+
+    git fetch gerrit
+    git checkout stable/<release-name>
+    git tag -am "<release-version>" <release-version>
+    git push gerrit <release-version>
+
+Docker image
+------------
+
+#. Login `OPNFV Jenkins`_
+#. Go to the `qtip-docker build-push-<release>`_ and click "Build With Parameters"
+#. Fill in ``RELEASE_VERSION`` with version number not including release name, e.g. ``1.0``
+#. Trigger a manual build
+
+Release note
+------------
+
+Create release note under ``qtip/docs/release/release-notes`` and update ``index.rst``
+
 .. _Connexion: https://pypi.python.org/pypi/connexion/
 .. _Click: http://click.pocoo.org/
 .. _Jinja2: http://jinja.pocoo.org/
@@ -105,3 +133,6 @@ NOTE: we do **NOT** create branches for feature development as in the popular `G
 .. _validation jobs: https://git.opnfv.org/releng/tree/jjb/qtip/qtip-validate-jobs.yml
 .. _instructions for stable branch: https://wiki.opnfv.org/display/SWREL/Stablebranch
 .. _GitHub Flow: https://guides.github.com/introduction/flow/
+.. _Git Tagging Instructions for Danube: https://wiki.opnfv.org/display/SWREL/Git+Tagging+Instructions+for+Danube
+.. _OPNFV Jenkins: https://build.opnfv.org/ci/view/qtip/job/qtip-docker-build-push-danube/
+.. _docker build job: https://build.opnfv.org/ci/view/qtip/job/qtip-docker-build-push-danube/

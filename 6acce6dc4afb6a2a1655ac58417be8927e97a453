@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_88c41893",
+        "filename": "docs/testing/developer/devguide/overview.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-04-01T07:17:08Z",
+      "side": 1,
+      "message": "It seems you miss the releng/opnfv-docker.yml and qtip/qtip-verify-jobs.yml?",
+      "revId": "6acce6dc4afb6a2a1655ac58417be8927e97a453",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

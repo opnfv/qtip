@@ -1,0 +1,32 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corp and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+compute:
+  dhrystone:
+    multi_cpus: 53799.9
+    single_cpu: 2496.1
+  whetstone:
+    multi_cpu: 19018.5,
+    single_cpu: 550.5
+  dpi:
+    bps: 8.8
+    pps: 0.937
+  ramspeed:
+    float_average: 8285.70
+    integer_average: 10063.83
+  ssl:
+    aes_128_cbc_1024_bytes: 492671.14
+    aes_128_cbc_16_bytes: 454411.35
+    aes_128_cbc_256_bytes: 490523.92
+    aes_128_cbc_64_bytes: 483236.12
+    aes_128_cbc_8192_bytes: 493221.63
+    rsa_sign_1024: 5035.1
+    rsa_sign_2048: 720.9
+    rsa_sign_4096: 102.1
+    rsa_sign_512: 14949.0

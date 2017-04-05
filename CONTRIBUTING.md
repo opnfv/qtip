@@ -98,14 +98,7 @@ Documentation
 The documents are built automatically by sphinx from reStructuredText (reST).
 Please read [reStructuredText Primer][rp] if you are not familiar with it.
 
-A cheat sheet for headings are as following
-
-* `#` with overline, for parts
-* `*` with overline, for chapters
-* `=`, for sections
-* `-`, for subsections
-* `^`, for subsubsections
-* `"`, for paragraphs
+Start a new document by copying an example from ``docs/example``
 
 Frequent Asked Questions
 ------------------------

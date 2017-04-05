@@ -22,6 +22,46 @@
       "revId": "baae03b4d8f9c06207804836559371b5ff4521ea",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_7502d870",
+        "filename": "qtip/collector/calculator.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-05T10:44:22Z",
+      "side": 1,
+      "message": "What is the difference between L31 and L40, why the expression exchanged?",
+      "revId": "baae03b4d8f9c06207804836559371b5ff4521ea",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_15f91c80",
+        "filename": "qtip/collector/calculator.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-05T10:44:22Z",
+      "side": 1,
+      "message": "1. I think we agreed to use 2048 as score for baseline, didn\u0027t we? `100` is sometimes too small when applied in low performance system and programmers like binary and hex :-)\n2. don\u0027t use magic number, create a constant for it.\n3. when using 2048, we may simply round to integer.",
+      "range": {
+        "startLine": 62,
+        "startChar": 25,
+        "endLine": 62,
+        "endChar": 28
+      },
+      "revId": "baae03b4d8f9c06207804836559371b5ff4521ea",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

@@ -46,19 +46,19 @@ ssl:
   - filename: RSA_dump
     grep:
       - |-
-          ^rsa\s+512\sbits\s.+
+          ^rsa\s+512\sbits\s.+\s+
           ?(?P<rsa_sign_512>\d+\.\d)\s+
           ?(?P<rsa_verify_512>\d+\.\d)$
       - |-
-          ^rsa\s+1024\sbits\s.+
+          ^rsa\s+1024\sbits\s.+\s+
           ?(?P<rsa_sign_1024>\d+\.\d)\s+
           ?(?P<rsa_verify_1024>\d+\.\d)$
       - |-
-          ^rsa\s+2048\sbits\s.+
+          ^rsa\s+2048\sbits\s.+\s+
           ?(?P<rsa_sign_2048>\d+\.\d)\s+
           ?(?P<rsa_verify_2048>\d+\.\d)$
       - |-
-          ^rsa\s+4096\sbits\s.+
+          ^rsa\s+4096\sbits\s.+\s+
           ?(?P<rsa_sign_4096>\d+\.\d)\s+
           ?(?P<rsa_verify_4096>\d+\.\d)$
   - filename: AES-128-CBC_dump

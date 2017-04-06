@@ -1,1 +1,6 @@
+[fuel-master]
 fuel-master
+
+[local]
+localhost   ansible_connection=local
+

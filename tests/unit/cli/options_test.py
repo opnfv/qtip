@@ -26,7 +26,7 @@ class TestClass(object):
 
     def test_version(self, runner):
         result = runner.invoke(cli, ['--version'])
-        assert 'dev' in result.output
+        assert 'Danube 1.0' in result.output
 
     def test_debug(self, runner):
         runner.invoke(cli, ['-d'])

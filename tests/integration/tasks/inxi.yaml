@@ -16,8 +16,6 @@
   command: inxi -b -c0 -n
   register: inxi_log
 
-- debug: var=inxi_log
-
 - name: collect system information from inxi
   collect:
     string: "{{ inxi_log.stdout }}"
@@ -30,5 +28,3 @@
       - '.+\s+HDD Total Size:\s+(?P<disk>.+)\s'
       - '.+\sproduct:\s+(?P<product>.+)\sv'
   register: inxi_info
-
-- debug: var=inxi_info

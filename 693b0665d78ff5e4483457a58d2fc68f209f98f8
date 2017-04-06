@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_d8f2d999",
+        "filename": "qtip/ansible/modules/fuel.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-04-06T06:02:42Z",
+      "side": 1,
+      "message": "The compute nodes are what we want. It would be better to add the judgement whether node[\"roles\"] is compute.",
+      "revId": "693b0665d78ff5e4483457a58d2fc68f209f98f8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

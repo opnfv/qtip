@@ -25,3 +25,8 @@
   - name: check ssh connection
     ping:
   - include: tasks/inxi.yaml
+- hosts: local
+  tasks:
+  - name: create system information report
+    local_action: template src=templates/inxi-system-info.j2 dest=reports/inxi-system-info
+    delegate_to: localhost

@@ -16,6 +16,24 @@
       "revId": "b130b429e9638ba06806900dd683357958978fe4",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_1e5ff942",
+        "filename": "tests/integration/compute.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-07T07:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ab8dda7_1eb1398f",
+      "revId": "b130b429e9638ba06806900dd683357958978fe4",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

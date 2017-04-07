@@ -20,8 +20,16 @@ Release Notes
 .. toctree::
    :maxdepth: 2
 
-   release/release-notes/index
+   danube.rst
+   brahmaputra.rst
 
+Installation
+============
+
+.. toctree::
+   :maxdepth: 2
+
+   testing/user/configguide/configuration.rst
 
 User Guide
 ==========
@@ -29,9 +37,10 @@ User Guide
 .. toctree::
    :maxdepth: 2
 
-   testing/user/configguide/index
-   testing/user/userguide/index
-
+   testing/user/userguide/overview.rst
+   testing/user/userguide/cli.rst
+   testing/user/userguide/api.rst
+   testing/user/userguide/compute.rst
 
 Developer Guide
 ===============
@@ -39,4 +48,8 @@ Developer Guide
 .. toctree::
    :maxdepth: 2
 
-   testing/developer/devguide/index
+   testing/developer/devguide/overview.rst
+   testing/developer/devguide/arch.rst
+   testing/developer/devguide/cli.rst
+   testing/developer/devguide/api.rst
+   testing/developer/devguide/compute-qpi.rst

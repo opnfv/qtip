@@ -16,6 +16,19 @@
   command: inxi -b -c0 -n
   register: inxi_log
 
+# TODO(yujunz) normalize system information, test condition and performance metrics for future data mining
+# e.g. convert "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-) speed/max: 1200/3000 MHz" to
+# ---
+# processor:
+#   id:
+#     vendor: Intel
+#     product_family: Xeon
+#     processor_number: E5-2650 v3s
+#   number_of_cores: 2
+#   number_of_threads: None # set `None` when data is not available
+#   base_frequency_mhz: 1200
+#   max_turbo_frequency_mhz: 3000
+#   cache_mb: None
 - name: collect system information from inxi
   collect:
     string: "{{ inxi_log.stdout }}"

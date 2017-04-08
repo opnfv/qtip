@@ -116,6 +116,17 @@ Docker image
 #. Fill in ``RELEASE_VERSION`` with version number not including release name, e.g. ``1.0``
 #. Trigger a manual build
 
+Python Package
+--------------
+
+QTIP is also available as a Python Package. It is hosted on the Python Package Index(PyPI).
+
+#. Install twine with ``pip install twine``
+#. Build the distributions ``python setup.py  sdist bdist_wheel``
+#. Upload the distributions built with ``twine upload dist/*``
+
+NOTE: only package **maintainers** are permitted to upload the package versions.
+
 Release note
 ------------
 

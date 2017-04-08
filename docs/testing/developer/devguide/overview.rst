@@ -39,6 +39,31 @@ Path                Content
 ``./third-party/``  third part included in QTIP project
 ==================  ====================================================================================================
 
+Python Package
+==============
+
+QTIP is also available as a Python Package. It is hosted on the Python Package Index(PyPI). The most easy way to do is
+via a client. We have used **Twine**, another python package to do the job.
+
+The first step is to install twine
+
+```
+  $ pip install twine
+```
+
+Next we need to build the distributions
+
+```
+  $ python setup.py  sdist bdist_wheel
+```
+
+Since, QTIP is already register on PyPI, now we just need to upload the distributions built in the last step.
+
+```
+  $ twin upload dist/*
+```
+
+Your package is now ready to be installable via **pip** or any other python package manager.
 
 Coding Style
 ============

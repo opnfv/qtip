@@ -39,7 +39,6 @@ Path                Content
 ``./third-party/``  third part included in QTIP project
 ==================  ====================================================================================================
 
-
 Coding Style
 ============
 
@@ -115,6 +114,17 @@ Docker image
 #. Go to the `qtip-docker-build-push-<release>`_ and click "Build With Parameters"
 #. Fill in ``RELEASE_VERSION`` with version number not including release name, e.g. ``1.0``
 #. Trigger a manual build
+
+Python Package
+--------------
+
+QTIP is also available as a Python Package. It is hosted on the Python Package Index(PyPI).
+
+#. Install twine with ``pip install twine``
+#. Build the distributions ``python setup.py  sdist bdist_wheel``
+#. Upload the distributions built with ``twine upload dist/*``
+
+NOTE: only package **maintainers** are permitted to upload the package versions.
 
 Release note
 ------------

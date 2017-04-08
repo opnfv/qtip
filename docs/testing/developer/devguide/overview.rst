@@ -39,6 +39,11 @@ Path                Content
 ``./third-party/``  third part included in QTIP project
 ==================  ====================================================================================================
 
+Python Package
+==============
+
+QTIP is also available as a Python Package. It is hosted on the Python Package Index(PyPI). It can be installed via
+various package managers, such as **pip** etc.
 
 Coding Style
 ============

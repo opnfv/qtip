@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_d87df4e8",
+        "filename": "qtip/reporter/common.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-10T14:22:17Z",
+      "side": 1,
+      "message": "\u003d\u003e stop_date",
+      "range": {
+        "startLine": 21,
+        "startChar": 18,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "32c359f7244b87f215b9c7e557cd181970c189bb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

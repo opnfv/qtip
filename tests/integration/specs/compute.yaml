@@ -1,0 +1,31 @@
+##############################################################################
+# Copyright (c) 2016 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+qpi: compute
+description: QTIP Performance Index of compute
+formula: weighted arithmetic mean
+sections: # split based on different application
+- name: SSL
+  description: cryptography and SSL/TLS performance
+  formula: geometric mean
+  metrics:
+    -
+      name: rsa
+      formual: geometric mean
+      workloads:
+        rsa_sign_512: # full definition of a workload
+          name: RSA-512
+          description: RSA signature 512 bits
+          baseline: 14982.3
+        rsa_verify_512: 180619.2  # short definition of a workload
+        rsa_sign_1024: 5037.7
+        rsa_verify_1024: 67359.9
+        rsa_sign_2048: 713.6
+        rsa_verify_2048: 23458.0
+        rsa_sign_4096: 102.1
+        rsa_verify_4096: 6402.9

@@ -12,6 +12,9 @@
 from numpy import mean
 
 from ansible.plugins.action import ActionBase
+from ansible.utils.display import Display
+
+display = Display()
 
 
 class ActionModule(ActionBase):
@@ -32,6 +35,11 @@ class ActionModule(ActionBase):
 
 
 def calc_qpi(qpi_spec, metrics):
+
+    display.vv("calculate QPI {}".format(qpi_spec['name']))
+    display.vvv("spec: {}".format(qpi_spec))
+    display.vvv("metrics: {}".format(metrics))
+
     section_results = [{'name': s['name'], 'result': calc_section(s, metrics)}
                        for s in qpi_spec['sections']]
     # TODO(yujunz): use formula in spec
@@ -45,6 +53,11 @@ def calc_qpi(qpi_spec, metrics):
 
 
 def calc_section(section_spec, metrics):
+
+    display.vv("calculate section {}".format(section_spec['name']))
+    display.vvv("spec: {}".format(section_spec))
+    display.vvv("metrics: {}".format(metrics))
+
     metric_results = [{'name': m['name'], 'result': calc_metric(m, metrics[m['name']])}
                       for m in section_spec['metrics']]
     # TODO(yujunz): use formula in spec
@@ -56,8 +69,14 @@ def calc_section(section_spec, metrics):
 
 
 def calc_metric(metric_spec, metrics):
+
+    display.vv("calculate metric {}".format(metric_spec['name']))
+    display.vvv("spec: {}".format(metric_spec))
+    display.vvv("metrics: {}".format(metrics))
+
     # TODO(yujunz): use formula in spec
-    workload_results = [{'name': w['name'], 'score': mean(metrics[w['name']]) / w['baseline']}
+    # TODO(yujunz): convert metric to float in collector
+    workload_results = [{'name': w['name'], 'score': mean([float(m) for m in metrics[w['name']]]) / w['baseline']}
                         for w in metric_spec['workloads']]
     metric_score = mean([r['score'] for r in workload_results])
     return {

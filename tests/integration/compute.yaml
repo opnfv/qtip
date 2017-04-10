@@ -33,15 +33,46 @@
   # collect system information
   - name: collect system information
     include: tasks/inxi.yaml
+  - name: ssl metrics
+    include: tasks/openssl.yaml
 
-# TODO(yujunz) Calculate QPI from composed metrics
-# e.g.
-# qpi:
-#   score: 2048
-#   spec: compute
-#   metrics: # values, not spec
-#     - ref_metric_a
-#     - ref_metric_b
+- hosts: compute
+  tasks:
+  - name: calculate QPI of compute
+    calculate:
+      metrics:
+        ssl_rsa: "{{ openssl_rsa_metrics }}"
+      spec:   # TODO(yujunz) load spec from file
+        name: compute
+        description: QTIP Performance Index of compute
+        formula: weighted arithmetic mean
+        sections: # split based on different application
+        - name: SSL
+          description: cryptography and SSL/TLS performance
+          formula: geometric mean
+          metrics:
+            - name: ssl_rsa
+              formual: geometric mean
+              workloads:
+                - name: rsa_sign_512
+                  description: RSA signature 512 bits
+                  baseline: 14982.3
+                - name: rsa_verify_512
+                  baseline: 180619.2
+                - name: rsa_sign_1024
+                  baseline: 5037.7
+                - name: rsa_verify_1024
+                  baseline: 67359.9
+                - name: rsa_sign_2048
+                  baseline: 713.6
+                - name: rsa_verify_2048
+                  baseline: 23458.0
+                - name: rsa_sign_4096
+                  baseline: 102.1
+                - name: rsa_verify_4096
+                  baseline: 6402.9
+    register: compute_result
+    delegate_to: localhost
 
 # Generate and publish report
 - hosts: local

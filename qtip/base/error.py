@@ -29,3 +29,15 @@ class ToBeDoneError(BaseError):
     def __init__(self, method, module):
         self.method = method
         self.module = module
+
+
+class InvalidParamsError(BaseError):
+    def __init__(self, method, key):
+        self.method = method
+        self.key = key
+
+
+class MissingParamsError(BaseError):
+    def __init__(self, method, keys):
+        self.method = method
+        self.key = keys

@@ -38,3 +38,6 @@ def test_show(runner):
 
     result = runner.invoke(cli, ['qpi', 'show'])
     assert 'Missing argument "name".' in result.output
+
+    result = runner.invoke(cli, ['metric', 'show', 'xyz'])
+    assert "ERROR: No xyz found" in result.output

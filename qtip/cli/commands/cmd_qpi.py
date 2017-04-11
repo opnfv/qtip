@@ -9,8 +9,11 @@
 
 
 import click
+from colorama import Fore
 import os
 
+from qtip.base.error import InvalidContentError
+from qtip.base.error import NotFoundError
 from qtip.cli import utils
 from qtip.cli.entry import Context
 from qtip.loader.qpi import QPISpec
@@ -37,10 +40,16 @@ def cmd_list(ctx):
 @click.argument('name')
 @pass_context
 def show(ctx, name):
-    qpi = QPISpec('{}.yaml'.format(name))
-    cnt = qpi.content
-    output = utils.render('qpi', cnt)
-    click.echo(output)
+    try:
+        qpi = QPISpec('{}.yaml'.format(name))
+    except NotFoundError as nf:
+        click.echo(Fore.RED + "ERROR: qpi spec: " + nf.message)
+    except InvalidContentError as ice:
+        click.echo(Fore.RED + "ERROR: qpi spec: " + ice.message)
+    else:
+        cnt = qpi.content
+        output = utils.render('qpi', cnt)
+        click.echo(output)
 
 
 @cli.command('run', help='Run performance tests for the specified QPI')

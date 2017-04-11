@@ -16,6 +16,24 @@
       "revId": "940b64dfbb9992c77d1c888719d5b30a212e8f4f",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_9ba3f64e",
+        "filename": "tests/integration/reports/qpi-report",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-11T09:13:11Z",
+      "side": 1,
+      "message": "We will beautify the report in other patches. This patch is to validate the framework.",
+      "parentUuid": "9ab8dda7_9bd536bb",
+      "revId": "940b64dfbb9992c77d1c888719d5b30a212e8f4f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_9bd536bb",
+        "filename": "tests/integration/reports/qpi-report",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-04-11T08:45:47Z",
+      "side": 1,
+      "message": "can we keep QPI 3 digits left after decimal point?",
+      "revId": "940b64dfbb9992c77d1c888719d5b30a212e8f4f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

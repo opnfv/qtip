@@ -22,6 +22,7 @@ class NotFoundError(BaseError):
     def __init__(self, needle, heystack='qtip'):
         self.needle = needle
         self.heystack = heystack
+        self.message = "No {0} found in {1}".format(needle[0:-5], heystack)
 
 
 class ToBeDoneError(BaseError):

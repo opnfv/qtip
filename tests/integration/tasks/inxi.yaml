@@ -40,4 +40,4 @@
       - '.+\sKernel:\s+(?P<kernel>.+)\sConsole'
       - '.+\s+HDD Total Size:\s+(?P<disk>.+)\s'
       - '.+\sproduct:\s+(?P<product>.+)\sv'
-  register: inxi_info
+  register: system_info

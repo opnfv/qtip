@@ -1,0 +1,16 @@
+System Information from inxi
+============================
+
+{% for host in groups['compute'] %}
+{{ hostvars[host].ansible_hostname }}
+-----------------------------
+
+{{ ('CPU Brand', hostvars[host].system_info.cpu[0])|justify }}
+{{ ('Disk', hostvars[host].system_info.disk[0])|justify }}
+{{ ('Host Name', hostvars[host].system_info.hostname[0])|justify }}
+{{ ('Kernel', hostvars[host].system_info.kernel[0])|justify }}
+{{ ('Memory', hostvars[host].system_info.memory[0])|justify }}
+{{ ('Operating System', hostvars[host].system_info.os[0])|justify }}
+{{ ('Product', hostvars[host].system_info.product[0])|justify }}
+
+{% endfor %}

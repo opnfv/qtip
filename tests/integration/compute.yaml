@@ -78,6 +78,6 @@
 - hosts: local
   tasks:
   - name: create system information report
-    local_action: template src=templates/inxi-system-info.j2 dest=reports/inxi-system-info
+    local_action: template src=templates/system-info.j2 dest=reports/system-info
     delegate_to: localhost
   # TODO(yujunz) push test result to testapi

@@ -1,0 +1,18 @@
+Sample QPI Report
+{% for host in groups['compute'] %}
+{% set qpi_result = hostvars[host].qpi_result %}
+
+Host:   {{ hostvars[host].ansible_hostname }}
+QPI:    {{ qpi_result.score }}
+Spec:   {{ qpi_result.spec.name }}
+
+{% for section in qpi_result.section_results %}
+- {{ section.name }}: {{ section.result.score }}
+{% for metric in section.result.metric_results %}
+  - {{ metric.name }}: {{ metric.result.score }}
+{% for workload in metric.result.workload_results %}
+    - {{ workload.name }}: {{ workload.score }}
+{% endfor %}
+{% endfor %}
+{% endfor %}
+{% endfor %}

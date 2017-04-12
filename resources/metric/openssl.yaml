@@ -40,6 +40,7 @@
           ^rsa\s+4096\sbits\s.+\s+
           ?(?P<rsa_sign_4096>\d+\.\d)\s+
           ?(?P<rsa_verify_4096>\d+\.\d)$
+    dump: openssl_rsa_log
   register: openssl_rsa_metrics
 
 #  - filename: AES-128-CBC_dump

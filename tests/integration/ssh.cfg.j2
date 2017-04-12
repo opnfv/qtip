@@ -1,0 +1,10 @@
+{% for (name, host) in hosts_meta.items() %}
+Host {{ name }}
+  HostName {{ host.ansible_ssh_host }}
+  User root
+  # Use `ProxyCommand` for OpenSSH before 7.3
+  ProxyCommand ssh -o 'ForwardAgent yes' fuel-master 'ssh-add && nc %h %p'
+  # `ProxyJump` is available since OpenSSH 7.3
+  # ProxyJump fuel-master
+
+{% endfor %}

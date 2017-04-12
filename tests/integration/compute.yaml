@@ -78,8 +78,7 @@
 - hosts: local
   tasks:
   - name: create system information report
-    local_action: template src=templates/system-info.j2 dest=reports/system-info
-    delegate_to: localhost
-  # TODO(yujunz) push test result to testapi
+    template: src=templates/system-info.j2 dest=reports/system-info
   - name: create qpi report
     template: src=templates/qpi-report.j2 dest=reports/qpi-report
+  # TODO(yujunz) push test result to testapi

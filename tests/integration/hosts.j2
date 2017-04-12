@@ -1,0 +1,21 @@
+[fuel-master]
+fuel-master
+
+[local]
+localhost   ansible_connection=local
+
+[fuel-groups:children]
+{% for group in hosts|sort %}
+{{ group }}
+{% endfor %}
+
+[fuel-groups:vars]
+ansible_ssh_common_args=-F ./ssh.cfg
+
+{% for group in hosts|sort %}
+[{{ group }}]
+{% for host in hosts[group]|sort %}
+{{ host }}
+{% endfor %}
+
+{% endfor %}

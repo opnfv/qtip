@@ -8,20 +8,6 @@
 ##############################################################################
 
 ---
-# Prepare connection to SUT (System Under Test)
-- hosts: fuel-master
-  gather_facts: no
-  tasks:
-  - name: collect facts of fuel hosts
-    fuel:
-  - name: add compute node to ansible inventory
-    add_host:
-      name: "{{ hosts_meta[item]['ip'] }}"
-      groups: compute
-      ansible_user: root
-      ansible_ssh_common_args: '-o StrictHostKeyChecking=No -o ProxyJump=fuel-master'
-    with_items: "{{ hosts.compute }}"
-
 # Execute compute benchmark plan and collect data
 # - system information
 # - test condition

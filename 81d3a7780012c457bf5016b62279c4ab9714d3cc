@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_2e6e4a30",
+        "filename": "qtip/reporter/testapi.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-12T00:58:45Z",
+      "side": 1,
+      "message": "`for key in params` is enough for iterating through keys and is more generic.",
+      "range": {
+        "startLine": 36,
+        "startChar": 29,
+        "endLine": 36,
+        "endChar": 36
+      },
+      "revId": "81d3a7780012c457bf5016b62279c4ab9714d3cc",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_4e693e24",
+        "filename": "qtip/reporter/testapi.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-12T00:58:45Z",
+      "side": 1,
+      "message": "What if `params[key] \u003d False`? How do we submit a param with value \"False\".",
+      "revId": "81d3a7780012c457bf5016b62279c4ab9714d3cc",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_ae7a3aef",
+        "filename": "qtip/reporter/testapi.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-12T00:58:45Z",
+      "side": 1,
+      "message": "It seems only **one** param error will be raised. Consider renaming to InvalidParamError`\n\nAlternatively, refactor the `validate_params` decorator to check for all params instead of early return on first error. Consider the possible cycle that get first error, corrected, get second error, correct again...  It is recommended to capture all errors at once.",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "81d3a7780012c457bf5016b62279c4ab9714d3cc",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_8e8736d7",
+        "filename": "qtip/reporter/testapi.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-12T00:58:45Z",
+      "side": 1,
+      "message": "This should be `keys` or `params`",
+      "range": {
+        "startLine": 56,
+        "startChar": 13,
+        "endLine": 56,
+        "endChar": 16
+      },
+      "revId": "81d3a7780012c457bf5016b62279c4ab9714d3cc",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_ce168ea7",
+        "filename": "qtip/reporter/testapi.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-12T00:58:45Z",
+      "side": 1,
+      "message": "Suggest to rename to `payload` or `result`.\n\n`params` looks like a list from naming.",
+      "range": {
+        "startLine": 60,
+        "startChar": 17,
+        "endLine": 60,
+        "endChar": 23
+      },
+      "revId": "81d3a7780012c457bf5016b62279c4ab9714d3cc",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -38,6 +38,7 @@ Undering macOS system, it will happen to a **fatal error** when installing packa
 ```
 
 It is for macOS uses TLS instead of OpenSSL and no header files supported. The solutions is:
+
 ``` code=bash
 # brew install openssl
 
@@ -102,3 +103,4 @@ If you want to include a new repository of third party code. Use
 ```
 git subrepo clone <remote-url> [<subdir>]
 ```
+

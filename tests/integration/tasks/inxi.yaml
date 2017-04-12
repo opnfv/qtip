@@ -14,7 +14,7 @@
 
 - name: check hardware information with inxi
   command: inxi -b -c0 -n
-  register: inxi_log
+  register: inxi_out
 
 # TODO(yujunz) normalize system information, test condition and performance metrics for future data mining
 # e.g. convert "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-) speed/max: 1200/3000 MHz" to
@@ -31,7 +31,7 @@
 #   cache_mb: None
 - name: collect system information from inxi
   collect:
-    string: "{{ inxi_log.stdout }}"
+    string: "{{ inxi_out.stdout }}"
     patterns:
       - '.+\s+Host:\s+(?P<hostname>.+)\sKernel'
       - '.+\sMemory:\s+(?P<memory>.+MB)\s'
@@ -40,4 +40,5 @@
       - '.+\sKernel:\s+(?P<kernel>.+)\sConsole'
       - '.+\s+HDD Total Size:\s+(?P<disk>.+)\s'
       - '.+\sproduct:\s+(?P<product>.+)\sv'
+    dump: 'inix.log'
   register: system_info

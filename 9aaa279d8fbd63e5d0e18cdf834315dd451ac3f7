@@ -22,6 +22,30 @@
       "revId": "9aaa279d8fbd63e5d0e18cdf834315dd451ac3f7",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_31cb0b55",
+        "filename": "tests/integration/ssh.cfg.j2",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-12T08:17:36Z",
+      "side": 1,
+      "message": "Done.\n\nKept in header section to remind people not wasting time on trying `ProxyJump` anymore...",
+      "parentUuid": "9ab8dda7_3121cb4d",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 25
+      },
+      "revId": "9aaa279d8fbd63e5d0e18cdf834315dd451ac3f7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

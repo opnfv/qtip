@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9ab8dda7_7110a301",
+        "filename": "qtip/reporter/testapi.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-04-12T07:24:49Z",
+      "side": 1,
+      "message": "TEST_API_URL will be passed in as a argument by upstream, don\u0027t make a hardcoded version here!",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "81d3a7780012c457bf5016b62279c4ab9714d3cc",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab8dda7_2e6e4a30",
         "filename": "qtip/reporter/testapi.py",
         "patchSetId": 4

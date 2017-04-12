@@ -73,3 +73,9 @@ ChangeLog
 
 # unignore external data
 !/tests/data/**/*
+
+# integration data
+/tests/integration/hosts
+/tests/integration/ssh.cfg
+/tests/integration/reports/*
+!/tests/integration/reports/*.sample

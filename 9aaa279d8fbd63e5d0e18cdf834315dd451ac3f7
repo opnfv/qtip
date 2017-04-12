@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_3121cb4d",
+        "filename": "tests/integration/ssh.cfg.j2",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-04-12T07:41:15Z",
+      "side": 1,
+      "message": "If ProxyJump can works on 7.3, I suggest to remove the comment lines.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 25
+      },
+      "revId": "9aaa279d8fbd63e5d0e18cdf834315dd451ac3f7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

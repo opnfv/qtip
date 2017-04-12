@@ -6,16 +6,9 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-
-# Prepare connection to SUT (System Under Test)
-- hosts: fuel-master
-  gather_facts: no
-  tasks:
-  - name: collect facts of fuel hosts
-    fuel:
-  - name: update inventory file
-    template: src={{ qtip_share }}/template/hosts.j2 dest=./hosts
-    delegate_to: localhost
-  - name: update ssh.cfg file
-    template: src={{ qtip_share }}/template/ssh.cfg.j2 dest=./ssh.cfg
-    delegate_to: localhost
+name: sample
+description: sample benchmark plan for testing default path
+config:
+  collectors: []
+  reporters: []
+QPIs: []

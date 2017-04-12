@@ -11,6 +11,7 @@ localhost   ansible_connection=local
 
 [fuel-groups:vars]
 ansible_ssh_common_args=-F ./ssh.cfg
+qtip_share=../../benchmarks
 
 {% for group in hosts|sort %}
 [{{ group }}]

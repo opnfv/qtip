@@ -6,32 +6,31 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-title: compute
-description: sample performance index of computing
+name: compute
+description: QTIP Performance Index of compute
 formula: weighted arithmetic mean
-sections:
-- name: Integer
-  weight: 0.3
-  formula: geometric mean
-  metrics:
-    - dhrystone.yaml
-- name: Float
-  weight: 0.3
-  formula: geometric mean
-  metrics:
-    - whetstone.yaml
-- name: Memory
-  weight: 0.2
-  formula: geometric mean
-  metrics:
-    - ramspeed.yaml
-- name: DPI
-  weight: 0.1
-  formula: geometric mean
-  metrics:
-    - dpi.yaml
-- name: SSL
-  weight: 0.1
-  formula: geometric mean
-  metrics:
-    - ssl.yaml
+sections: # split based on different application
+  - name: SSL
+    description: cryptography and SSL/TLS performance
+    formula: geometric mean
+    metrics:
+      - name: ssl_rsa
+        formual: geometric mean
+        workloads:
+          - name: rsa_sign_512
+            description: RSA signature 512 bits
+            baseline: 14982.3
+          - name: rsa_verify_512
+            baseline: 180619.2
+          - name: rsa_sign_1024
+            baseline: 5037.7
+          - name: rsa_verify_1024
+            baseline: 67359.9
+          - name: rsa_sign_2048
+            baseline: 713.6
+          - name: rsa_verify_2048
+            baseline: 23458.0
+          - name: rsa_sign_4096
+            baseline: 102.1
+          - name: rsa_verify_4096
+            baseline: 6402.9

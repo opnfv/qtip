@@ -14,8 +14,8 @@
   - name: collect facts of fuel hosts
     fuel:
   - name: update inventory file
-    template: src=./hosts.j2 dest=./hosts
+    template: src={{ qtip_share }}/template/hosts.j2 dest=./hosts
     delegate_to: localhost
   - name: update ssh.cfg file
-    template: src=./ssh.cfg.j2 dest=./ssh.cfg
+    template: src={{ qtip_share }}/template/ssh.cfg.j2 dest=./ssh.cfg
     delegate_to: localhost

@@ -16,11 +16,10 @@
   tasks:
   - name: check ssh connection
     ping:
-  # collect system information
   - name: collect system information
-    include: tasks/inxi.yaml
+    include: {{ qtip_share }}/metric/inxi.yaml
   - name: ssl metrics
-    include: tasks/openssl.yaml
+    include: {{ qtip_share }}/metric/openssl.yaml
     tags: [ssl]
 
 - hosts: compute
@@ -29,7 +28,7 @@
     calculate:
       metrics:
         ssl_rsa: "{{ openssl_rsa_metrics }}"
-      spec:   specs/compute.yaml
+      spec:   {{ qtip_share }}/QPI/compute.yaml
     register: qpi_result
     delegate_to: localhost
     tags: [calculate]
@@ -38,8 +37,8 @@
 - hosts: local
   tasks:
   - name: create system information report
-    template: src=templates/system-info.j2 dest=reports/system-info
+    template: src={{ qtip_share }}/templates/system-info.j2 dest=reports/system-info
   - name: create qpi report
-    template: src=templates/qpi-report.j2 dest=reports/qpi-report
+    template: src={{ qtip_share }}/templates/qpi-report.j2 dest=reports/qpi-report
     tags: [report]
   # TODO(yujunz) push test result to testapi

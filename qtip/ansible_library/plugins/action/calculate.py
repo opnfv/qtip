@@ -10,6 +10,7 @@
 ##############################################################################
 
 from numpy import mean
+import yaml
 
 from ansible.plugins.action import ActionBase
 from ansible.utils.display import Display
@@ -28,7 +29,9 @@ class ActionModule(ActionBase):
         if result.get('skipped', False):
             return result
 
-        spec = self._task.args.get('spec')
+        with open(self._task.args.get('spec')) as stream:
+            spec = yaml.safe_load(stream)
+
         metrics = self._task.args.get('metrics')
 
         return calc_qpi(spec, metrics)

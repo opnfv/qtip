@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_4742813f",
+        "filename": "qtip/base/error.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-13T06:15:01Z",
+      "side": 1,
+      "message": "`{0} not found in {1}` could be better. For example, \n\"qpi spec: compute not found in ... \"\nvs \"\n\"No qpi spec: compute found in ...\"",
+      "range": {
+        "startLine": 26,
+        "startChar": 24,
+        "endLine": 26,
+        "endChar": 30
+      },
+      "revId": "ea107565ead6a88c788cb5a51e9639a4bd9a8a87",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_673d45bb",
+        "filename": "qtip/cli/commands/cmd_metric.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-13T06:15:01Z",
+      "side": 1,
+      "message": "Why not use `click.echo`?",
+      "revId": "ea107565ead6a88c788cb5a51e9639a4bd9a8a87",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

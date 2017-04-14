@@ -16,12 +16,14 @@ class InvalidContentError(BaseError):
     def __init__(self, filename, excinfo=None):
         self.filename = filename
         self.excinfo = excinfo
+        self.message = "Invalid content in {0}".format(filename)
 
 
 class NotFoundError(BaseError):
     def __init__(self, needle, heystack='qtip'):
         self.needle = needle
         self.heystack = heystack
+        self.message = "{0} not found in {1}".format(needle[0:-5], heystack)
 
 
 class ToBeDoneError(BaseError):

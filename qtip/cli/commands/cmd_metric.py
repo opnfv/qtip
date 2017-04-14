@@ -8,8 +8,11 @@
 ##############################################################################
 
 import click
+from colorama import Fore
 import os
 
+from qtip.base.error import InvalidContentError
+from qtip.base.error import NotFoundError
 from qtip.cli import utils
 from qtip.cli.entry import Context
 from qtip.loader.metric import MetricSpec
@@ -36,10 +39,16 @@ def cmd_list(ctx):
 @click.argument('name')
 @pass_context
 def show(ctx, name):
-    metric = MetricSpec('{}.yaml'.format(name))
-    cnt = metric.content
-    output = utils.render('metric', cnt)
-    click.echo(output)
+    try:
+        metric = MetricSpec('{}.yaml'.format(name))
+    except NotFoundError as nf:
+        click.echo(Fore.RED + "ERROR: metric spec: " + nf.message)
+    except InvalidContentError as ice:
+        click.echo(Fore.RED + "ERROR: metric spec " + ice.message)
+    else:
+        cnt = metric.content
+        output = utils.render('metric', cnt)
+        click.echo(output)
 
 
 @cli.command('run', help='Run performance test')

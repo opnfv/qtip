@@ -41,3 +41,6 @@ def test_show(runner):
 
     result = runner.invoke(cli, ['metric', 'show'])
     assert 'Missing argument "name".' in result.output
+
+    result = runner.invoke(cli, ['metric', 'show', 'xyz'])
+    assert "ERROR: metric spec: xyz not found" in result.output

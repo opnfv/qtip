@@ -9,8 +9,11 @@
 
 
 import click
+from colorama import Fore
 import os
 
+from qtip.base.error import InvalidContentError
+from qtip.base.error import NotFoundError
 from qtip.cli import utils
 from qtip.cli.entry import Context
 from qtip.loader.plan import Plan
@@ -44,10 +47,16 @@ def list(ctx):
 @click.argument('name')
 @pass_context
 def show(ctx, name):
-    plan = Plan('{}.yaml'.format(name))
-    cnt = plan.content
-    output = utils.render('plan', cnt)
-    click.echo(output)
+    try:
+        plan = Plan('{}.yaml'.format(name))
+    except NotFoundError as nf:
+        click.echo(Fore.RED + "ERROR: plan spec: " + nf.message)
+    except InvalidContentError as ice:
+        click.echo(Fore.RED + "ERROR: plan spec: " + ice.message)
+    else:
+        cnt = plan.content
+        output = utils.render('plan', cnt)
+        click.echo(output)
 
 
 @cli.command('run', help='Execute a Plan')

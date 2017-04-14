@@ -29,19 +29,21 @@ def validate_payload():
             if set(payload.keys()) != payload_template:
                 missing_parameters = list(payload_template -
                                           set(payload.keys()))
-                print "Missing Parameters -- {}".\
-                    format(",".join(missing_parameters))
+                print("Missing Parameters -- {}".
+                      format(",".join(missing_parameters)))
                 raise MissingParamsError("push_results", missing_parameters)
             invalid_params = []
             for key in payload:
                 if (payload[key] == "") or (payload[key] is None):
                     invalid_params.append(key)
             if len(invalid_params) > 0:
-                print "Invalid or missing values of parameters -- `{}`".\
-                    format(",".join(invalid_params))
+                print ("Invalid or missing values of parameters -- `{}`".
+                       format(",".join(invalid_params)))
                 raise InvalidParamsError("push_results", invalid_params)
             return func(testapi_url, payload)
+
         return _execute
+
     return _decorator
 
 

@@ -7,8 +7,18 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-import requests
+# OPNFV Testapi Client
+#
+# API url: http://testresults.opnfv.org/test/api/v1/results
+# API spec:
+# - http://testresults.opnfv.org/test/swagger/spec.html#!/spec/queryTestResults
+# - http://testresults.opnfv.org/test/swagger/spec.html#!/spec/createTestResult
+# Login:
+#   username: opnfv
+#   password: contact admin
+# Self host: https://github.com/opnfv/releng/tree/master/utils/test/testapi/deployment
 
+import requests
 
 payload_template = {'project_name',
                     'case_name',

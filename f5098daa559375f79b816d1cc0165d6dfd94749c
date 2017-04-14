@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_c2197f89",
+        "filename": "qtip/reporter/testapi.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 6435
+      },
+      "writtenOn": "2017-04-14T10:46:22Z",
+      "side": 1,
+      "message": "Should /results be included in API url?\nSince It is added by push_results, when base_url (http://testresults.opnfv.org/test/api/v1) is provided.",
+      "revId": "f5098daa559375f79b816d1cc0165d6dfd94749c",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

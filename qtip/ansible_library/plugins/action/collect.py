@@ -10,6 +10,7 @@
 ##############################################################################
 
 from collections import defaultdict
+import os
 import re
 
 from ansible.plugins.action import ActionBase
@@ -25,6 +26,10 @@ class ActionModule(ActionBase):
 
         string = self._task.args.get('string')
         patterns = self._task.args.get('patterns')
+
+        dump = self._task.args.get('dump')
+        if dump is not None:
+            dump_facts(task_vars['inventory_hostname'], [{'name': 'inxi.log', 'content': string}])
 
         return collect(patterns, string)
 
@@ -43,3 +48,11 @@ def collect(patterns, string):
                 captured[key].append(value)
 
     return captured
+
+
+def dump_facts(hostname, facts):
+    dump_root = os.path.join('dump', hostname)
+    if not os.path.exists(dump_root):
+        os.mkdir(dump_root)
+    return [{'name': fact['name'], 'result': open(os.path.join(dump_root, fact['name']), 'w+').write(fact['content'])}
+            for fact in facts]

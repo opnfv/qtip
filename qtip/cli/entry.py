@@ -9,6 +9,7 @@
 
 import click
 import os
+import pkg_resources as pkg
 import sys
 
 
@@ -53,7 +54,7 @@ class QtipCli(click.MultiCommand):
                invoke_without_command=True)
 @click.option('-v', '--verbose', is_flag=True, help='Enable verbose mode.')
 @click.option('-d', '--debug', is_flag=True, help='Enable debug mode.')
-@click.version_option('dev')
+@click.version_option(pkg.require("qtip")[0])
 @pass_context
 def cli(ctx, verbose, debug):
     if debug:

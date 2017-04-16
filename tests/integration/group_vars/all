@@ -1,1 +1,2 @@
-qtip_share: ../../benchmarks
+qtip_share: ../../share
+qtip_reports: ./reports

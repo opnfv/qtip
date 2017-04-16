@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_fd9f825d",
+        "filename": "tests/unit/cli/options_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-16T11:19:27Z",
+      "side": 1,
+      "message": "You may assert a regex for version output, e.g. \\d+\\.\\d+\\.\\d+\n\nSo that you don\u0027t need to update the test case when we release a new version.",
+      "range": {
+        "startLine": 29,
+        "startChar": 16,
+        "endLine": 29,
+        "endChar": 21
+      },
+      "revId": "1fd967ff70e95b310bd622a30fcc69112d138d4c",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

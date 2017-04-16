@@ -8,6 +8,7 @@
 ##############################################################################
 
 import pytest
+import re
 import sys
 
 from click.testing import CliRunner
@@ -26,7 +27,7 @@ class TestClass(object):
 
     def test_version(self, runner):
         result = runner.invoke(cli, ['--version'])
-        assert 'dev' in result.output
+        assert re.search(r'\d+\.\d+\.\d+', result.output)
 
     def test_debug(self, runner):
         runner.invoke(cli, ['-d'])

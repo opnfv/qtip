@@ -16,6 +16,24 @@
       "revId": "0d165d6531235d7099ba3e712006704401e0ec1f",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_bd890a28",
+        "filename": "tests/unit/reporter/test_testapi.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-16T11:22:18Z",
+      "side": 1,
+      "message": "Good point.\n\nThat could be part of integration test for testapi and client. But seems not so suitable for client unit test\n\nAny comment, @Serena?",
+      "parentUuid": "9ab8dda7_1dc4d65d",
+      "revId": "0d165d6531235d7099ba3e712006704401e0ec1f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

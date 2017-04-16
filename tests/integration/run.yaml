@@ -28,7 +28,7 @@
     calculate:
       metrics:
         ssl_rsa: "{{ openssl_rsa_metrics }}"
-      spec:   {{ qtip_share }}/QPI/compute.yaml
+      spec:   "{{ qtip_share }}/QPI/compute.yaml"
     register: qpi_result
     delegate_to: localhost
     tags: [calculate]
@@ -36,9 +36,13 @@
 # Generate and publish report
 - hosts: local
   tasks:
+  - name: create report folder
+    file:
+      path: "{{ qtip_reports }}"
+      state: directory
   - name: create system information report
-    template: src={{ qtip_share }}/templates/system-info.j2 dest=reports/system-info
+    template: src={{ qtip_share }}/template/system-info.j2 dest={{ qtip_reports }}/system-info
   - name: create qpi report
-    template: src={{ qtip_share }}/templates/qpi-report.j2 dest=reports/qpi-report
+    template: src={{ qtip_share }}/template/qpi-report.j2 dest={{ qtip_reports }}/qpi-report
     tags: [report]
   # TODO(yujunz) push test result to testapi

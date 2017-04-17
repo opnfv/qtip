@@ -1,0 +1,37 @@
+[
+  {
+    "Status": "ACTIVE",
+    "Networks": "ctlplane=192.0.2.9",
+    "ID": "06234a4d-45fb-4930-bf8a-9b1627b1621f",
+    "Image Name": "overcloud-full",
+    "Name": "overcloud-controller-2"
+  },
+  {
+    "Status": "ACTIVE",
+    "Networks": "ctlplane=192.0.2.7",
+    "ID": "6dfd4c85-8a05-49ea-bd73-15dbaf84fa9b",
+    "Image Name": "overcloud-full",
+    "Name": "overcloud-controller-0"
+  },
+  {
+    "Status": "ACTIVE",
+    "Networks": "ctlplane=192.0.2.8",
+    "ID": "25b73b47-7c22-4f58-8ff3-ba5d714baa7c",
+    "Image Name": "overcloud-full",
+    "Name": "overcloud-controller-1"
+  },
+  {
+    "Status": "ACTIVE",
+    "Networks": "ctlplane=192.0.2.6",
+    "ID": "f214f844-ec4d-4f33-9d16-9aa21ade3cb4",
+    "Image Name": "overcloud-full",
+    "Name": "overcloud-novacompute-0"
+  },
+  {
+    "Status": "ACTIVE",
+    "Networks": "ctlplane=192.0.2.5",
+    "ID": "367827af-966c-4c91-bad4-d8dc12750eac",
+    "Image Name": "overcloud-full",
+    "Name": "overcloud-novacompute-1"
+  }
+]

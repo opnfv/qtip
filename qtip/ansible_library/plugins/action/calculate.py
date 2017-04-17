@@ -45,8 +45,10 @@ def calc_qpi(qpi_spec, metrics):
 
     section_results = [{'name': s['name'], 'result': calc_section(s, metrics)}
                        for s in qpi_spec['sections']]
+
     # TODO(yujunz): use formula in spec
-    qpi_score = mean([r['result']['score'] for r in section_results])
+    standard_score = 2048
+    qpi_score = int(mean([r['result']['score'] for r in section_results]) * standard_score)
     return {
         'spec': qpi_spec,
         'score': qpi_score,

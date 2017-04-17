@@ -49,4 +49,24 @@
       src: "{{ qtip_resources }}/template/qpi-report.j2"
       dest: "{{ qtip_reports }}/qpi-report"
     tags: [report]
-  # TODO(yujunz) push test result to testapi
+  - name: push result to testapi
+    uri:
+      url: "{{ testapi_url }}/results"
+      body: "{{ item|to_json}}"
+      method: POST
+      body_format: json
+      status_code: 200
+    with_items:
+      -
+        project_name: qtip
+        case_name: compute
+        pod_name: internal
+        installer: fuel
+        version: master
+        scenario: demo
+        start_date: "{{ ansible_date_time.date }}"
+        stop_date: "{{ ansible_date_time.date }}"
+        criteria: "2048"
+        details: ""
+
+    tags: [testapi]

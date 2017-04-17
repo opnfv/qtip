@@ -33,7 +33,15 @@
     delegate_to: localhost
     tags: [calculate]
 
+- hosts: local
+  tasks:
+  - name: aggregate QPI results from all tested nodes
+    aggregate:
+      group: compute
+    register: pod_result
+
 # Generate and publish report
+
 - hosts: local
   tasks:
   - name: create report folder
@@ -49,4 +57,3 @@
       src: "{{ qtip_resources }}/template/qpi-report.j2"
       dest: "{{ qtip_reports }}/qpi-report"
     tags: [report]
-  # TODO(yujunz) push test result to testapi

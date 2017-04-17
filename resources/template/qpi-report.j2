@@ -1,4 +1,7 @@
 Sample QPI Report
+
+Pod: {{ pod_result.score }}
+
 {% for host in groups['compute'] %}
 {% set qpi_result = hostvars[host].qpi_result %}
 

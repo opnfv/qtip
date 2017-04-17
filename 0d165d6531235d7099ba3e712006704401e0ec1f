@@ -34,6 +34,24 @@
       "revId": "0d165d6531235d7099ba3e712006704401e0ec1f",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_415b4c2e",
+        "filename": "tests/unit/reporter/test_testapi.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-04-17T07:34:40Z",
+      "side": 1,
+      "message": "Personal opinion any actually interact with TestAPI server is not Accepted.\nAll the condition should be mocked.\nWhat does \u0027Not Found\u0027 mean?",
+      "parentUuid": "9ab8dda7_bd890a28",
+      "revId": "0d165d6531235d7099ba3e712006704401e0ec1f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

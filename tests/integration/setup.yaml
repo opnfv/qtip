@@ -19,3 +19,25 @@
   - name: update ssh.cfg file
     template: src={{ qtip_resources }}/template/ssh.cfg.j2 dest=./ssh.cfg
     delegate_to: localhost
+
+# Initialize testapi database
+- hosts: localhost
+  tasks:
+  - name: create project and pod
+    uri:
+      url: "{{ testapi_url }}/{{item}}s"
+      method: POST
+      body: "{{ lookup('file', '{}/{}.json'.format(qtip_fixtures, item)) }}"
+      status_code: [200, 403]
+      body_format: json
+    with_items:
+      - project
+      - pod
+  - name: create cases
+    uri:
+      url: "{{ testapi_url }}/projects/qtip/cases"
+      method: POST
+      body: "{{ lookup('file', '{}/case.json'.format(qtip_fixtures)) }}"
+      status_code: [200, 403]
+      body_format: json
+  tags: [testapi]

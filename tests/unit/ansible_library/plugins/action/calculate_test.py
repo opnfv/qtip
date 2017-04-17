@@ -67,7 +67,7 @@ def section_result(metric_result):
 
 @pytest.fixture()
 def qpi_result(qpi_spec, section_result, metrics):
-    return {'score': 1.0,
+    return {'score': 2048,
             'spec': qpi_spec,
             'metrics': metrics,
             'section_results': [{'name': 'ssl', 'result': section_result}]}

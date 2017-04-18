@@ -32,13 +32,7 @@ def test_generate_inventory(data_root):
                            u'node-28',
                            u'node-25',
                            u'node-27'],
-        u'mongo': [u'node-24'],
-        'node-23': [u'node-23'],
-        'node-24': [u'node-24'],
-        'node-25': [u'node-25'],
-        'node-26': [u'node-26'],
-        'node-27': [u'node-27'],
-        'node-28': [u'node-28']}
+        u'mongo': [u'node-24']}
     assert dict(inventory['hosts_meta']) == {
         u'node-23': {'ansible_ssh_host': u'10.20.11.10', 'cluster': 4, 'ip': u'10.20.11.10',
                      'mac': u'74:4a:a4:01:71:61', 'name': u'Untitled (71:61)', 'online': True, 'os_platform': u'ubuntu',

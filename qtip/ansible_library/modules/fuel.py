@@ -100,7 +100,6 @@ def generate_inventory(nodes):
             'cluster': cluster_id,
             'ansible_ssh_host': node['ip']
         }
-        hosts["node-{}".format(node['id'])].append(hostname)
         hosts_meta[hostname] = node_meta
 
     return {'hosts': hosts, 'hosts_meta': hosts_meta}

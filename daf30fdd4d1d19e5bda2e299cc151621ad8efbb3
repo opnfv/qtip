@@ -34,6 +34,24 @@
       "revId": "daf30fdd4d1d19e5bda2e299cc151621ad8efbb3",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_c4b98a16",
+        "filename": "tests/unit/cli/options_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-18T08:39:38Z",
+      "side": 1,
+      "message": "It will work but not expressing the purpose clearly. \n\nIf we try to test a match, use `match`, if we try to find all occurrence, use `findall`.\n\nSo what do you want to test here? :-)",
+      "parentUuid": "9ab8dda7_04ab22d7",
+      "revId": "daf30fdd4d1d19e5bda2e299cc151621ad8efbb3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

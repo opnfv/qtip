@@ -1,0 +1,57 @@
+[
+  {
+    "Properties": {
+      "memory_mb": "8192",
+      "cpu_arch": "x86_64",
+      "local_gb": "41",
+      "cpus": "4",
+      "capabilities": "boot_option:local,profile:compute"
+    },
+    "Provisioning State": "active",
+    "Instance UUID": "367827af-966c-4c91-bad4-d8dc12750eac"
+  },
+  {
+    "Properties": {
+      "memory_mb": "8192",
+      "cpu_arch": "x86_64",
+      "local_gb": "41",
+      "cpus": "4",
+      "capabilities": "boot_option:local,profile:compute"
+    },
+    "Provisioning State": "active",
+    "Instance UUID": "f214f844-ec4d-4f33-9d16-9aa21ade3cb4"
+  },
+  {
+    "Properties": {
+      "memory_mb": "8192",
+      "cpu_arch": "x86_64",
+      "local_gb": "41",
+      "cpus": "4",
+      "capabilities": "boot_option:local,profile:control"
+    },
+    "Provisioning State": "active",
+    "Instance UUID": "06234a4d-45fb-4930-bf8a-9b1627b1621f"
+  },
+  {
+    "Properties": {
+      "memory_mb": "8192",
+      "cpu_arch": "x86_64",
+      "local_gb": "41",
+      "cpus": "4",
+      "capabilities": "boot_option:local,profile:control"
+    },
+    "Provisioning State": "active",
+    "Instance UUID": "6dfd4c85-8a05-49ea-bd73-15dbaf84fa9b"
+  },
+  {
+    "Properties": {
+      "memory_mb": "8192",
+      "cpu_arch": "x86_64",
+      "local_gb": "41",
+      "cpus": "4",
+      "capabilities": "boot_option:local,profile:control"
+    },
+    "Provisioning State": "active",
+    "Instance UUID": "25b73b47-7c22-4f58-8ff3-ba5d714baa7c"
+  }
+]

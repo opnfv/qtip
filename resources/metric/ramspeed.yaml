@@ -11,30 +11,35 @@
   file:
     path: "{{ cwd }}"
     state: directory
+  tags: [setup]
 
 - name: download ramspeed/ramsmp
   unarchive:
     src: http://www.alasir.com/software/ramspeed/ramsmp-3.5.0.tar.gz
     dest: "{{ cwd }}"
     remote_src: yes
+  tags: [setup]
 
 - name: build ramsmp
   command: ./build.sh
   args:
     chdir: "{{ cwd }}/ramsmp-3.5.0"
     creates: ramsmp
+  tags: [setup]
 
 - name: intmem benchmarking
   command: ./ramsmp -b 3 -l 5 -p 1
   args:
     chdir: "{{ cwd }}/ramsmp-3.5.0"
   register: ramsmp_intmem_out
+  tags: [run]
 
 - name: floatmem benchmarking
   command: ./ramsmp -b 6 -l 5 -p 1
   args:
     chdir: "{{ cwd }}/ramsmp-3.5.0"
   register: ramsmp_floatmem_out
+  tags: [run]
 
 - name: collect integer memory metrics from ramspeed
   collect:
@@ -46,7 +51,8 @@
       - '^INTEGER\s+BatchRun\s+Triad:\s+?(?P<integer_triad>\d+\.\d+)\sMB/s$'
       - '^INTEGER\s+BatchRun\s+AVERAGE:\s+?(?P<integer_average>\d+\.\d+)\sMB/s$'
     dump: 'ramsmp-intmem.log'
-  register: ramsmp_intmem_metrics
+  register: intmem_metrics
+  tags: [collect]
 
 - name: collect float memory metrics from ramspeed
   collect:
@@ -58,4 +64,12 @@
       - '^FL-POINT\s+BatchRun\s+Triad:\s+?(?P<float_triad>\d+\.\d+)\sMB/s$'
       - '^FL-POINT\s+BatchRun\s+AVERAGE:\s+?(?P<float_average>\d+\.\d+)\sMB/s$'
     dump: 'ramsmp-floatmem.log'
-  register: ramsmp_intmem_metrics
+  register: floatmem_metrics
+  tags: [collect]
+
+- name: create memory metrics report
+  template:
+    src: "{{ qtip_resources }}/template/mem-metrics.j2"
+    dest: "{{ qtip_reports }}/mem-metrics"
+  delegate_to: localhost
+  tags: [report]

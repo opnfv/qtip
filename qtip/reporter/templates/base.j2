@@ -1,4 +1,4 @@
-{{ '=' * 100}}
+{{ ('=', '=')|justify }}
 {{ ('Plan Name', plan_name)|justify }}
 {{ ('Start Time', start_time)|justify }}
 {{ ('Stop Time', stop_time)|justify }}
@@ -14,7 +14,7 @@
 {% include '%s.j2' % metric_name %}
 {% endif %}
 System Information
-{{ ('CPU Brand', bm.sysinfo.cpu)|justify }}
+{{ ('CPU', bm.sysinfo.cpu)|justify }}
 {{ ('Disk', bm.sysinfo.disk)|justify }}
 {{ ('Host Name', bm.sysinfo.hostname)|justify }}
 {{ ('Kernel', bm.sysinfo.kernel)|justify }}
@@ -25,5 +25,5 @@ System Information
 {%- endfor -%}
 {% endfor %}
 
-{{ '\033[93m' }} {{ '*' * 100}} {{ '\033[0m' }}
+{{ ('\033[93m*', '*\033[0m')|justify }}
 {%- endfor -%}

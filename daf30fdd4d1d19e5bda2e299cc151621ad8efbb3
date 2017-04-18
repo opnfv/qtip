@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_c17c1cb8",
+        "filename": "tests/unit/cli/options_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-18T00:12:15Z",
+      "side": 1,
+      "message": "It looks weird to assert something found in result.output in result.output...\n\nWhy not just run a re.match on result.output ?",
+      "revId": "daf30fdd4d1d19e5bda2e299cc151621ad8efbb3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

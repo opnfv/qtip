@@ -73,6 +73,8 @@
   collect:
     string: "{{ nDPI_out.stdout }}"
     patterns:
-      - '^\s+nDPI throughput:.+?(?P<pps>\d+.\d+)\s.+\spps.+?(?P<bps>\d+.\d+)\s.+\/sec'
+      # 	nDPI throughput:       1.46 M pps / 13.69 Gb/sec
+      # TODO(yujunz) convert "M pps" and "K pps" to number
+      - 'nDPI throughput:\s+?(?P<dpi_pps>\d+.\d+.*) \/ (?P<dpi_bps>\d+.\d+.*)$'
     dump: 'nDPI.log'
   register: dpi_metrics

@@ -26,7 +26,7 @@
     vars:
       nDPI_cwd: "{{ ansible_env.HOME }}/qtip/nDPI"
       nDPI_file: "dpi.pcap"
-    tags: [nDPI]
+    tags: [dpi]
 
 - hosts: compute
   tasks:
@@ -63,6 +63,11 @@
       src: "{{ qtip_resources }}/template/qpi-report.j2"
       dest: "{{ qtip_reports }}/qpi-report"
     tags: [report]
+  - name: create dpi metrics report
+    template:
+      src: "{{ qtip_resources }}/template/dpi-metrics.j2"
+      dest: "{{ qtip_reports }}/dpi-metrics"
+    tags: [report, dpi]
   - name: push result to testapi
     uri:
       url: "{{ testapi_url }}/results"

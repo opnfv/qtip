@@ -1,0 +1,7 @@
+nDPI throughput
+===============
+
+{% for host in groups['compute'] %}
+{% set dpi_metrics=hostvars[host].dpi_metrics %}
+{{ (hostvars[host].ansible_hostname, "{} / {}".format(dpi_metrics.dpi_pps[0], dpi_metrics.dpi_bps[0]))|justify }}
+{% endfor %}

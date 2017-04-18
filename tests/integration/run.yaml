@@ -21,6 +21,11 @@
   - name: ssl metrics
     include: "{{ qtip_resources }}/metric/openssl.yaml"
     tags: [ssl]
+  - name: memory metrics
+    include: "{{ qtip_resources }}/metric/ramspeed.yaml"
+    vars:
+      cwd: "{{ ansible_env.HOME }}/qtip/ramspeed"
+    tags: [mem]
 
 - hosts: compute
   tasks:

@@ -27,7 +27,11 @@
       nDPI_cwd: "{{ ansible_env.HOME }}/qtip/nDPI"
       nDPI_file: "dpi.pcap"
     tags: [dpi]
-
+  - name: memory metrics
+    include: "{{ qtip_resources }}/metric/ramspeed.yaml"
+    vars:
+      cwd: "{{ ansible_env.HOME }}/qtip/ramspeed"
+    tags: [mem]
 - hosts: compute
   tasks:
   - name: calculate QPI of compute

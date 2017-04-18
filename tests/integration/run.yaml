@@ -21,6 +21,12 @@
   - name: ssl metrics
     include: "{{ qtip_resources }}/metric/openssl.yaml"
     tags: [ssl]
+  - name: DPI metrics
+    include: "{{ qtip_resources }}/metric/nDPI.yaml"
+    vars:
+      nDPI_cwd: "{{ ansible_env.HOME }}/qtip/nDPI"
+      nDPI_file: "dpi.pcap"
+    tags: [nDPI]
 
 - hosts: compute
   tasks:

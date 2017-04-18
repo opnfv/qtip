@@ -26,60 +26,16 @@ def result_path():
     return result
 
 
-def test_dhrystone(runner, result_path):
+@pytest.mark.parametrize(['report_name'], [
+    ('dhrystone',),
+    ('whetstone',),
+    ('dpi',),
+    ('ramspeed',),
+    ('ssl',)
+])
+def test_dhrystone(report_name, runner, result_path):
     """Test dhrystone report"""
 
-    result = runner.invoke(cli, ['report', 'show', 'dhrystone', '-p', result_path])
-    assert "Benchmark..............................................................." \
-           "...................dhrystone" in result.output
-    assert "Score..................................................................." \
-           "..................63529.6"
-
-
-def test_whetstone(runner, result_path):
-    """ Test whetstone output"""
-
-    result = runner.invoke(cli, ['report', 'show', 'whetstone', '-p', result_path])
-    assert "Number................................................................." \
-           "...........................40" in result.output
-    assert "Total CPUs............................................................." \
-           "...........................40"
-
-
-def test_dpi(runner, result_path):
-    """ Test dpi report"""
-    result = runner.invoke(cli, ['report', 'show', 'dpi', '-p', result_path])
-    assert "Bits per Second..................................................." \
-           ".............................3.638" in result.output
-    assert "Packets per Second................................................" \
-           ".............................1.458" in result.output
-
-
-def test_ramspeed(runner, result_path):
-    """ Test ramspeed report """
-    result = runner.invoke(cli, ['report', 'show', 'ramspeed', '-p', result_path])
-    assert "Float Addition........................................................" \
-           "......................10522.33" in result.output
-    assert "Integer Average........................................................" \
-           ".....................11466.52" in result.output
-
-
-def test_ssl(runner, result_path):
-    """ Test ssl report"""
-
-    result = runner.invoke(cli, ['report', 'show', 'ssl', '-p', result_path])
-    assert "8192............................................................." \
-           ".........................667303.94k" in result.output
-    assert "1024.............................................................." \
-           "..........................100088.3" in result.output
-
-
-def test_sys(runner, result_path):
-    """ Test sys_info """
-
-    result = runner.invoke(cli, ['report', 'show', 'ssl', '-p', result_path])
-    assert "System Information" in result.output
-    assert "Host Name........................................................" \
-           ".................node-38.zte.com.cn" in result.output
-    assert "Operating System.................................................." \
-           "...............Ubuntu 16.04 xenial" in result.output
+    result = runner.invoke(cli, ['report', 'show', report_name, '-p', result_path])
+    for line in str(result).split('\n'):
+        assert len(line) <= 80

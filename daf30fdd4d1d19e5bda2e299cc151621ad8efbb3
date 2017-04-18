@@ -16,6 +16,24 @@
       "revId": "daf30fdd4d1d19e5bda2e299cc151621ad8efbb3",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_04ab22d7",
+        "filename": "tests/unit/cli/options_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-04-18T07:46:53Z",
+      "side": 1,
+      "message": "Would the procedure below be fine as well ?\n\nassert re.findall(r\u0027\\d+\\.\\d+\\.\\d+\u0027, result.output)",
+      "parentUuid": "9ab8dda7_c17c1cb8",
+      "revId": "daf30fdd4d1d19e5bda2e299cc151621ad8efbb3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

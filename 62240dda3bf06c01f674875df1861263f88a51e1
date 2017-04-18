@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_413fccd6",
+        "filename": "qtip/ansible_library/modules/apex.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-18T00:57:10Z",
+      "side": 1,
+      "message": "fuel ?",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 8
+      },
+      "revId": "62240dda3bf06c01f674875df1861263f88a51e1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_e125a0c2",
+        "filename": "qtip/ansible_library/modules/apex.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-18T00:57:10Z",
+      "side": 1,
+      "message": "What\u0027s this for?",
+      "revId": "62240dda3bf06c01f674875df1861263f88a51e1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_61321012",
+        "filename": "qtip/ansible_library/modules/apex.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-18T00:57:10Z",
+      "side": 1,
+      "message": "fuel-compute ?",
+      "revId": "62240dda3bf06c01f674875df1861263f88a51e1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_8135c4f8",
+        "filename": "qtip/ansible_library/modules/apex.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-18T00:57:10Z",
+      "side": 1,
+      "message": "fuel-compute ?",
+      "revId": "62240dda3bf06c01f674875df1861263f88a51e1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_213c18e2",
+        "filename": "qtip/ansible_library/modules/apex.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-18T00:57:10Z",
+      "side": 1,
+      "message": "I think there are not many things in common with this script...",
+      "revId": "62240dda3bf06c01f674875df1861263f88a51e1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

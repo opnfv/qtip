@@ -33,7 +33,7 @@
     delegate_to: localhost
     tags: [calculate]
 
-- hosts: local
+- hosts: localhost
   tasks:
   - name: aggregate QPI results from all tested nodes
     aggregate:
@@ -42,7 +42,7 @@
 
 # Generate and publish report
 
-- hosts: local
+- hosts: localhost
   tasks:
   - name: create report folder
     file:

@@ -70,6 +70,24 @@
       "revId": "daf30fdd4d1d19e5bda2e299cc151621ad8efbb3",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_a45576c7",
+        "filename": "tests/unit/cli/options_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-04-18T08:46:23Z",
+      "side": 1,
+      "message": "Yes the purpose is fulfilled by match, but it always failed.\n\nLooks like search should do the job.",
+      "parentUuid": "9ab8dda7_843b929b",
+      "revId": "daf30fdd4d1d19e5bda2e299cc151621ad8efbb3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

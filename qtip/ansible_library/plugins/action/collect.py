@@ -29,7 +29,7 @@ class ActionModule(ActionBase):
 
         dump = self._task.args.get('dump')
         if dump is not None:
-            dump_facts(task_vars['inventory_hostname'], [{'name': 'inxi.log', 'content': string}])
+            dump_facts(task_vars['inventory_hostname'], [{'name': dump, 'content': string}])
 
         return collect(patterns, string)
 

@@ -76,7 +76,4 @@ ChangeLog
 
 # integration data
 /tests/integration/*.retry
-/tests/integration/dump
-/tests/integration/hosts
-/tests/integration/reports
-/tests/integration/ssh.cfg
+/tests/integration/*-workspace

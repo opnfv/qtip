@@ -61,5 +61,5 @@
         repo: https://github.com/kdlucas/byte-unixbench.git
         dest: '{{ ansible_env.HOME }}/tempT/'
 
-    - name: Make UnixBench
+    - name: Make UnixBench1
       shell: make --directory $HOME/tempT/UnixBench/

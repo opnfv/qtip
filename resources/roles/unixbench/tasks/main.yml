@@ -1,0 +1,36 @@
+#############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+#############################################################################
+
+- name: make unixbench working directory
+  file:
+    path: "{{ cwd }}"
+    state: directory
+
+- name: download unixbench source code
+  unarchive:
+    src: https://github.com/kdlucas/byte-unixbench/archive/v5.1.3.tar.gz
+    dest: "{{ cwd }}"
+    remote_src: yes
+
+- name: build UnixBench
+  command: "make"
+  args:
+    chdir: "{{ cwd }}/byte-unixbench-5.1.3/UnixBench"
+
+- name: run whetstone and dhrystone
+  shell: "./Run -i {{ iterations }} -c {{ parallel_copies }} dhrystone whetstone"
+  args:
+    chdir: "{{ cwd }}/byte-unixbench-5.1.3/UnixBench"
+
+- name: synchronize test results to local
+  synchronize:
+    mode: pull
+    src: "{{ cwd }}/byte-unixbench-5.1.3/UnixBench/results"
+    dest: "{{ qtip_dump }}/{{ inventory_hostname }}/unixbench"
+    use_ssh_args: yes

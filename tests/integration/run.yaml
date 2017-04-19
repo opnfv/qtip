@@ -24,6 +24,11 @@
   tags: [setup]
 
 - hosts: compute
+  roles:
+    - unixbench
+  tags: [unixbench]
+
+- hosts: compute
   tasks:
   - name: collect system information
     include: "{{ qtip_resources }}/metric/inxi.yaml"

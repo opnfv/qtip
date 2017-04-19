@@ -10,9 +10,9 @@
 
 - name: prepare sample pcap file
   get_url:
-    url: "https://build.opnfv.org/artifacts.opnfv.org/qtip/utilities/test.pcap"
-    dest: "{{ qtip_dump }}/localhost/{{ nDPI_file }}"
-    validate_certs: no  # required when using proxy for https
+    url: "http://artifacts.opnfv.org/qtip/utilities/test.pcap"
+    dest: "{{ qtip_cache }}/{{ nDPI_file }}"
+    # validate_certs: no  # required when using proxy for https
   run_once: yes
   delegate_to: localhost
 
@@ -60,7 +60,7 @@
 
 - name: copy sample packet file
   copy:
-    src: "{{ qtip_dump }}/localhost/{{ nDPI_file }}"
+    src: "{{ qtip_cache}}/{{ nDPI_file }}"
     dest: "{{ nDPI_cwd }}/example/{{ nDPI_file }}"
 
 - name:

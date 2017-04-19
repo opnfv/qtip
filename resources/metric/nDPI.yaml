@@ -1,0 +1,76 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+
+- name: prepare sample pcap file
+  get_url:
+    url: "https://build.opnfv.org/artifacts.opnfv.org/qtip/utilities/test.pcap"
+    dest: "{{ qtip_dump }}/localhost/{{ nDPI_file }}"
+    validate_certs: no  # required when using proxy for https
+  run_once: yes
+  delegate_to: localhost
+
+- name: installing nDPI dependencies if CentOS
+  yum:
+    name: '{{ item }}'
+    state: present
+  when: ansible_os_family == "RedHat"
+  with_items:
+    - git
+    - gcc
+    - patch
+    - perl-Time-HiRes
+    - autofconf
+    - automake
+    - libpcap-devel libtool
+
+- name: installing nDPI dependencies if Ubuntu
+  apt:
+    name: build-essential
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: making nDPI temporary directory
+  file:
+    path: "{{ nDPI_cwd }}"
+    state: directory
+
+- name: clone nDPI
+  git:
+    repo: https://github.com/ntop/nDPI.git
+    dest: "{{ nDPI_cwd }}"
+    depth: 1
+
+- name: build nDPI library
+  command: '{{ item }}'
+  with_items:
+    - ./autogen.sh
+    - ./configure
+    - make
+  args:
+    chdir: "{{ nDPI_cwd }}"
+
+- name: copy sample packet file
+  copy:
+    src: "{{ qtip_dump }}/localhost/{{ nDPI_file }}"
+    dest: "{{ nDPI_cwd }}/example/{{ nDPI_file }}"
+
+- name:
+  command: "./ndpiReader -i {{ nDPI_file }}"
+  args:
+    chdir: "{{ nDPI_cwd }}/example/"
+  register: nDPI_out
+
+- name: collect DPI metrics from nDPI
+  collect:
+    string: "{{ nDPI_out.stdout }}"
+    patterns:
+      - '^\s+nDPI throughput:.+?(?P<pps>\d+.\d+)\s.+\spps.+?(?P<bps>\d+.\d+)\s.+\/sec'
+    dump: 'nDPI.log'
+  register: dpi_metrics

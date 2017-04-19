@@ -46,6 +46,7 @@
     repo: https://github.com/ntop/nDPI.git
     dest: "{{ nDPI_cwd }}"
     depth: 1
+    update: no
 
 - name: build nDPI library
   command: '{{ item }}'
@@ -55,6 +56,7 @@
     - make
   args:
     chdir: "{{ nDPI_cwd }}"
+    creates: example/ndpiReader
 
 - name: copy sample packet file
   copy:

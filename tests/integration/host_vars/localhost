@@ -1,7 +1,0 @@
-testapi_url:  http://10.62.105.17:8711/api/v1
-project_name: qtip
-case_name: compute
-pod_name: qtip-pod
-installer: fuel
-version: master
-scenario: demo

@@ -1,5 +1,0 @@
-qtip_resources: ../../resources
-qtip_reports: ./reports
-qtip_fixtures: ./fixtures
-qtip_dump: ./dump
-qtip_cache: ./.cache

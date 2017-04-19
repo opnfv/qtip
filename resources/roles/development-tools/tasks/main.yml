@@ -1,0 +1,14 @@
+- name: install development tools for Debian family
+  package:
+    name: build-essential
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: install development tools for RedHat family
+  yum:
+    name: '{{ item }}'
+    state: present
+  when: ansible_os_family == "RedHat"
+  with_items:
+    - "@Development tools"
+    - gcc-c++

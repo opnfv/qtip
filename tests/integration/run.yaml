@@ -16,6 +16,15 @@
   tasks:
   - name: check ssh connection
     ping:
+  tags: [setup]
+
+- hosts: compute
+  roles:
+    - development-tools
+  tags: [setup]
+
+- hosts: compute
+  tasks:
   - name: collect system information
     include: "{{ qtip_resources }}/metric/inxi.yaml"
   - name: ssl metrics

@@ -16,26 +16,6 @@
   run_once: yes
   delegate_to: localhost
 
-- name: installing nDPI dependencies if CentOS
-  yum:
-    name: '{{ item }}'
-    state: present
-  when: ansible_os_family == "RedHat"
-  with_items:
-    - git
-    - gcc
-    - patch
-    - perl-Time-HiRes
-    - autofconf
-    - automake
-    - libpcap-devel libtool
-
-- name: installing nDPI dependencies if Ubuntu
-  apt:
-    name: build-essential
-    state: present
-  when: ansible_os_family == "Debian"
-
 - name: making nDPI temporary directory
   file:
     path: "{{ nDPI_cwd }}"

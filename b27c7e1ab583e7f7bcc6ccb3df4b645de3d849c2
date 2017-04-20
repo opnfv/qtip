@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_d572927b",
+        "filename": "tests/integration/host_vars/localhost",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-04-20T03:28:07Z",
+      "side": 1,
+      "message": "what is it?",
+      "revId": "b27c7e1ab583e7f7bcc6ccb3df4b645de3d849c2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

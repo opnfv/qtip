@@ -68,6 +68,30 @@
       "revId": "8f08441a800262686e4605fb6d17a563a1c0b08a",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_95be5afe",
+        "filename": "tests/integration/setup.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-04-20T05:39:51Z",
+      "side": 1,
+      "message": "I cannot agree with you. The name \u0027apex_generate_inventory\u0027 is more readability.",
+      "parentUuid": "9ab8dda7_b5e27e2d",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 27
+      },
+      "revId": "8f08441a800262686e4605fb6d17a563a1c0b08a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

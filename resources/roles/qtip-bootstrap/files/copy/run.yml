@@ -12,42 +12,54 @@
 # - system information
 # - test condition
 # - performance metrics
+
 - hosts: compute
-  tasks:
+
+  pre_tasks:
   - name: check ssh connection
     ping:
+
+  roles:
+  - development-tools
+
+  post_tasks:
+  - name: create dumping directories
+    file:
+      path: "{{ qtip_dump }}/{{ inventory_hostname }}"
+      state: directory
+    delegate_to: localhost
+
   tags: [setup]
 
-- hosts: compute
-  roles:
-    - development-tools
-  tags: [setup]
 
 - hosts: compute
-  roles:
-    - unixbench
-  tags: [unixbench]
 
-- hosts: compute
+  roles:
+
+    - { role: unixbench, tags: [unixbench] }
+
   tasks:
+
   - name: collect system information
     include: "{{ qtip_resources }}/metric/inxi.yaml"
+
   - name: ssl metrics
     include: "{{ qtip_resources }}/metric/openssl.yaml"
     tags: [ssl]
+
   - name: DPI metrics
     include: "{{ qtip_resources }}/metric/nDPI.yaml"
     vars:
       nDPI_cwd: "{{ ansible_env.HOME }}/qtip/nDPI"
       nDPI_file: "dpi.pcap"
     tags: [dpi]
+
   - name: memory metrics
     include: "{{ qtip_resources }}/metric/ramspeed.yaml"
     vars:
       cwd: "{{ ansible_env.HOME }}/qtip/ramspeed"
     tags: [mem]
-- hosts: compute
-  tasks:
+
   - name: calculate QPI of compute
     calculate:
       metrics:
@@ -57,35 +69,40 @@
     delegate_to: localhost
     tags: [calculate]
 
+
 - hosts: localhost
+
   tasks:
+
   - name: aggregate QPI results from all tested nodes
     aggregate:
       group: compute
     register: pod_result
 
-# Generate and publish report
+  # Generate and publish report
 
-- hosts: localhost
-  tasks:
   - name: create report folder
     file:
       path: "{{ qtip_reports }}"
       state: directory
+
   - name: create system information report
     template:
       src: "{{ qtip_resources }}/template/system-info.j2"
       dest: "{{ qtip_reports }}/system-info"
+
   - name: create qpi report
     template:
       src: "{{ qtip_resources }}/template/qpi-report.j2"
       dest: "{{ qtip_reports }}/qpi-report"
     tags: [report]
+
   - name: create dpi metrics report
     template:
       src: "{{ qtip_resources }}/template/dpi-metrics.j2"
       dest: "{{ qtip_reports }}/dpi-metrics"
     tags: [report, dpi]
+
   - name: push result to testapi
     uri:
       url: "{{ testapi_url }}/results"

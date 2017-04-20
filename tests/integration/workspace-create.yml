@@ -9,12 +9,22 @@
 
 ---
 - hosts: localhost
+
+  gather_facts: no
+
   roles:
+
     - role: qtip-workspace
-      installer: fuel         # fuel|apex
-      pod_name: qtip-pod
-      scenario: default
-      version: master
+
+      # modify or override variables to customize the workspace
+
+      installer: fuel         # <fuel|apex>
+
+      # test api settings
       testapi_url: http://localhost:8000/api/v1
-      installer_master: f5    # hostname of installer master
-      qtip_package: ../../..  # note the relative path in workspace might be different from current working directory
+      pod_name: qtip-pod      # pod name for testapi
+      scenario: default       # scenario for testapi
+
+      # local settings
+      installer_master: f5    # hostname of installer master, make sure you can login it with key authentication
+      qtip_package: ../../..  # relative path from **workspace**, not current directory

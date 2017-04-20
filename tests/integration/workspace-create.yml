@@ -10,4 +10,11 @@
 ---
 - hosts: localhost
   roles:
-    - { role: qtip-bootstrap, installer: fuel }
+    - role: qtip-bootstrap
+      installer: fuel         # fuel|apex
+      pod_name: qtip-pod
+      scenario: default
+      version: master
+      testapi_url: http://localhost:8000/api/v1
+      installer_master: f5    # hostname of installer master
+      qtip_package: ../../..  # note the relative path in workspace might be different from current working directory

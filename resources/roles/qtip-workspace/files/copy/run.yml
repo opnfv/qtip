@@ -22,13 +22,6 @@
   roles:
   - development-tools
 
-  post_tasks:
-  - name: create dumping directories
-    file:
-      path: "{{ qtip_dump }}/{{ inventory_hostname }}"
-      state: directory
-    delegate_to: localhost
-
   tags: [setup]
 
 
@@ -50,7 +43,7 @@
       spec:   "{{ qtip_resources }}/QPI/compute.yaml"
     register: qpi_result
     delegate_to: localhost
-    tags: [calculate]
+    tags: [qpi]
 
 
 - hosts: localhost
@@ -61,30 +54,9 @@
     aggregate:
       group: compute
     register: pod_result
+    tags: [pod]
 
   # Generate and publish report
-
-  - name: create report folder
-    file:
-      path: "{{ qtip_reports }}"
-      state: directory
-
-  - name: create system information report
-    template:
-      src: "{{ qtip_resources }}/template/system-info.j2"
-      dest: "{{ qtip_reports }}/system-info"
-
-  - name: create qpi report
-    template:
-      src: "{{ qtip_resources }}/template/qpi-report.j2"
-      dest: "{{ qtip_reports }}/qpi-report"
-    tags: [report]
-
-  - name: create dpi metrics report
-    template:
-      src: "{{ qtip_resources }}/template/dpi-metrics.j2"
-      dest: "{{ qtip_reports }}/dpi-metrics"
-    tags: [report, dpi]
 
   - name: push result to testapi
     uri:

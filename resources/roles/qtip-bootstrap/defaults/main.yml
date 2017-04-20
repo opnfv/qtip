@@ -8,7 +8,12 @@
 ##############################################################################
 
 installer: fuel
+
 installer_master: fuel-master
 
-workspace: "./{{ installer }}-workspace"
-qtip_package: ../..
+installer_master_group:
+  fuel: fuel-masters
+  apex: apex-underclouds
+
+workspace: "workspace"
+qtip_package: ../../..

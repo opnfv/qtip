@@ -1,5 +1,7 @@
-fuel-master
 localhost   ansible_connection=local
+
+[{{ installer_master_group[installer] }}]
+{{ installer_master }}
 
 [fuel-groups:children]
 {% for group in hosts|sort %}

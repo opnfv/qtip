@@ -10,7 +10,7 @@
 import json
 import os
 
-from qtip.ansible_library.modules import apex
+from qtip.ansible_library.modules import apex_generate_inventory
 
 
 def test_generate_inventory(data_root):
@@ -18,7 +18,7 @@ def test_generate_inventory(data_root):
                                                  'apex', 'baremetal_info.json')))
     server_info = json.load(open(os.path.join(data_root, 'external',
                                               'apex', 'server_info.json')))
-    inventory = apex.generate_inventory(baremetal_info, server_info)
+    inventory = apex_generate_inventory.generate_inventory(baremetal_info, server_info)
     assert dict(inventory['hosts']) == {
         u'compute': [u'192.0.2.5', u'192.0.2.6'],
         u'control': [u'192.0.2.7', u'192.0.2.8', u'192.0.2.9']}

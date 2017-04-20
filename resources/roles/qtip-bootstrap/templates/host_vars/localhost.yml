@@ -7,10 +7,3 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-testapi_url: http://localhost:8000/api/v1
-project_name: qtip
-case_name: compute
-pod_name: qtip-pod
-installer: fuel
-version: master
-scenario: demo

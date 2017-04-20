@@ -8,19 +8,13 @@
 ##############################################################################
 
 # Prepare connection to SUT (System Under Test)
-- hosts: fuel-master
+- hosts: fuel-masters
   gather_facts: no
   tasks:
   - name: collect facts of fuel hosts
     fuel:
-  - name: update inventory file
-    template: src={{ qtip_resources }}/template/hosts.j2 dest=./hosts
-    delegate_to: localhost
-  - name: update ssh.cfg file
-    template: src={{ qtip_resources }}/template/ssh.cfg.j2 dest=./ssh.cfg
-    delegate_to: localhost
 
-- hosts: apex-undercloud
+- hosts: apex-underclouds
   gather_facts: no
 
   tasks:
@@ -34,11 +28,16 @@
     apex_generate_inventory:
       baremetal_info: "{{ baremetal_info.stdout | from_json }}"
       server_info: "{{ server_info.stdout | from_json }}"
+
+- hosts:
+  - fuel-masters
+  - apex-underclouds
+  tasks:
   - name: update inventory file
-    template: src={{ qtip_resources }}/template/hosts.j2 dest=./hosts
+    template: src=templates/hosts dest=./hosts
     delegate_to: localhost
   - name: update ssh.cfg file
-    template: src={{ qtip_resources }}/template/ssh.cfg.j2 dest=./ssh.cfg
+    template: src=templates/ssh.cfg dest=./ssh.cfg
     delegate_to: localhost
 
 # Initialize testapi database

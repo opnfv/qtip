@@ -36,30 +36,13 @@
 
   roles:
 
-    - { role: unixbench, tags: [unixbench] }
+    - { role: inxi, tags: [inxi, sysinfo] }
+    - { role: unixbench, tags: [unixbench, float, int] }
+    - { role: openssl, tags: [openssl, ssl]}
+    - { role: nDPI, tags: [ndpi, dpi]}
+    - { role: ramspeed, tags: [ramspeed, mem]}
 
-  tasks:
-
-  - name: collect system information
-    include: "{{ qtip_resources }}/metric/inxi.yaml"
-
-  - name: ssl metrics
-    include: "{{ qtip_resources }}/metric/openssl.yaml"
-    tags: [ssl]
-
-  - name: DPI metrics
-    include: "{{ qtip_resources }}/metric/nDPI.yaml"
-    vars:
-      nDPI_cwd: "{{ ansible_env.HOME }}/qtip/nDPI"
-      nDPI_file: "dpi.pcap"
-    tags: [dpi]
-
-  - name: memory metrics
-    include: "{{ qtip_resources }}/metric/ramspeed.yaml"
-    vars:
-      cwd: "{{ ansible_env.HOME }}/qtip/ramspeed"
-    tags: [mem]
-
+  post_tasks:
   - name: calculate QPI of compute
     calculate:
       metrics:

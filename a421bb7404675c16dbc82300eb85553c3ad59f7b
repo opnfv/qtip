@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_b567deb6",
+        "filename": "tests/integration/ansible.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-04-20T03:29:40Z",
+      "side": 1,
+      "message": "red tails",
+      "revId": "a421bb7404675c16dbc82300eb85553c3ad59f7b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

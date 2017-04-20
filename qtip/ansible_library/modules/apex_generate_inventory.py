@@ -28,6 +28,13 @@ description:
 version_added: "2.2"
 author: "Zhihui Wu"
 options:
+  baremetal_info:
+    description:
+      - return value from "openstack baremetal node list
+        --fields instance_uuid properties provision_state --format json"
+  server_info:
+    description:
+      - return value from "openstack server list --format json"
 notes:
 requirements:
     - Host 'apex-undercloud' is in ~/.ssh/config
@@ -40,7 +47,7 @@ ansible_facts:
   type: dictionary
   contains:
     hosts:
-      description: host grouped by hostname, cluster, role and manufacture
+      description: host grouped by role
       type: dict
     hosts_meta:
       description: hosts meta data indexed by hostname
@@ -52,19 +59,9 @@ EXAMPLES = '''
 - hosts: apex-undercloud
   tasks:
   - name: collect facts of apex hosts
-    apex:
-  - debug: var=hostvarsi
-  - name: add compute node to ansible inventory
-    add_host:
-      name: "{{ hosts_meta[item]['ip'] }}"
-      groups: compute
-      ansible_user: root
-      ansible_ssh_common_args: '-o StrictHostKeyChecking=No -o ProxyJump=apex-master'
-    with_items: "{{ hosts.compute }}"
-- hosts: compute
-  tasks:
-  - name: check ssh connection
-    ping:
+    apex_generate_inventory:
+      baremetal_info: "{{ baremetal_info.stdout | from_json }}"
+      server_info: "{{ server_info.stdout | from_json }}"
 '''
 
 

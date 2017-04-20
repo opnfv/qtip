@@ -1,3 +1,4 @@
 localhost   ansible_connection=local
 
+[{{ installer_master_group[installer] }}]
 {{ installer_master }}

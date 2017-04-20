@@ -75,5 +75,5 @@ ChangeLog
 !/tests/data/**/*
 
 # integration data
-/tests/integration/*.retry
-/tests/integration/*-workspace
+*.retry
+/tests/integration/workspace/

@@ -10,7 +10,6 @@
 ##############################################################################
 
 from collections import defaultdict
-import json
 import re
 
 from ansible.module_utils.basic import AnsibleModule
@@ -70,10 +69,7 @@ EXAMPLES = '''
 
 
 def generate_inventory(baremetal_info, server_info):
-    """Generate ansible inventory from node list in json format
-
-    Modified from https://github.com/martineg/ansible-apex-inventory/blob/master/apex.py
-    """
+    """Generate ansible inventory in json format"""
 
     hosts = defaultdict(list)
     hosts_meta = {}
@@ -95,38 +91,25 @@ def generate_inventory(baremetal_info, server_info):
 
 
 def main():
-    module = AnsibleModule(argument_spec=dict())
+    module = AnsibleModule(
+        argument_spec=dict(
+            baremetal_info=dict(type='list'),
+            server_info=dict(type='list')
+        )
+    )
 
-    (rc, out, err) = module.run_command(['source ~/stackrc'])
+    baremetal_info = module.params['baremetal_info']
+    server_info = module.params['server_info']
 
-    if rc is not None and rc != 0:
-        return module.fail_json(msg=err)
+    res = generate_inventory(baremetal_info, server_info)
 
-    cmd = [module.get_bin_path('openstack', True),
-           'baremetal',
-           'list',
-           '--fields instance_uuid properties provision_state',
-           '--format json']
-    (rc, out, err) = module.run_command(cmd)
+    if res:
+        changed = True
+    else:
+        return module.fail_json(msg='Failed to generate inventory!')
 
-    if rc is not None and rc != 0:
-        return module.fail_json(msg=err)
-
-    baremetal_info = json.loads(out)
-
-    cmd = [module.get_bin_path('openstack', True),
-           'server',
-           'list',
-           '--format json']
-    (rc, out, err) = module.run_command(cmd)
-
-    if rc is not None and rc != 0:
-        return module.fail_json(msg=err)
-
-    server_info = json.loads(out)
-
-    module.exit_json(changed=False,
-                     ansible_facts=generate_inventory(baremetal_info, server_info))
+    module.exit_json(changed=changed,
+                     ansible_facts=res)
 
 
 if __name__ == '__main__':

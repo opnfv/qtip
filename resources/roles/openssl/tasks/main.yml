@@ -52,3 +52,10 @@
 #          ?(?P<aes_128_cbc_256_bytes>\d+\.\w+)\s+
 #          ?(?P<aes_128_cbc_1024_bytes>\d+\.\w+)\s+
 #          ?(?P<aes_128_cbc_8192_bytes>\d+\.\w+)$
+
+- name: create SSL report
+  template:
+    src: ssl-metrics.j2
+    dest: "{{ qtip_results }}/{{ inventory_hostname }}/ssl-metrics"
+  delegate_to: localhost
+  tags: [report]

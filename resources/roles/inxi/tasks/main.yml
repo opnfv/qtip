@@ -42,3 +42,10 @@
       - '.+\sproduct:\s+(?P<product>.+)\sv'
     dump: 'inix.log'
   register: system_info
+
+- name: create system information report
+  template:
+    src: system-info.j2
+    dest: "{{ qtip_results }}/{{ inventory_hostname }}/system-info"
+  delegate_to: localhost
+  tags: [report]

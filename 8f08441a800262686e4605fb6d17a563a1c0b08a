@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_f5d8f680",
+        "filename": "qtip/ansible_library/modules/apex_generate_inventory.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-20T02:42:33Z",
+      "side": 1,
+      "message": "Use `search` if you need just first occurrence.",
+      "range": {
+        "startLine": 79,
+        "startChar": 22,
+        "endLine": 79,
+        "endChar": 29
+      },
+      "revId": "8f08441a800262686e4605fb6d17a563a1c0b08a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_95e73a40",
+        "filename": "qtip/ansible_library/modules/apex_generate_inventory.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-20T02:42:33Z",
+      "side": 1,
+      "message": "Not seeing any branch in `generate_inventory` returning `None`. In Python, the common way for error handling is try-except, not return value.",
+      "range": {
+        "startLine": 106,
+        "startChar": 7,
+        "endLine": 106,
+        "endChar": 10
+      },
+      "revId": "8f08441a800262686e4605fb6d17a563a1c0b08a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_b5e27e2d",
+        "filename": "tests/integration/setup.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-20T02:42:33Z",
+      "side": 1,
+      "message": "I would prefer a short name `apex` to be aligned with `fuel`. We may extend more function in this module, not limited in inventory generation.",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 27
+      },
+      "revId": "8f08441a800262686e4605fb6d17a563a1c0b08a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

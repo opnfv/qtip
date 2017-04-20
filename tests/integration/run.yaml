@@ -90,6 +90,6 @@
         start_date: "{{ ansible_date_time.date }}"
         stop_date: "{{ ansible_date_time.date }}"
         criteria: ""
-        details: " {{ pod_result }}"
+        details: "{{ pod_result }}"
 
     tags: [testapi]

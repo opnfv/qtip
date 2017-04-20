@@ -58,3 +58,10 @@
       - 'nDPI throughput:\s+?(?P<dpi_pps>\d+.\d+.*) \/ (?P<dpi_bps>\d+.\d+.*)$'
     dump: 'nDPI.log'
   register: dpi_metrics
+
+- name: create dpi report
+  template:
+    src: dpi-metrics.j2
+    dest: "{{ qtip_results }}/{{ inventory_hostname }}/dpi-metrics"
+  delegate_to: localhost
+  tags: [report]

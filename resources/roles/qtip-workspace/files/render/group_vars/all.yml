@@ -8,7 +8,7 @@
 ##############################################################################
 
 qtip_resources: "{{ qtip_package }}/resources"
-qtip_reports: reports
+qtip_results: results
 qtip_fixtures: fixtures
 qtip_dump: dump
 qtip_cache: .cache

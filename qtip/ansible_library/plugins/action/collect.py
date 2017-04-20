@@ -29,7 +29,7 @@ class ActionModule(ActionBase):
 
         dump = self._task.args.get('dump')
         if dump is not None:
-            dump_facts(task_vars['inventory_hostname'], [{'name': dump, 'content': string}])
+            dump_facts(task_vars['inventory_hostname'], [{'name': dump, 'content': string}], task_vars['qtip_results'])
 
         return collect(patterns, string)
 
@@ -50,8 +50,8 @@ def collect(patterns, string):
     return captured
 
 
-def dump_facts(hostname, facts):
-    dump_root = os.path.join('dump', hostname)
+def dump_facts(hostname, facts, root='results'):
+    dump_root = os.path.join(root, hostname)
     if not os.path.exists(dump_root):
         os.mkdir(dump_root)
     return [{'name': fact['name'], 'result': open(os.path.join(dump_root, fact['name']), 'w+').write(fact['content'])}

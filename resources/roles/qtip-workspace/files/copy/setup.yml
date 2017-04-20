@@ -48,7 +48,7 @@
       state: directory
     with_items:
       - "{{ qtip_cache }}"
-      - "{{ qtip_reports }}"
+      - "{{ qtip_results }}"
 
 # Initialize testapi database
 - hosts: localhost

@@ -16,8 +16,15 @@
 - hosts: compute
 
   pre_tasks:
+
   - name: check ssh connection
     ping:
+
+  - name: create result directory
+    file:
+      path: "{{ qtip_results }}/{{ inventory_hostname }}"
+      state: directory
+    delegate_to: localhost
 
   roles:
   - development-tools

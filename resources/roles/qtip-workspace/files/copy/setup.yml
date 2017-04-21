@@ -42,10 +42,9 @@
 
 - hosts: localhost
   tasks:
-  - name: create output directories
+  - name: create cache directory
     file:
       path: "{{ item }}"
       state: directory
     with_items:
       - "{{ qtip_cache }}"
-      - "{{ qtip_results }}"

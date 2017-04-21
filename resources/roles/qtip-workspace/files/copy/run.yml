@@ -48,7 +48,7 @@
 
 - hosts: localhost
 
-  tasks:
+  pre_tasks:
 
   - name: aggregate QPI results from all tested nodes
     aggregate:
@@ -58,24 +58,8 @@
 
   # Generate and publish report
 
-  - name: push result to testapi
-    uri:
-      url: "{{ testapi_url }}/results"
-      body: "{{ item|to_json }}"
-      method: POST
-      body_format: json
-      status_code: 200
-    with_items:
-      -
-        project_name: "{{ project_name }}"
-        case_name: "{{ case_name }}"
-        pod_name: "{{ pod_name }}"
-        installer: "{{ installer }}"
-        version: "{{ version }}"
-        scenario: "{{ scenario }}"
-        start_date: "{{ ansible_date_time.date }}"
-        stop_date: "{{ ansible_date_time.date }}"
-        criteria: ""
-        details: "{{ pod_result }}"
+  roles:
+    - role: opnfv-testapi
+      phase: run
+      when: testapi_url is defined
 
-    tags: [testapi]

@@ -1,0 +1,28 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+---
+- name: create project and pod
+  uri:
+    url: "{{ testapi_url }}/{{item}}s"
+    method: POST
+    body: "{{ lookup('file', '{}/{}.json'.format(qtip_fixtures, item)) }}"
+    status_code: [200, 403]
+    body_format: json
+  with_items:
+    - project
+    - pod
+
+- name: create cases
+  uri:
+    url: "{{ testapi_url }}/projects/qtip/cases"
+    method: POST
+    body: "{{ lookup('file', '{}/case.json'.format(qtip_fixtures)) }}"
+    status_code: [200, 403]
+    body_format: json

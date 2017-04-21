@@ -31,7 +31,7 @@
 - name: synchronize test results to local
   synchronize:
     mode: pull
-    src: "{{ cwd }}/byte-unixbench-5.1.3/UnixBench/results"
+    src: "{{ cwd }}/byte-unixbench-5.1.3/UnixBench/results/"
     dest: "{{ qtip_results }}/{{ inventory_hostname }}/unixbench"
     use_ssh_args: yes
 

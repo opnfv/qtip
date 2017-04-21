@@ -1,0 +1,28 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+- name: push result to testapi
+  uri:
+    url: "{{ testapi_url }}/results"
+    body: "{{ item|to_json }}"
+    method: POST
+    body_format: json
+    status_code: 200
+  with_items:
+    -
+      project_name: "{{ project_name }}"
+      case_name: "{{ case_name }}"
+      pod_name: "{{ pod_name }}"
+      installer: "{{ installer }}"
+      version: "{{ version }}"
+      scenario: "{{ scenario }}"
+      start_date: "{{ ansible_date_time.date }}"
+      stop_date: "{{ ansible_date_time.date }}"
+      criteria: "unknown"
+      details: "{{ pod_result }}"

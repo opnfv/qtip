@@ -20,8 +20,8 @@
 
       # opnfv environment
 
-      installer: fuel         # <fuel|apex>
-      installer_master_host: f5    # make sure you can login it with key authentication
+      installer: apex         # <fuel|apex>
+      installer_master_host: apex-virtual    # make sure you can login it with key authentication
 
       # set testapi_url to enable reportint to testapi
 

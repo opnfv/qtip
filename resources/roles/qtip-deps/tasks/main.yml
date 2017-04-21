@@ -7,17 +7,17 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-- name: install development tools for Debian family
-  package:
-    name: build-essential
-    state: present
+---
+- include: redhat.yml
+  when: ansible_os_family == "RedHat"
+
+- include: debian.yml
   when: ansible_os_family == "Debian"
 
-- name: install development tools for RedHat family
-  yum:
-    name: '{{ item }}'
+- name: Installing required packages
+  package:
+    name: "{{ item }}"
     state: present
-  when: ansible_os_family == "RedHat"
   with_items:
-    - "@Development tools"
-    - gcc-c++
+    - rsync
+    - git

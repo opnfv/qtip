@@ -27,7 +27,7 @@
     delegate_to: localhost
 
   roles:
-  - development-tools
+  - qtip-deps
 
   tags: [setup]
 

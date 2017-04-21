@@ -9,17 +9,13 @@
 
 - name: copy initial files
   synchronize:
-    src:  "{{ item }}"
-    dest: "{{ workspace }}"
-  with_items:
-    - group_vars
-    - host_vars
-    - fixtures
+    src:  copy/
+    dest: "{{ workspace }}/"
 
 - name: generate default configuration
   template:
-    src: "{{ item }}.j2"
-    dest: "{{ workspace }}/{{ item }}"
-  with_items:
-    - ansible.cfg
-    - hosts
+    src: "{{ item.src }}"
+    dest: "{{ workspace }}/{{ item.path }}"
+    force: yes
+  with_filetree: render
+  when: item.state == 'file'

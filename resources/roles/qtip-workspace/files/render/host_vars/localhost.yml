@@ -7,3 +7,10 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+# set `testapi_url` to enable reporting to testapi
+# testapi_url: http://localhost:8000/api/v1
+project_name: qtip
+case_name: "{{ case_name|default('compute') }}"
+pod_name: "{{ pod_name|default('qtip-pod') }}"
+scenario: "{{ scenario|default('generic') }}"
+version: "{{ version|default('master') }}"

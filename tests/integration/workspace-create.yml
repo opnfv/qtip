@@ -18,13 +18,24 @@
 
       # modify or override variables to customize the workspace
 
+      # opnfv environment
+
       installer: fuel         # <fuel|apex>
+      installer_master_host: f5    # make sure you can login it with key authentication
 
-      # test api settings
-      testapi_url: http://localhost:8000/api/v1
-      pod_name: qtip-pod      # pod name for testapi
-      scenario: default       # scenario for testapi
+      # set testapi_url to enable reportint to testapi
 
-      # local settings
-      installer_master: f5    # hostname of installer master, make sure you can login it with key authentication
+#      testapi_url: http://localhost:8000/api/v1
+
+      # report variables
+
+#      project_name: qtip
+#      case_name: compute
+#      pod_name: "{{ pod_name|default('qtip-pod') }}"
+#      scenario: "{{ scenario|default('generic') }}"
+#      version: master
+#      scenario: demo
+
+      # qtip settings
+
       qtip_package: ../../..  # relative path from **workspace**, not current directory

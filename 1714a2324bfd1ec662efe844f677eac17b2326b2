@@ -16,6 +16,24 @@
       "revId": "1714a2324bfd1ec662efe844f677eac17b2326b2",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_90c8a875",
+        "filename": "tests/integration/workspace-create.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-21T02:39:00Z",
+      "side": 1,
+      "message": "This is the **default** playbook. Later on we shall override the installer parameters from env or cli.",
+      "parentUuid": "9ab8dda7_b0fe0cad",
+      "revId": "1714a2324bfd1ec662efe844f677eac17b2326b2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

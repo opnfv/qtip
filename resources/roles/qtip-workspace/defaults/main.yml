@@ -9,7 +9,7 @@
 
 installer: fuel
 
-installer_master: fuel-master
+installer_master_host: fuel-master
 
 installer_master_group:
   fuel: fuel-masters

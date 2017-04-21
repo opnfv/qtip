@@ -12,16 +12,9 @@ qtip_results: results
 qtip_fixtures: fixtures
 qtip_dump: dump
 qtip_cache: .cache
-
-testapi_url: http://localhost:8000/api/v1
-project_name: qtip
-case_name: compute
-pod_name: qtip-pod
-installer: "{{ installer }}"
-version: master
-scenario: demo
-
-installer_master: "{{ installer_master }}"
 installer_master_group:
   fuel: fuel-masters
   apex: apex-underclouds
+
+installer: "{{ installer }}"
+installer_master_host: "{{ installer_master_host }}"

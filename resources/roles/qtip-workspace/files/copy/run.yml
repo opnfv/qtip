@@ -39,7 +39,7 @@
   - name: calculate QPI of compute
     calculate:
       metrics:
-        ssl_rsa: "{{ openssl_rsa_metrics }}"
+        ssl_rsa: "{{ ssl_rsa_metrics }}"
       spec:   "{{ qtip_resources }}/QPI/compute.yaml"
     register: qpi_result
     delegate_to: localhost

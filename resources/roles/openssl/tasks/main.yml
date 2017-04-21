@@ -16,11 +16,11 @@
   command: openssl speed rsa
   register: openssl_rsa_log
 
-#- name: AES speed measurement
-#  command: openssl speed -evp aes-128-cbc
-#  register: openssl_aes_log
+- name: AES speed measurement
+  command: openssl speed -evp aes-128-cbc
+  register: openssl_aes_log
 
-- name: collect ssl metrics from openssl
+- name: collect ssl rsa metrics
   collect:
     string: "{{ openssl_rsa_log.stdout }}"
     patterns:
@@ -40,18 +40,22 @@
           ^rsa\s+4096\sbits\s.+\s+
           ?(?P<rsa_sign_4096>\d+\.\d)\s+
           ?(?P<rsa_verify_4096>\d+\.\d)$
-    dump: openssl_rsa_log
-  register: openssl_rsa_metrics
+    dump: openssl_rsa.log
+  register: ssl_rsa_metrics
 
-#  - filename: AES-128-CBC_dump
-#    grep:
-#      - |-
-#          ^aes-128-cbc\s+
-#          ?(?P<aes_128_cbc_16_bytes>\d+\.\w+)\s+
-#          ?(?P<aes_128_cbc_64_bytes>\d+\.\w+)\s+
-#          ?(?P<aes_128_cbc_256_bytes>\d+\.\w+)\s+
-#          ?(?P<aes_128_cbc_1024_bytes>\d+\.\w+)\s+
-#          ?(?P<aes_128_cbc_8192_bytes>\d+\.\w+)$
+- name: collect ssl aes metrics
+  collect:
+    string: "{{ openssl_aes_log.stdout }}"
+    patterns:
+      - |-
+          ^aes-128-cbc\s+
+          ?(?P<aes_128_cbc_16_bytes>\d+\.\w+)\s+
+          ?(?P<aes_128_cbc_64_bytes>\d+\.\w+)\s+
+          ?(?P<aes_128_cbc_256_bytes>\d+\.\w+)\s+
+          ?(?P<aes_128_cbc_1024_bytes>\d+\.\w+)\s+
+          ?(?P<aes_128_cbc_8192_bytes>\d+\.\w+)$
+    dump: openssl_aes.log
+  register: ssl_aes_metrics
 
 - name: create SSL report
   template:

@@ -8,5 +8,5 @@
 #############################################################################
 
 ---
-nDPI_cwd: "{{ ansible_env.HOME }}/qtip/nDPI"
-nDPI_file: "dpi.pcap"
+workdir: "{{ qtip_workdir }}/ndpi"
+sample_pcap: "dpi.pcap"

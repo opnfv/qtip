@@ -13,7 +13,7 @@
     name: epel-release
     state: present
 
-- name: installing dependencis
+- name: installing dependencies
   yum:
     name: "{{ item }}"
     state: present

@@ -17,3 +17,4 @@ installer_master_group:
 
 workspace: "workspace"
 qtip_package: ../../..
+qtip_cache: .qtip-cache

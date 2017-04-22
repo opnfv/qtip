@@ -9,4 +9,10 @@
 
 ---
 
-- include: "{{ tasks }}.yml"
+- name: calculate compute score
+  calculate:
+    metrics:
+      ssl_rsa: "{{ ssl_rsa_metrics }}"
+    spec:   "{{ qtip_resources }}/QPI/compute.yaml"
+  register: qpi_result
+  delegate_to: localhost

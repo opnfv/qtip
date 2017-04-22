@@ -8,43 +8,10 @@
 ##############################################################################
 
 # Prepare connection to SUT (System Under Test)
-- hosts: fuel-masters
+
+---
+
+- hosts: [fuel-masters, apex-underclouds]
   gather_facts: no
-  tasks:
-  - name: collect facts of fuel hosts
-    fuel:
-
-- hosts: apex-underclouds
-  gather_facts: no
-
-  tasks:
-  - name: collect overcloud baremetal info
-    shell: . /root/stackrc && openstack baremetal list --fields instance_uuid properties provision_state --format json
-    register: baremetal_info
-  - name: collect overcloud server info
-    shell: . /root/stackrc && openstack server list --format json
-    register: server_info
-  - name: generate inventory
-    apex_generate_inventory:
-      baremetal_info: "{{ baremetal_info.stdout | from_json }}"
-      server_info: "{{ server_info.stdout | from_json }}"
-
-- hosts:
-  - fuel-masters
-  - apex-underclouds
-  tasks:
-  - name: update inventory file
-    template: src=templates/hosts dest=./hosts
-    delegate_to: localhost
-  - name: update ssh.cfg file
-    template: src=templates/ssh.cfg dest=./ssh.cfg
-    delegate_to: localhost
-
-- hosts: localhost
-  tasks:
-  - name: create cache directory
-    file:
-      path: "{{ item }}"
-      state: directory
-    with_items:
-      - "{{ qtip_cache }}"
+  roles:
+    - { role: qtip, tasks: generate-inventory }

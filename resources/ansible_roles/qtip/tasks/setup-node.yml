@@ -9,4 +9,14 @@
 
 ---
 
-- include: "{{ tasks }}.yml"
+- name: overriding result directory name
+  set_fact:
+    qtip_results: "{{ hostvars['localhost']['qtip_results_base']}}/{{ inventory_hostname }}"
+
+- name: create result directory
+  file:
+    path: "{{ qtip_results }}"
+    state: directory
+  delegate_to: localhost
+
+- include: install-deps.yml

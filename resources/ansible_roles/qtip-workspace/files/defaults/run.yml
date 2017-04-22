@@ -8,74 +8,38 @@
 ##############################################################################
 
 ---
-# Execute compute benchmark plan and collect data
-# - system information
-# - test condition
-# - performance metrics
 
 - hosts: localhost
-  tasks:
-  - name: setting result directory name
-    set_fact:
-      qtip_results_base: "{{ qtip_results }}/{{ pod_name }}-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
-
-- hosts: compute
-
-  pre_tasks:
-
-  - name: check ssh connection
-    ping:
-
-  - name: overriding result directory name
-    set_fact:
-      qtip_results: "{{ hostvars['localhost']['qtip_results_base']}}/{{ inventory_hostname }}"
-
-  - name: create result directory
-    file:
-      path: "{{ qtip_results }}"
-      state: directory
-    delegate_to: localhost
 
   roles:
-  - qtip-deps
-
-  tags: [setup]
+  # prepare local environment
+  - { role: qtip, tasks: setup-local }
 
 
 - hosts: compute
 
   roles:
+  # prepare environment
+  - { role: qtip, tasks: setup-node }
 
+
+- hosts: compute
+
+  roles:
+  # run test and collect metrics
     - { role: inxi, tags: [inxi, sysinfo] }
     - { role: unixbench, tags: [unixbench, float, int] }
     - { role: openssl, tags: [openssl, ssl]}
     - { role: nDPI, tags: [ndpi, dpi]}
     - { role: ramspeed, tags: [ramspeed, mem]}
-
-  post_tasks:
-  - name: calculate QPI of compute
-    calculate:
-      metrics:
-        ssl_rsa: "{{ ssl_rsa_metrics }}"
-      spec:   "{{ qtip_resources }}/QPI/compute.yaml"
-    register: qpi_result
-    delegate_to: localhost
-    tags: [qpi]
+  # calculate scores
+    - { role: qtip, tasks: calculate}
 
 
 - hosts: localhost
 
-  pre_tasks:
-
-  - name: aggregate QPI results from all tested nodes
-    aggregate:
-      group: compute
-    register: pod_result
-    tags: [pod]
-
-  # Generate and publish report
-
   roles:
-    - role: opnfv-testapi
-      action: report
-      when: testapi_url is defined
+  # aggregate results and produce report
+    - { role: qtip, tasks: aggregate }
+  # publish results
+    - { role: opnfv-testapi, tasks: report, when: testapi_url is defined}

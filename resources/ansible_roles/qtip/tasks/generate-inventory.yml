@@ -7,6 +7,15 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+# Common tasks for installer master setup
+
 ---
 
-- include: "{{ tasks }}.yml"
+- include: "gather-facts-{{ installer }}.yml"
+
+- name: generating inventory file
+  template: src=templates/hosts dest=./hosts
+  delegate_to: localhost
+- name: generating ssh.cfg file
+  template: src=templates/ssh.cfg dest=./ssh.cfg
+  delegate_to: localhost

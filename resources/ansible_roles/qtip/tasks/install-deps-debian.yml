@@ -8,14 +8,14 @@
 ##############################################################################
 
 ---
-- name: Installing software properties common
+- name: installing software properties common
   apt:
     name: "{{ item }}"
     state: present
   with_items:
     - software-properties-common
 
-- name: Adding ubuntu backport main repo
+- name: adding ubuntu backport main repo
   apt_repository:
     repo: "{{ item }}"
     state: present
@@ -23,7 +23,7 @@
     - deb http://archive.ubuntu.com/ubuntu/ {{ansible_distribution_release}}-backports  main restricted universe multiverse
     - deb http://archive.ubuntu.com/ubuntu/ {{ansible_distribution_release}} main restricted universe multiverse
 
-- name: Installing required software
+- name: installing dependencies
   apt:
     name: "{{ item }}"
     state: present

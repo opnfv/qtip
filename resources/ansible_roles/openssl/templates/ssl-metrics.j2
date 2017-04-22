@@ -6,20 +6,20 @@ SSL metrics
 RSA
 ---
 
-{{ ('Sign 512 bits', ssl_rsa_metrics.rsa_sign_512)|justify }}
-{{ ('Verify 512 bits', ssl_rsa_metrics.rsa_verify_512)|justify }}
-{{ ('Sign 1024 bits', ssl_rsa_metrics.rsa_sign_1024)|justify }}
-{{ ('Verify 1024 bits', ssl_rsa_metrics.rsa_verify_1024)|justify }}
-{{ ('Sign 2048 bits', ssl_rsa_metrics.rsa_sign_2048)|justify }}
-{{ ('Verify 2048 bits', ssl_rsa_metrics.rsa_verify_2048)|justify }}
-{{ ('Sign 4096 bits', ssl_rsa_metrics.rsa_sign_4096)|justify }}
-{{ ('Verify 4096 bits', ssl_rsa_metrics.rsa_verify_4096)|justify }}
+{{ ('Sign 512 bits', ssl_rsa_metrics.rsa_sign_512[0])|justify }}
+{{ ('Verify 512 bits', ssl_rsa_metrics.rsa_verify_512[0])|justify }}
+{{ ('Sign 1024 bits', ssl_rsa_metrics.rsa_sign_1024[0])|justify }}
+{{ ('Verify 1024 bits', ssl_rsa_metrics.rsa_verify_1024[0])|justify }}
+{{ ('Sign 2048 bits', ssl_rsa_metrics.rsa_sign_2048[0])|justify }}
+{{ ('Verify 2048 bits', ssl_rsa_metrics.rsa_verify_2048[0])|justify }}
+{{ ('Sign 4096 bits', ssl_rsa_metrics.rsa_sign_4096[0])|justify }}
+{{ ('Verify 4096 bits', ssl_rsa_metrics.rsa_verify_4096[0])|justify }}
 
 AES
 ---
 
-{{ ('128 CBC 16 bytes', ssl_aes_metrics.aes_128_cbc_16_bytes)|justify }}
-{{ ('128 CBC 64 bytes', ssl_aes_metrics.aes_128_cbc_64_bytes)|justify }}
-{{ ('128 CBC 256 bytes', ssl_aes_metrics.aes_128_cbc_256_bytes)|justify }}
-{{ ('128 CBC 1024 bytes', ssl_aes_metrics.aes_128_cbc_1024_bytes)|justify }}
-{{ ('128 CBC 8192 bytes', ssl_aes_metrics.aes_128_cbc_8192_bytes)|justify }}
+{{ ('128 CBC 16 bytes', ssl_aes_metrics.aes_128_cbc_16_bytes[0])|justify }}
+{{ ('128 CBC 64 bytes', ssl_aes_metrics.aes_128_cbc_64_bytes[0])|justify }}
+{{ ('128 CBC 256 bytes', ssl_aes_metrics.aes_128_cbc_256_bytes[0])|justify }}
+{{ ('128 CBC 1024 bytes', ssl_aes_metrics.aes_128_cbc_1024_bytes[0])|justify }}
+{{ ('128 CBC 8192 bytes', ssl_aes_metrics.aes_128_cbc_8192_bytes[0])|justify }}

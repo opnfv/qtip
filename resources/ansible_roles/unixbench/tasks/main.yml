@@ -40,7 +40,7 @@
     src: "{{ item }}.j2"
     dest: "{{ qtip_results }}/{{ item }}"
   with_items:
-    - floating-point
-    - integer
+    - floating-point-metrics
+    - integer-metrics
   delegate_to: localhost
   tags: [report]

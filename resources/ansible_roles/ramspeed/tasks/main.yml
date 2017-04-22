@@ -9,35 +9,42 @@
 
 - name: making ramspeed working directory
   file:
-    path: "{{ cwd }}"
+    path: "{{ workdir }}"
     state: directory
   tags: [setup]
 
-- name: download ramspeed/ramsmp
-  unarchive:
-    src: http://www.alasir.com/software/ramspeed/ramsmp-3.5.0.tar.gz
-    dest: "{{ cwd }}"
-    remote_src: yes
+- name: downloading ramsmp
+  get_url:
+    url: http://www.alasir.com/software/ramspeed/ramsmp-3.5.0.tar.gz
+    dest: "{{ workdir }}"
+    checksum: "sha256:39fb15493fb3c293575746d56f6ab9faaa1d876d8b1f0d8e5a4042d2ace95839"
   tags: [setup]
+
+- name: extracting ramsmp
+  # TODO(yujunz) unarchive may not work with long path (local: macOS, workdir: /root/qtip-workdir-20170423-0836/)
+  command: "tar zxf ramsmp-3.5.0.tar.gz"
+  args:
+    chdir: "{{ workdir }}"
+    creates: ramsmp-3.5.0
 
 - name: build ramsmp
   command: ./build.sh
   args:
-    chdir: "{{ cwd }}/ramsmp-3.5.0"
+    chdir: "{{ workdir }}/ramsmp-3.5.0"
     creates: ramsmp
   tags: [setup]
 
 - name: intmem benchmarking
   command: ./ramsmp -b 3 -l 5 -p 1
   args:
-    chdir: "{{ cwd }}/ramsmp-3.5.0"
+    chdir: "{{ workdir }}/ramsmp-3.5.0"
   register: ramsmp_intmem_out
   tags: [run]
 
 - name: floatmem benchmarking
   command: ./ramsmp -b 6 -l 5 -p 1
   args:
-    chdir: "{{ cwd }}/ramsmp-3.5.0"
+    chdir: "{{ workdir }}/ramsmp-3.5.0"
   register: ramsmp_floatmem_out
   tags: [run]
 

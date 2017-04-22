@@ -13,10 +13,15 @@
   set_fact:
     qtip_results: "{{ hostvars['localhost']['qtip_results_base']}}/{{ inventory_hostname }}"
 
-- name: create result directory
+- name: creating result directory
   file:
     path: "{{ qtip_results }}"
     state: directory
   delegate_to: localhost
+
+- name: creating work directory
+  file:
+    path: "{{ qtip_workdir }}"
+    state: directory
 
 - include: install-deps.yml

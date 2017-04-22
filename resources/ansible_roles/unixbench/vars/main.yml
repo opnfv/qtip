@@ -7,6 +7,6 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 #############################################################################
 
-cwd: "{{ ansible_env.HOME }}/qtip/unixbench"
+workdir: "{{ qtip_workdir }}/unixbench"
 iterations: 1
 parallel_copies: 1

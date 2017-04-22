@@ -7,13 +7,19 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+from jinja2 import Environment
+import pytest
 
 from qtip.reporter import filters
-from jinja2 import Environment
 
 
-def test_justify():
+@pytest.mark.parametrize('template, content, output', [
+    ('{{ content|justify(width=6) }}', [('k1', 'v1'), ('k2', 'v2')], 'k1..v1\nk2..v2'),
+    ('{{ content|justify(width=6) }}', ('k1', 'v1'), 'k1..v1'),
+    ('{{ content|justify(width=6) }}', {'k1': 'v1'}, 'k1..v1')
+])
+def test_justify(template, content, output):
     env = Environment()
     env.filters['justify'] = filters.justify
-    template = env.from_string('{{ kvpair|justify(width=10) }}')
-    assert template.render(kvpair=('key', 'value')) == 'key..value'
+    template = env.from_string(template)
+    assert template.render(content=content) == output

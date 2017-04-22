@@ -62,6 +62,6 @@
 - name: create dpi report
   template:
     src: dpi-metrics.j2
-    dest: "{{ qtip_results }}/{{ inventory_hostname }}/dpi-metrics"
+    dest: "{{ qtip_results }}/dpi-metrics"
   delegate_to: localhost
   tags: [report]

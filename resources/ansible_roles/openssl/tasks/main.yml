@@ -60,6 +60,6 @@
 - name: create SSL report
   template:
     src: ssl-metrics.j2
-    dest: "{{ qtip_results }}/{{ inventory_hostname }}/ssl-metrics"
+    dest: "{{ qtip_results }}/ssl-metrics"
   delegate_to: localhost
   tags: [report]

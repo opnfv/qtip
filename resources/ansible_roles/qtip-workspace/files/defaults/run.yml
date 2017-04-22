@@ -13,6 +13,12 @@
 # - test condition
 # - performance metrics
 
+- hosts: localhost
+  tasks:
+  - name: setting result directory name
+    set_fact:
+      qtip_results_base: "{{ qtip_results }}/{{ pod_name }}-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+
 - hosts: compute
 
   pre_tasks:
@@ -20,9 +26,13 @@
   - name: check ssh connection
     ping:
 
+  - name: overriding result directory name
+    set_fact:
+      qtip_results: "{{ hostvars['localhost']['qtip_results_base']}}/{{ inventory_hostname }}"
+
   - name: create result directory
     file:
-      path: "{{ qtip_results }}/{{ inventory_hostname }}"
+      path: "{{ qtip_results }}"
       state: directory
     delegate_to: localhost
 

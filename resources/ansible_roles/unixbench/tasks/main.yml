@@ -32,13 +32,13 @@
   synchronize:
     mode: pull
     src: "{{ cwd }}/byte-unixbench-5.1.3/UnixBench/results/"
-    dest: "{{ qtip_results }}/{{ inventory_hostname }}/unixbench"
+    dest: "{{ qtip_results }}/unixbench"
     use_ssh_args: yes
 
 - name: create integer and floating point report
   template:
     src: "{{ item }}.j2"
-    dest: "{{ qtip_results }}/{{ inventory_hostname }}/{{ item }}"
+    dest: "{{ qtip_results }}/{{ item }}"
   with_items:
     - floating-point
     - integer

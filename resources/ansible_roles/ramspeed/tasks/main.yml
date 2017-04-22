@@ -70,6 +70,6 @@
 - name: create memory metrics report
   template:
     src: "memory-metrics.j2"
-    dest: "{{ qtip_results }}/{{ inventory_hostname }}/memory-metrics"
+    dest: "{{ qtip_results }}/memory-metrics"
   delegate_to: localhost
   tags: [report]

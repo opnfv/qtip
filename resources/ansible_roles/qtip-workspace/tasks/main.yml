@@ -7,15 +7,15 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-- name: copy initial files
+- name: copying default files
   synchronize:
-    src:  copy/
+    src:  defaults/
     dest: "{{ workspace }}/"
 
-- name: generate default configuration
+- name: customizing for workspace
   template:
     src: "{{ item.src }}"
     dest: "{{ workspace }}/{{ item.path }}"
     force: yes
-  with_filetree: render
+  with_filetree: custom
   when: item.state == 'file'

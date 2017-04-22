@@ -8,12 +8,12 @@
 ##############################################################################
 
 ---
-- name: Installing epel release
+- name: installing epel release
   yum:
     name: epel-release
     state: present
 
-- name: Installing required packages
+- name: installing dependencis
   yum:
     name: "{{ item }}"
     state: present

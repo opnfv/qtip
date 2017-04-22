@@ -9,4 +9,7 @@
 
 ---
 
-- include: "{{ tasks }}.yml"
+- name: aggregate results from all tested nodes
+  aggregate:
+    group: compute
+  register: pod_result

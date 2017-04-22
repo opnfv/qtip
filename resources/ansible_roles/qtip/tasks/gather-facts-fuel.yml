@@ -9,4 +9,5 @@
 
 ---
 
-- include: "{{ tasks }}.yml"
+- name: gathering facts of fuel slave nodes
+  fuel:

@@ -14,15 +14,34 @@
 
 - name: RSA signatures speed measurement
   command: openssl speed rsa
-  register: openssl_rsa_log
+  register: openssl_rsa_out
 
 - name: AES speed measurement
   command: openssl speed -evp aes-128-cbc
-  register: openssl_aes_log
+  register: openssl_aes_out
+
+
+- name: generating log filename
+  set_fact:
+    rsa_logfile: "{{ qtip_results }}/openssl_rsa.log"
+    aes_logfile: "{{ qtip_results }}/openssl_aes.log"
+
+# TODO(yujunz) `delegate_to` not working under `with_items`
+- name: saving rsa output to log
+  copy:
+    content: "{{ openssl_rsa_out.stdout }}"
+    dest: "{{ rsa_logfile }}"
+  delegate_to: localhost
+
+- name: saving aes output to log
+  copy:
+    content: "{{ openssl_aes_out.stdout }}"
+    dest: "{{ aes_logfile }}"
+  delegate_to: localhost
 
 - name: collect ssl rsa metrics
   collect:
-    string: "{{ openssl_rsa_log.stdout }}"
+    string: "{{ lookup('file', rsa_logfile) }}"
     patterns:
       - |-
           ^rsa\s+512\sbits\s.+\s+
@@ -40,12 +59,11 @@
           ^rsa\s+4096\sbits\s.+\s+
           ?(?P<rsa_sign_4096>\d+\.\d)\s+
           ?(?P<rsa_verify_4096>\d+\.\d)$
-    dump: openssl_rsa.log
   register: ssl_rsa_metrics
 
 - name: collect ssl aes metrics
   collect:
-    string: "{{ openssl_aes_log.stdout }}"
+    string: "{{ lookup('file', aes_logfile) }}"
     patterns:
       - |-
           ^aes-128-cbc\s+

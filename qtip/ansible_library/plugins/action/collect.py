@@ -27,12 +27,6 @@ class ActionModule(ActionBase):
         string = self._task.args.get('string')
         patterns = self._task.args.get('patterns')
 
-        dump = self._task.args.get('dump')
-        if dump is not None:
-            root = task_vars.get('qtip_results', 'results')
-            base = task_vars.get('dump_base', 'dump')
-            dump_facts([{'name': dump, 'content': string}], root, base)
-
         return collect(patterns, string)
 
 
@@ -50,11 +44,3 @@ def collect(patterns, string):
                 captured[key].append(value)
 
     return captured
-
-
-def dump_facts(facts, root, base):
-    dest = os.path.join(root, base)
-    if not os.path.exists(dest):
-        os.makedirs(dest)
-    return [{'name': fact['name'], 'result': open(os.path.join(dest, fact['name']), 'w+').write(fact['content'])}
-            for fact in facts]

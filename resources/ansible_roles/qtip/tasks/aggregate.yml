@@ -13,3 +13,8 @@
   aggregate:
     group: compute
   register: pod_result
+
+- name: dump pod results
+  copy:
+    content: "{{ pod_result }}"
+    dest: "{{ qtip_pod_results }}/qtip-report.json"

@@ -1,14 +1,14 @@
-Sample QPI Report
-
-Pod: {{ pod_result.score }}
-
+---
+name: Sample QPI Report
+pod: {{ pod_result.score }}
+hosts:
+-
 {% for host in groups['compute'] %}
 {% set qpi_result = hostvars[host].qpi_result %}
-
-Host:   {{ hostvars[host].ansible_hostname }}
-QPI:    {{ qpi_result.score }}
-Spec:   {{ qpi_result.spec.name }}
-
+    hosts: {{ hostvars[host].ansible_hostname }}
+    qpi: {{ qpi_result.score }}
+    spec: {{ qpi_result.spec.name }}
+    sections:
 {% for section in qpi_result.section_results %}
 - {{ section.name }}: {{ section.result.score }}
 {% for metric in section.result.metric_results %}

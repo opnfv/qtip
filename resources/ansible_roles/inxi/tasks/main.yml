@@ -16,6 +16,16 @@
   command: inxi -b -c0 -n
   register: inxi_out
 
+- name: generating log filename
+  set_fact:
+    logfile: "{{ qtip_results }}/inxi.log"
+
+- name: saving output to log
+  copy:
+    content: "{{ inxi_out.stdout }}"
+    dest: "{{ logfile }}"
+  delegate_to: localhost
+
 # TODO(yujunz) normalize system information, test condition and performance metrics for future data mining
 # e.g. convert "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-) speed/max: 1200/3000 MHz" to
 # ---
@@ -31,7 +41,7 @@
 #   cache_mb: None
 - name: collect system information from inxi
   collect:
-    string: "{{ inxi_out.stdout }}"
+    string: "{{ lookup('file', logfile) }}"
     patterns:
       - '.+\s+Host:\s+(?P<hostname>.+)\sKernel'
       - '.+\sMemory:\s+(?P<memory>.+MB)\s'
@@ -42,6 +52,7 @@
       - '.+\sproduct:\s+(?P<product>.+)\sv'
     dump: 'inix.log'
   register: system_info
+  delegate_to: localhost
 
 - name: create system information report
   template:

@@ -43,25 +43,34 @@
     checksum: "sha256:ac5d1501d91a6d8a8d3bfcef6f74a87bf660cd2c2ab11b9791535aa5193e4f71"
     validate_certs: no  # required when using proxy for https
 
-- name:
+- name: measuring dpi performance
   command: "./ndpiReader -i {{ sample_pcap }}"
   args:
     chdir: "{{ workdir }}/nDPI-1.6/example/"
   register: ndpi_out
 
-- name: collect DPI metrics from nDPI
+- name: generating log filename
+  set_fact:
+    logfile: "{{ qtip_results }}/nDPI.log"
+
+- name: saving output to log
+  copy:
+    content: "{{ ndpi_out.stdout }}"
+    dest: "{{ logfile }}"
+  delegate_to: localhost
+
+- name: collecting DPI metrics
   collect:
-    string: "{{ ndpi_out.stdout }}"
+    string: "{{ lookup('file', logfile) }}"
     patterns:
       # 	nDPI throughput:       1.46 M pps / 13.69 Gb/sec
       # TODO(yujunz) convert "M pps" and "K pps" to number
       - 'nDPI throughput:\s+?(?P<dpi_pps>\d+.\d+.*) \/ (?P<dpi_bps>\d+.\d+.*)$'
-    dump: 'nDPI.log'
   register: dpi_metrics
+  delegate_to: localhost
 
 - name: create dpi report
   template:
     src: dpi-metrics.j2
     dest: "{{ qtip_results }}/dpi-metrics"
   delegate_to: localhost
-  tags: [report]

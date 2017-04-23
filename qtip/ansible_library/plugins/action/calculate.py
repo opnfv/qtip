@@ -34,7 +34,15 @@ class ActionModule(ActionBase):
 
         metrics = self._task.args.get('metrics')
 
-        return calc_qpi(spec, metrics)
+        result = calc_qpi(spec, metrics)
+
+        dump = self._task.args.get('dump')
+        if dump is not None:
+            root = task_vars.get('qtip_results', 'results')
+            base = task_vars.get('dump_base', 'dump')
+            dump_facts([{'name': dump, 'content': string}], root, base)
+
+        return result
 
 
 def calc_qpi(qpi_spec, metrics):

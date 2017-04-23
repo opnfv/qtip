@@ -11,7 +11,7 @@
 
 - name: overriding result directory name
   set_fact:
-    qtip_results: "{{ hostvars['localhost']['qtip_results_base']}}/{{ inventory_hostname }}"
+    qtip_results: "{{ hostvars['localhost']['qtip_pod_results']}}/{{ inventory_hostname }}"
 
 - name: creating result directory
   file:

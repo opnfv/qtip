@@ -32,5 +32,6 @@ class ActionModule(ActionBase):
 def aggregate(group, task_vars):
     qpi_results = [task_vars['hostvars'][host]['qpi_result'] for host in task_vars['groups'][group]]
     return {
-        'score': int(mean([r['score'] for r in qpi_results]))
+        'score': int(mean([r['score'] for r in qpi_results])),
+        'aggregated': qpi_results
     }

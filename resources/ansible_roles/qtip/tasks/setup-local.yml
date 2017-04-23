@@ -11,7 +11,7 @@
 
 - name: setting result directory name
   set_fact:
-    qtip_results_base: "{{ qtip_results }}/{{ pod_name }}-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+    qtip_pod_results: "{{ qtip_results }}/{{ pod_name }}-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 
 - name: create cache directory
   file:

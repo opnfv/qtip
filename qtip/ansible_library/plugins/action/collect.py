@@ -10,6 +10,7 @@
 ##############################################################################
 
 from collections import defaultdict
+import json
 import re
 
 from ansible.plugins.action import ActionBase
@@ -25,11 +26,12 @@ class ActionModule(ActionBase):
 
         string = self._task.args.get('string')
         patterns = self._task.args.get('patterns')
+        export_to = self._task.args.get('export_to')
 
-        return collect(patterns, string)
+        return collect(patterns, string, export_to)
 
 
-def collect(patterns, string):
+def collect(patterns, string, export_to):
     """collect all named subgroups of the match into a list keyed by subgroup name
     """
     captured = defaultdict(list)
@@ -42,4 +44,7 @@ def collect(patterns, string):
             for (key, value) in match_obj.groupdict().items():
                 captured[key].append(value)
 
+    if export_to:
+        with open(export_to, 'w+') as f:
+            f.write(json.dumps(captured, indent=2))
     return captured

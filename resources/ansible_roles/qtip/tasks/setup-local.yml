@@ -9,9 +9,20 @@
 
 ---
 
-- name: setting result directory name
+- name: formatting directory name for current run
   set_fact:
-    qtip_results_base: "{{ qtip_results }}/{{ pod_name }}-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+    pod_results: "{{ pod_name }}-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+
+- name: creating directory for current run
+  file:
+    state: directory
+    path: "{{ qtip_results }}/{{ pod_results }}"
+
+- name: creating symbolic link to current test
+  file:
+    state: link
+    src: "{{ pod_results }}"
+    dest: "{{ qtip_results }}/current"
 
 - name: create cache directory
   file:

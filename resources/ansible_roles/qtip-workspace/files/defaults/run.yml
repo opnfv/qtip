@@ -13,33 +13,33 @@
 
   roles:
   # prepare local environment
-  - { role: qtip, tasks: setup-local }
+  - { role: qtip, tasks: setup-local, tags: [setup] }
 
 
 - hosts: compute
 
   roles:
   # prepare environment
-  - { role: qtip, tasks: setup-node }
+  - { role: qtip, tasks: setup-node, tags: [setup] }
 
 
 - hosts: compute
 
   roles:
   # run test and collect metrics
-    - { role: inxi, tags: [inxi, sysinfo] }
-    - { role: unixbench, tags: [unixbench, float, int] }
-    - { role: openssl, tags: [openssl, ssl]}
-    - { role: nDPI, tags: [ndpi, dpi]}
-    - { role: ramspeed, tags: [ramspeed, mem]}
+    - { role: inxi, tags: [run, inxi, sysinfo] }
+    - { role: unixbench, tags: [run, unixbench, arithmetic] }
+    - { role: openssl, tags: [run, openssl, ssl] }
+    - { role: nDPI, tags: [run, ndpi, dpi] }
+    - { role: ramspeed, tags: [run, ramspeed, memory] }
   # calculate scores
-    - { role: qtip, tasks: calculate}
+    - { role: qtip, tasks: calculate, tags: [calculate] }
 
 
 - hosts: localhost
 
   roles:
   # aggregate results and produce report
-    - { role: qtip, tasks: aggregate }
+    - { role: qtip, tasks: aggregate, tags: [aggregate] }
   # publish results
-    - { role: opnfv-testapi, tasks: report, when: testapi_url is defined}
+    - { role: opnfv-testapi, tasks: report, when: testapi_url is defined, tags: [report] }

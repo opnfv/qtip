@@ -19,6 +19,8 @@
 - name: generating log filename
   set_fact:
     logfile: "{{ qtip_results }}/inxi.log"
+  tags:
+    - always
 
 - name: saving output to log
   copy:
@@ -50,13 +52,16 @@
       - '.+\sKernel:\s+(?P<kernel>.+)\sConsole'
       - '.+\s+HDD Total Size:\s+(?P<disk>.+)\s'
       - '.+\sproduct:\s+(?P<product>.+)\sv'
-    dump: 'inix.log'
+    export_to: "{{ qtip_results }}/system_info.json"
   register: system_info
   delegate_to: localhost
+  tags:
+    - collect
 
 - name: create system information report
   template:
     src: system-info.j2
     dest: "{{ qtip_results }}/system-info"
   delegate_to: localhost
-  tags: [report]
+  tags:
+    - report

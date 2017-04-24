@@ -61,6 +61,7 @@
       # Double-Precision Whetstone                       55.0       3720.5    676.5
       - '^Dhrystone 2 using register variables\s+(\d+\.\d+)\s+(?P<dhrystone_lps>\d+\.\d+)\s+(\d+\.\d+)'
       - '^Double-Precision Whetstone\s+(\d+\.\d+)\s+(?P<whetstone_MWIPS>\d+\.\d+)\s+(\d+\.\d+)'
+    export_to: "{{ qtip_results }}/arithmetic_metrics.json"
   register: arithmetic_metrics
   delegate_to: localhost
 

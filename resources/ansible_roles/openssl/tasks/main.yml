@@ -59,6 +59,7 @@
           ^rsa\s+4096\sbits\s.+\s+
           ?(?P<rsa_sign_4096>\d+\.\d)\s+
           ?(?P<rsa_verify_4096>\d+\.\d)$
+    export_to: "{{ qtip_results }}/ssl_rsa_metrics.json"
   register: ssl_rsa_metrics
 
 - name: collect ssl aes metrics
@@ -72,7 +73,7 @@
           ?(?P<aes_128_cbc_256_bytes>\d+\.\w+)\s+
           ?(?P<aes_128_cbc_1024_bytes>\d+\.\w+)\s+
           ?(?P<aes_128_cbc_8192_bytes>\d+\.\w+)$
-    dump: openssl_aes.log
+    export_to: "{{ qtip_results }}/ssl_aes_metrics.json"
   register: ssl_aes_metrics
 
 - name: create SSL report

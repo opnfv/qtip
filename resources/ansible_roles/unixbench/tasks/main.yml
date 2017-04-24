@@ -35,20 +35,37 @@
   shell: "./Run -i {{ iterations }} -c {{ parallel_copies }} dhrystone whetstone"
   args:
     chdir: "{{ workdir }}/byte-unixbench-5.1.3/UnixBench"
+  register: unixbench_out
 
-- name: synchronize test results to local
-  synchronize:
-    mode: pull
-    src: "{{ workdir }}/byte-unixbench-5.1.3/UnixBench/results/"
-    dest: "{{ qtip_results }}/unixbench"
-    use_ssh_args: yes
+- name: generating log filename
+  set_fact:
+    logfile: "{{ qtip_results }}/unixbench.log"
 
-- name: create integer and floating point report
-  template:
-    src: "{{ item }}.j2"
-    dest: "{{ qtip_results }}/{{ item }}"
-  with_items:
-    - floating-point-metrics
-    - integer-metrics
+- name: saving output to log
+  copy:
+    content: "{{ unixbench_out.stdout }}"
+    dest: "{{ logfile }}"
   delegate_to: localhost
-  tags: [report]
+
+- name: saving unixbench output to log
+  copy:
+    content: "{{ unixbench_out.stdout }}"
+    dest: "{{ logfile }}"
+  delegate_to: localhost
+
+- name: collecting arithmetic metrics from unixbench
+  collect:
+    string: "{{ lookup('file', logfile) }}"
+    patterns:
+      # Dhrystone 2 using register variables         116700.0   29223521.3   2504.2
+      # Double-Precision Whetstone                       55.0       3720.5    676.5
+      - '^Dhrystone 2 using register variables\s+(\d+\.\d+)\s+(?P<dhrystone_lps>\d+\.\d+)\s+(\d+\.\d+)'
+      - '^Double-Precision Whetstone\s+(\d+\.\d+)\s+(?P<whetstone_MWIPS>\d+\.\d+)\s+(\d+\.\d+)'
+  register: arithmetic_metrics
+  delegate_to: localhost
+
+- name: creating arithmetic metrics report
+  template:
+    src: arithmetic-metrics.j2
+    dest: "{{ qtip_results }}/arithmetic-metrics"
+  delegate_to: localhost

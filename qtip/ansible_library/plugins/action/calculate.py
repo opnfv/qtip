@@ -38,12 +38,13 @@ class ActionModule(ActionBase):
             spec = yaml.safe_load(stream)
 
         metrics = self._task.args.get('metrics')
-        export_to = self._task.args.get('export_to')
+        dest = self._task.args.get('dest')
 
-        return calc_qpi(spec, metrics, export_to)
+        return calc_qpi(spec, metrics, dest=dest)
 
 
-def calc_qpi(qpi_spec, metrics, dest=None):
+@export_to_file
+def calc_qpi(qpi_spec, metrics):
 
     display.vv("calculate QPI {}".format(qpi_spec['name']))
     display.vvv("spec: {}".format(qpi_spec))
@@ -62,9 +63,6 @@ def calc_qpi(qpi_spec, metrics, dest=None):
         'section_results': section_results,
         'metrics': metrics
     }
-
-    if dest is not None:
-        export_to_file(results, dest)
 
     return results
 

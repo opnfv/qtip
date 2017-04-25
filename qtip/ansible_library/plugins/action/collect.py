@@ -27,12 +27,13 @@ class ActionModule(ActionBase):
 
         string = self._task.args.get('string')
         patterns = self._task.args.get('patterns')
-        export_to = self._task.args.get('export_to')
+        dest = self._task.args.get('dest')
 
-        return collect(patterns, string, export_to)
+        return collect(patterns, string, dest=dest)
 
 
-def collect(patterns, string, dest=None):
+@export_to_file
+def collect(patterns, string):
     """collect all named subgroups of the match into a list keyed by subgroup name
     """
     captured = defaultdict(list)
@@ -44,8 +45,5 @@ def collect(patterns, string, dest=None):
         for match_obj in re.finditer(p, string, re.MULTILINE):
             for (key, value) in match_obj.groupdict().items():
                 captured[key].append(value)
-
-    if dest is not None:
-        export_to_file(captured, dest)
 
     return captured

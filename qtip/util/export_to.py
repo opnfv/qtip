@@ -10,6 +10,11 @@
 import json
 
 
-def export_to_file(content, filename):
-    with open(filename, 'w+') as f:
-        f.write(json.dumps(content, indent=2))
+def export_to_file(func):
+    def func_wrapper(spec, metrics, dest=None):
+        content = func(spec, metrics)
+        if dest is not None:
+            with open(dest, 'w+') as f:
+                f.write(json.dumps(content, indent=2))
+        return content
+    return func_wrapper

@@ -47,3 +47,12 @@ sections: # split based on different application
             baseline: 672675.50k
           - name: aes_128_cbc_8192_bytes
             baseline: 672344.75k
+  - name: DPI
+    description: deep packet inspection
+    metrics:
+      - name: dpi_throughput
+        workloads:
+          - name: dpi_pps
+            baseline: 2.19M
+          - name: dpi_bps
+            baseline: 20.55G

@@ -10,10 +10,11 @@
 ##############################################################################
 
 from collections import defaultdict
-import json
 import re
 
 from ansible.plugins.action import ActionBase
+
+from qtip.util.export_to import export_to_file
 
 
 class ActionModule(ActionBase):
@@ -31,7 +32,7 @@ class ActionModule(ActionBase):
         return collect(patterns, string, export_to)
 
 
-def collect(patterns, string, export_to=None):
+def collect(patterns, string, dest=None):
     """collect all named subgroups of the match into a list keyed by subgroup name
     """
     captured = defaultdict(list)
@@ -44,7 +45,7 @@ def collect(patterns, string, export_to=None):
             for (key, value) in match_obj.groupdict().items():
                 captured[key].append(value)
 
-    if export_to is not None:
-        with open(export_to, 'w+') as f:
-            f.write(json.dumps(captured, indent=2))
+    if dest is not None:
+        export_to_file(captured, dest)
+
     return captured

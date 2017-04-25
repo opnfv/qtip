@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2017 ZTE Corporation and others.
+# Copyright (c) 2017 ZTE and others.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
@@ -7,14 +7,9 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
----
+import json
 
-- name: calculate compute score
-  calculate:
-    metrics:
-      ssl_rsa: "{{ ssl_rsa_metrics }}"
-      ssl_aes: "{{ ssl_aes_metrics }}"
-    spec:   "{{ qtip_resources }}/QPI/compute.yaml"
-    export_to: "{{ qtip_results }}/qpi_result.json"
-  register: qpi_result
-  delegate_to: localhost
+
+def export_to_file(content, filename):
+    with open(filename, 'w+') as f:
+        f.write(json.dumps(content, indent=2))

@@ -83,3 +83,10 @@ def test_calc_section(section_spec, metrics, section_result):
 
 def test_calc_qpi(qpi_spec, metrics, qpi_result):
     assert calculate.calc_qpi(qpi_spec, metrics) == qpi_result
+
+
+@pytest.mark.parametrize('metrics, baseline, expected', [
+    (['612376.96k'], '612376.96k', 1)
+])
+def test_calc_score(metrics, baseline, expected):
+    assert calculate.calc_score(metrics, baseline) == expected

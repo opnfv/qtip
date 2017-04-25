@@ -9,11 +9,16 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+import humanfriendly
+import numbers
 from numpy import mean
 import yaml
 
 from ansible.plugins.action import ActionBase
 from ansible.utils.display import Display
+
+from qtip.util.export_to import export_to_file
+
 
 display = Display()
 
@@ -33,11 +38,12 @@ class ActionModule(ActionBase):
             spec = yaml.safe_load(stream)
 
         metrics = self._task.args.get('metrics')
+        export_to = self._task.args.get('export_to')
 
-        return calc_qpi(spec, metrics)
+        return calc_qpi(spec, metrics, export_to)
 
 
-def calc_qpi(qpi_spec, metrics):
+def calc_qpi(qpi_spec, metrics, dest=None):
 
     display.vv("calculate QPI {}".format(qpi_spec['name']))
     display.vvv("spec: {}".format(qpi_spec))
@@ -49,12 +55,18 @@ def calc_qpi(qpi_spec, metrics):
     # TODO(yujunz): use formula in spec
     standard_score = 2048
     qpi_score = int(mean([r['result']['score'] for r in section_results]) * standard_score)
-    return {
+
+    results = {
         'spec': qpi_spec,
         'score': qpi_score,
         'section_results': section_results,
         'metrics': metrics
     }
+
+    if dest is not None:
+        export_to_file(results, dest)
+
+    return results
 
 
 def calc_section(section_spec, metrics):
@@ -80,11 +92,18 @@ def calc_metric(metric_spec, metrics):
     display.vvv("metrics: {}".format(metrics))
 
     # TODO(yujunz): use formula in spec
-    # TODO(yujunz): convert metric to float in collector
-    workload_results = [{'name': w['name'], 'score': mean([float(m) for m in metrics[w['name']]]) / w['baseline']}
+    workload_results = [{'name': w['name'], 'score': calc_score(metrics[w['name']], w['baseline']) }
                         for w in metric_spec['workloads']]
     metric_score = mean([r['score'] for r in workload_results])
     return {
         'score': metric_score,
         'workload_results': workload_results
     }
+
+
+def calc_score(metrics, baseline):
+    if not isinstance(baseline, numbers.Number):
+        baseline = humanfriendly.parse_size(baseline)
+
+    return mean([m if isinstance(m, numbers.Number) else humanfriendly.parse_size(m)
+                 for m in metrics]) / baseline

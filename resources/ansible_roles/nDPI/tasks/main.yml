@@ -49,10 +49,6 @@
     chdir: "{{ workdir }}/nDPI-1.6/example/"
   register: ndpi_out
 
-- name: generating log filename
-  set_fact:
-    logfile: "{{ qtip_results }}/nDPI.log"
-
 - name: saving output to log
   copy:
     content: "{{ ndpi_out.stdout }}"
@@ -66,12 +62,12 @@
       # 	nDPI throughput:       1.46 M pps / 13.69 Gb/sec
       # TODO(yujunz) convert "M pps" and "K pps" to number
       - 'nDPI throughput:\s+?(?P<dpi_pps>\d+.\d+.*) \/ (?P<dpi_bps>\d+.\d+.*)$'
-    export_to: "{{ qtip_results }}/dpi_metrics.json"
+    dest: "{{ output }}/metrics.json"
   register: dpi_metrics
   delegate_to: localhost
 
 - name: create dpi report
   template:
     src: dpi-metrics.j2
-    dest: "{{ qtip_results }}/dpi-metrics"
+    dest: "{{ output }}/dpi-metrics"
   delegate_to: localhost

@@ -16,12 +16,6 @@
   command: inxi -b -c0 -n
   register: inxi_out
 
-- name: generating log filename
-  set_fact:
-    logfile: "{{ qtip_results }}/inxi.log"
-  tags:
-    - always
-
 - name: saving output to log
   copy:
     content: "{{ inxi_out.stdout }}"
@@ -52,7 +46,7 @@
       - '.+\sKernel:\s+(?P<kernel>.+)\sConsole'
       - '.+\s+HDD Total Size:\s+(?P<disk>.+)\s'
       - '.+\sproduct:\s+(?P<product>.+)\sv'
-    export_to: "{{ qtip_results }}/system_info.json"
+    dest: "{{ output }}/condition.json"
   register: system_info
   delegate_to: localhost
   tags:
@@ -61,7 +55,7 @@
 - name: create system information report
   template:
     src: system-info.j2
-    dest: "{{ qtip_results }}/system-info"
+    dest: "{{ output }}/report"
   delegate_to: localhost
   tags:
     - report

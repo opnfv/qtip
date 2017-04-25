@@ -45,8 +45,8 @@
 
 - name: generating log filename
   set_fact:
-    int_logfile: "{{ qtip_results }}/ramsmp-int.log"
-    float_logfile: "{{ qtip_results }}/ramsmp-float.log"
+    int_logfile: "{{ output }}/ramsmp-int.log"
+    float_logfile: "{{ output }}/ramsmp-float.log"
 
 - name: saving integer output to log
   copy:
@@ -69,7 +69,7 @@
       - '^INTEGER\s+BatchRun\s+Add:\s+?(?P<add>\d+\.\d+)\sMB/s$'
       - '^INTEGER\s+BatchRun\s+Triad:\s+?(?P<triad>\d+\.\d+)\sMB/s$'
       - '^INTEGER\s+BatchRun\s+AVERAGE:\s+?(?P<average>\d+\.\d+)\sMB/s$'
-    export_to: "{{ qtip_results }}/ram_int_metrics.json"
+    dest: "{{ output }}/integer-metrics.json"
   register: intmem_metrics
 
 - name: collect float memory metrics from ramspeed
@@ -81,11 +81,11 @@
       - '^FL-POINT\s+BatchRun\s+Add:\s+?(?P<add>\d+\.\d+)\sMB/s$'
       - '^FL-POINT\s+BatchRun\s+Triad:\s+?(?P<triad>\d+\.\d+)\sMB/s$'
       - '^FL-POINT\s+BatchRun\s+AVERAGE:\s+?(?P<average>\d+\.\d+)\sMB/s$'
-    export_to: "{{ qtip_results }}/ram_float_metrics.json"
+    dest: "{{ output }}/float-metrics.json"
   register: floatmem_metrics
 
 - name: create memory metrics report
   template:
     src: "memory-metrics.j2"
-    dest: "{{ qtip_results }}/memory-metrics"
+    dest: "{{ output }}/report"
   delegate_to: localhost

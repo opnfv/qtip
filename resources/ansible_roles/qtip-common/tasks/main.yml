@@ -9,12 +9,13 @@
 
 ---
 
-- name: calculate compute score
-  calculate:
-    metrics:
-      ssl_rsa: "{{ ssl_rsa_metrics }}"
-      ssl_aes: "{{ ssl_aes_metrics }}"
-    spec:   "{{ qtip_resources }}/QPI/compute.yaml"
-    dest: "{{ qtip_results }}/qpi_result.json"
-  register: qpi_result
+- name: creating output directory
+  file:
+    state: directory
+    path: "{{ output }}"
   delegate_to: localhost
+
+- name: generating log filename
+  set_fact:
+    logfile: "{{ output }}/{{ basename }}.log"
+  tags: always

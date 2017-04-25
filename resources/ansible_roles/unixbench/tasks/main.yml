@@ -37,16 +37,6 @@
     chdir: "{{ workdir }}/byte-unixbench-5.1.3/UnixBench"
   register: unixbench_out
 
-- name: generating log filename
-  set_fact:
-    logfile: "{{ qtip_results }}/unixbench.log"
-
-- name: saving output to log
-  copy:
-    content: "{{ unixbench_out.stdout }}"
-    dest: "{{ logfile }}"
-  delegate_to: localhost
-
 - name: saving unixbench output to log
   copy:
     content: "{{ unixbench_out.stdout }}"
@@ -61,12 +51,12 @@
       # Double-Precision Whetstone                       55.0       3720.5    676.5
       - '^Dhrystone 2 using register variables\s+(\d+\.\d+)\s+(?P<dhrystone_lps>\d+\.\d+)\s+(\d+\.\d+)'
       - '^Double-Precision Whetstone\s+(\d+\.\d+)\s+(?P<whetstone_MWIPS>\d+\.\d+)\s+(\d+\.\d+)'
-    export_to: "{{ qtip_results }}/arithmetic_metrics.json"
+    dest: "{{ output }}/metrics.json"
   register: arithmetic_metrics
   delegate_to: localhost
 
 - name: creating arithmetic metrics report
   template:
     src: arithmetic-metrics.j2
-    dest: "{{ qtip_results }}/arithmetic-metrics"
+    dest: "{{ output }}/report"
   delegate_to: localhost

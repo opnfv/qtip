@@ -9,3 +9,4 @@ pbr
 prettytable
 six
 PyYAML
+humanfriendly

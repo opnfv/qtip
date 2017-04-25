@@ -25,6 +25,7 @@
   set_fact:
     rsa_logfile: "{{ qtip_results }}/openssl_rsa.log"
     aes_logfile: "{{ qtip_results }}/openssl_aes.log"
+  tags: always
 
 # TODO(yujunz) `delegate_to` not working under `with_items`
 - name: saving rsa output to log
@@ -61,6 +62,7 @@
           ?(?P<rsa_verify_4096>\d+\.\d)$
     export_to: "{{ qtip_results }}/ssl_rsa_metrics.json"
   register: ssl_rsa_metrics
+  tags: collect
 
 - name: collect ssl aes metrics
   collect:
@@ -75,10 +77,11 @@
           ?(?P<aes_128_cbc_8192_bytes>\d+\.\w+)$
     export_to: "{{ qtip_results }}/ssl_aes_metrics.json"
   register: ssl_aes_metrics
+  tags: collect
 
 - name: create SSL report
   template:
     src: ssl-metrics.j2
     dest: "{{ qtip_results }}/ssl-metrics"
   delegate_to: localhost
-  tags: [report]
+  tags: report

@@ -34,3 +34,16 @@ sections: # split based on different application
             baseline: 102.1
           - name: rsa_verify_4096
             baseline: 6402.9
+      - name: ssl_aes
+        formual: geometric mean
+        workloads:
+          - name: aes_128_cbc_16_bytes
+            baseline: 612376.96k
+          - name: aes_128_cbc_64_bytes
+            baseline: 657350.74k
+          - name: aes_128_cbc_256_bytes
+            baseline: 669680.04k
+          - name: aes_128_cbc_1024_bytes
+            baseline: 672675.50k
+          - name: aes_128_cbc_8192_bytes
+            baseline: 672344.75k

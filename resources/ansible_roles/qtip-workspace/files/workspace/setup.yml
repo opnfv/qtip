@@ -1,3 +1,4 @@
+{% raw %}
 ##############################################################################
 # Copyright (c) 2017 ZTE Corporation and others.
 #
@@ -7,13 +8,12 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-- hosts: compute
+# Prepare connection to SUT (System Under Test)
 
-  vars_prompt:
-    - name: remove_workdir
-      prompt: "WARNING: remove work dir from system under test? (yes|no)"
-      default: no
+---
 
+- hosts: [fuel-masters, apex-underclouds]
+  gather_facts: no
   roles:
-  # teardown environment
-  - { role: qtip, tasks: teardown }
+    - { role: qtip, tasks: generate-inventory }
+{% endraw %}

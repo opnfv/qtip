@@ -1,3 +1,4 @@
+{% raw %}
 localhost   ansible_connection=local
 
 [{{ installer_master_group[installer] }}]
@@ -18,3 +19,4 @@ ansible_ssh_common_args=-F ./ssh.cfg
 {% endfor %}
 
 {% endfor %}
+{% endraw %}

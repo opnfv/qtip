@@ -9,8 +9,12 @@
 
 from jinja2 import Environment
 from jinja2 import FileSystemLoader
+import os
 from os import path
 from prettytable import PrettyTable
+
+
+qtip_package = path.join(path.dirname(__file__), os.pardir, os.pardir)
 
 
 def table(name, components):

@@ -25,7 +25,7 @@
       private: no
 
     - name: installer
-      prompt: 'installer type of the pod (apex|fuel|other)'
+      prompt: 'installer type of the pod (apex|fuel)'
       default: fuel
       private: no
 

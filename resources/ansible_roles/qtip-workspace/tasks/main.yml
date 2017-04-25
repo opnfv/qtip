@@ -9,7 +9,7 @@
 
 - name: creating directories
   file:
-    path: "{{ workspace }}/{{ item.path }}"
+    path: "{{ cwd }}/{{ workspace }}/{{ item.path }}"
     state: directory
     force: yes
   with_filetree: template/
@@ -18,7 +18,7 @@
 - name: templating files
   template:
     src: "{{ item.src }}"
-    dest: "{{ workspace }}/{{ item.path }}"
+    dest: "{{ cwd }}/{{ workspace }}/{{ item.path }}"
     force: yes
   with_filetree: template/
   when: item.state == 'file'

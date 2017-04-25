@@ -9,8 +9,13 @@
 
 from jinja2 import Environment
 from jinja2 import FileSystemLoader
+import os
 from os import path
 from prettytable import PrettyTable
+
+
+QTIP_PACKAGE = path.join(path.dirname(__file__), os.pardir, os.pardir)
+ROLES_PATH = 'resources/ansible_roles'
 
 
 def table(name, components):

@@ -11,8 +11,9 @@ import json
 
 
 def export_to_file(func):
-    def func_wrapper(spec, metrics, dest=None):
-        content = func(spec, metrics)
+    def func_wrapper(*args, **kwargs):
+        dest = kwargs.pop('dest', None)
+        content = func(*args, **kwargs)
         if dest is not None:
             with open(dest, 'w+') as f:
                 f.write(json.dumps(content, indent=2))

@@ -9,7 +9,10 @@
 
 ---
 
-- name: aggregate results from all tested nodes
+- name: aggregating results from all tested nodes
   aggregate:
     group: compute
+    basepath: "{{ qtip_results }}/current"
+    src: "compute.json"
+    dest: "{{ pod_name }}-qpi.json"
   register: pod_result

@@ -9,9 +9,13 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+import json
 from numpy import mean
+import os
 
 from ansible.plugins.action import ActionBase
+
+from qtip.util.export_to import export_to_file
 
 
 class ActionModule(ActionBase):
@@ -25,12 +29,22 @@ class ActionModule(ActionBase):
         if result.get('skipped', False):
             return result
 
-        return aggregate(self._task.args.get('group'), task_vars)
+        basepath = self._task.args.get('basepath')
+
+        return aggregate(
+            hosts=task_vars['groups'][self._task.args.get('group')],
+            basepath=basepath,
+            src=self._task.args.get('src'),
+            dest=os.path.join(basepath, self._task.args.get('dest'))
+        )
 
 
 # aggregate QPI results
-def aggregate(group, task_vars):
-    qpi_results = [task_vars['hostvars'][host]['qpi_result'] for host in task_vars['groups'][group]]
+@export_to_file
+def aggregate(hosts, basepath, src):
+    host_results = [{'host': host, 'result': json.load(open(os.path.join(basepath, host, src)))} for host in hosts]
+    score = int(mean([r['result']['score'] for r in host_results]))
     return {
-        'score': int(mean([r['score'] for r in qpi_results]))
+        'score': score,
+        'host_results': host_results
     }

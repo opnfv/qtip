@@ -1,0 +1,7 @@
+{
+  "score": 150,
+  "host_results": [
+    {"host": "host1", "result": {"score": 100}},
+    {"host": "host2", "result": {"score": 200}}
+  ]
+}

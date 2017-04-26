@@ -12,6 +12,7 @@ QTIP Developer Guide
 
    overview.rst
    arch.rst
+   framework.rst
    cli.rst
    api.rst
    compute-qpi.rst

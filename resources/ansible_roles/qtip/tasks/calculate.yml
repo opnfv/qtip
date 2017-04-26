@@ -15,6 +15,8 @@
       ssl_rsa: "{{ ssl_rsa_metrics }}"
       ssl_aes: "{{ ssl_aes_metrics }}"
       dpi_throughput: "{{ dpi_metrics }}"
+      intmem: "{{ intmem_metrics }}"
+      floatmem: "{{ floatmem_metrics }}"
     spec:   "{{ qtip_resources }}/QPI/compute.yaml"
     dest: "{{ qtip_results }}/compute.json"
   register: qpi_result

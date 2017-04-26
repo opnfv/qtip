@@ -47,6 +47,7 @@
   set_fact:
     int_logfile: "{{ output }}/ramsmp-int.log"
     float_logfile: "{{ output }}/ramsmp-float.log"
+  tags: always
 
 - name: saving integer output to log
   copy:
@@ -71,6 +72,7 @@
       - '^INTEGER\s+BatchRun\s+AVERAGE:\s+?(?P<average>\d+\.\d+)\sMB/s$'
     dest: "{{ output }}/integer-metrics.json"
   register: intmem_metrics
+  tags: collect
 
 - name: collect float memory metrics from ramspeed
   collect:
@@ -83,6 +85,7 @@
       - '^FL-POINT\s+BatchRun\s+AVERAGE:\s+?(?P<average>\d+\.\d+)\sMB/s$'
     dest: "{{ output }}/float-metrics.json"
   register: floatmem_metrics
+  tags: collect
 
 - name: create memory metrics report
   template:

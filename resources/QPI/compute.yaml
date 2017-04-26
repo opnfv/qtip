@@ -56,3 +56,26 @@ sections: # split based on different application
             baseline: 2.19M
           - name: dpi_bps
             baseline: 20.55G
+  - name: memory
+    description: cache and memory performance
+    metrics:
+      - name: floatmem
+        workloads:
+          - name: triad
+            baseline: 9748.98
+          - name: add
+            baseline: 9734.18
+          - name: copy
+            baseline: 7692.26
+          - name: scale
+            baseline: 7616.35
+      - name: intmem
+        workloads:
+          - name: triad
+            baseline: 12110.50
+          - name: add
+            baseline: 12153.10
+          - name: copy
+            baseline: 11913.03
+          - name: scale
+            baseline: 11945.36

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_40a6dd11",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-26T09:26:59Z",
+      "side": 1,
+      "message": "\u003d\u003e workspace",
+      "range": {
+        "startLine": 16,
+        "startChar": 20,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "b4a548ce5148a353ae30f616f827286e20479249",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

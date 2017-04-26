@@ -32,3 +32,5 @@
     - python-selinux
     - libpcap-dev
     - libtool-bin
+    - autoconf
+    - automake

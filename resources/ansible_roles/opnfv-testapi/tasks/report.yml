@@ -26,5 +26,6 @@
       scenario: "{{ scenario }}"
       start_date: "{{ ansible_date_time.date }}"
       stop_date: "{{ ansible_date_time.date }}"
-      criteria: "unknown"
-      details: "{{ pod_result }}"
+      criteria: "{{ pod_result.score }}"
+      details:
+        score: "{{ pod_result.score }}"

@@ -7,7 +7,12 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-- name: generating workspace
+- name: copying default files
+  synchronize:
+    src:  defaults/
+    dest: "{{ workspace }}/"
+
+- name: customizing for workspace
   template:
     src: "{{ item.src }}"
     dest: "{{ workspace }}/{{ item.path }}"

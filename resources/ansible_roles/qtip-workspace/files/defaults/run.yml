@@ -1,4 +1,3 @@
-{% raw %}
 ##############################################################################
 # Copyright (c) 2017 ZTE Corporation and others.
 #
@@ -44,4 +43,3 @@
     - { role: qtip, tasks: aggregate, tags: [aggregate] }
   # publish results
     - { role: opnfv-testapi, tasks: report, when: testapi_url is defined, tags: [report] }
-{% endraw %}

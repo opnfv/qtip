@@ -73,7 +73,7 @@ def generate_inventory(baremetal_info, server_info):
 
     for node in baremetal_info:
         if node['Provisioning State'].lower() == 'active':
-            role = re.findall('.+profile:(\w+)$', node['Properties']['capabilities'])[0]
+            role = re.findall('.*profile:(compute|control)', node['Properties']['capabilities'])[0]
             for server in server_info:
                 if server['ID'] == node['Instance UUID']:
                     node_ip = re.findall('.+=(\d+.\d+.\d+.\d+)$', server['Networks'])[0]

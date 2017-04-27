@@ -61,6 +61,26 @@ be navigated to using the following command.
 
   cd repos/qtip
 
+Install from source code
+========================
+
+You may try out the latest version of QTIP by installing from source code. It is recommended to run it under Python
+``virtualenv`` so it won't screw system libraries.
+
+Run the following commands::
+
+  git clone https://git.opnfv.org/qtip && cd qtip
+  virtualenv .venv && source .venv/bin/activate
+  pip install -e .
+
+Use the following command to exit virtualenv::
+
+  deactivate
+
+Re-enter the virtualenv with::
+
+  cd <qtip-directory>
+  source .venv/bin/activate
 
 Environment configuration
 =========================

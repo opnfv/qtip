@@ -9,11 +9,3 @@
 
 ---
 - include: "install-deps-{{ ansible_os_family|lower }}.yml"
-
-- name: installing dependencies
-  package:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - rsync
-    - git

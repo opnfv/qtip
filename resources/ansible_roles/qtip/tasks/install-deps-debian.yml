@@ -9,6 +9,7 @@
 
 ---
 - name: installing software properties common
+  become: true
   apt:
     name: "{{ item }}"
     state: present
@@ -16,6 +17,7 @@
     - software-properties-common
 
 - name: adding ubuntu backport main repo
+  become: true
   apt_repository:
     repo: "{{ item }}"
     state: present
@@ -24,6 +26,7 @@
     - deb http://archive.ubuntu.com/ubuntu/ {{ansible_distribution_release}} main restricted universe multiverse
 
 - name: installing dependencies
+  become: true
   apt:
     name: "{{ item }}"
     state: present
@@ -34,3 +37,6 @@
     - libtool-bin
     - autoconf
     - automake
+    - rsync
+    - git
+

@@ -9,11 +9,13 @@
 
 ---
 - name: installing epel release
+  become: true
   yum:
     name: epel-release
     state: present
 
 - name: installing dependencies
+  become: true
   yum:
     name: "{{ item }}"
     state: present
@@ -22,3 +24,5 @@
     - gcc-c++
     - libselinux-python
     - libpcap-devel
+    - rsync
+    - git

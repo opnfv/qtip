@@ -8,6 +8,7 @@
 ##############################################################################
 
 - name: install openssl - Cryptography and SSL/TLS Toolkit
+  become: yes
   package:
     name: openssl
     state: present

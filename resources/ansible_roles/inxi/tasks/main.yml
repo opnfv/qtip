@@ -8,6 +8,7 @@
 ##############################################################################
 
 - name: install inxi - Command line system information script for console and IRC
+  become: yes
   package:
     name: inxi
     state: present

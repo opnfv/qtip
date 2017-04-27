@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_1ef4c285",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-27T01:03:07Z",
+      "side": 1,
+      "message": "Do we have something like package root from the package information?",
+      "revId": "03c20291b50890c596ab6e2573d9881b085aa092",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_deedcab8",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-27T01:03:07Z",
+      "side": 1,
+      "message": "`tests/integration` is a temporary place for `workspace-create.yml`. It should be in `/resources`, but I don\u0027t see a proper folder to place it for now.\n\nIs it possible to execute the qtip-workspace role without creating the playbook?",
+      "revId": "03c20291b50890c596ab6e2573d9881b085aa092",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

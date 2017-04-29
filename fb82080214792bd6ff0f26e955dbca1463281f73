@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_0f856eac",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-04-29T00:50:25Z",
+      "side": 1,
+      "message": "Work path for workspace should be `roles_path/workspace`, right ? The current `work_path` is actually `roles_path`",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 70
+      },
+      "revId": "fb82080214792bd6ff0f26e955dbca1463281f73",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

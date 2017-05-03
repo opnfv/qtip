@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_54d8d652",
+        "filename": "qtip/cli/commands/cmd_setup.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-03T08:22:46Z",
+      "side": 1,
+      "message": "I think it is likely the workspace is created out of roles_path.\n\nWe may assume executing `setup.yml` and `run.yml` in the workspace directory.",
+      "revId": "4c8ba6a6fb5ac79c4d9834dd3571764ff094069b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_34d5221c",
+        "filename": "qtip/cli/utils.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-03T08:22:46Z",
+      "side": 1,
+      "message": "If you use `path.join`, better to separate \"resources/ansible_roles\" to \"resources\", \"ansible_roles\".",
+      "range": {
+        "startLine": 17,
+        "startChar": 79,
+        "endLine": 17,
+        "endChar": 80
+      },
+      "revId": "4c8ba6a6fb5ac79c4d9834dd3571764ff094069b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9ab8dda7_14d6dec5",
+        "filename": "qtip/cli/commands/cmd_setup.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-05-03T10:55:12Z",
+      "side": 1,
+      "message": "Pardon me but I don\u0027t get your point here. Do you mean that I should remove the \u0027workspace\u0027 argument ?",
+      "parentUuid": "9ab8dda7_54d8d652",
+      "revId": "4c8ba6a6fb5ac79c4d9834dd3571764ff094069b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab8dda7_34d5221c",
         "filename": "qtip/cli/utils.py",
         "patchSetId": 6

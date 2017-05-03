@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "9ab8dda7_5f3c6f93",
+        "filename": "qtip/cli/commands/cmd_setup.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-03T13:41:23Z",
+      "side": 1,
+      "message": "You should be able to call `ansible-playbook setup.yml` since user has already changed current directory to the workspace and he must do so before running the playbook in a workspace. \n\nThink about how we execute git command, it assumes you are already in a git controlled directory.",
+      "parentUuid": "9ab8dda7_14d6dec5",
+      "revId": "4c8ba6a6fb5ac79c4d9834dd3571764ff094069b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab8dda7_34d5221c",
         "filename": "qtip/cli/utils.py",
         "patchSetId": 6

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_743075e8",
+        "filename": "resources/ansible_roles/qtip-workspace/create.yml",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-04T14:57:14Z",
+      "side": 1,
+      "message": "I think ``qtip_package`` should be overridden by `--extra-var` when executing this playbook from other directory.",
+      "revId": "c10de16ccf844e6d9ec35b1d5ce42a0aee3fc41d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

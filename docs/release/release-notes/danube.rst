@@ -21,6 +21,9 @@ Version history
 | 2017-03-30         | Danube 1.0         | Yujun Zhang        |                    |
 |                    |                    |                    |                    |
 +--------------------+--------------------+--------------------+--------------------+
+| 2017-05-04         | Danube 2.0         | Yujun Zhang        |                    |
+|                    |                    |                    |                    |
++--------------------+--------------------+--------------------+--------------------+
 
 Important notes
 ===============
@@ -45,13 +48,13 @@ Release Data
 | **Project**                          | QTIP                                 |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Repo/commit-ID**                   | qtip/danube.1.0                      |
+| **Repo/commit-ID**                   | qtip/danube.2.0                      |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Release designation**              | Danube base release                  |
+| **Release designation**              | Danube bug fix release               |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Release date**                     | 2017-03-31                           |
+| **Release date**                     | 2017-05-04                           |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
 | **Purpose of the delivery**          | OPNFV quality assurance              |
@@ -60,6 +63,11 @@ Release Data
 
 Version change
 --------------
+
+New in Danube 2.0
+^^^^^^^^^^^^^^^^^
+
+* Bug fix in regex of ssl
 
 Module version changes
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -110,6 +118,7 @@ Deliverables
 Software
 ^^^^^^^^
 
+- `QTIP Docker image <https://hub.docker.com/r/opnfv/qtip>`_ (tag: danube.2.0)
 - `QTIP Docker image <https://hub.docker.com/r/opnfv/qtip>`_ (tag: danube.1.0)
 
 Documentation

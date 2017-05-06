@@ -20,8 +20,8 @@ Release Notes
 .. toctree::
    :maxdepth: 2
 
-   danube.rst
-   brahmaputra.rst
+   release/release-notes/danube.rst
+   release/release-notes/brahmaputra.rst
 
 Installation
 ============

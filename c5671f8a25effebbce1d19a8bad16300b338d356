@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_4dba8424",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-06T01:06:52Z",
+      "side": 1,
+      "message": "You may use named argument to improve readability. e.g. \n\n\u003e\u003e\u003e \"hello, {name}\".format(name\u003d\"world\")\n\u0027hello, world\u0027",
+      "range": {
+        "startLine": 28,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 56
+      },
+      "revId": "c5671f8a25effebbce1d19a8bad16300b338d356",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_6db50830",
+        "filename": "qtip/cli/utils.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-06T01:06:52Z",
+      "side": 1,
+      "message": "Should it be an constant? Use upper case like \"QTIP_PACKAGE\" is preferred.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 12
+      },
+      "revId": "c5671f8a25effebbce1d19a8bad16300b338d356",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

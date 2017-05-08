@@ -12,30 +12,21 @@
 
   gather_facts: no
 
-  vars_prompt:
+  vars:
 
     - name: pod_name
-      prompt: 'name of the pod under test (used in reporting)'
-      default: qtip-pod
       private: no
 
     - name: scenario
-      prompt: 'scenario deployed in the pod:'
-      default: default
       private: no
 
     - name: installer
-      prompt: 'installer type of the pod (apex|fuel)'
-      default: fuel
       private: no
 
     - name: installer_master_host
-      prompt: 'master host/vm of the installer (accessible by `ssh <hostname>`)'
       private: no
 
     - name: workspace
-      prompt: 'workspace name (new directory will be created)'
-      default: workspace
       private: no
 
   roles:

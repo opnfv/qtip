@@ -27,11 +27,11 @@
 
   roles:
   # run test and collect metrics
-    - { role: inxi, output: "{{ qtip_results }}/sysinfo", tags: [run, inxi, sysinfo] }
-    - { role: unixbench, output: "{{ qtip_results }}/arithmetic", tags: [run, unixbench, arithmetic] }
-    - { role: openssl, output: "{{ qtip_results }}/ssl", tags: [run, openssl, ssl] }
-    - { role: nDPI, output: "{{ qtip_results }}/dpi", tags: [run, ndpi, dpi] }
-    - { role: ramspeed, output: "{{ qtip_results }}/memory", tags: [run, ramspeed, memory] }
+    - { role: inxi, output: "{% raw %}{{ qtip_results }}{% endraw %}/sysinfo", tags: [run, inxi, sysinfo] }
+    - { role: unixbench, output: "{% raw %}{{ qtip_results }}{% endraw %}/arithmetic", tags: [run, unixbench, arithmetic] }
+    - { role: openssl, output: "{% raw %}{{ qtip_results }}{% endraw %}/ssl", tags: [run, openssl, ssl] }
+    - { role: nDPI, output: "{% raw %}{{ qtip_results }}{% endraw %}/dpi", tags: [run, ndpi, dpi] }
+    - { role: ramspeed, output: "{% raw %}{{ qtip_results }}{% endraw %}/memory", tags: [run, ramspeed, memory] }
   # calculate scores
     - { role: qtip, tasks: calculate, tags: [calculate] }
 

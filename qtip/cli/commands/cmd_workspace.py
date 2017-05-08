@@ -21,10 +21,20 @@ def cli():
 
 
 @cli.command("create", help="Create QTIP workspace")
-def create():
+@click.option('--pod', default='qtip_pod', help='Name of pod under test')
+@click.option('--installer', help='OPNFV installer')
+@click.option('--master-host', help='Installer hostname')
+@click.option('--scenario', default='os-nosdn-nofeature-ha', help='OPNFV scenario')
+@click.argument('name')
+def create(pod, installer, master_host, scenario, name):
     extra_vars = {
         'qtip_package': utils.QTIP_PACKAGE,
-        'cwd': os.getcwd()
+        'cwd': os.getcwd(),
+        'pod_name': pod,
+        'installer': installer,
+        'scenario': scenario,
+        'installer_master_host': master_host,
+        'workspace': name
     }
     os.system("ANSIBLE_ROLES_PATH={qtip_package}/{roles_path} ansible-playbook"
               " {qtip_package}/{roles_path}/qtip-workspace/create.yml"

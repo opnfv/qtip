@@ -22,6 +22,30 @@
       "revId": "a5606a684f1183f562dba45057c5f7c2675f7711",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_deb5b8ee",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-05-09T11:00:16Z",
+      "side": 1,
+      "message": "Hyphen would not work, when we use a variable for it, as in:\n\ndef create(master-host):\n   pass\n\nIt would result in error on variable consisting of hyphen.",
+      "parentUuid": "9ab8dda7_fee19cfe",
+      "range": {
+        "startLine": 26,
+        "startChar": 17,
+        "endLine": 26,
+        "endChar": 28
+      },
+      "revId": "a5606a684f1183f562dba45057c5f7c2675f7711",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

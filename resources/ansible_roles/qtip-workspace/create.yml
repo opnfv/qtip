@@ -10,8 +10,6 @@
 ---
 - hosts: localhost
 
-  gather_facts: no
-
   vars_prompt:
 
     - name: pod_name

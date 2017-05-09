@@ -22,3 +22,11 @@
     force: yes
   with_filetree: template/
   when: item.state == 'file'
+
+- name: generating SSH keys
+  user:
+    name: "{{ ansible_env.USER }}"
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_comment: qtip
+    ssh_key_file: ./.ssh/id_rsa_qtip

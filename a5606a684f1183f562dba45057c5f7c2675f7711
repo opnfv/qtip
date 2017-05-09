@@ -46,6 +46,30 @@
       "revId": "a5606a684f1183f562dba45057c5f7c2675f7711",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_7ec4cc5e",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-09T11:05:28Z",
+      "side": 1,
+      "message": "I think Click convert option with hyphen to variable with underscore automatically.\n\nSee example in http://click.pocoo.org/5/options/#choice-options\n\n@click.command()\n@click.option(\u0027--hash-type\u0027, type\u003dclick.Choice([\u0027md5\u0027, \u0027sha1\u0027]))\ndef digest(hash_type):\n    click.echo(hash_type)",
+      "parentUuid": "9ab8dda7_deb5b8ee",
+      "range": {
+        "startLine": 26,
+        "startChar": 17,
+        "endLine": 26,
+        "endChar": 28
+      },
+      "revId": "a5606a684f1183f562dba45057c5f7c2675f7711",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

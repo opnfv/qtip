@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_1ebcb0db",
+        "filename": "resources/ansible_roles/qtip-workspace/create.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-09T10:59:51Z",
+      "side": 0,
+      "message": "Why removing this?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 0
+      },
+      "revId": "28769eb7866a0fd362dd68e9ea545a82f136c679",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

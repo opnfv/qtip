@@ -85,6 +85,29 @@
       "revId": "d20dcb303a18ef2d9218e6274aa0030a8ea2194f",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_e39a6962",
+        "filename": "resources/ansible_roles/qtip-workspace/create.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-09T00:35:24Z",
+      "side": 1,
+      "message": "No need to keep variable declaration, do we?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 17
+      },
+      "revId": "d20dcb303a18ef2d9218e6274aa0030a8ea2194f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

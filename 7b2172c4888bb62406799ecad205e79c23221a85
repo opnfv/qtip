@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_c3d725be",
+        "filename": "docker/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-09T02:40:12Z",
+      "side": 1,
+      "message": "Shall we move these to /root/ also?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 37
+      },
+      "revId": "7b2172c4888bb62406799ecad205e79c23221a85",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

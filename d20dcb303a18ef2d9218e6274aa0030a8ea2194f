@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_23916147",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-09T00:34:31Z",
+      "side": 1,
+      "message": "Give a default value for non-mandatory fields, like --pod and --scenario",
+      "revId": "d20dcb303a18ef2d9218e6274aa0030a8ea2194f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_6377593b",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-09T00:34:31Z",
+      "side": 1,
+      "message": "It is actually OPNFV installer, there is scenarios using k8s as VIM",
+      "range": {
+        "startLine": 25,
+        "startChar": 35,
+        "endLine": 25,
+        "endChar": 44
+      },
+      "revId": "d20dcb303a18ef2d9218e6274aa0030a8ea2194f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_83728d47",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-09T00:34:31Z",
+      "side": 1,
+      "message": "`--master-host` is preferred. We may want distinguish the slave hosts under test from master host for setup.",
+      "range": {
+        "startLine": 26,
+        "startChar": 17,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "d20dcb303a18ef2d9218e6274aa0030a8ea2194f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_c378852d",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-09T00:34:31Z",
+      "side": 1,
+      "message": "Does it limited to SDN ? Maybe \"OPNFV scenario\" will be more suitable?",
+      "range": {
+        "startLine": 27,
+        "startChar": 34,
+        "endLine": 27,
+        "endChar": 37
+      },
+      "revId": "d20dcb303a18ef2d9218e6274aa0030a8ea2194f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

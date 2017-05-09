@@ -7,18 +7,11 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-# Common tasks for installer master setup
-
 ---
 
-- include: "ssh-copy-id-{{ installer }}.yml"
-
-- include: "gather-facts-{{ installer }}.yml"
-
-- name: generating inventory file
-  template: src=templates/hosts dest=./hosts
-  delegate_to: localhost
-
-- name: generating ssh.cfg file
-  template: src=templates/ssh.cfg dest=./ssh.cfg
+- name: copy SSH keys to fuel
+  command: |
+    sshpass -p r00tme
+    ssh-copy-id -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+    -i $HOME/.ssh/id_rsa_qtip root@{{ installer_master_host }}
   delegate_to: localhost

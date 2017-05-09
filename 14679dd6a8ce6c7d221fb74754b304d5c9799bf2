@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_beca446c",
+        "filename": "resources/ansible_roles/qtip/tasks/ssh-copy-id-fuel.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-09T11:02:20Z",
+      "side": 1,
+      "message": "Is this always available? I remember some environment allows only non root access in plugfest.",
+      "revId": "14679dd6a8ce6c7d221fb74754b304d5c9799bf2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

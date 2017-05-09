@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_fe719ce0",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-09T13:48:40Z",
+      "side": 1,
+      "message": "This seems a misleading default value. Maybe we should use \u0027unnamed\u0027 or \u0027unknown\u0027",
+      "range": {
+        "startLine": 24,
+        "startChar": 32,
+        "endLine": 24,
+        "endChar": 40
+      },
+      "revId": "63758df337af170f986cc632fadf37ff92dd26ad",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_3e6894f4",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-09T13:48:40Z",
+      "side": 1,
+      "message": "This seems a misleading default value. Maybe we should use \u0027unknown\u0027",
+      "range": {
+        "startLine": 27,
+        "startChar": 37,
+        "endLine": 27,
+        "endChar": 58
+      },
+      "revId": "63758df337af170f986cc632fadf37ff92dd26ad",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

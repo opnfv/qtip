@@ -13,7 +13,10 @@ for performance, simple but supported by comprehensive testing data and transpar
 .. _QTIP: https://wiki.opnfv.org/display/qtip
 .. _OPNFV: https://www.opnfv.org/
 
-.. include:: release/release-notes/index.rst
-.. include:: testing/user/configguide/index.rst
-.. include:: testing/user/userguide/index.rst
-.. include:: testing/developer/devguide/index.rst
+.. toctree::
+   :maxdepth: 2
+
+   release/release-notes/index.rst
+   testing/user/configguide/index.rst
+   testing/user/userguide/index.rst
+   testing/developer/devguide/index.rst

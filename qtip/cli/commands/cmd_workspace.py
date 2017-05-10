@@ -22,8 +22,8 @@ def cli():
 
 @cli.command("create", help="Create QTIP workspace")
 @click.option('--pod', default='unknown', help='Name of pod under test')
-@click.option('--installer', help='OPNFV installer')
-@click.option('--master-host', help='Installer hostname')
+@click.option('--installer', help='OPNFV installer', required=True)
+@click.option('--master-host', help='Installer hostname', required=True)
 @click.option('--scenario', default='unknown', help='OPNFV scenario')
 @click.argument('name')
 def create(pod, installer, master_host, scenario, name):

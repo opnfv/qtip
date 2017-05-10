@@ -9,8 +9,9 @@
 
 
 import click
+import os
 
 
 @click.command('run', help='Run performance tests')
 def cli():
-    pass
+    os.system('ansible-playbook {}/run.yml'.format(os.getcwd()))

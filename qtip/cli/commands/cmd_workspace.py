@@ -37,6 +37,7 @@ def create(pod, installer, master_host, scenario, name):
         'workspace': name
     }
     os.system("ANSIBLE_ROLES_PATH={qtip_package}/{roles_path} ansible-playbook"
+              " -i {qtip_package}/{roles_path}/qtip-workspace/hosts"
               " {qtip_package}/{roles_path}/qtip-workspace/create.yml"
               " --extra-vars '{extra_vars}'"
               "".format(qtip_package=utils.QTIP_PACKAGE,

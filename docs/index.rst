@@ -13,43 +13,7 @@ for performance, simple but supported by comprehensive testing data and transpar
 .. _QTIP: https://wiki.opnfv.org/display/qtip
 .. _OPNFV: https://www.opnfv.org/
 
-
-Release Notes
-=============
-
-.. toctree::
-   :maxdepth: 2
-
-   release/release-notes/danube.rst
-   release/release-notes/brahmaputra.rst
-
-Installation
-============
-
-.. toctree::
-   :maxdepth: 2
-
-   testing/user/configguide/configuration.rst
-
-User Guide
-==========
-
-.. toctree::
-   :maxdepth: 2
-
-   testing/user/userguide/overview.rst
-   testing/user/userguide/cli.rst
-   testing/user/userguide/api.rst
-   testing/user/userguide/compute.rst
-
-Developer Guide
-===============
-
-.. toctree::
-   :maxdepth: 2
-
-   testing/developer/devguide/overview.rst
-   testing/developer/devguide/arch.rst
-   testing/developer/devguide/cli.rst
-   testing/developer/devguide/api.rst
-   testing/developer/devguide/compute-qpi.rst
+.. include:: release/release-notes/index.rst
+.. include:: testing/user/configguide/index.rst
+.. include:: testing/user/userguide/index.rst
+.. include:: testing/developer/devguide/index.rst

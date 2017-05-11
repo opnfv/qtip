@@ -16,6 +16,24 @@
       "revId": "3f3f77828e1fa28e56a8cb91b125413763f6419c",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_e0481a89",
+        "filename": "qtip/cli/commands/cmd_workspace.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-11T03:30:13Z",
+      "side": 1,
+      "message": "I just want to get rid of the warning...",
+      "parentUuid": "9ab8dda7_c0b71685",
+      "revId": "3f3f77828e1fa28e56a8cb91b125413763f6419c",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

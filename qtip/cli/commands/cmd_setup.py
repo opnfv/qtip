@@ -9,8 +9,9 @@
 
 
 import click
+import os
 
 
 @click.command('setup', help='Setup QTIP workspace')
 def cli():
-    pass
+    os.system('ansible-playbook {}/setup.yml'.format(os.getcwd()))

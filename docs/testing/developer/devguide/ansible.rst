@@ -7,42 +7,23 @@ Run with Ansible
 ****************
 
 QTIP benchmarking tasks are built upon `Ansible`_ playbooks and roles. If you are familiar with Ansible, it is possible
-to run it with ``ansible-playbook`` command.
+to run it with ``ansible-playbook`` command. And it is useful during development of ansible modules or testing roles.
 
 .. _Ansible: https://www.ansible.com/
 
 Create workspace
 ================
 
-There is a playbook in ``tests/integration`` used for creating a new workspace for QTIP benchmarking::
+There is a playbook in ``resources/ansible_roles/qtip-workspace`` used for creating a new workspace::
 
-    cd qtip/tests/integration
-    ansible-playbook workspace-create.yml
-
-You will be prompted for required information for the Pod under test::
-
-    (qtip) ➜  integration git:(master) ✗ ansible-playbook workspace-create.yml
-    name of the pod under test (used in reporting) [qtip-pod]:
-    scenario deployed in the pod: [default]:
-    installer type of the pod (apex|fuel|other) [fuel]:
-    master host/vm of the installer (accessible by `ssh <hostname>`): f5
-    workspace name (new directory will be created) [workspace]:
-
-    PLAY [localhost] ***************************************************************
-
-    TASK [qtip-workspace : generating workspace] ***********************************
-
-    PLAY RECAP *********************************************************************
-    localhost                  : ok=0    changed=0    unreachable=0    failed=0
-
-
-You may hit ``Enter`` to accept default value
+    cd resources/ansible_roles/qtip-workspace
+    ansible-playbook create.yml
 
 NOTE: if this playbook is moved to other directory, configuration in ``ansible.cfg`` needs to be updated accordingly.
 The ansible roles from QTIP, i.e. ``<path_of_qtip>/resources/ansible_roles`` must be added to ``roles_path`` in
 `Ansible configuration file`_. For example::
 
-    roles_path = ../../resources/ansible_roles
+    roles_path = ~/qtip/resources/ansible_roles
 
 .. _Ansible configuration file:
 
@@ -89,21 +70,44 @@ If several jumps are required to reach the master node, we may chain the jump ho
 
 NOTE: ``ProxyJump`` is equivalent to the long ``ProxyCommand`` option, but it is only available since OpenSSH 7.3
 
-Setup testing environment
--------------------------
+Automatic setup
+---------------
 
-Run the setup playbook to generate ansible inventory of system under test by querying the slave nodes from the installer
+#. Modify ``<workspace>/group_vars/all.yml`` to set installer information correctly
+#. Modify ``<workspace>/hosts`` file to set installer master host correctly
+#. Run the setup playbook to generate ansible inventory of system under test by querying the slave nodes from the installer
 master::
 
     cd workspace
     ansible-playbook setup.yml
 
-Currently, QTIP supports automatic discovery from `apex`_ and `fuel`_
-
 .. _apex: https://wiki.opnfv.org/display/apex
 .. _fuel: https://wiki.opnfv.org/display/fuel
 
 It will update the ``hosts`` and ``ssh.cfg``
+
+Currently, QTIP supports automatic discovery from `apex`_ and `fuel`_.
+
+Manual setup
+------------
+
+If your installer is not supported or you are
+testing hosts not managed by installer, you may add them manually in ``[compute]`` group in ``<workspace>/hosts``::
+
+    [compute:vars]
+    ansible_ssh_common_args=-F ./ssh.cfg
+
+    [compute]
+    node-2
+    node-4
+    node-6
+    node-7
+
+And ``ssh.cfg`` for ssh connection configuration::
+
+    Host node-5
+      HostName 10.20.5.12
+      User root
 
 Run the tests
 -------------

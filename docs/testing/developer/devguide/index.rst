@@ -11,6 +11,7 @@ QTIP Developer Guide
    :maxdepth: 2
 
    overview.rst
+   ansible.rst
    arch.rst
    framework.rst
    cli.rst

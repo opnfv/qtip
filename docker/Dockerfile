@@ -27,6 +27,7 @@ RUN apt-get update && apt-get install -y \
     python-pip \
     python-setuptools \
     rsync \
+    iputils-ping \
     --no-install-recommends \
 && rm -rf /var/lib/apt/lists/*
 

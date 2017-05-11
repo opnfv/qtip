@@ -10,6 +10,7 @@
 ##############################################################################
 
 import humanfriendly
+import json
 import numbers
 from numpy import mean
 import yaml
@@ -37,7 +38,11 @@ class ActionModule(ActionBase):
         with open(self._task.args.get('spec')) as stream:
             spec = yaml.safe_load(stream)
 
-        metrics = self._task.args.get('metrics')
+        metrics_files = self._task.args.get('metrics')
+        metrics = {}
+        for metric, filename in metrics_files.items():
+            with open(filename) as f:
+                metrics[metric] = json.load(f)
         dest = self._task.args.get('dest')
 
         return calc_qpi(spec, metrics, dest=dest)

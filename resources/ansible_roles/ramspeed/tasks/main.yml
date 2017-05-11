@@ -84,7 +84,7 @@
       - '^FL-POINT\s+BatchRun\s+Triad:\s+?(?P<triad>\d+\.\d+)\sMB/s$'
       - '^FL-POINT\s+BatchRun\s+AVERAGE:\s+?(?P<average>\d+\.\d+)\sMB/s$'
     dest: "{{ output }}/float-metrics.json"
-  register: floatmem_metrics
+  register: float_metrics
   tags: collect
 
 - name: create memory metrics report

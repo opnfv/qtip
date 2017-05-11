@@ -52,7 +52,6 @@
       - '^Dhrystone 2 using register variables\s+(\d+\.\d+)\s+(?P<dhrystone_lps>\d+\.\d+)\s+(\d+\.\d+)'
       - '^Double-Precision Whetstone\s+(\d+\.\d+)\s+(?P<whetstone_MWIPS>\d+\.\d+)\s+(\d+\.\d+)'
     dest: "{{ output }}/metrics.json"
-  register: arithmetic_metrics
   delegate_to: localhost
 
 - name: creating arithmetic metrics report

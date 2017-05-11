@@ -71,7 +71,6 @@
       - '^INTEGER\s+BatchRun\s+Triad:\s+?(?P<triad>\d+\.\d+)\sMB/s$'
       - '^INTEGER\s+BatchRun\s+AVERAGE:\s+?(?P<average>\d+\.\d+)\sMB/s$'
     dest: "{{ output }}/integer-metrics.json"
-  register: intmem_metrics
   tags: collect
 
 - name: collect float memory metrics from ramspeed
@@ -84,7 +83,6 @@
       - '^FL-POINT\s+BatchRun\s+Triad:\s+?(?P<triad>\d+\.\d+)\sMB/s$'
       - '^FL-POINT\s+BatchRun\s+AVERAGE:\s+?(?P<average>\d+\.\d+)\sMB/s$'
     dest: "{{ output }}/float-metrics.json"
-  register: floatmem_metrics
   tags: collect
 
 - name: create memory metrics report

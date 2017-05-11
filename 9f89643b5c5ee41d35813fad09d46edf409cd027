@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_039d38bc",
+        "filename": "qtip/cli/commands/cmd_run.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-05-11T06:22:58Z",
+      "side": 1,
+      "message": "Do we need to check ssh-agent process before running run.yml? I had been blocked some times by ssh-agent issue when running this playbook.",
+      "revId": "9f89643b5c5ee41d35813fad09d46edf409cd027",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

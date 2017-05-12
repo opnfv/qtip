@@ -9,6 +9,20 @@
 
 ---
 
+- name: checking status of ssh_auth_sock
+  shell: echo $SSH_AGENT_PID
+  register: sock_status
+  ignore_errors: yes
+
+- name: checking status of ssh_agent_pid
+  shell: pidof ssh-agent
+  register: pid_status
+  ignore_errors: yes
+
+- fail:
+    msg: "ssh-agent is required to execute QTIP. Use 'eval $(ssh-agent)' to start it"
+  when: sock_status.stdout == '' or pid_status.stdout == ''
+
 - name: formatting directory name for current run
   set_fact:
     pod_results: "{{ pod_name }}-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"

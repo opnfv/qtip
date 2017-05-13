@@ -63,6 +63,7 @@
       # TODO(yujunz) convert "M pps" and "K pps" to number
       - 'nDPI throughput:\s+?(?P<dpi_pps>\d+.\d+.*) pps \/ (?P<dpi_bps>\d+.\d+.*)b/sec$'
     dest: "{{ output }}/metrics.json"
+  register: dpi_metrics
   delegate_to: localhost
   tags: collect
 

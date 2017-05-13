@@ -62,6 +62,7 @@
           ?(?P<rsa_sign_4096>\d+\.\d)\s+
           ?(?P<rsa_verify_4096>\d+\.\d)$
     dest: "{{ output }}/rsa-metrics.json"
+  register: ssl_rsa_metrics
   tags: collect
 
 - name: collect ssl aes metrics
@@ -76,6 +77,7 @@
           ?(?P<aes_128_cbc_1024_bytes>\d+\.\w+)\s+
           ?(?P<aes_128_cbc_8192_bytes>\d+\.\w+)$
     dest: "{{ output }}/aes-metrics.json"
+  register: ssl_aes_metrics
   tags: collect
 
 - name: create SSL report

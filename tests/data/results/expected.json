@@ -1,7 +1,13 @@
 {
   "score": 150,
-  "host_results": [
-    {"host": "host1", "result": {"score": 100}},
-    {"host": "host2", "result": {"score": 200}}
-  ]
+  "children": [
+    {
+      "score": 100
+    },
+    {
+      "score": 200
+    }
+  ],
+  "description": "POD Compute QPI",
+  "name": "pod"
 }

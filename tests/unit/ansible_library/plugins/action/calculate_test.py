@@ -45,8 +45,8 @@ def section_spec(metric_spec):
 @pytest.fixture
 def qpi_spec(section_spec):
     return {
-        "description": "QTIP Performance Index of compute",
         "name": "compute",
+        "description": "QTIP Performance Index of compute",
         "sections": [section_spec]
     }
 
@@ -54,23 +54,29 @@ def qpi_spec(section_spec):
 @pytest.fixture()
 def metric_result():
     return {'score': 1.0,
-            'workload_results': [
-                {'name': 'rsa_sign', 'score': 1.0},
-                {'name': 'rsa_verify', 'score': 1.0}]}
+            'name': 'ssl_rsa',
+            'description': 'metric',
+            'children': [{'description': 'workload', 'name': 'rsa_sign', 'score': 1.0},
+                         {'description': 'workload', 'name': 'rsa_verify', 'score': 1.0}]}
 
 
 @pytest.fixture()
 def section_result(metric_result):
     return {'score': 1.0,
-            'metric_results': [{'name': 'ssl_rsa', 'result': metric_result}]}
+            'name': 'ssl',
+            'description': 'cryptography and SSL/TLS performance',
+            'children': [metric_result]}
 
 
 @pytest.fixture()
 def qpi_result(qpi_spec, section_result, metrics):
     return {'score': 2048,
-            'spec': qpi_spec,
-            'metrics': metrics,
-            'section_results': [{'name': 'ssl', 'result': section_result}]}
+            'name': 'compute',
+            'description': 'QTIP Performance Index of compute',
+            'children': [section_result],
+            'details': {
+                'spec': qpi_spec,
+                'metrics': metrics}}
 
 
 def test_calc_metric(metric_spec, metrics, metric_result):

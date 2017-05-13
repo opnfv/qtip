@@ -12,15 +12,30 @@ import click
 import os
 
 from qtip.cli import utils
+from qtip.runner import workspace
 
 
-@click.group()
+class AliasedGroup(click.Group):
+
+    def get_command(self, ctx, cmd_name):
+        rv = click.Group.get_command(self, ctx, cmd_name)
+        if rv is not None:
+            return rv
+        matches = [x for x in self.list_commands(ctx)
+                   if x.startswith(cmd_name)]
+        if not matches:
+            return None
+        elif len(matches) == 1:
+            return click.Group.get_command(self, ctx, matches[0])
+        ctx.fail('Too many matches: %s' % ', '.join(sorted(matches)))
+
+
+@click.command(cls=AliasedGroup, help="Workspace commands")
 def cli():
-    """ Manage QTIP workspace """
     pass
 
 
-@cli.command("create", help="Create QTIP workspace")
+@cli.command("create", help="Create workspace")
 @click.option('--pod', default='unknown', help='Name of pod under test')
 @click.option('--installer', help='OPNFV installer', required=True)
 @click.option('--master-host', help='Installer hostname', required=True)
@@ -43,3 +58,18 @@ def create(pod, installer, master_host, scenario, name):
               "".format(qtip_package=utils.QTIP_PACKAGE,
                         roles_path=utils.ROLES_PATH,
                         extra_vars=utils.join_vars(**extra_vars)))
+
+
+@cli.command(help='Setup testing environment')
+def setup():
+    workspace.setup()
+
+
+@cli.command(help='Execute testing plan')
+def run():
+    workspace.run()
+
+
+@cli.command(help='Teardown testing environment')
+def teardown():
+    workspace.teardown()

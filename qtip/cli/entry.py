@@ -12,6 +12,7 @@ import os
 import pkg_resources as pkg
 import sys
 
+from qtip.cli.commands.cmd_workspace import cli as workspace_commands
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
@@ -28,7 +29,7 @@ cmd_folder = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                           'commands'))
 
 
-class QtipCli(click.MultiCommand):
+class SubCommand(click.MultiCommand):
 
     def list_commands(self, ctx):
         rv = []
@@ -50,12 +51,14 @@ class QtipCli(click.MultiCommand):
         return mod.cli
 
 
-@click.command(cls=QtipCli, context_settings=CONTEXT_SETTINGS,
+@click.command(cls=SubCommand, context_settings=CONTEXT_SETTINGS,
                invoke_without_command=True)
 @click.option('-v', '--verbose', is_flag=True, help='Enable verbose mode.')
 @click.option('-d', '--debug', is_flag=True, help='Enable debug mode.')
 @click.version_option(pkg.require("qtip")[0])
 @pass_context
-def cli(ctx, verbose, debug):
+def sub_commands(ctx, verbose, debug):
     if debug:
         sys.tracebacklimit = 8
+
+cli = click.CommandCollection(sources=[sub_commands, workspace_commands])

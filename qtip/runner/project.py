@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2017 taseer94@gmail.com and others.
+# Copyright (c) 2017 ZTE corp. and others.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
@@ -7,11 +7,16 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-
-import click
 import os
 
 
-@click.command('run', help='Run performance tests')
-def cli():
-    os.system('ansible-playbook {}/run.yml'.format(os.getcwd()))
+def setup():
+    os.system('ansible-playbook setup.yml')
+
+
+def run():
+    os.system('ansible-playbook run.yml')
+
+
+def teardown():
+    os.system('ansible-playbook teardown.yml')

@@ -14,5 +14,10 @@
     group: compute
     basepath: "{{ qtip_results }}/current"
     src: "compute.json"
-    dest: "{{ pod_name }}-qpi.json"
+    dest: "qpi.json"
   register: pod_result
+
+- name: generating HTML report
+  template:
+    src: "{{ qtip_resources }}/template/qpi.html.j2"
+    dest: "{{ qtip_results }}/current/index.html"

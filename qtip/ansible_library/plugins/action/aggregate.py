@@ -42,9 +42,11 @@ class ActionModule(ActionBase):
 # aggregate QPI results
 @export_to_file
 def aggregate(hosts, basepath, src):
-    host_results = [{'host': host, 'result': json.load(open(os.path.join(basepath, host, src)))} for host in hosts]
-    score = int(mean([r['result']['score'] for r in host_results]))
+    host_results = [json.load(open(os.path.join(basepath, host, src))) for host in hosts]
+    score = int(mean([r['score'] for r in host_results]))
     return {
         'score': score,
-        'host_results': host_results
+        'name': 'pod',
+        'description': 'POD Compute QPI',
+        'children': host_results
     }

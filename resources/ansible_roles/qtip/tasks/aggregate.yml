@@ -14,5 +14,5 @@
     group: compute
     basepath: "{{ qtip_results }}/current"
     src: "compute.json"
-    dest: "{{ pod_name }}-qpi.json"
+    dest: "qpi.json"
   register: pod_result

@@ -18,7 +18,6 @@ sections: # split based on different application
         formual: geometric mean
         workloads:
           - name: rsa_sign_512
-            description: RSA signature 512 bits
             baseline: 14982.3
           - name: rsa_verify_512
             baseline: 180619.2

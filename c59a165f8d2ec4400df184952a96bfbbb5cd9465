@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_ac3c59e3",
+        "filename": "resources/ansible_roles/qtip/tasks/setup-local.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-14T11:31:33Z",
+      "side": 1,
+      "message": "Check SSH_AUTH_SOCK instead of `ssh-agent` would be more reliable.",
+      "revId": "c59a165f8d2ec4400df184952a96bfbbb5cd9465",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_cc3f4dd5",
+        "filename": "resources/ansible_roles/qtip/tasks/setup-local.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-14T11:31:33Z",
+      "side": 1,
+      "message": "Shall we quote it?",
+      "range": {
+        "startLine": 18,
+        "startChar": 53,
+        "endLine": 18,
+        "endChar": 70
+      },
+      "revId": "c59a165f8d2ec4400df184952a96bfbbb5cd9465",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

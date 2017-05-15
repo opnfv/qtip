@@ -108,6 +108,17 @@ It will update the ``hosts`` and ``ssh.cfg``
 Run the tests
 -------------
 
+It is important to note that ssh-agent is required to run the tests. It must started correctly to ensure execution. The way to
+do it is
+::
+
+    eval $(ssh-agent)
+
+One can also kill the process as
+::
+
+    eval $(ssh-agent -k)
+
 Run the benchmarks with the following command::
 
     ansible-playbook run.yml

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_97d95e85",
+        "filename": "docs/testing/developer/devguide/ansible.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-05-15T03:04:24Z",
+      "side": 1,
+      "message": "When creating workspace, installer type is required. When the installer is not supported or the testing hosts is not managed by installer, How to create workspace?",
+      "revId": "d0804f5e6655eb79167a6e27621d021a3761a932",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_d75cb6ef",
+        "filename": "resources/ansible_roles/qtip/tasks/setup-local.yml",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-15T05:45:46Z",
+      "side": 1,
+      "message": "Why not keep using `pidof` ?",
+      "revId": "047d1210358f9917c9d34530bf4f7d01dbce0795",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

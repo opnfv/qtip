@@ -16,14 +16,14 @@
   - { role: qtip, tasks: setup-local, tags: [setup] }
 
 
-- hosts: compute
+- hosts: SUT
 
   roles:
   # prepare environment
   - { role: qtip, tasks: setup-node, tags: [setup] }
 
 
-- hosts: compute
+- hosts: SUT
 
   roles:
   # run test and collect metrics

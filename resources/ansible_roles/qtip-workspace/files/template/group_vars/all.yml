@@ -14,6 +14,7 @@ qtip_dump: dump
 qtip_cache: "{{ qtip_cache }}"
 qtip_workdir: "{% raw %}{{ ansible_env.HOME }}{% endraw %}/qtip-workdir-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 installer_master_group:
+  manual: dummy-group
   fuel: fuel-masters
   apex: apex-underclouds
 

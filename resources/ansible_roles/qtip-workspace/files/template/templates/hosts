@@ -4,12 +4,15 @@ localhost   ansible_connection=local
 [{{ installer_master_group[installer] }}]
 {{ installer_master_host }}
 
-[fuel-groups:children]
+[SUT]   # system under test
+compute
+
+[node-groups:children]
 {% for group in hosts|sort %}
 {{ group }}
 {% endfor %}
 
-[fuel-groups:vars]
+[node-groups:vars]
 ansible_ssh_common_args=-F ./ssh.cfg
 
 {% for group in hosts|sort %}

@@ -37,8 +37,8 @@ def cli():
 
 @cli.command(help="Create new testing project")
 @click.option('--pod', default='unknown', help='Name of pod under test')
-@click.option('--installer', help='OPNFV installer', required=True)
-@click.option('--master-host', help='Installer hostname', required=True)
+@click.option('--installer', help='OPNFV installer', default='manual')
+@click.option('--master-host', help='Installer hostname', default='dummy-host')
 @click.option('--scenario', default='unknown', help='OPNFV scenario')
 @click.argument('name')
 def create(pod, installer, master_host, scenario, name):

@@ -12,6 +12,7 @@ installer: fuel
 installer_master_host: fuel-master
 
 installer_master_group:
+  manual: dummy-group
   fuel: fuel-masters
   apex: apex-underclouds
 

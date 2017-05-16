@@ -79,3 +79,12 @@ sections: # split based on different application
             baseline: 11913.03
           - name: scale
             baseline: 11945.36
+  - name: arithmetic
+    description: arithmetic computing speed
+    metrics:
+      - name: arithmetic
+        workloads:
+          - name: dhrystone_lps
+            baseline: 34657490.5
+          - name: whetstone_MWIPS
+            baseline: 2495.9

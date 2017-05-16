@@ -13,4 +13,3 @@
   file:
     path: "{{ qtip_workdir }}"
     state: absent
-  when: remove_workdir|bool

@@ -9,11 +9,6 @@
 
 - hosts: compute
 
-  vars_prompt:
-    - name: remove_workdir
-      prompt: "WARNING: remove work dir from system under test? (yes|no)"
-      default: no
-
   roles:
   # teardown environment
   - { role: qtip, tasks: teardown }

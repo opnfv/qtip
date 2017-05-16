@@ -70,10 +70,10 @@ qtip workspace create --pod ${pod_name} --installer ${installer_type} \
 
 cd /home/opnfv/workspace/
 
-ansible-playbook setup.yml
+qtip setup
 eval `ssh-agent`
-ansible-playbook run.yml
-ansible-playbook teardown.yml
+qtip run
+qtip teardown
 
 # Remove ssh public key from installer
 case "$installer_type" in

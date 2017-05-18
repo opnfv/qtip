@@ -68,6 +68,17 @@ If several jumps are required to reach the master node, we may chain the jump ho
       User root
       ProxyCommand ssh -o 'ForwardAgent yes' apex-deploy 'ssh-add && nc %h %p'
 
+It is important to follow the correct procedure to start and stop ``ssh-agent``. Otherwise, QTIP would not work as
+expected. To start the agent
+::
+
+    $ eval $(ssh-agent)
+
+Similarly, to kill the process
+::
+
+    $ eval $(ssh-agent -k)
+
 NOTE: ``ProxyJump`` is equivalent to the long ``ProxyCommand`` option, but it is only available since OpenSSH 7.3
 
 Automatic setup

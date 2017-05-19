@@ -55,18 +55,22 @@ def calc_qpi(qpi_spec, metrics):
     display.vvv("spec: {}".format(qpi_spec))
     display.vvv("metrics: {}".format(metrics))
 
-    section_results = [{'name': s['name'], 'result': calc_section(s, metrics)}
+    section_results = [calc_section(s, metrics)
                        for s in qpi_spec['sections']]
 
     # TODO(yujunz): use formula in spec
     standard_score = 2048
-    qpi_score = int(mean([r['result']['score'] for r in section_results]) * standard_score)
+    qpi_score = int(mean([r['score'] for r in section_results]) * standard_score)
 
     results = {
-        'spec': qpi_spec,
         'score': qpi_score,
-        'section_results': section_results,
-        'metrics': metrics
+        'name': qpi_spec['name'],
+        'description': qpi_spec['description'],
+        'children': section_results,
+        'details': {
+            'metrics': metrics,
+            'spec': qpi_spec
+        }
     }
 
     return results
@@ -78,13 +82,15 @@ def calc_section(section_spec, metrics):
     display.vvv("spec: {}".format(section_spec))
     display.vvv("metrics: {}".format(metrics))
 
-    metric_results = [{'name': m['name'], 'result': calc_metric(m, metrics[m['name']])}
+    metric_results = [calc_metric(m, metrics[m['name']])
                       for m in section_spec['metrics']]
     # TODO(yujunz): use formula in spec
-    section_score = mean([r['result']['score'] for r in metric_results])
+    section_score = mean([r['score'] for r in metric_results])
     return {
         'score': section_score,
-        'metric_results': metric_results
+        'name': section_spec['name'],
+        'description': section_spec.get('description', 'section'),
+        'children': metric_results
     }
 
 
@@ -95,12 +101,16 @@ def calc_metric(metric_spec, metrics):
     display.vvv("metrics: {}".format(metrics))
 
     # TODO(yujunz): use formula in spec
-    workload_results = [{'name': w['name'], 'score': calc_score(metrics[w['name']], w['baseline'])}
+    workload_results = [{'name': w['name'],
+                         'description': 'workload',
+                         'score': calc_score(metrics[w['name']], w['baseline'])}
                         for w in metric_spec['workloads']]
     metric_score = mean([r['score'] for r in workload_results])
     return {
         'score': metric_score,
-        'workload_results': workload_results
+        'name': metric_spec['name'],
+        'description': metric_spec.get('description', 'metric'),
+        'children': workload_results
     }
 
 

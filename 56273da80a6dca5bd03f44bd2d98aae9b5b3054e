@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_3db96715",
+        "filename": "docs/testing/developer/devguide/getting-started.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-20T10:18:48Z",
+      "side": 1,
+      "message": "I think whoami give the current user, doesn\u0027t it?\n\nNormally the tests are running from deploy server or tester\u0027s laptop, which is not the same one as installer master host.",
+      "revId": "56273da80a6dca5bd03f44bd2d98aae9b5b3054e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_dd392ba5",
+        "filename": "docs/testing/developer/devguide/getting-started.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-20T10:18:48Z",
+      "side": 1,
+      "message": "OPNFV.",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 25
+      },
+      "revId": "56273da80a6dca5bd03f44bd2d98aae9b5b3054e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

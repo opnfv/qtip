@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab8dda7_9a8179c5",
+        "filename": "docs/testing/developer/devguide/getting-started.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-20T00:42:51Z",
+      "side": 1,
+      "message": "Suggest to remove this section.\n\nNo need to mention the architecture change to **new user** since they are not aware to such history and it does not help them in using QTIP.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 21
+      },
+      "revId": "e9f3fde91a4feebeb2e9a4fed83e944f7a93f635",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_5a6f812b",
+        "filename": "docs/testing/developer/devguide/getting-started.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-20T00:42:51Z",
+      "side": 1,
+      "message": "Suggest to be more straightforward, e.g. \"Create a new project folder to hold test configurations and results.\"\n\nPeople in plugfest asks about why we need to create a workspace, and this is the brief answer.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 59
+      },
+      "revId": "e9f3fde91a4feebeb2e9a4fed83e944f7a93f635",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_ba86bdd9",
+        "filename": "docs/testing/developer/devguide/getting-started.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-20T00:42:51Z",
+      "side": 1,
+      "message": "what is this?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 1
+      },
+      "revId": "e9f3fde91a4feebeb2e9a4fed83e944f7a93f635",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_fa80b5c1",
+        "filename": "docs/testing/developer/devguide/getting-started.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-20T00:42:51Z",
+      "side": 1,
+      "message": "In fact, we can omit `project` because the project related commands have been merged to `qtip`, try `qtip create` and it should work",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "e9f3fde91a4feebeb2e9a4fed83e944f7a93f635",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_7a6cc535",
+        "filename": "docs/testing/developer/devguide/getting-started.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-20T00:42:51Z",
+      "side": 1,
+      "message": "Copy an example input from console to show user what is expected to see\n\n(qtip) ?  qtip git:(master) ? qtip create test\nPod Name [unknown]: zte-pod1\nOPNFV Installer [manual]: fuel\nInstaller Hostname [dummy-host]: f5\nOPNFV Scenario [unknown]:\n\nMaybe a few additional explanation on each input required, e.g. what would be a valid value for it?",
+      "revId": "e9f3fde91a4feebeb2e9a4fed83e944f7a93f635",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_1a7589f9",
+        "filename": "docs/testing/developer/devguide/getting-started.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-20T00:42:51Z",
+      "side": 1,
+      "message": "testing environment",
+      "range": {
+        "startLine": 25,
+        "startChar": 71,
+        "endLine": 25,
+        "endChar": 75
+      },
+      "revId": "e9f3fde91a4feebeb2e9a4fed83e944f7a93f635",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_3a72cd11",
+        "filename": "docs/testing/developer/devguide/getting-started.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-20T00:42:51Z",
+      "side": 1,
+      "message": "\u003d\u003e nodes in SUT (system under test)",
+      "range": {
+        "startLine": 26,
+        "startChar": 40,
+        "endLine": 26,
+        "endChar": 53
+      },
+      "revId": "e9f3fde91a4feebeb2e9a4fed83e944f7a93f635",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

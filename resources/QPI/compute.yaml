@@ -84,6 +84,6 @@ sections: # split based on different application
       - name: arithmetic
         workloads:
           - name: dhrystone_lps
-            baseline: 34657490.5
-          - name: whetstone_MWIPS
             baseline: 2495.9
+          - name: whetstone_MWIPS
+            baseline: 34657490.5

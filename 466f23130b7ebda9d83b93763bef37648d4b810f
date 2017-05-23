@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aaae553_2e40cb55",
+        "filename": "docs/testing/developer/devguide/getting-started.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-23T13:56:40Z",
+      "side": 1,
+      "message": "This should be OPNFV",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 25
+      },
+      "revId": "466f23130b7ebda9d83b93763bef37648d4b810f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

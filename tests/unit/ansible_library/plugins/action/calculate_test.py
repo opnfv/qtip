@@ -69,13 +69,13 @@ def section_result(metric_result):
 
 
 @pytest.fixture()
-def qpi_result(qpi_spec, section_result, metrics):
+def qpi_result(section_result, metrics):
     return {'score': 2048,
             'name': 'compute',
             'description': 'QTIP Performance Index of compute',
             'children': [section_result],
             'details': {
-                'spec': qpi_spec,
+                'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
                 'metrics': metrics}}
 
 

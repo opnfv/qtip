@@ -15,6 +15,9 @@ from qtip.cli import utils
 from qtip.runner import project
 
 
+CONTEXT_SETTINGS = dict(ignore_unknown_options=True, allow_extra_args=True, )
+
+
 class AliasedGroup(click.Group):
 
     def get_command(self, ctx, cmd_name):
@@ -60,16 +63,19 @@ def create(pod, installer, master_host, scenario, name):
                         extra_vars=utils.join_vars(**extra_vars)))
 
 
-@cli.command(help='Setup testing environment')
-def setup():
-    project.setup()
+@cli.command(context_settings=CONTEXT_SETTINGS, help='Setup testing environment')
+@click.pass_context
+def setup(ctx):
+    project.setup(" ".join(ctx.args))
 
 
-@cli.command(help='Execute testing plan')
-def run():
-    project.run()
+@cli.command(context_settings=CONTEXT_SETTINGS, help='Execute testing plan')
+@click.pass_context
+def run(ctx):
+    project.run(" ".join(ctx.args))
 
 
-@cli.command(help='Teardown testing environment')
-def teardown():
-    project.teardown()
+@cli.command(context_settings=CONTEXT_SETTINGS, help='Teardown testing environment')
+@click.pass_context
+def teardown(ctx):
+    project.teardown(ctx.args)

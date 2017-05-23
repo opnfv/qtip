@@ -10,13 +10,13 @@
 import os
 
 
-def setup():
-    os.system('ansible-playbook setup.yml')
+def setup(extra_val=None):
+    os.system('ansible-playbook setup.yml {}'.format(extra_val))
 
 
-def run():
-    os.system('ansible-playbook run.yml')
+def run(extra_val=None):
+    os.system('ansible-playbook run.yml {}'.format(extra_val))
 
 
-def teardown():
-    os.system('ansible-playbook teardown.yml')
+def teardown(extra_val=None):
+    os.system('ansible-playbook teardown.yml {}'.format(extra_val))

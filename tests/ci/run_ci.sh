@@ -45,6 +45,8 @@ done
 #set vars from env if not provided by user as options
 installer_type=${installer_type:-$INSTALLER_TYPE}
 installer_ip=${installer_ip:-$INSTALLER_IP}
+pod_name=${pod_name:-$POD_NAME}
+scenario=${scenario:-$SCENARIO}
 
 sshoptions="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 
@@ -65,7 +67,7 @@ esac
 
 cd /home/opnfv
 
-qtip workspace create --pod ${pod_name} --installer ${installer_type} \
+qtip create --pod ${pod_name} --installer ${installer_type} \
 --master-host ${installer_ip} --scenario ${scenario} workspace
 
 cd /home/opnfv/workspace/

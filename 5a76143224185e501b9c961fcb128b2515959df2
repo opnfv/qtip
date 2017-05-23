@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aaae553_59607335",
+        "filename": "qtip/runner/project.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-23T21:10:29Z",
+      "side": 1,
+      "message": "We may pass the args as list and performs the string join here. Lazy processing would allow better flexibility in future.",
+      "range": {
+        "startLine": 13,
+        "startChar": 10,
+        "endLine": 13,
+        "endChar": 19
+      },
+      "revId": "5a76143224185e501b9c961fcb128b2515959df2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

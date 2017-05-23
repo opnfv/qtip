@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aaae553_ab190d7b",
+        "filename": "tests/ci/run_ci.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-23T01:26:32Z",
+      "side": 1,
+      "message": "We also support `qtip create` which is equivalent to `qtip project create` but shorter to type.",
+      "range": {
+        "startLine": 70,
+        "startChar": 5,
+        "endLine": 70,
+        "endChar": 12
+      },
+      "revId": "5dd512780866d495efcd147af788600bfe34bacf",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

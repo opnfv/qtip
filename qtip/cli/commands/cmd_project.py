@@ -36,6 +36,11 @@ def cli():
 
 
 @cli.command(help="Create new testing project")
+@click.option('--template',
+              prompt='Choose project template',
+              type=click.Choice(['compute', 'doctor']),
+              default='compute',
+              help='Choose project template')
 @click.option('--pod', default='unknown', prompt='Pod Name',
               help='Name of pod under test')
 @click.option('--installer', prompt='OPNFV Installer',
@@ -45,7 +50,8 @@ def cli():
 @click.option('--scenario', prompt='OPNFV Scenario', default='unknown',
               help='OPNFV scenario')
 @click.argument('name')
-def create(pod, installer, master_host, scenario, name):
+def create(pod, installer, master_host, scenario, name, template):
+    qtip_generator_role = os.path.join(utils.QTIP_ANSIBLE_ROLES, 'qtip-generator')
     extra_vars = {
         'qtip_package': utils.QTIP_PACKAGE,
         'cwd': os.getcwd(),
@@ -53,14 +59,16 @@ def create(pod, installer, master_host, scenario, name):
         'installer': installer,
         'scenario': scenario,
         'installer_master_host': master_host,
-        'workspace': name
+        'project_name': name,
+        'project_template': template
     }
-    os.system("ANSIBLE_ROLES_PATH={qtip_package}/{roles_path} ansible-playbook"
-              " -i {qtip_package}/{roles_path}/qtip-workspace/hosts"
-              " {qtip_package}/{roles_path}/qtip-workspace/create.yml"
+    os.system("ANSIBLE_ROLES_PATH={roles_path} ansible-playbook"
+              " -i {hosts}"
+              " {playbook}"
               " --extra-vars '{extra_vars}'"
-              "".format(qtip_package=utils.QTIP_PACKAGE,
-                        roles_path=utils.ROLES_PATH,
+              "".format(roles_path=utils.QTIP_ANSIBLE_ROLES,
+                        hosts=os.path.join(qtip_generator_role, 'hosts'),
+                        playbook=os.path.join(qtip_generator_role, 'main.yml'),
                         extra_vars=utils.join_vars(**extra_vars)))
 
 

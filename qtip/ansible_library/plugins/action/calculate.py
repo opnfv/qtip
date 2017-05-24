@@ -69,7 +69,7 @@ def calc_qpi(qpi_spec, metrics):
         'children': section_results,
         'details': {
             'metrics': metrics,
-            'spec': qpi_spec
+            'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml"
         }
     }
 

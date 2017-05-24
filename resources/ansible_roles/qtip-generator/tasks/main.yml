@@ -7,16 +7,18 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-installer: fuel
+- name: creating directories
+  file:
+    path: "{{ cwd }}/{{ project_name }}/{{ item.path }}"
+    state: directory
+    force: yes
+  with_filetree: "{{ project_template }}/"
+  when: item.state == 'directory'
 
-installer_master_host: fuel-master
-
-installer_master_group:
-  manual: dummy-group
-  fuel: fuel-masters
-  apex: apex-underclouds
-
-workspace: "workspace"
-qtip_package: ../../..
-qtip_cache: .qtip-cache
-cwd: .
+- name: templating files
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ cwd }}/{{ project_name }}/{{ item.path }}"
+    force: yes
+  with_filetree: "{{ project_template }}/"
+  when: item.state == 'file'

@@ -1,0 +1,14 @@
+{% raw %}
+doctor_project: doctor
+doctor_user: doctor
+doctor_pass: doctor
+doctor_role: _member_
+doctor_domain: Default
+doctor_network: doctor
+doctor_subnet: doctor
+doctor_cidr: "192.168.168.0/24"
+doctor_auth:
+  username: "{{ doctor_user }}"
+  password: "{{ doctor_pass }}"
+  project_name: "{{ doctor_project }}"
+{% endraw %}

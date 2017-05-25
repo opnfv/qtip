@@ -1,0 +1,173 @@
+{
+  "name": "compute-baseline",
+  "description": "The baseline for compute QPI",
+  "version": "0.0.1",
+  "score": 2048,
+  "spec": "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
+  "system_info": {
+    "product": "EC600G3",
+    "cpu": "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-)",
+    "os": "Ubuntu 16.04 xenial",
+    "kernel": "4.4.0-72-generic x86_64 (64 bit)"
+  },
+  "condition": {
+    "cpu_speed": "1200/3000 MHz",
+    "memory": "4062.3/128524.1MB",
+    "disk": "1200.3GB (0.9% used)",
+    "installer": "Fuel",
+    "scenario": "os-nosdn-nofeature-ha"
+  },
+  "sections": [
+    {
+      "name": "SSL",
+      "metrics": [
+        {
+          "name": "ssl_rsa",
+          "workloads": [
+            {
+              "name": "rsa_sign_512",
+              "baseline": "16521.0"
+            },
+            {
+              "name": "rsa_verify_512",
+              "baseline": "223925.9"
+            },
+            {
+              "name": "rsa_sign_1024",
+              "baseline": "5802.6"
+            },
+            {
+              "name": "rsa_verify_1024",
+              "baseline": "89015.3"
+            },
+            {
+              "name": "rsa_sign_2048",
+              "baseline": "1236.5"
+            },
+            {
+              "name": "rsa_verify_2048",
+              "baseline": "27919.2"
+            },
+            {
+              "name": "rsa_sign_4096",
+              "baseline": "114.9"
+            },
+            {
+              "name": "rsa_verify_4096",
+              "baseline": "8637.9"
+            }
+          ]
+        },
+        {
+          "name": "ssl_aes",
+          "workloads": [
+            {
+              "name": "aes_128_cbc_16_bytes",
+              "baseline": "544031.31k"
+            },
+            {
+              "name": "aes_128_cbc_64_bytes",
+              "baseline": "575116.35k"
+            },
+            {
+              "name": "aes_128_cbc_256_bytes",
+              "baseline": "587653.72k"
+            },
+            {
+              "name": "aes_128_cbc_1024_bytes",
+              "baseline": "595095.21k"
+            },
+            {
+              "name": "aes_128_cbc_8192_bytes",
+              "baseline": "590107.99k"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DPI",
+      "metrics": [
+        {
+          "name": "dpi_throughput",
+          "workloads": [
+            {
+              "name": "dpi_pps",
+              "baseline": "2.42 M"
+            },
+            {
+              "name": "dpi_bps",
+              "baseline": "22.70 G"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "memory",
+      "metrics": [
+        {
+          "name": "floatmem",
+          "workloads": [
+            {
+              "name": "triad",
+              "baseline": "10215.75"
+            },
+            {
+              "name": "add",
+              "baseline": "10117.36"
+            },
+            {
+              "name": "copy",
+              "baseline": "8168.85"
+            },
+            {
+              "name": "scale",
+              "baseline": "8119.82"
+            }
+          ]
+        },
+        {
+          "name": "intmem",
+          "workloads": [
+            {
+              "name": "triad",
+              "baseline": "12153.15"
+            },
+            {
+              "name": "add",
+              "baseline": "12302.58"
+            },
+            {
+              "name": "copy",
+              "baseline": "12194.48"
+            },
+            {
+              "name": "scale",
+              "baseline": "12187.15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "arithmetic",
+      "metrics": [
+        {
+          "name": "arithmetic",
+          "workloads": [
+            {
+              "name": "dhrystone_lps",
+              "baseline": "29002911.0"
+            },
+            {
+              "name": "whetstone_MWIPS",
+              "baseline": "2176.8"
+            }
+          ]
+
+        }
+      ]
+    }
+  ]
+}

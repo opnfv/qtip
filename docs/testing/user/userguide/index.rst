@@ -15,3 +15,4 @@ QTIP User Guide
    cli.rst
    api.rst
    compute.rst
+   getting-started.rst

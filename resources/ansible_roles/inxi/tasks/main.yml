@@ -42,7 +42,7 @@
     patterns:
       - '.+\s+Host:\s+(?P<hostname>.+)\sKernel'
       - '.+\sMemory:\s+(?P<memory>.+MB)\s'
-      - '^CPU\(s\):\s+(?P<cpu>.+)'
+      - '^CPU\(s\):\s+(?P<cpu>.+)\sspeed\/max'
       - '.+\sDistro:\s+(?P<os>.+)'
       - '.+\sKernel:\s+(?P<kernel>.+)\sConsole'
       - '.+\s+HDD Total Size:\s+(?P<disk>.+)\s'

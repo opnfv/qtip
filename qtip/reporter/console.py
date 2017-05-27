@@ -9,6 +9,7 @@
 
 import glob
 import json
+import os
 from os import path
 from jinja2 import Environment
 from jinja2 import FileSystemLoader
@@ -30,6 +31,10 @@ class ConsoleReporter(BaseActor):
         tpl_loader = FileSystemLoader(tpl_path)
         self._env = Environment(loader=tpl_loader)
         self._env.filters['justify'] = filters.justify
+
+    def report_list(self):
+         rprt_path = path.join(ROOT_DIR, 'results/')
+         return os.listdir(rprt_path)
 
     def load_result(self, result_path):
         result_dirs = glob.glob('{}/qtip-*'.format(result_path))

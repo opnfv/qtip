@@ -10,6 +10,7 @@
 import click
 
 from qtip.cli.entry import Context
+from qtip.cli import utils
 from qtip.reporter.console import ConsoleReporter
 
 pass_context = click.make_pass_decorator(Context, ensure=False)
@@ -22,7 +23,16 @@ def cli(ctx):
     pass
 
 
-@cli.command('show')
+@cli.command('list', help="List all reports")
+@pass_context
+def report_list(ctx):
+    reporter = ConsoleReporter({})
+    reports = reporter.report_list()
+    table = utils.table('Reports', reports)
+    click.echo(table)
+
+
+@cli.command('show', help="View report details")
 @click.argument('metric')
 @click.option('-p', '--path', help='Path to result directory')
 @pass_context

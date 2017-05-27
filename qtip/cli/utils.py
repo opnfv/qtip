@@ -26,7 +26,10 @@ def table(name, components):
     """ Return a PrettyTable for component listing """
     table = PrettyTable([name])
     table.align[name] = 'l'
-    [table.add_row([component['name'][0:-5]]) for component in components]
+    if name is 'Reports':
+        [table.add_row([component]) for component in components]
+    else:
+        [table.add_row([component['name'][0:-5]]) for component in components]
     return table
 
 

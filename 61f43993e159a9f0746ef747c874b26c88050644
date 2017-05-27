@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5aaae553_a7e4d9ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-05-27T03:28:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aaae553_7a043d15",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "61f43993e159a9f0746ef747c874b26c88050644",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aaae553_da39b1d9",
         "filename": "resources/QPI/compute-baseline.json",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-25T07:40:30Z",
       "side": 1,
       "message": "\u003d\u003e 2048",
+      "range": {
+        "startLine": 5,
+        "startChar": 11,
+        "endLine": 5,
+        "endChar": 15
+      },
+      "revId": "61f43993e159a9f0746ef747c874b26c88050644",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_c7e1d59b",
+        "filename": "resources/QPI/compute-baseline.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-05-27T03:28:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aaae553_da39b1d9",
       "range": {
         "startLine": 5,
         "startChar": 11,

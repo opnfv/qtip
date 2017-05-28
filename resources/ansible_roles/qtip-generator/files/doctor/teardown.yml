@@ -1,0 +1,40 @@
+{% raw %}
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+---
+- hosts: localhost
+
+  gather_facts: no
+
+  tasks:
+
+  # Reverse order of setup
+  - name: removing doctor subnet
+    os_subnet:
+      auth: "{{ doctor_auth }}"
+      name: "{{ doctor_subnet }}"
+      state: absent
+
+  - name: creating doctor network
+    os_network:
+      auth: "{{ doctor_auth }}"
+      name: "{{ doctor_network }}"
+      state: absent
+
+  - name: removing doctor user
+    os_user:
+      name: "{{ doctor_user }}"
+      state: absent
+
+  - name: removing doctor project
+    os_project:
+      name: "{{ doctor_project }}"
+      state: absent
+{% endraw %}

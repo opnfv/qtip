@@ -7,18 +7,11 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-- name: creating directories
-  file:
-    path: "{{ cwd }}/{{ workspace }}/{{ item.path }}"
-    state: directory
-    force: yes
-  with_filetree: template/
-  when: item.state == 'directory'
+---
+- hosts: localhost
 
-- name: templating files
-  template:
-    src: "{{ item.src }}"
-    dest: "{{ cwd }}/{{ workspace }}/{{ item.path }}"
-    force: yes
-  with_filetree: template/
-  when: item.state == 'file'
+  gather_facts: no
+
+  roles:
+
+    - role: qtip-generator

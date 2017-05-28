@@ -15,7 +15,7 @@ from prettytable import PrettyTable
 
 
 QTIP_PACKAGE = path.join(path.dirname(__file__), os.pardir, os.pardir)
-ROLES_PATH = 'resources/ansible_roles'
+QTIP_ANSIBLE_ROLES = path.join(QTIP_PACKAGE, 'resources', 'ansible_roles')
 
 
 def join_vars(**kwargs):

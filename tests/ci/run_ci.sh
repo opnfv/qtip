@@ -67,7 +67,7 @@ esac
 
 cd /home/opnfv
 
-qtip create --pod ${pod_name} --installer ${installer_type} \
+qtip create --template compute --pod ${pod_name} --installer ${installer_type} \
 --master-host ${installer_ip} --scenario ${scenario} workspace
 
 cd /home/opnfv/workspace/

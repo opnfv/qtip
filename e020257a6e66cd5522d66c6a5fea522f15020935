@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aaae553_222217ba",
+        "filename": "tests/unit/cli/cmd_project_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-28T23:49:48Z",
+      "side": 1,
+      "message": "TestClass is not required for pytest",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 22
+      },
+      "revId": "e020257a6e66cd5522d66c6a5fea522f15020935",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_e22b9f92",
+        "filename": "tests/unit/cli/cmd_project_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-28T23:49:48Z",
+      "side": 1,
+      "message": "This is not what we want...\n\n What we need is to call `qtip run -vvv` and result in `ansible-playbook run.yml -vvv`",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 70
+      },
+      "revId": "e020257a6e66cd5522d66c6a5fea522f15020935",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_c22ea3a5",
+        "filename": "tests/unit/cli/cmd_project_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-28T23:49:48Z",
+      "side": 1,
+      "message": "These three tests have similar structure. Consider using ``pytest.mark.parametrize`` to group them in one test.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 75
+      },
+      "revId": "e020257a6e66cd5522d66c6a5fea522f15020935",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

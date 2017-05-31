@@ -42,12 +42,48 @@ def section_spec(metric_spec):
     }
 
 
-@pytest.fixture
+@pytest.fixture()
 def qpi_spec(section_spec):
     return {
         "name": "compute",
         "description": "QTIP Performance Index of compute",
         "sections": [section_spec]
+    }
+
+
+@pytest.fixture()
+def rsa_sign_baseline():
+    return {'name': 'rsa_sign', 'baseline': '500'}
+
+
+@pytest.fixture()
+def rsa_verify_baseline():
+    return {"name": "rsa_verify", "baseline": 600}
+
+
+@pytest.fixture()
+def metric_baseline(rsa_sign_baseline, rsa_verify_baseline):
+    return {
+        "name": "ssl_rsa",
+        "workloads": [rsa_sign_baseline, rsa_verify_baseline]
+    }
+
+
+@pytest.fixture()
+def section_baseline(metric_baseline):
+    return {
+        "name": "ssl",
+        "metrics": [metric_baseline]
+    }
+
+
+@pytest.fixture()
+def qpi_baseline(section_baseline):
+    return {
+        "name": "compute-baseline",
+        "description": "The baseline for compute QPI",
+        "score": 2048,
+        "sections": [section_baseline]
     }
 
 
@@ -76,19 +112,26 @@ def qpi_result(section_result, metrics):
             'children': [section_result],
             'details': {
                 'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
+                'baseline': "https://git.opnfv.org/qtip/tree/resources/QPI/compute-baseline.json",
                 'metrics': metrics}}
 
 
-def test_calc_metric(metric_spec, metrics, metric_result):
-    assert calculate.calc_metric(metric_spec, metrics['ssl_rsa']) == metric_result
+def test_calc_metric(metric_spec, metrics, metric_baseline, metric_result):
+    assert calculate.calc_metric(metric_spec,
+                                 metrics['ssl_rsa'],
+                                 metric_baseline) == metric_result
 
 
-def test_calc_section(section_spec, metrics, section_result):
-    assert calculate.calc_section(section_spec, metrics) == section_result
+def test_calc_section(section_spec, metrics, section_baseline, section_result):
+    assert calculate.calc_section(section_spec,
+                                  metrics,
+                                  section_baseline) == section_result
 
 
-def test_calc_qpi(qpi_spec, metrics, qpi_result):
-    assert calculate.calc_qpi(qpi_spec, metrics) == qpi_result
+def test_calc_qpi(qpi_spec, metrics, qpi_baseline, qpi_result):
+    assert calculate.calc_qpi(qpi_spec,
+                              metrics,
+                              qpi_baseline) == qpi_result
 
 
 @pytest.mark.parametrize('metrics, baseline, expected', [

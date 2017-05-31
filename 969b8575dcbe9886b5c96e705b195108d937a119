@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aaae553_535a8684",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-31T09:05:05Z",
+      "side": 1,
+      "message": "Since baseline is not used anywhere else. It does not need to be declared in L49. Just put L53 at the same indent with L52 or write them in one line.",
+      "revId": "969b8575dcbe9886b5c96e705b195108d937a119",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

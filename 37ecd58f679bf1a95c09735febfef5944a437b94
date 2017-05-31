@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5aaae553_b3173aa3",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-05-31T08:47:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aaae553_33e4aa0c",
+      "revId": "37ecd58f679bf1a95c09735febfef5944a437b94",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aaae553_d3f0b6cb",
         "filename": "qtip/ansible_library/plugins/action/calculate.py",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2017-05-31T05:55:50Z",
       "side": 1,
       "message": "What does \"sort\" mean here?",
+      "range": {
+        "startLine": 65,
+        "startChar": 16,
+        "endLine": 65,
+        "endChar": 20
+      },
+      "revId": "37ecd58f679bf1a95c09735febfef5944a437b94",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_530cc694",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-05-31T08:47:24Z",
+      "side": 1,
+      "message": "Updated it.",
+      "parentUuid": "5aaae553_d3f0b6cb",
       "range": {
         "startLine": 65,
         "startChar": 16,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "5aaae553_7311c2ab",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-05-31T08:47:24Z",
+      "side": 1,
+      "message": "Good suggestion.",
+      "parentUuid": "5aaae553_f3edb2f0",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 68
+      },
+      "revId": "37ecd58f679bf1a95c09735febfef5944a437b94",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aaae553_93ba3ee0",
         "filename": "qtip/ansible_library/plugins/action/calculate.py",
         "patchSetId": 2
@@ -76,6 +142,24 @@
       "writtenOn": "2017-05-31T05:55:50Z",
       "side": 1,
       "message": "The same as L122",
+      "revId": "37ecd58f679bf1a95c09735febfef5944a437b94",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_13264e17",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-05-31T08:47:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aaae553_93ba3ee0",
       "revId": "37ecd58f679bf1a95c09735febfef5944a437b94",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

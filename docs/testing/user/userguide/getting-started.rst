@@ -5,10 +5,29 @@
 Getting started with QTIP
 *************************
 
-Overview
-========
+.. code-block::
 
-Create a new project to hold the neccessary configurations and test results
+    pip install qtip
+    eval $(ssh-agent)
+
+    qtip create <project_name>
+    cd <project_name>
+
+    qtip setup
+    qtip run
+    qtip teardown
+
+Installation
+============
+
+Refer to `installation and configuration guide`_ for details
+
+.. _installation and configuration guide:../configguide/
+
+Create
+======
+
+Create a new project to hold the necessary configurations and test results
 ::
 
     qtip create <project_name>
@@ -29,32 +48,33 @@ The user would be prompted for OPNFV installer, its hostname etc
     **OPNFV Scenario [unknown]: os-nosdn-nofeature-ha**
     Depends on the OPNFV scenario deployed
 
-With the framework generated, user should now proceed on to setting up testing environment. In this step, information related to OPNFV cluster would
-be generated, such as getting the IP addresses of the nodes in System Under Test (SUT).
-::
+Setup
+=====
+
+With the project is created, user should now proceed on to setting up testing environment. In this step, ssh connection
+to hosts in SUT will be configured automatically::
 
     cd <project_name>
     $ qtip setup
 
-QTIP uses `ssh-agent` for authentication. It is critical that it started and stopped in the correct way.
+Run
+===
 
+QTIP uses ``ssh-agent`` for authentication of ssh connection to hosts in SUT. It must be started correctly before
+running the tests::
 
-ssh-agent
-=========
+    eval $(ssh-agent)
 
-ssh-agent is used to hold the private keys for RSA, DCA authentication. In order to start the process
-::
+Then run test with ``qtip run``
 
-    $ eval $(ssh-agent)
+Teardown
+========
 
-This would start the agent in background. One must now be able to execute QTIP
-::
+Clean up the temporary folder on target hosts.
 
-    $ qtip run
+.. note:: The installed packages for testing won't be uninstalled.
 
-However, if QTIP is not working because of `ssh-agent`, one should kill the process as follows
-::
+One more thing
+==============
 
-    $ eval $(ssh-agent -k)
-
-Then start the agent again as described above.
+You may use ``-v`` for verbose output (``-vvv`` for more, ``-vvvv`` to enable connection debugging)

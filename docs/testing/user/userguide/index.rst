@@ -12,7 +12,7 @@ QTIP User Guide
    :maxdepth: 2
 
    overview.rst
+   getting-started.rst
    cli.rst
    api.rst
    compute.rst
-   getting-started.rst

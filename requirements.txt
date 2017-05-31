@@ -10,3 +10,4 @@ prettytable
 six
 PyYAML
 humanfriendly
+asq

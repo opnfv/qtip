@@ -10,13 +10,18 @@
 import os
 
 
-def setup():
-    os.system('ansible-playbook setup.yml')
+def convert(vals):
+    if vals:
+        return " ".join(vals)
 
 
-def run():
-    os.system('ansible-playbook run.yml')
+def setup(extra_val=None):
+    os.system('ansible-playbook setup.yml {}'.format(convert(extra_val)))
 
 
-def teardown():
-    os.system('ansible-playbook teardown.yml')
+def run(extra_val=None):
+    os.system('ansible-playbook run.yml {}'.format(convert(extra_val)))
+
+
+def teardown(extra_val=None):
+    os.system('ansible-playbook teardown.yml {}'.format(convert(extra_val)))

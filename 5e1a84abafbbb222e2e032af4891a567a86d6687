@@ -16,6 +16,24 @@
       "revId": "5e1a84abafbbb222e2e032af4891a567a86d6687",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_33c10a81",
+        "filename": "docs/testing/user/userguide/getting-started.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-31T02:58:54Z",
+      "side": 1,
+      "message": "User will be prompted for these arguments and they can input them interactively.",
+      "parentUuid": "5aaae553_13688eb9",
+      "revId": "5e1a84abafbbb222e2e032af4891a567a86d6687",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

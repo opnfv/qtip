@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aaae553_33e4aa0c",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-31T05:55:50Z",
+      "side": 1,
+      "message": "This branch could be merged into L52 because it is the same condition that baseline is not specified.",
+      "revId": "37ecd58f679bf1a95c09735febfef5944a437b94",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_d3f0b6cb",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-31T05:55:50Z",
+      "side": 1,
+      "message": "What does \"sort\" mean here?",
+      "range": {
+        "startLine": 65,
+        "startChar": 16,
+        "endLine": 65,
+        "endChar": 20
+      },
+      "revId": "37ecd58f679bf1a95c09735febfef5944a437b94",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_f3edb2f0",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-31T05:55:50Z",
+      "side": 1,
+      "message": "Consider using factories which is more readable once you are familiar with the syntax.\n\n\u003d\u003e query(section_baseline[\u0027metrics]).first(eq_(a_(\u0027name), m[\u0027name\u0027]))\n\nSee\n\n- http://asq.readthedocs.io/en/latest/reference/queryables.html?highlight\u003dfirst#asq.queryables.Queryable.first\n- http://asq.readthedocs.io/en/latest/narrative.html#using-selector-factories-for-predicates",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 68
+      },
+      "revId": "37ecd58f679bf1a95c09735febfef5944a437b94",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_93ba3ee0",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-05-31T05:55:50Z",
+      "side": 1,
+      "message": "The same as L122",
+      "revId": "37ecd58f679bf1a95c09735febfef5944a437b94",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

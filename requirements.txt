@@ -1,3 +1,4 @@
+six
 colorama
 ansible
 click
@@ -7,6 +8,5 @@ numpy
 paramiko
 pbr
 prettytable
-six
 PyYAML
 humanfriendly

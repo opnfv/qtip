@@ -18,6 +18,7 @@
       intmem: "{{ qtip_results }}/memory/integer-metrics.json"
       floatmem: "{{ qtip_results }}/memory/float-metrics.json"
       arithmetic: "{{ qtip_results }}/arithmetic/metrics.json"
+    sysinfo: "{{ qtip_results }}/sysinfo/condition.json"
     spec:   "{{ qtip_resources }}/QPI/compute.yaml"
     baseline: "{{ qtip_resources }}/QPI/compute-baseline.json"
     dest: "{{ qtip_results }}/compute.json"

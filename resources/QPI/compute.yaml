@@ -8,6 +8,19 @@
 ##############################################################################
 name: compute
 description: QTIP Performance Index of compute
+system_info:
+  - name: product
+    description: production commercial name
+  - name: cpu
+    description: cpu brand
+  - name: os
+    description: operating system version
+  - name: kernel
+    description: the core of a computer's operating system
+  - name: memory
+    description: memory usage
+  - name: disk
+    description: disk usage
 formula: weighted arithmetic mean
 sections: # split based on different application
   - name: SSL

@@ -15,22 +15,17 @@ import os
 from qtip.base.error import InvalidContentError
 from qtip.base.error import NotFoundError
 from qtip.cli import utils
-from qtip.cli.entry import Context
 from qtip.loader.qpi import QPISpec
-
-pass_context = click.make_pass_decorator(Context, ensure=False)
 
 
 @click.group()
-@pass_context
-def cli(ctx):
+def cli():
     ''' Collection of performance tests '''
     pass
 
 
 @cli.command('list', help='List all the QPI specs')
-@pass_context
-def cmd_list(ctx):
+def cmd_list():
     qpis = QPISpec.list_all()
     table = utils.table('QPIs', qpis)
     click.echo(table)
@@ -38,8 +33,7 @@ def cmd_list(ctx):
 
 @cli.command('show', help='View details of a QPI')
 @click.argument('name')
-@pass_context
-def show(ctx, name):
+def show(name):
     try:
         qpi = QPISpec('{}.yaml'.format(name))
     except NotFoundError as nf:
@@ -55,8 +49,7 @@ def show(ctx, name):
 @cli.command('run', help='Run performance tests for the specified QPI')
 @click.argument('name')
 @click.option('-p', '--path', help='Path to store results')
-@pass_context
-def run(ctx, name, path):
+def run(name, path):
     runner_path = path.join(os.path.dirname(__file__), os.path.pardir, os.path.pardir,
                             'runner/runner.py')
     os.system('python {0} -b all -d {1}'.format(runner_path, path))

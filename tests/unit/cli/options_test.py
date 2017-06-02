@@ -21,10 +21,6 @@ class TestClass(object):
     def runner(self):
         return CliRunner()
 
-    def test_verbose(self, runner):
-        result = runner.invoke(cli, ['-v'])
-        assert result.output == ''
-
     def test_version(self, runner):
         result = runner.invoke(cli, ['--version'])
         assert re.search(r'\d+\.\d+\.\d+', result.output)

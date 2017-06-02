@@ -9,15 +9,11 @@
 
 import click
 
-from qtip.cli.entry import Context
 from qtip.reporter.console import ConsoleReporter
-
-pass_context = click.make_pass_decorator(Context, ensure=False)
 
 
 @click.group()
-@pass_context
-def cli(ctx):
+def cli():
     """ View QTIP results"""
     pass
 
@@ -25,8 +21,7 @@ def cli(ctx):
 @cli.command('show')
 @click.argument('metric')
 @click.option('-p', '--path', help='Path to result directory')
-@pass_context
-def show(ctx, metric, path):
+def show(metric, path):
     reporter = ConsoleReporter({})
     report = reporter.render(metric, path)
     click.echo(report)

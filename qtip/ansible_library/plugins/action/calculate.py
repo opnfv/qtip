@@ -43,21 +43,29 @@ class ActionModule(ActionBase):
         for metric, filename in metrics_files.items():
             with open(filename) as f:
                 metrics[metric] = json.load(f)
+
+        with open(self._task.args.get('sysinfo')) as f:
+            data = json.load(f)
+            info = {
+                'system_info': dict([(k['name'], data[k['name']][0]) for k in spec['system_info']]),
+                'condition': dict([(k['name'], data[k['name']][0]) for k in spec['condition']])
+            }
+
         dest = self._task.args.get('dest')
 
         baseline_file = self._task.args.get('baseline')
         if baseline_file is not None:
             with open(baseline_file) as f:
                 baseline = json.load(f)
-                return calc_qpi(spec, metrics, baseline, dest=dest)
+                return calc_qpi(spec, metrics, baseline, info, dest=dest)
         else:
-            return save_as_baseline(spec, metrics, dest=dest)
+            return save_as_baseline(spec, metrics, info, dest=dest)
 
 
 # TODO(wuzhihui): It is more reasonable to put this function into collect.py.
 # For now metrics data is not easy to be collected from collect.py.
 @export_to_file
-def save_as_baseline(qpi_spec, metrics):
+def save_as_baseline(qpi_spec, metrics, info):
     display.vv("save {} metrics as baseline".format(qpi_spec['name']))
     display.vvv("spec: {}".format(qpi_spec))
     display.vvv("metrics: {}".format(metrics))
@@ -66,6 +74,8 @@ def save_as_baseline(qpi_spec, metrics):
         'name': qpi_spec['name'],
         'score': 2048,
         'description': qpi_spec['description'],
+        'system_info': info['system_info'],
+        'condition': info['condition'],
         'details': {
             'metrics': metrics,
             'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
@@ -75,7 +85,7 @@ def save_as_baseline(qpi_spec, metrics):
 
 
 @export_to_file
-def calc_qpi(qpi_spec, metrics, qpi_baseline):
+def calc_qpi(qpi_spec, metrics, qpi_baseline, info):
     display.vv("calculate QPI {}".format(qpi_spec['name']))
     display.vvv("spec: {}".format(qpi_spec))
     display.vvv("metrics: {}".format(metrics))
@@ -95,6 +105,8 @@ def calc_qpi(qpi_spec, metrics, qpi_baseline):
         'score': qpi_score,
         'name': qpi_spec['name'],
         'description': qpi_spec['description'],
+        'system_info': info['system_info'],
+        'condition': info['condition'],
         'children': section_results,
         'details': {
             'metrics': metrics,

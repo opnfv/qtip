@@ -105,10 +105,28 @@ def section_result(metric_result):
 
 
 @pytest.fixture()
-def qpi_result(section_result, metrics):
+def sysinfo():
+    return {
+        "system_info": {
+            "kernel": "4.4.0-72-generic x86_64 (64 bit)",
+            "product": "EC600G3",
+            "os": "Ubuntu 16.04 xenial",
+            "cpu": "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-)"
+        },
+        "condition": {
+            "disk": "1200.3GB (25.1% used)",
+            "memory": "30769.7/128524.1MB"
+        }
+    }
+
+
+@pytest.fixture()
+def qpi_result(section_result, metrics, sysinfo):
     return {'score': 2048,
             'name': 'compute',
             'description': 'QTIP Performance Index of compute',
+            'system_info': sysinfo['system_info'],
+            'condition': sysinfo['condition'],
             'children': [section_result],
             'details': {
                 'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
@@ -128,10 +146,10 @@ def test_calc_section(section_spec, metrics, section_baseline, section_result):
                                   section_baseline) == section_result
 
 
-def test_calc_qpi(qpi_spec, metrics, qpi_baseline, qpi_result):
+def test_calc_qpi(qpi_spec, metrics, qpi_baseline, sysinfo, qpi_result):
     assert calculate.calc_qpi(qpi_spec,
                               metrics,
-                              qpi_baseline) == qpi_result
+                              qpi_baseline, sysinfo) == qpi_result
 
 
 @pytest.mark.parametrize('metrics, baseline, expected', [

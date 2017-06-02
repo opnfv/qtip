@@ -8,12 +8,12 @@
     "product": "EC600G3",
     "cpu": "2 Deca core Intel Xeon E5-2650 v3s (-HT-MCP-SMP-)",
     "os": "Ubuntu 16.04 xenial",
-    "kernel": "4.4.0-72-generic x86_64 (64 bit)"
-  },
-  "condition": {
+    "kernel": "4.4.0-72-generic x86_64 (64 bit)",
     "cpu_speed": "1200/3000 MHz",
     "memory": "4062.3/128524.1MB",
-    "disk": "1200.3GB (0.9% used)",
+    "disk": "1200.3GB (0.9% used)"
+  },
+  "condition": {
     "installer": "Fuel",
     "scenario": "os-nosdn-nofeature-ha"
   },

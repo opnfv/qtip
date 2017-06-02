@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aaae553_a7305057",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-02T09:02:37Z",
+      "side": 1,
+      "message": "It looks weird to have `system_info` under `sysinfo`, I suggest we pass system_info and condition as two arguments to save_as_baseline and calc_qpi",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 13
+      },
+      "revId": "7648af3e7e83d2832d3511935644ec76408449b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

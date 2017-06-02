@@ -15,13 +15,22 @@ def convert(vals):
         return " ".join(vals)
 
 
-def setup(extra_val=None):
-    os.system('ansible-playbook setup.yml {}'.format(convert(extra_val)))
+def setup(extra_val):
+    if len(extra_val) == 0:
+        os.system('ansible-playbook setup.yml')
+    else:
+        os.system('ansible-playbook setup.yml {}'.format(convert(extra_val)))
 
 
-def run(extra_val=None):
-    os.system('ansible-playbook run.yml {}'.format(convert(extra_val)))
+def run(extra_val):
+    if len(extra_val) == 0:
+        os.system('ansible-playbook run.yml')
+    else:
+        os.system('ansible-playbook run.yml {}'.format(convert(extra_val)))
 
 
-def teardown(extra_val=None):
-    os.system('ansible-playbook teardown.yml {}'.format(convert(extra_val)))
+def teardown(extra_val):
+    if len(extra_val) == 0:
+        os.system('ansible-playbook teardown.yml')
+    else:
+        os.system('ansible-playbook teardown.yml {}'.format(convert(extra_val)))

@@ -21,17 +21,35 @@ def runner():
 
 def test_run(mocker, runner):
     mocker.patch('os.system')
+    runner.invoke(cli, ['run'])
+    os.system.assert_called_once_with('ansible-playbook run.yml')
+
+
+def test_run_verbose(mocker, runner):
+    mocker.patch('os.system')
     runner.invoke(cli, ['run', '-vvv'])
     os.system.assert_called_once_with('ansible-playbook run.yml -vvv')
 
 
 def test_setup(mocker, runner):
     mocker.patch('os.system')
+    runner.invoke(cli, ['setup'])
+    os.system.assert_called_once_with('ansible-playbook setup.yml')
+
+
+def test_setup_verbose(mocker, runner):
+    mocker.patch('os.system')
     runner.invoke(cli, ['setup', '-vvv'])
     os.system.assert_called_once_with('ansible-playbook setup.yml -vvv')
 
 
 def test_teardown(mocker, runner):
+    mocker.patch('os.system')
+    runner.invoke(cli, ['teardown'])
+    os.system.assert_called_once_with('ansible-playbook teardown.yml')
+
+
+def test_teardown_verbose(mocker, runner):
     mocker.patch('os.system')
     runner.invoke(cli, ['teardown', '-vvv'])
     os.system.assert_called_once_with('ansible-playbook teardown.yml -vvv')

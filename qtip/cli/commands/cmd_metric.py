@@ -14,22 +14,17 @@ import os
 from qtip.base.error import InvalidContentError
 from qtip.base.error import NotFoundError
 from qtip.cli import utils
-from qtip.cli.entry import Context
 from qtip.loader.metric import MetricSpec
-
-pass_context = click.make_pass_decorator(Context, ensure=False)
 
 
 @click.group()
-@pass_context
-def cli(ctx):
+def cli():
     ''' Performance Metrics Group '''
     pass
 
 
 @cli.command('list', help='List all the Metric Groups')
-@pass_context
-def cmd_list(ctx):
+def cmd_list():
     metrics = MetricSpec.list_all()
     table = utils.table('Metrics', metrics)
     click.echo(table)
@@ -37,8 +32,7 @@ def cmd_list(ctx):
 
 @cli.command('show', help='View details of a Metric')
 @click.argument('name')
-@pass_context
-def show(ctx, name):
+def show(name):
     try:
         metric = MetricSpec('{}.yaml'.format(name))
     except NotFoundError as nf:
@@ -54,8 +48,7 @@ def show(ctx, name):
 @cli.command('run', help='Run performance test')
 @click.argument('name')
 @click.option('-p', '--path', help='Path to store results')
-@pass_context
-def run(ctx, name, path):
+def run(name, path):
     runner_path = os.path.join(os.path.dirname(__file__), os.path.pardir, os.path.pardir,
                                'runner/runner.py')
     os.system('python {0} -b {1} -d {2}'.format(runner_path, name, path))

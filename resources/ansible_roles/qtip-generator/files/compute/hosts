@@ -7,7 +7,7 @@ localhost   ansible_connection=local
 [SUT]
 # Add hosts in system under test, example::
 #
-#   host-1  ansible_host=192.168.10.1 ansible_host=22 ansile_user=root
+#   host-under-test  ansible_host=192.168.10.1 ansible_port=5022 ansile_user=root
 #
 # See http://docs.ansible.com/ansible/intro_inventory.html for details
 {% endif %}

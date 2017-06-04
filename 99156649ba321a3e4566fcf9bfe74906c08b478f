@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aaae553_0d6863b9",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-04T11:00:35Z",
+      "side": 1,
+      "message": "In this case, I would prefer `system \u003d {info: ..., condition: ...}`",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 13
+      },
+      "revId": "99156649ba321a3e4566fcf9bfe74906c08b478f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

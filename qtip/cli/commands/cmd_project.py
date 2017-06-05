@@ -39,31 +39,36 @@ def cli():
 
 
 @cli.command(help="Create new testing project")
-@click.option('--template',
-              prompt='Choose project template',
+@click.argument('project_name')
+@click.option('--project-template',
               type=click.Choice(['compute', 'doctor']),
               default='compute',
               help='Choose project template')
-@click.option('--pod', default='unknown', prompt='Pod Name',
+@click.option('--pod-name',
+              prompt='Pod Name',
+              default='opnfv-pod',
               help='Name of pod under test')
-@click.option('--installer', prompt='OPNFV Installer',
-              help='OPNFV installer', default='manual')
-@click.option('--master-host', prompt='Installer Hostname',
-              help='Installer hostname', default='dummy-host')
-@click.option('--scenario', prompt='OPNFV Scenario', default='unknown',
+@click.option('--installer-type',
+              type=click.Choice(['apex', 'fuel', 'manual']),
+              prompt='OPNFV Installer Type',
+              default='manual',
+              help='OPNFV installer')
+@click.option('--installer-host',
+              prompt='Installer SSH Host Address',
+              help='Host configured for ssh client or IP addresses and domain name')
+@click.option('--scenario',
               help='OPNFV scenario')
-@click.argument('name')
-def create(pod, installer, master_host, scenario, name, template):
+def create(project_name, project_template, pod_name, installer_type, installer_host, scenario):
     qtip_generator_role = os.path.join(utils.QTIP_ANSIBLE_ROLES, 'qtip-generator')
     extra_vars = {
         'qtip_package': utils.QTIP_PACKAGE,
         'cwd': os.getcwd(),
-        'pod_name': pod,
-        'installer': installer,
-        'scenario': scenario,
-        'installer_master_host': master_host,
-        'project_name': name,
-        'project_template': template
+        'project_name': project_name,
+        'project_template': project_template,
+        'pod_name': pod_name,
+        'installer_type': installer_type,
+        'installer_host': installer_host,
+        'scenario': scenario
     }
     os.system("ANSIBLE_ROLES_PATH={roles_path} ansible-playbook"
               " -i {hosts}"

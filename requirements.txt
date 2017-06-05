@@ -1,3 +1,4 @@
+asq
 colorama
 ansible
 click

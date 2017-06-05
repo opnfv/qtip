@@ -1,8 +1,8 @@
 {% raw %}
 localhost   ansible_connection=local
 
-[{{ installer_master_group[installer] }}]
-{{ installer_master_host }}
+[{{ installer_group[installer_type] }}]
+{{ installer_host }}
 
 [SUT:children]   # system under test
 compute

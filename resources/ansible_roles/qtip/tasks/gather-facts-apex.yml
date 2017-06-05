@@ -10,11 +10,11 @@
 ---
 
 - name: gathering overcloud baremetal info
-  shell: . /root/stackrc && openstack baremetal list --fields instance_uuid properties provision_state --format json
+  shell: "source {{ ansible_env.HOME}}/stackrc && openstack baremetal list --fields instance_uuid properties provision_state --format json"
   register: baremetal_info
 
 - name: gathering overcloud server info
-  shell: . /root/stackrc && openstack server list --format json
+  shell: "source {{ ansible_env.HOME }}/stackrc && openstack server list --format json"
   register: server_info
 
 - name: generating inventory

@@ -17,7 +17,6 @@
     - debug: "msg='please add hosts to SUT group in `hosts` file manually.'"
 {% else %}
 - hosts: [{{ installer_group[installer_type] }}]
-  gather_facts: no
   roles:
     - { role: qtip, tasks: generate-inventory }
 {% endif %}

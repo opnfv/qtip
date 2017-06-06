@@ -15,13 +15,26 @@ def convert(vals):
         return " ".join(vals)
 
 
-def setup(extra_val=None):
-    os.system('ansible-playbook setup.yml {}'.format(convert(extra_val)))
+ARGS = 'ansible-playbook {}.yml {}'
+NO_ARGS = 'ansible-playbook {}.yml'
 
 
-def run(extra_val=None):
-    os.system('ansible-playbook run.yml {}'.format(convert(extra_val)))
+def setup(extra_val):
+    if extra_val:
+        os.system(ARGS.format('setup', convert(extra_val)))
+    else:
+        os.system(NO_ARGS.format('setup'))
 
 
-def teardown(extra_val=None):
-    os.system('ansible-playbook teardown.yml {}'.format(convert(extra_val)))
+def run(extra_val):
+    if extra_val:
+        os.system(ARGS.format('run', convert(extra_val)))
+    else:
+        os.system(NO_ARGS.format('run'))
+
+
+def teardown(extra_val):
+    if extra_val:
+        os.system(ARGS.format('teardown', convert(extra_val)))
+    else:
+        os.system(NO_ARGS.format('teardown'))

@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aaae553_c85479cc",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-06T01:18:05Z",
+      "side": 1,
+      "message": "Try with a better method name and argument name or put some docstring to describe it. It is difficult to see what this is trying to do...\n\nSuggested name extract_workload(sections, section_name)",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 17
+      },
+      "revId": "92c383b762c13ee43897f9cb3caaaf3c42d04163",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_e85135d9",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-06T01:18:05Z",
+      "side": 1,
+      "message": "Try http://asq.readthedocs.io/en/latest/narrative.html#diving-in for data processing\n\n    query(sections).where(lambda x: x[\u0027name\u0027] \u003d\u003d metric).select_many(k_(\u0027metrics\u0027)).select_many(k_(\u0027workloads\u0027)).to_list()\n\nWe shall use `asq` for record processing in qtip and I recommend you learn a bit about it.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 50
+      },
+      "revId": "92c383b762c13ee43897f9cb3caaaf3c42d04163",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_a83c9d94",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-06T01:18:05Z",
+      "side": 1,
+      "message": "I think a required option \u0027--node\u0027 is preferred..",
+      "revId": "92c383b762c13ee43897f9cb3caaaf3c42d04163",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_a8633db0",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-06T01:18:05Z",
+      "side": 1,
+      "message": "Only \u0027sections\u0027 is used, so pass report[\u0027spec\u0027][\u0027sections\u0027] instead of full spec.",
+      "range": {
+        "startLine": 48,
+        "startChar": 19,
+        "endLine": 48,
+        "endChar": 28
+      },
+      "revId": "92c383b762c13ee43897f9cb3caaaf3c42d04163",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_885e81e8",
+        "filename": "qtip/reporter/console.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-06T01:18:05Z",
+      "side": 1,
+      "message": "Use a dict or namedtuple for readability.",
+      "revId": "92c383b762c13ee43897f9cb3caaaf3c42d04163",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

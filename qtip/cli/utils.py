@@ -19,7 +19,7 @@ QTIP_ANSIBLE_ROLES = path.join(QTIP_PACKAGE, 'resources', 'ansible_roles')
 
 
 def join_vars(**kwargs):
-    return " ".join(["{}={}".format(variable, value) for variable, value in kwargs.items()])
+    return " ".join(["{}={}".format(variable, value) for variable, value in kwargs.items() if value is not None])
 
 
 def table(name, components):

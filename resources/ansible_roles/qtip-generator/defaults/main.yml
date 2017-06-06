@@ -7,11 +7,10 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-installer: fuel
+installer_type: fuel
+installer_host: fuel-master
 
-installer_master_host: fuel-master
-
-installer_master_group:
+installer_group:
   manual: dummy-group
   fuel: fuel-masters
   apex: apex-underclouds

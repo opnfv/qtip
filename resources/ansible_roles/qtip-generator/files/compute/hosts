@@ -1,8 +1,8 @@
 localhost   ansible_connection=local
 
-{% if installer != 'manual' %}
-[{{ installer_master_group[installer] }}]
-{{ installer_master_host }}
+{% if installer_type != 'manual' %}
+[{{ installer_group[installer_type] }}]
+{{ installer_host }}
 {% else %}
 [SUT]
 # Add hosts in system under test, example::

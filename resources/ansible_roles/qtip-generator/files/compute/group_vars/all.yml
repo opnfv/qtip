@@ -13,10 +13,10 @@ qtip_fixtures: fixtures
 qtip_dump: dump
 qtip_cache: "{{ qtip_cache }}"
 qtip_workdir: "{% raw %}{{ ansible_env.HOME }}{% endraw %}/qtip-workdir-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
-installer_master_group:
+
+installer_type: "{{ installer_type }}"
+installer_host: "{{ installer_host }}"
+installer_group:
   manual: dummy-group
   fuel: fuel-masters
   apex: apex-underclouds
-
-installer: "{{ installer }}"
-installer_master_host: "{{ installer_master_host }}"

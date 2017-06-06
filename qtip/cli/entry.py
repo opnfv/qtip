@@ -9,22 +9,12 @@
 
 import click
 import os
-import pkg_resources as pkg
 import sys
 
 from qtip.cli.commands.cmd_project import cli as project_commands
 
-CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
-# TODO (taseer) define user friendly error messages
 sys.tracebacklimit = 0
-
-
-class Context(object):
-    """ Load configuration and pass to subcommands """
-
-
-pass_context = click.make_pass_decorator(Context, ensure=True)
 cmd_folder = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                           'commands'))
 
@@ -51,9 +41,9 @@ class SubCommand(click.MultiCommand):
         return mod.cli
 
 
-@click.command(cls=SubCommand, context_settings=CONTEXT_SETTINGS,
+@click.command(cls=SubCommand,
                invoke_without_command=True)
-def sub_commands(ctx, verbose, debug):
+def sub_commands(debug):
     pass
 
 
@@ -61,10 +51,8 @@ def sub_commands(ctx, verbose, debug):
                help="Platform performance benchmarking",
                sources=[sub_commands, project_commands],
                invoke_without_command=True)
-@click.option('-v', '--verbose', is_flag=True, help='Enable verbose mode.')
 @click.option('-d', '--debug', is_flag=True, help='Enable debug mode.')
-@click.version_option(pkg.require("qtip")[0])
-@pass_context
-def cli(ctx, verbose, debug):
+@click.version_option()
+def cli(debug):
     if debug:
         sys.tracebacklimit = 8

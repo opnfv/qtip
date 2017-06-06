@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "5aaae553_681465f5",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-06T01:20:49Z",
+      "side": 1,
+      "message": "\u003d\u003e \u0027section\u0027\n\nIt seems all metrics under the section is shown by this command.",
+      "range": {
+        "startLine": 40,
+        "startChar": 17,
+        "endLine": 40,
+        "endChar": 23
+      },
+      "revId": "92c383b762c13ee43897f9cb3caaaf3c42d04163",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aaae553_a83c9d94",
         "filename": "qtip/cli/commands/cmd_report.py",
         "patchSetId": 1

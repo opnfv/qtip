@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aaae553_b2372bb0",
+        "filename": "resources/QPI/compute.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-06-07T17:22:52Z",
+      "side": 1,
+      "message": "Maybe you can help me here ?",
+      "range": {
+        "startLine": 53,
+        "startChar": 12,
+        "endLine": 61,
+        "endChar": 35
+      },
+      "revId": "8750fbae2f69d99c27d0cb7693f4b423346c32e8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

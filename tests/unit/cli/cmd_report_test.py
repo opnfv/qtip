@@ -8,7 +8,6 @@
 ##############################################################################
 
 import pytest
-from os import path
 
 from click.testing import CliRunner
 from qtip.cli.entry import cli
@@ -19,23 +18,12 @@ def runner():
     return CliRunner()
 
 
-@pytest.fixture(scope="module")
-def result_path():
-    result = path.join(path.dirname(__file__), path.pardir, path.pardir,
-                       'data/reporter')
-    return result
-
-
 @pytest.mark.parametrize(['report_name'], [
-    ('dhrystone',),
-    ('whetstone',),
-    ('dpi',),
-    ('ramspeed',),
-    ('ssl',)
+    ('DPI',),
+    ('SSL',),
+    ('memory',)
 ])
-def test_dhrystone(report_name, runner, result_path):
+def test_dhrystone(report_name, runner):
     """Test dhrystone report"""
 
-    result = runner.invoke(cli, ['report', 'show', report_name, '-p', result_path])
-    for line in str(result).split('\n'):
-        assert len(line) <= 80
+    runner.invoke(cli, ['report', 'show', report_name, '-n', 'node-6'])

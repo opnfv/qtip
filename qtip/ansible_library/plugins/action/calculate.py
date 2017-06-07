@@ -97,6 +97,12 @@ def calc_qpi(qpi_spec, metrics, qpi_baseline, sysinfo):
     qpi_score = int(
         mean([r['score'] for r in section_results]) * qpi_baseline['score'])
 
+    # merging scores and results
+    for section in section_results:
+        for child in section['children']:
+            for wl in child['children']:
+                wl['result'] = metrics[child['name']][wl['name']][0]
+
     results = {
         'score': qpi_score,
         'name': qpi_spec['name'],
@@ -104,7 +110,6 @@ def calc_qpi(qpi_spec, metrics, qpi_baseline, sysinfo):
         'system_info': sysinfo,
         'children': section_results,
         'details': {
-            'metrics': metrics,
             'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
             'baseline': "https://git.opnfv.org/qtip/tree/resources/QPI/compute-baseline.json"
         }

@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aaae553_bf885423",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-07T00:26:13Z",
+      "side": 1,
+      "message": "Refer to L49, it should be `sections`",
+      "range": {
+        "startLine": 17,
+        "startChar": 21,
+        "endLine": 17,
+        "endChar": 28
+      },
+      "revId": "484ed376614b57e9ea8798ab8c713756c0eb8cc8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_7f82dc01",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-07T00:26:13Z",
+      "side": 1,
+      "message": "This is a weird abbreviation...",
+      "range": {
+        "startLine": 19,
+        "startChar": 49,
+        "endLine": 19,
+        "endChar": 54
+      },
+      "revId": "484ed376614b57e9ea8798ab8c713756c0eb8cc8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_df8d1033",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-07T00:26:13Z",
+      "side": 1,
+      "message": "\u003d\u003e sections",
+      "range": {
+        "startLine": 19,
+        "startChar": 15,
+        "endLine": 19,
+        "endChar": 34
+      },
+      "revId": "484ed376614b57e9ea8798ab8c713756c0eb8cc8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_1f9c0869",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-07T00:26:13Z",
+      "side": 1,
+      "message": "What I meant was `report[0][\u0027sections\u0027]`.\n\nAnd `0` should be replaced with a meaningful name, not a magic number.",
+      "range": {
+        "startLine": 49,
+        "startChar": 28,
+        "endLine": 49,
+        "endChar": 37
+      },
+      "revId": "484ed376614b57e9ea8798ab8c713756c0eb8cc8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

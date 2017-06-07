@@ -8,19 +8,6 @@
 ##############################################################################
 name: compute
 description: QTIP Performance Index of compute
-system_info:
-  - name: product
-    description: production commercial name
-  - name: cpu
-    description: cpu brand
-  - name: os
-    description: operating system version
-  - name: kernel
-    description: the core of a computer's operating system
-  - name: memory
-    description: memory usage
-  - name: disk
-    description: disk usage
 formula: weighted arithmetic mean
 sections: # split based on different application
   - name: SSL
@@ -28,75 +15,75 @@ sections: # split based on different application
     formula: geometric mean
     metrics:
       - name: ssl_rsa
-        formual: geometric mean
+        formula: geometric mean
         workloads:
           - name: rsa_sign_512
-            baseline: 14982.3
+            description: 512 bit signature
           - name: rsa_verify_512
-            baseline: 180619.2
+            description: verify 512 bit signature
           - name: rsa_sign_1024
-            baseline: 5037.7
+            description: 1024 bit signature
           - name: rsa_verify_1024
-            baseline: 67359.9
+            description: verify 1024 bit signature
           - name: rsa_sign_2048
-            baseline: 713.6
+            description: 2048 bit signature
           - name: rsa_verify_2048
-            baseline: 23458.0
+            description: verify 2048 bit signature
           - name: rsa_sign_4096
-            baseline: 102.1
+            description: 4096 bit signature
           - name: rsa_verify_4096
-            baseline: 6402.9
+            description: verify 4096 bit signature
       - name: ssl_aes
         formual: geometric mean
         workloads:
           - name: aes_128_cbc_16_bytes
-            baseline: 612376.96k
+            description: 612376.96k
           - name: aes_128_cbc_64_bytes
-            baseline: 657350.74k
+            description: 657350.74k
           - name: aes_128_cbc_256_bytes
-            baseline: 669680.04k
+            description: 669680.04k
           - name: aes_128_cbc_1024_bytes
-            baseline: 672675.50k
+            description: 672675.50k
           - name: aes_128_cbc_8192_bytes
-            baseline: 672344.75k
+            description: 672344.75k
   - name: DPI
     description: deep packet inspection
     metrics:
       - name: dpi_throughput
         workloads:
           - name: dpi_pps
-            baseline: 2.19M
+            description: packet per second measurement
           - name: dpi_bps
-            baseline: 20.55G
+            description: bits per second measurement
   - name: memory
     description: cache and memory performance
     metrics:
       - name: floatmem
         workloads:
           - name: triad
-            baseline: 9748.98
+            description: mixture of addition and scale (A = m*B + C)
           - name: add
-            baseline: 9734.18
+            description: floating point addition (A = B + C)
           - name: copy
-            baseline: 7692.26
+            description: floating point copy (A = B)
           - name: scale
-            baseline: 7616.35
+            description: floating point scaling (A = m*B)
       - name: intmem
         workloads:
           - name: triad
-            baseline: 12110.50
+            description: mixture of addition and scale (A = m*B + C)
           - name: add
-            baseline: 12153.10
+            description: integer point addition (A = B + C)
           - name: copy
-            baseline: 11913.03
+            description: integer point copy (A = B)
           - name: scale
-            baseline: 11945.36
+            description: integer point scaling (A = m*B)
   - name: arithmetic
     description: arithmetic computing speed
     metrics:
       - name: arithmetic
         workloads:
           - name: dhrystone_lps
-            baseline: 34657490.5
+            description: integer point CPU performance
           - name: whetstone_MWIPS
-            baseline: 2495.9
+            description: floating point CPU performance

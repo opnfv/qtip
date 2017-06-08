@@ -46,6 +46,30 @@
       "revId": "8750fbae2f69d99c27d0cb7693f4b423346c32e8",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaae553_72abf389",
+        "filename": "resources/QPI/compute.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-06-08T01:14:28Z",
+      "side": 1,
+      "message": "OK, I will update these descriptions.",
+      "parentUuid": "5aaae553_12171fef",
+      "range": {
+        "startLine": 53,
+        "startChar": 12,
+        "endLine": 61,
+        "endChar": 35
+      },
+      "revId": "8750fbae2f69d99c27d0cb7693f4b423346c32e8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aaae553_06e4bd39",
+        "filename": "tests/unit/ansible_library/plugins/action/calculate_test.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-06-13T05:46:01Z",
+      "side": 1,
+      "message": "Since I had modified the result format at the last instance before publishing, these changes were necessary for passing the test.",
+      "range": {
+        "startLine": 160,
+        "startChar": 4,
+        "endLine": 164,
+        "endChar": 49
+      },
+      "revId": "92300acd3e4f7ab168fc22fc21c2ce576b109678",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

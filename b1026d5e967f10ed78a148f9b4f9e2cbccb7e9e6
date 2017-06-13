@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aaae553_86818d4c",
+        "filename": "tests/unit/ansible_library/plugins/action/calculate_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-13T05:36:24Z",
+      "side": 1,
+      "message": "It seems you forget to pass `info` as fixture",
+      "revId": "b1026d5e967f10ed78a148f9b4f9e2cbccb7e9e6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

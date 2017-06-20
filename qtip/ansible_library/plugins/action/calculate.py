@@ -72,11 +72,8 @@ def save_as_baseline(qpi_spec, metrics, sysinfo):
         'score': 2048,
         'description': qpi_spec['description'],
         'system_info': sysinfo,
-        'details': {
-            'metrics': metrics,
-            'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
-            'baseline': ""
-        }
+        'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
+        'baseline': ""
     }
 
 
@@ -97,17 +94,20 @@ def calc_qpi(qpi_spec, metrics, qpi_baseline, sysinfo):
     qpi_score = int(
         mean([r['score'] for r in section_results]) * qpi_baseline['score'])
 
+    # merging scores and results
+    for section in section_results:
+        for child in section['children']:
+            for wl in child['metrics']:
+                wl['result'] = metrics[child['name']][wl['name']][0]
+
     results = {
         'score': qpi_score,
         'name': qpi_spec['name'],
         'description': qpi_spec['description'],
         'system_info': sysinfo,
-        'children': section_results,
-        'details': {
-            'metrics': metrics,
-            'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
-            'baseline': "https://git.opnfv.org/qtip/tree/resources/QPI/compute-baseline.json"
-        }
+        'sections': section_results,
+        'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
+        'baseline': "https://git.opnfv.org/qtip/tree/resources/QPI/compute-baseline.json"
     }
 
     return results
@@ -158,7 +158,7 @@ def calc_metric(metric_spec, metrics, metric_basline):
         'score': metric_score,
         'name': metric_spec['name'],
         'description': metric_spec.get('description', 'metric'),
-        'children': workload_results
+        'metrics': workload_results
     }
 
 

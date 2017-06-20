@@ -27,8 +27,8 @@ def metric_spec():
     return {
         "name": "ssl_rsa",
         "workloads": [
-            {"name": "rsa_sign", "baseline": 500},
-            {"name": "rsa_verify", "baseline": 600}
+            {"name": "rsa_sign"},
+            {"name": "rsa_verify"}
         ]
     }
 
@@ -92,8 +92,10 @@ def metric_result():
     return {'score': 1.0,
             'name': 'ssl_rsa',
             'description': 'metric',
-            'children': [{'description': 'workload', 'name': 'rsa_sign', 'score': 1.0},
-                         {'description': 'workload', 'name': 'rsa_verify', 'score': 1.0}]}
+            'workloads': [{'description': 'workload', 'name': 'rsa_sign',
+                           'score': 1.0, 'result': 500},
+                          {'description': 'workload', 'name': 'rsa_verify',
+                           'score': 1.0, 'result': 600}]}
 
 
 @pytest.fixture()
@@ -101,7 +103,7 @@ def section_result(metric_result):
     return {'score': 1.0,
             'name': 'ssl',
             'description': 'cryptography and SSL/TLS performance',
-            'children': [metric_result]}
+            'metrics': [metric_result]}
 
 
 @pytest.fixture()
@@ -119,16 +121,15 @@ def info():
 
 
 @pytest.fixture()
-def qpi_result(section_result, metrics, info):
+def qpi_result(section_result, info):
     return {'score': 2048,
             'name': 'compute',
             'description': 'QTIP Performance Index of compute',
             'system_info': info,
-            'children': [section_result],
-            'details': {
-                'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
-                'baseline': "https://git.opnfv.org/qtip/tree/resources/QPI/compute-baseline.json",
-                'metrics': metrics}}
+            'sections': [section_result],
+            'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
+            'baseline': "https://git.opnfv.org/qtip/tree/resources/QPI/compute-baseline.json",
+            }
 
 
 def test_calc_metric(metric_spec, metrics, metric_baseline, metric_result):
@@ -143,10 +144,11 @@ def test_calc_section(section_spec, metrics, section_baseline, section_result):
                                   section_baseline) == section_result
 
 
-def test_calc_qpi(qpi_spec, metrics, qpi_baseline, info, qpi_result):
+def test_calc_qpi(qpi_spec, metrics, qpi_baseline, qpi_result, section_spec, info):
+    section_spec['score'] = 1.0
     assert calculate.calc_qpi(qpi_spec,
                               metrics,
-                              qpi_baseline, info) == qpi_result
+                              info, qpi_baseline) == qpi_result
 
 
 @pytest.mark.parametrize('metrics, baseline, expected', [

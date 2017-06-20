@@ -54,111 +54,114 @@ class ActionModule(ActionBase):
         if baseline_file is not None:
             with open(baseline_file) as f:
                 baseline = json.load(f)
-                return calc_qpi(spec, metrics, baseline, sysinfo, dest=dest)
+                return calc_qpi(spec, metrics, sysinfo, baseline, dest=dest)
         else:
-            return save_as_baseline(spec, metrics, sysinfo, dest=dest)
-
-
-# TODO(wuzhihui): It is more reasonable to put this function into collect.py.
-# For now metrics data is not easy to be collected from collect.py.
-@export_to_file
-def save_as_baseline(qpi_spec, metrics, sysinfo):
-    display.vv("save {} metrics as baseline".format(qpi_spec['name']))
-    display.vvv("spec: {}".format(qpi_spec))
-    display.vvv("metrics: {}".format(metrics))
-
-    return {
-        'name': qpi_spec['name'],
-        'score': 2048,
-        'description': qpi_spec['description'],
-        'system_info': sysinfo,
-        'details': {
-            'metrics': metrics,
-            'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
-            'baseline': ""
-        }
-    }
+            return calc_qpi(spec, metrics, sysinfo, None, dest=dest)
 
 
 @export_to_file
-def calc_qpi(qpi_spec, metrics, qpi_baseline, sysinfo):
+def calc_qpi(qpi_spec, metrics, sysinfo, qpi_baseline):
     display.vv("calculate QPI {}".format(qpi_spec['name']))
     display.vvv("spec: {}".format(qpi_spec))
     display.vvv("metrics: {}".format(metrics))
     display.vvv("baseline: {}".format(qpi_baseline))
 
     section_results = []
-    for s in qpi_spec['sections']:
-        s_baseline = query(qpi_baseline['sections']).first(
-            lambda section: section['name'] == s['name'])
-        section_results.append(calc_section(s, metrics, s_baseline))
+    qpi_score = 0
+    if qpi_baseline:
+        for s in qpi_spec['sections']:
+            s_baseline = query(qpi_baseline['sections']).first(
+                lambda section: section['name'] == s['name'])
+            section_results.append(calc_section(s, metrics, s_baseline))
 
-    # TODO(yujunz): use formula in spec
-    qpi_score = int(
-        mean([r['score'] for r in section_results]) * qpi_baseline['score'])
+        add_results(section_results, 'result', metrics)
+
+        # TODO(yujunz): use formula in spec
+        qpi_score = int(
+            mean([r['score'] for r in section_results]) * qpi_baseline['score'])
+    else:
+        for s in qpi_spec['sections']:
+            section_results.append(calc_section(s, metrics))
+        add_results(section_results, 'baseline', metrics)
 
     results = {
         'score': qpi_score,
         'name': qpi_spec['name'],
         'description': qpi_spec['description'],
         'system_info': sysinfo,
-        'children': section_results,
-        'details': {
-            'metrics': metrics,
-            'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
-            'baseline': "https://git.opnfv.org/qtip/tree/resources/QPI/compute-baseline.json"
-        }
+        'sections': section_results,
+        'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
+        'baseline': "https://git.opnfv.org/qtip/tree/resources/QPI/compute-baseline.json"
     }
 
     return results
 
 
-def calc_section(section_spec, metrics, section_baseline):
+def add_results(section_results, result_type, metrics):
+    ''' Merge details and section '''
+    for section in section_results:
+        for metric in section['metrics']:
+            for wl in metric['workloads']:
+                wl[result_type] = metrics[metric['name']][wl['name']][0]
+
+
+def calc_section(section_spec, metrics, section_baseline=None):
     display.vv("calculate section {}".format(section_spec['name']))
     display.vvv("spec: {}".format(section_spec))
     display.vvv("metrics: {}".format(metrics))
     display.vvv("baseline: {}".format(section_baseline))
 
     metric_results = []
-    for m in section_spec['metrics']:
-        m_baseline = query(section_baseline['metrics']).first(
-            lambda metric: metric['name'] == m['name'])
-        metric_results.append(calc_metric(m, metrics[m['name']], m_baseline))
+    section_score = 0
+    if section_baseline:
+        for m in section_spec['metrics']:
+            m_baseline = query(section_baseline['metrics']).first(
+                lambda metric: metric['name'] == m['name'])
+            metric_results.append(calc_metric(m, metrics[m['name']], m_baseline))
+        section_score = mean([r['score'] for r in metric_results])
+    else:
+        for m in section_spec['metrics']:
+            metric_results.append(calc_metric(m, metrics[m['name']]))
 
     # TODO(yujunz): use formula in spec
-    section_score = mean([r['score'] for r in metric_results])
     return {
         'score': section_score,
         'name': section_spec['name'],
         'description': section_spec.get('description', 'section'),
-        'children': metric_results
+        'metrics': metric_results
     }
 
 
-def calc_metric(metric_spec, metrics, metric_basline):
+def calc_metric(metric_spec, metrics, metric_baseline=None):
     display.vv("calculate metric {}".format(metric_spec['name']))
     display.vvv("spec: {}".format(metric_spec))
     display.vvv("metrics: {}".format(metrics))
-    display.vvv("baseline: {}".format(metric_basline))
+    display.vvv("baseline: {}".format(metric_baseline))
 
     # TODO(yujunz): use formula in spec
     workload_results = []
-    for w in metric_spec['workloads']:
-        w_baseline = query(metric_basline['workloads']).first(
-            lambda workload: workload['name'] == w['name'])
-        workload_results.append({
-            'name': w['name'],
-            'description': 'workload',
-            'score': calc_score(metrics[w['name']], w_baseline['baseline'])
-        })
-
-    metric_score = mean([r['score'] for r in workload_results])
+    metric_score = 0
+    if metric_baseline:
+        for w in metric_spec['workloads']:
+            w_baseline = query(metric_baseline['workloads']).first(
+                lambda workload: workload['name'] == w['name'])
+            workload_results.append({
+                'name': w['name'],
+                'description': 'workload',
+                'score': calc_score(metrics[w['name']], w_baseline['baseline'])
+                })
+        metric_score = mean([r['score'] for r in workload_results])
+    else:
+        for w in metric_spec['workloads']:
+            workload_results.append({
+                'name': w['name'],
+            })
 
     return {
         'score': metric_score,
         'name': metric_spec['name'],
         'description': metric_spec.get('description', 'metric'),
-        'children': workload_results
+        'workloads': workload_results
     }
 
 

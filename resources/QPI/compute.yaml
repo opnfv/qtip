@@ -28,6 +28,7 @@ sections: # split based on different application
     formula: geometric mean
     metrics:
       - name: ssl_rsa
+        description: performance of cryptographic using RSA cipher algorithm
         formual: geometric mean
         workloads:
           - name: rsa_sign_512
@@ -47,7 +48,8 @@ sections: # split based on different application
           - name: rsa_verify_4096
             description: rsa 4096 bits verify per second
       - name: ssl_aes
-        description: Advanced Encryption Standard (AES) Cipher Algorithm in Cipher Block Chaining (CBC) Mode
+        description: >
+          performance of advanced encryption standard (AES) cipher algorithm in cipher block chaining (CBC) mode
         formual: geometric mean
         workloads:
           - name: aes_128_cbc_16_bytes
@@ -74,6 +76,9 @@ sections: # split based on different application
     description: cache and memory performance
     metrics:
       - name: floatmem
+        description: >
+          measure the maximum possible cache and memory performance while reading and writing certain blocks of data
+          (starting from 1Kb and further in power of 2) continuously through FPU
         workloads:
           - name: copy
             description: >
@@ -94,6 +99,9 @@ sections: # split based on different application
               data from the second one and writes to the third place
               (A = m*B + C).
       - name: intmem
+        description: >
+          measure the maximum possible cache and memory performance while reading and writing certain blocks of data
+          (starting from 1Kb and further in power of 2) continuously through ALU
         workloads:
           - name: copy
             description: >
@@ -117,10 +125,15 @@ sections: # split based on different application
     description: arithmetic computing speed
     metrics:
       - name: integer
+        description: >
+          measure and compare the performance of computers, focusing on string handling without floating point
+          operations.
         workloads:
           - name: dhrystone_lps
             description: dhrystone loops per second
       - name: floating
+        description: >
+          measures the speed and efficiency of floating-point operations
         workloads:
           - name: whetstone_MWIPS
             description: whetstone million instructions per second

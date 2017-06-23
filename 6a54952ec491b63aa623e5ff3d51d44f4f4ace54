@@ -149,6 +149,24 @@
     },
     {
       "key": {
+        "uuid": "1aa4ed85_c6f804c7",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-23T13:37:13Z",
+      "side": 1,
+      "message": "My proposal is to remove the method`save_as_baseline` and handle the condition that baseline is not given inside `calc_qpi`, i.e. if baseline is given, calculate the score, otherwise ignore the score calculation and save the results only.",
+      "parentUuid": "1aa4ed85_86b8cc2b",
+      "revId": "6a54952ec491b63aa623e5ff3d51d44f4f4ace54",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aaae553_95444b75",
         "filename": "qtip/ansible_library/plugins/action/calculate.py",
         "patchSetId": 2

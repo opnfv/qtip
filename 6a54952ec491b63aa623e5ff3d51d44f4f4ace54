@@ -113,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "1aa4ed85_834afe53",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-23T00:58:02Z",
+      "side": 1,
+      "message": "Yes, I tend to use **exactly** the same format for baseline and result. Then it would be possible to choose test result from history or other environment as baseline.\n\nThis part may need refactoring.",
+      "parentUuid": "5aaae553_4b963096",
+      "revId": "6a54952ec491b63aa623e5ff3d51d44f4f4ace54",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aaae553_95444b75",
         "filename": "qtip/ansible_library/plugins/action/calculate.py",
         "patchSetId": 2

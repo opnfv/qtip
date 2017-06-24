@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa4ed85_891c5d6c",
+        "filename": "docs/proposal/storage-qpi.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2017-06-24T03:41:28Z",
+      "side": 1,
+      "message": "Throughput\u003d IOPS *Block Size; I think two section is enough.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 14
+      },
+      "revId": "810ef783434c1790b0ee690be3f3557c392a8a4e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

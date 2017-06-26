@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa4ed85_09e86d7b",
+        "filename": "tests/unit/ansible_library/plugins/action/calculate_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-26T03:05:43Z",
+      "side": 1,
+      "message": "Is this result or spec? I think `score` and `result` only exist in test result not in spec, do they?\n\nAnd by `final` do you mean `expected` result?",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 21
+      },
+      "revId": "34234ce1b8b9b3944e62a61cfea3b7e692d89613",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_89fbfd46",
+        "filename": "tests/unit/ansible_library/plugins/action/calculate_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-26T03:05:43Z",
+      "side": 1,
+      "message": "Not understanding this part. If you are trying to construct the expected result, why not update the fixture of `qpi_result` directly?",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 49
+      },
+      "revId": "34234ce1b8b9b3944e62a61cfea3b7e692d89613",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

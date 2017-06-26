@@ -22,6 +22,30 @@
       "revId": "810ef783434c1790b0ee690be3f3557c392a8a4e",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_c9da55e9",
+        "filename": "docs/proposal/storage-qpi.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-26T02:38:19Z",
+      "side": 1,
+      "message": "It is true that there are internal links between the two section. But they are focusing on different use case and different test configuration are applied.\n\nNormally, different test parameters are applied for IOPS (random block size and random I/O) and Throughput (large blocks sequence R/W) testing.\n\nSee https://www.snia.org/tech_activities/standards/curr_standards/pts\n\nI may need to update with details on what metrics to be included in each section to clarify this.",
+      "parentUuid": "1aa4ed85_891c5d6c",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 14
+      },
+      "revId": "810ef783434c1790b0ee690be3f3557c392a8a4e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

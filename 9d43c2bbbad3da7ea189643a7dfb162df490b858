@@ -16,6 +16,29 @@
       "revId": "9d43c2bbbad3da7ea189643a7dfb162df490b858",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_4c63d31a",
+        "filename": "tests/unit/ansible_library/plugins/action/calculate_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-26T08:43:38Z",
+      "side": 1,
+      "message": "Overriding fixtures is not a good idea. Fixtures are normally considered fixed values.",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 49
+      },
+      "revId": "9d43c2bbbad3da7ea189643a7dfb162df490b858",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

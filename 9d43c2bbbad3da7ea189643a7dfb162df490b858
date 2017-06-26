@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa4ed85_6c9a4f16",
+        "filename": "qtip/ansible_library/plugins/action/calculate.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-26T08:42:19Z",
+      "side": 1,
+      "message": "`results` and `baseline` should be added here instead of `add_results` in `calc_qpi`",
+      "revId": "9d43c2bbbad3da7ea189643a7dfb162df490b858",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

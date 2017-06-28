@@ -154,18 +154,22 @@
       "name": "arithmetic",
       "metrics": [
         {
-          "name": "arithmetic",
+          "name": "integer",
           "workloads": [
             {
               "name": "dhrystone_lps",
               "baseline": "29002911.0"
-            },
+            }
+          ]
+        },
+        {
+          "name": "floating",
+          "workloads": [
             {
               "name": "whetstone_MWIPS",
               "baseline": "2176.8"
             }
           ]
-
         }
       ]
     }

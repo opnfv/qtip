@@ -11,7 +11,7 @@
 
 - name: aggregating results from all tested nodes
   aggregate:
-    group: compute
+    group: SUT
     basepath: "{{ qtip_results }}/current"
     src: "compute.json"
     dest: "qpi.json"

@@ -52,5 +52,5 @@ def aggregate(hosts, basepath, src):
         'score': score,
         'name': 'compute',
         'description': 'POD Compute QPI',
-        'children': host_results
+        'nodes': host_results
     }

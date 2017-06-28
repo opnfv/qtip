@@ -1,6 +1,6 @@
 {
   "score": 150,
-  "children": [
+  "nodes": [
     {
       "name": "host1",
       "score": 100

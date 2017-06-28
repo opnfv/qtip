@@ -37,25 +37,22 @@ Section Scores
 QTIP uses a number of different tests, or workloads, to measure performance.
 The workloads are divided into five different sections:
 
-+-----------------+--------------------------------------------------------------+------------------------------------------+
-| Section         | Detail                                                       | Indication                               |
-+=================+==============================================================+==========================================+
-| Integer         | Integer workloads measure the integer instruction performace | All app relies on integer                |
-|                 | of host or vm by performing Dhrystone test.                  | performance                              |
-+-----------------+--------------------------------------------------------------+------------------------------------------+
-| Floating point  | Floating point workloads measure the floating pointperfo     | Floating point performance is especially |
-|                 | rmance by performing Whetstone test.                         | important in video games,digital content |
-|                 |                                                              | creation applications.                   |
-+-----------------+--------------------------------------------------------------+------------------------------------------+
-| Memory          | Memory workloads measure memory bandwidth by performing      | Software working with cipher large       |
-|                 | RamSpeed test.                                               | amounts data relies on SSL Performace.   |
-+-----------------+--------------------------------------------------------------+------------------------------------------+
-| DPI             | DPI workloads measure deep-packet inspection speed by        | Software working with network packet     |
-|                 | performing nDPI test.                                        | anlysis relies on DPI performance.       |
-+-----------------+--------------------------------------------------------------+------------------------------------------+
-| SSL             | SSL Performance workloads measure cipher speeds by           | Software working with cipher large       |
-|                 | using the OpenSSL tool.                                      | amounts data relies on SSL Performace    |
-+-----------------+--------------------------------------------------------------+------------------------------------------+
++-----------------+--------------------------------------------------------+------------------------------------------+
+| Section         | Detail                                                 | Indication                               |
++=================+========================================================+==========================================+
+| Arithmetic      | Arithmetic workloads measure integer operations        | Basic metrics for compute performance.   |
+|                 | floating point operations and mathematical functions   | Common for all applications.             |
+|                 | with whetstone and dhrystone instructions.             |                                          |
++-----------------+--------------------------------------------------------+------------------------------------------+
+| Memory          | Memory workloads measure memory transfer performance   | Basic metrics for compute performance    |
+|                 | with RamSpeed test.                                    | Common for all applications.             |
++-----------------+--------------------------------------------------------+------------------------------------------+
+| DPI             | DPI workloads measure deep-packet inspection speed by  | Software working with network packet     |
+|                 | performing nDPI test.                                  | analysis relies on DPI performance.      |
++-----------------+--------------------------------------------------------+------------------------------------------+
+| SSL             | SSL Performance workloads measure cipher speeds by     | Software working with cipher large       |
+|                 | using the OpenSSL tool.                                | amounts data relies on SSL Performance   |
++-----------------+--------------------------------------------------------+------------------------------------------+
 
 A section score is the `geometric mean <https://en.wikipedia.org/wiki/Geometric_mean>`_ of all the workload scores for workloads
 that are part of the section. These scores are useful for determining the performance of

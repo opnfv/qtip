@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "1aa4ed85_42f877e5",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-06-29T01:42:17Z",
+      "side": 1,
+      "message": "It is because these two are laid out differently from the the rest of workloads in resources/QPI/compute.yaml\n\nBut as per your suggestion, it may be better to retrieve everything from report[\u0027qpi\u0027]",
+      "parentUuid": "1aa4ed85_42815749",
+      "revId": "5f829b9fd87fde3fa1c43eae0b8c731c919440ef",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1aa4ed85_02935fa4",
         "filename": "resources/QPI/compute.yaml",
         "patchSetId": 2

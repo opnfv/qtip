@@ -28,75 +28,99 @@ sections: # split based on different application
     formula: geometric mean
     metrics:
       - name: ssl_rsa
-        formual: geometric mean
+        formula: geometric mean
         workloads:
           - name: rsa_sign_512
-            baseline: 14982.3
+            description: rsa 512 bits sign per second
           - name: rsa_verify_512
-            baseline: 180619.2
+            description: rsa 512 bits verify per second
           - name: rsa_sign_1024
-            baseline: 5037.7
+            description: rsa 1024 bits sign per second
           - name: rsa_verify_1024
-            baseline: 67359.9
+            description: rsa 1024 bits verify per second
           - name: rsa_sign_2048
-            baseline: 713.6
+            description: rsa 2048 bits sign per second
           - name: rsa_verify_2048
-            baseline: 23458.0
+            description: rsa 2048 bits verify per second
           - name: rsa_sign_4096
-            baseline: 102.1
+            description: rsa 4096 bits sign per second
           - name: rsa_verify_4096
-            baseline: 6402.9
+            description: rsa 4096 bits verify per second
       - name: ssl_aes
-        formual: geometric mean
+        description: Advanced Encryption Standard (AES) Cipher Algorithm in Cipher Block Chaining (CBC) Mode
+        formula: geometric mean
         workloads:
           - name: aes_128_cbc_16_bytes
-            baseline: 612376.96k
+            description: aes 128 bits key cbc on 16 bytes blocks
           - name: aes_128_cbc_64_bytes
-            baseline: 657350.74k
+            description: aes 128 bits key cbc on 64 bytes blocks
           - name: aes_128_cbc_256_bytes
-            baseline: 669680.04k
+            description: aes 128 bits key cbc on 256 bytes blocks
           - name: aes_128_cbc_1024_bytes
-            baseline: 672675.50k
+            description: aes 128 bits key cbc on 1024 bytes blocks
           - name: aes_128_cbc_8192_bytes
-            baseline: 672344.75k
+            description: aes 128 bits key cbc on 8192 bytes blocks
   - name: DPI
     description: deep packet inspection
     metrics:
       - name: dpi_throughput
+        description: deep packet inspection throughput
         workloads:
           - name: dpi_pps
-            baseline: 2.19M
+            description: DPI packets per second
           - name: dpi_bps
-            baseline: 20.55G
+            description: DPI bits per second
   - name: memory
     description: cache and memory performance
     metrics:
       - name: floatmem
         workloads:
-          - name: triad
-            baseline: 9748.98
-          - name: add
-            baseline: 9734.18
           - name: copy
-            baseline: 7692.26
+            description: >
+              transfers data from one memory location to another,
+              i. e. copies it (A = B)
           - name: scale
-            baseline: 7616.35
+            description: >
+              modifies the data before writing by multiplying with a certain
+              constant value, i. e. scales it (A = m*B).
+          - name: add
+            description: >
+              reads data from the first memory location, then reads from the
+              second, adds them up and writes the result to the third place
+              (A = B + C).
+          - name: triad
+            description: >
+              reads data from the first memory location, scales it, then adds
+              data from the second one and writes to the third place
+              (A = m*B + C).
       - name: intmem
         workloads:
-          - name: triad
-            baseline: 12110.50
-          - name: add
-            baseline: 12153.10
           - name: copy
-            baseline: 11913.03
+            description: >
+              transfers data from one memory location to another,
+              i. e. copies it (A = B)
           - name: scale
-            baseline: 11945.36
+            description: >
+              modifies the data before writing by multiplying with a
+              certain constant value, i. e. scales it (A = m*B).
+          - name: add
+            description: >
+              reads data from the first memory location, then reads from the
+              second, adds them up and writes the result to the third place
+              (A = B + C).
+          - name: triad
+            description: >
+              reads data from the first memory location, scales it, then adds
+              data from the second one and writes to the third place
+              (A = m*B + C).
   - name: arithmetic
     description: arithmetic computing speed
     metrics:
-      - name: arithmetic
+      - name: integer
         workloads:
           - name: dhrystone_lps
-            baseline: 34657490.5
+            description: dhrystone loops per second
+      - name: floating
+        workloads:
           - name: whetstone_MWIPS
-            baseline: 2495.9
+            description: whetstone million instructions per second

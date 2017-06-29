@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "1aa4ed85_c5e1d19b",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-29T14:33:12Z",
+      "side": 1,
+      "message": "We may try with a concatenation of section.metrics.workload for full name, e.g. `memory.float.scale`, what do you think?\n\nWe may refactor the names in a separate patch",
+      "parentUuid": "1aa4ed85_25b465f1",
+      "range": {
+        "startLine": 22,
+        "startChar": 25,
+        "endLine": 22,
+        "endChar": 35
+      },
+      "revId": "6bff290c5709bf86e7ff9426ab839a602607c870",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1aa4ed85_425dd7e8",
         "filename": "qtip/cli/commands/cmd_report.py",
         "patchSetId": 4

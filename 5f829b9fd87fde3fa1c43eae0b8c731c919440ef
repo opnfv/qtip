@@ -60,6 +60,24 @@
     },
     {
       "key": {
+        "uuid": "1aa4ed85_22ca1ba2",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-29T02:01:08Z",
+      "side": 1,
+      "message": "\u003e It is because these two are laid out differently from the the rest\n \u003e of workloads in resources/QPI/compute.yaml\n\nI see. \n\nYou may submit a separate patch to make it consistent so we can make the reporting more generic. Currently reporter is the only consumer for the spec, baseline and data. So we don\u0027t have much burden to refactor the format for now.",
+      "parentUuid": "1aa4ed85_42f877e5",
+      "revId": "5f829b9fd87fde3fa1c43eae0b8c731c919440ef",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1aa4ed85_02935fa4",
         "filename": "resources/QPI/compute.yaml",
         "patchSetId": 2

@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa4ed85_e295e388",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-29T01:29:35Z",
+      "side": 1,
+      "message": "I think section name, description, result and score are all embedded in report[\u0027qpi\u0027] now. It may simplify the implementation. No need to zip information from different sources.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 70
+      },
+      "revId": "5f829b9fd87fde3fa1c43eae0b8c731c919440ef",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_42815749",
+        "filename": "qtip/cli/commands/cmd_report.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-29T01:29:35Z",
+      "side": 1,
+      "message": "Not understanding the special condition for `memory` and `arithmetic`. I think we need to make it consistent.",
+      "revId": "5f829b9fd87fde3fa1c43eae0b8c731c919440ef",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_02935fa4",
+        "filename": "resources/QPI/compute.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-06-29T01:29:35Z",
+      "side": 1,
+      "message": "This could be the reason of conflict, because these changes are already in gerrit/master. You need to rebase your patch by.\n\n  git fetch gerrit\n  git rebase gerrit/master\n  \u003cresolve conflict\u003e\n  git review",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 55
+      },
+      "revId": "5f829b9fd87fde3fa1c43eae0b8c731c919440ef",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

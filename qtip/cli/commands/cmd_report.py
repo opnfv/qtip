@@ -14,13 +14,15 @@ from prettytable import PrettyTable
 from qtip.reporter.console import ConsoleReporter
 
 
-def extract_section(sections, section_name, node):
+def extract_section(qpi, metric_name, node):
     """ Extract information related to QPI """
-    qpi = query(sections).where(lambda child: child['name'] == node) \
-                         .select_many(lambda child: child['sections']) \
-                         .where(lambda child: child['name'] == section_name) \
-                         .first()
-    return qpi
+    data = query(qpi).where(lambda nodes: nodes['name'] == node) \
+        .select_many(lambda section: section['sections']) \
+        .where(lambda metric: metric['name'] == metric_name) \
+        .first()
+    print data
+
+    return data
 
 
 def display_report(report, section_name, node):
@@ -32,7 +34,8 @@ def display_report(report, section_name, node):
 
     for metric in section_report['metrics']:
         for wl in metric['workloads']:
-            table_workload.add_row([wl['name'],
+            table_workload.add_row(['{}.{}'.format(metric['name'],
+                                                   wl['name']),
                                     wl['description'],
                                     wl['result'],
                                     wl['score']])
@@ -51,10 +54,10 @@ def cli():
 
 @cli.command('show')
 @click.option('-n', '--node', help="Compute node in OPNFV cluster")
-@click.argument('section-name')
-def show(node, section_name):
+@click.argument('metric')
+def show(node, metric):
     qpi = ConsoleReporter.load_result()
-    result = display_report(qpi, section_name, node)
+    result = display_report(qpi, metric, node)
 
     click.echo("Node Score: {}".format(qpi['score']))
     click.echo("Section Score: {}".format(result['ss']))

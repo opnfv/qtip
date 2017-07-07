@@ -9,7 +9,7 @@
 set -e
 
 usage(){
-   echo "usage: $0 -t <installer_type> -i <installer_ip> -p <pod_name> -s <scenario>" >&2
+   echo "usage: $0 -t <installer_type> -i <installer_ip> -p <pod_name> -s <scenario> -r <report_url>" >&2
 }
 
 verify_connectivity(){
@@ -26,12 +26,13 @@ verify_connectivity(){
 }
 
 #Getoptions
-while getopts ":t:i:p:s:he" optchar; do
+while getopts ":t:i:p:s:r:he" optchar; do
    case "${optchar}" in
        t) installer_type=${OPTARG} ;;
        i) installer_ip=${OPTARG} ;;
        p) pod_name=${OPTARG} ;;
        s) scenario=${OPTARG} ;;
+       r) testapi_url=${OPTARG} ;;
        h) usage
           exit 0
           ;;
@@ -47,6 +48,7 @@ installer_type=${installer_type:-$INSTALLER_TYPE}
 installer_ip=${installer_ip:-$INSTALLER_IP}
 pod_name=${pod_name:-$POD_NAME}
 scenario=${scenario:-$SCENARIO}
+testapi_url=${testapi_url:-$TESTAPI_URL}
 
 sshoptions="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 
@@ -74,7 +76,7 @@ cd /home/opnfv/workspace/
 
 qtip setup
 eval `ssh-agent`
-qtip run
+qtip run --extra-vars "testapi_url=$testapi_url"
 qtip teardown
 
 # Remove ssh public key from installer

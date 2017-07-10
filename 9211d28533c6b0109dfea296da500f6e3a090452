@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa4ed85_e8a93025",
+        "filename": "qtip/web/db.sqlite3",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-07-10T01:42:43Z",
+      "side": 1,
+      "message": "We normally don\u0027t include binary file in source code repo. Is it mandatory?",
+      "revId": "9211d28533c6b0109dfea296da500f6e3a090452",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

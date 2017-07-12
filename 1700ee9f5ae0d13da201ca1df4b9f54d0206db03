@@ -22,6 +22,30 @@
       "revId": "1700ee9f5ae0d13da201ca1df4b9f54d0206db03",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_4a0077aa",
+        "filename": "docs/proposal/storage-qpi.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2017-07-12T20:26:59Z",
+      "side": 1,
+      "message": "OK,I separate it to test condition.",
+      "parentUuid": "1aa4ed85_487404cf",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 161
+      },
+      "revId": "1700ee9f5ae0d13da201ca1df4b9f54d0206db03",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

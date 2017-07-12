@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1aa4ed85_f074b29d",
+        "filename": "docs/proposal/storage-qpi.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2017-07-12T20:26:59Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "1aa4ed85_aa824bfe",
+      "range": {
+        "startLine": 28,
+        "startChar": 124,
+        "endLine": 28,
+        "endChar": 126
+      },
+      "revId": "a96651aa5677c7e151dea0bb3a7ea5f095bb0277",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1aa4ed85_ca87870e",
         "filename": "docs/proposal/storage-qpi.rst",
         "patchSetId": 2
@@ -128,6 +152,30 @@
       "writtenOn": "2017-07-11T07:19:08Z",
       "side": 1,
       "message": "It equals the number of Cinder nodes of the SUT.",
+      "range": {
+        "startLine": 51,
+        "startChar": 74,
+        "endLine": 51,
+        "endChar": 139
+      },
+      "revId": "a96651aa5677c7e151dea0bb3a7ea5f095bb0277",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_b06e3ac8",
+        "filename": "docs/proposal/storage-qpi.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2017-07-12T20:26:59Z",
+      "side": 1,
+      "message": "Cinder nodes? Not Ceph nodes?",
+      "parentUuid": "1aa4ed85_4a73974d",
       "range": {
         "startLine": 51,
         "startChar": 74,

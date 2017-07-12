@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa4ed85_c16d2a06",
+        "filename": "docs/proposal/storage-qpi.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2017-07-12T20:26:59Z",
+      "side": 1,
+      "message": "Values: None, write-back, readonly",
+      "range": {
+        "startLine": 34,
+        "startChar": 35,
+        "endLine": 34,
+        "endChar": 69
+      },
+      "revId": "c98f1875617a851a2b6dbd91db9ae09a6c3abdc8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_e172a6e4",
+        "filename": "docs/proposal/storage-qpi.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 212
+      },
+      "writtenOn": "2017-07-12T20:26:59Z",
+      "side": 1,
+      "message": "ceph report",
+      "range": {
+        "startLine": 34,
+        "startChar": 108,
+        "endLine": 34,
+        "endChar": 132
+      },
+      "revId": "c98f1875617a851a2b6dbd91db9ae09a6c3abdc8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

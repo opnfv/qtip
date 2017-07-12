@@ -24,6 +24,9 @@ Version history
 | 2017-05-04         | Danube 2.0         | Yujun Zhang        |                    |
 |                    |                    |                    |                    |
 +--------------------+--------------------+--------------------+--------------------+
+| 2017-07-14         | Danube 3.0         | Yujun Zhang        |                    |
+|                    |                    |                    |                    |
++--------------------+--------------------+--------------------+--------------------+
 
 Important notes
 ===============
@@ -48,13 +51,13 @@ Release Data
 | **Project**                          | QTIP                                 |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Repo/commit-ID**                   | qtip/danube.2.0                      |
+| **Repo/commit-ID**                   | qtip/danube.3.0                      |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Release designation**              | Danube bug fix release               |
+| **Release designation**              | Tag update only                      |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Release date**                     | 2017-05-04                           |
+| **Release date**                     | 2017-07-14                           |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
 | **Purpose of the delivery**          | OPNFV quality assurance              |
@@ -63,6 +66,12 @@ Release Data
 
 Version change
 --------------
+
+New in Danube 3.0
+^^^^^^^^^^^^^^^^^
+
+* No change in QTIP itself
+* Validated on OPNFV Danube latest release
 
 New in Danube 2.0
 ^^^^^^^^^^^^^^^^^
@@ -118,6 +127,7 @@ Deliverables
 Software
 ^^^^^^^^
 
+- `QTIP Docker image <https://hub.docker.com/r/opnfv/qtip>`_ (tag: danube.3.0)
 - `QTIP Docker image <https://hub.docker.com/r/opnfv/qtip>`_ (tag: danube.2.0)
 - `QTIP Docker image <https://hub.docker.com/r/opnfv/qtip>`_ (tag: danube.1.0)
 
@@ -154,12 +164,12 @@ QTIP has undergone QA test runs with the following results:
 | qtip-verify-danube                                | 94/94 passed                         |
 |                                                   |                                      |
 +---------------------------------------------------+--------------------------------------+
-| qtip-os-nosdn-kvm-ha-zte-pod3-daily-danube        | Successful                           |
+| qtip-os-nosdn-kvm-ha-zte-pod3-daily-danube        | passed                               |
 |                                                   |                                      |
 +---------------------------------------------------+--------------------------------------+
-| qtip-os-nosdn-nofeature-ha-zte-pod3-daily-danube  | Successful                           |
+| qtip-os-nosdn-nofeature-ha-zte-pod3-daily-danube  | passed                               |
 |                                                   |                                      |
 +---------------------------------------------------+--------------------------------------+
-| qtip-os-odl_l2-nofeature-ha-zte-pod1-daily-danube | Successful                           |
+| qtip-os-odl_l2-nofeature-ha-zte-pod1-daily-danube | passed                               |
 |                                                   |                                      |
 +---------------------------------------------------+--------------------------------------+

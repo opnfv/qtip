@@ -76,7 +76,11 @@ cd /home/opnfv/workspace/
 
 qtip setup
 eval `ssh-agent`
-qtip run --extra-vars "testapi_url=$testapi_url"
+if [[ -z $testapi_url ]];then
+    qtip run
+else
+    qtip run --extra-vars "testapi_url=$testapi_url"
+fi
 qtip teardown
 
 # Remove ssh public key from installer

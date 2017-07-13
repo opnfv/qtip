@@ -54,6 +54,7 @@ data/my_key.pem
 
 # Django stuff:
 *.log
+*.sqlite3
 
 # Sphinx documentation
 docs/_build/

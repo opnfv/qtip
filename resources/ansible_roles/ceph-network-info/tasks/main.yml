@@ -1,0 +1,37 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+
+- name: get system network info
+  shell: netstat -nr |grep  "U" | awk '{printf "interface %s network %s mask  %s \n",$8,$1, $3 }' 
+  register: ceph_network_out
+
+- name: saving output to log
+  copy:
+    content: "{{ ceph_network_out.stdout }}"
+    dest: "{{ logfile }}"
+  delegate_to: localhost
+
+- fetch:
+    src: /etc/ceph/ceph.conf
+    dest: "{{ qtip_results }}/sysinfo-{{ inventory_hostname }}/"
+    flat: yes
+
+- name: collect ceph system info from ceph.conf
+  set_fact: {"{{ item }}":"{{ lookup('ini', '{{ item }} section=global default='' file={{ qtip_results }}/sysinfo-{{ inventory_hostname }}/ceph.conf')  }}"}
+  with_items:
+      - cluster_network
+  delegate_to: localhost
+
+- name: append 
+  lineinfile:
+      dest: "{{ logfile }}"
+      line: "cluster_network {{ cluster_network }}"
+      insertafter: EOF
+  delegate_to: localhost

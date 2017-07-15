@@ -22,6 +22,30 @@
       "revId": "0fd661ea6bae299b69e65f90966304012eb794d2",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_9948fd5c",
+        "filename": "qtip/web/bench/migrations/0004_auto_20170715_0325.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 6435
+      },
+      "writtenOn": "2017-07-15T05:30:12Z",
+      "side": 1,
+      "message": "For now, yes. since if not done, the changes in the model will be ignored and I got an error when I didn\u0027t migrate the changes.\n\n\n\nOn other thought, Since migrations are for developer\u0027s reference, We can remove all migrations and consider the whole codebase for the initial migration for E-release. This way the codebase will be cleaner for the release.",
+      "parentUuid": "1aa4ed85_1581338f",
+      "range": {
+        "startLine": 11,
+        "startChar": 19,
+        "endLine": 11,
+        "endChar": 42
+      },
+      "revId": "0fd661ea6bae299b69e65f90966304012eb794d2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa4ed85_1581338f",
+        "filename": "qtip/web/bench/migrations/0004_auto_20170715_0325.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-07-15T01:05:21Z",
+      "side": 1,
+      "message": "Should we check in also this migration? As it is indicated as a dependency.",
+      "range": {
+        "startLine": 11,
+        "startChar": 19,
+        "endLine": 11,
+        "endChar": 42
+      },
+      "revId": "0fd661ea6bae299b69e65f90966304012eb794d2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

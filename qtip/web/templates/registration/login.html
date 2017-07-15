@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>QTIP Benchmarking Services</title>
+    </head>
+    <body>
+        {% block content %}
+        <form role="form" method="post" action= "/bench/login/">{% csrf_token %}
+        {{ form }}
+            <div class=input-field" style="margin:30px 20px">
+                <button  type="submit" value="Login"/>Login</button>
+                <input type="hidden" name="next" value = "{{ next }}"/>
+            </div>
+        </form>
+        {% endblock %}
+    </body>
+</html>

@@ -11,6 +11,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -18,6 +19,10 @@ from django.db import models
 class Repo(models.Model):
     name = models.CharField(max_length=200, blank=False)
     github_link = models.URLField(unique=True)
+
+    def get_absolute_url(self):
+        return reverse('repo_update', args=[self.pk])
+
 
 
 class Task(models.Model):

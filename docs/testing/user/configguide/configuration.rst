@@ -40,7 +40,7 @@ Run and enter the docker instance
 1. If you want to run benchmarks:
 ::
 
-  envs="INSTALLER_TYPE={INSTALLER_TYPE} -e INSTALLER_IP={INSTALLER_IP}"
+  envs="INSTALLER_TYPE={INSTALLER_TYPE} -e INSTALLER_IP={INSTALLER_IP} -e  NODE_NAME={NODE_NAME}"
   docker run -p [HOST_IP:]<HOST_PORT>:5000 --name qtip -id -e $envs opnfv/qtip
   docker exec -i -t qtip /bin/bash
 
@@ -48,6 +48,8 @@ Run and enter the docker instance
 and joid. Currenty, QTIP only supports installer fuel.
 
 ``INSTALLER_IP`` is the ip address of the installer that can be accessed by QTIP.
+
+``NODE_NAME`` is the name of opnfv pod, e.g. zte-pod1.
 
 2. If you do not want to run any benchmarks:
 ::

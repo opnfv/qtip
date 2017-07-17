@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa4ed85_3cd1b757",
+        "filename": "resources/ansible_roles/ceph-disk-info/tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-07-17T02:57:00Z",
+      "side": 1,
+      "message": "How about separating two commands? Then we can know each output of each command. The second command may return nothing on some hardware.",
+      "revId": "da0c8213a01d854e0e3b5c3b5a2766393ec43a83",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

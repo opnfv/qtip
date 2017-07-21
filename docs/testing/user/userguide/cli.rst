@@ -10,6 +10,14 @@ QTIP consists of a number of benchmarking tools or metrics, grouped under QPI's.
 components of a NFVI ecosystem, such as compute, network and storage. Depending on the type of application,
 a user may group them under plans.
 
+QTIP CLI has been programmed using the Command Line Interface Creation Kit (CLICK). It provides a simple application
+programming interface to write simple yet powerful command line interfaces. CLICK comes with builtin support for
+command completion for **bash** shells. One just needs to set an environment variable to enable this functionality.
+In order to do so, add the following line to the **.bashrc** file
+::
+
+  eval "$(_QTIP_COMPLETE=source qtip)"
+
 QTIP CLI provides interface to all of the above the components. A help page provides a list of all the commands
 along with a short description.
 ::

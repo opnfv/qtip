@@ -10,6 +10,15 @@ QTIP consists of a number of benchmarking tools or metrics, grouped under QPI's.
 components of a NFVI ecosystem, such as compute, network and storage. Depending on the type of application,
 a user may group them under plans.
 
+Bash Command Completion
+=======================
+
+To enable command completion, an environment variable needs to be enabled.
+Add the following line to the **.bashrc** file
+::
+
+  eval "$(_QTIP_COMPLETE=source qtip)"
+
 QTIP CLI provides interface to all of the above the components. A help page provides a list of all the commands
 along with a short description.
 ::

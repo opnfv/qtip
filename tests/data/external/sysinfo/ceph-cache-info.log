@@ -1,0 +1,3 @@
+rdb_cache true
+rdb_cache_size 24
+rbd_cache_max_dirty 16

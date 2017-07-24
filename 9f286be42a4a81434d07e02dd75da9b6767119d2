@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa4ed85_2b92c19f",
+        "filename": "resources/ansible_roles/ceph-network-info/tasks/main.yml",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-07-24T06:10:08Z",
+      "side": 1,
+      "message": "trailing space?",
+      "range": {
+        "startLine": 32,
+        "startChar": 14,
+        "endLine": 32,
+        "endChar": 15
+      },
+      "revId": "9f286be42a4a81434d07e02dd75da9b6767119d2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_cb90cd97",
+        "filename": "tests/data/external/sysinfo/ceph-network-info.log",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-07-24T06:10:08Z",
+      "side": 1,
+      "message": "please delete trailing spaces in each line",
+      "revId": "9f286be42a4a81434d07e02dd75da9b6767119d2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

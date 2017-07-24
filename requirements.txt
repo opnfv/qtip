@@ -1,7 +1,7 @@
 colorama
 ansible
 click
-connexion
+connexion<=1.1.11
 Jinja2
 numpy
 paramiko

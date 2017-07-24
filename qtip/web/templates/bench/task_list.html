@@ -1,0 +1,22 @@
+{% extends 'bench/base.html' %}
+{% block content %}
+    <div>
+        <h3>Tasks Log</h3>
+        <table>
+            <th>Repo</th>
+            <th>Status</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Run time</th>
+            {% for task in object_list %}
+                <tr onclick="location.href='{% url 'task_view' task.id %}'">
+                    <td>{{ task.repo }}</td>
+                    <td>{{ task.get_status_display }}</td>
+                    <td>{{ task.start_time }}</td>
+                    <td>{{ task.end_time }}</td>
+                    <td>{{ task.run_time }}</td>
+                </tr>
+            {% endfor %}
+        <table>
+    </div>
+{% endblock %}

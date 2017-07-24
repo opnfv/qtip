@@ -1,0 +1,17 @@
+{% extends 'bench/base.html' %}
+{% block content %}
+    <div>
+        <h3>Task</h3>
+        <table>
+            <tr>
+                <td>{{ object.repo}}</td><td>{{ object.get_status_display }}</td><td>{{ object.start_time }}</td>
+                <td>{{ object.end_time }}</td><td>{{ object.duration }}</td><td>{{ object.log }}</td>
+            </tr>
+        </table>
+        <div>
+            <p>
+                {{ log | linebreaks }}
+            </p>
+        </div>
+    </div>
+{% endblock %}

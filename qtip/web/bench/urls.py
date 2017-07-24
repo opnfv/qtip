@@ -18,4 +18,7 @@ urlpatterns = [
     url('^', include('django.contrib.auth.urls')),
     url('^repos/$', views.ReposView.as_view(), name='repos'),
     url('^repos/(?P<pk>\d+)$', views.RepoUpdate.as_view(), name='repo_update'),
+    url('^run/$', views.Run.as_view(), name='run'),
+    url('^tasks/$', views.Logs.as_view(), name='tasks'),
+    url('^tasks/(?P<pk>\d+)$', views.TaskView.as_view(), name='task_view'),
 ]

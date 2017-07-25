@@ -22,6 +22,30 @@
       "revId": "05ed8bbe8a4e3c6092152382fdb42e33fd3841a2",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_316eb097",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-07-25T01:51:14Z",
+      "side": 1,
+      "message": "`Change-Id` is prepended by gerrit automatically. To adjust it, I shall need to run `git commit --amend` after `git commit -s`...",
+      "parentUuid": "1aa4ed85_0b7825c3",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 14
+      },
+      "revId": "05ed8bbe8a4e3c6092152382fdb42e33fd3841a2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

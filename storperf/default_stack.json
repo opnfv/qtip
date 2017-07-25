@@ -1,0 +1,6 @@
+{
+  "agent_count": 2,
+  "agent_image": "Ubuntu 16.04 x86_64",
+  "public_network": "external",
+  "volume_size": 2
+}

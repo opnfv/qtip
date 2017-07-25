@@ -1,0 +1,15 @@
+{
+   "block_sizes": "1024",
+   "deadline": 30,
+   "steady_state_samples": 10,
+   "queue_depths": "1",
+   "workload": "wr,rr,rw",
+   "metadata": {
+        "disk_type": "HDD",
+        "scenario_name": "none",
+        "storage_node_count": 2,
+        "version": "",
+        "build_tag": "",
+        "test_case": "snia_steady_state"
+   }
+}

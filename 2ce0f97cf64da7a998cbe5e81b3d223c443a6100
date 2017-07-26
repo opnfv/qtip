@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa4ed85_3ae3e506",
+        "filename": "storperf/storperf_docker.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-07-26T05:40:01Z",
+      "side": 1,
+      "message": "Should we pull the docker image instead of building them locally? This may save lots of time in verification job.",
+      "revId": "2ce0f97cf64da7a998cbe5e81b3d223c443a6100",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

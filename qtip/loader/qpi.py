@@ -8,7 +8,6 @@
 ##############################################################################
 
 from yaml_file import YamlFileLoader
-from metric import MetricSpec
 
 from qtip.base.constant import SpecProp
 from qtip.util.formula import Formula
@@ -34,5 +33,3 @@ class Section(object):
         self.name = content[SpecProp.NAME]
         self.weight = content[SpecProp.WEIGHT]
         self.formula = Formula(content[SpecProp.FORMULA])
-        self.metrics = [MetricSpec(record, paths=paths)
-                        for record in content[SpecProp.METRICS]]

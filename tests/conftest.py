@@ -11,9 +11,6 @@ from os import path
 
 import pytest
 
-from qtip.loader.plan import Plan
-from qtip.loader.plan import PlanProp
-
 
 @pytest.fixture(scope='session')
 def data_root():
@@ -23,26 +20,6 @@ def data_root():
 @pytest.fixture(scope='session')
 def benchmarks_root(data_root):
     return path.join(data_root, 'benchmarks')
-
-
-@pytest.fixture(scope='session')
-def plan(benchmarks_root):
-    return Plan('doctor.yaml', [benchmarks_root])
-
-
-@pytest.fixture(scope='session')
-def plan_config(plan):
-    return plan.content[PlanProp.CONFIG]
-
-
-@pytest.fixture(scope='session')
-def collectors_config(plan_config):
-    return plan_config[PlanProp.COLLECTORS]
-
-
-@pytest.fixture(scope='session')
-def logfile_config(collectors_config):
-    return collectors_config[0]
 
 
 @pytest.fixture(scope='session')

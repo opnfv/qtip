@@ -19,12 +19,17 @@ Add the following line to the **.bashrc** file
 
   eval "$(_QTIP_COMPLETE=source qtip)"
 
+Getting help
+============
+
 QTIP CLI provides interface to all of the above the components. A help page provides a list of all the commands
 along with a short description.
 ::
 
   qtip [-h|--help]
 
+Usage
+=====
 Typically a complete plan is executed at the target environment. QTIP defaults to a number of sample plans.
 A list of all the available plans can be viewed
 ::
@@ -63,6 +68,9 @@ the results are stored. Extending the example above
 ::
 
   qtip report show <metric_name> -p $PWD/result
+
+Debugging options
+=================
 
 Debug option helps identify the error by providing a detailed traceback. It can be enabled as
 ::

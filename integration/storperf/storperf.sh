@@ -28,6 +28,9 @@ while getopts ":t:i:s:j:he" optchar; do
    esac
 done
 
+# See https://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 if [[ -z $WORKSPACE ]];then
     WORKSPACE=`pwd`
 fi
@@ -35,8 +38,8 @@ fi
 #set vars from env if not provided by user as options
 installer_type=${installer_type:-$INSTALLER_TYPE}
 installer_ip=${installer_ip:-$INSTALLER_IP}
-stack_json=${stack_json:-"$WORKSPACE/default_stack.json"}
-job_json=${job_json:-"$WORKSPACE/default_job.json"}
+stack_json=${stack_json:-"$script_dir/default_stack.json"}
+job_json=${job_json:-"$script_dir/default_job.json"}
 
 source ./openstack.sh
 source ./storperf_docker.sh
@@ -47,7 +50,7 @@ git clone --depth 1 https://gerrit.opnfv.org/gerrit/releng $WORKSPACE/releng
 virtualenv $WORKSPACE/storperf_venv
 source $WORKSPACE/storperf_venv/bin/activate
 
-pip install -r ./storperf_requirements.txt
+pip install -r $script_dir/storperf_requirements.txt
 
 $WORKSPACE/releng/utils/fetch_os_creds.sh -i ${installer_type} -a ${installer_ip} -d $WORKSPACE/openrc
 source $WORKSPACE/openrc
@@ -67,14 +70,14 @@ load_ubuntu_image
 create_storperf_flavor
 
 cd $WORKSPACE/storperf/docker
-cp $WORKSPACE/storperf-docker-compose.yaml ./
+cp $script_dir/storperf-docker-compose.yaml ./
 echo "Clean existing storperf containers"
 clean_storperf_container
 echo "Launch new storperf containers"
 launch_storperf_container
 
 cd $WORKSPACE
-./start_job.sh -s $stack_json -j $job_json
+$script_dir/start_job.sh -s $stack_json -j $job_json
 
 echo "Clean up environment"
 cd $WORKSPACE/storperf/docker

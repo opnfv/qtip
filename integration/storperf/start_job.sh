@@ -26,11 +26,14 @@ while getopts ":s:j:he" optchar; do
    esac
 done
 
+# See https://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 if [[ -z $WORKSPACE ]];then
     WORKSPACE=`pwd`
 fi
 
-source $WORKSPACE/openstack.sh
+source $script_dir/openstack.sh
 
 echo ==========================================================================
 echo "Start to create storperf stack"
@@ -65,7 +68,7 @@ else
     JOB_STATUS=`cat $WORKSPACE/status.json | awk '/Status/ {print $2}' | cut -d\" -f2`
     while [ "$JOB_STATUS" != "Completed" ]
     do
-        sleep 300
+        sleep 30
         mv $WORKSPACE/status.json $WORKSPACE/old-status.json
         curl -s -X GET "http://127.0.0.1:5000/api/v1.0/jobs?id=$JOB&type=status" \
             -o $WORKSPACE/status.json

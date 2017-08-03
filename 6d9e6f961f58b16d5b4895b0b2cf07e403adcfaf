@@ -128,6 +128,30 @@
       "revId": "6d9e6f961f58b16d5b4895b0b2cf07e403adcfaf",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_40a083f4",
+        "filename": "integration/storperf/storperf.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-08-03T09:33:44Z",
+      "side": 1,
+      "message": "I think no need. Because I used absolute path \"$WORKSPACE/report.json\" in start_job.json.",
+      "parentUuid": "da33351e_ed7b9027",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 13
+      },
+      "revId": "6d9e6f961f58b16d5b4895b0b2cf07e403adcfaf",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

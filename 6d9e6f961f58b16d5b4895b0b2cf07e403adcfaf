@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_6d5e60eb",
+        "filename": "integration/storperf/storperf.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-08-03T00:30:57Z",
+      "side": 1,
+      "message": "$script_dir/storperf_requirements.txt",
+      "revId": "6d9e6f961f58b16d5b4895b0b2cf07e403adcfaf",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_4d639cb1",
+        "filename": "integration/storperf/storperf.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-08-03T00:30:57Z",
+      "side": 1,
+      "message": "This file is under $script_dir",
+      "range": {
+        "startLine": 73,
+        "startChar": 3,
+        "endLine": 73,
+        "endChar": 13
+      },
+      "revId": "6d9e6f961f58b16d5b4895b0b2cf07e403adcfaf",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_ad5868fb",
+        "filename": "integration/storperf/storperf.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-08-03T00:30:57Z",
+      "side": 1,
+      "message": "It can be deleted because the next sentence uses the absolute path.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 13
+      },
+      "revId": "6d9e6f961f58b16d5b4895b0b2cf07e403adcfaf",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

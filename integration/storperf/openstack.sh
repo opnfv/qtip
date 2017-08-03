@@ -56,3 +56,10 @@ create_storperf_flavor()
     fi
     openstack flavor show storperf
 }
+
+
+nova_vm_mapping()
+{
+    rm ./nova_vm.json
+    openstack server list --name storperf-agent -c ID -c Host --long -f json > nova_vm.json
+}

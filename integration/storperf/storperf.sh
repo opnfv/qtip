@@ -38,8 +38,8 @@ installer_ip=${installer_ip:-$INSTALLER_IP}
 stack_json=${stack_json:-"$WORKSPACE/default_stack.json"}
 job_json=${job_json:-"$WORKSPACE/default_job.json"}
 
-source ./openstack.sh
-source ./storperf_docker.sh
+source $WORKSPACE/openstack.sh
+source $WORKSPACE/storperf_docker.sh
 
 git clone --depth 1 https://gerrit.opnfv.org/gerrit/storperf $WORKSPACE/storperf
 git clone --depth 1 https://gerrit.opnfv.org/gerrit/releng $WORKSPACE/releng

@@ -30,6 +30,8 @@ if [[ -z $WORKSPACE ]];then
     WORKSPACE=`pwd`
 fi
 
+source $WORKSPACE/openstack.sh
+
 echo ==========================================================================
 echo "Start to create storperf stack"
 cat ${stack_json} 1>&2
@@ -38,6 +40,8 @@ echo ==========================================================================
 curl -X POST --header 'Content-Type: application/json' \
      --header 'Accept: application/json' -d @${stack_json} \
      'http://127.0.0.1:5000/api/v1.0/configurations'
+
+nova_vm_mapping
 
 echo
 echo ==========================================================================

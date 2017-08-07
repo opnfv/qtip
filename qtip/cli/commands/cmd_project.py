@@ -41,7 +41,7 @@ def cli():
 @cli.command(help="Create new testing project")
 @click.argument('project_name')
 @click.option('--project-template',
-              type=click.Choice(['compute', 'doctor']),
+              type=click.Choice(['compute', 'doctor', 'storperf']),
               default='compute',
               help='Choose project template')
 @click.option('--pod-name',

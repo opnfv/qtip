@@ -1,0 +1,2 @@
+[storperf]
+localhost 	ansible_connection=local

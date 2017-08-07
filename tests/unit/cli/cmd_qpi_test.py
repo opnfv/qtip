@@ -20,24 +20,11 @@ def runner():
 
 def test_list(runner):
     result = runner.invoke(cli, ['qpi', 'list'])
-    assert 'QPIs' and 'compute' in result.output
-
-
-def test_run(runner):
-    result = runner.invoke(cli, ['qpi', 'run', 'fake-qpi'])
-    assert result.output == ''
-
-    result = runner.invoke(cli, ['qpi', 'run'])
-    assert 'Missing argument "name".' in result.output
+    assert 'QPIs' in result.output
 
 
 def test_show(runner):
     result = runner.invoke(cli, ['qpi', 'show', 'compute'])
-    assert 'Name: compute' in result.output
-    assert 'Description: sample performance index of computing' in result.output
-
-    result = runner.invoke(cli, ['qpi', 'show'])
-    assert 'Missing argument "name".' in result.output
-
-    result = runner.invoke(cli, ['qpi', 'show', 'xyz'])
-    assert "ERROR: qpi spec: xyz not found" in result.output
+    assert 'QPI' in result.output
+    assert 'Description' in result.output
+    assert 'Formula' in result.output

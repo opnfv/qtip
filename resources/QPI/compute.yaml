@@ -29,7 +29,7 @@ sections: # split based on different application
     metrics:
       - name: ssl_rsa
         description: performance of cryptographic using RSA cipher algorithm
-        formual: geometric mean
+        formula: geometric mean
         workloads:
           - name: rsa_sign_512
             description: rsa 512 bits sign per second
@@ -50,7 +50,7 @@ sections: # split based on different application
       - name: ssl_aes
         description: >
           performance of advanced encryption standard (AES) cipher algorithm in cipher block chaining (CBC) mode
-        formual: geometric mean
+        formula: geometric mean
         workloads:
           - name: aes_128_cbc_16_bytes
             description: aes 128 bits key cbc on 16 bytes blocks
@@ -64,6 +64,7 @@ sections: # split based on different application
             description: aes 128 bits key cbc on 8192 bytes blocks
   - name: DPI
     description: deep packet inspection
+    formula: geometric mean
     metrics:
       - name: dpi_throughput
         description: deep packet inspection throughput
@@ -74,6 +75,7 @@ sections: # split based on different application
             description: DPI bits per second
   - name: memory
     description: cache and memory performance
+    formula: geometric mean
     metrics:
       - name: floatmem
         description: >
@@ -123,6 +125,7 @@ sections: # split based on different application
               (A = m*B + C).
   - name: arithmetic
     description: arithmetic computing speed
+    formula: geometric mean
     metrics:
       - name: integer
         description: >

@@ -15,6 +15,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic import TemplateView
 from django.views import View
 from django.shortcuts import render, redirect
 from django.core.files.base import ContentFile
@@ -25,6 +26,10 @@ import models
 import utils
 
 
+class Dashboard(TemplateView):
+    template_name = "bench/index.html"
+
+
 class ReposView(LoginRequiredMixin, CreateView):
     model = models.Repo
     fields = '__all__'
@@ -32,6 +37,7 @@ class ReposView(LoginRequiredMixin, CreateView):
     def get_context_data(self, **kwargs):
         context = super(ReposView, self).get_context_data(**kwargs)
         context["repos"] = self.model.objects.all()
+        context["template_role"] = "add"
         return context
 
 
@@ -42,6 +48,7 @@ class RepoUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super(RepoUpdate, self).get_context_data(**kwargs)
         context["repos"] = self.model.objects.all()
+        context["template_role"] = "edit"
         return context
 
 

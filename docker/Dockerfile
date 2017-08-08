@@ -31,8 +31,7 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
 && rm -rf /var/lib/apt/lists/*
 
-RUN pip install -U pip
-RUN pip install 'setuptools>=17.1'
+RUN pip install -U pip && pip install -U setuptools
 
 RUN apt-add-repository ppa:ansible/ansible -y
 RUN apt-key update -y

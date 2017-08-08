@@ -16,6 +16,7 @@ import views
 
 urlpatterns = [
     url('^', include('django.contrib.auth.urls')),
+    url('^dashboard/$', views.Dashboard.as_view(), name="index"),
     url('^repos/$', views.ReposView.as_view(), name='repos'),
     url('^repos/(?P<pk>\d+)$', views.RepoUpdate.as_view(), name='repo_update'),
     url('^run/$', views.Run.as_view(), name='run'),

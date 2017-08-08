@@ -1,15 +1,14 @@
 {% extends 'bench/base.html' %}
 {% block content %}
-    <div>
-        <h3>Repos</h3>
-        {% for repo in repos %}
-        <li>{{ repo.name }}</li>
-        {% endfor %}
-    </div>
-    <form role="form" method="post" action="">{% csrf_token %}
-        {{ form }}
-        <div class=input-field" style="margin:30px 20px">
-            <button  type="submit" value="Login"/>Submit</button>
+    <div class="card">
+        <div class="header">
+            <h2>Run</h2>
         </div>
-    </form>
+        <form role="form" method="post" action="">{% csrf_token %}
+            {{ form }}
+            <div class=input-field">
+                <button class="btn" type="submit" value="Login"/>Submit</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}

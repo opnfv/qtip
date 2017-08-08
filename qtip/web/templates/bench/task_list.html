@@ -1,22 +1,77 @@
 {% extends 'bench/base.html' %}
 {% block content %}
-    <div>
-        <h3>Tasks Log</h3>
-        <table>
-            <th>Repo</th>
-            <th>Status</th>
-            <th>Start Time</th>
-            <th>End Time</th>
-            <th>Run time</th>
-            {% for task in object_list %}
-                <tr onclick="location.href='{% url 'task_view' task.id %}'">
-                    <td>{{ task.repo }}</td>
-                    <td>{{ task.get_status_display }}</td>
-                    <td>{{ task.start_time }}</td>
-                    <td>{{ task.end_time }}</td>
-                    <td>{{ task.run_time }}</td>
-                </tr>
-            {% endfor %}
-        <table>
-    </div>
+
+        <!-- JQuery DataTable Css -->
+    <link href="/static/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Tasks Log
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="dt-buttons"></div>
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Repo</th>
+                                            <th class="sorting" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Status</th>
+                                            <th class="sorting" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Start Time</th>
+                                            <th class="sorting" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">End Time</th>
+                                            <th class="sorting" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Run time</th>
+                                         </tr>
+                                    </thead>
+                                    <tbody>
+                                     {% for task in object_list %}
+                                     <tr  role="row" onclick="location.href='{% url 'task_view' task.id %}'">
+                                <td>{{ task.repo }}</td>
+                                <td>{{ task.get_status_display }}</td>
+                                <td>{{ task.start_time }}</td>
+                                <td>{{ task.end_time }}</td>
+                                <td>{{ task.run_time }}</td>
+                                </tr>
+                             {% endfor %}
+                                        </tbody>
+                                        <tfoot>
+                                        <tr role="row">
+                                            <th  rowspan="1" colspan="1">Repo</th>
+                                            <th  rowspan="1" colspan="1" >Status</th>
+                                            <th  rowspan="1" colspan="1" >Start Time</th>
+                                            <th  rowspan="1" colspan="1" >End Time</th>
+                                            <th  rowspan="1" colspan="1">Run time</th>
+                                         </tr>
+                                    </tfoot>
+                                    </table>
+                                  </div>
+                        </div>
+                    </div>
+
+
+<!-- Jquery DataTable Plugin Js -->
+    <script src="/static/plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="/static/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="/static/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="/static/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="/static/plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="/static/plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="/static/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="/static/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="/static/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
+    <!-- Custom Js -->
+    <script src="/static/js/admin.js"></script>
+    <script src="/static/js/pages/tables/jquery-datatable.js"></script>
 {% endblock %}

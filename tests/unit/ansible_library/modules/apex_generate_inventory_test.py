@@ -23,8 +23,8 @@ def test_generate_inventory(data_root):
         u'compute': [u'192.0.2.5', u'192.0.2.6'],
         u'control': [u'192.0.2.7', u'192.0.2.8', u'192.0.2.9']}
     assert dict(inventory['hosts_meta']) == {
-        u'192.0.2.5': {'ansible_ssh_host': u'192.0.2.5'},
-        u'192.0.2.6': {'ansible_ssh_host': u'192.0.2.6'},
-        u'192.0.2.7': {'ansible_ssh_host': u'192.0.2.7'},
-        u'192.0.2.8': {'ansible_ssh_host': u'192.0.2.8'},
-        u'192.0.2.9': {'ansible_ssh_host': u'192.0.2.9'}}
+        u'192.0.2.5': {'ansible_ssh_host': u'192.0.2.5', 'ansible_user': 'heat-admin'},
+        u'192.0.2.6': {'ansible_ssh_host': u'192.0.2.6', 'ansible_user': 'heat-admin'},
+        u'192.0.2.7': {'ansible_ssh_host': u'192.0.2.7', 'ansible_user': 'heat-admin'},
+        u'192.0.2.8': {'ansible_ssh_host': u'192.0.2.8', 'ansible_user': 'heat-admin'},
+        u'192.0.2.9': {'ansible_ssh_host': u'192.0.2.9', 'ansible_user': 'heat-admin'}}

@@ -98,7 +98,8 @@ def generate_inventory(nodes):
             'ip': node['ip'],
             'mac': node['mac'],
             'cluster': cluster_id,
-            'ansible_ssh_host': node['ip']
+            'ansible_ssh_host': node['ip'],
+            'ansible_user': 'root'
         }
         hosts_meta[hostname] = node_meta
 

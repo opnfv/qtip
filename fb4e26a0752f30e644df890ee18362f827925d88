@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_1596b694",
+        "filename": "qtip/cli/commands/cmd_qpi.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-09T03:16:54Z",
+      "side": 1,
+      "message": "I think for listing, we should show compute, storage and the top level description, not the sections details, i.e. formatting the following content in the table.\n\n  name: compute\n  description: QTIP Performance Index of compute",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 48
+      },
+      "revId": "fb4e26a0752f30e644df890ee18362f827925d88",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

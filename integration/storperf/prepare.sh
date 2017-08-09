@@ -7,6 +7,10 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+if [[ -z $WORKSPACE ]];then
+    WORKSPACE=`pwd`
+fi
+
 delete_storperf_stack()
 {
     echo "Checking for an existing stack"
@@ -24,8 +28,8 @@ load_ubuntu_image()
         cd $WORKSPACE
         if [[ ! -f ubuntu-16.04-server-cloudimg-amd64-disk1.img ]];then
             echo "download Ubuntu 16.04 image"
-            wget https://cloud-images.ubuntu.com/releases/16.04/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img
-            wget https://cloud-images.ubuntu.com/releases/16.04/release/MD5SUMS
+            wget -q https://cloud-images.ubuntu.com/releases/16.04/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img
+            wget -q https://cloud-images.ubuntu.com/releases/16.04/release/MD5SUMS
             checksum=$(cat ./MD5SUMS |grep ubuntu-16.04-server-cloudimg-amd64-disk1.img | md5sum -c)
             if [[ $checksum =~ 'FAILED' ]];then
                 echo "Check image md5sum failed. Exit!"
@@ -57,9 +61,6 @@ create_storperf_flavor()
     openstack flavor show storperf
 }
 
-
-nova_vm_mapping()
-{
-    rm ./nova_vm.json
-    openstack server list --name storperf-agent -c ID -c Host --long -f json > nova_vm.json
-}
+delete_storperf_stack
+load_ubuntu_image
+create_storperf_flavor

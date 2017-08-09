@@ -12,3 +12,8 @@ PyYAML
 humanfriendly
 asq
 Django
+functools32==3.2.3.post2
+pytz==2016.10
+osc_lib==1.3.0
+python-openstackclient==3.7.0
+python-heatclient==1.7.0

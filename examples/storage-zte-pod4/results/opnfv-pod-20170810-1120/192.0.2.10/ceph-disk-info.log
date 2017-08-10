@@ -1,0 +1,4 @@
+/dev/sda :
+ /dev/sda1 other, iso9660
+ /dev/sda2 other, xfs, mounted on /
+

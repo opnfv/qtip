@@ -1,0 +1,22 @@
+
+localhost   ansible_connection=local
+
+[apex-underclouds]
+apex-virtual-pod4
+
+[SUT:children]   # system under test
+compute
+
+[node-groups:children]
+compute
+control
+
+[node-groups:vars]
+ansible_ssh_common_args=-F ./ssh.cfg
+
+[compute]
+192.0.2.10
+
+[control]
+192.0.2.9
+

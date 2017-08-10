@@ -1,0 +1,24 @@
+
+localhost   ansible_connection=local
+
+[{{ installer_group[installer_type] }}]
+{{ installer_host }}
+
+[SUT:children]   # system under test
+compute
+
+[node-groups:children]
+{% for group in hosts|sort %}
+{{ group }}
+{% endfor %}
+
+[node-groups:vars]
+ansible_ssh_common_args=-F ./ssh.cfg
+
+{% for group in hosts|sort %}
+[{{ group }}]
+{% for host in hosts[group]|sort %}
+{{ host }}
+{% endfor %}
+
+{% endfor %}

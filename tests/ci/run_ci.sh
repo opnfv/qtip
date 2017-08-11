@@ -8,92 +8,48 @@
 ##############################################################################
 set -e
 
-usage(){
-   echo "usage: $0 -t <installer_type> -i <installer_ip> -p <pod_name> -s <scenario> -r <report_url>" >&2
-}
+echo "--------------------------------------------------------"
+echo "POD: $NODE_NAME"
+echo "Scenario: $DEPLOY_SCENARIO"
+echo "INSTALLER: $INSTALLER_TYPE"
+echo "INSTALLER_IP: $INSTALLER_IP"
+echo "--------------------------------------------------------"
 
-verify_connectivity(){
-   local ip=$1
-   echo "Verifying connectivity to $ip..."
-   for i in $(seq 0 10); do
-       if ping -c 1 -W 1 $ip > /dev/null; then
-           echo "$ip is reachable!"
-           return 0
-       fi
-       sleep 1
-   done
-   error "Can not talk to $ip."
-}
+echo "Qtip: Pulling docker image: opnfv/qtip:${DOCKER_TAG}"
+docker pull opnfv/qtip:$DOCKER_TAG >/dev/null
 
-#Getoptions
-while getopts ":t:i:p:s:r:he" optchar; do
-   case "${optchar}" in
-       t) installer_type=${OPTARG} ;;
-       i) installer_ip=${OPTARG} ;;
-       p) pod_name=${OPTARG} ;;
-       s) scenario=${OPTARG} ;;
-       r) testapi_url=${OPTARG} ;;
-       h) usage
-          exit 0
-          ;;
-       *) echo "Non-option argument: '-${OPTARG}'" >&2
-          usage
-          exit 2
-          ;;
-   esac
-done
+envs="INSTALLER_TYPE=${INSTALLER_TYPE} -e INSTALLER_IP=${INSTALLER_IP}
+-e POD_NAME=${NODE_NAME} -e SCENARIO=${DEPLOY_SCENARIO}"
 
-#set vars from env if not provided by user as options
-installer_type=${installer_type:-$INSTALLER_TYPE}
-installer_ip=${installer_ip:-$INSTALLER_IP}
-pod_name=${pod_name:-$POD_NAME}
-scenario=${scenario:-$SCENARIO}
-testapi_url=${testapi_url:-$TESTAPI_URL}
+cmd=" docker run -id -e $envs opnfv/qtip:${DOCKER_TAG} /bin/bash"
+echo "Qtip: Running docker command: ${cmd}"
+${cmd}
 
-sshoptions="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
-
-verify_connectivity ${installer_ip}
-
-ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa -q
-
-# ssh-copy-id publickey to installer
-case "$installer_type" in
-    fuel)
-        sshpass -p r00tme ssh-copy-id $sshoptions ${installer_ip}
-        ;;
-       *)
-        echo "Unkown installer $installer_type specified"
-        exit 1
-        ;;
-esac
-
-cd /home/opnfv
-
-qtip create --pod-name ${pod_name} --installer-type ${installer_type} \
---installer-host ${installer_ip} --scenario ${scenario} workspace
-
-cd /home/opnfv/workspace/
-
-qtip setup
-eval `ssh-agent`
-if [[ -z $testapi_url ]];then
-    qtip run
-else
-    qtip run --extra-vars "testapi_url=$testapi_url"
+container_id=$(docker ps | grep "opnfv/qtip:${DOCKER_TAG}" | awk '{print $1}' | head -1)
+if [ $(docker ps | grep 'opnfv/qtip' | wc -l) == 0 ]; then
+    echo "The container opnfv/qtip with ID=${container_id} has not been properly started. Exiting..."
+    exit 1
 fi
-qtip teardown
 
-# Remove ssh public key from installer
-case "$installer_type" in
-    fuel)
-        publickey=$(sed -r 's/\//\\\//g' /root/.ssh/id_rsa.pub)
-        ssh $sshoptions root@${installer_ip} "sed -i '/$publickey/d' /root/.ssh/authorized_keys"
-        ;;
-       *)
-        echo "Not support $installer_type."
-        exit 1
-        ;;
-esac
+echo "The container ID is: ${container_id}"
+QTIP_REPO=/home/opnfv/repos/qtip
+
+docker exec -t ${container_id} bash -c "bash ${QTIP_REPO}/tests/ci/run_compute_qpi.sh"
 
 echo "Qtip done!"
+
+# Remove previous running containers if exist
+if [[ ! -z $(docker ps -a | grep "opnfv/qtip:$DOCKER_TAG") ]]; then
+    echo "Removing existing opnfv/qtip containers..."
+    # workaround: sometimes it throws an error when stopping qtip container.
+    # To make sure ci job unblocked, remove qtip container by force without stopping it.
+    docker rm -f $(docker ps -a | grep "opnfv/qtip:$DOCKER_TAG" | awk '{print $1}')
+fi
+
+# Remove existing images if exist
+if [[ $(docker images opnfv/qtip:${DOCKER_TAG} | wc -l) -gt 1 ]]; then
+    echo "Removing docker image opnfv/qtip:$DOCKER_TAG..."
+    docker rmi opnfv/qtip:$DOCKER_TAG
+fi
+
 exit 0

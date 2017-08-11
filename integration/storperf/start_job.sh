@@ -29,11 +29,22 @@ done
 # See https://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+stack_json=${stack_json:-"$script_dir/default_stack.json"}
+job_json=${job_json:-"$script_dir/default_job.json"}
+
 if [[ -z $WORKSPACE ]];then
     WORKSPACE=`pwd`
 fi
 
-source $script_dir/openstack.sh
+nova_vm_mapping()
+{
+    rm $WORKSPACE/nova_vm.json
+    openstack server list --name storperf-agent -c ID -c Host --long -f json > $WORKSPACE/nova_vm.json
+
+    echo ==========================================================================
+    cat $WORKSPACE/nova_vm.json
+    echo ==========================================================================
+}
 
 echo ==========================================================================
 echo "Start to create storperf stack"
@@ -42,7 +53,7 @@ echo ==========================================================================
 
 curl -X POST --header 'Content-Type: application/json' \
      --header 'Accept: application/json' -d @${stack_json} \
-     'http://127.0.0.1:5000/api/v1.0/configurations'
+     'http://storperf-httpfrontend:5000/api/v1.0/configurations'
 
 nova_vm_mapping
 
@@ -54,23 +65,26 @@ echo ==========================================================================
 
 JOB=$(curl -s -X POST --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
-    -d @${job_json} 'http://127.0.0.1:5000/api/v1.0/jobs' | \
+    -d @${job_json} 'http://storperf-httpfrontend:5000/api/v1.0/jobs' | \
     awk '/job_id/ {print $2}' | sed 's/"//g')
 
 echo "JOB ID: $JOB"
 if [[ -z "$JOB" ]]; then
     echo "Oops, JOB ID is empty!"
 else
-    echo "Loop: check job status"
-    curl -s -X GET "http://127.0.0.1:5000/api/v1.0/jobs?id=$JOB&type=status" \
+    echo "checking job status..."
+    curl -s -X GET "http://storperf-httpfrontend:5000/api/v1.0/jobs?id=$JOB&type=status" \
         -o $WORKSPACE/status.json
 
+    cat $WORKSPACE/status.json
+
     JOB_STATUS=`cat $WORKSPACE/status.json | awk '/Status/ {print $2}' | cut -d\" -f2`
+
     while [ "$JOB_STATUS" != "Completed" ]
     do
-        sleep 30
+        sleep 180
         mv $WORKSPACE/status.json $WORKSPACE/old-status.json
-        curl -s -X GET "http://127.0.0.1:5000/api/v1.0/jobs?id=$JOB&type=status" \
+        curl -s -X GET "http://storperf-httpfrontend:5000/api/v1.0/jobs?id=$JOB&type=status" \
             -o $WORKSPACE/status.json
         JOB_STATUS=`cat $WORKSPACE/status.json | awk '/Status/ {print $2}' | cut -d\" -f2`
         diff $WORKSPACE/status.json $WORKSPACE/old-status.json >/dev/null
@@ -80,19 +94,16 @@ else
         fi
     done
 
-    echo ==========================================================================
+    echo
     echo "Storperf test completed!"
-    echo ==========================================================================
-
-    curl -s -X GET "http://127.0.0.1:5000/api/v1.0/jobs?id=$JOB&type=metadata" \
-    -o $WORKSPACE/report.json
 
     echo ==========================================================================
     echo Final report
     echo ==========================================================================
+    curl -s -X GET "http://storperf-httpfrontend:5000/api/v1.0/jobs?id=$JOB&type=metadata" \
+    -o $WORKSPACE/report.json
     cat $WORKSPACE/report.json
 fi
 
 echo "Deleting stack for cleanup"
-curl -s -X DELETE --header 'Accept: application/json' 'http://127.0.0.1:5000/api/v1.0/configurations'
-
+curl -s -X DELETE --header 'Accept: application/json' 'http://storperf-httpfrontend:5000/api/v1.0/configurations'

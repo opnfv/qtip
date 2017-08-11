@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_bb609436",
+        "filename": "resources/ansible_roles/ceph-disk-info/tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-08-11T09:14:57Z",
+      "side": 1,
+      "message": "Still one trailing space",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 12
+      },
+      "revId": "cde82368aaea150fc61dc810da3cacbb11fb84fd",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

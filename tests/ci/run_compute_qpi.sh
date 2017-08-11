@@ -50,20 +50,20 @@ pod_name=${pod_name:-$POD_NAME}
 scenario=${scenario:-$SCENARIO}
 testapi_url=${testapi_url:-$TESTAPI_URL}
 
+# we currently support ericsson, intel, lf and zte labs
+if [[ ! "$installer_type" =~ (fuel|apex) ]]; then
+    echo "Unsupported/unidentified installer $installer_type. Cannot continue!"
+    exit 1
+fi
+
 sshoptions="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 
 verify_connectivity ${installer_ip}
 
-ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa -q
-
-# ssh-copy-id publickey to installer
 case "$installer_type" in
     fuel)
+        ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa -q
         sshpass -p r00tme ssh-copy-id $sshoptions ${installer_ip}
-        ;;
-       *)
-        echo "Unkown installer $installer_type specified"
-        exit 1
         ;;
 esac
 
@@ -89,11 +89,7 @@ case "$installer_type" in
         publickey=$(sed -r 's/\//\\\//g' /root/.ssh/id_rsa.pub)
         ssh $sshoptions root@${installer_ip} "sed -i '/$publickey/d' /root/.ssh/authorized_keys"
         ;;
-       *)
-        echo "Not support $installer_type."
-        exit 1
-        ;;
 esac
 
-echo "Qtip done!"
+echo "Compute QPI done!"
 exit 0

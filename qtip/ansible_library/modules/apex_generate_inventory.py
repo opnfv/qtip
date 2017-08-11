@@ -79,7 +79,8 @@ def generate_inventory(baremetal_info, server_info):
                     node_ip = re.findall('.+=(\d+.\d+.\d+.\d+)$', server['Networks'])[0]
                     hosts[role].append(node_ip)
                     # To match ssh.cfg.j2 template
-                    hosts_meta[node_ip] = {'ansible_ssh_host': node_ip}
+                    hosts_meta[node_ip] = {'ansible_ssh_host': node_ip,
+                                           'ansible_user': 'heat-admin'}
 
     for host in hosts:
         hosts[host].sort()

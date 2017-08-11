@@ -8,92 +8,68 @@
 ##############################################################################
 set -e
 
-usage(){
-   echo "usage: $0 -t <installer_type> -i <installer_ip> -p <pod_name> -s <scenario> -r <report_url>" >&2
-}
-
-verify_connectivity(){
-   local ip=$1
-   echo "Verifying connectivity to $ip..."
-   for i in $(seq 0 10); do
-       if ping -c 1 -W 1 $ip > /dev/null; then
-           echo "$ip is reachable!"
-           return 0
-       fi
-       sleep 1
-   done
-   error "Can not talk to $ip."
-}
-
-#Getoptions
-while getopts ":t:i:p:s:r:he" optchar; do
-   case "${optchar}" in
-       t) installer_type=${OPTARG} ;;
-       i) installer_ip=${OPTARG} ;;
-       p) pod_name=${OPTARG} ;;
-       s) scenario=${OPTARG} ;;
-       r) testapi_url=${OPTARG} ;;
-       h) usage
-          exit 0
-          ;;
-       *) echo "Non-option argument: '-${OPTARG}'" >&2
-          usage
-          exit 2
-          ;;
-   esac
-done
-
-#set vars from env if not provided by user as options
-installer_type=${installer_type:-$INSTALLER_TYPE}
-installer_ip=${installer_ip:-$INSTALLER_IP}
-pod_name=${pod_name:-$POD_NAME}
-scenario=${scenario:-$SCENARIO}
-testapi_url=${testapi_url:-$TESTAPI_URL}
-
-sshoptions="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
-
-verify_connectivity ${installer_ip}
-
-ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa -q
-
-# ssh-copy-id publickey to installer
-case "$installer_type" in
-    fuel)
-        sshpass -p r00tme ssh-copy-id $sshoptions ${installer_ip}
-        ;;
-       *)
-        echo "Unkown installer $installer_type specified"
-        exit 1
+case $INSTALLER_TYPE in
+    apex)
+        INSTALLER_IP=`sudo virsh domifaddr undercloud | grep ipv4 | awk '{print $4}' | cut -d/ -f1`
         ;;
 esac
 
-cd /home/opnfv
+cat << EOF > $WORKSPACE/env_file
+INSTALLER_TYPE=$INSTALLER_TYPE
+INSTALLER_IP=$INSTALLER_IP
+POD_NAME=$NODE_NAME
+SCENARIO=$DEPLOY_SCENARIO
+TESTAPI_URL=$TESTAPI_URL
+EOF
 
-qtip create --pod-name ${pod_name} --installer-type ${installer_type} \
---installer-host ${installer_ip} --scenario ${scenario} workspace
+echo "--------------------------------------------------------"
+cat $WORKSPACE/env_file
+echo "--------------------------------------------------------"
 
-cd /home/opnfv/workspace/
-
-qtip setup
-eval `ssh-agent`
-if [[ -z $testapi_url ]];then
-    qtip run
-else
-    qtip run --extra-vars "testapi_url=$testapi_url"
+# Remove previous running containers if exist
+if [[ ! -z $(docker ps -a | grep "opnfv/qtip:$DOCKER_TAG") ]]; then
+    echo "Removing existing opnfv/qtip containers..."
+    # workaround: sometimes it throws an error when stopping qtip container.
+    # To make sure ci job unblocked, remove qtip container by force without stopping it.
+    docker rm -f $(docker ps -a | grep "opnfv/qtip:$DOCKER_TAG" | awk '{print $1}')
 fi
-qtip teardown
 
-# Remove ssh public key from installer
-case "$installer_type" in
-    fuel)
-        publickey=$(sed -r 's/\//\\\//g' /root/.ssh/id_rsa.pub)
-        ssh $sshoptions root@${installer_ip} "sed -i '/$publickey/d' /root/.ssh/authorized_keys"
-        ;;
-       *)
-        echo "Not support $installer_type."
-        exit 1
-        ;;
-esac
+# Remove existing images if exist
+if [[ $(docker images opnfv/qtip:${DOCKER_TAG} | wc -l) -gt 1 ]]; then
+    echo "Removing docker image opnfv/qtip:$DOCKER_TAG..."
+    docker rmi opnfv/qtip:$DOCKER_TAG
+fi
+
+echo "Qtip: Pulling docker image: opnfv/qtip:${DOCKER_TAG}"
+docker pull opnfv/qtip:$DOCKER_TAG >/dev/null
+
+envs="--env-file $WORKSPACE/env_file"
+
+cmd="docker run -id ${envs} opnfv/qtip:${DOCKER_TAG} /bin/bash"
+echo "Qtip: Running docker command: ${cmd}"
+${cmd}
+
+container_id=$(docker ps | grep "opnfv/qtip:${DOCKER_TAG}" | awk '{print $1}' | head -1)
+if [ $(docker ps | grep 'opnfv/qtip' | wc -l) == 0 ]; then
+    echo "The container opnfv/qtip with ID=${container_id} has not been properly started. Exiting..."
+    exit 1
+fi
+
+echo "The container ID is: ${container_id}"
+QTIP_REPO=/home/opnfv/repos/qtip
+
+if [[ "$INSTALLER_TYPE" == "apex" ]];then
+    if [ -f /root/.ssh/id_rsa ]; then
+        sudo chmod 600 /root/.ssh/id_rsa
+        sudo docker cp /root/.ssh/id_rsa ${container_id}:/root/.ssh/
+    fi
+fi
+
+docker exec -t ${container_id} bash -c "bash ${QTIP_REPO}/tests/ci/run_compute_qpi.sh"
+
+if [[ "$INSTALLER_TYPE" == "apex" ]];then
+    docker exec -t ${container_id} rm /root/.ssh/id_rsa
+fi
 
 echo "Qtip done!"
 exit 0

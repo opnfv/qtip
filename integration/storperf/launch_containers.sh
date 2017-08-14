@@ -45,6 +45,8 @@ if [[ -z $WORKSPACE ]];then
     WORKSPACE=`pwd`
 fi
 
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 git clone --depth 1 https://gerrit.opnfv.org/gerrit/releng $WORKSPACE/releng
 
 $WORKSPACE/releng/utils/fetch_os_creds.sh -i ${installer_type} -a ${installer_ip} -d $WORKSPACE/openrc
@@ -93,6 +95,7 @@ launch_storperf_container()
     done
 }
 
+cd $script_dir
 echo "Clean existing storperf containers"
 clean_storperf_container
 

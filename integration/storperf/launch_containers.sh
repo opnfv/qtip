@@ -45,6 +45,8 @@ if [[ -z $WORKSPACE ]];then
     WORKSPACE=`pwd`
 fi
 
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 git clone --depth 1 https://gerrit.opnfv.org/gerrit/releng $WORKSPACE/releng
 
 $WORKSPACE/releng/utils/fetch_os_creds.sh -i ${installer_type} -a ${installer_ip} -d $WORKSPACE/openrc
@@ -71,11 +73,9 @@ clean_storperf_container()
             echo "Stopping any existing $name container"
             docker rm -fv $container
         fi
-
-        image=`docker images opnfv/$name`
-        if [[ ! -z $image ]];then
+        if [[ $(docker images | grep opnfv/${name} | wc -l) -gt 1 ]];then
             echo "Deleteing any existing opnfv/$name image"
-            docker rmi -f opnfv/$container_name
+            docker rmi -f $(docker images | grep opnfv/${name} | awk '{print $3}')
         fi
     done
 }
@@ -93,6 +93,7 @@ launch_storperf_container()
     done
 }
 
+cd $script_dir
 echo "Clean existing storperf containers"
 clean_storperf_container
 

@@ -5,7 +5,7 @@ Please make sure pip, docker and docker-compose are installer on your environmen
 1. Launch qtip and storperf containers.
 
     ```
-    $ cd qtip/integration/storperf
+    $ cd qtip
     $ bash launch_containers.sh -t apex -n ""
 
     Arguments:

@@ -8,7 +8,9 @@
 ##############################################################################
 
 
-source $WORKSPACE/integration/storperf/launch_containers.sh -t $INSTALLER_TYPE -n $NODE_NAME
+source $WORKSPACE/launch_containers.sh -t $INSTALLER_TYPE -n $NODE_NAME
+
+docker exec qtip bash -c "cd /home/opnfv/repos/qtip && pip install -U ."
 
 docker exec qtip bash -c "/home/opnfv/repos/qtip/integration/storperf/prepare.sh"
 

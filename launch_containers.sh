@@ -45,6 +45,8 @@ if [[ -z $WORKSPACE ]];then
     WORKSPACE=`pwd`
 fi
 
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 git clone --depth 1 https://gerrit.opnfv.org/gerrit/releng $WORKSPACE/releng
 
 $WORKSPACE/releng/utils/fetch_os_creds.sh -i ${installer_type} -a ${installer_ip} -d $WORKSPACE/openrc
@@ -55,14 +57,9 @@ echo "INSTALLER_IP=${installer_ip}" >> $WORKSPACE/admin.rc
 echo "NODE_NAME=${node_name}" >> $WORKSPACE/admin.rc
 export ENV_FILE=$WORKSPACE/admin.rc
 
-export CARBON_DIR=$WORKSPACE/carbon/
-WWW_DATA_UID=33
-WWW_DATA_GID=33
-sudo install --owner=${WWW_DATA_UID} --group=${WWW_DATA_GID} -d "${CARBON_DIR}"
-
 clean_storperf_container()
 {
-    docker-compose -f docker-compose.yaml down
+    docker-compose -f dev-docker-compose.yaml down
 
     for name in qtip storperf-master storperf-swaggerui storperf-httpfrontend storperf-reporting
     do
@@ -71,19 +68,17 @@ clean_storperf_container()
             echo "Stopping any existing $name container"
             docker rm -fv $container
         fi
-
-        image=`docker images opnfv/$name`
-        if [[ ! -z $image ]];then
+        if [[ $(docker images | grep opnfv/${name} | wc -l) -gt 1 ]];then
             echo "Deleteing any existing opnfv/$name image"
-            docker rmi -f opnfv/$container_name
+            docker rmi -f $(docker images | grep opnfv/${name} | awk '{print $3}')
         fi
     done
 }
 
 launch_storperf_container()
 {
-    docker-compose pull
-    docker-compose -f docker-compose.yaml up -d
+    docker-compose -f dev-docker-compose.yaml pull
+    docker-compose -f dev-docker-compose.yaml up -d
 
     echo "Waiting for StorPerf to become active"
 
@@ -93,6 +88,7 @@ launch_storperf_container()
     done
 }
 
+cd $script_dir
 echo "Clean existing storperf containers"
 clean_storperf_container
 

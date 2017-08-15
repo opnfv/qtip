@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_80d8b41e",
+        "filename": "dev-docker-compose.yaml",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-15T14:58:35Z",
+      "side": 1,
+      "message": "Unlike build context, volumes can use directory outside current folder. So we don\u0027t have to put docker-compose.yaml in root folder",
+      "range": {
+        "startLine": 46,
+        "startChar": 12,
+        "endLine": 46,
+        "endChar": 13
+      },
+      "revId": "5a035e83a49f7c8671c910c9f1540772147efbbc",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

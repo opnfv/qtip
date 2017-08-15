@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_1d136f67",
+        "filename": "resources/ansible_roles/qtip-generator/files/storperf/setup.yml",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-08-15T10:24:55Z",
+      "side": 1,
+      "message": "Should we make this and admin.rc via playbook, or they shoud be present in the generated template by default ?",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "f0da4a15230d478f91e600de3057f73121ad4471",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

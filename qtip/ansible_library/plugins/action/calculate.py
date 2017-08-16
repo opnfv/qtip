@@ -88,7 +88,7 @@ def calc_qpi(qpi_spec, metrics, sysinfo, qpi_baseline):
         'system_info': sysinfo,
         'sections': section_results,
         'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
-        'baseline': "https://git.opnfv.org/qtip/tree/resources/QPI/compute-baseline.json"
+        'baseline': "https://git.opnfv.org/qtip/tree/resources/baselines/compute.json"
     }
 
     return results

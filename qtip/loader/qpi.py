@@ -9,6 +9,7 @@
 
 from yaml_file import YamlFileLoader
 
+from qtip.base.constant import FormulaName
 from qtip.base.constant import SpecProp
 from qtip.util.formula import Formula
 
@@ -31,5 +32,5 @@ class QPISpec(YamlFileLoader):
 class Section(object):
     def __init__(self, content, paths=None):
         self.name = content[SpecProp.NAME]
-        self.weight = content[SpecProp.WEIGHT]
-        self.formula = Formula(content[SpecProp.FORMULA])
+        self.weight = content.get(SpecProp.WEIGHT, None)
+        self.formula = Formula(content.get(SpecProp.FORMULA, FormulaName.ARITHMETIC_MEAN))

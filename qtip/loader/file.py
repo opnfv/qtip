@@ -17,7 +17,7 @@ from qtip.loader.base import BaseLoader
 
 
 ROOT_DIR = path.join(path.dirname(__file__), path.pardir, path.pardir,
-                     'benchmarks')
+                     'resources')
 
 
 class FileLoader(BaseLoader):

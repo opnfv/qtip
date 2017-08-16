@@ -6,16 +6,9 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
+set -e
 
-
-source $WORKSPACE/integration/storperf/launch_containers.sh -t $INSTALLER_TYPE -n $NODE_NAME
-
-docker exec qtip bash -c "/home/opnfv/repos/qtip/integration/storperf/prepare.sh"
-
-docker exec qtip bash -c "/home/opnfv/repos/qtip/integration/storperf/start_job.sh"
-
-docker exec qtip bash -c "/home/opnfv/repos/qtip/integration/storperf/cleanup.sh"
-
-exit 0
+#TODO: delete this file after qtip-integration-jobs.yml updated
+source $WORKSPACE/tests/ci/storage/verify_storage.sh
 
 

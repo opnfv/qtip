@@ -6,9 +6,10 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
+set -e
 
-echo "Deleting image"
-openstack image delete "Ubuntu 16.04 x86_64"
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-echo "Deteing flavor"
-openstack flavor delete storperf
+source $script_dir/prepare.sh
+source $script_dir/launch_storperf_container.sh
+source $script_dir/start_job.sh

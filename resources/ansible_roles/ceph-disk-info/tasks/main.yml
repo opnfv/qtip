@@ -8,8 +8,9 @@
 ##############################################################################
 
 
-- name: get ceph disk information 
-  shell: ceph-disk list
+- name: get ceph disk information
+  become: true
+  command: ceph-disk list
   register: ceph_disk_out
 
 - name: saving output to log
@@ -19,10 +20,11 @@
   delegate_to: localhost
 
 - name: get ceph journal information
+  become: true
   shell: lsblk -d -o name,rota |awk '{if ($2 == 0)  printf "%s SSD \n",$1 }'
   register: ceph_journal_out
 
-- name: append 
+- name: append
   lineinfile:
     dest: "{{ logfile }}"
     line: "{{ ceph_journal_out.stdout }}"
@@ -30,6 +32,7 @@
   delegate_to: localhost
 
 - name: get ceph report
+  become: true
   command: ceph report
   register: ceph_report_out
 

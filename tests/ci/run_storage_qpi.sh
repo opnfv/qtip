@@ -6,9 +6,10 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
+set -e
 
-echo "Deleting image"
-openstack image delete "Ubuntu 16.04 x86_64"
+#TODO: These will be replaced by qtip cli
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-echo "Deteing flavor"
-openstack flavor delete storperf
+$script_dir/storperf/prepare.sh
+$script_dir/storperf/start_job.sh

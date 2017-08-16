@@ -6,7 +6,7 @@
    "workload": "rw",
    "metadata": {
         "disk_type": "HDD",
-        "scenario_name": "none",
+        "scenario_name": "",
         "storage_node_count": 2,
         "version": "",
         "build_tag": "",

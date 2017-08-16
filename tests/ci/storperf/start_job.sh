@@ -42,6 +42,7 @@ nova_vm_mapping()
     openstack server list --name storperf-agent -c ID -c Host --long -f json > $WORKSPACE/nova_vm.json
 
     echo ==========================================================================
+    echo "Vms vs. Compute nodes"
     cat $WORKSPACE/nova_vm.json
     echo ==========================================================================
 }

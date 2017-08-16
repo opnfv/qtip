@@ -7,15 +7,17 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-# See https://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
-script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-pip install -r $script_dir/storperf_requirements.txt
-
 if [[ -z $WORKSPACE ]];then
     WORKSPACE=`pwd`
 fi
 
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+pip install -r $script_dir/storperf_requirements.txt
+
+git clone --depth 1 https://gerrit.opnfv.org/gerrit/releng $WORKSPACE/releng
+
+$WORKSPACE/releng/utils/fetch_os_creds.sh -i $INSTALLER_TYPE -a $INSTALLER_IP -d $WORKSPACE/openrc
 
 delete_storperf_stack()
 {
@@ -25,7 +27,6 @@ delete_storperf_stack()
         openstack stack delete --yes --wait StorPerfAgentGroup
     fi
 }
-
 
 load_ubuntu_image()
 {
@@ -52,7 +53,6 @@ load_ubuntu_image()
     openstack image show "Ubuntu 16.04 x86_64"
 }
 
-
 create_storperf_flavor()
 {
     echo "Checking for StorPerf flavor"
@@ -68,7 +68,10 @@ create_storperf_flavor()
     openstack flavor show storperf
 }
 
+source $WORKSPACE/openrc
 
 delete_storperf_stack
 load_ubuntu_image
 create_storperf_flavor
+
+

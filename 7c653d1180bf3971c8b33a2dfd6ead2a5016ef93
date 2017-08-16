@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_11b6b8d9",
+        "filename": "tests/ci/experimental.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-08-16T08:52:24Z",
+      "side": 1,
+      "message": "There is a change for this script, can we merge it after https://gerrit.opnfv.org/gerrit/#/c/39403/?",
+      "revId": "7c653d1180bf3971c8b33a2dfd6ead2a5016ef93",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

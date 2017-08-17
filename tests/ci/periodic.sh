@@ -45,9 +45,9 @@ echo "Qtip: Pulling docker image: opnfv/qtip:${DOCKER_TAG}"
 docker pull opnfv/qtip:$DOCKER_TAG >/dev/null
 
 envs="--env-file $WORKSPACE/env_file"
-docker_volume="-v /var/run/docker.sock:/var/run/docker.sock"
+vols="-v /var/run/docker.sock:/var/run/docker.sock -v /root/.ssh:/root/.ssh"
 
-cmd="docker run -id ${envs} ${docker_volume} opnfv/qtip:${DOCKER_TAG} /bin/bash"
+cmd="sudo docker run -id ${envs} ${vols} opnfv/qtip:${DOCKER_TAG} /bin/bash"
 echo "Qtip: Running docker command: ${cmd}"
 ${cmd}
 
@@ -59,13 +59,6 @@ fi
 
 echo "The container ID is: ${container_id}"
 QTIP_REPO=/home/opnfv/repos/qtip
-
-if [[ "$INSTALLER_TYPE" == "apex" ]];then
-    if [ -f /root/.ssh/id_rsa ]; then
-        sudo chmod 600 /root/.ssh/id_rsa
-        sudo docker cp /root/.ssh/id_rsa ${container_id}:/root/.ssh/
-    fi
-fi
 
 case $TEST_SUITE in
     compute)

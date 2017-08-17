@@ -21,6 +21,6 @@
       floating: "{{ qtip_results }}/arithmetic/metrics.json"
     sysinfo: "{{ qtip_results }}/sysinfo/condition.json"
     spec:   "{{ qtip_resources }}/QPI/compute.yaml"
-    baseline: "{{ qtip_resources }}/QPI/compute-baseline.json"
+    baseline: "{{ qtip_resources }}/baselines/compute.json"
     dest: "{{ qtip_results }}/compute.json"
   delegate_to: localhost

@@ -156,7 +156,7 @@ def qpi_result(section_result, info):
             'system_info': info,
             'sections': [section_result],
             'spec': "https://git.opnfv.org/qtip/tree/resources/QPI/compute.yaml",
-            'baseline': "https://git.opnfv.org/qtip/tree/resources/QPI/compute-baseline.json",
+            'baseline': "https://git.opnfv.org/qtip/tree/resources/baselines/compute.json",
             }
 
 

@@ -41,15 +41,11 @@ if [[ $(docker images opnfv/qtip:${DOCKER_TAG} | wc -l) -gt 1 ]]; then
     docker rmi -f opnfv/qtip:$DOCKER_TAG
 fi
 
-echo "Qtip: Pulling docker image: opnfv/qtip:${DOCKER_TAG}"
 docker pull opnfv/qtip:$DOCKER_TAG >/dev/null
 
-envs="--env-file $WORKSPACE/env_file"
-docker_volume="-v /var/run/docker.sock:/var/run/docker.sock"
-
-cmd="docker run -id ${envs} ${docker_volume} opnfv/qtip:${DOCKER_TAG} /bin/bash"
-echo "Qtip: Running docker command: ${cmd}"
-${cmd}
+opts_env="--env-file $WORKSPACE/env_file"
+opts_volume="-v /var/run/docker.sock:/var/run/docker.sock -v /root/.ssh:/root/.ssh"
+docker run -id ${opts_env} ${opts_volume} opnfv/qtip:${DOCKER_TAG} /bin/bash
 
 container_id=$(docker ps | grep "opnfv/qtip:${DOCKER_TAG}" | awk '{print $1}' | head -1)
 if [ $(docker ps | grep 'opnfv/qtip' | wc -l) == 0 ]; then
@@ -59,13 +55,6 @@ fi
 
 echo "The container ID is: ${container_id}"
 QTIP_REPO=/home/opnfv/repos/qtip
-
-if [[ "$INSTALLER_TYPE" == "apex" ]];then
-    if [ -f /root/.ssh/id_rsa ]; then
-        sudo chmod 600 /root/.ssh/id_rsa
-        sudo docker cp /root/.ssh/id_rsa ${container_id}:/root/.ssh/
-    fi
-fi
 
 case $TEST_SUITE in
     compute)

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_aece7981",
+        "filename": "resources/ansible_roles/qtip-generator/files/storperf/setup.yml",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-08-21T06:48:15Z",
+      "side": 1,
+      "message": "Should this be taken as an input from user while generating the storperf directories ?",
+      "range": {
+        "startLine": 18,
+        "startChar": 72,
+        "endLine": 18,
+        "endChar": 86
+      },
+      "revId": "99a267960dcc82838937acb8ba17acd245142235",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

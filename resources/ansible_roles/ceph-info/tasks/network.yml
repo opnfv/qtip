@@ -9,7 +9,7 @@
 
 
 - name: get system network info
-  shell: netstat -nr |grep  "U" | awk '{printf "interface %s network %s mask  %s \n",$8,$1, $3 }' 
+  shell: netstat -nr |grep  "U" | awk '{printf "interface %s network %s mask  %s \n",$8,$1, $3 }'
   register: ceph_network_out
 
 - name: saving output to log
@@ -29,7 +29,7 @@
       - cluster_network
   delegate_to: localhost
 
-- name: append 
+- name: append
   lineinfile:
       dest: "{{ logfile }}"
       line: "cluster_network {{ cluster_network }}"

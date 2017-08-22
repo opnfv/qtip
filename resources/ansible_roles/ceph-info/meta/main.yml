@@ -11,4 +11,4 @@
 
 allow_duplicates: yes
 dependencies:
-  - { role: qtip-common, basename: ceph-network-info }
+- { role: qtip-common, basename: ceph-info }

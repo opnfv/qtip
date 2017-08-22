@@ -9,6 +9,6 @@
 
 ---
 
-allow_duplicates: yes
-dependencies:
-- { role: qtip-common, basename: ceph-cache-info }
+- include: cache.yml
+- include: disk.yml
+- include: network.yml

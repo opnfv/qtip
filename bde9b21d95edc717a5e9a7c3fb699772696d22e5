@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_ba4b53af",
+        "filename": "resources/ansible_roles/qtip-generator/files/storperf/setup.yml",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-22T07:21:08Z",
+      "side": 1,
+      "message": "Got the following error\n\nfatal: [localhost]: FAILED! \u003d\u003e {\"changed\": true, \"cmd\": \"/Users/yujunz/Develop/qtip/qtip/cli/../../integration/storperf/storperf.sh -t apex -i \u003cinstaller_ip\u003e -s default_stack.json -j default_job.json\", \"delta\": \"0:00:00.007826\", \"end\": \"2017-08-22 15:18:48.824119\", \"failed\": true, \"rc\": 1, \"start\": \"2017-08-22 15:18:48.816293\", \"stderr\": \"/bin/sh: installer_ip: No such file or directory\", \"stderr_lines\": [\"/bin/sh: installer_ip: No such file or directory\"], \"stdout\": \"\", \"stdout_lines\": []}",
+      "range": {
+        "startLine": 18,
+        "startChar": 72,
+        "endLine": 18,
+        "endChar": 86
+      },
+      "revId": "bde9b21d95edc717a5e9a7c3fb699772696d22e5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

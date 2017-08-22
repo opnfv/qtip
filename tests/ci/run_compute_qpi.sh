@@ -7,6 +7,7 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 set -e
+set -x
 
 usage(){
    echo "usage: $0 -t <installer_type> -i <installer_ip> -p <pod_name> -s <scenario> -r <report_url>" >&2
@@ -46,7 +47,7 @@ done
 #set vars from env if not provided by user as options
 installer_type=${installer_type:-$INSTALLER_TYPE}
 installer_ip=${installer_ip:-$INSTALLER_IP}
-pod_name=${pod_name:-$POD_NAME}
+pod_name=${pod_name:-$NODE_NAME}
 scenario=${scenario:-$SCENARIO}
 testapi_url=${testapi_url:-$TESTAPI_URL}
 

@@ -7,7 +7,11 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 set -e
+set -x
 
+export DOCKER_TAG=${DOCKER_TAG:-latest}
+export ENV_FILE=$WORKSPACE/env_file
+QTIP_REPO=/home/opnfv/repos/qtip
 
 case $INSTALLER_TYPE in
     apex)
@@ -15,56 +19,18 @@ case $INSTALLER_TYPE in
         ;;
 esac
 
-cat << EOF > $WORKSPACE/env_file
-INSTALLER_TYPE=$INSTALLER_TYPE
-INSTALLER_IP=$INSTALLER_IP
-POD_NAME=$NODE_NAME
-SCENARIO=$DEPLOY_SCENARIO
-TESTAPI_URL=$TESTAPI_URL
-EOF
-
-echo "--------------------------------------------------------"
-cat $WORKSPACE/env_file
-echo "--------------------------------------------------------"
-
-# Remove previous running containers if exist
-if [[ ! -z $(docker ps -a | grep "opnfv/qtip:$DOCKER_TAG") ]]; then
-    echo "Removing existing opnfv/qtip containers..."
-    # workaround: sometimes it throws an error when stopping qtip container.
-    # To make sure ci job unblocked, remove qtip container by force without stopping it.
-    docker rm -f $(docker ps -a | grep "opnfv/qtip:$DOCKER_TAG" | awk '{print $1}')
-fi
-
-# Remove existing images if exist
-if [[ $(docker images opnfv/qtip:${DOCKER_TAG} | wc -l) -gt 1 ]]; then
-    echo "Removing docker image opnfv/qtip:$DOCKER_TAG..."
-    docker rmi -f opnfv/qtip:$DOCKER_TAG
-fi
-
-echo "Qtip: Pulling docker image: opnfv/qtip:${DOCKER_TAG}"
-docker pull opnfv/qtip:$DOCKER_TAG >/dev/null
-
-envs="--env-file $WORKSPACE/env_file"
-vols="-v /root/.ssh:/root/.ssh"
-
-cmd="sudo docker run -id ${envs} ${vols} opnfv/qtip:${DOCKER_TAG} /bin/bash"
-echo "Qtip: Running docker command: ${cmd}"
-${cmd}
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $script_dir/launch_containers_by_testsuite.sh
 
 container_id=$(docker ps | grep "opnfv/qtip:${DOCKER_TAG}" | awk '{print $1}' | head -1)
-if [ $(docker ps | grep 'opnfv/qtip' | wc -l) == 0 ]; then
-    echo "The container opnfv/qtip with ID=${container_id} has not been properly started. Exiting..."
+
+if [[ -z "$container_id" ]]; then
+    echo "The container opnfv/qtip has not been properly started. Exiting..."
     exit 1
+else
+    echo "The container ID is: ${container_id}"
+    docker exec -t ${container_id} bash -c "bash ${QTIP_REPO}/tests/ci/run_${TEST_SUITE}_qpi.sh"
 fi
 
-echo "The container ID is: ${container_id}"
-QTIP_REPO=/home/opnfv/repos/qtip
-
-case $TEST_SUITE in
-    compute)
-        docker exec -t ${container_id} bash -c "bash ${QTIP_REPO}/tests/ci/run_compute_qpi.sh"
-        ;;
-esac
-
-echo "Qtip done!"
+echo "${TEST_SUITE} QPI done!"
 exit 0

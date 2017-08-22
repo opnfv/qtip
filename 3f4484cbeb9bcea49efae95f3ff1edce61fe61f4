@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_c5ee38ec",
+        "filename": "qtip/cli/commands/cmd_project.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-08-22T10:05:09Z",
+      "side": 1,
+      "message": "I suggest changing it to \"storage\".",
+      "range": {
+        "startLine": 44,
+        "startChar": 55,
+        "endLine": 44,
+        "endChar": 63
+      },
+      "revId": "3f4484cbeb9bcea49efae95f3ff1edce61fe61f4",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

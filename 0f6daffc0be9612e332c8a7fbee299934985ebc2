@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_77c72146",
+        "filename": "qtip/cli/commands/cmd_project.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-23T01:04:29Z",
+      "side": 1,
+      "message": "The role name is not changed. So I doubt this will work. Have you tested it locally?",
+      "range": {
+        "startLine": 44,
+        "startChar": 55,
+        "endLine": 44,
+        "endChar": 62
+      },
+      "revId": "0f6daffc0be9612e332c8a7fbee299934985ebc2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

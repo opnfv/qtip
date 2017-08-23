@@ -9,20 +9,20 @@
 
 clean_containers()
 {
-    echo "Cleanup existing qtip and storperf containers"
+    echo "QTIP: Cleanup existing qtip and storperf containers"
     docker-compose -f qtip-storperf-docker-compose.yaml down
 
     for name in qtip storperf-master storperf-swaggerui storperf-httpfrontend storperf-reporting
     do
         container=$(docker ps -a | grep "opnfv/${name}：${DOCKER_TAG}" | awk '{print $1}')
         if [[ ! -z "$container" ]]; then
-            echo "Removing any existing $name container"
-            docker rm -fv $container
+            echo "QTIP: Removing any existing $name container"
+            docker rm -v $container
         fi
 
         if [[ $(docker images opnfv/${name}:${DOCKER_TAG} | wc -l) -gt 1 ]]; then
             echo "QTIP: Removing docker image opnfv/$name :$DOCKER_TAG..."
-            docker rmi -f opnfv/${name}:${DOCKER_TAG}
+            docker rmi opnfv/${name}:${DOCKER_TAG}
         fi
     done
 }
@@ -34,16 +34,10 @@ launch_containers()
     docker-compose -f qtip-storperf-docker-compose.yaml pull
     docker-compose -f qtip-storperf-docker-compose.yaml up -d
 
-    echo "Waiting for StorPerf to become active"
+    echo "QTIP: Waiting for StorPerf to become active"
 
     while [ $(curl -s -o /dev/null -I -w "%{http_code}" -X GET http://127.0.0.1:5000/api/v1.0/configurations) != "200" ]
     do
         sleep 1
     done
-
-    container_id=$(docker ps | grep "opnfv/qtip:${DOCKER_TAG}"  | awk '{print $1}' | head -1)
-    if [[ -z "$container_id" ]]; then
-        echo "The container opnfv/qtip with ID=${container_id} has not been properly started. Exiting..."
-        exit 1
-    fi
 }

@@ -11,6 +11,12 @@ if [[ -e $ENV_FILE ]];then
     rm $ENV_FILE
 fi
 
+case $INSTALLER_TYPE in
+    apex)
+        INSTALLER_IP=`sudo virsh domifaddr undercloud | grep ipv4 | awk '{print $4}' | cut -d/ -f1`
+        ;;
+esac
+
 echo "INSTALLER_TYPE=$INSTALLER_TYPE" >> $ENV_FILE
 echo "INSTALLER_IP=$INSTALLER_IP" >> $ENV_FILE
 echo "NODE_NAME=$NODE_NAME" >> $ENV_FILE
@@ -24,14 +30,14 @@ if [[ "$TEST_SUITE" == 'compute' ]];then
     echo "--------------------------------------------------------"
 
     if [[ ! -z $(docker ps -a | grep "opnfv/qtip:$DOCKER_TAG") ]]; then
-        echo "Removing existing opnfv/qtip containers..."
+        echo "QTIP: Removing existing opnfv/qtip containers..."
         container_id=$(docker ps -a | grep "opnfv/qtip:$DOCKER_TAG" | awk '{print $1}')
         docker stop $container_id
         docker rm $container_id
     fi
 
     if [[ $(docker images opnfv/qtip:${DOCKER_TAG} | wc -l) -gt 1 ]]; then
-        echo "Removing docker image opnfv/qtip:$DOCKER_TAG..."
+        echo "QTIP: Removing docker image opnfv/qtip:$DOCKER_TAG..."
         docker rmi opnfv/qtip:$DOCKER_TAG
     fi
 
@@ -65,6 +71,6 @@ elif [[ "$TEST_SUITE" == 'storage' ]];then
     clean_containers
     launch_containers
 else
-    echo "Sorry, not support test suite $TEST_SUITE!"
+    echo "QTIP: Sorry, not support test suite $TEST_SUITE!"
     exit 1
 fi

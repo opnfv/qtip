@@ -11,35 +11,15 @@ version: '2'
 services:
 
   storperf-master:
-    container_name: "storperf-master"
+    container_name: storperf-master
     image: opnfv/storperf-master:${DOCKER_TAG}
     ports:
-      - "8000:8000"
+      - 5000:5000
     env_file: ${ENV_FILE}
-
-  storperf-reporting:
-    container_name: "storperf-reporting"
-    image: opnfv/storperf-reporting:${DOCKER_TAG}
-    ports:
-      - "5080:5000"
-
-  storperf-swaggerui:
-    container_name: "storperf-swaggerui"
-    image: "schickling/swagger-ui"
-
-  storperf-httpfrontend:
-    container_name: "storperf-httpfrontend"
-    image: opnfv/storperf-httpfrontend:${DOCKER_TAG}
-    ports:
-      - "5000:5000"
-    links:
-      - storperf-master
-      - storperf-reporting
-      - storperf-swaggerui
 
   qtip:
     container_name: qtip
     image: opnfv/qtip:${DOCKER_TAG}
     env_file: ${ENV_FILE}
     links:
-      - storperf-httpfrontend
+      - storperf-master

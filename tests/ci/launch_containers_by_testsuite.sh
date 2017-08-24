@@ -7,6 +7,8 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+export ENV_FILE="${WORKSPACE}/env_file"
+
 if [[ -e $ENV_FILE ]];then
     rm $ENV_FILE
 fi
@@ -44,8 +46,8 @@ if [[ "$TEST_SUITE" == 'compute' ]];then
 elif [[ "$TEST_SUITE" == 'storage' ]];then
     script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-    git clone --depth 1 https://gerrit.opnfv.org/gerrit/releng $WORKSPACE/releng
-    $WORKSPACE/releng/utils/fetch_os_creds.sh -i $INSTALLER_TYPE -a $INSTALLER_IP -d $WORKSPACE/openrc
+    curl https://git.opnfv.org/releng/plain/utils/fetch_os_creds.sh | bash -s -- \
+        -i $INSTALLER_TYPE -a $INSTALLER_IP -d $WORKSPACE/openrc
 
     grep "export" $WORKSPACE/openrc | sed "s/export //" >> $ENV_FILE
     echo "DOCKER_TAG=$DOCKER_TAG" >> $ENV_FILE

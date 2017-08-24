@@ -7,6 +7,8 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+export ENV_FILE="${WORKSPACE}/env_file"
+
 if [[ -e $ENV_FILE ]];then
     rm $ENV_FILE
 fi

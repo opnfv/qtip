@@ -7,8 +7,20 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-#TODO: These will be replaced by qtip cli
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-$script_dir/storperf/prepare.sh
-$script_dir/storperf/start_job.sh
+cd /home/opnfv
+
+qtip create --project-template storage --pod-name ${pod_name} --installer-type ${installer_type} \
+--installer-host ${installer_ip} --scenario ${scenario} workspace
+
+cd /home/opnfv/workspace/
+
+qtip setup
+eval `ssh-agent`
+if [[ -z $testapi_url ]];then
+    qtip run -vv
+else
+    qtip run --extra-vars "testapi_url=$testapi_url"
+fi
+qtip teardown

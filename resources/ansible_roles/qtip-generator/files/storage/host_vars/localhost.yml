@@ -1,0 +1,16 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+# set `testapi_url` to enable reporting to testapi
+# testapi_url: http://localhost:8000/api/v1
+project_name: qtip
+case_name: "{{ case_name|default('storage') }}"
+pod_name: "{{ pod_name|default('qtip-pod') }}"
+scenario: "{{ scenario|default('generic') }}"
+version: "{{ version|default('master') }}"

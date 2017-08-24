@@ -1,0 +1,22 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+qtip_resources: "{{ qtip_package }}/resources"
+qtip_results: results
+qtip_fixtures: fixtures
+qtip_dump: dump
+qtip_cache: "{{ qtip_cache }}"
+qtip_workdir: "{% raw %}{{ ansible_env.HOME }}{% endraw %}/qtip-workdir-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+
+installer_type: "{{ installer_type }}"
+installer_host: "{{ installer_host }}"
+installer_group:
+  manual: dummy-group
+  fuel: fuel-masters
+  apex: apex-underclouds

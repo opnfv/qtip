@@ -1,0 +1,13 @@
+localhost   ansible_connection=local
+
+{% if installer_type != 'manual' %}
+[{{ installer_group[installer_type] }}]
+{{ installer_host }}
+{% else %}
+[SUT]
+# Add hosts in system under test, example::
+#
+#   host-under-test  ansible_host=192.168.10.1 ansible_port=5022 ansile_user=root
+#
+# See http://docs.ansible.com/ansible/intro_inventory.html for details
+{% endif %}

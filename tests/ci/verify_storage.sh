@@ -27,7 +27,7 @@ else
     cd $WORKSPACE
     docker cp . ${container_id}:${QTIP_REPO}
     docker exec ${container_id} bash -c "cd ${QTIP_REPO} && pip install -U -e ."
-    docker exec -t ${container_id} bash -c "bash ${QTIP_REPO}/tests/ci/run_${TEST_SUITE}_qpi.sh"
+    docker exec -t ${container_id} bash -x ${QTIP_REPO}/tests/ci/run_${TEST_SUITE}_qpi.sh
     echo "QTIP: Verify ${TEST_SUITE} done!"
     exit 0
 fi

@@ -46,6 +46,30 @@
       "revId": "2eb5dd9affeeebf478bf090a1700afb243e2869e",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_3983c805",
+        "filename": "resources/ansible_roles/qtip-generator/files/storage/group_vars/all.yml",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-24T05:43:00Z",
+      "side": 1,
+      "message": "storage \u003d ceph_info + storperf testing + qpi calculation + reporting ...\n\nSo we\u0027d better keep the name \"storperf\" in this case. Please ignore my first comment and fix the path only.",
+      "parentUuid": "da33351e_19b1a4f8",
+      "range": {
+        "startLine": 24,
+        "startChar": 14,
+        "endLine": 24,
+        "endChar": 55
+      },
+      "revId": "2eb5dd9affeeebf478bf090a1700afb243e2869e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

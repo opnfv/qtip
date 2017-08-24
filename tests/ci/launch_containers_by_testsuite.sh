@@ -29,18 +29,6 @@ if [[ "$TEST_SUITE" == 'compute' ]];then
     cat $ENV_FILE
     echo "--------------------------------------------------------"
 
-    if [[ ! -z $(docker ps -a | grep "opnfv/qtip:$DOCKER_TAG") ]]; then
-        echo "QTIP: Removing existing opnfv/qtip containers..."
-        container_id=$(docker ps -a | grep "opnfv/qtip:$DOCKER_TAG" | awk '{print $1}')
-        docker stop $container_id
-        docker rm $container_id
-    fi
-
-    if [[ $(docker images opnfv/qtip:${DOCKER_TAG} | wc -l) -gt 1 ]]; then
-        echo "QTIP: Removing docker image opnfv/qtip:$DOCKER_TAG..."
-        docker rmi opnfv/qtip:$DOCKER_TAG
-    fi
-
     echo "Qtip: Pulling docker image: opnfv/qtip:${DOCKER_TAG}"
     docker pull opnfv/qtip:$DOCKER_TAG >/dev/null
 

@@ -11,20 +11,6 @@ clean_containers()
 {
     echo "QTIP: Cleanup existing qtip and storperf containers"
     docker-compose -f qtip-storperf-docker-compose.yaml down
-
-    for name in qtip storperf-master storperf-swaggerui storperf-httpfrontend storperf-reporting
-    do
-        container=$(docker ps -a | grep "opnfv/${name}：${DOCKER_TAG}" | awk '{print $1}')
-        if [[ ! -z "$container" ]]; then
-            echo "QTIP: Removing any existing $name container"
-            docker rm -v $container
-        fi
-
-        if [[ $(docker images opnfv/${name}:${DOCKER_TAG} | wc -l) -gt 1 ]]; then
-            echo "QTIP: Removing docker image opnfv/$name :$DOCKER_TAG..."
-            docker rmi opnfv/${name}:${DOCKER_TAG}
-        fi
-    done
 }
 
 

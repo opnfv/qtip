@@ -16,4 +16,5 @@ QTIP Developer Guide
    framework.rst
    cli.rst
    api.rst
+   qtip-web.rst
    compute-qpi.rst

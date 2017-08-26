@@ -17,3 +17,4 @@ QTIP Developer Guide
    cli.rst
    api.rst
    compute-qpi.rst
+   storage-qpi.rst

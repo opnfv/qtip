@@ -49,7 +49,7 @@ nova_vm_mapping()
     echo ==========================================================================
 }
 
-storperf_api="http://storperf-master:5000/api/v1.0"
+storperf_api="http://storperf:5000/api/v1.0"
 
 echo "QTIP: Waiting for storperf api ready"
 while [ $(curl -s -o /dev/null -I -w "%{http_code}" -X GET ${storperf_api}/configurations) != "200" ]

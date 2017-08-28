@@ -10,9 +10,9 @@
 version: '2'
 services:
 
-  storperf-master:
-    container_name: storperf-master
-    image: opnfv/storperf-master:${DOCKER_TAG}
+  storperf:
+    container_name: storperf
+    image: opnfv/storperf:${DOCKER_TAG}
     ports:
       - 5000:5000
     env_file: ${ENV_FILE}
@@ -22,4 +22,4 @@ services:
     image: opnfv/qtip:${DOCKER_TAG}
     env_file: ${ENV_FILE}
     links:
-      - storperf-master
+      - storperf

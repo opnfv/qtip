@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_3642a93e",
+        "filename": "docs/testing/developer/devguide/web.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-28T08:17:11Z",
+      "side": 1,
+      "message": "Do you mean \"RepoCreate\", as the next view is \"RepoUpdate\"",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 9
+      },
+      "revId": "bb292d2f9df0270ea0a366638b47568966d98482",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_f6584134",
+        "filename": "docs/testing/developer/devguide/web.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-28T08:17:11Z",
+      "side": 1,
+      "message": "Do you mean \"list\" and \"add\" are in the same view?",
+      "range": {
+        "startLine": 75,
+        "startChar": 21,
+        "endLine": 75,
+        "endChar": 36
+      },
+      "revId": "bb292d2f9df0270ea0a366638b47568966d98482",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_d65b7d2c",
+        "filename": "docs/testing/developer/devguide/web.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-28T08:17:11Z",
+      "side": 1,
+      "message": "I\u0027m a bit confused about the relationship between listing, add and updating. Is listing view mixed in add and update?",
+      "range": {
+        "startLine": 83,
+        "startChar": 21,
+        "endLine": 83,
+        "endChar": 41
+      },
+      "revId": "bb292d2f9df0270ea0a366638b47568966d98482",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

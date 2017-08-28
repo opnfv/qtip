@@ -22,6 +22,30 @@
       "revId": "acf3b4ff0b556e121d665e31e893c8dc1159f034",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_7b2ffaf6",
+        "filename": "tests/ci/storperf/qtip-storperf-docker-compose.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-28T06:57:03Z",
+      "side": 1,
+      "message": "This is the container name.... Image name and container reference in start_job.sh is also changed. \n\nBy the way, this modification is verified in experimental job.",
+      "parentUuid": "da33351e_fbf30a9d",
+      "range": {
+        "startLine": 13,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "acf3b4ff0b556e121d665e31e893c8dc1159f034",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

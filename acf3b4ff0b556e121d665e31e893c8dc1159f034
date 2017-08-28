@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_fbf30a9d",
+        "filename": "tests/ci/storperf/qtip-storperf-docker-compose.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-08-28T06:50:17Z",
+      "side": 1,
+      "message": "Is it enough to change the image name?",
+      "range": {
+        "startLine": 13,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "acf3b4ff0b556e121d665e31e893c8dc1159f034",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

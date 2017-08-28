@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_bb86a211",
+        "filename": "docs/testing/developer/devguide/index.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-28T05:47:20Z",
+      "side": 1,
+      "message": "Shall we simply name it ``web``? As it is obvious everything here is about qtip.",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 11
+      },
+      "revId": "b021678c4d03fcd74d4356df238e00d3baeb90db",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_7b937a4f",
+        "filename": "docs/testing/developer/devguide/qtip-web.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-28T05:47:20Z",
+      "side": 1,
+      "message": "What about \"Web Portal for Benchmarking Services\" ?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 8
+      },
+      "revId": "b021678c4d03fcd74d4356df238e00d3baeb90db",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_1ba4eea4",
+        "filename": "docs/testing/developer/devguide/qtip-web.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-28T05:47:20Z",
+      "side": 1,
+      "message": "Suggest to remove, since the link is already provided in previous sentence.",
+      "range": {
+        "startLine": 17,
+        "startChar": 58,
+        "endLine": 18,
+        "endChar": 16
+      },
+      "revId": "b021678c4d03fcd74d4356df238e00d3baeb90db",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_fb9e6a53",
+        "filename": "docs/testing/developer/devguide/qtip-web.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-28T05:47:20Z",
+      "side": 1,
+      "message": "\u003d\u003e MTV (Model-Template-View) ? \n\nSee https://docs.djangoproject.com/en/1.11/faq/general/#django-appears-to-be-a-mvc-framework-but-you-call-the-controller-the-view-and-the-view-the-template-how-come-you-don-t-use-the-standard-names",
+      "range": {
+        "startLine": 23,
+        "startChar": 12,
+        "endLine": 23,
+        "endChar": 15
+      },
+      "revId": "b021678c4d03fcd74d4356df238e00d3baeb90db",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_bb9d025c",
+        "filename": "docs/testing/developer/devguide/qtip-web.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-08-28T05:47:20Z",
+      "side": 1,
+      "message": "Connexion or django?",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 55
+      },
+      "revId": "b021678c4d03fcd74d4356df238e00d3baeb90db",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

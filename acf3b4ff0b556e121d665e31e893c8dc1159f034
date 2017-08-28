@@ -46,6 +46,30 @@
       "revId": "acf3b4ff0b556e121d665e31e893c8dc1159f034",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_9678d590",
+        "filename": "tests/ci/storperf/qtip-storperf-docker-compose.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-08-28T08:18:37Z",
+      "side": 1,
+      "message": "Actually, I mean you only need to change the container image name, not need to change the container name, then not need to modify the start_job.sh.:)",
+      "parentUuid": "da33351e_7b2ffaf6",
+      "range": {
+        "startLine": 13,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "acf3b4ff0b556e121d665e31e893c8dc1159f034",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

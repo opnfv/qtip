@@ -99,11 +99,15 @@ else
         curl -s -X GET "${storperf_api}/jobs?id=$JOB&type=status" \
             -o $WORKSPACE/status.json
         JOB_STATUS=`cat $WORKSPACE/status.json | awk '/Status/ {print $2}' | cut -d\" -f2`
+
+        set +o errexit # disable error exit checking for diff
         diff $WORKSPACE/status.json $WORKSPACE/old-status.json >/dev/null
         if [ $? -eq 1 ]
         then
             cat $WORKSPACE/status.json
         fi
+        set -o errexit
+
     done
 
     echo

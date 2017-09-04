@@ -18,8 +18,8 @@ def data_root():
 
 
 @pytest.fixture(scope='session')
-def benchmarks_root(data_root):
-    return path.join(data_root, 'benchmarks')
+def resources_root(data_root):
+    return path.join(data_root, 'resources')
 
 
 @pytest.fixture(scope='session')

@@ -24,7 +24,7 @@ class QPISpec(YamlFileLoader):
     def __init__(self, name, paths=None):
         super(QPISpec, self).__init__(name, paths=paths)
         content = self.content
-        self.formula = Formula(content[SpecProp.FORMULA])
+        self.formula = Formula(content.get(SpecProp.FORMULA, FormulaName.ARITHMETIC_MEAN))
         self.sections = [Section(record, paths=paths)
                          for record in content[SpecProp.SECTIONS]]
 

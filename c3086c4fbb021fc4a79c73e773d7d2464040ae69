@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_ef6329da",
+        "filename": "resources/QPI/storage.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-09-06T07:33:44Z",
+      "side": 1,
+      "message": "In fact, this is not implemented in current scoring module. The default formula arithmetic mean is used as the implicit default.\n\nCan we tolerate the missing of formula in specification?",
+      "revId": "c3086c4fbb021fc4a79c73e773d7d2464040ae69",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

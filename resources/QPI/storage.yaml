@@ -10,14 +10,18 @@
 name: storage
 description: QTIP Performance Index of storage
 system_info:
+formula: weighted arithmetic mean
 sections:
   - name: IOPS
     description: I/O operation per second
     regex: '^(rr|wr)\..*\.iops$' # random read, random write
+    formula: geometric mean
   - name: Througput
     description: data transfer rate
     regex: '^rw\..*\.bw$'   # sequential read/write
+    formula: geometric mean
   - name: Latency
     description: response time
     regex: '\.lat.mean$'
     use_reciprocal: true
+    formula: geometric mean

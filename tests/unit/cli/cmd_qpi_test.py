@@ -26,8 +26,11 @@ def test_list(runner):
     assert 'QTIP Performance Index of compute' in result.output
 
 
-def test_show(runner):
-    result = runner.invoke(cli, ['qpi', 'show', 'compute'])
+@pytest.mark.parametrize("test_input", [
+    'storage',
+    'compute'])
+def test_show(runner, test_input):
+    result = runner.invoke(cli, ['qpi', 'show', test_input])
     assert 'QPI' in result.output
     assert 'Description' in result.output
     assert 'Formula' in result.output

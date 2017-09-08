@@ -21,5 +21,6 @@ services:
     container_name: qtip
     image: opnfv/qtip:${DOCKER_TAG}
     env_file: ${ENV_FILE}
+    volumes: ${SSH_CREDENTIALS}:/root/.ssh
     links:
       - storperf

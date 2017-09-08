@@ -19,7 +19,7 @@ cd /home/opnfv/workspace/
 qtip setup
 eval `ssh-agent`
 if [[ -z $testapi_url ]];then
-    qtip run -vv
+    qtip run
 else
     qtip run --extra-vars "testapi_url=${TESTAPI_URL}"
 fi

@@ -6,11 +6,14 @@
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-set -e
+
+set -o nounset
+set -o errexit
+set -o pipefail
 set -x
 
 usage(){
-   echo "usage: $0 -t <installer_type> -i <installer_ip> -p <pod_name> -s <scenario> -r <report_url>" >&2
+   echo "usage: $0 -q <qtip_test_suite> -t <installer_type> -i <installer_ip> -p <pod_name> -s <scenario> -r <report_url>" >&2
 }
 
 verify_connectivity(){
@@ -29,6 +32,7 @@ verify_connectivity(){
 #Getoptions
 while getopts ":t:i:p:s:r:he" optchar; do
    case "${optchar}" in
+       q) test_suite=${OPTARG} ;;
        t) installer_type=${OPTARG} ;;
        i) installer_ip=${OPTARG} ;;
        p) pod_name=${OPTARG} ;;
@@ -47,6 +51,7 @@ done
 #set vars from env if not provided by user as options
 installer_type=${installer_type:-$INSTALLER_TYPE}
 installer_ip=${installer_ip:-$INSTALLER_IP}
+test_suite=${test_suite:-$TEST_SUITE}
 pod_name=${pod_name:-$NODE_NAME}
 scenario=${scenario:-$SCENARIO}
 testapi_url=${testapi_url:-$TESTAPI_URL}
@@ -70,10 +75,10 @@ esac
 
 cd /home/opnfv
 
-qtip create --pod-name ${pod_name} --installer-type ${installer_type} \
---installer-host ${installer_ip} --scenario ${scenario} workspace
+qtip create --project-template ${test_suite} --pod-name ${pod_name} --installer-type ${installer_type} \
+--installer-host ${installer_ip} --scenario ${scenario} ${test_suite}
 
-cd /home/opnfv/workspace/
+cd ${test_suite}
 
 qtip setup
 eval `ssh-agent`

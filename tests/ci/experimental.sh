@@ -12,25 +12,26 @@ set -o pipefail
 set -o nounset
 set -x
 
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 export DEPLOY_SCENARIO='generic'
 export DOCKER_TAG='latest'
 export CI_DEBUG='false'
 export TEST_SUITE='storage'
 export TESTAPI_URL=''
+export SSH_CREDENTIALS='/root/.ssh'
 
 export WORKSPACE=${WORKSPACE:-$(pwd)}
 
-script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source ${script_dir}/utils/start_services.sh
+
+cd ${WORKSPACE}
+
 qtip_repo='/home/opnfv/repos/qtip'
+docker cp . storage_qtip_1:${qtip_repo}
+docker exec qtip bash -c "cd ${qtip_repo} && pip install -U -e ."
 
-source $script_dir/launch_containers_by_testsuite.sh
-
-container_id=$(docker ps | grep "opnfv/qtip:${DOCKER_TAG}" | awk '{print $1}' | head -1)
-
-echo "QTIP: Copying current submit patch to the container ${container_id}"
-cd $WORKSPACE
-docker cp . ${container_id}:${qtip_repo}
-docker exec ${container_id} bash -c "cd ${qtip_repo} && pip install -U -e ."
-docker exec -t ${container_id} bash -x ${qtip_repo}/tests/ci/run_${TEST_SUITE}_qpi.sh
+docker exec -t qtip bash -x ${qtip_repo}/qtip/scripts/quickstart.sh
 echo "QTIP: Verify ${TEST_SUITE} done!"
+
 exit 0

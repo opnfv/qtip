@@ -9,22 +9,16 @@
 set -e
 set -x
 
-export DOCKER_TAG=${DOCKER_TAG:-latest}
-export ENV_FILE=$WORKSPACE/env_file
-QTIP_REPO=/home/opnfv/repos/qtip
-
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source $script_dir/launch_containers_by_testsuite.sh
+source $script_dir/utils.sh
 
-container_id=$(docker ps | grep "opnfv/qtip:${DOCKER_TAG}" | awk '{print $1}' | head -1)
+export DOCKER_TAG=${DOCKER_TAG:-latest}
 
-if [[ -z "$container_id" ]]; then
-    echo "QTIP: The container opnfv/qtip has not been properly started. Exiting..."
-    exit 1
-else
-    echo "QTIP: The container ID is: ${container_id}"
-    docker exec -t ${container_id} bash -c "bash ${QTIP_REPO}/tests/ci/run_${TEST_SUITE}_qpi.sh"
-fi
+qtip_repo=/home/opnfv/repos/qtip
+
+docker-compose -f $script_dir/${TEST_SUITE}/docker-compose.yaml pull
+docker exec -t qtip bash -x ${qtip_repo}/qtip/scripts/quickstart.sh -q ${TEST_SUITE}
 
 echo "${TEST_SUITE} QPI done!"
+
 exit 0

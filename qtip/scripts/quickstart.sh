@@ -10,7 +10,7 @@ set -e
 set -x
 
 usage(){
-   echo "usage: $0 -t <installer_type> -i <installer_ip> -p <pod_name> -s <scenario> -r <report_url>" >&2
+   echo "usage: $0 -q <qpi> -t <installer_type> -i <installer_ip> -p <pod_name> -s <scenario> -r <report_url>" >&2
 }
 
 verify_connectivity(){
@@ -29,6 +29,7 @@ verify_connectivity(){
 #Getoptions
 while getopts ":t:i:p:s:r:he" optchar; do
    case "${optchar}" in
+       q) qpi=${OPTARG} ;;
        t) installer_type=${OPTARG} ;;
        i) installer_ip=${OPTARG} ;;
        p) pod_name=${OPTARG} ;;
@@ -71,9 +72,9 @@ esac
 cd /home/opnfv
 
 qtip create --pod-name ${pod_name} --installer-type ${installer_type} \
---installer-host ${installer_ip} --scenario ${scenario} workspace
+--installer-host ${installer_ip} --scenario ${scenario} ${qpi}
 
-cd /home/opnfv/workspace/
+cd ${qpi}
 
 qtip setup
 eval `ssh-agent`

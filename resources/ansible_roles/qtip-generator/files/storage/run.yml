@@ -12,10 +12,10 @@
 - hosts: localhost
 
   roles:
-  # prepare local environment
-  - { role: qtip, tasks: setup-local, tags: [setup] }
-  - storperf
+    - { role: qtip, tasks: setup-local, tags: [setup] }
+    - { role: storperf, output: "{% raw %}{{ qtip_results }}{% endraw %}/storperf" }
 
 - hosts: SUT
   roles:
-    - ceph-info
+    - { role: qtip, tasks: setup-node, tags: [setup] }
+    - { role: ceph-info, output: "{% raw %}{{ qtip_results }}{% endraw %}/ceph-info" }

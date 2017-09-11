@@ -9,11 +9,11 @@
 
 - fetch:
     src: /etc/ceph/ceph.conf
-    dest: "{{ qtip_results }}/sysinfo-{{ inventory_hostname }}/"
+    dest: "{{ output }}/"
     flat: yes
 
 - name: collect ceph catch info from ceph.conf
-  set_fact: {"{{ item }}":"{{ lookup('ini', '{{ item }} section=client default='' file={{ qtip_results }}/sysinfo-{{ inventory_hostname }}/ceph.conf')  }}"}
+  set_fact: {"{{ item }}":"{{ lookup('ini', '{{ item }} section=client default='' file={{ output }}/ceph.conf')  }}"}
   with_items:
       - rbd_cache
       - rbd_cache_max_dirty

@@ -44,6 +44,10 @@ def show(name):
     with open('{}/{}.yaml'.format(QPI_PATH, name)) as conf:
         qpi = yaml.safe_load(conf)
     for section in qpi['sections']:
-        table.add_row([section['name'], section['description'],
-                       section['formula']])
+        try:
+            table.add_row([section['name'], section['description'],
+                           section['formula']])
+        except Exception:
+            table.add_row([section['name'], section['description'],
+                           'Not Available'])
     click.echo(table)

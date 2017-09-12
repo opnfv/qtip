@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_52b1108e",
+        "filename": "qtip/scripts/quickstart.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-09-12T03:41:20Z",
+      "side": 1,
+      "message": "need to update this info.",
+      "revId": "b254fd8636da051cc6af539287106e8fd8055c2c",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -16,6 +16,24 @@
       "revId": "b254fd8636da051cc6af539287106e8fd8055c2c",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_428ad9bf",
+        "filename": "qtip/scripts/quickstart.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-09-13T07:48:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da33351e_52b1108e",
+      "revId": "b254fd8636da051cc6af539287106e8fd8055c2c",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

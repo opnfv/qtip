@@ -10,16 +10,8 @@
 version: '2'
 services:
 
-  storperf:
-    container_name: storperf
-    image: opnfv/storperf:${DOCKER_TAG}
-    ports:
-      - 5000:5000
-    env_file: ${ENV_FILE}
-
   qtip:
-    container_name: qtip
+    container_name: compute_qtip
     image: opnfv/qtip:${DOCKER_TAG}
     env_file: ${ENV_FILE}
-    links:
-      - storperf
+    volumes: ${SSH_CREDENTIALS}:/root/.ssh

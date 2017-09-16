@@ -13,7 +13,7 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source ${script_dir}/utils/start_services.sh
 
-docker exec -t ${TEST_SUITE}_qtip bash -x ${qtip_repo}/qtip/scripts/quickstart.sh
+docker exec -t ${TEST_SUITE}_qtip bash -x /home/opnfv/repos/qtip/qtip/scripts/quickstart.sh
 
 echo "${TEST_SUITE} QPI done!"
 

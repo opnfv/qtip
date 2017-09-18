@@ -12,3 +12,4 @@ QTIP Installation & Configuration
    :maxdepth: 2
 
    ./configuration.rst
+   ./web.rst

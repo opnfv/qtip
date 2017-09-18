@@ -13,7 +13,7 @@
 
   roles:
     - { role: qtip, tasks: setup-local, tags: [setup] }
-    - { role: storperf, output: "{% raw %}{{ qtip_results }}{% endraw %}/storperf" }
+    - { role: storperf, output: "{% raw %}{{ qtip_results }}{% endraw %}/current/storperf" }
 
 - hosts: SUT
   roles:

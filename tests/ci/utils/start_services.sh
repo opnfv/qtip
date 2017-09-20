@@ -17,6 +17,8 @@ SCENARIO=${DEPLOY_SCENARIO:-generic}
 TESTAPI_URL=${TESTAPI_URL:-}
 EOF
 
+export SSH_CREDENTIALS=${SSH_CREDENTIALS:-/root/.ssh}
+
 TMPFILE=`mktemp /tmp/qtip.XXXXXX` || exit 1
 curl https://git.opnfv.org/releng/plain/utils/fetch_os_creds.sh | bash -s -- \
     -i ${INSTALLER_TYPE} -a ${INSTALLER_IP} -d ${TMPFILE}

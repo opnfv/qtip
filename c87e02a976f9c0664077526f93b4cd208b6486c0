@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_a8b28891",
+        "filename": "docs/proposal/NetworPerformanceIndicator.ipynb",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-09-22T09:33:58Z",
+      "side": 1,
+      "message": "Does the constant mean one virtualization is better than the other? How do we define the value for different technology?",
+      "revId": "c87e02a976f9c0664077526f93b4cd208b6486c0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

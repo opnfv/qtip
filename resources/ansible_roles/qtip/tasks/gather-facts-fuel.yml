@@ -10,4 +10,6 @@
 ---
 
 - name: gathering facts of fuel slave nodes
-  fuel:
+  become: true
+  shell: salt --out=yaml 'cmp*' network.get_hostname
+  register: minions

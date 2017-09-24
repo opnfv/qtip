@@ -10,4 +10,6 @@
 ---
 
 - name: gathering facts of fuel slave nodes
-  fuel:
+  become: true
+  shell: salt-run manage.list_state
+  register: minions

@@ -50,7 +50,7 @@ def cli():
               default='opnfv-pod',
               help='Name of pod under test')
 @click.option('--installer-type',
-              type=click.Choice(['apex', 'fuel', 'manual']),
+              type=click.Choice(['apex', 'fuel', 'manual', 'mcp']),
               prompt='OPNFV Installer Type',
               default='manual',
               help='OPNFV installer')

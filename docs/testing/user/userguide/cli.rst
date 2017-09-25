@@ -7,7 +7,7 @@ CLI User Manual
 ***************
 
 QTIP consists of a number of benchmarking tools or metrics, grouped under QPI's. QPI's map to the different
-components of a NFVI ecosystem, such as compute, network and storage. Depending on the type of application,
+components of a NFVi ecosystem, such as compute, network and storage. Depending on the type of application,
 a user may group them under plans.
 
 Bash Command Completion
@@ -26,53 +26,39 @@ QTIP CLI provides interface to all of the above the components. A help page prov
 along with a short description.
 ::
 
-  qtip [-h|--help]
+  qtip --help
 
 Usage
 =====
-Typically a complete plan is executed at the target environment. QTIP defaults to a number of sample plans.
-A list of all the available plans can be viewed
+QTIP is currently supports two OPNFV different components of the NFVi, compute and storage. In order to benchmark
+either one of them, one needs to generate their respective templates.
 ::
 
-  qtip plan list
+  qtip create --project-template [compute|storage] <workspace_name>
 
-In order to view the details about a specific plan.
+By default, the compute template will be generated. One will be prompted to enter the parameters required
+to generate the template.
+
+Once the generation is complete one needs to setup the OpenStack configuration to get started.
 ::
 
-  qtip plan show <plan_name>
+  cd <workspace_name>
+  qtip setup
 
-where *plan_name* is one of those listed from the previous command.
-
-To execute a complete plan
+After the setup has been completed, one is now ready to run QTIP.
 ::
 
-  qtip plan run <plan_name> -p <path_to_result_directory>
-
-QTIP does not limit result storage at a specific directory. Instead a user may specify his own result storage
-as above. An important thing to remember is to provide absolute path of result directory.
-::
-
-  mkdir result
-  qtip plan run <plan_name> -p $PWD/result
-
-Similarly, the same commands can be used for the other two components making up the plans, i.e QPI's and metrics.
-For example, in order to run a single metric
-::
-
-  qtip metric run <metric_name> -p $PWD/result
-
-The same can be applied for a QPI.
-
-QTIP also provides the utility to view benchmarking results on the console. One just need to provide to where
-the results are stored. Extending the example above
-::
-
-  qtip report show <metric_name> -p $PWD/result
+  qtip run
 
 Debugging options
 =================
 
-Debug option helps identify the error by providing a detailed traceback. It can be enabled as
+QTIP uses Ansible as the runner. One can use all of Ansible's CLI option with QTIP. In order to enable verbose mode
 ::
 
-  qtip [-d|--debug] plan run <plan_name>
+  qtip setup -v
+
+One may also be able to achieve the different levels of verbosity
+::
+
+  qtip run [-v|-vv|-vvv]

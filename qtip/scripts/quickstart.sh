@@ -26,7 +26,7 @@ verify_connectivity(){
        fi
        sleep 1
    done
-   error "Can not talk to $ip."
+   echo "Can not talk to $ip."
 }
 
 #Getoptions

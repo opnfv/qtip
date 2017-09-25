@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_bc676ab6",
+        "filename": "resources/ansible_roles/qtip-generator/files/compute/ansible.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-09-25T01:16:33Z",
+      "side": 1,
+      "message": "I think we should not hardcode it in `ansible.cfg` if it is installer dependent.",
+      "revId": "3f3cfb09e9e0dc22ba592185aa3f45cee2a745b2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

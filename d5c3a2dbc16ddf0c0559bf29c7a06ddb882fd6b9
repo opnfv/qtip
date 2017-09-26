@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_4dbe6566",
+        "filename": "docs/testing/user/userguide/cli.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-09-26T00:58:52Z",
+      "side": 1,
+      "message": "You may put also what is expected in `qtip setup`, e.g. the inventory file is populated with actual testing targets.",
+      "revId": "d5c3a2dbc16ddf0c0559bf29c7a06ddb882fd6b9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

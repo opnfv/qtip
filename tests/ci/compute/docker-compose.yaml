@@ -16,3 +16,18 @@ services:
     env_file: ${ENV_FILE}
     volumes:
       - ${SSH_CREDENTIALS}:/root/.ssh
+    links:
+      - testapi
+
+  mongo:
+    image: mongo:3.2.1
+    container_name: compute_mongo
+
+  testapi:
+    image: opnfv/testapi:latest
+    container_name: compute_testapi
+    environment:
+      - mongodb_url=mongodb://mongo:27017/
+      - base_url=http://localhost:8000
+    links:
+      - mongo

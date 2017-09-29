@@ -31,7 +31,7 @@ qtip_repo='/home/opnfv/repos/qtip'
 docker cp . ${TEST_SUITE}_qtip:${qtip_repo}
 docker exec ${TEST_SUITE}_qtip bash -c "cd ${qtip_repo} && pip install -U -e ."
 
-docker exec -t ${TEST_SUITE}_qtip bash -x ${qtip_repo}/qtip/scripts/quickstart.sh
+docker exec ${TEST_SUITE}_qtip bash -x ${qtip_repo}/qtip/scripts/quickstart.sh
 echo "QTIP: Verify ${TEST_SUITE} done!"
 
 exit 0

@@ -13,8 +13,6 @@ services:
   storperf:
     container_name: storage_storperf
     image: opnfv/storperf:${DOCKER_TAG}
-    ports:
-      - 5000:5000
     env_file: ${ENV_FILE}
 
   qtip:

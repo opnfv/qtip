@@ -17,8 +17,8 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export DEPLOY_SCENARIO='generic'
 export DOCKER_TAG='latest'
 export CI_DEBUG='false'
-export TEST_SUITE='storage'
-export TESTAPI_URL=''
+export TEST_SUITE='compute'
+export TESTAPI_URL='http://testapi:8000/api/v1'
 export SSH_CREDENTIALS='/root/.ssh'
 
 export WORKSPACE=${WORKSPACE:-$(pwd)}
@@ -30,6 +30,7 @@ cd ${WORKSPACE}
 qtip_repo='/home/opnfv/repos/qtip'
 docker cp . ${TEST_SUITE}_qtip:${qtip_repo}
 docker exec ${TEST_SUITE}_qtip bash -c "cd ${qtip_repo} && pip install -U -e ."
+docker exec ${TEST_SUITE}_mongo bash -c "cd /opt/db && ./import-data.sh"
 
 docker exec ${TEST_SUITE}_qtip bash -x ${qtip_repo}/qtip/scripts/quickstart.sh
 echo "QTIP: Verify ${TEST_SUITE} done!"

@@ -1,0 +1,14 @@
+[
+  {
+    "project_name": "qtip",
+    "description": "Overall score for compute performance.",
+    "name": "compute",
+    "catalog_description": "compute performance index"
+  },
+  {
+    "project_name": "qtip",
+    "description": "Overall score for storage performance.",
+    "name": "storage",
+    "catalog_description": "compute performance index"
+  }
+]

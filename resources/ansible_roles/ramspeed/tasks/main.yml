@@ -14,7 +14,9 @@
 
 - name: downloading ramsmp
   get_url:
-    url: http://www.alasir.com/software/ramspeed/ramsmp-3.5.0.tar.gz
+#    alasir.com domain name expired on 2017-09-30 05:47:11
+#    url: http://www.alasir.com/software/ramspeed/ramsmp-3.5.0.tar.gz
+    url: http://sources.buildroot.net/ramsmp-3.5.0.tar.gz
     dest: "{{ workdir }}"
     checksum: "sha256:39fb15493fb3c293575746d56f6ab9faaa1d876d8b1f0d8e5a4042d2ace95839"
 

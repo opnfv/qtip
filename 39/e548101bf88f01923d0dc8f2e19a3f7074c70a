@@ -1,0 +1,12 @@
+Verified+1: jenkins-ci <jenkins-opnfv-ci@opnfv.org>
+Verified+1: zhifeng jiang <jiang.zhifeng@zte.com.cn>
+Code-Review+2: Morgan Richomme <morgan.richomme@orange.com>
+Code-Review+2: Yujun Zhang <zhang.yujunz@zte.com.cn>
+Code-Review+2: zhihui wu <wu.zhihui1@zte.com.cn>
+Code-Review+2: zhifeng jiang <jiang.zhifeng@zte.com.cn>
+Code-Review+2: Akhil Batra <akhil.batra@research.iiit.ac.in>
+Submitted-by: Akhil Batra <akhil.batra@research.iiit.ac.in>
+Submitted-at: Sat, 30 Sep 2017 15:11:41 +0000
+Reviewed-on: https://gerrit.opnfv.org/gerrit/42367
+Project: qtip
+Branch: refs/heads/master

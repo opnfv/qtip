@@ -9,8 +9,6 @@
 set -e
 set -x
 
-export TESTAPI_URL='http://testresults.opnfv.org/test/api/v1'
-
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source ${script_dir}/utils/start_services.sh

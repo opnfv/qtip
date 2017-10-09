@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a3d3df0_bfc37789",
+        "filename": "docs/release/release-notes/euphrates.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-10-09T04:20:31Z",
+      "side": 1,
+      "message": "Has the release not been delayed ?",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 12
+      },
+      "revId": "b645b77d35e089042ac52b2cfe0abc1606dc34b5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a3d3df0_9fc0337e",
+        "filename": "docs/release/release-notes/euphrates.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2017-10-09T04:20:31Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 48,
+        "startChar": 41,
+        "endLine": 48,
+        "endChar": 51
+      },
+      "revId": "b645b77d35e089042ac52b2cfe0abc1606dc34b5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

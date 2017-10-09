@@ -26,6 +26,6 @@
       scenario: "{{ scenario }}"
       start_date: "{{ ansible_date_time.date }}"
       stop_date: "{{ ansible_date_time.date }}"
-      criteria: 2048
+      criteria: PASS  # regarded as "pass" if execution is done
       details:
         score: "{{ pod_result.score }}"

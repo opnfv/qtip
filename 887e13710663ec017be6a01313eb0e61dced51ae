@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a3d3df0_74cc6436",
+        "filename": "resources/ansible_roles/qtip-generator/defaults/main.yml",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-10-16T01:15:50Z",
+      "side": 1,
+      "message": "Should we use `masters`? Since it could be possible that we run testing on several cluster in the same time.",
+      "range": {
+        "startLine": 17,
+        "startChar": 12,
+        "endLine": 17,
+        "endChar": 18
+      },
+      "revId": "887e13710663ec017be6a01313eb0e61dced51ae",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

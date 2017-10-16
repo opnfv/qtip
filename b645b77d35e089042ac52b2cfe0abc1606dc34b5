@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9a3d3df0_14b0788a",
+        "filename": "docs/release/release-notes/euphrates.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-10-16T01:20:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a3d3df0_5f46ab24",
+      "revId": "b645b77d35e089042ac52b2cfe0abc1606dc34b5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a3d3df0_bfc37789",
         "filename": "docs/release/release-notes/euphrates.rst",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-10-09T04:20:31Z",
       "side": 1,
       "message": "Has the release not been delayed ?",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 12
+      },
+      "revId": "b645b77d35e089042ac52b2cfe0abc1606dc34b5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a3d3df0_74c104e4",
+        "filename": "docs/release/release-notes/euphrates.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-10-16T01:20:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a3d3df0_bfc37789",
       "range": {
         "startLine": 21,
         "startChar": 2,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "9a3d3df0_d4b6108a",
+        "filename": "docs/release/release-notes/euphrates.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-10-16T01:20:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a3d3df0_9fc0337e",
+      "range": {
+        "startLine": 48,
+        "startChar": 41,
+        "endLine": 48,
+        "endChar": 51
+      },
+      "revId": "b645b77d35e089042ac52b2cfe0abc1606dc34b5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a3d3df0_df511bda",
         "filename": "docs/release/release-notes/euphrates.rst",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2017-10-09T05:53:28Z",
       "side": 1,
       "message": "The documentation links are stable-danube.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 109
+      },
+      "revId": "b645b77d35e089042ac52b2cfe0abc1606dc34b5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a3d3df0_94bc886e",
+        "filename": "docs/release/release-notes/euphrates.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-10-16T01:20:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a3d3df0_df511bda",
       "range": {
         "startLine": 105,
         "startChar": 0,

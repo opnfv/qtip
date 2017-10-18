@@ -1,0 +1,8 @@
+Code-Review+2: Yujun Zhang <zhang.yujunz@zte.com.cn>
+Code-Review+1: Sofia Wallin <sofia.wallin@ericsson.com>
+Verified+1: jenkins-ci <jenkins-opnfv-ci@opnfv.org>
+Submitted-by: Morgan Richomme <morgan.richomme@orange.com>
+Submitted-at: Wed, 18 Oct 2017 16:02:31 +0000
+Reviewed-on: https://gerrit.opnfv.org/gerrit/45455
+Project: qtip
+Branch: refs/heads/master

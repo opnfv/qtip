@@ -4,9 +4,9 @@
 .. (c) 2016 ZTE Corp.
 
 
-*********************************
-QTIP Installation & Configuration
-*********************************
+******************
+Installation Guide
+******************
 
 .. toctree::
    :maxdepth: 2

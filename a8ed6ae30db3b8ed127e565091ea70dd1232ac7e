@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a3d3df0_41ceb25b",
+        "filename": "docs/release/release-notes/euphrates.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-10-19T06:32:04Z",
+      "side": 1,
+      "message": "old links",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 100
+      },
+      "revId": "a8ed6ae30db3b8ed127e565091ea70dd1232ac7e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

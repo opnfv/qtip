@@ -102,8 +102,8 @@ Software
 Documentation
 ^^^^^^^^^^^^^
 
-- `Installation & Configuration <http://docs.opnfv.org/en/stable-danube/qtip/docs/testing/user/configguide>`_
-- `User Guide <http://docs.opnfv.org/en/stable-danube/submodules/qtip/docs/testing/user/userguide>`_
+- `Installation & Configuration <http://docs.opnfv.org/en/stable-euphrates/qtip/docs/testing/user/configguide>`_
+- `User Guide <http://docs.opnfv.org/en/stable-euphrates/submodules/qtip/docs/testing/user/userguide>`_
 - `Developer Guide <http://docs.opnfv.org/en/stable-euphrates/submodules/qtip/docs/testing/developer/devguide>`_
 
 Known Limitations, Issues and Workarounds

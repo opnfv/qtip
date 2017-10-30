@@ -16,6 +16,29 @@
       "revId": "c87e02a976f9c0664077526f93b4cd208b6486c0",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a3d3df0_8186e8b7",
+        "filename": "docs/proposal/NetworPerformanceIndicator.ipynb",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 2651
+      },
+      "writtenOn": "2017-10-30T05:50:01Z",
+      "side": 1,
+      "message": "does this mean only the python3 is supported?",
+      "range": {
+        "startLine": 216,
+        "startChar": 20,
+        "endLine": 216,
+        "endChar": 28
+      },
+      "revId": "c87e02a976f9c0664077526f93b4cd208b6486c0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

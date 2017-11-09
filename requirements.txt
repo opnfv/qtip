@@ -11,3 +11,4 @@ humanfriendly
 asq
 Django
 requests
+snaps

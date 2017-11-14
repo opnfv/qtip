@@ -16,7 +16,7 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 export DEPLOY_SCENARIO='generic'
 export DOCKER_TAG='latest'
-export CI_DEBUG='false'
+export CI_DEBUG='true'
 export TEST_SUITE='storage'
 export TESTAPI_URL=''
 export SSH_CREDENTIALS='/root/.ssh'

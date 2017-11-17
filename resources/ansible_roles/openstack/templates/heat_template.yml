@@ -1,0 +1,70 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+# taseer94@gmail.com
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+---
+
+heat_template_version: 2015-04-30
+
+description: Simple template to deploy a single compute instance
+
+parameters:
+  image_name:
+    type: string
+    label: Image ID
+    description: Image to be used for compute instance
+    default: Ubuntu 16.04 x86_64
+  flavor_name:
+    type: string
+    label: Instance Type
+    description: Type of instance (flavor) to be used
+    default: m1.large
+  net_name:
+    type: string
+    label: Test network name
+    description: The name of the stack's network
+    default: qtip_net
+  subnet_name:
+    type: string
+    label: Test subnet name
+    description: The name of the stack's subnet
+    default: qtip_subnet
+  instance_name:
+    type: string
+    label: Test VM name
+    description: The name of the spawned vm
+    default: qtip_vm
+
+resources:
+  private_net:
+    type: OS::Neutron::Net
+    properties:
+      name: { get_param: net_name }
+
+  private_subnet:
+    type: OS::Neutron::Subnet
+    properties:
+      name: { get_param: subnet_name }
+      network_id: { get_resource: private_net }
+      cidr: 10.0.0.0/24
+
+  server1_port:
+    type: OS::Neutron::Port
+    properties:
+      network_id: { get_resource: private_net }
+      fixed_ips:
+        - subnet_id: { get_resource: private_subnet }
+
+  my_instance:
+    type: OS::Nova::Server
+    properties:
+      name: { get_param: inst_name }
+      image: { get_param: image_name }
+      flavor: { get_param: flavor_name }
+      networks:
+        - port: { get_resource: server1_port }

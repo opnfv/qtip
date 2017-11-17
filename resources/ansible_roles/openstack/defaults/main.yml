@@ -1,0 +1,17 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+# taseer94@gmail.com
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+---
+
+stack_name: qtip_stack
+image_name: qtip_image
+flavor_name: m1.large
+net_name: qtip_net
+subnet_name: qtip_subnet
+instance_name: qtip_vm

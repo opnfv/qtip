@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "9a3d3df0_f554a955",
+        "filename": "resources/ansible_roles/openstack/tasks/main.yml",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-11-21T03:12:23Z",
+      "side": 1,
+      "message": "I see.",
+      "parentUuid": "9a3d3df0_9539dd43",
+      "revId": "717a05251f782d81a1658d65e7f78092d9f4b566",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a3d3df0_f5ce6982",
         "filename": "resources/ansible_roles/openstack/tasks/main.yml",
         "patchSetId": 4
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Cirros can be used for testing the VM deployment. But I doubt you can install traffic generator in it...",
       "parentUuid": "9a3d3df0_f5ce6982",
+      "revId": "717a05251f782d81a1658d65e7f78092d9f4b566",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a3d3df0_955efd74",
+        "filename": "resources/ansible_roles/openstack/tasks/main.yml",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-11-21T03:12:23Z",
+      "side": 1,
+      "message": "Yes, we can\u0027t use cirros for traffic generator. But I think that is the next step. And it can be solved by a new specific QTIP image. The old one is too large.",
+      "parentUuid": "9a3d3df0_d53a4533",
       "revId": "717a05251f782d81a1658d65e7f78092d9f4b566",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false

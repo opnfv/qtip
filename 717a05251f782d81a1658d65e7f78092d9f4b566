@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a3d3df0_f5ce6982",
+        "filename": "resources/ansible_roles/openstack/tasks/main.yml",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2017-11-21T02:25:11Z",
+      "side": 1,
+      "message": "And the qtip image, qtip had a big centos image[1]. I want to cut the size of this image. I suggest you use cirros image for test.\n\n[1] http://artifacts.opnfv.org/qtip/QTIP_CentOS.qcow2",
+      "revId": "717a05251f782d81a1658d65e7f78092d9f4b566",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

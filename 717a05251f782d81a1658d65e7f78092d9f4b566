@@ -105,6 +105,24 @@
       "revId": "717a05251f782d81a1658d65e7f78092d9f4b566",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a3d3df0_26aee985",
+        "filename": "resources/ansible_roles/openstack/tasks/main.yml",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2017-11-22T06:51:54Z",
+      "side": 1,
+      "message": "I think the image uploading is not included in the heat template at this patchset. \n\nIt is supposed to be uploaded manually to the cloud under test. Is it, @Taseer ?",
+      "parentUuid": "9a3d3df0_955efd74",
+      "revId": "717a05251f782d81a1658d65e7f78092d9f4b566",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

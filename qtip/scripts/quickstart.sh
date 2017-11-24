@@ -56,8 +56,8 @@ pod_name=${pod_name:-$NODE_NAME}
 scenario=${scenario:-$SCENARIO}
 testapi_url=${testapi_url:-$TESTAPI_URL}
 
-# we currently support ericsson, intel, lf and zte labs
-if [[ ! "$installer_type" =~ (fuel|apex) ]]; then
+# we currently support fuel, apex and mcp
+if [[ ! "$installer_type" =~ (fuel|apex|mcp) ]]; then
     echo "Unsupported/unidentified installer $installer_type. Cannot continue!"
     exit 1
 fi

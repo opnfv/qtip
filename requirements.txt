@@ -9,5 +9,4 @@ six
 PyYAML
 humanfriendly
 asq
-Django
 requests

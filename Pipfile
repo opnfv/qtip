@@ -1,0 +1,38 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[dev-packages]
+
+mock = "*"
+pykwalify = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-faker = "*"
+pytest-mock = "*"
+pip_check_reqs = "*"
+pipreqs = "*"
+
+
+[packages]
+
+ansible = "*"
+click = "*"
+connexion = "<=1.1.11"
+"Jinja2" = "*"
+numpy = "*"
+pbr = "*"
+PrettyTable = "*"
+PyYAML = "*"
+humanfriendly = "*"
+asq = "*"
+Django = "*"
+requests = "*"
+
+
+[requires]
+
+python_version = "2.7"

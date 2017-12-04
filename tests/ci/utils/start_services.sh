@@ -27,9 +27,12 @@ grep "export" ${TMPFILE} | sed "s/export //" >> $ENV_FILE
 # eliminate warning message "Invalid -W option ignored: invalid action: '"ignore'"
 sed -i '/^PYTHONWARNINGS=/d' $ENV_FILE
 
+echo ${BRANCH}
+echo ${INSTALLER_TYPE}
+
 # In CI job, it still uses fuel to represent MCP.
-if [[ "${BRANCH}" =~ "master" and "${INSTALLER_TYPE}" =~ "fuel" ]]; then
-   sed -i 's/INSTALLER_TYPE=fuel/INSTALLER_TYPE=mcp' $ENV_FILE
+if [[ "${BRANCH}" =~ "master" and "${INSTALLER_TYPE}" =~ "fuel" ]];then
+   sed -i 's/^INSTALLER_TYPE=fuel/INSTALLER_TYPE=mcp/g' $ENV_FILE
 fi
 
 docker-compose -f $script_dir/${TEST_SUITE}/docker-compose.yaml pull

@@ -13,5 +13,6 @@ QTIP Release Notes
 .. toctree::
    :maxdepth: 2
 
+   euphrates.rst
    danube.rst
    brahmaputra.rst

@@ -22,7 +22,7 @@ Installation
 
 Refer to `installation and configuration guide`_ for details
 
-.. _installation and configuration guide:../configguide/
+.. _installation and configuration guide: ../configguide/
 
 Create
 ======

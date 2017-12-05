@@ -1,0 +1,26 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[dev-packages]
+
+
+
+[packages]
+
+ansible = "*"
+click = "*"
+connexion = "<=1.1.11"
+"jinja2" = "*"
+numpy = "*"
+pbr = "*"
+prettytable = "*"
+pyyaml = "*"
+humanfriendly = "*"
+asq = "*"
+requests = "*"
+sphinx = "*"
+sphinx-autobuild = "*"

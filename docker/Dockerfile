@@ -40,13 +40,16 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install -U pip && pip install -U setuptools
+RUN locale-gen en_US en_US.UTF-8 \
+    && pip install -U pip \
+    && pip install -U setuptools
 
 #Cloning Repos
 RUN git config --global http.sslVerify false \
     && git clone -b $BRANCH https://gerrit.opnfv.org/gerrit/qtip $REPOS_DIR/qtip \
     && cd $REPOS_DIR/qtip \
-    && pip install -U -e .
+    && pip install pipenv \
+    && pipenv install --system
 
 RUN echo 'eval $(ssh-agent)' >> /root/.bashrc
 
@@ -54,7 +57,7 @@ RUN echo 'eval $(ssh-agent)' >> /root/.bashrc
 EXPOSE 5000
 
 #Config supervisor
-RUN mkdir -p /var/log/supervisor && locale-gen en_US en_US.UTF-8
+RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 CMD ["/usr/bin/supervisord"]

@@ -20,3 +20,13 @@ for performance, simple but supported by comprehensive testing data and transpar
    testing/user/configguide/index.rst
    testing/user/userguide/index.rst
    testing/developer/devguide/index.rst
+
+=========
+Proposals
+=========
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   proposal/*

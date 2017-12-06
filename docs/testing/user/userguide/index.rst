@@ -17,3 +17,4 @@ QTIP User Guide
    api.rst
    web.rst
    compute.rst
+   storage.rst

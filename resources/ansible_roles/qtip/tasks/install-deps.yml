@@ -8,4 +8,4 @@
 ##############################################################################
 
 ---
-- include: "install-deps-{{ ansible_os_family|lower }}.yml"
+- include_tasks: "install-deps-{{ ansible_os_family|lower }}.yml"

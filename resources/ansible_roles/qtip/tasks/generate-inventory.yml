@@ -11,7 +11,7 @@
 
 ---
 
-- include: "gather-facts-{{ installer_type }}.yml"
+- include_tasks: "gather-facts-{{ installer_type }}.yml"
 
 - name: generating inventory file
   template: src=templates/hosts dest=./hosts

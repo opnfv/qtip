@@ -9,4 +9,4 @@
 
 ---
 
-- include: "{{ tasks }}.yml"
+- include_tasks: "{{ tasks }}.yml"

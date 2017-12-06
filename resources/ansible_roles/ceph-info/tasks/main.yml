@@ -9,6 +9,6 @@
 
 ---
 
-- include: cache.yml
-- include: disk.yml
-- include: network.yml
+- import_task: cache.yml
+- import_task: disk.yml
+- import_task: network.yml

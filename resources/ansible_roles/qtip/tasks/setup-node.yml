@@ -26,4 +26,4 @@
     path: "{{ qtip_workdir }}"
     state: directory
 
-- include: install-deps.yml
+- import_tasks: install-deps.yml

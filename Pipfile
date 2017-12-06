@@ -13,8 +13,7 @@ pytest = "*"
 pytest-cov = "*"
 pytest-faker = "*"
 pytest-mock = "*"
-pip_check_reqs = "*"
-pipreqs = "*"
+"e1839a8" = {path = ".", editable = true}
 
 
 [packages]
@@ -22,14 +21,13 @@ pipreqs = "*"
 ansible = "*"
 click = "*"
 connexion = "<=1.1.11"
-"Jinja2" = "*"
+"jinja2" = "*"
 numpy = "*"
 pbr = "*"
-PrettyTable = "*"
-PyYAML = "*"
+prettytable = "*"
+pyyaml = "*"
 humanfriendly = "*"
 asq = "*"
-Django = "*"
 requests = "*"
 
 

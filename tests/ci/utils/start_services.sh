@@ -28,8 +28,8 @@ grep "export" ${TMPFILE} | sed "s/export //" >> $ENV_FILE
 sed -i '/^PYTHONWARNINGS=/d' $ENV_FILE
 
 # In CI job, it still uses fuel to represent MCP.
-if [[ "${BRANCH}" =~ "master" and "${INSTALLER_TYPE}" =~ "fuel" ]]; then
-   sed -i 's/INSTALLER_TYPE=fuel/INSTALLER_TYPE=mcp' $ENV_FILE
+if [[ "${BRANCH}" =~ "master" && "${INSTALLER_TYPE}" =~ "fuel" ]];then
+   sed -i 's/^INSTALLER_TYPE=fuel/INSTALLER_TYPE=mcp/g' $ENV_FILE
 fi
 
 docker-compose -f $script_dir/${TEST_SUITE}/docker-compose.yaml pull

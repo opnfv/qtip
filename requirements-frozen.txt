@@ -1,0 +1,13 @@
+humanfriendly==4.4.1
+connexion==1.1.11
+Jinja2==2.9.6
+Django==1.11.5
+asq==1.2.1
+six==1.11.0
+ansible==2.4.0.0
+requests==2.18.4
+prettytable==0.7.2
+numpy==1.13.1
+click==6.7
+pbr==3.1.1
+PyYAML==3.12

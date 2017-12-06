@@ -1,0 +1,12 @@
+ansible
+click
+connexion<=1.1.11
+Jinja2
+numpy
+pbr
+prettytable
+six
+PyYAML
+humanfriendly
+asq
+requests

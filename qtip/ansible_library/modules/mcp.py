@@ -80,7 +80,7 @@ def generate_inventory(nodes):
         }
         hosts['compute'].append(value['host'])
 
-    return {'hosts': hosts, 'hosts_meta': hosts_meta}
+    return {'hosts': hosts, 'hosts_meta': hosts_meta, 'proxy_jump': False}
 
 
 def main():

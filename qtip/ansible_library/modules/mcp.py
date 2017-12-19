@@ -72,16 +72,13 @@ def generate_inventory(nodes):
     """Generate ansible inventory from node list in json format"""
     hosts = defaultdict(list)
     hosts_meta = {}
-    node_meta = {}
 
     for key, value in nodes.iteritems():
-        if isinstance(value, dict):
-            for k, v in value.iteritems():
-                if k == "fqdn_ip4":
-                    node_meta['ansible_ssh_host'] = v[0]
-        node_meta['ansible_user'] = 'root'
-        hosts_meta[key] = node_meta
-        hosts['compute-nodes'].append(node_meta['ansible_ssh_host'])
+        hosts_meta[value['host']] = {
+            'ansible_ssh_host': value['fqdn_ip4'][0],
+            'ansible_user': 'ubuntu'
+        }
+        hosts['compute'].append(value['fqdn_ip4'][0])
 
     return {'hosts': hosts, 'hosts_meta': hosts_meta}
 

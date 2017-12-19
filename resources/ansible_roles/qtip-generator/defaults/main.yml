@@ -14,7 +14,7 @@ installer_group:
   manual: dummy-group
   fuel: fuel-masters
   apex: apex-underclouds
-  mcp: salt-masters
+  mcp: salt-master
 
 project_name: 'qtip-project'
 project_template: 'compute'

@@ -83,7 +83,7 @@ def generate_inventory(nodes):
         hosts_meta[key] = node_meta
         hosts['compute-nodes'].append(node_meta['ansible_ssh_host'])
 
-    return {'hosts': hosts, 'hosts_meta': hosts_meta}
+    return {'hosts': hosts, 'hosts_meta': hosts_meta, 'proxy_jump': False}
 
 
 def main():

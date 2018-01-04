@@ -16,6 +16,24 @@
       "revId": "b3200e3ca45a44efb693444894a2a616b5f6d4a2",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a3d3df0_ab5c3d4c",
+        "filename": "resources/ansible_roles/qtip-generator/files/compute/templates/ssh.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2018-01-04T02:06:37Z",
+      "side": 1,
+      "message": "Accept it. I will modify it.",
+      "parentUuid": "9a3d3df0_8ae981e8",
+      "revId": "b3200e3ca45a44efb693444894a2a616b5f6d4a2",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

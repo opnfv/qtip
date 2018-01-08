@@ -13,7 +13,6 @@ pytest = "*"
 pytest-cov = "*"
 pytest-faker = "*"
 pytest-mock = "*"
-"e1839a8" = {path = ".", editable = true}
 
 
 [packages]

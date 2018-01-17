@@ -10,6 +10,14 @@
 # Prepare connection to SUT (System Under Test)
 
 ---
+
+{% if sut_type == 'vnf' %}
+- hosts: localhost
+  gather_facts: no
+  roles:
+    - { role: openstack, tasks: create_stack }
+{% endif %}
+
 {% if installer_type == 'manual' %}
 - hosts: localhost
   gather_facts: no

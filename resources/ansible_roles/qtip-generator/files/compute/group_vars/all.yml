@@ -21,3 +21,6 @@ installer_group:
   fuel: fuel-masters
   apex: apex-underclouds
   mcp: salt-master
+
+sut_type: vnf # temporarily hardcode
+

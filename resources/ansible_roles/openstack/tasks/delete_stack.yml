@@ -1,6 +1,6 @@
 ##############################################################################
 # Copyright (c) 2018 ZTE Corporation and others.
-#
+# wu.zhihui1@zte.com.cn
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
 # which accompanies this distribution, and is available at
@@ -9,4 +9,8 @@
 
 ---
 
-- include_tasks: "{{ tasks }}.yml"
+- name: cleanup qtip stack
+  os_stack:
+    name: "{{ stack_name }}"
+    state: absent
+    endpoint_type: admin

@@ -63,7 +63,7 @@ resources:
   my_instance:
     type: OS::Nova::Server
     properties:
-      name: { get_param: inst_name }
+      name: { get_param: instance_name }
       image: { get_param: image_name }
       flavor: { get_param: flavor_name }
       networks:

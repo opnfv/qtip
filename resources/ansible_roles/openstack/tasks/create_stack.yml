@@ -9,12 +9,16 @@
 
 ---
 
-stack_name: qtip_stack
-image_name: qtip_image
-flavor_name: qtip_flavor
-net_name: qtip_net
-subnet_name: qtip_subnet
-inst_name: qtip
-image_url: https://cloud-images.ubuntu.com/releases/16.04/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img
-checksum: 9cb8ed487ad8fbc8b7d082968915c4fd
-download_dest: /tmp/qtip/images
+- name: create qtip stack
+  os_stack:
+    name: "{{ stack_name }}"
+    state: present
+    template: ../template/heat_template.yml
+    endpoint_type: admin
+    parameters:
+      image_name: "{{ image_name }}"
+      flavor_name: "{{ flavor_name }}"
+      net_name: "{{ net_name }}"
+      subnet_name: "{{ subnet_name }}"
+      instance_name: "{{ inst_name }}"
+    timeout: 600

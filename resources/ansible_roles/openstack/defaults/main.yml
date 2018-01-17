@@ -11,7 +11,9 @@
 
 stack_name: qtip_stack
 image_name: qtip_image
-flavor_name: m1.large
+flavor_name: qtip_flavor
 net_name: qtip_net
 subnet_name: qtip_subnet
-instance_name: qtip_vm
+inst_name: qtip
+image_url: https://cloud-images.ubuntu.com/releases/16.04/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img
+download_dest: /tmp/qtip/images

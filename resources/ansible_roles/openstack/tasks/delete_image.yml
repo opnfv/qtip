@@ -9,4 +9,9 @@
 
 ---
 
-- include_tasks: "{{ tasks }}.yml"
+- name: delete qtip image
+  os_image:
+    name: "{{ image_name }}"
+    state: absent
+    endpoint_type: admin
+

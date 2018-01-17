@@ -28,6 +28,8 @@ pyyaml = "*"
 humanfriendly = "*"
 asq = "*"
 requests = "*"
+python-openstackclient = "*"
+python-heatclient = "*"
 
 
 [requires]

@@ -22,3 +22,5 @@ project_template: 'compute'
 qtip_package: ../../..
 qtip_cache: .qtip-cache
 cwd: .
+
+sut_type: vnf # temporarily hardcode

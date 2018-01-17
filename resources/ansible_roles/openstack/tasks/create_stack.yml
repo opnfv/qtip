@@ -1,0 +1,59 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+# taseer94@gmail.com
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+---
+
+- name: create directories for image
+  file:
+    path: "{{ download_dest }}"
+    state: directory
+
+- name: download qtip image
+  get_url:
+    url: https://cloud-images.ubuntu.com/releases/16.04/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img
+    dest: "{{ download_dest }}"
+  when: "{{ image_url }}" == ""
+
+- name: download qtip image
+  get_url:
+    url: "{{ image_url }}"
+    dest: "{{ download_dest }}"
+  when: "{{ image_url }}" | search("https://")
+
+- name: upload qtip image
+  os_image:
+    auth:
+      auth_url: http://localhost/auth/v2.0
+      username: admin
+      password: passme
+      project_name: admin
+    name: "{{ image_name }}"
+    container_format: bare
+    disk_format: qcow2
+    state: present
+    filename: "{{ image_url }}"
+    kernel: cirros-vmlinuz
+    ramdisk: cirros-initrd
+    properties:
+      cpu_arch: x86_64
+      distro: ubuntu
+  when: "{{ image_url }}" | search("file://")
+
+- name: create qtip stack
+  os_stack:
+    name: "{{ stack_name }}"
+    state: present
+    template: heat_template.yml
+    parameters:
+      image_name: "{{ image_name }}"
+      flavor_name: "{{ flavor_name }}"
+      net_name: "{{ net_name }}"
+      subnet_name: "{{ subnet_name }}"
+      instance_name: "{{ inst_name }}"
+    timeout: 600

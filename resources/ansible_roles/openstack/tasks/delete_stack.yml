@@ -1,6 +1,6 @@
 ##############################################################################
-# Copyright (c) 2017 ZTE Corporation and others.
-# taseer94@gmail.com
+# Copyright (c) 2018 ZTE Corporation and others.
+# wu.zhihui1@zte.com.cn
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
 # which accompanies this distribution, and is available at
@@ -9,14 +9,7 @@
 
 ---
 
-- name: create qtip stack
+- name: cleanup qtip stack
   os_stack:
     name: "{{ stack_name }}"
-    state: present
-    template: heat_template.yml
-    parameters:
-      image_name: "{{ image_name }}"
-      flavor_name: "{{ flavor_name }}"
-      net_name: "{{ net_name }}"
-      subnet_name: "{{ subnet_name }}"
-      instance_name: "{{ inst_name }}"
+    state: absent

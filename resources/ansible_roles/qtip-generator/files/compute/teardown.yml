@@ -7,8 +7,18 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+{% if sut_type == 'vnf' %}
+- hosts: localhost
+  gather_facts: no
+  roles:
+    - { role: openstack, tasks: delete_stack }
+{% endif %}
+
 - hosts: SUT
 
   roles:
   # teardown environment
   - { role: qtip, tasks: teardown }
+
+
+

@@ -20,3 +20,5 @@
       net_name: "{{ net_name }}"
       subnet_name: "{{ subnet_name }}"
       instance_name: "{{ inst_name }}"
+    timeout: 600
+

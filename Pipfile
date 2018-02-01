@@ -28,6 +28,7 @@ pyyaml = "*"
 humanfriendly = "*"
 asq = "*"
 requests = "*"
+shade = "*"
 
 
 [requires]

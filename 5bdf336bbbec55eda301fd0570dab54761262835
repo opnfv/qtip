@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a3d3df0_c58685b8",
+        "filename": "resources/ansible_roles/openstack/tasks/create_image.yml",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2018-02-11T02:10:10Z",
+      "side": 1,
+      "message": "You may put this value in `defaults/main.yml`. That is where we specify the default value for Ansible roles.",
+      "revId": "5bdf336bbbec55eda301fd0570dab54761262835",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a3d3df0_e58bc9c0",
+        "filename": "resources/ansible_roles/openstack/tasks/create_image.yml",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2018-02-11T02:10:10Z",
+      "side": 1,
+      "message": "Can we give it a different name? It may help for troubleshooting.",
+      "revId": "5bdf336bbbec55eda301fd0570dab54761262835",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a3d3df0_2592d1f5",
+        "filename": "resources/ansible_roles/qtip-generator/defaults/main.yml",
+        "patchSetId": 10
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2018-02-11T02:10:10Z",
+      "side": 1,
+      "message": "Put a keyword like \"# TODO(zhihui)\" so that we can easily search for a todo list.",
+      "revId": "5bdf336bbbec55eda301fd0570dab54761262835",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

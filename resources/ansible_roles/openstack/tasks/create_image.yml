@@ -1,0 +1,32 @@
+##############################################################################
+# Copyright (c) 2018 ZTE Corporation and others.
+# taseer94@gmail.com
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+---
+
+- name: create directories for image
+  file:
+    path: "{{ download_dest }}"
+    state: directory
+
+- name: download image as qtip image
+  get_url:
+    url: "{{ image_url }}"
+    dest: "{{ download_dest }}/{{ image_name }}.img"
+    checksum: "md5:{{ checksum }}"
+  when: image_url | search("https://")
+
+- name: upload qtip image
+  os_image:
+    name: "{{ image_name }}"
+    container_format: bare
+    disk_format: qcow2
+    state: present
+    endpoint_type: admin
+    filename: "{{ download_dest }}/{{ image_name }}.img"
+

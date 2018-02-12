@@ -15,7 +15,7 @@
 - hosts: localhost
   gather_facts: no
   roles:
-    - { role: openstack, tasks: create_image }
+    - role: openstack
 {% endif %}
 
 {% if installer_type == 'manual' %}

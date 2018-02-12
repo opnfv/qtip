@@ -1,6 +1,6 @@
 ##############################################################################
 # Copyright (c) 2018 ZTE Corporation and others.
-#
+# taseer94@gmail.com
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
 # which accompanies this distribution, and is available at
@@ -9,9 +9,8 @@
 
 ---
 
-- include: create_flavor.yml
-- include: create_image.yml
-- include: create_stack.yml
-- include: delete_stack.yml
-- include: delete_flavor.yml
-- include: delete_image.yml
+- name: delete QTIP flavor
+  os_nova_flavor:
+    name: "{{ qtip_flavor }}"
+    endpoint_type: admin
+    state: absent

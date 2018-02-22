@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a3f45e8_b12b9a2f",
+        "filename": "resources/ansible_roles/openstack/tasks/main.yml",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2018-02-22T09:26:00Z",
+      "side": 1,
+      "message": "use import_tasks instead of include. The use of \u0027include\u0027 for tasks has been deprecated.",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 9
+      },
+      "revId": "59f2cb27430fcfcadaf56e8190ef86e0e26c860a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a3f45e8_510336b8",
+        "filename": "resources/ansible_roles/openstack/tasks/main.yml",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2018-02-22T09:26:00Z",
+      "side": 1,
+      "message": "Don\u0027t put the operation of stack in here now. It is not the scope of this patch.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "59f2cb27430fcfcadaf56e8190ef86e0e26c860a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a3f45e8_31002aaa",
+        "filename": "resources/ansible_roles/openstack/tasks/main.yml",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2018-02-22T09:26:00Z",
+      "side": 1,
+      "message": "Actually, we should delete them at the end of qtip test. so it seems we can not call OpenStack as the whole role.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 27
+      },
+      "revId": "59f2cb27430fcfcadaf56e8190ef86e0e26c860a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

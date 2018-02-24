@@ -1,9 +1,19 @@
+##############################################################################
+# Copyright (c) 2018 Spirent Communications and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
 
 from time import sleep
 import logging
 
 from stcv_stack import StcvStack
 from rfc2544test import StcRfc2544Test
+
 
 class NetTestMaster(object):
 
@@ -125,9 +135,9 @@ if __name__ == "__main__":
             'framesizes': [64, 128]
         }
         tc = nettest.execute_testcase(name='tc1',
-                                 category='rfc2544',
-                                 stack_id=stack.stack_id,
-                                 **tc_params)
+                                      category='rfc2544',
+                                      stack_id=stack.stack_id,
+                                      **tc_params)
 
         print "test case id is %s" % tc.id
 

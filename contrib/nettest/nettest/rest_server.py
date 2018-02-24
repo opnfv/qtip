@@ -1,3 +1,12 @@
+##############################################################################
+# Copyright (c) 2018 Spirent Communications and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
 
 import logging
 
@@ -14,6 +23,7 @@ api = swagger.docs(Api(app), apiVersion="1.0")
 
 stcv_master = NetTestMaster()
 
+
 @swagger.model
 class StackRequestModel:
     resource_fields = {
@@ -23,6 +33,7 @@ class StackRequestModel:
         "stack_params": fields.Nested,
     }
 
+
 @swagger.model
 class StackResponseModel:
     resource_fields = {
@@ -30,6 +41,7 @@ class StackResponseModel:
         'stack_created': fields.Boolean,
         "stack_id": fields.String
     }
+
 
 class Stack(Resource):
     def __init__(self):
@@ -138,6 +150,7 @@ class Stack(Resource):
         except Exception as e:
             abort(400, str(e))
 
+
 @swagger.model
 class TestcaseRequestModel:
     resource_fields = {
@@ -145,8 +158,8 @@ class TestcaseRequestModel:
         'category': fields.String,
         'stack_id': fields.String,
         'params': fields.Nested
-#        'type': fields.String,
-#        "packet_len": fields.List,
+        # 'type': fields.String,
+        # "packet_len": fields.List,
     }
 
 
@@ -158,6 +171,7 @@ class TestcaseResponseModel:
         'stack_id': fields.String,
         'tc_id': fields.String
     }
+
 
 class TestCase(Resource):
 
@@ -221,7 +235,6 @@ class TestCase(Resource):
         except Exception as err:
             abort(400, str(err))
 
-
     @swagger.operation(
         parameters=[
             {
@@ -256,7 +269,7 @@ parameters, only support rfc25cc test
             name = request.json['name']
             category = request.json['category']
             stack_id = request.json['stack_id']
-            #params = request.json['params']
+            # params = request.json['params']
             tc_id = stcv_master.execute_testcase(name=request.json['name'],
                                                  category=request.json['category'],
                                                  stack_id=request.json['stack_id'],
@@ -327,10 +340,7 @@ def execut_testcase():
     return []
 '''
 
-#with app.test_request_context():
-
 if __name__ == "__main__":
     logger = logging.getLogger("nettest").setLevel(logging.DEBUG)
 
-    app.run(host = "0.0.0.0", debug = True, threaded = True)
-
+    app.run(host="0.0.0.0", debug=True, threaded=True)

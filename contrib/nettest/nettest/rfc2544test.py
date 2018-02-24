@@ -1,3 +1,12 @@
+##############################################################################
+# Copyright (c) 2018 Spirent Communications and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
 
 import os
 import shutil
@@ -10,6 +19,7 @@ import threading
 from time import sleep
 
 from stcrestclient import stchttp
+
 
 class Stcv2Net1Stack(object):
     ADMIN_NETWORK_NAME = "admin"
@@ -87,7 +97,7 @@ spirent:
         stcv = self.conn.compute.create_server(
             name=name, image_id=image_id, flavor_id=flavor_id,
             networks=[{"uuid": self.admin_network.id}, {"uuid": self.tst_network.id}],
-            #scheduler_hints=[{"group": scheduler_hints.id}],
+            # scheduler_hints=[{"group": scheduler_hints.id}],
             config_drive=True,
             user_data=base64.encodestring(user_data)
         )
@@ -170,6 +180,7 @@ class StcSession:
             self.logger.info("delete session resp: %s", str(resp))
         return
 
+
 class StcRfc2544Test:
     """ RFC2544 test class"""
 
@@ -227,7 +238,7 @@ class StcRfc2544Test:
                         attributes={"server": license_server_addr})
         return
 
-    def create_project(self, traffic_custom = None):
+    def create_project(self, traffic_custom=None):
         self.project = self.stc.get("System1", "children-Project")
         # Configure any custom traffic parameters
         if traffic_custom == "cont":
@@ -255,8 +266,8 @@ class StcRfc2544Test:
                         attributes={"Addr": intf_addr, "Gateway": gateway_addr})
 
         # Create Devices using the Device Wizard
-        device_gen_config = self.stc.perform("DeviceGenConfigExpand",
-                                             params={"DeleteExisting": "No", "GenParams": device_gen_params})
+        self.stc.perform("DeviceGenConfigExpand",
+                         params={"DeleteExisting": "No", "GenParams": device_gen_params})
 
         return
 
@@ -290,8 +301,7 @@ class StcRfc2544Test:
         filec = os.path.join(results_path, csv_results_file_prefix + ".csv")
         with open(filec, "wb") as result_file:
             result_file.write(query_results["Columns"].replace(" ", ",") + "\n")
-            for row in (query_results["Output"].replace("} {", ",").
-                                replace("{", "").replace("}", "").split(",")):
+            for row in (query_results["Output"].replace("} {", ",").replace("{", "").replace("}", "").split(",")):
                 result_file.write(row.replace(" ", ",") + "\n")
 
     def format_result(self, metric, original_result_dict):
@@ -333,7 +343,7 @@ class StcRfc2544Test:
         if not os.path.exists(resultsdb):
             resultsdb = lab_server_resultsdb
             self.logger.info("Failed to create the local summary DB File, using"
-                         " the remote DB file instead.")
+                             " the remote DB file instead.")
         else:
             self.logger.info(
                 "The local summary DB file has been saved to %s", resultsdb)
@@ -367,7 +377,6 @@ class StcRfc2544Test:
 
         return
 
-
     def thread_entry(self):
         self.status = self.TC_STATUS_RUNNING
         try:
@@ -392,8 +401,6 @@ class StcRfc2544Test:
             # configure test port
             self.config_test_port(self.west_stcv_ip, 1, 1, self.west_stcv_tst_ip, self.east_stcv_tst_ip)
             self.config_test_port(self.east_stcv_ip, 1, 1, self.east_stcv_tst_ip, self.west_stcv_tst_ip)
-            #self.config_test_port(self.west_stcv_ip, 1, 1, "192.85.1.103", "192.85.1.3")
-            #self.config_test_port(self.east_stcv_ip, 1, 1, "192.85.1.3", "192.85.1.103")
 
             self.logger.info("config test port success, west_chassis_addr = %s, east_chassis_addr = %s.",
                              self.west_stcv_ip, self.east_stcv_ip)
@@ -421,7 +428,7 @@ class StcRfc2544Test:
 
     def execute(self):
 
-        self.executor = threading.Thread(name = 'rfc2544', target=self.thread_entry())
+        self.executor = threading.Thread(name='rfc2544', target=self.thread_entry())
         self.executor.start()
 
     def get_result(self):
@@ -444,7 +451,7 @@ class StcRfc2544Test:
 
     def delete_result(self):
         shutil.rmtree(self.results_dir)
-        #os.removedirs(self.results_dir)
+        # os.removedirs(self.results_dir)
         pass
 
     def cancel_run(self):
@@ -452,6 +459,7 @@ class StcRfc2544Test:
 
     def get_err_reason(self):
         return self.err_reason
+
 
 if __name__ == '__main__':
 

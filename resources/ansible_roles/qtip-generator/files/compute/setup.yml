@@ -12,10 +12,11 @@
 ---
 
 {% if sut_type == 'vnf' %}
+
 - hosts: localhost
   gather_facts: no
   roles:
-    - { role: openstack, tasks: create_image }
+    - { role: openstack, external_network: network_group[installer_type] }
 {% endif %}
 
 {% if installer_type == 'manual' %}

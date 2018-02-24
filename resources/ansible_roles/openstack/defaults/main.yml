@@ -16,5 +16,5 @@ net_name: qtip_net
 subnet_name: qtip_subnet
 inst_name: qtip
 image_url: https://cloud-images.ubuntu.com/releases/16.04/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img
-checksum: 9cb8ed487ad8fbc8b7d082968915c4fd
+checksum_url: https://cloud-images.ubuntu.com/releases/16.04/release/MD5SUMS
 download_dest: /tmp/qtip/images

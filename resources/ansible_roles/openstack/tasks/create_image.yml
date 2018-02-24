@@ -14,11 +14,11 @@
     path: "{{ download_dest }}"
     state: directory
 
-- name: download image as qtip image
+- name: download image as qtip image when giving a image downloading url
   get_url:
     url: "{{ image_url }}"
-    dest: "{{ download_dest }}/{{ image_name }}.img"
-    checksum: "md5:{{ checksum }}"
+    dest: "{{ download_dest }}/{{ image_name }}.img
+    checksum: "md5: {{ lookup('url', checksum_url) }}"
   when: image_url | search("https://")
 
 - name: upload qtip image

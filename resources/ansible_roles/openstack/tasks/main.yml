@@ -9,4 +9,78 @@
 
 ---
 
-- include_tasks: "{{ tasks }}.yml"
+- name: Delete QTIP stack
+  os_stack:
+    name: "{{ stack_name }}"
+    state: absent
+
+- name: Delete QTIP keypair
+  os_keypair:
+      name: QtipKey
+      state: absent
+
+- name: Delete QTIP flavor
+  os_nova_flavor:
+    name: "{{ flavor_name }}"
+    state: absent
+
+- name: Delete qtip image
+  os_image:
+    name: "{{ image_name }}"
+    state: absent
+
+- name: Create temp directory for QTIP
+  file:
+    path: "{{ temp_dir }}"
+    state: directory
+
+- name: Clean the existing SSH keypair
+  file:
+    state: absent
+    path: "{{ temp_dir }}/{{ item }}"
+  with_items:
+    - QtipKey.pub
+    - QtipKey
+
+- name: Generate a SSH key for QTIP VM
+  shell: ssh-keygen -t rsa -N "" -f "{{ temp_dir }}/QtipKey" -q
+
+- name: Create QTIP keypair
+  os_keypair:
+      name: QtipKey
+      public_key_file: "{{ temp_dir }}/QtipKey.pub"
+      state: present
+
+- name: Create QTIP flavor
+  os_nova_flavor:
+    name: "{{ flavor_name }}"
+    ram: 2048
+    vcpus: 3
+    disk: 4
+    state: present
+
+- name: Download image as qtip image
+  get_url:
+    url: "{{ image_url }}"
+    dest: "{{ temp_dir }}/{{ image_name }}.img"
+    checksum: "md5:{{ checksum }}"
+  when: image_url | search("https://")
+
+- name: Upload qtip image
+  os_image:
+    name: "{{ image_name }}"
+    container_format: bare
+    disk_format: qcow2
+    state: present
+    filename: "{{ temp_dir }}/{{ image_name }}.img"
+
+- name: create qtip stack
+  os_stack:
+    name: "{{ stack_name }}"
+    state: present
+    template: "{{ heat_template }}"
+    parameters:
+      image: "{{ image_name }}"
+      flavor: "{{ flavor_name }}"
+      keypair: QtipKey
+      external_network: "{{ external_network }}"

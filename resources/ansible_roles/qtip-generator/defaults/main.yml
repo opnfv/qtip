@@ -16,6 +16,10 @@ installer_group:
   apex: apex-underclouds
   mcp: salt-master
 
+network_group:
+  mcp: floating_net
+  apex: external
+
 project_name: 'qtip-project'
 project_template: 'compute'
 

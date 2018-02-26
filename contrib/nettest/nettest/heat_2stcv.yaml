@@ -60,7 +60,7 @@ resources:
     type: OS::Neutron::RouterInterface
     properties:
       router: {get_resource: public_router}
-      subnet: {get_resource: mgmt_net_subnet}  
+      subnet: {get_resource: mgmt_net_subnet}
   tst_net:
     type: OS::Neutron::Net
     properties:

@@ -21,7 +21,7 @@
       project_name: "{{ project_name }}"
       case_name: "{{ case_name }}"
       pod_name: "{{ pod_name }}"
-      installer: "{{ installer_type }}"
+      installer: "{{ installer_type_adapter[installer_type] }}"
       version: "{{ version }}"
       scenario: "{{ scenario }}"
       start_date: "{{ ansible_date_time.date }}"

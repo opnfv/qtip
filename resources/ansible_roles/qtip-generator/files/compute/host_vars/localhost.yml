@@ -14,3 +14,9 @@ case_name: "{{ case_name|default('compute') }}"
 pod_name: "{{ pod_name|default('qtip-pod') }}"
 scenario: "{{ scenario|default('generic') }}"
 version: "{{ lookup('env','OPNFV_RELEASE')|default('master') }}"
+
+installer_type_adapter:
+  fuel: fuel
+  mcp: fuel
+  apex: apex
+  manual: manual

@@ -1,70 +1,101 @@
 ##############################################################################
-# Copyright (c) 2017 ZTE Corporation and others.
-# taseer94@gmail.com
+# Copyright (c) 2018 ZTE Corporation and others.
+#
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Apache License, Version 2.0
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
-
----
-
 heat_template_version: 2015-04-30
 
-description: Simple template to deploy a single compute instance
+description: >
+  Used to run VMs for QTIP
 
 parameters:
-  image_name:
+  image:
     type: string
-    label: Image ID
-    description: Image to be used for compute instance
-    default: Ubuntu 16.04 x86_64
-  flavor_name:
+    description: Name of the image
+    default: qtip_image
+
+  flavor:
     type: string
-    label: Instance Type
-    description: Type of instance (flavor) to be used
-    default: m1.large
-  net_name:
+    description: Name of flavor
+    default: qtip_flavor
+
+  keypair:
     type: string
-    label: Test network name
-    description: The name of the stack's network
-    default: qtip_net
-  subnet_name:
+    description: Name of keypair
+    default: QtipKey
+
+  external_network:
     type: string
-    label: Test subnet name
-    description: The name of the stack's subnet
-    default: qtip_subnet
-  instance_name:
-    type: string
-    label: Test VM name
-    description: The name of the spawned vm
-    default: qtip_vm
+    description: Name of the external network
 
 resources:
-  private_net:
+
+  network:
     type: OS::Neutron::Net
     properties:
-      name: { get_param: net_name }
+      name: qtip_net
 
-  private_subnet:
+  subnet:
     type: OS::Neutron::Subnet
     properties:
-      name: { get_param: subnet_name }
-      network_id: { get_resource: private_net }
-      cidr: 10.0.0.0/24
+      name: qtip_subnet
+      ip_version: 4
+      cidr: 192.168.0.0/24
+      network: { get_resource: network }
+      dns_nameservers: [8.8.8.8]
 
-  server1_port:
-    type: OS::Neutron::Port
+  management_router:
+    type: OS::Neutron::Router
     properties:
-      network_id: { get_resource: private_net }
-      fixed_ips:
-        - subnet_id: { get_resource: private_subnet }
+      name: qtip_router
+      external_gateway_info:
+        network: { get_param: external_network }
 
-  my_instance:
+  management_router_interface:
+    type: OS::Neutron::RouterInterface
+    properties:
+      router: { get_resource: management_router }
+      subnet: { get_resource: subnet }
+
+  floating_ip:
+    type: OS::Neutron::FloatingIP
+    properties:
+      floating_network: { get_param: external_network }
+
+  floating_ip_association:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip }
+      server_id: { get_resource: qtip_instance }
+
+  security_group:
+    type: OS::Neutron::SecurityGroup
+    properties:
+      name: qtip_security_group
+      rules:
+          - port_range_min: 22
+            port_range_max: 5201
+            protocol: tcp
+          - port_range_min: 22
+            port_range_max: 5201
+            protocol: udp
+          - protocol: icmp
+
+  qtip_instance:
     type: OS::Nova::Server
+    depends_on: [subnet]
     properties:
-      name: { get_param: instance_name }
-      image: { get_param: image_name }
-      flavor: { get_param: flavor_name }
+      name: { get_param: "OS::stack_name" }
+      image: { get_param: image }
+      flavor: { get_param: flavor }
+      key_name: { get_param: keypair }
+      security_groups: [{ get_resource: security_group }]
       networks:
-        - port: { get_resource: server1_port }
+        - network: { get_resource: network }
+outputs:
+  instance_ip:
+    description: The IP address of the instance
+    value: { get_attr: [floating_ip, floating_ip_address] }

@@ -26,6 +26,3 @@ project_template: 'compute'
 qtip_package: ../../..
 qtip_cache: .qtip-cache
 cwd: .
-
-# TODO(zhihui) temporarily hardcode
-sut_type: vnf

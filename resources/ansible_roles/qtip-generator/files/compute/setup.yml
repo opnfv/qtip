@@ -11,7 +11,7 @@
 
 ---
 
-{% if sut_type == 'vnf' %}
+{% if sut == 'vnf' %}
 - hosts: localhost
   gather_facts: no
   roles:

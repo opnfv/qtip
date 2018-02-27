@@ -59,7 +59,11 @@ def cli():
               help='Host configured for ssh client or IP addresses and domain name')
 @click.option('--scenario',
               help='OPNFV scenario')
-def create(project_name, project_template, pod_name, installer_type, installer_host, scenario):
+@click.option('--sut',
+              prompt='System Under Test type',
+              help='Type of system can be vnf')
+def create(project_name, project_template, pod_name, installer_type, installer_host, scenario,
+           sut):
     qtip_generator_role = os.path.join(utils.QTIP_ANSIBLE_ROLES, 'qtip-generator')
     extra_vars = {
         'qtip_package': utils.QTIP_PACKAGE,
@@ -69,7 +73,8 @@ def create(project_name, project_template, pod_name, installer_type, installer_h
         'pod_name': pod_name,
         'installer_type': installer_type,
         'installer_host': installer_host,
-        'scenario': scenario
+        'scenario': scenario.
+        'sut': sut
     }
     os.system("ANSIBLE_ROLES_PATH={roles_path} ansible-playbook"
               " -i {hosts}"

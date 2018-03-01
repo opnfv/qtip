@@ -21,17 +21,18 @@ export TEST_SUITE='compute'
 export TESTAPI_URL=''
 export SSH_CREDENTIALS='/root/.ssh'
 export WORKSPACE=${WORKSPACE:-$(pwd)}
+export SUT='vnf'
 
 source ${script_dir}/utils/start_services.sh
 
 cd ${WORKSPACE}
 
 qtip_repo='/home/opnfv/repos/qtip'
-docker cp . ${TEST_SUITE}_qtip:${qtip_repo}
-docker exec ${TEST_SUITE}_qtip bash -c "cd ${qtip_repo} && pip install -U -e ."
+docker cp . ${TEST_SUITE}_qtip_${SUT}:${qtip_repo}
+docker exec ${TEST_SUITE}_qtip_${SUT} bash -c "cd ${qtip_repo} && pip install -U -e ."
 
-docker exec ${TEST_SUITE}_qtip bash -x ${qtip_repo}/qtip/scripts/quickstart.sh -u {SUT}
+docker exec ${TEST_SUITE}_qtip_${SUT} bash -x ${qtip_repo}/qtip/scripts/quickstart.sh -u "${SUT}"
 
-echo "QTIP: Verify ${TEST_SUITE} on ${SUT} done!"
+echo "QTIP: Verify ${TEST_SUITE} done!"
 
 exit 0

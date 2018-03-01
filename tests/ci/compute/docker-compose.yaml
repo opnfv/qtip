@@ -11,7 +11,7 @@ version: '2'
 services:
 
   qtip:
-    container_name: compute_qtip
+    container_name: compute_qtip_${SUT}
     image: opnfv/qtip:${DOCKER_TAG}
     env_file: ${ENV_FILE}
     volumes:

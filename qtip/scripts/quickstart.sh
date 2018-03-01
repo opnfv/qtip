@@ -13,7 +13,8 @@ set -o pipefail
 set -x
 
 usage(){
-   echo "usage: $0 -q <qtip_test_suite> -t <installer_type> -i <installer_ip> -p <pod_name> -s <scenario> -r <report_url>" >&2
+   echo "usage: $0 -q <qtip_test_suite> -t <installer_type> -i <installer_ip> -p <pod_name> -s <scenario> -r <report_url>
+   -u <sut>" >&2
 }
 
 verify_connectivity(){
@@ -56,7 +57,7 @@ test_suite=${test_suite:-$TEST_SUITE}
 pod_name=${pod_name:-$NODE_NAME}
 scenario=${scenario:-$SCENARIO}
 testapi_url=${testapi_url:-$TESTAPI_URL}
-sut=${sut:-host}
+sut=${sut:-node}
 
 # we currently support fuel, apex and mcp
 if [[ ! "$installer_type" =~ (fuel|apex|mcp) ]]; then
@@ -78,9 +79,9 @@ esac
 cd /home/opnfv
 
 qtip create --project-template ${test_suite} --pod-name ${pod_name} --installer-type ${installer_type} \
---installer-host ${installer_ip} --scenario ${scenario} --sut ${sut} ${test_suite}-${sut}
+--installer-host ${installer_ip} --scenario ${scenario} --sut ${sut} ${test_suite}
 
-cd ${test_suite}-${sut}
+cd ${test_suite}
 
 qtip setup
 eval `ssh-agent`

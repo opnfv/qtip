@@ -1,0 +1,11 @@
+# Connect to target node 
+
+{% for item in stack.stack.outputs %}
+{% if item.output_key == 'instance_ip' %}
+Host {{ item.output_value }}
+  HostName {{ item.output_value }}
+  User {{ ansible_user }}
+  IdentityFile {{ temp_dir }}/QtipKey
+{% endif %}
+
+{% endfor %}

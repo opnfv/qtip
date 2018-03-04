@@ -1,0 +1,17 @@
+localhost   ansible_connection=local
+
+[SUT:children]
+compute
+
+[node-groups:children]
+compute
+
+[node-groups:vars]
+ansible_ssh_common_args=-F ./ssh.cfg
+
+[compute]
+{% for item in stack.stack.outputs %}
+{% if item.output_key == 'instance_ip' %}
+{{item.output_value}}
+{% endif %}
+{% endfor %}

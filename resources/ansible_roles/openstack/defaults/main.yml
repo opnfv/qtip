@@ -16,3 +16,4 @@ temp_dir: /tmp/qtip
 flavor_name: qtip_flavor
 stack_name: qtip_stack
 image_name: qtip_image
+ansible_user: ubuntu

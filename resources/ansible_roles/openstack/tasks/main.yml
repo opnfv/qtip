@@ -84,3 +84,14 @@
       flavor: "{{ flavor_name }}"
       keypair: QtipKey
       external_network: "{{ external_network }}"
+  register: stack
+
+- name: generating inventory file
+  template:
+    src: hosts
+    dest: ./hosts
+
+- name: generating ssh.cfg
+  template:
+    src: ssh.cfg
+    dest: ./ssh.cfg

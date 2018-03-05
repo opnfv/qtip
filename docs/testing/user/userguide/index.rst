@@ -18,3 +18,5 @@ QTIP User Guide
    web.rst
    compute.rst
    storage.rst
+   network.rst
+   network_testcase_description.rst

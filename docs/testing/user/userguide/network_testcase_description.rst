@@ -1,8 +1,8 @@
+.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. http://creativecommons.org/licenses/by/4.0
+.. (c) 2018 ZTE Corp.
 .. Template to be used for test case descriptions in QTIP Project.
-   Write one .rst per test case.
-   Borrowed Heavily from Yardstick
-   Upload the .rst for the test case in /docs/ directory.
-   Review in Gerrit.
+
 
 Test Case Description
 =====================
@@ -43,4 +43,3 @@ Test Case Description
 +--------------+------+----------------------------------+--------------------+
 |test verdict  | expected behavior, or SLA, pass/fail criteria                |
 +--------------+--------------------------------------------------------------+
-

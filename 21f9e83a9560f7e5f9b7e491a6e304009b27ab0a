@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a3f45e8_1ee880b3",
+        "filename": "resources/ansible_roles/openstack/templates/hosts",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2018-03-05T14:56:36Z",
+      "side": 1,
+      "message": "Suggest to use .j2 or .jinja as file extension so that the editor may highlight the syntax.",
+      "revId": "21f9e83a9560f7e5f9b7e491a6e304009b27ab0a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a3f45e8_feecb4c9",
+        "filename": "resources/ansible_roles/openstack/templates/ssh.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2018-03-05T14:56:36Z",
+      "side": 1,
+      "message": "Suggest to use .j2 or .jinja as file extension so that the editor may highlight the syntax.",
+      "revId": "21f9e83a9560f7e5f9b7e491a6e304009b27ab0a",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

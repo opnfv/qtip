@@ -14,17 +14,20 @@
 {% if sut == 'vnf' %}
 - hosts: localhost
   gather_facts: no
-  roles:
-    - { role: openstack, external_network: {{ network_group[installer_type] }}, heat_template: heat_template.yml }
-{% endif %}
+    roles:
+	    - { role: openstack, external_network: {{ network_group[installer_type] }}, heat_template: heat_template.yml }
+
+{% elif sut == 'node' %}
 
 {% if installer_type == 'manual' %}
 - hosts: localhost
   gather_facts: no
-  tasks:
-    - debug: "msg='please add hosts to SUT group in `hosts` file manually.'"
+    tasks:
+	    - debug: "msg='please add hosts to SUT group in `hosts` file manually.'"
 {% else %}
 - hosts: [{{ installer_group[installer_type] }}]
   roles:
-    - { role: qtip, tasks: generate-inventory }
+      - { role: qtip, tasks: generate-inventory }
 {% endif %}
+{% endif %}
+

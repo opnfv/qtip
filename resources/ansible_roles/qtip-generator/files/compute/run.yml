@@ -18,6 +18,16 @@
 
 - hosts: SUT
 
+{% if sut == 'vnf' %}
+  gather_facts: no
+  pre_tasks:
+    - name: check whether install python 2 in target
+      become: yes
+      raw: test -e /usr/bin/python || (apt-get -y update && apt-get install -y python-minimal)
+    - name: gather facts
+      setup:
+{% endif %}
+
   roles:
   # prepare environment
   - { role: qtip, tasks: setup-node, tags: [setup] }

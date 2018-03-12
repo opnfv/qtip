@@ -15,7 +15,7 @@ Test Case Description
 |metric        | rfc2544 throughput                                           |
 +--------------+--------------------------------------------------------------+
 |test purpose  | get the max throughput of the pathway on same host or accross|
-               | hosts                                                        |
+|              | hosts                                                        |
 +--------------+--------------------------------------------------------------+
 |configuration | None                                                         |
 +--------------+--------------------------------------------------------------+
@@ -56,7 +56,7 @@ Test Case Description
 |metric        | rfc2544 lantency                                             |
 +--------------+--------------------------------------------------------------+
 |test purpose  | get the latency value of the pathway on same host or accross |
-               | hosts                                                        |
+|              | hosts                                                        |
 +--------------+--------------------------------------------------------------+
 |configuration | None                                                         |
 +--------------+--------------------------------------------------------------+

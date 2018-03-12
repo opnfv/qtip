@@ -17,6 +17,7 @@
 
 
 - hosts: SUT
+  gather_facts: no
 
   roles:
   # prepare environment

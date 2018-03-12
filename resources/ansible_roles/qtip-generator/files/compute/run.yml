@@ -17,6 +17,16 @@
 
 
 - hosts: SUT
+  gather_facts: no
+  pre_tasks:
+    - name: Wait 600 seconds for target connection to become reachable/usable
+      wait_for_connection:
+      when: sut == vnf
+    - name: check whether install python 2 in target
+      raw: test -e /usr/bin/python || (apt-get -y update && apt-get install -y python-minimal)
+      when: sut == vnf
+    - name: gather facts
+      setup:
 
   roles:
   # prepare environment

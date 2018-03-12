@@ -95,9 +95,3 @@
   template:
     src: ssh.cfg.j2
     dest: ./ssh.cfg
-
-- name: Wait 600 seconds for target connection to become reachable/usable
-  wait_for_connection:
-
-- name: install python 2
-  raw: test -e /usr/bin/python || (apt-get -y update && apt-get install -y python-minimal)

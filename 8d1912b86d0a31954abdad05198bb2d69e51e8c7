@@ -22,6 +22,30 @@
       "revId": "8d1912b86d0a31954abdad05198bb2d69e51e8c7",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a3f45e8_78754597",
+        "filename": "resources/ansible_roles/openstack/tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2018-03-13T02:10:15Z",
+      "side": 1,
+      "message": "It is a default value. http://docs.ansible.com/ansible/latest/wait_for_connection_module.html#options",
+      "parentUuid": "5a3f45e8_d83579dc",
+      "range": {
+        "startLine": 99,
+        "startChar": 13,
+        "endLine": 99,
+        "endChar": 16
+      },
+      "revId": "8d1912b86d0a31954abdad05198bb2d69e51e8c7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

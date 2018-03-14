@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a3f45e8_443500d9",
+        "filename": "contrib/nettest_client/nettest_client.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2018-03-14T01:18:20Z",
+      "side": 1,
+      "message": "can you tell me the range values for tc_name, metric_type and framesize?",
+      "revId": "2c2a725d1834b1a2435a57629a7216f3a82837b6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a3f45e8_441ea064",
+        "filename": "contrib/nettest_client/nettest_client.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2018-03-14T01:18:20Z",
+      "side": 1,
+      "message": "what is it used for? why should the test case be deleted?",
+      "revId": "2c2a725d1834b1a2435a57629a7216f3a82837b6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a3f45e8_2430b4e7",
+        "filename": "contrib/nettest_client/nettest_client.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2018-03-14T01:18:20Z",
+      "side": 1,
+      "message": "It would be better to write the result to a specified file.",
+      "revId": "2c2a725d1834b1a2435a57629a7216f3a82837b6",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

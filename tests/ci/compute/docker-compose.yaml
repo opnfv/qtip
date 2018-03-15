@@ -16,3 +16,4 @@ services:
     env_file: ${ENV_FILE}
     volumes:
       - ${SSH_CREDENTIALS}:/root/.ssh
+      - ${IMAGE_DIR}:/tmp

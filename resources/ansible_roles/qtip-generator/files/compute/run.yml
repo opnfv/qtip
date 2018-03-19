@@ -21,9 +21,11 @@
 {% if sut == 'vnf' %}
   gather_facts: no
   pre_tasks:
-    - name: check whether install python 2 in target
+    - name: check whether install python 2.x in remote target
       become: yes
-      raw: test -e /usr/bin/python || (apt-get -y update && apt-get install -y python-minimal)
+      raw: test -e /usr/bin/python || (apt-get -y update && apt-get -y update && apt-get install -y python2.7 python-minimal)
+      register: rs
+      changed_when: rs.stdout
     - name: gather facts
       setup:
 {% endif %}

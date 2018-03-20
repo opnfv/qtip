@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a3f45e8_4c323911",
+        "filename": "resources/ansible_roles/qtip-generator/files/compute/run.yml",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2018-03-20T03:16:56Z",
+      "side": 1,
+      "message": "Why repeating?",
+      "range": {
+        "startLine": 26,
+        "startChar": 57,
+        "endLine": 26,
+        "endChar": 78
+      },
+      "revId": "e9c4a41559d01d388dbf2edd5b3416371bf9a5ed",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

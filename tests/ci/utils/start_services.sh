@@ -19,6 +19,7 @@ OPNFV_RELEASE=${OPNFV_RELEASE:-}
 EOF
 
 export SSH_CREDENTIALS=${SSH_CREDENTIALS:-/root/.ssh}
+export IMAGE_DIR=${IMAGE_DIR:-$HOME/tmp}
 
 TMPFILE=`mktemp /tmp/qtip.XXXXXX` || exit 1
 curl https://git.opnfv.org/releng/plain/utils/fetch_os_creds.sh | bash -s -- \

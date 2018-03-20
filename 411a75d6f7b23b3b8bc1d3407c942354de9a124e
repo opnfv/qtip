@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a3f45e8_572486ae",
+        "filename": "contrib/nettest/nettest/rest_server.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2018-03-20T05:42:51Z",
+      "side": 1,
+      "message": "You can still use 5000. Please refer to this patch https://gerrit.opnfv.org/gerrit/#/c/54143/",
+      "range": {
+        "startLine": 351,
+        "startChar": 28,
+        "endLine": 351,
+        "endChar": 38
+      },
+      "revId": "411a75d6f7b23b3b8bc1d3407c942354de9a124e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

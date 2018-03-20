@@ -20,9 +20,6 @@ from keystoneauth1 import session
 class StcvStack(object):
     STCV_CONFIG_FILE = 'stcv_config_file'
     STCV_HEAT_FILE = './heat_2stcv.yaml'
-    STCV_USER_DATA = '''#cloud-config
-    spirent:
-        ntp: '''
 
     def __init__(self, name, **kwargs):
         self.logger = logging.getLogger(__name__)
@@ -63,12 +60,6 @@ class StcvStack(object):
         self._heat_client = heatclient.Client("1", session=sess)
 
     def _make_parameters(self):
-        user_data = self.STCV_USER_DATA + self.ntp_server_ip
-        file_path = os.getcwd() + '/' + self.STCV_CONFIG_FILE
-        fd = open(file_path, 'w')
-        fd.writelines(user_data)
-        fd.close()
-
         return {
             'public_net_name': self.pub_net_name,
             'stcv_image': self.stcv_image,

@@ -200,14 +200,14 @@ class StcRfc2544Test:
 
     default_additional_params = {
         "AcceptableFrameLoss": 0.0,
-        "Duration": 60,
+        "Duration": 30,
         "FrameSizeList": 64,
         "LearningMode": 'AUTO',
         "NumOfTrials": 1,
-        "RateInitial": 99.0,
-        "RateLowerLimit": 99.0,
-        "RateStep": 10.0,
-        "RateUpperLimit": 99.0,
+        # "RateInitial": 99.0,
+        # "RateLowerLimit": 99.0,
+        # "RateStep": 10.0,
+        # "RateUpperLimit": 99.0,
         "Resolution": 1.0,
         "SearchMode": 'BINARY',
         "TrafficPattern": 'PAIR'

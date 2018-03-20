@@ -38,7 +38,7 @@ RUN pip install -U pip \
     && pip install -r $DOCKYARD_SRCPROJ/requirements.txt
 
 # Port to expose
-EXPOSE 5001
+EXPOSE 5000
 
 # Copy entrypoint script into the image
 WORKDIR $DOCKYARD_SRCPROJ

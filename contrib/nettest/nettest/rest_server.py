@@ -7,9 +7,10 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+import os
 import logging
 
-from flask import Flask, abort, jsonify, request
+from flask import Flask, abort, jsonify, request, send_from_directory
 from flask_cors import CORS
 from flask_restful import Api, Resource, fields
 from flask_restful_swagger import swagger
@@ -21,6 +22,13 @@ CORS(app)
 api = swagger.docs(Api(app), apiVersion="1.0")
 
 stcv_master = NetTestMaster()
+
+
+@app.route("/tc_results/<tc_id>", methods=["GET"])
+def download_result_file(tc_id):
+    directory = os.getcwd() + "/tc_results/rfc2544/" + tc_id
+    files = os.listdir(directory)
+    return send_from_directory(directory, files[0], as_attachment=True)
 
 
 @swagger.model
@@ -340,4 +348,4 @@ def execut_testcase():
 if __name__ == "__main__":
     logger = logging.getLogger("nettest").setLevel(logging.DEBUG)
 
-    app.run(host="0.0.0.0", debug=True, threaded=True)
+    app.run(host="0.0.0.0", port=5001, debug=True, threaded=True)

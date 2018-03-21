@@ -15,6 +15,8 @@ source ${script_dir}/utils/start_services.sh
 
 if [[ "${TEST_SUITE}" =~ "compute" ]];then
     docker exec ${TEST_SUITE}_qtip_${SUT} bash -x /home/opnfv/repos/qtip/qtip/scripts/quickstart.sh -u "${SUT}"
+elif [[ "${TEST_SUITE}" =~ "network" ]];then
+    :
 else
     docker exec ${TEST_SUITE}_qtip bash -x /home/opnfv/repos/qtip/qtip/scripts/quickstart.sh
 fi

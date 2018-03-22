@@ -16,6 +16,24 @@
       "revId": "eae8bb50d94563d568d92ff70f25f6b2a02d94f5",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a3f45e8_82b405d2",
+        "filename": "resources/ansible_roles/qtip-generator/files/compute/run.yml",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1469
+      },
+      "writtenOn": "2018-03-22T00:50:08Z",
+      "side": 1,
+      "message": "OK, I will add a comment here.",
+      "parentUuid": "5a3f45e8_6c13b0b8",
+      "revId": "eae8bb50d94563d568d92ff70f25f6b2a02d94f5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }

@@ -146,19 +146,20 @@ class NettestClient(object):
         return ret
 
 
-if __name__ == "__main__":
+def run(name, stack_type, public_network_name, stcv_affinity, stcv_image, stcv_flavor,
+        lab_server_ip, license_server_ip):
 
     nc = NettestClient(rest_server_ip="127.0.0.1", port=5000, version="1.0")
 
     stack_params = {
-        "name": 's2',
-        "stack_type": "stcv",
-        "public_network_name": "public",
-        "stcv_affinity": True,
-        "stcv_image": "STCv-4.80.2426",
-        "stcv_flavor": "small.shared",
-        "lab_server_ip": '10.61.67.53',
-        "license_server_ip": '10.140.88.61',
+        "name": name,
+        "stack_type": stack_type,
+        "public_network_name": public_network_name,
+        "stcv_affinity": stcv_affinity,
+        "stcv_image": stcv_image,
+        "stcv_flavor": stcv_flavor,
+        "lab_server_ip": lab_server_ip,
+        "license_server_ip": license_server_ip,
     }
 
     stack_id = nc.create_stack(**stack_params)

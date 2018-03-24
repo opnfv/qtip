@@ -146,7 +146,7 @@ class NettestClient(object):
         return ret
 
 
-if __name__ == "__main__":
+def run():
 
     nc = NettestClient(rest_server_ip="127.0.0.1", port=5001, version="1.0")
 

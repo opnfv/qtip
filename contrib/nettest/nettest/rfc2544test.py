@@ -198,7 +198,7 @@ class StcRfc2544Test:
     TC_STATUS_FINISHED = 'finished'
     TC_STATUS_ERROR = 'error'
 
-    default_additional_params = {
+    throughput_additional_params = {
         "AcceptableFrameLoss": 0.0,
         "Duration": 30,
         "FrameSizeList": 64,
@@ -210,6 +210,21 @@ class StcRfc2544Test:
         # "RateUpperLimit": 99.0,
         "Resolution": 1.0,
         "SearchMode": 'BINARY',
+        "TrafficPattern": 'PAIR'
+    }
+
+    latency_additional_params = {
+        "Duration": 30,
+        "ExecuteSynchronous": True,
+        "FrameSizeList": 64,
+        "LearningMode": 'AUTO',
+        # "LoadType": 'STEP',
+        # "LoadStart": 10.0,
+        # "LoadEnd": 100.0,
+        # "LoadStep": 10.0,
+        "LoadList": [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+        "LoadUnits": "PERCENT_LINE_RATE",
+        "NumOfTrials": 1,
         "TrafficPattern": 'PAIR'
     }
 
@@ -228,7 +243,12 @@ class StcRfc2544Test:
         self.east_stcv_tst_ip = east_stcv_tst_ip
         self.stack_id = stack_id
         self.metric = kwargs.get('metric')
-        self.additional_params = copy.copy(self.default_additional_params)
+        if self.metric == 'throughput':
+            self.additional_params = copy.copy(self.throughput_additional_params)
+        elif self.metric == 'latency':
+            self.additional_params = copy.copy(self.latency_additional_params)
+        else:
+            raise Exception('invalid metric, metric = ' + self.metric)
         self.additional_params['FrameSizeList'] = kwargs.get('framesizes')
 
         self.tc_id = str(uuid.uuid4())
@@ -372,12 +392,12 @@ class StcRfc2544Test:
             resultsdict = self.stc.perform("QueryResult",
                                            params={
                                                "DatabaseConnectionString": lab_server_resultsdb,
-                                               "ResultPath": "RFC2544LatencyTestResultDetailedSummaryView"})
+                                               "ResultPath": "RFC2544FrameLossTestResultDetailedSummaryView"})
         elif self.metric == "latency":
             resultsdict = self.stc.perform("QueryResult",
                                            params={
                                                "DatabaseConnectionString": lab_server_resultsdb,
-                                               "ResultPath": "RFC2544FrameLossTestResultDetailedSummaryView"})
+                                               "ResultPath": "RFC2544LatencyTestResultDetailedSummaryView"})
         else:
             raise Exception("invalid rfc2544 test metric.")
 

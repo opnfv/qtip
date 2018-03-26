@@ -129,7 +129,7 @@ class NettestClient(object):
                     response = requests.get(url)
                     if requests.codes.ok == response.status_code:
                         self.write_log("get tc result success")
-                        with open(os.getcwd() + "/" + tc_id, "w") as fd:
+                        with open(os.getcwd() + "/" + tc_id + ".csv", "w") as fd:
                             fd.write(response.content)
                         break
                         ret = True
@@ -148,10 +148,10 @@ class NettestClient(object):
 
 if __name__ == "__main__":
 
-    nc = NettestClient(rest_server_ip="127.0.0.1", port=5001, version="1.0")
+    nc = NettestClient(rest_server_ip="127.0.0.1", port=5000, version="1.0")
 
     stack_params = {
-        "name": 's1',
+        "name": 's2',
         "stack_type": "stcv",
         "public_network_name": "public",
         "stcv_affinity": True,
@@ -173,7 +173,7 @@ if __name__ == "__main__":
         "stack_id": stack_id,
         "tc_name": "tc1",
         "metric_type": "throughput",
-        "framesizes": [64, 128, 256, 512, 1024]
+        "framesizes": [64]
     }
     tc_id = nc.run_rfc2544_testcase(**tc_params)
     if tc_id is None:

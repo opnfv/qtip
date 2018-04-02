@@ -1,0 +1,8 @@
+Verified+1: jenkins-ci <jenkins-opnfv-ci@opnfv.org>
+Code-Review+1: Yujun Zhang <zhang.yujunz@zte.com.cn>
+Code-Review+2: zhihui wu <wu.zhihui1@zte.com.cn>
+Submitted-by: zhihui wu <wu.zhihui1@zte.com.cn>
+Submitted-at: Mon, 02 Apr 2018 08:22:29 +0000
+Reviewed-on: https://gerrit.opnfv.org/gerrit/54459
+Project: qtip
+Branch: refs/heads/master

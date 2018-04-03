@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a3f45e8_d82f10f5",
+        "filename": "qtip/ansible_library/modules/nettest.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 7219
+      },
+      "writtenOn": "2018-04-03T02:44:28Z",
+      "side": 1,
+      "message": "no need for name, stack_type, affinity attributes, I will construct them in client code",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 46
+      },
+      "revId": "d1d286c4d346f63d856c248e0323ddcfe142d759",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a3f45e8_183a1836",
+        "filename": "qtip/ansible_library/modules/nettest.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 7219
+      },
+      "writtenOn": "2018-04-03T02:44:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 80,
+        "startChar": 66,
+        "endLine": 87,
+        "endChar": 83
+      },
+      "revId": "d1d286c4d346f63d856c248e0323ddcfe142d759",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

@@ -15,8 +15,5 @@ QTIP User Guide
    getting-started.rst
    cli.rst
    api.rst
-   web.rst
    compute.rst
    storage.rst
-   network.rst
-   network_testcase_description.rst

@@ -1,0 +1,97 @@
+{
+    "compute": {
+        "dhrystone_bm": {
+            "multi_cpu": 103362.1, 
+            "single_cpu": 3231.7
+        }, 
+        "dhrystone_vm": {
+            "multi_cpu": 10585.8, 
+            "single_cpu": 2953.6
+        }, 
+        "dpi_bm": 8.12, 
+        "dpi_vm": 22.12, 
+        "ramspeed_bm": {
+            "FLOATmem": {
+                "Average (MB/s)": 9758.79
+            }, 
+            "INTmem": {
+                "Average (MB/s)": 12268.38
+            }
+        }, 
+        "ramspeed_vm": {
+            "FLOATmem": {
+                "Average (MB/s)": 9064.09
+            }, 
+            "INTmem": {
+                "Average (MB/s)": 12147.59
+            }
+        }, 
+        "ssl_bm": {
+            "AES": {
+                "1024B": 808861020, 
+                "16B": 735490250, 
+                "256B": 803323650, 
+                "64B": 788429210, 
+                "8192B": 807701160
+            }, 
+            "RSA": {
+                "1024b": 7931.44, 
+                "2048b": 1544.3, 
+                "4096b": 161.92, 
+                "512b": 22148.9
+            }
+        }, 
+        "ssl_vm": {
+            "AES": {
+                "1024B": 808861020, 
+                "16B": 735490250, 
+                "256B": 803323650, 
+                "64B": 788429210, 
+                "8192B": 807701160
+            }, 
+            "RSA": {
+                "1024b": 7931.44, 
+                "2048b": 1544.3, 
+                "4096b": 161.92, 
+                "512b": 22148.9
+            }
+        }, 
+        "whetstone_bm": {
+            "multi_cpu": 41483.3, 
+            "single_cpu": 806.1
+        }, 
+        "whetstone_vm": {
+            "multi_cpu": 2950.6, 
+            "single_cpu": 789.0
+        }
+    }, 
+    "network": {
+        "iperf_bm": {
+            "throughput received(b/s)": 944473000.0
+        }, 
+        "iperf_vm": {
+            "throughput received(b/s)": 14416700000.0
+        }, 
+        "iperf_vm_2": {
+            "throughput received(b/s)": 2461530000.0
+        }
+    }, 
+    "storage": {
+        "fio_bm": {
+            "read": {
+                "IOPS": 6693
+            }, 
+            "write": {
+                "IOPS": 6688
+            }
+        }, 
+        "fio_vm": {
+            "read": {
+                "IOPS": 2239
+            }, 
+            "write": {
+                "IOPS": 2237
+            }
+        }
+    }
+}

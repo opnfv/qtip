@@ -1,0 +1,170 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+ - hosts: localhost
+   connection: local
+   gather_facts: no
+
+   tasks:
+    - name: making Iperf directory
+      file: path={{Dest_dir}}/iperf state=directory
+
+    - name: making temporary iperf directory
+      file: path={{Dest_dir}}/iperf/iperf_temp state=directory
+
+
+ - hosts: "{{role}}"
+   become: yes
+   remote_user: "{{username}}"
+
+   tasks:
+    - name: Rolename
+      set_fact:
+        rolename: "{{role}}"
+        when: role is defined
+
+    - name: installertype
+      set_fact:
+        installertype: "{{installer}}"
+
+    - name: Get Hostname
+      shell: echo $HOSTNAME
+      register: hostID
+
+    - name: echo
+      shell: echo index_var
+
+    - name: checking home directory
+      shell: echo $HOME
+      register: home_dir
+
+    - name: cleaning iperf directory
+      file: path={{home_dir.stdout}}/iperf state=absent
+
+    - name: cleaning previous results
+      file: path={{home_dir.stdout}}/qtip_result state=absent
+
+    - name: making Iperf temporary directory
+      file: path={{home_dir.stdout}}/iperf state=directory
+
+    - name: making results temporary directory
+      file: path={{home_dir.stdout}}/qtip_result state=directory
+
+    - include: ./common/sys_proxy_pbook.yaml
+
+    - include: ./common/sys_info_pbook.yaml
+      vars:
+        network: true
+
+    - name: Installing Epel-release when CentOS
+      shell: sudo yum install epel-release -y
+      when: ansible_os_family == "RedHat"
+
+    - name: Allow iperf server port in iptables input rules
+      shell: iptables -A INPUT -p tcp --dport {{iperf_port}} -j ACCEPT
+      vars:
+        iperf_port: 5201
+      ignore_errors: yes
+      when: rolename == "1-server" and installertype == 'fuel'
+
+    - name: Installing IPERF when Ubuntu
+      shell: sudo apt-get install iperf3 -y
+      when: ansible_os_family == "Debian"
+
+    - name: Installing Iperf3
+      shell: sudo yum install iperf3 -y
+      when: ansible_os_family == "RedHat"
+
+    - name: Running iperf on server
+      shell: iperf3 -s
+      async: 400
+      poll: 0
+      when: rolename == "1-server"
+
+    - name: Running Iperf on Host
+      shell: iperf3  --time {{duration}} -b 0 G -c {{ip1}} -J -O10 >> {{home_dir.stdout}}/qtip_result/iperf_raw.json
+      ignore_errors: yes
+      with_items:
+        - "{{ip1}}"
+      when: rolename == "2-host" and "{{privateip1}}" == "NONE"
+
+    - name: Running Iperf on Host
+      shell: iperf3  --time {{duration}} -b 0 G -c {{privateip1}} -J -O10 >> {{home_dir.stdout}}/qtip_result/iperf_raw.json
+      ignore_errors: yes
+      with_items:
+        - "{{ip1}}"
+      when: rolename == "2-host" and "{{privateip1}}" != "NONE"
+
+    - name: Fetching result transformation script
+      copy: src={{workingdir}}/qtip/utils/transform/iperf_transform.py dest={{home_dir.stdout}}/qtip_result
+    - name: Transforming result
+
+      shell: cd $HOME/qtip_result  &&  sudo python iperf_transform.py
+      when: rolename =="2-host" and "{{ip2}}" == ''
+
+    - name: copy report formation script
+      copy: src={{workingdir}}/qtip/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+      when: rolename =="2-host" and "{{ip2}}" == ''
+
+    - name: consolidating report
+      shell: cd $HOME/qtip_result &&  sudo python final_report.py IPERF {{fname}}
+      when: rolename =="2-host" and "{{ip2}}" == ''
+
+    - name: Files to Copy
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
+      register: files_to_copy
+      when: rolename =="2-host" and "{{ip2}}" == ''
+    
+    - name: copy results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/iperf/iperf_temp
+      with_items: "{{files_to_copy.stdout_lines}}"
+      when: rolename =="2-host" and "{{ip2}}" == ''
+
+    - name: registering log files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
+      register: copy_log_results
+      when: rolename =="2-host" and "{{ip2}}" == ''
+
+    - name: copying log results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/iperf/iperf_temp
+      with_items: "{{copy_log_results.stdout_lines}}"
+      when: rolename =="2-host" and "{{ip2}}" == ''
+
+    - name: cleaning iperf directory
+      file: path={{home_dir.stdout}}/iperf state=absent
+
+    - name: cleaning previous results
+      file: path={{home_dir.stdout}}/qtip_result state=absent
+
+ - hosts: localhost
+   connection: local
+   gather_facts: no
+
+   tasks:
+    - name: Rolename
+      set_fact:
+        rolename: "{{role}}"
+        when: role is defined
+
+    - name: extracting_json
+      shell: (find {{Dest_dir}}/iperf/iperf_temp/ -name "*.json" | xargs cp -t {{Dest_dir}}/iperf/)
+      when: rolename == "2-host"
+
+    - name: making_logs_folder
+      file: path={{Dest_dir}}/iperf/logs state=directory
+
+    - name: extracting_log
+      shell: ( find {{Dest_dir}}/iperf/iperf_temp/ -name "*.log" | xargs cp -t {{Dest_dir}}/iperf/logs)
+      when: rolename == "2-host"
+
+    - name: removing iperf_raw file
+      file: path={{Dest_dir}}/iperf/iperf_raw.json state=absent
+      when: rolename == "2-host"
+
+    - name: removing iperf_temp
+      file: path={{Dest_dir}}/iperf/iperf_temp state=absent

@@ -1,0 +1,58 @@
+##############################################################################
+# Copyright (c) 2016 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+ ## This is a sample Config.yaml file
+
+#Scenario would define the test case scenario.
+#The benchmark key contains the benchmark to run such as dhrystone,whetstone,dpi,ssh etc.
+# Host and server list the different machines on which the benchmark would run.
+# On machines listed within hosts, the benchmarks would run in parallel.
+# On machines listed within server, the benchmarks would run when the benechmarks running on hosts have been completed.
+# This has been used  to control the folow of the testcase. For example, running the testcases on a vm vs hostmachin, we would like to run the test case serially. It should run first on the host machine and then on the vm. This testcase flow control could be used for other testcases to be developed such as those for networking.
+Scenario:
+  benchmark: dhrystone
+  host: machine_1, machine_2, virtualmachine_1
+  server:
+
+
+#Context would define the environment on which to run:
+#Host Machine keys would contain Host_Machines/ Baremetal machines to run the benchmarks on
+#e.g  in Host Machine , machine_1 and machine_2 are the bare metal machines. For each baremetal machine its IP(which should be reachable from the location on which you run QTIP), passwords and its role(host or server). If your installer is 'fuel' or 'compass' and you left baremetal machine IP empty,qtip will get compute node ip from installer automaticly.
+Context:
+  Host_Machines:
+    machine_1:
+      ip: 172.18.0.16
+      pw: Op3nStack
+      role: host
+  Virtual_Machines:
+    virtualmachine_1:
+      availability_zone: nova
+      public_network: 'net04_ext'
+      OS_image: QTIP_CentOS
+      flavor: m1.large
+      role: server
+#Proxy_Environment key was optional.If all the Machines could access the public network, no need to define Proxy_Environment.Could be used later for getting http,https proxy infos which would be setted on all the Host_Manchines and Virtual_Machines.
+  Proxy_Environment:
+    http_proxy: http://10.20.0.1:8118
+    https_proxy: http://10.20.0.1:8118
+    no_proxy: localhost,127.0.0.1,10.20.*,192.168.*
+
+# A general description of the testcase. Could be used later for reports.
+Test_Description:
+  Test_category: "Compute"
+  Benchmark: "dhrystone"
+  Overview: >
+        ''' This test will run the dhrystone benchmark in serial on machine_1 and machine_2.\n
+         if you wish to add a virtual machine add the following information under the Virtual_Machine tag
+
+        virtualmachine_1:
+          availability_zone:
+          public_network:
+          OS_image:
+          flavor:
+          role: '''

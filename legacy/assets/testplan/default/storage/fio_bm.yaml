@@ -1,0 +1,47 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+Scenario:
+  benchmark: fio
+  host: machine_1, machine_2
+  server:
+
+Context:
+  Host_Machines:
+    machine_1:
+      ip:
+      pw:
+      role: host
+    machine_2:
+      ip:
+      pw:
+      role: host
+
+
+  Virtual_Machines:
+
+
+Test_Description:
+  Test_category: "Storage"
+  Benchmark: "FIO"
+  Overview: >
+        '''This test will run the FIO  benchmark in parallel on host machines "machine_1" and "machine_2".\n
+         The fio job specifications can be found in qtip/benchmarks/fio_jobs/test_job.
+         The job conists of an fio load of:
+          1.50% rand read 50% rand write
+          2.Asynch engine
+          3.Direct IO.
+          4.Queing depth of 2
+
+         if you wish to add another  machine add the following information under the Host_Machines tag
+         machine_3:
+         ip: 172.18.0.16
+         pw: Op3nStack
+         role: host
+         '''
+

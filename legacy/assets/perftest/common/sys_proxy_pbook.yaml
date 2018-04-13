@@ -1,0 +1,61 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+#env
+- name: insert shell proxy http
+  lineinfile: dest=/etc/profile.d/proxy.sh state=present create=yes owner=root group=root mode=0644 regexp="export http_proxy={{ http_proxy }}"
+              insertafter=EOF line="export http_proxy={{ http_proxy }}"
+  when: http_proxy is defined
+  ignore_errors: yes
+
+- name: insert shell proxy https
+  lineinfile: dest=/etc/profile.d/proxy.sh state=present create=yes owner=root group=root mode=0644 regexp="export https_proxy={{ https_proxy }}"
+              insertafter=EOF line="export https_proxy={{ https_proxy }}"
+  when: https_proxy is defined
+  ignore_errors: yes
+
+- name: insert no proxy
+  lineinfile: dest=/etc/profile.d/proxy.sh state=present create=yes owner=root group=root mode=0644 regexp="{{ no_proxy }}"
+              insertafter=EOF line="export no_proxy={{ no_proxy }}"
+  when: no_proxy is defined
+  ignore_errors: yes
+
+#wget
+- name: insert wget proxy(http)
+  lineinfile: dest=/etc/wgetrc state=present regexp="http_proxy={{ http_proxy }}"
+              insertafter="^#http_proxy" line="http_proxy={{ http_proxy }}"
+  when: http_proxy is defined
+  ignore_errors: yes
+
+- name: insert wget proxy(https)
+  lineinfile: dest=/etc/wgetrc state=present regexp="https_proxy={{ https_proxy }}"
+              insertafter="^#https_proxy" line="https_proxy={{ https_proxy }}"
+  when: https_proxy is defined
+  ignore_errors: yes
+
+#yum
+- name: insert yum proxy(http)
+  lineinfile: dest=/etc/yum.conf state=present regexp="proxy={{ http_proxy }}"
+               insertafter=EOF line="proxy={{ http_proxy }}"
+  when: ansible_os_family == "RedHat" and http_proxy is defined
+  ignore_errors: yes
+
+#apt
+
+- name: insert apt proxy(http)
+  lineinfile: dest=/etc/apt/apt.conf state=present create=yes regexp="Acquire::http::Proxy \"{{ http_proxy }}\";"
+              insertafter=EOF line="Acquire::http::Proxy \"{{ http_proxy }}\";"
+  when: ansible_os_family == "Debian" and http_proxy is defined
+  ignore_errors: yes
+
+- name: insert apt proxy(https)
+  lineinfile: dest=/etc/apt/apt.conf state=present create=yes regexp="Acquire::https::Proxy \"{{ https_proxy }}\";"
+              insertafter=EOF line="Acquire::https::Proxy \"{{ https_proxy }}\";"
+  when: ansible_os_family == "Debian" and https_proxy is defined
+  ignore_errors: yes
+

@@ -3,20 +3,11 @@
 .. (c) 2015 Dell Inc.
 .. (c) 2016 ZTE Corp.
 
-
-***************
-QTIP User Guide
-***************
+################
+QTIP Configguide
+################
 
 .. toctree::
    :maxdepth: 2
 
-   overview.rst
-   getting-started.rst
-   cli.rst
-   api.rst
-   web.rst
-   compute.rst
-   storage.rst
-   network.rst
-   network_testcase_description.rst
+   ./qtip_restful_api.rst

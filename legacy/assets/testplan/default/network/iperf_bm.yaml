@@ -1,0 +1,58 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+Scenario:
+  benchmark: iperf
+  topology: Client and Server on different baremetal Compute nodes
+  server: machine_1
+  client: machine_2
+  benchmark_details:
+    duration: 20
+    protocol: tcp
+    bandwidthGbps: 10
+
+Context:
+  Host_Machines:
+    machine_1:
+        ip:
+        pw:
+        role: 1-server
+    machine_2:
+        ip:
+        pw:
+        role: 2-host
+
+  Virtual_Machines:
+
+Test_Description:
+  Test_category: "network"
+  Benchmark: "iperf"
+  Overview: >
+        '''This test will run the IPERF benchmark  on virutalmachine_1 and virtualmachine_2. On the\n
+         same compute node
+         if you wish to add a host machine add the following information under the Host_Machine tag
+        virtualmachine_1:
+          availability_zone: compute1
+          OS_image: QTIP_CentOS
+          public_network: 'net04_ext'
+          role: 1-server
+          flavor: m1.large
+
+        virtualmachine_2:
+          availability_zone: compute2
+          OS_image: QTIP_CentOS
+          public_network: 'net04_ext'
+          role: 2-host
+          flavor: m1.large
+
+        machine_1:
+          ip:
+          pw:
+          role:
+          '''
+

@@ -1,0 +1,170 @@
+##############################################################################
+# Copyright (c) 2018 Spirent Communications and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+
+heat_template_version: 2016-10-14
+
+description: Template for deploying 2 STCv and 1 labserver
+
+parameters:
+  public_net_name: {default: external, description: Public network to allocate floating IPs to VMs', type: string}
+  #public_net_id: {description: public_network id for exernal connectivity,type: string}
+  mgmt_net_name: {default: admin, description: Name of STCv mgmt network to be created, type: string}
+  mgmt_net_cidr: {default: 10.10.10.0/24, description: STCv mgmt network CIDR,type: string}
+  mgmt_net_gw: {default: 10.10.10.1, description: STCv mgmt network gateway address, type: string}
+  mgmt_net_pool_start: {default: 10.10.10.10, description: Start of mgmt network IP address allocation pool, type: string}
+  mgmt_net_pool_end: {default: 10.10.10.20, description: End of mgmt network IP address allocation pool, type: string}
+  tst_net_name: {default: tst, description: Name of STCv private network to be created, type: string}
+  tst_net_cidr: {default: 192.168.1.0/24, description: STCv private network CIDR,type: string}
+  tst_net_gw: {default: 192.168.1.1, description: STCv private network gateway address, type: string}
+  tst_net_pool_start: {default: 192.168.1.10, description: Start of private network IP address allocation pool, type: string}
+  tst_net_pool_end: {default: 192.168.1.20, description: End of private network IP address allocation pool, type: string}
+  stcv_image: {default: "stcv-4.79", description: Image name to use for STCv, type: string}
+  stcv_flavor: {default: "m1.tiny", description: Flavor to use for STCv, type: string}
+  #stcv_user_data: {default: "", description: user data such as ntp server ip for stcv, type: string}
+  #stcv_config_file: {default: "stcv_config_file", description: user data such as ntp server ip for stcv, type: string}
+  ntp_server_ip: {default: "", description: user data such as ntp server ip for stcv, type: string}
+  stcv_sg_name: {default: stcv_sg, description: server group name, type: string}
+  stcv_sg_affinity: {default: affinity, description: server group affinity for stcv, type: string}
+
+resources:
+  stcv_server_group:
+    type: OS::Nova::ServerGroup
+    properties:
+      name: {get_param: stcv_sg_name}
+      policies: [{get_param: stcv_sg_affinity}]
+  mgmt_net:
+    type: OS::Neutron::Net
+    properties:
+      name: {get_param: mgmt_net_name}
+  mgmt_net_subnet:
+    type: OS::Neutron::Subnet
+    properties:
+      allocation_pools:
+        - end: {get_param: mgmt_net_pool_end}
+          start: {get_param: mgmt_net_pool_start}
+      cidr: {get_param: mgmt_net_cidr}
+      gateway_ip: {get_param: mgmt_net_gw}
+      network: {get_resource: mgmt_net}
+  public_router:
+    type: OS::Neutron::Router
+    properties:
+      external_gateway_info:
+        network: {get_param: public_net_name}
+  router_interface:
+    type: OS::Neutron::RouterInterface
+    properties:
+      router: {get_resource: public_router}
+      subnet: {get_resource: mgmt_net_subnet}
+  tst_net:
+    type: OS::Neutron::Net
+    properties:
+      name: {get_param: tst_net_name}
+  tst_subnet:
+    type: OS::Neutron::Subnet
+    properties:
+      allocation_pools:
+        - end: {get_param: tst_net_pool_end}
+          start: {get_param: tst_net_pool_start}
+      cidr: {get_param: tst_net_cidr}
+      gateway_ip: {get_param: tst_net_gw}
+      network: {get_resource: tst_net}
+  stcv_1_port_1:
+    type: OS::Neutron::Port
+    properties:
+      network: {get_resource: mgmt_net}
+      fixed_ips:
+      - subnet: {get_resource: mgmt_net_subnet}
+  floating_ip1:
+    type: OS::Neutron::FloatingIP
+    properties:
+      floating_network: {get_param: public_net_name}
+      port_id: {get_resource: stcv_1_port_1}
+  stcv_1_port_2:
+    type: OS::Neutron::Port
+    properties:
+      network: {get_resource: tst_net}
+      port_security_enabled: False
+      fixed_ips:
+      - subnet: {get_resource: tst_subnet}
+  STCv_1:
+    type: OS::Nova::Server
+    properties:
+      #availability_zone : {get_param: availability_zone_name}
+      flavor: {get_param: stcv_flavor}
+      image: {get_param: stcv_image}
+      name: STCv_1
+      user_data:
+        str_replace:
+          template: |
+            #cloud-config
+            spirent:
+                ntp: $ntp_server_ip
+          params:
+            $ntp_server_ip: {get_param: ntp_server_ip}
+      user_data_format: RAW
+      config_drive: True
+      scheduler_hints:
+        group: {get_resource: stcv_server_group}
+      networks:
+      - port: {get_resource: stcv_1_port_1}
+      - port: {get_resource: stcv_1_port_2}
+  stcv_2_port_1:
+    type: OS::Neutron::Port
+    properties:
+      network: {get_resource: mgmt_net}
+      fixed_ips:
+      - subnet: {get_resource: mgmt_net_subnet}
+  floating_ip2:
+    type: OS::Neutron::FloatingIP
+    properties:
+      floating_network: {get_param: public_net_name}
+      port_id: {get_resource: stcv_2_port_1}
+  stcv_2_port_2:
+    type: OS::Neutron::Port
+    properties:
+      network: {get_resource: tst_net}
+      port_security_enabled: False
+      fixed_ips:
+      - subnet: {get_resource: tst_subnet}
+  STCv_2:
+    type: OS::Nova::Server
+    properties:
+      #availability_zone : {get_param: availability_zone_name}
+      flavor: {get_param: stcv_flavor}
+      image: {get_param: stcv_image}
+      name: STCv_2
+      user_data:
+        str_replace:
+          template: |
+            #cloud-config
+            spirent:
+                ntp: $ntp_server_ip
+          params:
+            $ntp_server_ip: {get_param: ntp_server_ip}
+      user_data_format: RAW
+      config_drive: True
+      scheduler_hints:
+        group: {get_resource: stcv_server_group}
+      networks:
+      - port: {get_resource: stcv_2_port_1}
+      - port: {get_resource: stcv_2_port_2}
+outputs:
+  STCv_1_Mgmt_Ip:
+     value: {get_attr: [floating_ip1, floating_ip_address]}
+     description: STCv_1 Mgmt IP
+  STCv_2_Mgmt_Ip:
+     value: {get_attr: [floating_ip2, floating_ip_address]}
+     description: STCv_2 Mgmt IP
+  STCv_1_Tst_Ip:
+     value: {get_attr: [stcv_1_port_2, fixed_ips]}
+     description: STCv_1 Tst IP
+  STCv_2_Tst_Ip:
+     value: {get_attr: [stcv_2_port_2, fixed_ips]}
+     description: STCv_2 Tst IP
+

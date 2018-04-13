@@ -3,13 +3,8 @@
 .. (c) 2015 Dell Inc.
 .. (c) 2016 ZTE Corp.
 
+****************
+QTIP restful api
+****************
 
-***********************
-QTIP Installation Guide
-***********************
-
-.. toctree::
-   :maxdepth: 2
-
-   ./configuration.rst
-   ./web.rst
+You can get all the QTIP restful api by http://restful_api.qtip.openzero.net/api/spec.html.

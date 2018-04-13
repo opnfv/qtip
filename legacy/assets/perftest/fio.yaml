@@ -1,0 +1,120 @@
+##############################################################################
+# Copyright (c) 2017 ZTE Corporation and others.
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Apache License, Version 2.0
+# which accompanies this distribution, and is available at
+# http://www.apache.org/licenses/LICENSE-2.0
+##############################################################################
+ - hosts: localhost
+   connection: local
+   gather_facts: no
+
+   tasks:
+    - name: making fio  directory
+      file: path={{Dest_dir}}/fio state=directory
+
+    - name: making temporary fio directory
+      file: path={{Dest_dir}}/fio/fio_temp state=directory
+
+
+ - hosts: "{{role}}"
+   become: yes
+   remote_user: "{{username}}"
+
+   tasks:
+    - name: checking home directory
+      shell: echo $HOME
+      register: home_dir
+
+    - name: cleaning fio directory
+      file: path={{home_dir.stdout}}/fio state=absent
+
+    - name: cleaning previous results
+      file: path={{home_dir.stdout}}/qtip_result state=absent
+
+    - name: making fio temporary directory
+      file: path={{home_dir.stdout}}/fio state=directory
+
+    - name: making  results temporary directory
+      file: path={{home_dir.stdout}}/qtip_result state=directory
+
+    - include: ./common/sys_proxy_pbook.yaml
+
+    - include: ./common/sys_info_pbook.yaml
+      vars:
+          network: false
+
+    - name: Installing fio dependencies when CentOS
+      shell: sudo yum install wget gcc libaio-devel -y
+      when: ansible_os_family == "RedHat"
+
+    - name: Installing fio dependencies when Ubuntu
+      shell: sudo apt-get  install wget gcc libaio-dev -y
+      when: ansible_os_family == "Debian"
+
+    - name: Fetching fio
+      shell: cd $HOME/fio/ && wget http://freecode.com/urls/3aa21b8c106cab742bf1f20d60629e3f -O fio.tar.gz
+
+    - name: Untar fio
+      shell: cd $HOME/fio/ && sudo tar -zxvf fio.tar.gz
+
+    - name: configure
+      shell: cd $HOME/fio/fio-2.1.10  && sudo ./configure && sudo make
+
+    - name: Fetching fio job
+      copy: src=./etc/fio_test_job  dest={{home_dir.stdout}}/fio/fio-2.1.10/
+
+    - name: Benchmarking block storage through fio
+      shell: cd $HOME/fio/fio-2.1.10  &&  sudo ./fio --output-format=json --output=$HOME/qtip_result/fio_result.json fio_test_job
+
+    - name: Fetching result transformation script
+      copy: src={{workingdir}}/qtip/utils/transform/fio_transform.py dest={{home_dir.stdout}}/qtip_result
+
+    - name: Transforming result
+      shell: cd $HOME/qtip_result  &&  sudo python fio_transform.py
+
+    - name: copy report formation script
+      copy: src={{workingdir}}/qtip/utils/transform/final_report.py dest={{home_dir.stdout}}/qtip_result
+
+    - name: consolidating report
+      shell: cd $HOME/qtip_result &&  sudo python final_report.py FIO {{fname}}
+
+    - name: registering files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.json") | cut -d'/' -f2
+      register: files_to_copy
+
+    - name: copy results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/fio/fio_temp
+      with_items: "{{files_to_copy.stdout_lines}}"
+
+    - name: registering log files
+      shell: (cd $HOME/qtip_result/; find . -maxdepth 1 -name "*.log") | cut -d'/' -f2
+      register: copy_log_results
+
+    - name: copying log results
+      fetch:  src={{home_dir.stdout}}/qtip_result/{{item}} dest={{Dest_dir}}/fio/fio_temp
+      with_items: "{{copy_log_results.stdout_lines}}"
+
+    - name: cleaning fio
+      file: path={{home_dir.stdout}}/fio state=absent
+
+    - name: cleaning_qtip_result
+      file: path={{home_dir.stdout}}/qtip_result state=absent
+
+ - hosts: localhost
+   connection: local
+   gather_facts: no
+
+   tasks:
+    - name: extracting_json
+      shell: (find {{Dest_dir}}/fio/fio_temp/ -name "*.json" | xargs cp -t {{Dest_dir}}/fio/)
+
+    - name: making_logs_folder
+      file: path={{Dest_dir}}/fio/logs state=directory
+
+    - name: extracting_log
+      shell: (find {{Dest_dir}}/fio/fio_temp/ -name "*.log" | xargs cp -t {{Dest_dir}}/fio/logs)
+
+    - name: removing fio_log
+      file: path={{Dest_dir}}/fio/fio_temp state=absent

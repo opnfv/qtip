@@ -1,0 +1,9 @@
+flask
+flask_cors
+flask_restful
+flask_restful_swagger
+#openstacksdk
+keystoneauth1
+python-heatclient
+stcrestclient
+

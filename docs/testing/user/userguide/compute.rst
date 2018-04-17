@@ -16,10 +16,11 @@ test compute components.
 
 All the compute benchmarks could be run in the scenario:
 On Baremetal Machines provisioned by an OPNFV installer (Host machines)
+On Virtual machines provisioned by OpenStack deployed by an OPNFV installer
 
 Note: The Compute benchmank constains relatively old benchmarks such as dhrystone
 and whetstone. The suite would be updated for better benchmarks such as Linbench for
-the OPNFV E release.
+the OPNFV future release.
 
 
 Getting started
@@ -32,7 +33,7 @@ Inventory File
 
 QTIP uses Ansible to trigger benchmark test. Ansible uses an inventory file to
 determine what hosts to work against. QTIP can automatically generate a inventory
-file via OPNFV installer. Users also can write their own inventory infomation into
+file via OPNFV installer. Users also can write their own inventory information into
 ``/home/opnfv/qtip/hosts``. This file is just a text file containing a list of host
 IP addresses. For example:
 ::
@@ -53,19 +54,33 @@ manual. If *CI_DEBUG* is not set or set to *false*, QTIP will delete the key fro
 remote hosts before the execution ends. Please make sure the key deleted from remote
 hosts or it can introduce a security flaw.
 
-Commands
---------
+Execution
+---------
 
-In a QTIP container, you can run compute QPI by using QTIP CLI:
-::
+There are two ways to execute compute QPI:
 
-  mkdir result
-  qtip plan run <plan_name> -p $PWD/result
+* Script
 
-QTIP generates results in the ``$PWD/result`` directory are listed down under the
+    You can run compute QPI with docker exec:
+    ::
+
+      # run with baremetal machines provisioned by an OPNFV installer
+      docker exec <qtip container> bash -x /home/opnfv/repos/qtip/qtip/scripts/quickstart.sh -q compute
+
+      # run with virtual machines provisioned by OpenStack
+      docker exec <qtip container> bash -x /home/opnfv/repos/qtip/qtip/scripts/quickstart.sh -q compute -u vnf
+
+* Commands
+
+    In a QTIP container, you can run compute QPI by using QTIP CLI. You can get more details from
+    *userguide/cli.rst*.
+
+Test result
+------------
+
+QTIP generates results in the ``/home/opnfv/<project_name>/results/`` directory are listed down under the
 timestamp name.
 
-you can get more details from *userguide/cli.rst*.
 
 Metrics
 -------

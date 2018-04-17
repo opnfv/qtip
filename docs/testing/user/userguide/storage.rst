@@ -87,12 +87,23 @@ Then, you use the following commands to start storage QPI service.
 Execution
 ---------
 
-You can run storage QPI with docker exec:
-::
+* Script
 
-  docker exec <qtip container> bash -x /home/opnfv/repos/qtip/qtip/scripts/quickstart.sh
+    You can run storage QPI with docker exec:
+    ::
 
-QTIP generates results in the ``$PWD/results/`` directory are listed down under the
+      docker exec <qtip container> bash -x /home/opnfv/repos/qtip/qtip/scripts/quickstart.sh
+
+* Commands
+
+    In a QTIP container, you can run storage QPI by using QTIP CLI. You can get more
+    details from *userguide/cli.rst*.
+
+
+Test result
+------------
+
+QTIP generates results in the ``/home/opnfv/<project_name>/results/`` directory are listed down under the
 timestamp name.
 
 Metrics

@@ -40,8 +40,9 @@ Run and enter the docker instance
 1. If you want to run benchmarks:
 ::
 
-  envs="INSTALLER_TYPE={INSTALLER_TYPE} -e INSTALLER_IP={INSTALLER_IP} -e  NODE_NAME={NODE_NAME}"
+  envs="INSTALLER_TYPE={INSTALLER_TYPE} -e INSTALLER_IP={INSTALLER_IP} -e NODE_NAME={NODE_NAME}"
   docker run -p [HOST_IP:]<HOST_PORT>:5000 --name qtip -id -e $envs opnfv/qtip
+  docker start qtip
   docker exec -i -t qtip /bin/bash
 
 ``INSTALLER_TYPE`` should be one of OPNFV installer, e.g. apex, compass, daisy, fuel
@@ -90,7 +91,7 @@ Environment configuration
 Hardware configuration
 ----------------------
 
-QTIP does not have specific hardware requriements, and it can runs over any
+QTIP does not have specific hardware requirements, and it can runs over any
 OPNFV installer.
 
 

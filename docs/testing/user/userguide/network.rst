@@ -112,4 +112,3 @@ Nettest provides the following `metrics`_:
 
 .. _APEX: https://wiki.opnfv.org/display/apex
 .. _metrics: https://tools.ietf.org/html/rfc2544
-

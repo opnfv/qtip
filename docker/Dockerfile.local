@@ -41,7 +41,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen en_US en_US.UTF-8 \
-    && pip install -U pip \
+    && python -m pip install -U pip \
     && pip install -U setuptools
 
 COPY . $REPOS_DIR/qtip

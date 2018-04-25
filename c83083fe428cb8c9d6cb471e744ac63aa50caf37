@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a3f45e8_b1d94cf5",
+        "filename": "docs/release/release-notes/fraser.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2018-04-25T05:54:15Z",
+      "side": 1,
+      "message": "Should it be opnfv-6.0.0 ?\n\nSee https://wiki.opnfv.org/display/SWREL/Git+Tagging+Instructions+for+Fraser",
+      "range": {
+        "startLine": 39,
+        "startChar": 46,
+        "endLine": 39,
+        "endChar": 56
+      },
+      "revId": "c83083fe428cb8c9d6cb471e744ac63aa50caf37",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a3f45e8_11e3e0a4",
+        "filename": "docs/release/release-notes/fraser.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 4469
+      },
+      "writtenOn": "2018-04-25T05:54:15Z",
+      "side": 1,
+      "message": "The same as L39",
+      "range": {
+        "startLine": 77,
+        "startChar": 67,
+        "endLine": 77,
+        "endChar": 77
+      },
+      "revId": "c83083fe428cb8c9d6cb471e744ac63aa50caf37",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}

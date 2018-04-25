@@ -33,7 +33,7 @@ RUN mkdir -p log
 VOLUME ["$DOCKYARD_SRCPROJ/log/"]
 
 # Install Python dependencies
-RUN pip install -U pip \
+RUN python -m pip install -U pip \
     && pip install -U setuptools \
     && pip install -r $DOCKYARD_SRCPROJ/requirements.txt
 

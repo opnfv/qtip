@@ -118,4 +118,4 @@ Storperf provides the following `metrics`_:
 
 .. _StorPerf: https://wiki.opnfv.org/display/storperf
 .. _APEX: https://wiki.opnfv.org/display/apex
-.. _metrics: http://docs.opnfv.org/en/stable-euphrates/submodules/storperf/docs/testing/user/introduction.html#what-data-can-i-get
+.. _metrics: :doc:`<storperf:storperf-intro>`

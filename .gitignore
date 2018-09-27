@@ -58,14 +58,13 @@ data/my_key.pem
 static/
 
 # Sphinx documentation
-docs/_build/
+docs/_build/*
 
 # PyBuilder
 target/
 
 *~
 .*.sw?
-/docs_build/
 /docs_output/
 .idea
 
